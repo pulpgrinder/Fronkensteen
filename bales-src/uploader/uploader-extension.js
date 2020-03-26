@@ -58,7 +58,7 @@ Fronkensteen.downloadInternalFile = function(filename){
   var blob = Fronkensteen.internalFileToBlob(filename);
   if(blob !== false){
     element.href = window.URL.createObjectURL(blob);
-    element.setAttribute('download', filename);
+    element.setAttribute('download', Fronkensteen.file_basename(filename));
     //element.style.display = 'none';
     element.innerHTML = "Download";
     //document.body.appendChild(element)

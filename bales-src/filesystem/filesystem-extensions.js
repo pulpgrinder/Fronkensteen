@@ -139,13 +139,8 @@ Fronkensteen.internalFileToBlob = function(filename) {
   let filetype = Fronkensteen.file_extension(filename);
   let mimetype = Stretchr.Filetypes.mimeFor(filetype);
   if(fronkensteen_fs[filename] !== undefined){
-    let bytes = atob(fronkensteen_fs[filename]);
-    var byteBuffer = new ArrayBuffer(bytes.length);
-    var binary = new Uint8Array(byteBuffer);
-    for (var i = 0; i <bytes.length; i++) {
-      byteBuffer[i] = bytes.charCodeAt(i);
-  }
-  var blob = new Blob([byteBuffer], {type: mimetype});
+    let bytes = Fronkensteen.base_64_to_bytes(fronkensteen_fs[filename]);
+    var blob = new Blob([bytes], {type: mimetype});
   return blob;
 }
   Fronkensteen.onBiwaSchemeError("Fronkensteen.internalFileToBlob: " + filename + " is not in internal filesystem");
