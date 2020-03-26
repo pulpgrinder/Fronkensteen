@@ -39,7 +39,7 @@ This command gathers up the bales and generates the distributable fronkensteen.h
 
 ## The bale system
 
-As noted above, Fronkensteen consists of a single HTML file generated from Fronkensteen bales. Each bale contains a bundle of files, stored in JSON format. The bale JSON files are then used to generate the final `fronkensteen.html` file, producing a single-file distributable.
+As noted above, Fronkensteen consists of a single HTML file generated from Fronkensteen bales. Each bale contains a bundle of files, stored in JSON format. A typical bale would consist of either Scheme code or a JavaScript library with an accompanying Scheme wrapper. It might also include extra resources (for example, images or fonts). The bale JSON files are then used to generate the final `fronkensteen.html` file, producing a single-file distributable.
 
 ## Creating a new bale
 
