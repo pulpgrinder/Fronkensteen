@@ -27,8 +27,6 @@
   ; Fronkensteen markup file.
   (markup-trusted-text-file "app/splash-panel.md"))
 
-(generate-body)
-
 ; Put it all together.
 (set-main-content
   (<<
