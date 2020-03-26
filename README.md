@@ -71,3 +71,11 @@ To unpackage a bale (for instance, one that's been edited in the internal editor
 1) Put the bale in `bales-dist` (if it isn't already there)
 2) Run `node fronkensteen_unbale (bale name)`
 3) The source files will be extracted from the bale and placed in the corresponding directory in `bales-src`.
+
+## Remote REPL
+
+Fronkensteen has a remote REPL capability. This can be handy when testing on a device with a small screen, where there's insufficient screen real estate to run the internal editor. Sadly, this does require running a server. After downloading the repo and running `npm install`, run `node fronkensteen-server` to start the middleware.
+
+In your app, uncomment the `(launch-remote-repl-server)` line in `app/init.scm`. This will cause your Fronkensteen app to connect to a remote REPL server.
+
+To send commands to your app, you have a couple of options. A very basic one is to use the remote-terminal bale. Disable the app bale, enable the remote-terminal bale, and save the workspace, and you'll have a remote terminal that can be run right from your browser. You may also be interested in [fronkensteen-atom-repl](https://github.com/pulpgrinder/fronkensteen-atom-repl), a plugin for the Atom text editor that lets you execute Scheme code on a remote Fronkensteen app from inside the editor. 
