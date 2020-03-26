@@ -512,9 +512,9 @@ BiwaScheme.define_libfunc("hereload", 1, 1, function(ar, intp){
     let result = intp2.evaluate(Fronkensteen.renderReadTemplate(currentData));
     if(Fronkensteen.CumulativeErrors !== []){
       result = result + "\n" + Fronkensteen.CumulativeErrors.join("\n");
-      Fronkensteen.CumulativeErrors = [];
       console.log(result);
     }
     return result;
+  Fronkensteen.CumulativeErrors = [];
   Fronkensteen.currentBiwaSchemeLoadFile = null;
   });

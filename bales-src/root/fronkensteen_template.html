@@ -66,6 +66,8 @@ $$$FILESYSTEM$$$
       scheme_interpreter.evaluate("(load \"" + scheme_launcher.shift() + "\")");
     }
     scheme_interpreter.evaluate("(rebuild-documentation)");
+    console.log(Fronkensteen.CumulativeErrors.join("\n"));
+    Fronkensteen.CumulativeErrors = [];
   }
   Fronkensteen.decodeText = function(code){
     var byteCharacters = atob(code);

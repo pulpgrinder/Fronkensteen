@@ -45,6 +45,7 @@ BiwaScheme.define_libfunc("cumulative-errors", 0, 0, function(ar){
 
 
 BiwaScheme.define_libfunc("eval-scheme-string", 1,1, function(ar){
+  Fronkensteen.CumulativeErrors = [];
   BiwaScheme.assert_string(ar[0]);
   result = scheme_interpreter.evaluate(ar[0]) + Fronkensteen.CumulativeErrors.join("\n");
   Fronkensteen.CumulativeErrors = [];

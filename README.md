@@ -6,7 +6,7 @@ Fronkensteen is a self-contained Scheme development system that works in any mod
 
 ## How to use
 
-Open the `fronkensteen.html` file in the dist directory in your browser, and you're good to go.
+Save the [fronkensteen.html](https://raw.githubusercontent.com/pulpgrinder/Fronkensteen/master/dist/fronkensteen.html) file to your hard drive, open it in a browser, and you're good to go.
 
 Triple-click to open the internal editor.
 
