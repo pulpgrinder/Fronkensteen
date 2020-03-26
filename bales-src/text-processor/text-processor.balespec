@@ -1,0 +1,5 @@
+#bale-version 0.1
+#mandatory false
+LICENSE-text-processor.md
+text-processor-extensions.js
+text-processor.scm

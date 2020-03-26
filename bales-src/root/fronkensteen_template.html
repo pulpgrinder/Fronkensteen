@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<!-- Fronkensteen Base Template. Copyright 2019-2020 by Anthony W. Hursh. MIT License. -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Fronkensteen">
+  </head>
+  <body>
+  <div id="fronkensteen-wrapper">
+  </div>
+  <script type="text/javascript">
+$$$FILESYSTEM$$$
+  </script>
+  <script type="text/javascript">
+
+
+  // Bare-bones object.
+  // Functions and data fields are added to this object by the various bale extensions.
+
+  let Fronkensteen = {
+    CumulativeErrors:[]
+  };
+
+  Fronkensteen.is_development_environment = true;
+  Fronkensteen.is_debug_environment = true;
+
+  Fronkensteen.addCSS = function(code){
+    let style = document.createElement('style');
+    style.type = 'text/css';
+    style.appendChild(document.createTextNode(Fronkensteen.decodeText(code)));
+    document.head.appendChild(style);
+  }
+  Fronkensteen.addJS = function(filename,code){
+   let script = document.createElement('script');
+    script.type = 'text/javascript';
+    let jsCode = Fronkensteen.decodeText(code);
+    script.appendChild(document.createTextNode(jsCode));
+    document.body.appendChild(script);
+
+  }
+  Fronkensteen.execute_bale = function(file_manifest){
+    for(var j = 0; j < file_manifest.length; j++){
+      let filename = file_manifest[j];
+      if(filename.match(/\.scm$/) !== null){
+        scheme_launcher.push(filename);
+      }
+      if(filename.match(/\.css$/) !== null){
+        console.log("Adding CSS: " + filename);
+        Fronkensteen.addCSS(fronkensteen_fs[filename]);
+      }
+      if(filename.match(/\.js$/) !== null){
+        console.log("Adding JS: " + filename);
+        Fronkensteen.addJS(filename,fronkensteen_fs[filename]);
+      }
+    }
+  }
+  Fronkensteen.execute_scheme_queue = function(){
+    while(scheme_launcher.length > 0){
+      console.log("loading " + scheme_launcher[0])
+      scheme_interpreter.evaluate("(load \"" + scheme_launcher.shift() + "\")");
+    }
+    scheme_interpreter.evaluate("(rebuild-documentation)");
+  }
+  Fronkensteen.decodeText = function(code){
+    var byteCharacters = atob(code);
+    var array = new Uint8Array(byteCharacters.length);
+    for( var i = 0; i < byteCharacters.length; i++ ) { array[i] = byteCharacters.charCodeAt(i);
+    }
+    return new TextDecoder("utf-8").decode(array);
+  }
+  // Boot up the app from the internal filesystem stored in the fronkensteen_fs object.
+  let scheme_launcher = [];
+  let bale_manifest = fronkensteen_fs["$$BALEMANIFEST$$"];
+  for(var i = 0; i < bale_manifest.length; i++){
+    if(fronkensteen_fs[bale_manifest[i] + "/" + "$$LOAD_BALE$$"] === true){
+      let file_manifest = fronkensteen_fs[bale_manifest[i] + "/" + "$$FILEMANIFEST$$"];
+      Fronkensteen.execute_bale(file_manifest);
+    }
+    else {
+      console.log("Skipping bale: " + bale_manifest[i])
+    }
+  }
+
+
+  console.log("Loaded.")
+  let scheme_interpreter = new BiwaScheme.Interpreter(Fronkensteen.onBiwaSchemeError)
+  scheme_interpreter.evaluate("(define baseload load)");
+  scheme_interpreter.evaluate("(define load hereload)");
+  Fronkensteen.execute_scheme_queue();
+
+ </script>
+</body>
+</html>

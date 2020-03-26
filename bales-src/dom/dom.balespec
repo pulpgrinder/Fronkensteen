@@ -1,0 +1,16 @@
+#bale-version 0.1
+#version 0.0
+#mandatory true
+#load_bale true
+LICENSE-dom.md
+dom-extensions.js
+forcereflow.js
+rangyinputs-jquery.js
+seml-extensions.js
+sortable-extensions.js
+Sortable.min.js
+scheme-css.scm
+scheme-dom.scm
+synthetic-dom.scm
+wired.scm
+dom-utilities.scm

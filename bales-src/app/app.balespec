@@ -1,0 +1,9 @@
+#bale-version 0.1
+#mandatory false
+LICENSE-app.md
+splash-panel.md
+markup-doc.md
+init-ui.scm
+init.scm
+app.scm
+fronkensteenlogo.png

@@ -1,0 +1,5 @@
+#bale-version 0.1
+#mandatory true
+LICENSE-string.md
+string-extensions.js
+string-utilities.scm

@@ -1,0 +1,5 @@
+#bale-version 0.1
+#mandatory false
+LICENSE-beautify-html.md
+beautify-html.js
+beautify-html-extensions.js

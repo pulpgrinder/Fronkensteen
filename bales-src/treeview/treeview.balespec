@@ -1,0 +1,6 @@
+#bale-version 0.1
+#mandatory false
+LICENSE-treeview.md
+treeview.scm
+treeview-style.scm
+README-treeview.md

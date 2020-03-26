@@ -1,0 +1,13 @@
+#bale-version 0.1
+#mandatory false
+LICENSE-codemirror.md
+codemirror.css
+codemirror.js
+codemirror-extensions.js
+markdown.js
+scheme.js
+matchbrackets.js
+javascript.js
+xml.js
+css.js
+htmlmixed.js

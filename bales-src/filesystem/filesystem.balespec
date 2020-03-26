@@ -1,0 +1,6 @@
+#bale-version 0.1
+#mandatory true
+LICENSE-filesystem.md
+filetypes.js
+filesystem-extensions.js
+filetypes-extensions.js

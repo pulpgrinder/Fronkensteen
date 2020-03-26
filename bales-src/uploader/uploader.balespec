@@ -1,0 +1,5 @@
+#bale-version 0.1
+#mandatory false
+LICENSE-uploader.md
+uploader.scm
+uploader-extension.js
