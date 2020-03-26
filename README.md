@@ -14,7 +14,7 @@ Triple-click to open the internal editor.
 
 ## Fronkensteen system development
 
-**You don't need to do any of this stuff if all you want to do is run Fronkensteen, or use it to create an app.** Just get the `fronkensteen.html` file from `dist`, open it in any modern browser, and you'll be good to go.
+**You don't need to do any of this stuff if all you want to do is run Fronkensteen, or use it to create an app.** Just get the `fronkensteen.html` file from `dist`, open it in any modern browser, and you'll be good to go. Here's a direct link to [fronkensteen.html](https://raw.githubusercontent.com/pulpgrinder/Fronkensteen/master/dist/fronkensteen.html). Just save that to your hard drive, open it in a browser, and you're good to go.
 
 *note: "modern browser" does not include any version of Internet Explorer. :-)*
 
@@ -49,10 +49,12 @@ Create a new directory in the `bales-src` folder and place all your desired file
 
 The balespec format is as follows:
 
+```
 #bale-version 0.1
 #mandatory false
 #load-bale false
 (...list of files to include, one per line)
+```
 
 The #bale-version directive gives the version of the baler tool that was used to generate the bale (currently 0.1)
 
@@ -76,6 +78,6 @@ To unpackage a bale (for instance, one that's been edited in the internal editor
 
 Fronkensteen has a remote REPL capability. This can be handy when testing on a device with a small screen, where there's insufficient screen real estate to run the internal editor. Sadly, this does require running a server. After downloading the repo and running `npm install`, run `node fronkensteen-server` to start the middleware.
 
-In your app, uncomment the `(launch-remote-repl-server)` line in `app/init.scm`. This will cause your Fronkensteen app to connect to a remote REPL server.
+In your app, uncomment the `(launch-remote-repl-server)` line in `app/init.scm`, and export the workspace. This will cause your Fronkensteen app to connect to a remote REPL server when the workspace is reloaded.
 
-To send commands to your app, you have a couple of options. A very basic one is to use the remote-terminal bale. Disable the app bale, enable the remote-terminal bale, and save the workspace, and you'll have a remote terminal that can be run right from your browser. You may also be interested in [fronkensteen-atom-repl](https://github.com/pulpgrinder/fronkensteen-atom-repl), a plugin for the Atom text editor that lets you execute Scheme code on a remote Fronkensteen app from inside the editor. 
+To send commands to your app, you have a couple of options. A very basic one is to use the remote-terminal bale. Disable the standard app bale, enable the remote-terminal bale, and save the workspace, and you'll have a (very plain) remote terminal that can be run right from your browser. You may also be interested in [fronkensteen-atom-repl](https://github.com/pulpgrinder/fronkensteen-atom-repl), a plugin for the Atom text editor that lets you execute Scheme code on a remote Fronkensteen app from inside the editor.
