@@ -6,6 +6,23 @@
 
 BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
     BiwaScheme.assert_string(ar[0]);
+    // Replaces any hyperlinks in the specified HTML element with a # link
+    // of a special CSS class. The original link is saved in an "external-link"
+    // attribute. This prevents navigating away from the Fronkensteen page when
+    // a link is clicked (but requires that you write your own custom handler
+   //   for external links).
+    let els = $(ar[0] + " a[href");
+    if(els === undefined){
+      return false;
+    }
+    els.each(function()
+     {
+       if(this.href.indexOf(Fronkensteen.docroot) !== 0){
+        $(this).attr("external-link", this.href);
+        $(this).attr("class", "fronkensteen-external-link");
+        this.href = "#";
+      }
+    });
   $(ar[0] + " p").each(function(){
     let text = this.innerHTML;
     text = text.replace(/\@\@([\s\S]*?)\@\@/gm,function(match,cap) {
@@ -29,7 +46,7 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
   $(ar[0] + " p").each(function(){
     let text = this.innerHTML;
     text = text.replace(/\#([a-zA-Z0-9]+)/gm,function(match, capture) {
-         let result = "<a href='#' class='hashtag has-text-link'>#" + capture + "</a>";
+         let result = "<a href='#' class='fronkensteen-hashtag has-text-link'>#" + capture + "</a>";
          return result;
        });
 
@@ -43,13 +60,24 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
 
       text = text.replace(/\[(.*?)\]/g,function(match,capture) {
              let result =
-             "<a href='#' class='wikilink has-text-link'>" + capture + "</a>";
+             "<a href='#' class='fronkensteen-wikilink has-text-link'>" + capture + "</a>";
              return result;
            }
         );
     this.innerHTML = text;
   });
+
   $(ar[0]).html($(ar[0]).html() + notes.join("\n"))
+  $(ar[0] + " .fronkensteen-wikilink").click(function(evt){
+      scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["wikilink_click"], [$(evt.currentTarget),$(evt.currentTarget).html()])
+  });
+  $(ar[0] + " .fronkensteen-hashtag").click(function(evt){
+      scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["hashtag_click"], [$(evt.currentTarget),$(evt.currentTarget).html()])
+  });
+  $(ar[0] + " .fronkensteen-external-link").click(function(evt){
+      scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["external-link_click"], [$(evt.currentTarget),$(evt.currentTarget).attr("external-link")])
+  });
+
 });
 BiwaScheme.define_libfunc("remove-comments",1,1, function(ar){
   // Remove lines beginning with ; from the text. This lets you have Scheme-style comments in regular text which will be stripped before display.

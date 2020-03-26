@@ -20,6 +20,39 @@ This is a live Scheme environment. You can test it out by entering some Scheme c
 
 @@(pre (code "#scheme-demo-result" ""))@@
 
+# What's Included?
+
+Fronkensteen aims to be a batteries-included development system. It comes with a powerful markup language that includes the ability to execute embedded Scheme code (for example, the mini-REPL above), LaTeX equations such as:
+
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
+
+Text alignment operators such as centering, right/left alignment, and justification:
+
+-><-  For example, this paragraph is centered.
+
+Poetry formatting such as:
+
+| Shall I compare thee to a summer's day?
+| Thou art more lovely and more temperate:
+| Rough winds do shake the darling buds of May,
+| And summer's lease hath all too short a date;
+| Sometime too hot the eye of heaven shines,
+| And often is his gold complexion dimm'd;
+| And every fair from fair sometime declines,
+| By chance or nature's changing course untrimm'd;
+| But thy eternal summer shall not fade,
+| Nor lose possession of that fair thou ow'st;
+| Nor shall death brag thou wander'st in his shade,
+| When in eternal lines to time thou grow'st:
+|    So long as men can breathe or eyes can see,
+|    So long lives this, and this gives life to thee.
+
+
+Automatic processing of #hashtags, [wiki-style links], and [normal Markdown hyperlinks](https://github.com/pulpgrinder/Fronkensteen). Doing something useful with these links is up to your code.
+
+Easy to use footnotes{{{Like this one!}}}.
+
+And more.
 
 # How Do I Use It?
 

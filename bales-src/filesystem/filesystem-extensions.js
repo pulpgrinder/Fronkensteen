@@ -135,6 +135,22 @@ Fronkensteen.getInternalDir = function(basedir){
   return dirfiles;
 }
 
+Fronkensteen.internalFileToBlob = function(filename) {
+  let filetype = Fronkensteen.file_extension(filename);
+  let mimetype = Stretchr.Filetypes.mimeFor(filetype);
+  if(fronkensteen_fs[filename] !== undefined){
+    let bytes = atob(fronkensteen_fs[filename]);
+    var byteBuffer = new ArrayBuffer(bytes.length);
+    var binary = new Uint8Array(byteBuffer);
+    for (var i = 0; i <bytes.length; i++) {
+      byteBuffer[i] = bytes.charCodeAt(i);
+  }
+  var blob = new Blob([byteBuffer], {type: mimetype});
+  return blob;
+}
+  Fronkensteen.onBiwaSchemeError("Fronkensteen.internalFileToBlob: " + filename + " is not in internal filesystem");
+  return false;
+}
 
 Fronkensteen.readInternalFileDataURL = function(filename){
   let filetype = Fronkensteen.file_extension(filename);
@@ -145,6 +161,7 @@ Fronkensteen.readInternalFileDataURL = function(filename){
   Fronkensteen.onBiwaSchemeError("Fronkensteen.readInternalFileDataURL: " + filename + " is not in internal filesystem");
   return null;
 }
+
 
 Fronkensteen.getFileSystemJSON = function(){
   return JSON.stringify(fronkensteen_fs);
@@ -467,6 +484,11 @@ BiwaScheme.define_libfunc("delete-internal-file", 1, 1, function(ar, intp){
 BiwaScheme.define_libfunc("read-internal-data-url", 1, 1, function(ar, intp){
     BiwaScheme.assert_string(ar[0])
     return Fronkensteen.readInternalFileDataURL(ar[0]);
+});
+
+BiwaScheme.define_libfunc("read-internal-file", 2, 2, function(ar, intp){
+    BiwaScheme.assert_string(ar[0]);
+    return Fronkensteen.readInternalFile(ar[0]);
 });
 
 BiwaScheme.define_libfunc("write-internal-file", 2, 2, function(ar, intp){

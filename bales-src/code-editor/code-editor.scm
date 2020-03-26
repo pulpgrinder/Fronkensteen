@@ -192,6 +192,12 @@
                     (fronkensteen-editor-rename-folder target)
                     (fronkensteen-editor-rename-file target))))))))
 
+(define (fronkensteen-editor-export-file-button_click)
+  (if (eqv? fronkensteen-selected-file #f)
+    (begin
+      (alert "No file selected.")
+      #f)
+      (download-internal-file fronkensteen-selected-file)))
 
 (define (fronkensteen-editor-delete-file-button_click)
   (if (eqv? fronkensteen-selected-file #f)

@@ -18,9 +18,9 @@
             (fa-icon "s" "times-circle"))
           (button "#fronkensteen-editor-delete-file-button.fronkensteen-editor-basic-button.fronkensteen-editor-button!title='Delete File'"
               (fa-icon "s" "trash"))
-          (button "#fronkensteen-editor-import-file-button.fronkensteen-editor-mode-button.fronkensteen-editor-basic-button.fronkensteen-editor-button!title='Import File'"
+          (button "#fronkensteen-editor-import-file-button.fronkensteen-editor-basic-button.fronkensteen-editor-button!title='Import File'"
                   (fa-icon "s" "file-import"))
-          (button "#fronkensteen-editor-export-file-button.fronkensteen-editor-mode-button.fronkensteen-editor-basic-button.fronkensteen-editor-button!title='Export File'"
+          (button "#fronkensteen-editor-export-file-button.fronkensteen-editor-basic-button.fronkensteen-editor-button!title='Export File'"
                   (fa-icon "s" "file-export"))
         (button "#fronkensteen-editor-new-file-button.fronkensteen-editor-button!title='New File'"
           (fa-icon "s" "plus"))

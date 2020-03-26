@@ -49,6 +49,25 @@ Fronkensteen.downloadFile = function(filename,data,mime_type){
 }
 
 
+Fronkensteen.downloadInternalFile = function(filename){
+//  let element = document.createElement('a');
+  let element = document.getElementById("fronkensteen-download-link");
+  if(element.href !== undefined){
+    window.URL.revokeObjectURL(element.href);
+  }
+  var blob = Fronkensteen.internalFileToBlob(filename);
+  if(blob !== false){
+    element.href = window.URL.createObjectURL(blob);
+    element.setAttribute('download', filename);
+    //element.style.display = 'none';
+    element.innerHTML = "Download";
+    //document.body.appendChild(element)
+    element.click();
+    return true;
+  }
+  return false;
+}
+
 
 BiwaScheme.define_libfunc("upload-file", 2, 2, function(ar, intp){
   let result = Fronkensteen.uploadFile(ar[0],ar[1]);
@@ -56,6 +75,11 @@ BiwaScheme.define_libfunc("upload-file", 2, 2, function(ar, intp){
   return result;
 });
 
+BiwaScheme.define_libfunc("download-internal-file", 1, 1, function(ar, intp){
+  BiwaScheme.assert_string(ar[0]);
+  console.log("attmpting to download " + ar[0])
+  Fronkensteen.downloadInternalFile(ar[0]);
+});
 
 BiwaScheme.define_libfunc("download-file", 3, 3, function(ar, intp){
   BiwaScheme.assert_string(ar[0]);

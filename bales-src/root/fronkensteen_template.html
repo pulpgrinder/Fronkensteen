@@ -95,6 +95,11 @@ $$$FILESYSTEM$$$
   scheme_interpreter.evaluate("(define baseload load)");
   scheme_interpreter.evaluate("(define load hereload)");
   Fronkensteen.execute_scheme_queue();
+  const urlParams = new URLSearchParams(window.location.search);
+  const remote = urlParams.get('remote');
+  if(remote !== null){
+    Fronkensteen.remoteREPL.connect(true,null);
+  }
 
  </script>
 </body>
