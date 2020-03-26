@@ -1,7 +1,14 @@
-font-awesome.scm is copyright 2020 by Anthony W. Hursh and is distributed under the terms of the same MIT license as Fronkensteen as a whole.
+`font-awesome.scm` is copyright 2020 by Anthony W. Hursh and is distributed under the terms of the same MIT license as Fronkensteen as a whole.
 
-fa-brands-400.woff2, fa-regular400.woff2,fa-solid900.woff2, font-awesome.all.css, and font-awesome.css are covered by the terms of the following license:
+The following files are covered by the terms of the Font Awesome Free License (below):
 
+```
+fa-brands-400.woff2
+fa-regular400.woff2
+fa-solid900.woff2
+font-awesome.all.css
+font-awesome.css
+``` 
 Font Awesome Free License
 -------------------------
 

@@ -1,6 +1,6 @@
-remote-repl.js is copyright 2019 by Anthony W. Hursh, and is distributed under the terms of the same MIT license as Fronkensteen as a whole.
+`remote-repl.js` is copyright 2019 by Anthony W. Hursh, and is distributed under the terms of the same MIT license as Fronkensteen as a whole.
 
-sha3.js is copyright 2008-2018 Brian Turek, 1998-2009 Paul Johnston & Contributors and distributed under the terms of the following 3-Clause BSD License:
+`sha3.js` is copyright 2008-2018 Brian Turek, 1998-2009 Paul Johnston & Contributors and distributed under the terms of the following 3-Clause BSD License:
 
 All rights reserved.
 

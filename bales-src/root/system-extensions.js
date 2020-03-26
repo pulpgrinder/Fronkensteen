@@ -162,7 +162,7 @@ BiwaScheme.define_libfunc("repl-here", 1, 1, function(ar){
     if(Fronkensteen.currentBiwaSchemeLoadFile !== null){
       errorstring = "Error in " + Fronkensteen.currentBiwaSchemeLoadFile + ":" + errorstring;
     }
-    console.log(errorstring);
+    console.log("onBiwaSchemeError: " + errorstring);
     Fronkensteen.CumulativeErrors.push(errorstring);
   }
 

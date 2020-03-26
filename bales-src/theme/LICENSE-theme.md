@@ -1,8 +1,8 @@
-
-
 # Tufte theme:
 
-The tufte.css file is distributed under the terms of the following license:
+`tufte.scm` is copyright 2020 by Anthony W. Hursh and is released under the same MIT license as Fronkensteen as a whole.
+
+The `tufte.css` file is distributed under the terms of the following license:
 
 The MIT License (MIT)
 

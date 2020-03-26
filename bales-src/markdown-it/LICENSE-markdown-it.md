@@ -1,6 +1,6 @@
-markdown-it-extensions.js is copyright 2018, 2019 by Anthony W. Hursh, and and is distributed under the terms of the same MIT license as Fronkensteen as a whole.
+`markdown-it-extensions.js` is copyright 2018, 2019 by Anthony W. Hursh, and and is distributed under the terms of the same MIT license as Fronkensteen as a whole.
 
-markdown-it.min.js is copyright 2014 Vitaly Puzrin, Alex Kocharin. markdown-it-sup.js and markdown-it-sub.js are copyright 2014-2015 Vitaly Puzrin, Alex Kocharin. All three are distributed under the terms of the following MIT license:
+`markdown-it.min.js` is copyright 2014 Vitaly Puzrin, Alex Kocharin. `markdown-it-sup.js` and `markdown-it-sub.js` are copyright 2014-2015 Vitaly Puzrin, Alex Kocharin. All three are distributed under the terms of the following MIT license:
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

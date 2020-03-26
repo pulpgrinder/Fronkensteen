@@ -31,7 +31,6 @@
 
 (define (set-main-content content)
   (% "#fronkensteen-content" "html" content)
-;  (process-latex)
   (process-embedded-code "#fronkensteen-content"))
 
 

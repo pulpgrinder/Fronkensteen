@@ -110,13 +110,22 @@ BiwaScheme.define_libfunc("window-location-username", 0, 0, function(ar){
   return url.username;
 });
 
-BiwaScheme.define_libfunc("navigate", 1, 1, function(ar){
-  // Navigate the browser to the URL specified in ar[0]
+BiwaScheme.define_libfunc("navigate-url", 1, 1, function(ar){
+  // Navigate the browser to the URL specified in ar[0].
+  // Uses the main window, which may lose app state. See open-url
+  // if you want to open the url in a new window.
     BiwaScheme.assert_string(ar[0]);
     window.location.href = ar[0];
     return true;
 });
 
+BiwaScheme.define_libfunc("open-url", 1, 1, function(ar){
+  // Open the website URL specified in ar[0] in a new window.
+  // See navigate-url if you want to open the URL in the main window.
+    BiwaScheme.assert_string(ar[0]);
+    window.open(ar[0]);
+    return true;
+});
 
 
 BiwaScheme.define_libfunc("scroll-to-bottom",0, 0, function(ar){

@@ -1,6 +1,6 @@
-mathjax-latex-extensions.js is copyright 2019 by Anthony W. Hursh, and is distributed under the terms of the same MIT license as Fronkensteen as a whole.
+`mathjax-latex-extensions.js` is copyright 2019 by Anthony W. Hursh, and is distributed under the terms of the same MIT license as Fronkensteen as a whole.
 
-tex-svg-full.js is distributed under the terms of the following Apache Version 2.0 license:
+`tex-svg-full.js` from MathJax is distributed under the terms of the following Apache Version 2.0 license:
 
 
                                  Apache License

@@ -28,7 +28,7 @@
   (set! full-app-name new-full-app-name))
 
 (define (reload-world)
-      (navigate active-document-location))
+      (navigate-url active-document-location))
 
 (define (save-the-static-world) ; Save the current static content of the system. Changes done with the interactive REPL need to be saved before they will take effect.
   (let ((app-file-name (<< app-name (numeric-time-stamp) ".html")))

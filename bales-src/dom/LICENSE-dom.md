@@ -1,6 +1,18 @@
- dom-extensions.js, dom-utilities.scm, scheme-css.scm, scheme-dom.scm, seml-extensions.js, sortable-extensions.js, synthetic-dom.scm, and wired.scm are copyright 2018-2020 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole.
+The following files are copyright 2018-2020 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole.
 
-forcereflow.js is distributed under the terms of the following WTFPL license:
+
+```
+dom-extensions.js
+dom-utilities.scm
+scheme-css.scm
+scheme-dom.scm
+seml-extensions.js
+sortable-extensions.js
+synthetic-dom.scm
+wired.scm
+```
+
+`forcereflow.js` is distributed under the terms of the following WTFPL license:
 
 This is free and unencumbered software released into the public domain.
 
@@ -27,7 +39,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org>
 
-rangyinputs-jquery.js is copyright 2017 Tim Down, and is distributed under the terms of the following MIT license:
+`rangyinputs-jquery.js` is copyright 2017 Tim Down, and is distributed under the terms of the following MIT license:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -47,7 +59,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Sortable.min.js is copyright 2019 by Sortable contributors, and is distributed under the terms of the following MIT license:
+`Sortable.min.js` is copyright 2019 by Sortable contributors, and is distributed under the terms of the following MIT license:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

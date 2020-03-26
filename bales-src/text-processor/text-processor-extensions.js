@@ -24,10 +24,13 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
       }
     });
   $(ar[0] + " p").each(function(){
+    Fronkensteen.CumulativeErrors = [];
     let text = this.innerHTML;
     text = text.replace(/\@\@([\s\S]*?)\@\@/gm,function(match,cap) {
       console.log("Capture is " + cap)
       var expr = Fronkensteen.renderREPLTemplate(cap);
+      // This is ugly hackery. Try to handle it better. Ideally processing
+      // embedded Scheme would happen further upstream.
       expr = expr.replace(/“/g,'"');
       expr = expr.replace(/”/g,'"');
       expr = expr.replace(/‘/g,"'");
@@ -37,7 +40,12 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
       expr = expr.replace(/\&amp\;/g,'&');
       BiwaScheme.assert_string(ar[0]);
       console.log("expr is " + expr);
-      return scheme_interpreter.evaluate(expr);
+      let result = scheme_interpreter.evaluate(expr);
+      if(Fronkensteen.CumulativeErrors !== []){
+        console.log("Error evaluating " + expr + " in embedded Scheme code." + Fronkensteen.CumulativeErrors.join("\n"));
+        Fronkensteen.CumulativeErrors = [];
+      }
+      return result;
     })
     this.innerHTML = text;
   })

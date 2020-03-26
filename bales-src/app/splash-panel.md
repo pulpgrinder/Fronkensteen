@@ -62,4 +62,6 @@ Triple-click on this page and the editor will open up, allowing you to edit the 
 
 To get started, it's suggested that you work with the files located in the top-level app folder.
 
+As with most FOSS projects, Fronkensteen relies on components from many other developers. However, particular credit should be given to the excellent [BiwaScheme interpreter](https://github.com/biwascheme/biwascheme) by Yutaka HARA. For a full list of credits/licenses, click the button below.
+
 @@(button "#view-fronkensteen-licenses" "View Licenses")@@

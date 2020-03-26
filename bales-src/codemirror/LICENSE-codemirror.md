@@ -1,6 +1,17 @@
-codemirror-extensions.js is copyright 2018-2020 by Anthony W. Hursh, and is distributed under the same MIT license as Fronkensteen as a whole.
+`codemirror-extensions.js` is copyright 2018-2020 by Anthony W. Hursh, and is distributed under the same MIT license as Fronkensteen as a whole.
 
-codemirror.js, codemirror.css, css.js, htmlmixed.js, javascript.js, markdown.js, matchbrackets.js,scheme.js, and xml.js are copyright by Marijn Haverbeke and others, and are distributed under the terms of the following MIT license:
+The following files are copyright by Marijn Haverbeke and others, and are distributed under the terms of the following MIT license.
+
+```
+codemirror.js
+codemirror.css
+css.js
+htmlmixed.js
+javascript.js
+markdown.js
+matchbrackets.js,scheme.js
+xml.js 
+```
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
