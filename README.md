@@ -14,7 +14,7 @@ Triple-click to open the internal editor.
 
 ## Fronkensteen system development
 
-**You don't need to do any of this stuff if all you want to do is run Fronkensteen, or use it to create an app.** Just get the `fronkensteen.html` file from `dist`, open it in any modern browser, and you'll be good to go. Here's a direct link to [fronkensteen.html](https://raw.githubusercontent.com/pulpgrinder/Fronkensteen/master/dist/fronkensteen.html). Just save that to your hard drive, open it in a browser, and you're good to go.
+**You don't need to do any of this stuff if all you want to do is run Fronkensteen, or use it to create an app.**
 
 *note: "modern browser" does not include any version of Internet Explorer. :-)*
 
