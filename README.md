@@ -1,6 +1,6 @@
 # Fronkensteen
 
-## Caution: this is a preliminary version. It still contains many bugs and sharp corners!
+## Caution: this is a preliminary version. It still contains many bugs and sharp corners! Moving fast and breaking things is occurring on a constant basis.
 
 Fronkensteen is a self-contained Scheme development system that works in any modern browser (i.e., just about everything other than Internet Explorer). The entire system is contained in a single HTML file which can be put on a web server or opened in the browser from the local file system.
 
@@ -15,8 +15,6 @@ Triple-click to open the internal editor.
 ## Fronkensteen system development
 
 **You don't need to do any of this stuff if all you want to do is run Fronkensteen, or use it to create an app.**
-
-*note: "modern browser" does not include any version of Internet Explorer. :-)*
 
 **These instructions are only for those who are working on Fronkensteen internals.**
 
