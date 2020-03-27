@@ -22,7 +22,7 @@ Fronkensteen.json2scheme_rec = function(json){
       case "boolean" : return Fronkensteen.scheme_parse_json_boolean(json);
     }
   }
-  console.log("Fronkensteen.json2scheme_rec: unrecognized type in " + json);
+  console.error("Fronkensteen.json2scheme_rec: unrecognized type in " + json);
   return "";
 }
 

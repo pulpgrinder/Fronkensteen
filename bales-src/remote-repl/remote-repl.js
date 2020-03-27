@@ -16,7 +16,7 @@
     let defaulthost = ""
     let defaultpassword = Fronkensteen.getLocalStorageItem("remote-repl-password");
     if(defaultpassword === null){
-      defaultpassword = "dollydagger";
+      defaultpassword = "sanguine";
     }
     if(isServer === true){
       defaulthost = Fronkensteen.getLocalStorageItem("remote-repl-server");
@@ -54,7 +54,7 @@
             shaObj.update(expr + self.password);
             let sigcheck = shaObj.getHash("HEX");
             if(sigcheck !== signature){ // Bad passphrase.
-                console.log("Invalid signature from remote client! Check passphrase.");
+                console.error("Invalid signature from remote client! Check passphrase.");
                 return;
             }
             let result = scheme_interpreter.evaluate(Fronkensteen.renderReadTemplate(expr)) + "";
@@ -79,10 +79,9 @@
           shaObj.update(result + self.password);
           let sigcheck = shaObj.getHash("HEX");
           if(sigcheck !== signature){ // Bad passphrase.
-              console.log("Invalid signature from remote client! Check passphrase.");
+              console.error("Invalid signature from remote client! Check passphrase.");
               return;
           }
-          console.log("result from remote was " + result)
           resultHandler(result);
         };
       }
@@ -95,10 +94,9 @@
     sendExpression:function(expr){
       let self=this;
       if(self.replsocket === null){
-        console.log("Fronkensteen remote REPL: not connected.");
+        console.error("Fronkensteen remote REPL: not connected.");
         return;
       }
-      console.log("Attempting to send: " + expr)
       let shaObj = new jsSHA("SHA3-512", "TEXT");
       shaObj.update(expr + self.password);
       let signature = shaObj.getHash("HEX");
@@ -119,7 +117,6 @@ BiwaScheme.define_libfunc("remote-evaluate", 1, 1, function(ar){
 // Default result display. Just passes the result off to the display-repl-result procedure in Scheme (which needs to be defined by the user).
 Fronkensteen.displayReplResult = function(result){
 let resultString = "(display-repl-result " + Fronkensteen.patchReplQuotes(result) + ")"
-console.log("resultString is " + resultString)
 scheme_interpreter.evaluate(resultString);
 }
 

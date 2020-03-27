@@ -3,13 +3,16 @@
 <!-- Fronkensteen Base Template. Copyright 2019-2020 by Anthony W. Hursh. MIT License. -->
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Fronkensteen">
+    <title>Fronkensteen</title>
+    <style>
+    body {background-color: #fffff8}
+    </style>
   </head>
   <body>
   <div id="fronkensteen-wrapper">
@@ -22,11 +25,25 @@ $$$FILESYSTEM$$$
 
   // Bare-bones object.
   // Functions and data fields are added to this object by the various bale extensions.
-
   let Fronkensteen = {
     CumulativeErrors:[]
   };
 
+
+   function getFronkensteenLogo(){
+    let mimetype = "image/png";
+    let filename = "root/fronkensteenlogo.png"
+    if(fronkensteen_fs[filename] !== undefined){
+      return 'data:' + mimetype + ';base64,' + fronkensteen_fs[filename];
+    }
+    return "";
+  }
+  function openAsApp() {
+    let appWindowFeatures = "menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,width=" + window.width + ",height=" + window.height;
+    let url = window.location.href;
+    let appwindow = window.open(url, "Fronkensteen", appWindowFeatures);
+    appwindow.focus();
+  }
   Fronkensteen.is_development_environment = true;
   Fronkensteen.is_debug_environment = true;
 
@@ -76,31 +93,59 @@ $$$FILESYSTEM$$$
     }
     return new TextDecoder("utf-8").decode(array);
   }
-  // Boot up the app from the internal filesystem stored in the fronkensteen_fs object.
   let scheme_launcher = [];
-  let bale_manifest = fronkensteen_fs["$$BALEMANIFEST$$"];
-  for(var i = 0; i < bale_manifest.length; i++){
-    if(fronkensteen_fs[bale_manifest[i] + "/" + "$$LOAD_BALE$$"] === true){
-      let file_manifest = fronkensteen_fs[bale_manifest[i] + "/" + "$$FILEMANIFEST$$"];
-      Fronkensteen.execute_bale(file_manifest);
-    }
-    else {
-      console.log("Skipping bale: " + bale_manifest[i])
-    }
-  }
-
-
+  let scheme_interpreter = null;
   console.log("Loaded.")
-  let scheme_interpreter = new BiwaScheme.Interpreter(Fronkensteen.onBiwaSchemeError)
-  scheme_interpreter.evaluate("(define baseload load)");
-  scheme_interpreter.evaluate("(define load hereload)");
-  Fronkensteen.execute_scheme_queue();
-  const urlParams = new URLSearchParams(window.location.search);
-  const remote = urlParams.get('remote');
-  if(remote !== null){
-    Fronkensteen.remoteREPL.connect(true,null);
+  function promptForHomeScreenInstall(){
+    alert("Add to Home Screen.")
   }
+  function launchSystem(){
+    document.getElementById("fronkensteen-wrapper").innerHTML = ""
+    let bale_manifest = fronkensteen_fs["$$BALEMANIFEST$$"];
+    for(var i = 0; i < bale_manifest.length; i++){
+      if(fronkensteen_fs[bale_manifest[i] + "/" + "$$LOAD_BALE$$"] === true){
+        let file_manifest = fronkensteen_fs[bale_manifest[i] + "/" + "$$FILEMANIFEST$$"];
+        Fronkensteen.execute_bale(file_manifest);
+      }
+      else {
+        console.log("Skipping bale: " + bale_manifest[i])
+      }
+    }
+    scheme_interpreter = new BiwaScheme.Interpreter(Fronkensteen.onBiwaSchemeError)
+    scheme_interpreter.evaluate("(define baseload load)");
+    scheme_interpreter.evaluate("(define load hereload)");
+    Fronkensteen.execute_scheme_queue();
+    const urlParams = new URLSearchParams(window.location.search);
+    const remote = urlParams.get('remote');
+    if(remote !== null){
+      Fronkensteen.remoteREPL.connect(true,null);
+    }
+  }
+  // System launcher.
+  // Boot up the app from the internal filesystem stored in the fronkensteen_fs object.
 
+function setupAsApp(){
+    document.getElementById("fronkensteen-wrapper").innerHTML = "<div><img src='" + getFronkensteenLogo() + "'/><h1>Fronkensteen</hi></div><div></div><button onclick='openAsApp()'>Open in a Separate App Window (recommended)</button><button onclick='launchSystem()'>Open in the Current Browser Window</button></div>";
+
+}
+if(window.navigator.standalone !== undefined){
+  // iOS, not already installed to home screen.
+  if(window.navigator.standalone === false){
+    promptForHomeScreenInstall();
+    launchSystem()
+  }
+  else{
+    launchSystem();
+  }
+}
+else {
+ if(toolbar.visible === true){
+  setupAsApp()
+  }
+  else {
+    launchSystem();
+  }
+}
  </script>
 </body>
 </html>

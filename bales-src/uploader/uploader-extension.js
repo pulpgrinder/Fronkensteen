@@ -11,12 +11,10 @@ Fronkensteen.setUploadElement = function(element_id){
 
 Fronkensteen.uploadFile = function(type,proc){
   if(Fronkensteen.uploadElement === null){
-    console.log("file uploader not defined. Try running (build-uploader) first.");
+    console.error("file uploader not defined. Try running (build-uploader) first.");
     return false;
   }
   let uploader = $("#"+ Fronkensteen.uploadElement);
-  console.log("file type is " + type)
-  console.log("data handler proc is " + proc)
   uploader.attr('accept', type);
   uploader.off("change");
   const reader = new FileReader();
@@ -77,7 +75,6 @@ BiwaScheme.define_libfunc("upload-file", 2, 2, function(ar, intp){
 
 BiwaScheme.define_libfunc("download-internal-file", 1, 1, function(ar, intp){
   BiwaScheme.assert_string(ar[0]);
-  console.log("attmpting to download " + ar[0])
   Fronkensteen.downloadInternalFile(ar[0]);
 });
 

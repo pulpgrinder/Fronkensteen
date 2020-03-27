@@ -11,7 +11,7 @@ filewalker(__dirname + "/bales-src",".balespec",bale_processor);
 
 function bale_processor(err,results){
   if(err !== null){
-    console.log("Error: " + err);
+    console.error("Bale processor error: " + err);
   }
   else {
     for(var i = 0; i < results.length; i++){

@@ -10,9 +10,11 @@ window.onkeydown = function(e) { keys[e.keyCode] = true; }
 
 
 // Try to prevent an accidental close with unsaved data.
-window.addEventListener('beforeunload', function (e) {
+  console.log("Setting beforeunload handler")
+
+  window.addEventListener('beforeunload', function (e) {
   let system_dirty = scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["is-system-dirty?"], []);
-  if(system_dirty === true){
+ if(system_dirty === true){
     e.preventDefault();
     e.returnValue = 'This app may have unsaved data. Are you sure you want to leave?';
   }

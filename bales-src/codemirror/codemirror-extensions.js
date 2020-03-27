@@ -15,7 +15,7 @@ BiwaScheme.define_libfunc("set-cm-editor-text!", 2, 2, function(ar,intp){
       return result;
     }
     else{
-      console.log("set-cm-editor-text!: No editor corresponding to " + ar[0]);
+      console.error("set-cm-editor-text!: No editor corresponding to " + ar[0]);
       return null;
     }
 })
@@ -158,7 +158,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-js-selection!",1,1,function(ar,intp){
     let selection = doc.getSelection();
     if(selection.length > 0){
       try{
-        console.log("evaluating " + selection)
+        console.error("evaluating " + selection)
         result = " //" + eval(selection);
       }
       catch(err){
@@ -171,7 +171,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-js-selection!",1,1,function(ar,intp){
     doc.replaceSelection(doc.getSelection() + result);
   }
   else {
-    console.log("cm-editor-eval-js-selection!: (no editor)");
+    console.error("cm-editor-eval-js-selection!: (no editor)");
   }
 })
 
@@ -217,7 +217,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
 
   }
   else{
-    console.log("cm-editor-expr-before-cursor: No editor corresponding to " + ar[0]);
+    console.error("cm-editor-expr-before-cursor: No editor corresponding to " + ar[0]);
     return false;
   }
 });
@@ -239,7 +239,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
 
     }
     else{
-      console.log("cm-eval-editor-buffer!: No editor corresponding to " + ar[0]);
+      console.error("cm-eval-editor-buffer!: No editor corresponding to " + ar[0]);
       return false;
     }
 
@@ -254,7 +254,7 @@ BiwaScheme.define_libfunc("cm-editor-undo!", 1, 1, function(ar,intp){
     return editor.undo();
   }
   else{
-    console.log("cm-editor-undo!: No editor corresponding to " + ar[0]);
+    console.error("cm-editor-undo!: No editor corresponding to " + ar[0]);
     return null;
   }
 })
@@ -266,7 +266,7 @@ BiwaScheme.define_libfunc("cm-editor-redo!", 1, 1, function(ar,intp){
     return editor.redo();
   }
   else{
-    console.log("cm-editor-redo!: No editor corresponding to " + ar[0]);
+    console.error("cm-editor-redo!: No editor corresponding to " + ar[0]);
     return null;
   }
 })
@@ -278,7 +278,7 @@ BiwaScheme.define_libfunc("is-cm-editor-clean?", 1, 1, function(ar,intp){
     return editor.getDoc().isClean();
   }
   else{
-    console.log("is-cm-editor-clean?: No editor corresponding to " + ar[0]);
+    console.error("is-cm-editor-clean?: No editor corresponding to " + ar[0]);
     return false;
   }
 
@@ -292,7 +292,7 @@ BiwaScheme.define_libfunc("set-cm-editor-clean!", 1, 1, function(ar,intp){
     return editor.getDoc().markClean();
   }
   else{
-    console.log("set-cm-editor-clean!: No editor corresponding to " + ar[0]);
+    console.error("set-cm-editor-clean!: No editor corresponding to " + ar[0]);
     return false;
   }
 })
@@ -304,7 +304,7 @@ BiwaScheme.define_libfunc("get-cm-editor-text", 1, 1, function(ar,intp){
     return editor.getValue();
   }
   else{
-    console.log("get-cm-editor-text: No editor corresponding to " + ar[0]);
+    console.error("get-cm-editor-text: No editor corresponding to " + ar[0]);
     return null;
   }
 })
@@ -316,7 +316,7 @@ BiwaScheme.define_libfunc("focus-cm-editor-component!", 1, 1, function(ar,intp){
     return editor.focus();
   }
   else{
-    console.log("focus-cm-editor-component!: No editor corresponding to " + ar[0]);
+    console.error("focus-cm-editor-component!: No editor corresponding to " + ar[0]);
     return null;
   }
 })
@@ -327,7 +327,7 @@ BiwaScheme.define_libfunc("refresh-cm-editor-component!", 1, 1, function(ar,intp
     return editor.refresh();
   }
   else{
-    console.log("refresh-cm-editor-component!: No editor corresponding to " + ar[0]);
+    console.error("refresh-cm-editor-component!: No editor corresponding to " + ar[0]);
     return null;
   }
 })
@@ -341,7 +341,7 @@ BiwaScheme.define_libfunc("destroy-cm-editor!", 1, 1, function(ar,intp){
 
   }
   else{
-    console.log("destroy-cm-editor!: No editor corresponding to " + ar[0]);
+    console.error("destroy-cm-editor!: No editor corresponding to " + ar[0]);
     return null;
   }
 })
@@ -349,7 +349,6 @@ BiwaScheme.define_libfunc("destroy-cm-editor!", 1, 1, function(ar,intp){
 let cm_editors = {};
 
 function focusFind(){
-  console.log("find")
   scheme_interpreter.evaluate("(focus-find)");
   return true;
 }
@@ -414,14 +413,14 @@ class CMEditorDriver {
     setCursorPosition(editorname,line,column){
       let editor = cm_editors[editorname];
       if(editor === undefined){
-        console.log("No editor found for " + editorname)
+        console.error("No editor found for " + editorname)
       }
       editor.getDoc().setCursor(line,column)
     }
     scrollToLine(editorname,line){
       let editor = cm_editors[editorname];
       if(editor === undefined){
-        console.log("No editor found for " + editorname);
+        console.error("No editor found for " + editorname);
         return;
 
       }
@@ -717,7 +716,6 @@ BiwaScheme.define_libfunc("cm-editor-refresh",1,1, function(ar){
   },20);
 });
 BiwaScheme.define_libfunc("cm-editor-get-text",1,1, function(ar){
-  console.log("Editor id: " + ar[0])
   return editDriver.getText(ar[0]);
 });
 BiwaScheme.define_libfunc("cm-editor-set-text",2,2, function(ar){

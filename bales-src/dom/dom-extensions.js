@@ -3,6 +3,11 @@
 // Copyright 2018-2019 by Anthony W. Hursh
 // MIT License.
 
+// Set the window title.
+
+Fronkensteen.setDocumentTitle = function(title){
+  document.title = title;
+}
 // Returns vector of ids for all nodes that match the
 // supplied selector. Ignores nodes that don't have an id.
 BiwaScheme.define_libfunc("get-id-vector",2,2,function(ar){
@@ -66,6 +71,10 @@ BiwaScheme.define_libfunc("css!", 3,3, function(ar){
     $(ar[0]).css(ar[1],ar[2]);
 });
 
+BiwaScheme.define_libfunc("set-document-title", 1, 1, function(ar){
+ BiwaScheme.assert_string(ar[0]);
+ Fronkensteen.setDocumentTitle(ar[0]);
+});
 
 BiwaScheme.define_libfunc("get-selected-index", 1, 1, function(ar){
    // jQuery. Returns the selected index for the DOM selector named in

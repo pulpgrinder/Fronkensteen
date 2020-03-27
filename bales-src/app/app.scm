@@ -8,10 +8,11 @@
 
 ; HTML <header> element containing the logo and title.
 
+
 (define (generate-header)
   (header
     (<<
-      (internal-image "app/fronkensteenlogo.png")
+      (internal-image "root/fronkensteenlogo.png")
       (h1 "Fronkensteen"))))
 
 
@@ -44,6 +45,11 @@
 
 (wire-ui)
 
+; Set the app name (base filename for saving the workspace) and window title.
+
+(set-app-name "fronkensteen" "Feed My Fronkensteen")
+
+
 ; runs when the #download-fronkensteen button is clicked.
 (define (download-fronkensteen_click)
   (save-the-static-world))
@@ -52,6 +58,18 @@
 (define (view-fronkensteen-licenses_click)
   (display-licenses))
 
+(define (view-markup-docs_click)
+  (view-trusted-markup-text
+    (read-internal-text-file "app/markup-doc.md")))
+
+(define (view-html-docs_click)
+  (view-trusted-markup-text
+    (read-internal-text-file "app/html-doc.md")))
+
 ; runs when the #scheme-demo-eval button is clicked.
 (define (scheme-demo-eval_click)
     (% "#scheme-demo-result" "html" (eval-scheme-string (% "#scheme-demo-text" "val"))))
+
+(define (show-tutorial_click)
+  (show-code-editor)
+  (display-file-editor "tutorial/tutorial.scm"))

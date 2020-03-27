@@ -7,24 +7,27 @@
       (dv "#fronkensteen-markup-content.fronkensteen-markup-content" ""))))
 
 (define (view-trusted-markup-file filename)
-    (view-markup-text (markup-trusted-text-file filename)))
+    (view-markup-text (markup-trusted-text-file filename) #t))
 
 (define (view-untrusted-markup-file filename)
-  (view-markup-text (markup-untrusted-text-file filename)))
+  (view-markup-text (markup-untrusted-text-file filename) #))
 
 (define (view-trusted-markup-text text)
-    (view-markup-text (trusted-text-processor text)))
+    (view-markup-text (trusted-text-processor text) #t))
 
 (define (view-untrusted-markup-text text)
-    (view-markup-text (untrusted-text-processor text)))
+    (view-markup-text (untrusted-text-processor text) #f))
 
-(define (view-markup-text marked-up-text)
+(define (view-markup-text marked-up-text trusted)
   (if (eqv? active-panel "#fronkensteen-markup-viewer")
     #t
     (begin
       (push-ui-panel)
       (show-ui-panel "#fronkensteen-markup-viewer")))
-  (% "#fronkensteen-markup-content" "html" marked-up-text))
+  (% "#fronkensteen-markup-content" "html" marked-up-text)
+  (if trusted
+    (process-embedded-code "#fronkensteen-markup-content")
+    #f))
 
 
 (define (fronkensteen-close-markup-viewer_click)

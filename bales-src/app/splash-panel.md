@@ -1,7 +1,7 @@
 ; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
 # What is Fronkensteen?
 
-It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser (i.e., not Internet Explorer). It can be put on a web server, or loaded from the local file system with no server needed.
+It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser (i.e., not Internet Explorer). It can be put on a web server, or even loaded from the local file system with no server needed.
 
 
 # Why?
@@ -10,9 +10,9 @@ Those of us of a certain age have fond memories of using computers where you cou
 
 # Where Do I Get It?
 
-You're soaking in it. @@(fa-icon "r" "smile-beam")@@ @@(button "#download-fronkensteen" "Get it now!")@@
+You're soaking in it. This page itself is a running Fronkensteen app. @@(fa-icon "r" "smile-beam")@@ @@(button "#download-fronkensteen" "Get it now!")@@
 
-Just click the button and save the resulting HTML file on your hard drive, then open it in your favorite browser.
+Clicking the button will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the code, and save it.
 
 This is a live Scheme environment. You can test it out by entering some Scheme code in the text box below and clicking the Eval button.
 
@@ -22,46 +22,25 @@ This is a live Scheme environment. You can test it out by entering some Scheme c
 
 # What's Included?
 
-Fronkensteen aims to be a batteries-included development system. It comes with a powerful markup language that includes the ability to execute embedded Scheme code (for example, the mini-REPL above), LaTeX equations such as:
+Fronkensteen aims to be a batteries-included development system. It has comprehensive HTML generation and jQuery integration procedures.
 
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
-
-Text alignment operators such as centering, right/left alignment, and justification:
-
--><-  For example, this paragraph is centered.
-
-Poetry formatting such as:
-
-| Shall I compare thee to a summer's day?
-| Thou art more lovely and more temperate:
-| Rough winds do shake the darling buds of May,
-| And summer's lease hath all too short a date;
-| Sometime too hot the eye of heaven shines,
-| And often is his gold complexion dimm'd;
-| And every fair from fair sometime declines,
-| By chance or nature's changing course untrimm'd;
-| But thy eternal summer shall not fade,
-| Nor lose possession of that fair thou ow'st;
-| Nor shall death brag thou wander'st in his shade,
-| When in eternal lines to time thou grow'st:
-|    So long as men can breathe or eyes can see,
-|    So long lives this, and this gives life to thee.
+@@ (button "#view-html-docs" "Tell me more") @@
 
 
-Automatic processing of #hashtags, [wiki-style links], and [normal Markdown hyperlinks](https://github.com/pulpgrinder/Fronkensteen). Doing something useful with these links is up to your code.
+It comes with a powerful markup language that includes the ability to execute embedded Scheme code (for example, the mini-REPL above), typeset LaTeX equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting,  automatic handling of #hashtags, [wiki-style links], and [normal Markdown hyperlinks](https://github.com/pulpgrinder/Fronkensteen), easy to use footnotes{{{Like this one!}}}, and more!
 
-Easy to use footnotes{{{Like this one!}}}.
-
-And more.
+@@ (button "#view-markup-docs" "Tell me more") @@
 
 # How Do I Use It?
 
-To do something other than view this page, you'll need to use the editor.
+Perhaps you should begin with the tutorial.
 
-Triple-click on this page and the editor will open up, allowing you to edit the full code for the system. You can execute updated Scheme or JavaScript code directly from the editor.
+@@ (button "#show-tutorial" "Tutorial") @@
 
-To get started, it's suggested that you work with the files located in the top-level app folder.
+To do something other than view this page, you'll need to use the editor. The tutorial automatically opens the editor, but if you just want to use the editor, triple-click on this page (on a desktop machine) and the editor will open up, allowing you to edit the running code for the system. You can execute updated Scheme or JavaScript code directly from the editor. You can even edit the UI while it's actually running. Put that in hot reload's pipe and smoke it.
 
-As with most FOSS projects, Fronkensteen relies on components from many other developers. However, particular credit should be given to the excellent [BiwaScheme interpreter](https://github.com/biwascheme/biwascheme) by Yutaka HARA. For a full list of credits/licenses, click the button below.
+Normally, you'd put all the code for your app in the app folder, but you're free to edit anything at all in the system, while keeping in mind that messing around with the underlying system files could potentially cause the system to not even load "With great power comes great responsibility." Make plenty of backups. :-)
+
+As with most large FOSS projects, Fronkensteen relies on components from many other developers and projects. However, particular credit should be given to the excellent [BiwaScheme interpreter](https://github.com/biwascheme/biwascheme) by Yutaka HARA. For a full list of credits/licenses, click the button below.
 
 @@(button "#view-fronkensteen-licenses" "View Licenses")@@

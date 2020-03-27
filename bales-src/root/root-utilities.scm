@@ -25,7 +25,8 @@
 
 (define (set-app-name new-app-name new-full-app-name)
   (set! app-name new-app-name)
-  (set! full-app-name new-full-app-name))
+  (set! full-app-name new-full-app-name)
+  (set-document-title new-full-app-name))
 
 (define (reload-world)
       (navigate-url active-document-location))

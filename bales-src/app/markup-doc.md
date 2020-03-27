@@ -31,15 +31,14 @@ These are the standard Markdown links. They consist of a title in square bracket
 
 ``` markdown
 
-[External page](http://apple.com)
+[English Wikipedia](http://en.wikipedia.org)
 
 
 ```
 
 will produce:
 
-[External page](http://apple.com)
-
+[English Wikipedia](http://en.wikipedia.org)
 
 ### Font and text decorations
 

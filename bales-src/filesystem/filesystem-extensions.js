@@ -173,7 +173,6 @@ Fronkensteen.removeBale = function(bale_name){
     return;
   }
   for(var i = 0; i < file_manifest.length; i++){
-    console.log("Deleting " + file_manifest[i]);
     delete fronkensteen_fs[file_manifest[i]];
   }
   delete fronkensteen_fs[file_manifest_name];
@@ -197,11 +196,10 @@ Fronkensteen.importBale = function(dataString){
     if(filenames[i].match(/\$\$FILEMANIFEST\$\$$/) !== null){
       file_manifest = filenames[i];
       balename = Fronkensteen.file_path(filenames[i]);
-      console.log("bale name is " + filenames[i]);
     }
   }
   if(balename === ""){
-    console.log("This does not appear to be a valid compiled bale file.");
+    console.error("This does not appear to be a valid compiled bale file.");
     return;
   }
   Fronkensteen.removeBale(balename);
@@ -218,7 +216,6 @@ Fronkensteen.setBaleManifest = function(bale_array){
   scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
 }
 Fronkensteen.addFilenameToBale = function(filename,balename){
-  console.log("adding " + filename + " to " + balename)
   let file_manifest_name = balename + "/$$FILEMANIFEST$$";
   let file_manifest = fronkensteen_fs[file_manifest_name];
   file_manifest.push(filename);
@@ -229,11 +226,10 @@ Fronkensteen.getBaleCode = function(balename){
   let file_manifest_name = balename + "/$$FILEMANIFEST$$";
   let file_manifest = fronkensteen_fs[file_manifest_name];
   if(file_manifest === undefined){
-    console.log(balename + ": no such bale in file system.")
+    console.error(balename + ": no such bale in file system.")
     return JSON.stringify({});
   }
   for(var i = 0; i < file_manifest.length; i++){
-    console.log("Exporting " + file_manifest[i]);
     export_bale[file_manifest[i]] = fronkensteen_fs[file_manifest[i]];
   }
   export_bale[file_manifest_name] = fronkensteen_fs[file_manifest_name];
@@ -293,13 +289,12 @@ Fronkensteen.fileExists = function(filename){
   return false;
 }
 Fronkensteen.file_rename = function (oldname,newname){
-  console.log("Renaming file " + oldname + " to " + newname)
   if(fronkensteen_fs[newname] !== undefined){
-    console.log("Can't rename " + oldname + " to " + newname +  ". " + newname + " exists.")
+    console.error("Can't rename " + oldname + " to " + newname +  ". " + newname + " exists.")
     return false;
   }
   if(fronkensteen_fs[oldname] === undefined){
-    console.log("Can't rename " + oldname + " to " + newname + ". " + oldname + " does not exist.")
+    console.error("Can't rename " + oldname + " to " + newname + ". " + oldname + " does not exist.")
     return false;
   }
   fronkensteen_fs[newname] = fronkensteen_fs[oldname];
@@ -322,7 +317,6 @@ Fronkensteen.file_rename = function (oldname,newname){
 
 
 Fronkensteen.folder_rename = function (oldfolder,newfolder){
-  console.log("Renaming folder " + oldfolder + " to " + newfolder);
   let filenames = Object.keys(fronkensteen_fs);
   let new_manifest = [];
   for(var i = 0; i < filenames.length; i++){
@@ -332,7 +326,6 @@ Fronkensteen.folder_rename = function (oldfolder,newfolder){
       new_manifest.push(newname);
       fronkensteen_fs[newname] = fronkensteen_fs[current_name];
       delete fronkensteen_fs[current_name]
-      console.log("renamed " + current_name + " to " + newname)
     }
   }
     fronkensteen_fs[newfolder + "/$$FILEMANIFEST$$"] = new_manifest;
@@ -471,7 +464,6 @@ BiwaScheme.define_libfunc("base-64-image-to-bytes",1,1, function(ar){
 
 BiwaScheme.define_libfunc("delete-internal-file", 1, 1, function(ar, intp){
     BiwaScheme.assert_string(ar[0]);
-    console.log("Removing " + ar[0]);
     Fronkensteen.deleteInternalFile(ar[0]);
 });
 

@@ -38,13 +38,13 @@
              case "!": currentState = STATE_PARAM;
                        index = index + 1;
                        continue;
-             default: console.log("parse-seml: parse error on " + arg);
+             default: console.error("parse-seml: parse error on " + arg);
                      return "parse error: " + arg;
            }
        case STATE_ID:
          switch(currentChar){
            case "'":
-           case "\"":   console.log("parse-seml: quotes not allowed in id --> " + arg)
+           case "\"":   console.error("parse-seml: quotes not allowed in id --> " + arg)
              return "parse-seml: quotes not allowed in id " + arg;
 
            case ".": currentState = STATE_CLASS;
@@ -66,12 +66,12 @@
      case STATE_CLASS:
        switch(currentChar){
        case "'":
-       case "\"":   console.log("parse-seml: quotes not allowed in class name --> " + arg)
+       case "\"":   console.error("parse-seml: quotes not allowed in class name --> " + arg)
          return "parse-seml: quotes not allowed in class name " + arg;
 
        case "#": currentState = STATE_ID;
              if(idstring !== ""){
-               console.log("parse-seml: string has more than one id param --> " + arg)
+               console.error("parse-seml: string has more than one id param --> " + arg)
                return "parse-seml: too many ids in " + arg;
              }
              index = index + 1;
@@ -101,7 +101,7 @@
              continue;
        case "#": currentState = STATE_ID;
              if(idstring !== ""){
-               console.log("parse-seml: string has more than one id param --> " + arg)
+               console.error("parse-seml: string has more than one id param --> " + arg)
                return "parse-seml: too many ids in " + arg;
              }
              index = index + 1;
@@ -154,11 +154,11 @@
  }
  }
    if(currentState === STATE_DOUBLE){
-     console.log("parse-seml: missing double-quote --> " + arg)
+     console.erro("parse-seml: missing double-quote --> " + arg)
      return "parse-seml: missing double quote in  " + arg;
    }
    if(currentState === STATE_SINGLE){
-     console.log("parse-seml: missing single-quote --> " + arg)
+     console.error("parse-seml: missing single-quote --> " + arg)
      return "parse-seml: missing single quote in  " + arg;
    }
    if(idstring !== ""){
