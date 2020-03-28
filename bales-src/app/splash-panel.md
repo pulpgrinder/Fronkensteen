@@ -1,8 +1,10 @@
 ; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
+
+**This is still very much at the "moving fast and breaking things" stage. Sharp corners are pretthy much guaranteed to still be present. Report bugs on the [Fronkensteen project page](http://github.com/Fronkensteen).**
+
 # What is Fronkensteen?
 
 It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser (i.e., not Internet Explorer). It can be put on a web server, or even loaded from the local file system with no server needed.
-
 
 # Why?
 
@@ -10,7 +12,7 @@ Those of us of a certain age have fond memories of using computers where you cou
 
 # Where Do I Get It?
 
-You're soaking in it. This page itself is a running Fronkensteen app. @@(fa-icon "r" "smile-beam")@@ @@(button "#download-fronkensteen" "Get it now!")@@
+You're soaking in it. @@(fa-icon "r" "smile-beam")@@ This page itself is a running Fronkensteen app.  @@(button "#download-fronkensteen" "Get it now!")@@
 
 Clicking the button will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the code, and save it.
 
@@ -25,7 +27,6 @@ This is a live Scheme environment. You can test it out by entering some Scheme c
 Fronkensteen aims to be a batteries-included development system. It has comprehensive HTML generation and jQuery integration procedures.
 
 @@ (button "#view-html-docs" "Tell me more") @@
-
 
 It comes with a powerful markup language that includes the ability to execute embedded Scheme code (for example, the mini-REPL above), typeset LaTeX equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting,  automatic handling of #hashtags, [wiki-style links], and [normal Markdown hyperlinks](https://github.com/pulpgrinder/Fronkensteen), easy to use footnotes{{{Like this one!}}}, and more!
 
