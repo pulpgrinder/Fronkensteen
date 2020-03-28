@@ -47,8 +47,13 @@
 
 '(alert "Hello, world!")
 
-; A single-quoted expression evaluates to itself, in the same way that 5 did.
-; So we've now used this expression as both code and data.
+; The quote tells the system to return the following expression as a Scheme
+; data structure, rather than evaluating it.
+; The value of (alert "Hello, World") is the return value from showing an
+; alert on the screen (which is nothing) The value of `(alert "Hello, world!")
+; is a list containing the symbol alert and the string "Hello, World". Without
+; the quote, alert is executed as a procedure, while with it, it's used
+; as a symbol.
 
 ; We can build up lists and select elements from them while the code is running.
 ; The car procedure returns the first element from a list, and the cdr
@@ -60,10 +65,11 @@
 (cdr '(1 2))
 
 ; Note that we're using the quote here. This is worth thinking about. What would
-; happen if we left the quote off? Scheme would consider the argument for car or
-; cdr to be (1 2). The problem there is that when it then tries to evaluate
-; (1 2), it produces an error. Remember that Scheme expects the first item in
-; a list it's evaluating to be a procedure, and 1 is not a procedure.
+; happen if we left the quote off? Scheme would consider the argument for car
+; to be (1 2). The problem there is that when ittries to evaluate
+; (1 2), it produces an error. Why? Remember that Scheme expects the first
+; item in a (non-quoted) list it's evaluating to be a procedure, and 1
+; is not a procedure.
 ; By quoting the `(1 2), we suppress evaluation and pass the list to car or cdr
 ; as is. Try it without the quote to see the error message.
 
@@ -140,7 +146,7 @@
 ; uses a jQuery-like syntax to do that.
 ; The "hide editor" button in the toolbar (the door icon at the extreme left)
 ; has the HTML id: #fronkensteen-editor-hide-button (you can verify this by
-; inspecting it in your browser's debugger. Let's say we don't like the door.
+; inspecting it in your browser's debugger). Let's say we don't like the door.
 ; We can use the jQuery interface to change it to anything we want.
 ; Try this:
 
@@ -149,10 +155,10 @@
 
 ; Cool, huh?
 ; The whole Fronkensteen system is utterly mutable and can be altered at will.
-; What's going  on here: the jQuery interface procedure, named %, is being
-; called with a  selector for an HTML element or elements, in this case
+; What's going on here: the jQuery interface procedure, named %, is being
+; called with a selector for an HTML element or elements, in this case
 ; "#fronkensteen-editor-hide-button", and on that element or elements,
-; the "html" operation, which sets the internal HTML of the element or elements)
+; the "html" operation, which sets the internal HTML of the element or elements
 ; is being used to set the button's content to "Buh-bye". We could use any
 ; string we wanted in place of the "Buh-bye", including arbitrarily complex
 ; HTML code.
