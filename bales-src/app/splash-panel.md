@@ -28,7 +28,7 @@ Fronkensteen aims to be a batteries-included development system. It has comprehe
 
 @@ (button "#view-html-docs" "Tell me more") @@
 
-It comes with a powerful markup language that includes the ability to execute embedded Scheme code (for example, the mini-REPL above), typeset LaTeX equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting,  automatic handling of #hashtags, [wiki-style links], and [normal Markdown hyperlinks](https://github.com/pulpgrinder/Fronkensteen), easy to use footnotes{{{Like this one!}}}, and more!
+It comes with a powerful markup language that includes the ability to execute embedded Scheme code (for example, the mini-REPL above), typeset LaTeX equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting,  automatic handling of #hashtags, [wiki-style links], and [normal Markdown hyperlinks](https://github.com/pulpgrinder/Fronkensteen), easy to use footnotes{{{Like this one!}}}, and more! The screen you're looking at right now is generated from a Fronkensteen markup file which contains some embedded Scheme code.
 
 @@ (button "#view-markup-docs" "Tell me more") @@
 
@@ -40,7 +40,9 @@ Perhaps you should begin with the tutorial.
 
 To do something other than view this page, you'll need to use the editor. The tutorial automatically opens the editor, but if you just want to use the editor, triple-click on this page (on a desktop machine) and the editor will open up, allowing you to edit the running code for the system. You can execute updated Scheme or JavaScript code directly from the editor. You can even edit the UI while it's actually running. Put that in hot reload's pipe and smoke it.
 
-Normally, you'd put all the code for your app in the app folder, but you're free to edit anything at all in the system, while keeping in mind that messing around with the underlying system files could potentially cause the system to not even load "With great power comes great responsibility." Make plenty of backups. :-)
+If you're looking for a place to start, try the files in the app folder, starting with app.scm.
+
+Normally, you'd put all the code for your app in the app folder, but you're free to edit anything at all in the system, while keeping in mind that messing around with the underlying system files could potentially cause the system to not even load. "With great power comes great responsibility." Make plenty of backups. :-)
 
 As with most large FOSS projects, Fronkensteen relies on components from many other developers and projects. However, particular credit should be given to the excellent [BiwaScheme interpreter](https://github.com/biwascheme/biwascheme) by Yutaka HARA. For a full list of credits/licenses, click the button below.
 

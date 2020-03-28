@@ -6,9 +6,8 @@ Fronkensteen is a self-contained Scheme development environment that works in an
 
 ## How to use
 
-Save the [fronkensteen.html](https://raw.githubusercontent.com/pulpgrinder/Fronkensteen/master/dist/fronkensteen.html) file to your hard drive, open it in a browser, and you're good to go.
-
-Triple-click to open the internal editor.
+For a possibly somewhat stable version, go to the [github.io page](https://pulpgrinder.github.io).
+To get the latest bleeding-edge version, save the [fronkensteen.html](https://raw.githubusercontent.com/pulpgrinder/Fronkensteen/master/dist/fronkensteen.html) file to your hard drive, open it in a browser, and you're good to go.
 
 
 
@@ -18,7 +17,7 @@ Triple-click to open the internal editor.
 
 **These instructions are only for those who are working on Fronkensteen internals.**
 
-If you want to work on the internals of Fronkensteen itself, as opposed to using Fronkensteen to create an app, read on.
+If you *do* want to work on the internals of Fronkensteen itself, as opposed to using Fronkensteen to create an app, read on.
 
 ## Install developer tools
 
@@ -29,11 +28,15 @@ If you want to work on the internals of Fronkensteen itself, as opposed to using
 ## Rebuilding the Fronkensteen system
 
 First, run:
+
 `node fronkensteen-baler`
+
 This generates all the packaged bales (see below) from the source code in the folders located in `bales-src`. The packaged bales are written to `bales-dist`. These are plain UTF-8 files.
 
 Next, run:
+
 `node fronkensteen-builder`
+
 This command gathers up the bales and generates the distributable fronkensteen.html file. This will be placed in the `dist` folder.
 
 

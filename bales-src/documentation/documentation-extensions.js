@@ -2,7 +2,8 @@
 // Procedures to handle the Fronkensteen documentation system
 // Copyright 2019 by Anthony W. Hursh
 // MIT License.
-// Parses out any Scheme procedures defined in the JavaScript code
+
+// Parses out any JavaScript glue procedures defined in the JavaScript code
 // in sourceData and adds them to the database.
 // Just looks for them using a regex. Probably should do something more
 // intelligent here.

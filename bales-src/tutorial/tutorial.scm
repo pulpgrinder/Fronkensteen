@@ -177,7 +177,7 @@
 ; This is a great introductory text.
 ;
 ; The Structure and Interpretation of Computer Programs, by Harold Abelson
-; and Gerald Jay Sussmanwith Julie Sussman. This is a challenging text for
+; and Gerald Jay Sussman with Julie Sussman. This is a challenging text for
 ; most beginners, but would be excellent after the Harvey and Wright book above.
 ; (in fact, that's one reason Harvey and Wright wrote their book... as a
 ; "prequel" of sorts to SICP).
