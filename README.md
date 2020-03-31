@@ -6,8 +6,8 @@ Fronkensteen is a self-contained Scheme development environment that works in an
 
 ## How to use
 
-For a possibly somewhat stable version, go to the [github.io page](https://pulpgrinder.github.io).
-To get the latest bleeding-edge version, save the [fronkensteen.html](https://raw.githubusercontent.com/pulpgrinder/Fronkensteen/master/dist/fronkensteen.html) file to your hard drive, open it in a browser, and you're good to go.
+For a (possibly) somewhat stable version, go to the [github.io page](https://pulpgrinder.github.io).
+To get the latest bleeding-edge version, clone this repo and follow the instructions below.
 
 
 
