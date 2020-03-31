@@ -33,7 +33,7 @@
   (<<
     (generate-header)
     (generate-body)
-    (generate-footer)))
+    (generate-footer)) #t)
 
 
 

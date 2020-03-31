@@ -58,7 +58,7 @@ Some HTML elements (such as buttons) can be "auto-wired". Using a button as an e
 
 ## jQuery Interface
 
-BiwaScheme has a nice, Scheme-like interface to jQuery. However, Fronkensteen opts for a more jQuery-like procedure syntax. This is handy because of the vast amount of jQuery code that exists on the net. Translating this code to work with Fronkensteen is pretty straight forward.
+BiwaScheme has a nice, Scheme-like interface to jQuery. However, Fronkensteen opts for a more jQuery-like procedure syntax. This is handy because of the vast amount of jQuery code that exists on the net. Translating this code to work with Fronkensteen is pretty straightforward.
 
 A jQuery call like:
 
@@ -67,7 +67,7 @@ $("#test-div").html("New text")
 
 ```
 
-maps in a straightforward fashion to:
+maps in a direct fashion to:
 
 ```
 (% "#test-div" "html" "New Text")

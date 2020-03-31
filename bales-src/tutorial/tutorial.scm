@@ -50,7 +50,7 @@
 ; The quote tells the system to return the following expression as a Scheme
 ; data structure, rather than evaluating it.
 ; The value of (alert "Hello, World") is the return value from showing an
-; alert on the screen (which is nothing) The value of `(alert "Hello, world!")
+; alert on the screen (which is nothing) The value of '(alert "Hello, world!")
 ; is a list containing the symbol alert and the string "Hello, World". Without
 ; the quote, alert is executed as a procedure, while with it, it's used
 ; as a symbol.
@@ -66,11 +66,11 @@
 
 ; Note that we're using the quote here. This is worth thinking about. What would
 ; happen if we left the quote off? Scheme would consider the argument for car
-; to be (1 2). The problem there is that when ittries to evaluate
+; to be (1 2). The problem there is that when it tries to evaluate
 ; (1 2), it produces an error. Why? Remember that Scheme expects the first
 ; item in a (non-quoted) list it's evaluating to be a procedure, and 1
 ; is not a procedure.
-; By quoting the `(1 2), we suppress evaluation and pass the list to car or cdr
+; By quoting the '(1 2), we suppress evaluation and pass the list to car or cdr
 ; as is. Try it without the quote to see the error message.
 
 (car (1 2))
@@ -102,7 +102,7 @@
 ; circumstance. :-)
 
 ; Speaking of procedure definitions, let's see how that works. Put the cursor
-; after the following definition and and evaluate it (click the walking person).
+; after the closing paren in (* x x)) and and evaluate it (click the walking person).
 
 (define (square x)
   (* x x))
@@ -145,7 +145,8 @@
 ; Now let's see how to interact with the DOM (the "web page"). Fronkensteen
 ; uses a jQuery-like syntax to do that.
 ; The "hide editor" button in the toolbar (the door icon at the extreme left)
-; has the HTML id: #fronkensteen-editor-hide-button (you can verify this by
+; has the HTML id fronkensteen-editor-hide-button, or
+; #fronkensteen-editor-hide-button as a jQuery selector(you can verify this by
 ; inspecting it in your browser's debugger). Let's say we don't like the door.
 ; We can use the jQuery interface to change it to anything we want.
 ; Try this:
@@ -162,9 +163,12 @@
 ; is being used to set the button's content to "Buh-bye". We could use any
 ; string we wanted in place of the "Buh-bye", including arbitrarily complex
 ; HTML code.
-; In standard jQuery for JavaScript, we'd write this as
+; In JavaScript, the equivalent jQuery expression would be:
 ; $("#fronkensteen-editor-hide-button).html("Buh-bye")
-
+; Note that despite the common complaint that Lisp-like languages have
+; too many parentheses, the Scheme version here actually has fewer
+; parentheses than the standard jQuery version. :-)
+;
 ; "Lisp isn't a language. It is a building material." -- Alan Kay
 
 ; This tutorial has necessarily been very brief. More docs are expected in the

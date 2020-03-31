@@ -7,3 +7,4 @@ tufte/et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf
 tufte/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.ttf
 tufte/tufte.css
 tufte/tufte.scm
+theme.scm

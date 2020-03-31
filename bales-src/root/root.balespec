@@ -3,6 +3,7 @@
 LICENSE-root.md
 LICENSE-Fronkensteen.md
 root.css
+stubs.scm
 fronkensteenlogo.png
 third-party-libs/jquery-3.4.1.min.js
 third-party-libs/underscore-min.js

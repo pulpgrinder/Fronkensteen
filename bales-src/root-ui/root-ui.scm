@@ -29,9 +29,12 @@
           (show-ui-panel (caar panel-stack))
           (set! panel-stack (cdr panel-stack)))))
 
-(define (set-main-content content)
+(define (set-main-content content trusted)
   (% "#fronkensteen-content" "html" content)
-  (process-embedded-code "#fronkensteen-content"))
+  (process-latex "#fronkensteen-content")
+  (if trusted
+    (process-embedded-code "#fronkensteen-content")
+    #f))
 
 
 (define (append-main-content content)

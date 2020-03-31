@@ -30,6 +30,11 @@ Fronkensteen aims to be a batteries-included development system. It has comprehe
 
 It comes with a powerful markup language that includes the ability to execute embedded Scheme code (for example, the mini-REPL above), typeset LaTeX equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting,  automatic handling of #hashtags, [wiki-style links], and [normal Markdown hyperlinks](https://github.com/pulpgrinder/Fronkensteen), easy to use footnotes{{{Like this one!}}}, and more! The screen you're looking at right now is generated from a Fronkensteen markup file which contains some embedded Scheme code.
 
+$${\int^a_b \frac{1}{3}x^3} dx$$
+
+
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
+
 @@ (button "#view-markup-docs" "Tell me more") @@
 
 # How Do I Use It?

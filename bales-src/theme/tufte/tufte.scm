@@ -1,4 +1,5 @@
-(install-css "tufte"
+(define (load-tufte)
+(install-css "fronkensteen-theme"
     (proc-css-list `(
       ("@font-face" (
         "font-family" "\"et-book\""
@@ -43,3 +44,4 @@
        "background-color" "blue"
        ))
        )))
+)
