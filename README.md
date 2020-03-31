@@ -4,7 +4,7 @@
 
 Fronkensteen is a self-contained Scheme development environment that works in any modern browser (i.e., just about everything other than Internet Explorer). You can write and execute apps with no external resources at all. No toolchain. No external editor. The entire system is contained in a single HTML file which can be put on a web server or even opened in the browser from the local file system.
 
-## How to use
+## Demo/How to use
 
 For a (possibly) somewhat stable version, go to the [github.io page](https://pulpgrinder.github.io).
 To get the latest bleeding-edge version, clone this repo and follow the instructions below.
