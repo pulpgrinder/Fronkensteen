@@ -1,9 +1,9 @@
 .DS_Store
-*.bale
+bales-dist/*
 npm-debug.log
 node_modules
 package-lock.json
 .settings
 attic
 publish_live_site
-dist/fronkensteen.html
+dist/*
