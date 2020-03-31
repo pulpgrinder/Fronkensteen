@@ -106,6 +106,7 @@
   (textarea (<<  editor-name ".fronkensteen-code-editor-text-area!filename='" filename "'") ""))
     (init-cm-editor! editor-name (editor-mode-for-file-extension (file-extension filename)))
     (set-cm-editor-text! editor-name (read-editor-text-file filename))
+    (clear-cm-editor-undo! editor-name)
     (set-cm-editor-clean! editor-name)
     (code-editor-add-filename-to-dropdown filename)
     (set-active-editor filename editor-name)

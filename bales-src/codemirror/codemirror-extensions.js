@@ -3,6 +3,22 @@
 // MIT License.
 
 
+BiwaScheme.define_libfunc("clear-cm-editor-undo!", 1, 1, function(ar,intp){
+  // Clears the undo buffer. Use after loading a file into a new editor,
+  // to keep repeated undos from winding up with an empty editor.
+    BiwaScheme.assert_string(ar[0]);
+    let editor = cm_editors[ar[0]];
+    if(editor !== undefined){
+      let doc = editor.getDoc();
+      doc.clearHistory();
+      return result;
+    }
+    else{
+      console.error("set-cm-editor-text!: No editor corresponding to " + ar[0]);
+      return null;
+    }
+})
+
 BiwaScheme.define_libfunc("set-cm-editor-text!", 2, 2, function(ar,intp){
   // Set the text for the CodeMirror editor named in ar[0] to the text in ar[1]
     BiwaScheme.assert_string(ar[0]);
