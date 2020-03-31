@@ -6,3 +6,4 @@ package-lock.json
 .settings
 attic
 publish_live_site
+dist/fronkensteen.html
