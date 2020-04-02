@@ -184,18 +184,18 @@ Fronkensteen.removeBale = function(bale_name){
     }
   }
   fronkensteen_fs["$$BALEMANIFEST$$"] = newbales;
-  scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
 }
 
-Fronkensteen.importBale = function(dataString){
+Fronkensteen.importBale = function(balefilename,dataString){
+  let balename = Fronkensteen.file_path(balefilename)
   let data = JSON.parse(dataString);
   let filenames = Object.keys(data);
-  let balename = "";
   let file_manifest = ""
   for(var i = 0; i < filenames.length; i++){
     if(filenames[i].match(/\$\$FILEMANIFEST\$\$$/) !== null){
       file_manifest = filenames[i];
-      balename = Fronkensteen.file_path(filenames[i]);
     }
   }
   if(balename === ""){
@@ -206,14 +206,19 @@ Fronkensteen.importBale = function(dataString){
   for(var i = 0; i < filenames.length; i++){
     fronkensteen_fs[filenames[i]] = data[filenames[i]];
   }
+
   fronkensteen_fs["$$BALEMANIFEST$$"].push(balename);
-  Fronkensteen.execute_bale(fronkensteen_fs[file_manifest]);
-  scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+  if(fronkensteen_fs[balename + "/" + "$$LOAD_BALE$$"] === true){
+    Fronkensteen.execute_bale(fronkensteen_fs[file_manifest]);
+  }
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
 }
 
 Fronkensteen.setBaleManifest = function(bale_array){
   fronkensteen_fs["$$BALEMANIFEST$$"] = bale_array;
-  scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
 }
 Fronkensteen.addFilenameToBale = function(filename,balename){
   let file_manifest_name = balename + "/$$FILEMANIFEST$$";
@@ -238,7 +243,8 @@ Fronkensteen.getBaleCode = function(balename){
 Fronkensteen.deleteInternalFile = function(filename){
   if(fronkensteen_fs[filename] !== undefined){
       delete fronkensteen_fs[filename];
-      scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
       return true;
   }
   else {
@@ -254,11 +260,24 @@ Fronkensteen.readInternalFile = function(filename){
   return null;
 }
 
+
+Fronkensteen.writeDataURLToInternalFile = function(filename,data){
+  console.log("Filename is " + filename)
+  let base64offset = data.indexOf("base64,");
+  console.log("base64 offset is " + base64offset)
+  data = data.substring(base64offset + 7);
+  console.log("Data is now " + data);
+  fronkensteen_fs[filename] = data;
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+  return true;
+}
 Fronkensteen.writeInternalFile = function(filename,data){
   let filetype = Fronkensteen.file_extension(filename);
   let mimetype = Stretchr.Filetypes.mimeFor(filetype)
   fronkensteen_fs[filename] = Fronkensteen.bytes_to_base_64(data,mimetype);
-  scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
   return true;
 }
 Fronkensteen.readInternalTextFile = function(filename){
@@ -358,7 +377,8 @@ BiwaScheme.define_libfunc("decode-base-64-text",1,1,function(ar){
 BiwaScheme.define_libfunc("get-file-tree",0,0,function(ar){
   // Returns a sorted vector of all the filenames in the filesystem,
   // exclusive of the $$*MANIFEST$$ files.
-  return scheme_interpreter.evaluate(Fronkensteen.fileTree());
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  return intp2.evaluate(Fronkensteen.fileTree());
 });
 BiwaScheme.define_libfunc("get-file-names",0,0,function(ar){
   // Returns a sorted vector of all the filenames in the filesystem,
@@ -374,10 +394,11 @@ BiwaScheme.define_libfunc("remove-bale",1,1,function(ar){
   BiwaScheme.assert_string(ar[0]);
   return Fronkensteen.removeBale(ar[0]);
 });
-BiwaScheme.define_libfunc("import-bale",1,1,function(ar){
+BiwaScheme.define_libfunc("import-bale",2,2,function(ar){
   // Removes the specified bale, if it is installed.
   BiwaScheme.assert_string(ar[0]);
-  return Fronkensteen.importBale(ar[0]);
+  BiwaScheme.assert_string(ar[1]);
+  return Fronkensteen.importBale(ar[0],ar[1]);
 });
 
 BiwaScheme.define_libfunc("set-bale-manifest",1,1,function(ar){
@@ -483,6 +504,11 @@ BiwaScheme.define_libfunc("write-internal-file", 2, 2, function(ar, intp){
     BiwaScheme.assert_string(ar[1]);
     return Fronkensteen.writeInternalFile(ar[0],ar[1]);
 });
+BiwaScheme.define_libfunc("write-data-url-to-internal-file", 2, 2, function(ar, intp){
+    BiwaScheme.assert_string(ar[0]);
+    BiwaScheme.assert_string(ar[1]);
+    return Fronkensteen.writeDataURLToInternalFile(ar[0],ar[1]);
+});
 
 BiwaScheme.define_libfunc("add-filename-to-bale", 2, 2, function(ar, intp){
   BiwaScheme.assert_string(ar[0]);
@@ -519,7 +545,8 @@ BiwaScheme.define_libfunc("hereload", 1, 1, function(ar, intp){
     let intp2 = new BiwaScheme.Interpreter(intp);
     let currentData = Fronkensteen.readInternalTextFile(path);
     let result = intp2.evaluate(Fronkensteen.renderReadTemplate(currentData));
-    if(Fronkensteen.CumulativeErrors !== []){
+    if(Fronkensteen.CumulativeErrors.length !== 0){
+      console.log("Errors in " + ar[0])
       result = result + "\n" + Fronkensteen.CumulativeErrors.join("\n");
       console.log(result);
     }

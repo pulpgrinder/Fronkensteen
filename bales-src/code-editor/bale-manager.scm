@@ -1,9 +1,9 @@
 
 (define (fronkensteen-bale-manager-add-bale_click)
-    (upload-file ".bale" bale_uploaded))
+    (upload-file ".bale" #t bale_uploaded))
 
-(define (bale_uploaded arg)
-  (console-log (import-bale (decode-base-64-text arg)))
+(define (bale_uploaded bale-name bale-data)
+  (console-log (import-bale bale-name (decode-base-64-text bale-data)))
   (init-bale-list)
   (build-file-display))
 
@@ -46,7 +46,7 @@
   (push-ui-panel)
   (show-ui-panel "#fronkensteen-bale-manager"))
 
-  
+
 (define (set-bale-load-status bales)
     (if (eqv? bales '())
       #t

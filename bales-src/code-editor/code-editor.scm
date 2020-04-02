@@ -75,7 +75,6 @@
 
 
 (define (display-text-file-editor filename)
-  (console-log (<< "displaying editor for " filename))
   (let ((editor-name (code-editor-element-for-filename filename)))
     (if (element-exists? editor-name)
       (set-active-editor filename editor-name)
@@ -90,7 +89,6 @@
           ((eqv? extension "js") (% ".fronkensteen-editor-javascript-button" "show"))))
 
 (define (set-active-editor filename editor-name)
-    (console-log (<< "Setting active editor, " filename "," editor-name))
     (cm-editor-hide-all)
     (cm-editor-show editor-name)
     (set! fronkensteen-active-editor-file filename)
@@ -101,7 +99,6 @@
 
 
 (define (create-text-file-editor filename editor-name)
-  (console-log (<< "Creating text editor, " filename "," editor-name))
   (% "#fronkensteen-editor-workspace" "append"
   (textarea (<<  editor-name ".fronkensteen-code-editor-text-area!filename='" filename "'") ""))
     (init-cm-editor! editor-name (editor-mode-for-file-extension (file-extension filename)))
@@ -112,6 +109,8 @@
     (set-active-editor filename editor-name)
     (% "#fronkensteen-editor-save-button" "show")
     (% "#fronkensteen-editor-close-button" "show"))
+
+
 
  (define (editor-dropdown-chosen)
       (display-file-editor (% "#fronkensteen-editor-current-filename" "val")))
@@ -183,9 +182,8 @@
     (let ((text (% target "text"))
           (text-html (% target "html"))
           (original-text (% target "attr" "original-text")))
-          (console-log (<< "new text is " text))
         (if (eqv? text-html original-text)
-            (console-log "unchanged")
+            #t
             (begin
               (let ((cleaned-text  (str-replace-re text "[\\s\\n]" "gm" "")))
                 (% target "html" cleaned-text)
@@ -199,6 +197,7 @@
       (alert "No file selected.")
       #f)
       (download-internal-file fronkensteen-selected-file)))
+
 
 (define (fronkensteen-editor-delete-file-button_click)
   (if (eqv? fronkensteen-selected-file #f)
@@ -323,33 +322,53 @@
   (show-bale-manager))
 
 
+(define (fronkensteen-editor-import-file-button_click)
+    (if (eqv? current-bale #f)
+      (begin
+        (alert "Please select a folder for the new file(s).")
+        #f)
+        (upload-file #f #t fronkensteen-editor-process-imported-file)))
+
+
+(define (fronkensteen-editor-process-imported-file file-name file-data)
+  (let ((fullpath  (<< current-bale "/" file-name)))
+  (fronkensteen-editor-prompt-create-file current-bale fullpath)
+  (write-data-url-to-internal-file fullpath file-data)
+  ))
+
+
+
 (define (fronkensteen-editor-new-file-button_click)
   (if (eqv? current-bale #f)
     (begin
       (alert "Please select a folder for the new file.")
       #f)
     (begin
-        (let ((base-name (prompt "name for new file?")))
+        (let ((base-name (prompt "Name for new file?")))
           (if (eqv? base-name "")
             #f
-            (let ((new-file-path (<< current-bale "/" base-name)))
-              (if (file-exists? new-file-path)
-                (begin
-                  (alert (<< new-file-path ": file already exists."))
-                  #t)
-                (begin
-                  (fronkensteen-editor-create-and-open-file current-bale new-file-path)
-                  #t
-                  )
-                  )))))))
+            (begin
+            (fronkensteen-editor-prompt-create-file current-bale (<< current-bale "/" base-name))
+            (display-file-editor (<< current-bale "/" base-name))))))))
 
 
+(define (fronkensteen-editor-prompt-create-file current-bale new-file-path)
+  (if (file-exists? new-file-path)
+    (if (eqv? (confirm (<< new-file-path  " exists. Overwrite it?")) #f)
+      #f
+      (begin
+        (delete-internal-file new-file-path)
+        (fronkensteen-close-editor-file new-file-path)
+        (fronkensteen-editor-create-file current-bale new-file-path)
+        #t))
+   (fronkensteen-editor-create-file current-bale new-file-path)))
 
-(define (fronkensteen-editor-create-and-open-file balename filename)
+
+(define (fronkensteen-editor-create-file balename filename)
     (write-internal-text-file filename "")
     (add-filename-to-bale filename balename)
     (build-file-display)
-    (display-file-editor filename))
+  )
 
 
 (define (fronkensteen-editor-close-button_click)

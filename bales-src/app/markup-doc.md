@@ -1,14 +1,14 @@
 ; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
 # Fronkensteen Markup
 
-All the normal Markdown stuff (including common extensions) is available, along with many added goodies.
+All the normal Markdown stuff (including several common extensions, such as superscript and subscript) is available, along with many added goodies.
 
 
 ## Inline formatting
 
 ### Hashtags
 
-You can freely use #hashtags in your text. These will be replaced with a link with the `hashtag` class. It's up to you to find these (using jQuery functions, for example) and make them do something useful.
+You can freely use #hashtags in your text. These will be replaced with a link with the `hashtag` class. The default procedure when a hashtag is clicked is to bring up an alert box informing the user that they've clicked a hashtag. To do something more useful, redefine the `(hashtag_click target link-text)` procedure. The first argument is the jQuery object containing the hashtag, the second is the link's text.
 
 ### Wiki-style links
 
@@ -25,6 +25,8 @@ will produce:
 
 [This is another wiki page]
 
+As with hashtags, the default procedure when a wikilink is clicked is to bring up an alert box informing the user that they've clicked a wikilink. To do something more useful, redefine the `(wikilink_click target link-text)` procedure. Again, the first argument is the jQuery object containing the wikilink, the second is the link's text.
+
 ### External (web) links
 
 These are the standard Markdown links. They consist of a title in square brackets (like the wiki-style links) followed by the URL for an external web site contained in parentheses.
@@ -39,6 +41,14 @@ These are the standard Markdown links. They consist of a title in square bracket
 will produce:
 
 [English Wikipedia](http://en.wikipedia.org)
+
+The default procedure when an external link is clicked is to open the URL in a new browser window (or tab, depending on how you have your browser configured). This is to prevent accidentally navigating away from the Fronkensteen app, potentially losing unsaved data. You can change this by redefining the `(external-link_click target url)` procedure. Here, the first argument is the jQuery object containing the external link, the second is the link's URL. If you really did want to navigate away from the Fronkensteen app, you could do something like:
+
+```
+(define (external-link_click target url)
+  (navigate-url url))
+```
+
 
 ### Font and text decorations
 
@@ -278,3 +288,9 @@ You can even embed Fronkensteen markup in the file.
 produces:
 
 @@(button "Hello!")@@
+
+**This feature must be used with care.** Enabling it for random code you grabbed from the net would be a Bad Thing.
+
+The text-processor bale defines two versions of the high-level text-processor procedure, trusted-text-processor and untrusted-text-processor. At a lower level,  the markdown-it bale provides two versions of the low-level markdown handler procedure, markdown and trusted-markdown. The trusted-text-processor procedure calls trusted-markdown, while the untrusted-text-processor procedure calls plain markdown.
+
+The trusted versions of these procedure enable the processing of embedded Scheme code, while the untrusted versions do not. There are some other security restrictions on the untrusted versions. For example, the trusted versions will allow embedded raw HTML code, while the untrusted ones do not.

@@ -13,7 +13,8 @@ window.onkeydown = function(e) { keys[e.keyCode] = true; }
   console.log("Setting beforeunload handler")
 
   window.addEventListener('beforeunload', function (e) {
-  let system_dirty = scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["is-system-dirty?"], []);
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  let system_dirty = intp2.invoke_closure(BiwaScheme.TopEnv["is-system-dirty?"], []);
  if(system_dirty === true){
     e.preventDefault();
     e.returnValue = 'This app may have unsaved data. Are you sure you want to leave?';
@@ -49,7 +50,8 @@ BiwaScheme.define_libfunc("cumulative-errors", 0, 0, function(ar){
 BiwaScheme.define_libfunc("eval-scheme-string", 1,1, function(ar){
   Fronkensteen.CumulativeErrors = [];
   BiwaScheme.assert_string(ar[0]);
-  result = scheme_interpreter.evaluate(ar[0]) + Fronkensteen.CumulativeErrors.join("\n");
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  result = intp2.evaluate(ar[0]) + Fronkensteen.CumulativeErrors.join("\n");
   Fronkensteen.CumulativeErrors = [];
   return result;
 });
@@ -112,7 +114,8 @@ BiwaScheme.define_libfunc("reload",0, 0, function(ar){
 BiwaScheme.define_libfunc("js-biwa-evaluate", 1, 1, function(ar){
    // Evaluate a Scheme expression in the base interpreter.
     BiwaScheme.assert_string(ar[0]);
-    var result = scheme_interpreter.evaluate(ar[0]);
+    var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+    var result = intp2.evaluate(ar[0]);
     var resultstring;
     if(result === undefined){
         return "#<undef>"

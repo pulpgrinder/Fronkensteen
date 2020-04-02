@@ -11,7 +11,7 @@ BiwaScheme.define_libfunc("clear-cm-editor-undo!", 1, 1, function(ar,intp){
     if(editor !== undefined){
       let doc = editor.getDoc();
       doc.clearHistory();
-      return result;
+      return true;
     }
     else{
       console.error("set-cm-editor-text!: No editor corresponding to " + ar[0]);
@@ -225,7 +225,8 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
       result = " ; No balanced expression found preceding cursor."
     }
     else{
-      result = " ; value:  " + scheme_interpreter.evaluate(selection) + Fronkensteen.CumulativeErrors.join("\n");
+      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      result = " ; value:  " + intp2.evaluate(selection) + Fronkensteen.CumulativeErrors.join("\n");
       Fronkensteen.CumulativeErrors = [];
     }
     doc.replaceSelection(doc.getSelection() + result);
@@ -248,7 +249,8 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
       let doc = editor.getDoc();
       let cursor = doc.getCursor();
       let text = editor.getValue();
-      result = " ; value: " + scheme_interpreter.evaluate(text) + Fronkensteen.CumulativeErrors.join("\n");
+      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      result = " ; value: " + intp2.evaluate(text) + Fronkensteen.CumulativeErrors.join("\n");
       Fronkensteen.CumulativeErrors = [];
       editor.setValue(text + result);
       return true;
@@ -365,7 +367,8 @@ BiwaScheme.define_libfunc("destroy-cm-editor!", 1, 1, function(ar,intp){
 let cm_editors = {};
 
 function focusFind(){
-  scheme_interpreter.evaluate("(focus-find)");
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  intp2.evaluate("(focus-find)");
   return true;
 }
 
@@ -813,5 +816,6 @@ BiwaScheme.define_libfunc("patch-poetry",1,1, function(ar){
 
 
 CodeMirror.commands.find = function(){
-  scheme_interpreter.evaluate("(% \"#code-editor-find-field\" \"focus\")")
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  intp2.evaluate("(% \"#code-editor-find-field\" \"focus\")")
 }

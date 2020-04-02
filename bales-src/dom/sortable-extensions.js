@@ -9,7 +9,8 @@ BiwaScheme.define_libfunc("sortable" ,1, 1, function(ar){
     onEnd: function(evt){
       let sort_proc = ar[0].replace(/^\#/,"") + "_sorted"
       if(BiwaScheme.is_procedure_defined(sort_proc)){
-        scheme_interpreter.evaluate("(" + sort_proc +  " \"" + evt.item.id + "\")");
+        var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+        intp2.evaluate("(" + sort_proc +  " \"" + evt.item.id + "\")");
         document.getElementById(evt.item.id).focus();
       }
       else{
@@ -21,7 +22,8 @@ BiwaScheme.define_libfunc("sortable" ,1, 1, function(ar){
     onChoose: function(evt){
       let choose_proc = ar[0].replace(/^\#/,"") + "_chosen"
       if(BiwaScheme.is_procedure_defined(choose_proc)){
-        scheme_interpreter.evaluate("(" + choose_proc + " " + evt.oldIndex + ")");
+        var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+        intp2.evaluate("(" + choose_proc + " " + evt.oldIndex + ")");
         return true;
       }
       else{

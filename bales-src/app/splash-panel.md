@@ -1,6 +1,6 @@
 ; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
 
-**This is still very much at the "moving fast and breaking things" stage. Sharp corners are pretthy much guaranteed to still be present. Report bugs on the [Fronkensteen project page](http://github.com/Fronkensteen).**
+**This is still very much at the "moving fast and breaking things" stage. Sharp corners are pretty much guaranteed to still be present. Report bugs on the [Fronkensteen project page](http://github.com/Fronkensteen).**
 
 # What is Fronkensteen?
 
@@ -39,7 +39,7 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
 
 # How Do I Use It?
 
-Perhaps you should begin with the tutorial.
+The tutorial might be a good place to start.
 
 @@ (button "#show-tutorial" "Tutorial") @@
 

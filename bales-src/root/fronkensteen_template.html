@@ -80,10 +80,11 @@ $$$FILESYSTEM$$$
   }
   Fronkensteen.execute_scheme_queue = function(){
     while(scheme_launcher.length > 0){
-      console.log("loading " + scheme_launcher[0])
-      scheme_interpreter.evaluate("(load \"" + scheme_launcher.shift() + "\")");
+      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      intp2.evaluate("(load \"" + scheme_launcher.shift() + "\")");
     }
-    scheme_interpreter.evaluate("(rebuild-documentation)");
+    var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+    intp2.evaluate("(rebuild-documentation)");
     console.log(Fronkensteen.CumulativeErrors.join("\n"));
     Fronkensteen.CumulativeErrors = [];
   }
@@ -110,12 +111,14 @@ $$$FILESYSTEM$$$
         Fronkensteen.execute_bale(file_manifest);
       }
       else {
-        console.log("Skipping bale: " + bale_manifest[i])
+        console.log("Skipping execution for bale: " + bale_manifest[i])
       }
     }
     scheme_interpreter = new BiwaScheme.Interpreter(Fronkensteen.onBiwaSchemeError)
-    scheme_interpreter.evaluate("(define baseload load)");
-    scheme_interpreter.evaluate("(define load hereload)");
+    var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+    intp2.evaluate("(define baseload load)");
+    intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+    intp2.evaluate("(define load hereload)");
     Fronkensteen.execute_scheme_queue();
     const urlParams = new URLSearchParams(window.location.search);
     const remote = urlParams.get('remote');

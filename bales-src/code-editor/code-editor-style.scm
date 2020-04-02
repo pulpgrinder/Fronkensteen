@@ -47,7 +47,7 @@
           "padding-left" "0.5em"
           "padding-right" "0.5em"
           "padding-bottom" "0.5em"
-          "bottom" "0em"
+          "bottom" "2em"
           "left" "0"
           "right" "15em"
           "top" "1.325em"
@@ -56,6 +56,19 @@
           "overflow" "auto"
           "font-family" "monospace"
           ))
+          ("#fronkensteen-editor-find-and-replace"(
+            "position" "fixed"
+            "padding-top" "0em"
+            "padding-left" "0.5em"
+            "padding-right" "0.5em"
+            "padding-bottom" "0.25em"
+            "bottom" "0em"
+            "left" "0"
+            "right" "15em"
+            "height" "2em"
+            "border" "1px solid gray"
+            "overflow" "auto"
+            ))
 
               (".fronkensteen-file-available-item" (
                 "position" "relative"

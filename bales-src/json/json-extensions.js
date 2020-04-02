@@ -3,7 +3,8 @@
 
 BiwaScheme.define_libfunc("json->scheme",1,1, function(ar){
   BiwaScheme.assert_string(ar[0]);
-  return scheme_interpreter.evaluate("(quote " + Fronkensteen.json2scheme(ar[0]) + ")");
+  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  return intp2.evaluate("(quote " + Fronkensteen.json2scheme(ar[0]) + ")");
 });
 
 Fronkensteen.json2scheme = function(str){

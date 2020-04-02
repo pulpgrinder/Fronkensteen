@@ -40,8 +40,9 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
       expr = expr.replace(/\&amp\;/g,'&');
       BiwaScheme.assert_string(ar[0]);
       console.log("expr is " + expr);
-      let result = scheme_interpreter.evaluate(expr);
-      if(Fronkensteen.CumulativeErrors !== []){
+      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      let result = intp2.evaluate(expr);
+      if(Fronkensteen.CumulativeErrors.length !== 0){
         console.log("Error evaluating " + expr + " in embedded Scheme code." + Fronkensteen.CumulativeErrors.join("\n"));
         Fronkensteen.CumulativeErrors = [];
       }
@@ -77,13 +78,16 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
 
   $(ar[0]).html($(ar[0]).html() + notes.join("\n"))
   $(ar[0] + " .fronkensteen-wikilink").click(function(evt){
-      scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["wikilink_click"], [$(evt.currentTarget),$(evt.currentTarget).html()])
+      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      intp2.invoke_closure(BiwaScheme.TopEnv["wikilink_click"], [$(evt.currentTarget),$(evt.currentTarget).html()])
   });
   $(ar[0] + " .fronkensteen-hashtag").click(function(evt){
-      scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["hashtag_click"], [$(evt.currentTarget),$(evt.currentTarget).html()])
+      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      intp2.invoke_closure(BiwaScheme.TopEnv["hashtag_click"], [$(evt.currentTarget),$(evt.currentTarget).html()])
   });
   $(ar[0] + " .fronkensteen-external-link").click(function(evt){
-      scheme_interpreter.invoke_closure(BiwaScheme.TopEnv["external-link_click"], [$(evt.currentTarget),$(evt.currentTarget).attr("external-link")])
+      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      intp2.invoke_closure(BiwaScheme.TopEnv["external-link_click"], [$(evt.currentTarget),$(evt.currentTarget).attr("external-link")])
   });
 
 });

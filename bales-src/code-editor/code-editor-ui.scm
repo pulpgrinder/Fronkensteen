@@ -30,13 +30,7 @@
         (button "#fronkensteen-editor-javascript-eval-button.fronkensteen-editor-button.fronkensteen-editor-mode-button.fronkensteen-editor-javascript-button!title='Evaluate Selected JavaScript'"  (fa-icon "s" "walking"))
         (button "#fronkensteen-editor-scheme-doc-button.fronkensteen-editor-button.fronkensteen-editor-mode-button.fronkensteen-editor-basic-button!title='Check Docs'" (fa-icon "s" "book"))
         (button "#fronkensteen-editor-bale-manager-button.fronkensteen-editor-button.fronkensteen-editor-basic-button!title='Show Bale Manager'" (fa-icon "s" "box"))
-        (input "#fronkensteen-editor-find-input!type='text'!size='15'")
-        (button "#fronkensteen-editor-find-button.fronkensteen-editor-button!title='Find'" "Find")
-        (input "#fronkensteen-editor-replace-input!type='text'!size='15'")
-        (button "#fronkensteen-editor-replace-button.fronkensteen-editor-button!title='Replace'" "Replace")
-        (button "#fronkensteen-editor-replace-all-button.fronkensteen-editor-button!title='Replace All'" "Replace All")
-        (input "#fronkensteen-editor-search-files-input!type='text'!size='15'")
-        (button "#fronkensteen-editor-search-files-button.fronkensteen-editor-button!title='Search Files'" "Search Files")
+
         (span "&nbsp;&nbsp;")
 
         (span "&nbsp;&nbsp;&nbsp;")
@@ -59,12 +53,24 @@
 (define (fronkensteen-editor-workspace) ; creates the container for code editors.
   (dv "#fronkensteen-editor-workspace" ""))
 
+(define (fronkensteen-editor-find-and-replace)
+  (dv "#fronkensteen-editor-find-and-replace" (<<
+    (input "#fronkensteen-editor-find-input!type='text'!size='15'")
+    (button "#fronkensteen-editor-find-button.fronkensteen-editor-button!title='Find'" "Find")
+    (input "#fronkensteen-editor-replace-input!type='text'!size='15'")
+    (button "#fronkensteen-editor-replace-button.fronkensteen-editor-button!title='Replace'" "Replace")
+    (button "#fronkensteen-editor-replace-all-button.fronkensteen-editor-button!title='Replace All'" "Replace All")
+    (input "#fronkensteen-editor-search-files-input!type='text'!size='15'")
+    (button "#fronkensteen-editor-search-files-button.fronkensteen-editor-button!title='Search Files'" "Search Files")
 
+    ))
+)
 (define (init-code-editor)
   (add-ui-panel "#fronkensteen-code-editor"
     (<<
       (fronkensteen-editor-controls)
       (fronkensteen-editor-sidebar)
-      (fronkensteen-editor-workspace)))
+      (fronkensteen-editor-workspace)
+      (fronkensteen-editor-find-and-replace)))
 
   (init-bale-manager))

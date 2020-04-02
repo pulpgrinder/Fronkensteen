@@ -57,8 +57,10 @@
                 console.error("Invalid signature from remote client! Check passphrase.");
                 return;
             }
-            let result = scheme_interpreter.evaluate(Fronkensteen.renderReadTemplate(expr)) + "";
-            if(Fronkensteen.CumulativeErrors !== []){
+
+            var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+            let result = intp2.evaluate(Fronkensteen.renderReadTemplate(expr)) + "";
+            if(Fronkensteen.CumulativeErrors.length !== 0){
               result = result + "\n" + Fronkensteen.CumulativeErrors.join("\n");
               Fronkensteen.CumulativeErrors = [];
             }
@@ -117,7 +119,8 @@ BiwaScheme.define_libfunc("remote-evaluate", 1, 1, function(ar){
 // Default result display. Just passes the result off to the display-repl-result procedure in Scheme (which needs to be defined by the user).
 Fronkensteen.displayReplResult = function(result){
 let resultString = "(display-repl-result " + Fronkensteen.patchReplQuotes(result) + ")"
-scheme_interpreter.evaluate(resultString);
+var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+intp2.evaluate(resultString);
 }
 
 BiwaScheme.define_libfunc("launch-remote-repl-client", 0, 0, function(ar){
