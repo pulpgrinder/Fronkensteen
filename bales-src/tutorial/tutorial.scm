@@ -76,9 +76,11 @@
 (car (1 2))
 
 ; The car and cdr procedures take lists apart. Now let's see how to build them
-; up. The cons procedure takes two arguments, the second of which must be a
-; a list, including the empty list '(). It evaluates to a new list, with the
+; up. The cons procedure takes two arguments. If the second argument is a list,
+; including the empty list '(), cons produces a new list, with the
 ; first argument added to the beginning of the second argument.
+; (if the second argument is not a list, cons produces a "dotted pair", which
+; is beyond the scope of this tutorial).
 
 (cons 1 '(2 3))
 
