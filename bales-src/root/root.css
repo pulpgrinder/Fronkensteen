@@ -19,6 +19,9 @@ header {
 footer{
   font-size: 50%;
 }
+.smallfont{
+  font-size:50%;
+}
 #fronkensteen-wrapper{
   position:fixed;
   top:0;
