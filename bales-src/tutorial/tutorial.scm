@@ -7,12 +7,14 @@
 ; and source code for in-depth learning. A list of recommended resources is
 ; at the end of this file.
 
-; Secondly, in the Fronkensteen editor (which you are in now) you can execute
+; Secondly, in the Fronkensteen editor (which you are in now) you can evaluate
 ; a Scheme expression by placing the cursor at the end of the expression and
-; clicking the "walking person" icon. You can execute multiple
-; expresssions by selecting them with the mouse and clicking the walking person.
+; clicking the "walking person" icon, or by pressing
+; CTRL+E or Command+E (Mac). You can evaluate multiple expresssions
+; by selecting them with the mouse before clicking the walking person or
+; pressing CTRL (or CMD)+E.
 
-; There's also a "running person" that executes all the code in the current
+; There's also a "running person" that evaluates all the code in the current
 ; file without selecting anything. We won't be using that in this tutorial, but
 ; it's handy to have.
 
