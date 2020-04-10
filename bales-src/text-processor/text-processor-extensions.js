@@ -6,7 +6,7 @@
 
 BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
     BiwaScheme.assert_string(ar[0]);
-    // Replaces any hyperlinks in the specified HTML element with a # link
+    // Replaces any hyperlinks in the specified HTML element with a pseudo-link
     // of a special CSS class. The original link is saved in an "external-link"
     // attribute. This prevents navigating away from the Fronkensteen page when
     // a link is clicked (but requires that you write your own custom handler
@@ -20,14 +20,13 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
        if(this.href.indexOf(Fronkensteen.docroot) !== 0){
         $(this).attr("external-link", this.href);
         $(this).attr("class", "fronkensteen-external-link");
-        this.href = "#";
+        this.href = 'javascript:void(0)';
       }
     });
   $(ar[0] + " p").each(function(){
     Fronkensteen.CumulativeErrors = [];
     let text = this.innerHTML;
     text = text.replace(/\@\@([\s\S]*?)\@\@/gm,function(match,cap) {
-      console.log("Capture is " + cap)
       var expr = Fronkensteen.renderREPLTemplate(cap);
       // This is ugly hackery. Try to handle it better. Ideally processing
       // embedded Scheme would happen further upstream.
@@ -39,8 +38,7 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
       expr = expr.replace(/\&gt\;/g,'>');
       expr = expr.replace(/\&amp\;/g,'&');
       BiwaScheme.assert_string(ar[0]);
-      console.log("expr is " + expr);
-      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       let result = intp2.evaluate(expr);
       if(Fronkensteen.CumulativeErrors.length !== 0){
         console.log("Error evaluating " + expr + " in embedded Scheme code." + Fronkensteen.CumulativeErrors.join("\n"));
@@ -55,7 +53,7 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
   $(ar[0] + " p").each(function(){
     let text = this.innerHTML;
     text = text.replace(/\#([a-zA-Z0-9]+)/gm,function(match, capture) {
-         let result = "<a href='#' class='fronkensteen-hashtag has-text-link'>#" + capture + "</a>";
+         let result = "<a href='javascript:void(0)' class='fronkensteen-hashtag has-text-link'>#" + capture + "</a>";
          return result;
        });
 
@@ -64,12 +62,12 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
          let noteid = uuid();
          let noteanchor = "note-anchor-" + noteid;
          let notelink = "note-link-" + noteid;
-         notes.push("<p><a id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + notecounter + "</a>&nbsp;" + capture + "</p>");
-        return "<a id='" + noteanchor + "' href='#" + notelink + "'><sup>" + notecounter + "</sup></a>" });
+         notes.push("<p><a class='fronkensteen-footnote' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + notecounter + "</a>&nbsp;" + capture + "</p>");
+        return "<a class='fronkensteen-footnote-link' id='" + noteanchor + "' href='#" + notelink + "'><sup>" + notecounter + "</sup></a>" });
 
       text = text.replace(/\[(.*?)\]/g,function(match,capture) {
              let result =
-             "<a href='#' class='fronkensteen-wikilink has-text-link'>" + capture + "</a>";
+             "<a href='javascript:void(0)' class='fronkensteen-wikilink has-text-link'>" + capture + "</a>";
              return result;
            }
         );
@@ -78,15 +76,15 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
 
   $(ar[0]).html($(ar[0]).html() + notes.join("\n"))
   $(ar[0] + " .fronkensteen-wikilink").click(function(evt){
-      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       intp2.invoke_closure(BiwaScheme.TopEnv["wikilink_click"], [$(evt.currentTarget),$(evt.currentTarget).html()])
   });
   $(ar[0] + " .fronkensteen-hashtag").click(function(evt){
-      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       intp2.invoke_closure(BiwaScheme.TopEnv["hashtag_click"], [$(evt.currentTarget),$(evt.currentTarget).html()])
   });
   $(ar[0] + " .fronkensteen-external-link").click(function(evt){
-      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       intp2.invoke_closure(BiwaScheme.TopEnv["external-link_click"], [$(evt.currentTarget),$(evt.currentTarget).attr("external-link")])
   });
 
@@ -139,8 +137,8 @@ BiwaScheme.define_libfunc("process-notes",1,1, function(ar){
       let noteid = uuid();
       let noteanchor = "note-anchor-" + noteid;
       let notelink = "note-link-" + noteid;
-      notes.push("<p><a id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + notecounter + "</a>&nbsp;" + capture + "</p>");
-     return "<a id='" + noteanchor + "' href='#" + notelink + "'><sup>" + notecounter + "</sup></a>" });
+      notes.push("<p><a class='footnote' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + notecounter + "</a>&nbsp;" + capture + "</p>");
+     return "<a class='footnote-link' id='" + noteanchor + "' href='#" + notelink + "'><sup>" + notecounter + "</sup></a>" });
 return processed + notes.join("\n");
 
 });
@@ -162,21 +160,21 @@ BiwaScheme.define_libfunc("process-embedded-scheme",1,1, function(ar,intp){
 
 
 BiwaScheme.define_libfunc("process-hashtags",1,1, function(ar,intp){
- // Replace hashtags in the text with a # hyperlink with "hashtag" CSS class.
+ // Replace hashtags in the text with a pseudo-hyperlink with "hashtag" CSS class.
    BiwaScheme.assert_string(ar[0]);
    let processed = ar[0].replace(/\#([a-zA-Z0-9]+)/gm,function(match,capture) {
-            let result =  "<a href='#' class='hashtag'>#" + capture + "</a>";
+            let result =  "<a href='javascript:void(0)' class='hashtag'>#" + capture + "</a>";
             return result;
    });
    return processed;
  });
 
 BiwaScheme.define_libfunc("process-wikilinks",1,1, function(ar,intp){
-  // Replace text in [ ] brackets with a # hyperlink with "wikilink" CSS class.
+  // Replace text in [ ] brackets with a pseudo-hyperlink with "wikilink" CSS class.
   BiwaScheme.assert_string(ar[0]);
   let processed = ar[0].replace(/\[(.*?)\]/g,function(match,capture) {
        let result =
-       "<a href='#' class='wikilink'>" + capture + "</a>";
+       "<a href='javascript:void(0)' class='wikilink'>" + capture + "</a>";
        return result;
      }
   );
@@ -186,7 +184,7 @@ BiwaScheme.define_libfunc("process-wikilinks",1,1, function(ar,intp){
 
 
 BiwaScheme.define_libfunc("externalize-hyperlinks" ,1, 1, function(ar){
-  // Replaces any hyperlinks in the specified HTML element with a # link
+  // Replaces any hyperlinks in the specified HTML element with a pseudo-link
   // of a special CSS class. The original link is saved in an "external-link"
   // attribute. This prevents navigating away from the Fronkensteen page when
   // a link is clicked (but requires that you write your own custom handler
@@ -199,9 +197,8 @@ BiwaScheme.define_libfunc("externalize-hyperlinks" ,1, 1, function(ar){
    {
      if(this.href.indexOf(Fronkensteen.docroot) !== 0){
       $(this).attr("external-link", this.href);
+      this.href = 'javascript:void(0)';
       $(this).attr("class", "external-link");
-      $(this).html($(this).html() + "<span class='icon'><i class='fas fa-external-link-alt'></i></span>")
-      this.href = "#";
     }
    });
   return true;
