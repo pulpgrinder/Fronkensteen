@@ -32,7 +32,7 @@
     (% "#fronkensteen-documentation-source-line-number" "html" "")
 )
 (define (fronkensteen-documentation-done-button_click)
-    (pop-ui-panel))
+    (nav-go-back))
 
 (define (fronkensteen-update-documentation-button_click)
     (if (eqv? (% "#fronkensteen-documentation-procedure-name" "attr" "procname") "")
@@ -60,7 +60,7 @@
         (if (eq? source-file-name "")
             (alert "No source file specified.")
             (begin
-                (pop-ui-panel)
+                (nav-go-back)
                 (display-file-editor source-file-name)
                 (cm-editor-scroll-to-line (code-editor-element-for-filename fronkensteen-active-editor-file)
                   (string->number(% "#fronkensteen-documentation-source-line-number" "html"))
