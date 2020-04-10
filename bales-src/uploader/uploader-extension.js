@@ -37,7 +37,7 @@ Fronkensteen.uploadFile = function(type,multiple,proc){
       let reader = new FileReader();
       reader.onloadend = (function(filename) {
         return function(evt) {
-          var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+          var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
           intp2.invoke_closure(proc, [filename, evt.target.result]);
         };
       })(curFiles[i].name);
@@ -47,7 +47,6 @@ Fronkensteen.uploadFile = function(type,multiple,proc){
 }
 
 Fronkensteen.downloadFile = function(filename,data,mime_type){
-//  let element = document.createElement('a');
   let element = document.getElementById("fronkensteen-download-link");
   if(element.href !== undefined){
     window.URL.revokeObjectURL(element.href);
