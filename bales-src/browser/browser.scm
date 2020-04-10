@@ -1,0 +1,5 @@
+(define (set-fav-icon filename)
+  (let ((imgdata (read-internal-data-url filename)))
+    (% "link[rel*='icon']" "remove")
+    (% "head" "append" (link (<< "!rel='shortcut icon'!type='image/png'!href=" imgdata "")))
+  ))
