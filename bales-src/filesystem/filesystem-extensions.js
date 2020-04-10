@@ -98,16 +98,6 @@ Fronkensteen.insertFileInTree = function(filepath,treeobject){
   }
     Fronkensteen.insertFileInTree(filepath,treeobject[filename]);
 }
-Fronkensteen.bytes_to_base_64 = function(buffer,mimetype){
-  var arr = new Uint8Array(buffer)
-  let raw = '';
-
-  for (let i = 0, l = arr.length; i < l; i++) {
-    raw += String.fromCharCode(arr[i]);
-  }
-  return btoa(raw);
-//  return 'data:' + mimetype + ';base64,' + btoa(raw);
-}
 
 Fronkensteen.base_64_to_bytes = function(string_buffer){
   //let datastart = string_buffer.substring(string_buffer.indexOf(",") + 1);
@@ -184,7 +174,7 @@ Fronkensteen.removeBale = function(bale_name){
     }
   }
   fronkensteen_fs["$$BALEMANIFEST$$"] = newbales;
-  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
 }
 
@@ -211,13 +201,13 @@ Fronkensteen.importBale = function(balefilename,dataString){
   if(fronkensteen_fs[balename + "/" + "$$LOAD_BALE$$"] === true){
     Fronkensteen.execute_bale(fronkensteen_fs[file_manifest]);
   }
-  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
 }
 
 Fronkensteen.setBaleManifest = function(bale_array){
   fronkensteen_fs["$$BALEMANIFEST$$"] = bale_array;
-  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
 }
 Fronkensteen.addFilenameToBale = function(filename,balename){
@@ -243,7 +233,7 @@ Fronkensteen.getBaleCode = function(balename){
 Fronkensteen.deleteInternalFile = function(filename){
   if(fronkensteen_fs[filename] !== undefined){
       delete fronkensteen_fs[filename];
-      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
       return true;
   }
@@ -268,15 +258,14 @@ Fronkensteen.writeDataURLToInternalFile = function(filename,data){
   data = data.substring(base64offset + 7);
   console.log("Data is now " + data);
   fronkensteen_fs[filename] = data;
-  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
   return true;
 }
 Fronkensteen.writeInternalFile = function(filename,data){
   let filetype = Fronkensteen.file_extension(filename);
-  let mimetype = Stretchr.Filetypes.mimeFor(filetype)
-  fronkensteen_fs[filename] = Fronkensteen.bytes_to_base_64(data,mimetype);
-  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  fronkensteen_fs[filename] = Fronkensteen.bytes_to_base_64(data);
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
   return true;
 }
@@ -377,7 +366,7 @@ BiwaScheme.define_libfunc("decode-base-64-text",1,1,function(ar){
 BiwaScheme.define_libfunc("get-file-tree",0,0,function(ar){
   // Returns a sorted vector of all the filenames in the filesystem,
   // exclusive of the $$*MANIFEST$$ files.
-  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   return intp2.evaluate(Fronkensteen.fileTree());
 });
 BiwaScheme.define_libfunc("get-file-names",0,0,function(ar){
