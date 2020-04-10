@@ -289,7 +289,7 @@ produces:
 
 @@(button "Hello!")@@
 
-**This feature must be used with care.** Enabling it for random code you grabbed from the net would be a Bad Thing.
+**This feature must be used with care.** Enabling it for random code you grabbed from the net, or for random code entered by your users, would obviously be a Bad Thing.
 
 The text-processor bale defines two versions of the high-level text-processor procedure, trusted-text-processor and untrusted-text-processor. At a lower level,  the markdown-it bale provides two versions of the low-level markdown handler procedure, markdown and trusted-markdown. The trusted-text-processor procedure calls trusted-markdown, while the untrusted-text-processor procedure calls plain markdown.
 

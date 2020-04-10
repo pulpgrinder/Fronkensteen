@@ -1,24 +1,26 @@
 ; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
 
-**This is still very much at the "moving fast and breaking things" stage. Sharp corners are pretty much guaranteed to still be present. Report bugs on the [Fronkensteen project page](http://github.com/Fronkensteen).**
+**This is still at the "moving fast and breaking things" stage. Sharp corners are pretty much guaranteed to still be present. Report bugs on the [Fronkensteen project page](http://github.com/Fronkensteen).**
 
 # What is Fronkensteen?
 
-It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser (i.e., not Internet Explorer). It can be put on a web server, or even loaded from the local file system with no server needed.
+It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser.{{{i.e., not Internet Explorer. Sorry.}}} Fronkesteen will work when loaded from a local disk. No server needed!
+
+It can also be put on a web server, copied onto a thumb drive, emailed... use your imagination!
 
 # Why?
 
-Those of us of a certain age have fond memories of using computers where you could just sit down, write some code, and run it. No external editors. No toolchains. No servers. It's an incredibly liberating and low-friction way of exploring the world of code. Sadly, those days appeared to be gone forever. The closest modern equivalent would probably be JavaScript (built into every modern browser) but doing anything really interesting with that requires using not one, but three languages (HTML, JavaScript, and CSS). It also requires an external editor, and perhaps a running web server. Not ideal. Fronkensteen is entirely contained in a single file. There's nothing extra to install for basic use.
+Those of us of a certain age have fond memories of using computers where you could just sit down, write some code, run it, debug it, and save it for future use. No external editors. No toolchains. No servers. It's an incredibly liberating and low-friction way of exploring the world of code. Sadly, those days appeared to be gone forever. The closest modern equivalent would probably be JavaScript (built into every modern browser) but doing anything really interesting with that requires using not one, but three languages (HTML, JavaScript, and CSS). It also requires an external editor, and perhaps a running web server. Not ideal. Fronkensteen is entirely contained in a single file. There's *nothing* extra to install for basic use.
 
 # Where Do I Get It?
 
 You're soaking in it. @@(fa-icon "r" "smile-beam")@@ This page itself is a running Fronkensteen app.  @@(button "#download-fronkensteen" "Get it now!")@@
 
-Clicking the button will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the code, and save it.
+Clicking the button will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the code, and save it as an HTML file on your local disk.
 
-This is a live Scheme environment. You can test it out by entering some Scheme code in the text box below and clicking the Eval button.
+This is a live Scheme environment. You can test it out by entering some Scheme code in the text box below and clicking the Evaluate button.
 
-@@(<< (textarea "#scheme-demo-text!rows='15'!cols='80'" "(car '(a b))") (button "#scheme-demo-eval" "Eval")@@
+@@(<< (textarea "#scheme-demo-text!rows='15'!cols='80'" "(define (square x)\n    (* x x))\n\n(square 10)") (button "#scheme-demo-eval" "Evaluate")@@
 
 @@(pre (code "#scheme-demo-result" ""))@@
 
@@ -28,7 +30,7 @@ Fronkensteen aims to be a batteries-included development system. It has comprehe
 
 @@ (button "#view-html-docs" "Tell me more") @@
 
-It comes with a powerful markup language that includes the ability to execute embedded Scheme code (for example, the mini-REPL above), typeset LaTeX equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting,  automatic handling of #hashtags, [wiki-style links], and [normal Markdown hyperlinks](https://github.com/pulpgrinder/Fronkensteen), easy to use footnotes{{{Like this one!}}}, and more! The screen you're looking at right now is generated from a Fronkensteen markup file which contains some embedded Scheme code.
+It comes with a powerful markup language that includes the ability to execute embedded Scheme code (for example, the mini-REPL above), typeset LaTeX equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting,  automatic handling of #hashtags, [wiki-style links], and [normal Markdown hyperlinks](https://github.com/pulpgrinder/Fronkensteen), easy to use footnotes{{{Like this one!}}}, and more! The screen you're looking at right now is generated from a Fronkensteen markup file which contains embedded Scheme code.
 
 $${\int^a_b \frac{1}{3}x^3} dx$$
 
@@ -47,8 +49,10 @@ To do something other than view this page, you'll need to use the editor. The tu
 
 If you're looking for a place to start, try the files in the app folder, starting with app.scm.
 
-Normally, you'd put all the code for your app in the app folder, but you're free to edit anything at all in the system, while keeping in mind that messing around with the underlying system files could potentially cause the system to not even load. "With great power comes great responsibility." Make plenty of backups. :-)
+By convention, you'd put all the code for your app in the app folder, but you're free to edit anything at all in the system. Just keep in mind that messing around with the underlying system files could potentially cause the system to not even load the next time you run it. "With great power comes great responsibility." Make plenty of backups. :-)
 
-As with most large FOSS projects, Fronkensteen relies on components from many other developers and projects. However, particular credit should be given to the excellent [BiwaScheme interpreter](https://github.com/biwascheme/biwascheme) by Yutaka HARA. For a full list of credits/licenses, click the button below.
+# Credits
+
+The Fronkesteen system is copyright 2020 by Anthony W. Hursh. As with most large FOSS projects, Fronkensteen relies on components from many other developers and projects. However, particular credit should be given to the excellent [BiwaScheme interpreter](https://github.com/biwascheme/biwascheme) by Yutaka HARA. For a full list of credits/licenses, click the button below.
 
 @@(button "#view-fronkensteen-licenses" "View Licenses")@@
