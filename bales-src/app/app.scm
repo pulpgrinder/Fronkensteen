@@ -12,7 +12,7 @@
 (define (generate-header)
   (header
     (<<
-      (internal-image "root/fronkensteenlogo.png")
+      (internal-image "!title='Fronkensteen logo'" "root/fronkensteenlogo.png")
       (h1 "Fronkensteen"))))
 
 
@@ -45,10 +45,15 @@
 
 (wire-ui)
 
-; Set the app name (base filename for saving the workspace) and window title.
+; Set the app name (i.e., the base filename for saving the workspace).
+; Just an example of how to do it; the default app name is already "fronkensteen"
+(set-app-name "fronkensteen")
 
-(set-app-name "fronkensteen" "Feed My Fronkensteen")
+; Set the window title (shows up in tabs, etc.)
+(set-document-title "Feed My Fronkensteen")
 
+; Set the favicon. Does not seem to work on Safari, unfortunately.
+(set-fav-icon "root/fronkensteenicon.png")
 
 ; runs when the #download-fronkensteen button is clicked.
 (define (download-fronkensteen_click)
