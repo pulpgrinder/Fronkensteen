@@ -119,7 +119,6 @@
      (if (element-exists? "#fronkensteen-code-editor")
       (begin
         (build-file-display)
-        (push-ui-panel)
         (show-ui-panel "#fronkensteen-code-editor"))
       (console-log "Code editor not inited.")))
 
@@ -133,7 +132,7 @@
       (fronkensteen-editor-file-renamed ev))))
 
  (define (hide-code-editor)
-     (pop-ui-panel))
+     (nav-go-back))
 
 
 (define (fronkensteen-editor-filename-focused evt)
@@ -241,6 +240,38 @@
       (begin
       (save-editor-file fronkensteen-active-editor-file))))
 
+(define (keyboard-repl)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (if (str-match? fronkensteen-active-editor-file ".scm$" "")
+      (fronkensteen-editor-scheme-eval-button_click)
+      (if (str-match? fronkensteen-active-editor-file ".js$" "")
+        (fronkensteen-editor-javascript-eval-button_click)
+        #f))))
+
+(define (fronkensteen-editor-find-button_click)
+  (let ((foldcase (checkbox-checked? "#fronkensteen-editor-find-ignorecase"))
+      (use-regex (checkbox-checked? "#fronkensteen-editor-find-regex"))
+      (search-backward (checkbox-checked? "#fronkensteen-editor-find-searchbackward"))
+      (lemma (% "#fronkensteen-editor-find-input" "val")))
+        (if (eqv? fronkensteen-active-editor-file #f)
+          (alert "No editor open.")
+          (begin
+            (let ((editor (code-editor-element-for-filename fronkensteen-active-editor-file)))
+              (if (eqv? (cm-find editor lemma (fronkensteen-editor-next-search-position editor) foldcase use-regex search-backward) #f)
+                (alert "Not found.")
+              #t))))))
+
+(define (fronkensteen-editor-next-search-position editor)
+    (let ((cursor-position (cm-editor-get-cursor-position editor)))
+      (if (checkbox-checked? "#fronkensteen-editor-find-searchbackward")
+        (let ((last-line (vector-ref cursor-position 0))
+            (last-ch (vector-ref cursor-position 1)))
+            (if (eqv? last-ch 0)
+              `#(,(- last-line 1) (string-length (cm-editor-get-line editor (- last-line 1))))
+              `#(,last-line ,(- last-ch 1))))
+      cursor-position)))
+
 (define (fronkensteen-editor-scheme-eval-button_click)
   (if (eqv? fronkensteen-active-editor-file #f)
     #f
@@ -276,7 +307,6 @@
     #f
       (let ((active-editor-id (code-editor-element-for-filename fronkensteen-active-editor-file)))
         (let ((procedure-name (cm-editor-get-procedure-at-cursor active-editor-id)))
-          (push-ui-panel)
           (show-ui-panel "#fronkensteen-documentation")
           (if (eqv? procedure-name #f)
             (show-procedure-documentation "")
@@ -441,6 +471,8 @@
 (define (write-editor-text-file filename text)
   (write-internal-text-file filename text))
 
+(define (focus-find)
+  (% "#fronkensteen-editor-find-input" "focus"))
 
 ; Toggle to internal code editor on triple-click.
 
