@@ -3,6 +3,62 @@
 // MIT License.
 
 
+BiwaScheme.define_libfunc("cm-find", 6, 6, function(ar,intp){
+  // Runs a search of the active document. Args are:
+  // editor, search lemma, start position, foldcase, regex, search_backward.
+  // Start position is in [line,ch] format. foldcase, regex,
+  // and search_backwards are boolean.
+  // Returns  [result.from.line,result.from.ch,result.to.line,result.to.ch]
+  // if found, false if
+  // no match.
+    BiwaScheme.assert_string(ar[0]);
+    BiwaScheme.assert_string(ar[1]);
+    BiwaScheme.assert_vector(ar[2]);
+    let editor_name = ar[0];
+    console.log("editor_name: " + editor_name)
+    let search_lemma = ar[1];
+    console.log("search_lemma: " + search_lemma)
+    let start = {line:ar[2][0],ch:ar[2][1]};
+    console.log("start: " + JSON.stringify(start));
+    let fold_case = ar[3];
+    console.log("fold_case: " + fold_case)
+    let is_regex = ar[4];
+    console.log("is_regex: " + is_regex)
+    let search_backward = ar[5];
+    let result = false;
+    let doc;
+    console.log("search: " + search_backward)
+    let editor = cm_editors[ar[0]];
+    if(editor !== undefined){
+      doc = editor.getDoc();
+      if(is_regex === true){ // Regexp search
+          if(search_backward === false){
+            result = CodeMirror.commands.searchRegexpForward(doc,new RegExp(search_lemma),start);
+          }
+          else{
+            result =  CodeMirror.commands.searchRegexpBackward(doc,new RegExp(search_lemma),start);
+         }
+      }
+      else { // String search.
+        if(search_backward === false){
+          result = CodeMirror.commands.searchStringForward(doc,search_lemma,start, fold_case);
+        }
+        else{
+          result =  CodeMirror.commands.searchStringBackward(doc,search_lemma,start,fold_case);
+       }
+      }
+    }
+    else{
+      console.error("cm-find: No editor corresponding to " + ar[0]);
+    }
+    if(result !== undefined){
+      doc.setSelection(result.from,result.to);
+      return [result.from.line,result.from.ch,result.to.line,result.to.ch];
+    }
+    else{
+      return false;
+    }
+})
 BiwaScheme.define_libfunc("clear-cm-editor-undo!", 1, 1, function(ar,intp){
   // Clears the undo buffer. Use after loading a file into a new editor,
   // to keep repeated undos from winding up with an empty editor.
@@ -225,7 +281,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
       result = " ; No balanced expression found preceding cursor."
     }
     else{
-      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       result = " ; value:  " + intp2.evaluate(selection) + Fronkensteen.CumulativeErrors.join("\n");
       Fronkensteen.CumulativeErrors = [];
     }
@@ -249,7 +305,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
       let doc = editor.getDoc();
       let cursor = doc.getCursor();
       let text = editor.getValue();
-      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       result = " ; value: " + intp2.evaluate(text) + Fronkensteen.CumulativeErrors.join("\n");
       Fronkensteen.CumulativeErrors = [];
       editor.setValue(text + result);
@@ -367,11 +423,20 @@ BiwaScheme.define_libfunc("destroy-cm-editor!", 1, 1, function(ar,intp){
 let cm_editors = {};
 
 function focusFind(){
-  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  setTimeout(function(){
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.evaluate("(focus-find)");
   return true;
+},15)
 }
 
+function runRepl(){
+  setTimeout(function(){
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+  intp2.evaluate("(keyboard-repl)");
+  return true;
+},15)
+}
 // Returns a vector of the ids of the textareas associated with each active CodeMirror editor.
 BiwaScheme.define_libfunc("get-cm-editor-ids",1,1,function(ar,intp){
   return Object.keys(cm_editors);
@@ -392,7 +457,18 @@ BiwaScheme.define_libfunc("init-cm-editor!", 2, 2, function(ar,intp){
        lineNumbers:true,
        mode:ar[1],
        extraKeys: {
-         "Alt-F": "focusFind"
+         "Cmd-F": function(){
+           focusFind();
+         },
+         "Ctrl-F": function(){
+           focusFind();
+         },
+         "Ctrl-E": function(){
+              runRepl();
+         },
+         "Cmd-E": function(){
+              runRepl()
+         }
          }
    } );
   activeCMEditor.focus();
@@ -435,6 +511,21 @@ class CMEditorDriver {
         console.error("No editor found for " + editorname)
       }
       editor.getDoc().setCursor(line,column)
+    }
+    getCursorPosition(editorname){
+      let editor = cm_editors[editorname];
+      if(editor === undefined){
+        console.error("No editor found for " + editorname)
+      }
+      let cursor = editor.getCursor("to");
+      return [cursor.line,cursor.ch];
+    }
+    getLine(editorname,line_number){
+      let editor = cm_editors[editorname];
+      if(editor === undefined){
+        console.error("No editor found for " + editorname)
+      }
+      return editor.getDoc().getLine(line_number);
     }
     scrollToLine(editorname,line){
       let editor = cm_editors[editorname];
@@ -753,6 +844,12 @@ BiwaScheme.define_libfunc("cm-editor-set-bold",1,1, function(ar){
 BiwaScheme.define_libfunc("cm-editor-set-cursor-position",3,3, function(ar){
   editDriver.setCursorPosition(ar[0],ar[1],ar[2]);
 });
+BiwaScheme.define_libfunc("cm-editor-get-cursor-position",1,1, function(ar){
+  return editDriver.getCursorPosition(ar[0]);
+});
+BiwaScheme.define_libfunc("cm-editor-get-line",2,2, function(ar){
+  return editDriver.getLine(ar[0],ar[1]);
+});
 BiwaScheme.define_libfunc("cm-editor-scroll-to-line",2,2, function(ar){
   editDriver.scrollToLine(ar[0],ar[1]);
 });
@@ -816,6 +913,6 @@ BiwaScheme.define_libfunc("patch-poetry",1,1, function(ar){
 
 
 CodeMirror.commands.find = function(){
-  var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.evaluate("(% \"#code-editor-find-field\" \"focus\")")
 }

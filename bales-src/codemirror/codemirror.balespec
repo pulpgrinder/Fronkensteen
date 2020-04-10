@@ -2,8 +2,10 @@
 #mandatory false
 LICENSE-codemirror.md
 codemirror.css
+codemirror.scm
 codemirror.js
 codemirror-extensions.js
+searchcursor.js
 markdown.js
 scheme.js
 matchbrackets.js

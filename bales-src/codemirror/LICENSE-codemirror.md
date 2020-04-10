@@ -9,8 +9,10 @@ css.js
 htmlmixed.js
 javascript.js
 markdown.js
-matchbrackets.js,scheme.js
-xml.js 
+matchbrackets.js
+scheme.js
+searchcursor.js
+xml.js
 ```
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
