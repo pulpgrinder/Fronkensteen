@@ -20,6 +20,48 @@ Fronkensteen.getLocalStorageItem = function(key){
   }
   return JSON.parse(rawItem);
 }
+
+var lastevent;
+window.onpopstate = function(event) {
+  if(BiwaScheme.is_procedure_defined("pop-browser-state_handler")){
+    var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+    let state = event.state;
+    if(state === null){
+      intp2.invoke_closure(BiwaScheme.TopEnv["pop-browser-state_handler"], [false])
+    }
+    else{
+      console.log("Popped state value: " + JSON.stringify(state))
+      intp2.invoke_closure(BiwaScheme.TopEnv["pop-browser-state_handler"],[JSON.stringify(state)])
+    }
+  }
+  else {
+    console.log("No pop-browser-state_handler defined.")
+  }
+};
+
+BiwaScheme.define_libfunc("doc-root", 0, 0, function(ar){
+  return Fronkensteen.docroot;
+});
+BiwaScheme.define_libfunc("push-browser-state", 3, 3, function(ar){
+    // Pushes the specified state in the window history.
+    BiwaScheme.assert_string(ar[0]); // State
+    console.log("push-browser-state: state is " + JSON.stringify(ar[0]));
+    BiwaScheme.assert_string(ar[1]); // Title (not supported by all browsers)
+    BiwaScheme.assert_string(ar[2]); // URL
+    console.log("Pushing state: " + ar[0] + " url: " + ar[2])
+    history.pushState(JSON.parse(ar[0]),ar[1],ar[2])
+});
+
+BiwaScheme.define_libfunc("replace-browser-state", 3, 3, function(ar){
+    // Replaces the current state in the window history.
+    BiwaScheme.assert_string(ar[0]); // State
+    console.log("replace-browser-state: state is " + JSON.stringify(ar[0]));
+    BiwaScheme.assert_string(ar[1]); // Title (not supported by all browsers)
+    BiwaScheme.assert_string(ar[2]); // URL
+    console.log("Pushing state: " + ar[0] + " url: " + ar[2])
+    history.replaceState(JSON.parse(ar[0]),ar[1],ar[2])
+});
+
 BiwaScheme.define_libfunc("get-local-storage-item", 1, 1, function(ar){
     // Retrieve the local storage item with the key in ar[0] (if any).
     // Otherwise returns null;
@@ -50,6 +92,29 @@ BiwaScheme.define_libfunc("set-local-storage-item!", 2, 2, function(ar){
 });
 
 
+
+BiwaScheme.define_libfunc("nav-go-forward", 0, 0, function(ar){
+  // Same effect as clicking the forward button.
+    history.go(1);
+});
+BiwaScheme.define_libfunc("nav-go-back", 0, 0, function(ar){
+    // Same effect as clicking the back button.
+    history.go(-1);
+});
+BiwaScheme.define_libfunc("nav-go-history", 1, 1, function(ar){
+  // Go to an arbitrary location in the browser's history.
+    history.go(ar[0]);
+});
+BiwaScheme.define_libfunc("window-object", 0, 0, function(ar){
+  // Return the URL for the current document.
+    return window;
+});
+
+BiwaScheme.define_libfunc("document-object", 0, 0, function(ar){
+  // Return the URL for the current document.
+    return document;
+});
+
 BiwaScheme.define_libfunc("window-location-href", 0, 0, function(ar){
   // Return the URL for the current document.
     return window.location.href;
@@ -57,27 +122,35 @@ BiwaScheme.define_libfunc("window-location-href", 0, 0, function(ar){
 
 BiwaScheme.define_libfunc("window-location-hash", 0, 0, function(ar){
   // Return the hash portion of the URL for the current document.
-  let url = new URL(window.location.href);
+  return window.location.hash;
+});
 
-    return url.hash;
+BiwaScheme.define_libfunc("window-location-replace!", 1, 1, function(ar){
+  // Prevent a navigation from appearing in the history.
+  window.location.replace(ar[0])
+});
+
+BiwaScheme.define_libfunc("set-window-location-hash!", 1, 1, function(ar){
+  //Set the hash portion of the URL for the current document.
+  if(window.location.hash !== ar[0]){ // We don't want to trigger a hashchange event if it hasn't actually changed.
+    window.location.hash = ar[0];
+  }
 });
 
 BiwaScheme.define_libfunc("window-location-host", 0, 0, function(ar){
   // Return the host:portnum portion of the URL for the current document.
-  let url = new URL(window.location.href);
-  return url.host;
+  return window.location.host;
 });
 
 BiwaScheme.define_libfunc("window-location-hostname", 0, 0, function(ar){
   // Return the host name (without the port) portion of the URL for the current document.
-  let url = new URL(window.location.href);
-  return url.hostname;
+  return window.location.hostname;
 });
+
 
 BiwaScheme.define_libfunc("window-location-origin", 0, 0, function(ar){
   // Return the scheme, domain, and port of the URL for the current document.
-  let url = new URL(window.location.href);
-  return url.origin;
+  return window.location.origin;
 });
 
 BiwaScheme.define_libfunc("window-location-password", 0, 0, function(ar){
@@ -88,20 +161,17 @@ BiwaScheme.define_libfunc("window-location-password", 0, 0, function(ar){
 
 BiwaScheme.define_libfunc("window-location-pathname", 0, 0, function(ar){
   // Return the pathname of the URL for the current document (preceded by a '/').
-  let url = new URL(window.location.href);
-  return url.pathname;
+  return window.location.pathname;
 });
 
 BiwaScheme.define_libfunc("window-location-port", 0, 0, function(ar){
   // Return the port number for the URL for the current document.
-  let url = new URL(window.location.href);
-  return url.pathname;
+  return window.location.pathname;
 });
 
 BiwaScheme.define_libfunc("window-location-search", 0, 0, function(ar){
   // Return the search (query) string for the URL for the current document.
-  let url = new URL(window.location.href);
-  return url.search;
+  return window.location.search;
 });
 
 BiwaScheme.define_libfunc("window-location-username", 0, 0, function(ar){
