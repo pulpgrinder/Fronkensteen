@@ -9,6 +9,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Fronkensteen">
+    <link rel="shortcut icon" id="favicon-png" type="image/png" href="data:;base64,iVBORw0KGgo=">
+
+
     <noscript>Sorry, Fronkensteen will not work without JavaScript enabled.</noscript>
     <title>Fronkensteen</title>
     <style>
@@ -18,17 +21,46 @@
   <body>
   <div id="fronkensteen-wrapper">
   </div>
-  <script type="text/javascript">
-$$$FILESYSTEM$$$
-  </script>
-  <script type="text/javascript">
+  <div id="fronkensteen-launch-debugger" style="display:none; z-index:50000;position:fixed;top:0;bottom:0;left:0;right:0;background-color:white;padding-left:2em;padding-right:2em;padding-top:1em;">
+    <div>
+      <button id="fronkensteen-debug-retry" onclick="Fronkensteen.saveAndRetryLaunch()">Save and Retry</button>
+       <button id="fronkensteen-debug-ignore" onclick="Fronkensteen.ignoreAndContinueLaunch()">Ignore and Continue</button>
+    <div id="fronkensteen-debug-error-message"></div>
+    <div id="fronkensteen-debug-filename"></div>
+    <div>Code:</div>
+    <textarea id="fronkensteen-debug-editor" rows="20" style="width:100%;border:1px solid grey;">
+    </textarea>
 
-
+  </div>
+  <script type="text/javascript">
   // Bare-bones object.
   // Functions and data fields are added to this object by the various bale extensions.
   let Fronkensteen = {
     CumulativeErrors:[]
   };
+
+  Fronkensteen.bytes_to_base_64 = function(buffer){
+    var arr = new Uint8Array(buffer)
+    let raw = '';
+    for (let i = 0, l = arr.length; i < l; i++) {
+      raw += String.fromCharCode(arr[i]);
+    }
+    return btoa(raw);
+  }
+
+</script>
+  <script type="text/javascript">
+    const urlParams = new URLSearchParams(window.location.search);
+    const debug = urlParams.get('debug');
+    if(debug !== null){
+      document.getElementById('fronkensteen-launch-debugger').style.display="block";
+    }
+  </script>
+  <script type="text/javascript">
+$$$FILESYSTEM$$$
+  </script>
+  <script type="text/javascript">
+
 
 
    function getFronkensteenLogo(){
@@ -39,54 +71,213 @@ $$$FILESYSTEM$$$
     }
     return "";
   }
+
+  // Reopen in an app-like "chromeless" window. Not used at present.
   function openAsApp() {
     let appWindowFeatures = "menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,width=" + window.width + ",height=" + window.height;
     let url = window.location.href;
     let appwindow = window.open(url, "Fronkensteen", appWindowFeatures);
     appwindow.focus();
   }
-  Fronkensteen.is_development_environment = true;
-  Fronkensteen.is_debug_environment = true;
 
-  Fronkensteen.addCSS = function(code){
+  // Fronkensteen launcher statistics.
+  Fronkensteen.balesLoaded = [];
+  Fronkensteen.baleErrors = [];
+  Fronkensteen.balesSkipped = [];
+  Fronkensteen.cssLoaded = [];
+  Fronkensteen.cssErrors = [];
+  Fronkensteen.jsLoaded = [];
+  Fronkensteen.jsErrors = [];
+  Fronkensteen.schemeLoaded = [];
+  Fronkensteen.schemeErrors = [];
+  Fronkensteen.logLaunchStatistics = function(){
+    console.log("Bales loaded:\n" + Fronkensteen.balesLoaded.join(", ") + "\n");
+    console.log("Bales skipped:\n" + Fronkensteen.balesSkipped.join(", ") + "\n")
+    console.log("Bales with errors:\n" + Fronkensteen.baleErrors.join(", ") + "\n")
+    console.log("CSS files loaded:\n" + Fronkensteen.cssLoaded.join(", ") + "\n")
+    console.log("CSS files with errors:\n" + Fronkensteen.cssErrors.join(", ") + "\n")
+    console.log("JS files loaded:\n" + Fronkensteen.jsLoaded.join(", ") + "\n")
+    console.log("JS files with errors:\n" + Fronkensteen.jsErrors.join(", ") + "\n")
+    console.log("Scheme files loaded:\n" + Fronkensteen.schemeLoaded.join(", ") + "\n")
+    console.log("Scheme files with errors:\n" + Fronkensteen.schemeErrors.join(", ") + "\n")
+    if(Fronkensteen.systemDirty === true){
+      alert("You have made changes to the running system. You will need to save the workspace if you want these changes to take permanent effect.")
+    }
+    window.removeEventListener('error',Fronkensteen.loadErrorHandler,false);
+    Fronkensteen.launchPhase = "done";
+  }
+  // Launch debugger state variables.
+  Fronkensteen.launchPhase = "js";
+  Fronkensteen.scheme_index = 0;
+  Fronkensteen.bale_index = 0;
+  Fronkensteen.file_index = 0;
+  Fronkensteen.loadError = false;
+
+  // Enable tabbing in the debugger text area.
+  // I like four spaces. If you don't, you know what to do. :-)
+  Fronkensteen.tabReplacement = "    ";
+  let debug_editor = document.getElementById("fronkensteen-debug-editor");
+  debug_editor.onkeydown = function(evt) {
+      if (evt.keyCode === 9) {
+          var val = this.value,
+          start = this.selectionStart,
+          end = this.selectionEnd;
+          this.value = val.substring(0, start) + Fronkensteen.tabReplacement + val.substring(end);
+          this.selectionStart = this.selectionEnd = start + Fronkensteen.tabReplacement.length;
+          return false;
+      }
+  };
+
+
+  Fronkensteen.loadErrorHandler = function(message, url, lineNumber) {
+    Fronkensteen.loadError = true;
+    console.log("Error at url: " + url + " message: " + message + "line number: " + lineNumber);
+    let filename = null;
+    if(Fronkensteen.currentSourceFile !== null){
+       Fronkensteen.errorFileName = Fronkensteen.currentSourceFile;
+       filename = Fronkensteen.currentSourceFile;
+    }
+      Fronkensteen.displayLaunchError(message,filename,lineNumber);
+      return true;
+    }
+
+  Fronkensteen.displayLaunchError = function(message,filename,lineNumber){
+    document.getElementById('fronkensteen-launch-debugger').style.display="block";
+    document.getElementById("fronkensteen-debug-error-message").innerHTML = message;
+    let filename_element = document.getElementById("fronkensteen-debug-filename")
+    let debug_editor = document.getElementById("fronkensteen-debug-editor");
+    if(filename !== null){
+      filename_element.innerHTML = "Filename: " + filename
+      debug_editor.value = Fronkensteen.decodeText(fronkensteen_fs[filename]);
+    }
+    else {
+      filename_element.innerHTML = "Filename: n/a";
+      debug_editor.value = ""
+    }
+    return true;
+  };
+
+  Fronkensteen.ignoreAndContinueLaunch = function(){
+      console.log("Ignoring error, attempting to continue.");
+      Fronkensteen.loadError = false;
+      if(Fronkensteen.launchPhase === "js"){
+        Fronkensteen.file_index = Fronkensteen.file_index + 1;
+      }
+      else if(Fronkensteen.launchPhase === "scheme"){
+      Fronkensteen.scheme_index = Fronkensteen.scheme_index + 1;
+    }
+    Fronkensteen.continueLaunch();
+  }
+
+  Fronkensteen.continueLaunch = function(){
+    Fronkensteen.loadError = false;
+    document.getElementById('fronkensteen-launch-debugger').style.display="none";
+    if(Fronkensteen.launchPhase === "js"){
+      console.log("restarting at bale: " + Fronkensteen.bale_index + " file: " + Fronkensteen.file_index);
+      Fronkensteen.launchSystem(Fronkensteen.bale_index,Fronkensteen.file_index);
+    }
+    else if(Fronkensteen.launchPhase === "scheme"){
+      console.log("restarting Scheme queue at index " + Fronkensteen.scheme_index);
+      Fronkensteen.execute_scheme_queue(Fronkensteen.scheme_index);
+    }
+    if(Fronkensteen.loadError === false){
+      Fronkensteen.logLaunchStatistics();
+    }
+}
+  Fronkensteen.saveAndRetryLaunch = function(){
+      console.log("Saving and retrying.");
+      if(Fronkensteen.errorFileName !== null){
+        let debug_editor = document.getElementById("fronkensteen-debug-editor");
+        let bindata = new TextEncoder("utf-8").encode(debug_editor.value);
+        fronkensteen_fs[Fronkensteen.errorFileName] = Fronkensteen.bytes_to_base_64(bindata);
+        Fronkensteen.systemDirty = true;
+        Fronkensteen.continueLaunch();
+      }
+    }
+    window.addEventListener('error',Fronkensteen.loadErrorHandler,false);
+
+    // Append a style element containing CSS code from the internal
+    // file system to the document head.
+  Fronkensteen.addCSS = function(filename,code){
+    Fronkensteen.currentSourceFile = filename;
     let style = document.createElement('style');
     style.type = 'text/css';
     style.appendChild(document.createTextNode(Fronkensteen.decodeText(code)));
     document.head.appendChild(style);
+    if(Fronkensteen.loadError === false){
+      Fronkensteen.cssLoaded.push(filename)
+    }
+    else{
+      Fronkensteen.cssErrors.push(filename)
+    }
+    Fronkensteen.currentSourceFile = null;
   }
+
+  // Append a script element containing JavaScript code from the internal
+  // file system to the document body.
   Fronkensteen.addJS = function(filename,code){
+   Fronkensteen.currentSourceFile = filename;
    let script = document.createElement('script');
     script.type = 'text/javascript';
     let jsCode = Fronkensteen.decodeText(code);
     script.appendChild(document.createTextNode(jsCode));
     document.body.appendChild(script);
-
+    if(Fronkensteen.loadError === false){
+      Fronkensteen.jsLoaded.push(filename)
+    }
+    else{
+      Fronkensteen.jsErrors.push(filename)
+    }
+    Fronkensteen.currentSourceFile = null;
   }
-  Fronkensteen.execute_bale = function(file_manifest){
-    for(var j = 0; j < file_manifest.length; j++){
+
+  // Process a bale from the internal file system.
+  Fronkensteen.execute_bale = function(file_manifest,start_index){
+    Fronkensteen.loadError = false;
+    for(var j = start_index; j < file_manifest.length; j++){
       let filename = file_manifest[j];
       if(filename.match(/\.scm$/) !== null){
-        scheme_launcher.push(filename);
+        Fronkensteen.scheme_launcher.push(filename);
       }
       if(filename.match(/\.css$/) !== null){
-        console.log("Adding CSS: " + filename);
-        Fronkensteen.addCSS(fronkensteen_fs[filename]);
+        Fronkensteen.cssLoaded.push(filename);
+        Fronkensteen.addCSS(filename,fronkensteen_fs[filename]);
       }
       if(filename.match(/\.js$/) !== null){
-        console.log("Adding JS: " + filename);
+        Fronkensteen.jsLoaded.push(filename);
         Fronkensteen.addJS(filename,fronkensteen_fs[filename]);
       }
+      if(Fronkensteen.loadError === true){
+        return;
+      }
+      Fronkensteen.file_index = Fronkensteen.file_index + 1;
     }
+    Fronkensteen.file_index = 0;
   }
-  Fronkensteen.execute_scheme_queue = function(){
-    while(scheme_launcher.length > 0){
-      var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
-      intp2.evaluate("(load \"" + scheme_launcher.shift() + "\")");
+
+  Fronkensteen.execute_scheme_queue = function(start_index){
+    Fronkensteen.loadError = false;
+    for(var i = start_index; i < Fronkensteen.scheme_launcher.length; i++){
+      if(Fronkensteen.loadError === true){
+        return;
+      }
+      Fronkensteen.currentSourceFile = Fronkensteen.scheme_launcher[i];
+      Fronkensteen.scheme_index = i;
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+      intp2.evaluate("(load \"" + Fronkensteen.scheme_launcher[i] + "\")");
+      if(Fronkensteen.loadError === false){
+        Fronkensteen.schemeLoaded.push(Fronkensteen.scheme_launcher[i])
+      }
+      else{
+        Fronkensteen.schemeErrors.push(Fronkensteen.scheme_launcher[i])
+      }
+      Fronkensteen.currentSourceFile = null;
     }
-    var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+    var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
     intp2.evaluate("(rebuild-documentation)");
     console.log(Fronkensteen.CumulativeErrors.join("\n"));
     Fronkensteen.CumulativeErrors = [];
+
   }
   Fronkensteen.decodeText = function(code){
     var byteCharacters = atob(code);
@@ -95,63 +286,74 @@ $$$FILESYSTEM$$$
     }
     return new TextDecoder("utf-8").decode(array);
   }
-  let scheme_launcher = [];
-  let scheme_interpreter = null;
-  console.log("Loaded.")
-  function promptForHomeScreenInstall(){
+  Fronkensteen.scheme_launcher = [];
+  Fronkensteen.scheme_intepreter = null;
+
+  Fronkensteen.promptForHomeScreenInstall = function(){
     // Functionality for later.
     //alert("Add to Home Screen.")
   }
-  function launchSystem(){
+
+  // System launcher.
+  // Boot up the app from the internal filesystem stored in the fronkensteen_fs object.
+  Fronkensteen.launchSystem = function(start_bale_index,start_file_index){
+    Fronkensteen.loadError = false;
+    Fronkensteen.launchPhase = "js";
     document.getElementById("fronkensteen-wrapper").innerHTML = ""
     let bale_manifest = fronkensteen_fs["$$BALEMANIFEST$$"];
-    for(var i = 0; i < bale_manifest.length; i++){
+    for(var i = start_bale_index; i < bale_manifest.length; i++){
+      if(Fronkensteen.loadError === true){
+        return;
+      }
+      Fronkensteen.bale_index = i;
       if(fronkensteen_fs[bale_manifest[i] + "/" + "$$LOAD_BALE$$"] === true){
         let file_manifest = fronkensteen_fs[bale_manifest[i] + "/" + "$$FILEMANIFEST$$"];
-        Fronkensteen.execute_bale(file_manifest);
+        if(i === start_bale_index){
+            Fronkensteen.execute_bale(file_manifest,start_file_index);
+        }
+        else{
+          Fronkensteen.execute_bale(file_manifest,0);
+        }
+        if(Fronkensteen.loadError === false){
+          Fronkensteen.balesLoaded.push(bale_manifest[i])
+        }
+        else{
+          Fronkensteen.baleErrors.push(bale_manifest[i])
+        }
       }
       else {
-        console.log("Skipping execution for bale: " + bale_manifest[i])
+        Fronkensteen.balesSkipped.push(bale_manifest[i]);
       }
     }
-    scheme_interpreter = new BiwaScheme.Interpreter(Fronkensteen.onBiwaSchemeError)
-    var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+    if(Fronkensteen.loadError === true){
+      return;
+    }
+    Fronkensteen.scheme_intepreter = new BiwaScheme.Interpreter(Fronkensteen.onBiwaSchemeError)
+    var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
     intp2.evaluate("(define baseload load)");
-    intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+    intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
     intp2.evaluate("(define load hereload)");
-    Fronkensteen.execute_scheme_queue();
-    const urlParams = new URLSearchParams(window.location.search);
+    Fronkensteen.launchPhase = "scheme";
+    Fronkensteen.execute_scheme_queue(0);
     const remote = urlParams.get('remote');
     if(remote !== null){
       if(Fronkensteen.remoteREPL !== undefined){
         Fronkensteen.remoteREPL.connect(true,null);
       }
     }
+    if(Fronkensteen.loadError === false){
+      Fronkensteen.logLaunchStatistics();
+    }
   }
-  // System launcher.
-  // Boot up the app from the internal filesystem stored in the fronkensteen_fs object.
 
-function setupAsApp(){
-    document.getElementById("fronkensteen-wrapper").innerHTML = "<div><img src='" + getFronkensteenLogo() + "'/><h1>Fronkensteen</hi></div><div></div><button onclick='openAsApp()'>Open in a Separate App Window (recommended)</button><button onclick='launchSystem()'>Open in the Current Browser Window</button></div>";
 
-}
-if(window.navigator.standalone !== undefined){
+if((window.navigator.standalone !== undefined) && (window.navigator.standalone === false)){
   // iOS, not already installed to home screen.
-  if(window.navigator.standalone === false){
-    promptForHomeScreenInstall();
-    launchSystem()
-  }
-  else{
-    launchSystem();
-  }
+  Fronkensteen.promptForHomeScreenInstall(); // Add this later. Also pwa code for Android, etc.
+  Fronkensteen.launchSystem(0,0)
 }
-else {
- if(toolbar.visible === true){
-  setupAsApp()
-  }
-  else {
-    launchSystem();
-  }
+else{
+  Fronkensteen.launchSystem(0,0);
 }
  </script>
 </body>
