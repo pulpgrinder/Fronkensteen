@@ -20,15 +20,12 @@
 ))
 
 (define (download-done_click)
-    (pop-ui-panel))
+    (nav-go-back))
 
 (build-downloader "#fronkensteen-wrapper")
 (build-uploader "#fronkensteen-download-manager")
 
-
-
 (define (show-download filename data mime_type)
-    (push-ui-panel)
     (show-ui-panel "#fronkensteen-download-manager")
     (download-file filename data mime_type)
 )
