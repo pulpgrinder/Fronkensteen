@@ -38,7 +38,6 @@
             "right" "15em"
             "font-size" "20px"
             "overflow" "hidden"
-            "background-color" "white"
             "border" "1px solid gray"
             "font-family" "sans-serif"))
         ("#fronkensteen-editor-workspace"(
@@ -59,15 +58,15 @@
           ("#fronkensteen-editor-find-and-replace"(
             "position" "fixed"
             "padding-top" "0em"
-            "padding-left" "0.5em"
+            "padding-left" "0.25em"
             "padding-right" "0.5em"
             "padding-bottom" "0.25em"
-            "bottom" "0em"
+            "bottom" "0.5em"
             "left" "0"
             "right" "15em"
-            "height" "2em"
-            "border" "1px solid gray"
-            "overflow" "auto"
+            "height" "1.25em"
+            "border" "none"
+            "overflow" "hidden"
             ))
 
               (".fronkensteen-file-available-item" (
@@ -118,15 +117,22 @@
         ("#fronkensteen-editor-current-file-list" (
           "overflow" "auto"
           "position" "absolute"
-          "top" "3em"
+          "top" "1.25em"
           "bottom" "0em"
-          "width" "14em"
+          "border" "1px solid gray"
+          "border-left" "none"
           "left" "0"
           "right" "0"
           ))
         (".fronkensteen-editor-sidebar-area" (
             "width" "13em"
            ))
+
+        (".fronkensteen-editor-file-controls" (
+          "border-right" "1px solid gray"
+          "height" "1.25em"
+
+          ))
         (".fronkensteen-editor-sidebar-header" (
             "color" "white"
             "background-color" "green"
