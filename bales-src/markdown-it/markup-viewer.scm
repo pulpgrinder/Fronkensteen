@@ -22,7 +22,6 @@
   (if (eqv? active-panel "#fronkensteen-markup-viewer")
     #t
     (begin
-      (push-ui-panel)
       (show-ui-panel "#fronkensteen-markup-viewer")))
   (% "#fronkensteen-markup-content" "html" marked-up-text)
   (process-latex "#fronkensteen-markup-content")
@@ -32,4 +31,4 @@
 
 
 (define (fronkensteen-close-markup-viewer_click)
-  (pop-ui-panel))
+  (nav-go-back))
