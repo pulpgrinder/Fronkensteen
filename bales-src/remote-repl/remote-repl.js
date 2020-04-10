@@ -58,7 +58,7 @@
                 return;
             }
 
-            var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+            var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
             let result = intp2.evaluate(Fronkensteen.renderReadTemplate(expr)) + "";
             if(Fronkensteen.CumulativeErrors.length !== 0){
               result = result + "\n" + Fronkensteen.CumulativeErrors.join("\n");
@@ -119,7 +119,7 @@ BiwaScheme.define_libfunc("remote-evaluate", 1, 1, function(ar){
 // Default result display. Just passes the result off to the display-repl-result procedure in Scheme (which needs to be defined by the user).
 Fronkensteen.displayReplResult = function(result){
 let resultString = "(display-repl-result " + Fronkensteen.patchReplQuotes(result) + ")"
-var intp2 = new BiwaScheme.Interpreter(scheme_interpreter);
+var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
 intp2.evaluate(resultString);
 }
 
