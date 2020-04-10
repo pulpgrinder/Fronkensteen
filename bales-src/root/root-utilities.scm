@@ -21,12 +21,9 @@
 (define active-document-location (window-location-href))
 
 (define app-name "fronkensteen")
-(define full-app-name "Feed My Fronkensteen")
 
-(define (set-app-name new-app-name new-full-app-name)
-  (set! app-name new-app-name)
-  (set! full-app-name new-full-app-name)
-  (set-document-title new-full-app-name))
+(define (set-app-name new-app-name)
+  (set! app-name new-app-name))
 
 (define (reload-world)
       (navigate-url active-document-location))
