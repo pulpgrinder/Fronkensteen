@@ -10,24 +10,23 @@
   (% "#fronkensteen-wrapper" "append"
   (dv (<< id ".fronkensteen-panel") content)))
 
+
 (define (show-ui-panel id)
+  (set-window-location-hash! "")
+  (display-ui-panel id)
+  (replace-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" "")
+  )
+
+
+; Just makes the specified panel visible, doesn't fool with the history stack.
+(define (display-ui-panel id)
   (% ".fronkensteen-panel" "hide")
   (% id "show")
   (set! active-panel id))
 
+
 (define (hide-ui-panel id)
   (% id "hide"))
-
-(define (push-ui-panel)
-    (set! panel-stack (cons (cons active-panel "") panel-stack)))
-
-
-(define (pop-ui-panel)
-    (if (eqv? panel-stack '())
-      (console-log "pop-panel: panel-stack is empty")
-      (begin
-          (show-ui-panel (caar panel-stack))
-          (set! panel-stack (cdr panel-stack)))))
 
 (define (set-main-content content trusted)
   (% "#fronkensteen-content" "html" content)
@@ -39,3 +38,24 @@
 
 (define (append-main-content content)
   (% "#fronkensteen-content" "append" content))
+
+(define window (window-object))
+(define document (document-object))
+
+(% window "on" "hashchange" (lambda (ev)
+  (replace-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . (window-location-hash)))) "" "")
+))
+
+(define (pop-browser-state_handler state)
+    (if (eqv? state #f)
+        #f
+        (let ((scheme-state (json->scheme state)))
+          (let ((panel (assq "panel" scheme-state))
+                (hash (assq "hash" scheme-state)))
+                (if (eqv? panel #f)
+                    #t
+                    (display-ui-panel (cdr panel)))
+                    ))))
+                    ;(if (eqv? hash #f)
+                    ;#t
+                    ;(set-window-location-hash! (cdr hash)))))))
