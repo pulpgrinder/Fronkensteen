@@ -1,5 +1,6 @@
 #bale-version 0.1
 #mandatory false
+text-processor-style.scm
 LICENSE-text-processor.md
 text-processor-extensions.js
 text-processor.scm
