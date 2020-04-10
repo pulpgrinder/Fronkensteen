@@ -8,7 +8,7 @@
   (build-file-display))
 
 (define (fronkensteen-bale-manager-done_click)
-  (pop-ui-panel))
+  (nav-go-back))
 
 
 (define (fronkensteen-bale-manager-delete-bale_click)
@@ -43,7 +43,6 @@
 
 (define (show-bale-manager)
   (init-bale-list)
-  (push-ui-panel)
   (show-ui-panel "#fronkensteen-bale-manager"))
 
 
