@@ -14,7 +14,7 @@
 (define (show-ui-panel id)
   (set-window-location-hash! "")
   (display-ui-panel id)
-  (replace-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" "")
+  (push-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" "")
   )
 
 
@@ -43,7 +43,9 @@
 (define document (document-object))
 
 (% window "on" "hashchange" (lambda (ev)
-  (replace-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . (window-location-hash)))) "" "")
+  (set-window-location-hash! "")
+  (replace-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" "")
+  #f ; prevent default action, keeps another state from being added to history.
 ))
 
 (define (pop-browser-state_handler state)
@@ -56,6 +58,3 @@
                     #t
                     (display-ui-panel (cdr panel)))
                     ))))
-                    ;(if (eqv? hash #f)
-                    ;#t
-                    ;(set-window-location-hash! (cdr hash)))))))
