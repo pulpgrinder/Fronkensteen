@@ -6,27 +6,6 @@ All the normal Markdown stuff (including several common extensions, such as supe
 
 ## Inline formatting
 
-### Hashtags
-
-You can freely use #hashtags in your text. These will be replaced with a link with the `hashtag` class. The default procedure when a hashtag is clicked is to bring up an alert box informing the user that they've clicked a hashtag. To do something more useful, redefine the `(hashtag_click target link-text)` procedure. The first argument is the jQuery object containing the hashtag, the second is the link's text.
-
-### Wiki-style links
-
-Text enclosed in square brackets will be replaced with a link with the `wikilink` class.
-
-``` markdown
-
-[This is another wiki page]
-
-
-```
-
-will produce:
-
-[This is another wiki page]
-
-As with hashtags, the default procedure when a wikilink is clicked is to bring up an alert box informing the user that they've clicked a wikilink. To do something more useful, redefine the `(wikilink_click target link-text)` procedure. Again, the first argument is the jQuery object containing the wikilink, the second is the link's text.
-
 ### External (web) links
 
 These are the standard Markdown links. They consist of a title in square brackets (like the wiki-style links) followed by the URL for an external web site contained in parentheses.
@@ -42,13 +21,33 @@ will produce:
 
 [English Wikipedia](http://en.wikipedia.org)
 
-The default procedure when an external link is clicked is to open the URL in a new browser window (or tab, depending on how you have your browser configured). This is to prevent accidentally navigating away from the Fronkensteen app, potentially losing unsaved data. You can change this by redefining the `(external-link_click target url)` procedure. Here, the first argument is the jQuery object containing the external link, the second is the link's URL. If you really did want to navigate away from the Fronkensteen app, you could do something like:
+The default behavior when an external link is clicked is to open the URL in a new browser window (or tab, depending on how you have your browser configured). This is to prevent accidentally navigating away from the Fronkensteen app, potentially losing unsaved data. You can change this by redefining the `(external-link_click target url)` procedure found in `text-processor/text-processor.scm`. Here, the first argument is the jQuery object containing the external link, the second is the link's URL. If you really did want to navigate away from the Fronkensteen app, you could do something like:
 
 ```
 (define (external-link_click target url)
   (navigate-url url))
 ```
 
+### Hashtags
+
+You can freely use #hashtags in your text. These will be replaced with a link with the `hashtag` class. The default behavior when a hashtag is clicked is to bring up an alert box informing the user that they've clicked a hashtag. To do something more useful, redefine the `(hashtag_click target link-text)` procedure found in `text-processor/text-processor.scm`. Here, the first argument is the jQuery object containing the external link, the second is the hashtag text.
+
+### Wiki-style links
+
+Text enclosed in square brackets (but not followed by an URL in parentheses, as with a standard Markdown link) will be replaced with a link with the `wikilink` class.
+
+``` markdown
+
+[This is another wiki page]
+
+
+```
+
+will produce:
+
+[This is another wiki page]
+
+As with hashtags, the default behavior when a wikilink is clicked is to bring up an alert box informing the user that they've clicked a wikilink. To do something more useful, redefine the `(wikilink_click target link-text)` procedure found in `text-processor/text-processor.scm`. Here, the first argument is the jQuery object containing the external link, the second is the wikilink text.
 
 ### Font and text decorations
 
@@ -129,6 +128,7 @@ In running text, -- is replaced with an en dash,
 with their corresponding typographic ("curly" or "smart")
 quotation marks.
 
+TODO: add some mechanism to handle proper typography for non-English languages.
 
 ## Block formatting
 
@@ -231,6 +231,88 @@ In poetry formatting, all line breaks, spacing, etc. will be passed through verb
 produces:
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
 
+### Text alignment
+
+The following code:
+
+```
+<-> Here is a bunch of text that will be displayed justified. Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Duis in orci vel orci condimentum
+interdum. Nulla sed pharetra turpis, sed euismod quam. Proin ac mi iaculis
+orci tincidunt fermentum. Integer pharetra elit sit amet nisi viverra aliquam.
+Nullam dignissim quam vitae velit ultrices interdum. Suspendisse placerat est
+nec hendrerit dictum.
+```
+will produce:
+
+<-> Here is a bunch of text that will be displayed justified. Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Duis in orci vel orci condimentum
+interdum. Nulla sed pharetra turpis, sed euismod quam. Proin ac mi iaculis
+orci tincidunt fermentum. Integer pharetra elit sit amet nisi viverra aliquam.
+Nullam dignissim quam vitae velit ultrices interdum. Suspendisse placerat est
+nec hendrerit dictum.
+
+The code:
+
+```
+-> Here is a bunch of text that will be displayed right-aligned. Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Duis in orci vel orci condimentum
+interdum. Nulla sed pharetra turpis, sed euismod quam. Proin ac mi iaculis
+orci tincidunt fermentum. Integer pharetra elit sit amet nisi viverra aliquam.
+Nullam dignissim quam vitae velit ultrices interdum. Suspendisse placerat est
+nec hendrerit dictum.
+```
+
+will produce:
+
+-> Here is a bunch of text that will be displayed right-aligned. Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Duis in orci vel orci condimentum
+interdum. Nulla sed pharetra turpis, sed euismod quam. Proin ac mi iaculis
+orci tincidunt fermentum. Integer pharetra elit sit amet nisi viverra aliquam.
+Nullam dignissim quam vitae velit ultrices interdum. Suspendisse placerat est
+nec hendrerit dictum.
+
+The code:
+
+```
+-><- Here is a bunch of text that will be displayed centered. Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Duis in orci vel orci condimentum
+interdum. Nulla sed pharetra turpis, sed euismod quam. Proin ac mi iaculis
+orci tincidunt fermentum. Integer pharetra elit sit amet nisi viverra aliquam.
+Nullam dignissim quam vitae velit ultrices interdum. Suspendisse placerat est
+nec hendrerit dictum.
+```
+
+will produce:
+
+-><- Here is a bunch of text that will be displayed centered. Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Duis in orci vel orci condimentum
+interdum. Nulla sed pharetra turpis, sed euismod quam. Proin ac mi iaculis
+orci tincidunt fermentum. Integer pharetra elit sit amet nisi viverra aliquam.
+Nullam dignissim quam vitae velit ultrices interdum. Suspendisse placerat est
+nec hendrerit dictum.
+
+The code:
+
+```
+<- Here is a bunch of text that will be displayed left-aligned. Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Duis in orci vel orci condimentum
+interdum. Nulla sed pharetra turpis, sed euismod quam. Proin ac mi iaculis
+orci tincidunt fermentum. Integer pharetra elit sit amet nisi viverra aliquam.
+Nullam dignissim quam vitae velit ultrices interdum. Suspendisse placerat est
+nec hendrerit dictum.
+```
+
+will produce:
+
+<- Here is a bunch of text that will be displayed left-aligned. Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Duis in orci vel orci condimentum
+interdum. Nulla sed pharetra turpis, sed euismod quam. Proin ac mi iaculis
+orci tincidunt fermentum. Integer pharetra elit sit amet nisi viverra aliquam.
+Nullam dignissim quam vitae velit ultrices interdum. Suspendisse placerat est
+nec hendrerit dictum.
+
+Left-aligned is the default, but it's there if you need it.
 
 ### Embedded Scheme code
 

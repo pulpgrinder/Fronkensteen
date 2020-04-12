@@ -58,7 +58,7 @@ Some HTML elements (such as buttons) can be "auto-wired". Using a button as an e
 
 ## jQuery Interface
 
-BiwaScheme has a nice, Scheme-like interface to jQuery. However, Fronkensteen opts for a more jQuery-like procedure syntax. This is handy because of the vast amount of jQuery code that exists on the net. Translating this code to work with Fronkensteen is pretty straightforward.
+BiwaScheme has a nice, Scheme-like interface to jQuery. However, Fronkensteen opts for a more jQuery-like procedure syntax. Why jQuery? Because jQuery has been around for a long time, it works, and it's not going anywhere. Other frameworks seem to come and go with depressing regularity. Also, there's a vast amount of jQuery example code on the net. Translating this code to work with Fronkensteen is pretty straightforward.
 
 A jQuery call like:
 
@@ -77,6 +77,37 @@ Note that this actually has *fewer* parentheses than the jQuery. :-)
 
 
 
-## CSS
+## CSS in Scheme
 
-(to be written)
+Fronkensteen lets you use Scheme code to write and install CSS. The `proc-css-list` procedure in:
+
+````
+(install-css "text-processor-style"
+  (proc-css-list `(
+    (".fronkensteen-footnote-link" (
+      "font-size" "75%"
+      "vertical-align" "super"
+      "line-height" "0"
+      ))
+    (".fronkensteen-footnote" (
+      "text-decoration" "underline"
+      "cursor" "pointer"
+        )))))
+````
+
+will generate the following CSS:
+
+.fronkensteen-footnote-link {
+  font-size:75%;
+  vertical-align:super;
+  line-height:0;
+}
+.fronkensteen-footnote {
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+The `install-css` procedure takes that generated CSS and installs it in the document as a style element in the document head, with an id of `text-processor-style`.
+
+The backquote/quasiquote operator `\`` in proc-css-list is not strictly necessary in this case. It's there so you can use an unquote operator `,` in the list to include arbitrary Scheme code to be evaluated and inserted into the list.
+ 
