@@ -1,7 +1,5 @@
 ; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
 
-## This is a work in progress
-
 ## HTML Generation
 
 Fronkensteen has procedures corresponding to all standard HTML tags, as well as some custom tags (and you are also free to design your own tags).
@@ -97,6 +95,7 @@ Fronkensteen lets you use Scheme code to write and install CSS. The `proc-css-li
 
 will generate the following CSS:
 
+```
 .fronkensteen-footnote-link {
   font-size:75%;
   vertical-align:super;
@@ -106,8 +105,8 @@ will generate the following CSS:
   text-decoration:underline;
   cursor:pointer;
 }
+```
 
 The `install-css` procedure takes that generated CSS and installs it in the document as a style element in the document head, with an id of `text-processor-style`.
 
-The backquote/quasiquote operator `\`` in proc-css-list is not strictly necessary in this case. It's there so you can use an unquote operator `,` in the list to include arbitrary Scheme code to be evaluated and inserted into the list.
- 
+The backquote/quasiquote operator in proc-css-list is not strictly necessary in this case. It's there so you can use an unquote operator in the list to include arbitrary Scheme code to be evaluated and inserted into the list.
