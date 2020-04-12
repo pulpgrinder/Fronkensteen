@@ -4,9 +4,11 @@
 
 # What is Fronkensteen?
 
-It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser.{{{i.e., not Internet Explorer. Sorry.}}} Fronkesteen will work when loaded from a local disk. No server needed!
+It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser.{{{i.e., not Internet Explorer. Sorry.}}} Fronkensteen will work when loaded from a local disk. No server needed!
 
 It can also be put on a web server, copied onto a thumb drive, emailed... use your imagination!
+
+The emphasis is on pragmatism, not theoretical purity. The goal is to have something that makes it easy to write apps, which means solid interfaces to the underlying JavaScript/CSS/HTML world, even if that involves some things an advocate of pure functional programming might look at with a suspicious eye.
 
 # Why?
 
@@ -49,7 +51,9 @@ To do something other than view this page, you'll need to use the editor. The tu
 
 If you're looking for a place to start, try the files in the app folder, starting with app.scm.
 
-By convention, you'd put all the code for your app in the app folder, but you're free to edit anything at all in the system. Just keep in mind that messing around with the underlying system files could potentially cause the system to not even load the next time you run it. "With great power comes great responsibility." Make plenty of backups. :-)
+By convention, you'd put all the code for your app in the app folder, but you're free to edit *anything at all* in the system. Just keep in mind that messing around with the underlying system files could potentially cause the system to not even "boot" the next time you run it. "With great power comes great responsibility." Make plenty of backups. :-)
+
+Most load-time errors in user code (either JavaScript or Scheme) will automatically kick you into a low-level debugger that lets you edit the offending files and then attempt to restart. The primitive editor in the debugger is not pretty, but is functional. If you've managed to hose the system at a level where not even that works, you can force the system to start in debug mode by adding ?debug to the URL (e.g., `file://whatever/fronkensteen.html?debug` or `https://whatever/fronkensteen.html?debug`).
 
 # Credits
 

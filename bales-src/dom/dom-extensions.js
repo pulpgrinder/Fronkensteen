@@ -8,6 +8,11 @@
 Fronkensteen.setDocumentTitle = function(title){
   document.title = title;
 }
+
+Fronkensteen.scrollIntoView = function (elementid){
+  $(elementid)[0].scrollIntoView();
+}
+
 // Returns vector of ids for all nodes that match the
 // supplied selector. Ignores nodes that don't have an id.
 BiwaScheme.define_libfunc("get-id-vector",2,2,function(ar){
@@ -245,6 +250,6 @@ BiwaScheme.define_libfunc("jq-length", 1, 1, function(ar,intp){
 });
 
 BiwaScheme.define_libfunc("scroll-element-into-view", 1, 1, function(ar,intp){
-  // Scrolls to the phrase in ar[1] in ar[0], if it exists.
+  // Scrolls to the element in ar[0], if it exists.
   $(ar[0])[0].scrollIntoView();
 });

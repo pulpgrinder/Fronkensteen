@@ -5,5 +5,8 @@
       "vertical-align" "super"
       "line-height" "0"
       ))
-
+      (".fronkensteen-footnote" (
+        "text-decoration" "underline"
+        "cursor" "pointer"
+        ))
       )))

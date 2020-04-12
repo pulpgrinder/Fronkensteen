@@ -4,8 +4,9 @@
 // MIT License.
 
 
-BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
+BiwaScheme.define_libfunc("process-embedded-code",2,2, function(ar,intp){
     BiwaScheme.assert_string(ar[0]);
+    let plainHTMLNotes = ar[1]; // Controls whether footnotes use plain HTML or Fronkensteen's special JS handler.
     // Replaces any hyperlinks in the specified HTML element with a pseudo-link
     // of a special CSS class. The original link is saved in an "external-link"
     // attribute. This prevents navigating away from the Fronkensteen page when
@@ -48,23 +49,34 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
     })
     this.innerHTML = text;
   })
+
+
   let notes = [];
   let notecounter = 0;
   $(ar[0] + " p").each(function(){
     let text = this.innerHTML;
+    // Process hashtags.
     text = text.replace(/\#([a-zA-Z0-9]+)/gm,function(match, capture) {
          let result = "<a href='javascript:void(0)' class='fronkensteen-hashtag has-text-link'>#" + capture + "</a>";
          return result;
        });
-
+      // Process footnotes.
      text = text.replace(/\s*\{\{\{(.*?)\}\}\}/gm,function(match,capture) {
          notecounter = notecounter + 1;
          let noteid = uuid();
          let noteanchor = "note-anchor-" + noteid;
          let notelink = "note-link-" + noteid;
-         notes.push("<p><a class='fronkensteen-footnote' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + notecounter + "</a>&nbsp;" + capture + "</p>");
-        return "<a class='fronkensteen-footnote-link' id='" + noteanchor + "' href='#" + notelink + "'><sup>" + notecounter + "</sup></a>" });
+         if(plainHTMLNotes){
+          notes.push("<p><a class='fronkensteen-footnote' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + notecounter + "</a>&nbsp;" + capture + "</p>");
+          return "<a class='fronkensteen-footnote-link' id='" + noteanchor + "' href='#" + notelink + "'><sup>" + notecounter + "</sup></a>" ;
+        }
+        else {
+          notes.push("<p><span class='fronkensteen-footnote' id='" + notelink + "' footnote-link='#" + noteanchor + "'>" + "&uarr;" + notecounter + "</span>&nbsp;" + capture + "</p>")
+          return "<span class='fronkensteen-footnote fronkensteen-footnote-link' id='" + noteanchor + "' footnote-link='#" + notelink + "'><sup>" + notecounter + "</sup></span>"
+        }
+         });
 
+      // Process wikilinks.
       text = text.replace(/\[(.*?)\]/g,function(match,capture) {
              let result =
              "<a href='javascript:void(0)' class='fronkensteen-wikilink has-text-link'>" + capture + "</a>";
@@ -86,6 +98,10 @@ BiwaScheme.define_libfunc("process-embedded-code",1,1, function(ar,intp){
   $(ar[0] + " .fronkensteen-external-link").click(function(evt){
       var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       intp2.invoke_closure(BiwaScheme.TopEnv["external-link_click"], [$(evt.currentTarget),$(evt.currentTarget).attr("external-link")])
+  });
+  $(ar[0] + " .fronkensteen-footnote").click(function(evt){
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+      intp2.invoke_closure(BiwaScheme.TopEnv["footnote-link_click"], [$(evt.currentTarget),$(evt.currentTarget).attr("footnote-link"),$(evt.currentTarget).html()])
   });
 
 });

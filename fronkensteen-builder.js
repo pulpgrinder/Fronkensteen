@@ -39,7 +39,7 @@ function write_html(){
       switch(template_line.trim()){
         case "$$$FILESYSTEM$$$":   template_out = template_out + "let fronkensteen_fs=" + JSON.stringify(filesystem)
               break;
-        default: console.log("Unrecognized section in template: " + template_line);
+        default: template_out = template_out + template_line + "\n"
               break;
       }
     }

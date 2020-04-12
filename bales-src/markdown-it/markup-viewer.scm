@@ -26,7 +26,7 @@
   (% "#fronkensteen-markup-content" "html" marked-up-text)
   (process-latex "#fronkensteen-markup-content")
   (if trusted
-    (process-embedded-code "#fronkensteen-markup-content")
+    (process-embedded-code "#fronkensteen-markup-content" #f)
     #f))
 
 

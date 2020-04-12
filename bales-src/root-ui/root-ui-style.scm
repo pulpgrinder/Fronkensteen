@@ -15,4 +15,8 @@
         "background-color" "white"
         "font-size" "20px"
         "display" "none"
-      )))))
+
+      ))
+      (".fronkensteen-panel:focus" (
+          "outline" "none"))
+      )))

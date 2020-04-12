@@ -8,13 +8,13 @@
 
 (define (add-ui-panel id content)
   (% "#fronkensteen-wrapper" "append"
-  (dv (<< id ".fronkensteen-panel") content)))
+  (dv (<< id ".fronkensteen-panel!tabindex='-1'") content)))
 
 
 (define (show-ui-panel id)
-  (set-window-location-hash! "")
-  (display-ui-panel id)
   (push-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" "")
+  (display-ui-panel id)
+  (replace-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" "")
   )
 
 
@@ -22,7 +22,12 @@
 (define (display-ui-panel id)
   (% ".fronkensteen-panel" "hide")
   (% id "show")
-  (set! active-panel id))
+  (set! active-panel id)
+  (timer (lambda()
+      (console-log (<<  "setting click for " id))
+      (% id "focus")
+        ) .1)
+)
 
 
 (define (hide-ui-panel id)
@@ -32,7 +37,7 @@
   (% "#fronkensteen-content" "html" content)
   (process-latex "#fronkensteen-content")
   (if trusted
-    (process-embedded-code "#fronkensteen-content")
+    (process-embedded-code "#fronkensteen-content" #f)
     #f))
 
 
@@ -41,12 +46,6 @@
 
 (define window (window-object))
 (define document (document-object))
-
-(% window "on" "hashchange" (lambda (ev)
-  (set-window-location-hash! "")
-  (replace-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" "")
-  #f ; prevent default action, keeps another state from being added to history.
-))
 
 (define (pop-browser-state_handler state)
     (if (eqv? state #f)
