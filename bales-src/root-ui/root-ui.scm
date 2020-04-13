@@ -11,11 +11,15 @@
   (dv (<< id ".fronkensteen-panel!tabindex='-1'") content)))
 
 
+; put the current panel on the history stack before replacing it
 (define (show-ui-panel id)
   (push-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" "")
+  (replace-ui-panel id))
+
+; Just replace the current panel on the stack.
+(define (replace-ui-panel id)
   (display-ui-panel id)
-  (replace-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" "")
-  )
+  (replace-browser-state (scheme->json `(("panel" . ,active-panel) ("hash" . ,(window-location-hash)))) "" ""))
 
 
 ; Just makes the specified panel visible, doesn't fool with the history stack.

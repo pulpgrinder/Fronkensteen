@@ -4,11 +4,13 @@
 
 # What is Fronkensteen?
 
-It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser.{{{i.e., not Internet Explorer. Sorry.}}} Fronkensteen will work when loaded from a local disk. No server needed!
+It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser.{{{i.e., not Internet Explorer. Sorry.}}}
+
+Fronkensteen will work fine when loaded from a local disk. No server needed!
 
 It can also be put on a web server, copied onto a thumb drive, emailed... use your imagination!
 
-The emphasis is on pragmatism, not theoretical purity. The goal is to have something that makes it easy to write apps, which means solid interfaces to the underlying JavaScript/CSS/HTML world, even if that involves some things an advocate of pure functional programming might look at with a suspicious eye.
+The emphasis in Fronkensteen is on pragmatism, not theoretical purity. The goal is to have something that makes it easy to write apps, which means solid interfaces to the underlying JavaScript/CSS/HTML world, even if that involves some things that an advocate of pure functional programming might look at with a suspicious eye.
 
 # Why?
 
@@ -47,7 +49,7 @@ The tutorial might be a good place to start.
 
 @@ (button "#show-tutorial" "Tutorial") @@
 
-To do something other than view this page, you'll need to use the editor. The tutorial automatically opens the editor, but if you just want to use the editor, triple-click on this page (on a desktop machine) and the editor will open up, allowing you to edit the running code for the system. You can execute updated Scheme or JavaScript code directly from the editor. You can even edit the UI while it's actually running. Put that in hot reload's pipe and smoke it.
+To do something other than view this page, you'll need to use the editor. The tutorial automatically opens the editor, but if you just want to use the editor, do a Shift+Alt+click (or Shift+Option+click) on this page (on a desktop machine) and the editor will open up, allowing you to edit the running code for the system. You can execute updated Scheme or JavaScript code directly from the editor. You can even edit the UI while it's actually running. Put that in hot reload's pipe and smoke it.
 
 If you're looking for a place to start, try the files in the app folder, starting with app.scm.
 
@@ -57,6 +59,6 @@ Most load-time errors in user code (either JavaScript or Scheme) will automatica
 
 # Credits
 
-The Fronkesteen system is copyright 2020 by Anthony W. Hursh. As with most large FOSS projects, Fronkensteen relies on components from many other developers and projects. However, particular credit should be given to the excellent [BiwaScheme interpreter](https://github.com/biwascheme/biwascheme) by Yutaka HARA. For a full list of credits/licenses, click the button below.
+The Fronkesteen system is copyright 2020 by Anthony W. Hursh and is released under the MIT License. As with most large FOSS projects, Fronkensteen relies on components from many other developers and projects. However, particular credit should be given to the excellent [BiwaScheme interpreter](https://github.com/biwascheme/biwascheme) by Yutaka HARA. For a full list of credits and licenses, click the button below.
 
 @@(button "#view-fronkensteen-licenses" "View Licenses")@@

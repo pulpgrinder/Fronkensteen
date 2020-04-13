@@ -102,14 +102,6 @@
                   "background-color" "rebeccapurple"
                   "color" "white"
                   ))
-              (".fronkensteen-editor-button" (
-                  "height" "2em"
-                  "max-height" "2em"
-                  "min-height" "2em"
-                  "color" "green"
-                  "font-weight" "bold"
-                  "margin" "0.125em"
-                ))
               (".fronkensteen-editor-button:hover" (
                 "color" "rgb(63, 255, 63)"
                 ))

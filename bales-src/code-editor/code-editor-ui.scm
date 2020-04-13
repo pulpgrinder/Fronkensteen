@@ -28,7 +28,7 @@
             (fa-icon "s" "running"))
         (button "#fronkensteen-editor-scheme-eval-button.fronkensteen-editor-button.fronkensteen-editor-mode-button.fronkensteen-editor-scheme-button!title='Evaluate Current Selection or Expression Preceding Cursor'"  (fa-icon "s" "walking"))
         (button "#fronkensteen-editor-javascript-eval-button.fronkensteen-editor-button.fronkensteen-editor-mode-button.fronkensteen-editor-javascript-button!title='Evaluate Selected JavaScript'"  (fa-icon "s" "walking"))
-        (button "#fronkensteen-editor-scheme-doc-button.fronkensteen-editor-button.fronkensteen-editor-mode-button.fronkensteen-editor-basic-button!title='Check Docs'" (fa-icon "s" "book"))
+        (button "#fronkensteen-editor-scheme-doc-button.fronkensteen-editor-button.fronkensteen-editor-basic-button!title='Check Docs'" (fa-icon "s" "book"))
         (button "#fronkensteen-editor-bale-manager-button.fronkensteen-editor-button.fronkensteen-editor-basic-button!title='Show Bale Manager'" (fa-icon "s" "box"))
 
         (span "&nbsp;&nbsp;")

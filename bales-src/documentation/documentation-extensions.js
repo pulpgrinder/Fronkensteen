@@ -64,6 +64,29 @@ Fronkensteen.enumerateUndocumentedProcedures = function(){
   return procedures;
 }
 
+Fronkensteen.searchDefinedProcedures = function(searchterm){
+  searchterm = searchterm.toLowerCase();
+  let procedures = []
+  let database = Fronkensteen.procedureDefinitionPointers
+  for(var key in database){
+    let lckey = key.toLowerCase();
+    if(lckey.indexOf(searchterm) !== -1){
+      procedures.push(key);
+      // try to avoid duplication.
+      continue;
+    }
+    if(database[key]["documentation"] !== undefined){
+      let lcdocumentation = database[key]["documentation"].toLowerCase();
+      if(lcdocumentation.indexOf(searchterm) !== -1){
+          procedures.push(key);
+      }
+    }
+  }
+  procedures = procedures.sort();
+  return procedures;
+}
+
+
 Fronkensteen.retrieveDefinition = function(procedure_name){
   let def = Fronkensteen.procedureDefinitionPointers[procedure_name];
   if(def === undefined){
@@ -133,14 +156,8 @@ BiwaScheme.define_libfunc("render-procedure-definition-text", 1,1, function(ar,i
     maxdigit = maxdigit / 10;
   }
   for(var i = 0; i < lines.length; i++){
-    result = result + "<span class='fronkensteen-documentation-line-number " + "fronkensteen-documentation-number-width" + fieldwidth +"'>" + (i + 1) + ":" + "</span>&nbsp;"
-    let line = lines[i];
-    if(i === def[2]){
-       result = result + Fronkensteen.escapeHTML(line).replace(Fronkensteen.escapeHTML(def[0]),"<strong id='fronkensteen-documentation-anchor'>" + Fronkensteen.escapeHTML(def[0]) + "</strong>").replace(/\t/g,"&nbsp;&nbsp;&nbsp;&nbsp;") + "<br />"
-    }
-    else{
-      result = result + Fronkensteen.escapeHTML(line).replace(/\t/g,"&nbsp;").replace(/ /g,"&nbsp;") + "<br />"
-    }
+    result = result + "<span class='fronkensteen-documentation-line-number " + "fronkensteen-documentation-number-width" + fieldwidth +"' source-line-number='" + (i + 1) + "'>" + (i + 1) + ":" + "</span>&nbsp;"
+    result = result + Fronkensteen.escapeHTML(lines[i]).replace(/\t/g,"&nbsp;").replace(/ /g,"&nbsp;") + "<br />"
   }
   return result;
 
@@ -160,4 +177,14 @@ BiwaScheme.define_libfunc("enumerate-undocumented-procedures", 0,0, function(){
   // Generate a list of all procedures that do NOT have doc
   // strings in the database. Useful for the ongoing documentation effort.
   return Fronkensteen.enumerateUndocumentedProcedures();
+})
+
+BiwaScheme.define_libfunc("search-defined-procedures", 1,1, function(ar,intp){
+  // Generate a list of all procedures that match the supplied arg.
+  BiwaScheme.assert_string(ar[0]);
+  if(ar[0] === ""){
+    alert("You need to enter a search term.");
+    return "";
+  }
+  return Fronkensteen.searchDefinedProcedures(ar[0]);
 })

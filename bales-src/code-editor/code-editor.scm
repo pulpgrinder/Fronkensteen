@@ -304,7 +304,7 @@
 
 (define (fronkensteen-editor-scheme-doc-button_click)
   (if (eqv? fronkensteen-active-editor-file #f)
-    #f
+    (show-ui-panel "#fronkensteen-documentation")
       (let ((active-editor-id (code-editor-element-for-filename fronkensteen-active-editor-file)))
         (let ((procedure-name (cm-editor-get-procedure-at-cursor active-editor-id)))
           (show-ui-panel "#fronkensteen-documentation")
@@ -474,21 +474,16 @@
 (define (focus-find)
   (% "#fronkensteen-editor-find-input" "focus"))
 
-; Toggle to internal code editor on triple-click.
+; Toggle to internal code editor on shift+alt (or option)+click
 
 (define throttle #f)
 
 (% "#fronkensteen-wrapper" "on" "click" (lambda (ev)
-    (let ((click-count (js-ref ev "detail")))
-        (if (and (eq? click-count 3) (not throttle))
-            (begin
-              (show-code-editor)
-              (set! throttle #t)
-              (timer (lambda ()
-                (set! throttle #f))
-                1)
-              #t)
-            #t))))
+    (let ((click-count (js-ref ev "detail"))
+          (alt (js-ref ev "altKey"))
+          (shift (js-ref ev "shiftKey")))
+        (if (and shift alt)
+              (show-code-editor)))))
 
 
 (wire-ui)

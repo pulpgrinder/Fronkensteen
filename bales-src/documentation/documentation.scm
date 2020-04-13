@@ -19,9 +19,8 @@
                 (% "#fronkensteen-documentation-definition-area" "html" "Source file not available. Procedure may have been defined in an active editor, or may be a special case of some kind.")
                 (begin
                 (% "#fronkensteen-documentation-definition-area" "html" (render-procedure-definition-text proc-def))
-                (scroll-element-into-view "#fronkensteen-documentation-anchor"))
-                ))))))
-
+                (scroll-element-into-view (<< "*[source-line-number='" (number->string (+ 1 (vector-ref proc-def 2))) "']"))
+                )))))))
 
 (define (show-blank-procedure-documentation)
     (% "#fronkensteen-documentation-procedure-name" "html" "")
@@ -31,6 +30,10 @@
     (% "#fronkensteen-documentation-source-file-name" "html" "(no file)")
     (% "#fronkensteen-documentation-source-line-number" "html" "")
 )
+
+(define (documentation-search-field_input)
+    (fronkensteen-documentation-search-button_click))
+    
 (define (fronkensteen-documentation-done-button_click)
     (nav-go-back))
 
@@ -48,6 +51,9 @@
 
 (define (fronkensteen-documentation-undoc-button_click)
         (display-procedure-list (enumerate-undocumented-procedures)))
+
+(define (fronkensteen-documentation-search-button_click)
+    (display-procedure-list (search-defined-procedures (% "#documentation-search-field" "val"))))
 
 (define (fronkensteen-rebuild-documentation-button_click)
     (rebuild-documentation))

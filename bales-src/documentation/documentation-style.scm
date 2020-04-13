@@ -25,12 +25,6 @@
         "padding-right" "0.5em"
          "background-color" "grey"
         ))
-      ("#fronkensteen-documentation-toolbar" (
-        "padding" "0.25em"
-        "padding-left" "0.5em"
-        "color" "white"
-        "background-color" "black"
-        ))
       ("#fronkensteen-documentation-documentation-text" (
         "width" "99%"
         "font-size" "125%"
