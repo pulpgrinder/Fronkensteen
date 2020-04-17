@@ -28,7 +28,6 @@
   (% id "show")
   (set! active-panel id)
   (timer (lambda()
-      (console-log (<<  "setting click for " id))
       (% id "focus")
         ) .1)
 )

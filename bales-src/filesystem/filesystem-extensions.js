@@ -34,6 +34,15 @@ Fronkensteen.file_path = function(filename){
   let end = filename.lastIndexOf("/")
   return filename.substring(0,end);
 }
+
+Fronkensteen.bale_path = function(filename){
+  let end = filename.indexOf("/")
+  if(end === -1){
+    console.error("Error in bale_path: " + filename + " does not appear to have a bale component.");
+    return false;
+  }
+  return filename.substring(0,end);
+}
 Fronkensteen.file_basename_no_extension = function(filename){
   let start = filename.lastIndexOf('/');
   if(start < 0){
@@ -58,9 +67,16 @@ Fronkensteen.file_name_no_extension = function(filename){
   return filename.substring(0,end);
 }
 
-Fronkensteen.fileTree = function(){
-  let filetree = {};
+Fronkensteen.sortedFileTree = function(){
   let filelist = Object.keys(fronkensteen_fs).sort();
+  return Fronkensteen.fileTree(filelist)
+}
+Fronkensteen.unsortedFileTree = function(){
+  let filelist = Object.keys(fronkensteen_fs);
+  return Fronkensteen.fileTree(filelist)
+}
+Fronkensteen.fileTree = function(filelist){
+  let filetree = {};
   for(var i = 0; i < filelist.length; i++){
     Fronkensteen.insertFileInTree(filelist[i].split("/"),filetree)
   }
@@ -117,9 +133,7 @@ Fronkensteen.getInternalDir = function(basedir){
   for(var i = 0; i < filelist.length; i++){
     let key = filelist[i];
     if(key.indexOf(basedir) === 0){
-      if(key.indexOf("$$FILEMANIFEST$$") === -1){
         dirfiles.push(key);
-      }
     }
   }
   return dirfiles;
@@ -157,15 +171,13 @@ Fronkensteen.getBales = function(){
 }
 
 Fronkensteen.removeBale = function(bale_name){
-  let file_manifest_name = bale_name + "/$$FILEMANIFEST$$";
-  let file_manifest = fronkensteen_fs[file_manifest_name];
+  let file_manifest = Fronkensteen.getInternalDir(bale_name);
   if(file_manifest === undefined){
     return;
   }
   for(var i = 0; i < file_manifest.length; i++){
     delete fronkensteen_fs[file_manifest[i]];
   }
-  delete fronkensteen_fs[file_manifest_name];
   let bales = fronkensteen_fs["$$BALEMANIFEST$$"];
   let newbales = [];
   for(var i = 0; i < bales.length; i++){
@@ -179,13 +191,14 @@ Fronkensteen.removeBale = function(bale_name){
 }
 
 Fronkensteen.importBale = function(balefilename,dataString){
-  let balename = Fronkensteen.file_path(balefilename)
+  let balename = Fronkensteen.file_basename_no_extension(balefilename)
   let data = JSON.parse(dataString);
+  console.log("Import bale: data is \n" + data)
   let filenames = Object.keys(data);
   let file_manifest = ""
   for(var i = 0; i < filenames.length; i++){
-    if(filenames[i].match(/\$\$FILEMANIFEST\$\$$/) !== null){
-      file_manifest = filenames[i];
+    if(filenames[i].match(/\$CODE_LOADER/) !== null){
+      file_manifest = Fronkensteen.decodeText(data[filenames[i]]).split("\n");
     }
   }
   if(balename === ""){
@@ -199,7 +212,7 @@ Fronkensteen.importBale = function(balefilename,dataString){
 
   fronkensteen_fs["$$BALEMANIFEST$$"].push(balename);
   if(fronkensteen_fs[balename + "/" + "$$LOAD_BALE$$"] === true){
-    Fronkensteen.execute_bale(fronkensteen_fs[file_manifest]);
+    Fronkensteen.execute_bale(file_manifest);
   }
   var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
@@ -210,24 +223,17 @@ Fronkensteen.setBaleManifest = function(bale_array){
   var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
 }
-Fronkensteen.addFilenameToBale = function(filename,balename){
-  let file_manifest_name = balename + "/$$FILEMANIFEST$$";
-  let file_manifest = fronkensteen_fs[file_manifest_name];
-  file_manifest.push(filename);
-  fronkensteen_fs[file_manifest_name] = file_manifest;
-}
+
 Fronkensteen.getBaleCode = function(balename){
   let export_bale = {};
-  let file_manifest_name = balename + "/$$FILEMANIFEST$$";
-  let file_manifest = fronkensteen_fs[file_manifest_name];
-  if(file_manifest === undefined){
-    console.error(balename + ": no such bale in file system.")
-    return JSON.stringify({});
+  let filenames = Object.keys(fronkensteen_fs);
+  let bale_regex = new RegExp("^" + balename);
+  for(var i = 0; i < filenames.length; i++){
+    let current_name = filenames[i];
+    if(current_name.match(bale_regex) !== null){
+      export_bale[filenames[i]] = fronkensteen_fs[filenames[i]];
+    }
   }
-  for(var i = 0; i < file_manifest.length; i++){
-    export_bale[file_manifest[i]] = fronkensteen_fs[file_manifest[i]];
-  }
-  export_bale[file_manifest_name] = fronkensteen_fs[file_manifest_name];
   return JSON.stringify(export_bale);
 }
 Fronkensteen.deleteInternalFile = function(filename){
@@ -278,7 +284,11 @@ Fronkensteen.writeInternalTextFile = function(filename,data){
     return true;
 }
 
-Fronkensteen.getFileNames = function(){
+Fronkensteen.getSortedFileNames = function(){
+  return Fronkensteen.getUnsortedFileNames.sort();
+}
+
+Fronkensteen.getUnsortedFileNames = function(){
   let filetree = [];
   let filenames = Object.keys(fronkensteen_fs);
   for(var i = 0; i < filenames.length; i++){
@@ -287,7 +297,7 @@ Fronkensteen.getFileNames = function(){
         filetree.push(key);
       }
     }
-      return filetree.sort();
+    return filetree;
 }
 
 Fronkensteen.fileExists = function(filename){
@@ -307,8 +317,8 @@ Fronkensteen.file_rename = function (oldname,newname){
   }
   fronkensteen_fs[newname] = fronkensteen_fs[oldname];
   delete fronkensteen_fs[oldname];
-  let manifest_path = Fronkensteen.file_path(oldname) + "/$$FILEMANIFEST$$";
-  let manifest = fronkensteen_fs[manifest_path];
+  let manifest_path = Fronkensteen.bale_path(oldname) + "/$CODE_LOADER";
+  let manifest = Fronkensteen.readInternalTextFile(manifest_path).split("\n");
   let new_manifest = [];
   for(var i  = 0; i < manifest.length; i++){
     if(manifest[i] === oldname){
@@ -316,39 +326,51 @@ Fronkensteen.file_rename = function (oldname,newname){
     }
     else new_manifest.push(manifest[i])
   }
-  fronkensteen_fs[manifest_path] = new_manifest;
-
-
+  Fronkensteen.writeInternalTextFile(manifest_path,new_manifest.join("\n"))
   return true;
 }
 
 
-
+Fronkensteen.isExecutable = function(filename){
+  if(filename.match(/\.scm$/) !== null){
+    return true;
+  }
+  if(filename.match(/\.js$/) !== null){
+    return true;
+  }
+  if(filename.match(/\.css$/) !== null){
+    return true;
+  }
+  return false;
+}
 Fronkensteen.folder_rename = function (oldfolder,newfolder){
+  let manifest_path = Fronkensteen.bale_path(oldfolder) + "/$CODE_LOADER";
+  let manifest = Fronkensteen.readInternalTextFile(manifest_path).split("\n");
   let filenames = Object.keys(fronkensteen_fs);
-  let new_manifest = [];
   for(var i = 0; i < filenames.length; i++){
     let current_name = filenames[i];
     if(current_name.match(new RegExp('^' + Fronkensteen.escapeRegExp(oldfolder + '/'))) !== null){
       let newname = current_name.replace(oldfolder,newfolder);
-      new_manifest.push(newname);
       fronkensteen_fs[newname] = fronkensteen_fs[current_name];
       delete fronkensteen_fs[current_name]
     }
   }
-    fronkensteen_fs[newfolder + "/$$FILEMANIFEST$$"] = new_manifest;
-    if(oldfolder.indexOf("/") === -1){ // top-level bale
-      let bale_manifest = fronkensteen_fs["$$BALEMANIFEST$$"]
-      let new_bale_manifest = [];
-      for(var i = 0; i < bale_manifest.length; i++){
-        if(bale_manifest[i] === oldfolder){
-          new_bale_manifest.push(newfolder);
-        }
-        else new_bale_manifest.push(bale_manifest[i])
-      }
-      fronkensteen_fs["$$BALEMANIFEST$$"] = new_bale_manifest;
-    }
+  for(var i = 0; i < manifest.length; i++){
+    manifest[i] = manifest[i].replace(oldfolder,newfolder);
   }
+  Fronkensteen.writeInternalTextFile(newfolder + "/$CODE_LOADER",manifest.join("\n"))
+  if(oldfolder.indexOf("/") === -1){ // top-level bale
+    let bale_manifest = fronkensteen_fs["$$BALEMANIFEST$$"]
+    let new_bale_manifest = [];
+    for(var i = 0; i < bale_manifest.length; i++){
+      if(bale_manifest[i] === oldfolder){
+        new_bale_manifest.push(newfolder);
+      }
+      else new_bale_manifest.push(bale_manifest[i])
+    }
+    fronkensteen_fs["$$BALEMANIFEST$$"] = new_bale_manifest;
+  }
+}
 
 BiwaScheme.define_libfunc("set-bale-loadable",2,2,function(ar){
   BiwaScheme.assert_string(ar[0]);
@@ -363,16 +385,28 @@ BiwaScheme.define_libfunc("decode-base-64-text",1,1,function(ar){
   return Fronkensteen.decodeText(datastart);
 });
 
-BiwaScheme.define_libfunc("get-file-tree",0,0,function(ar){
+BiwaScheme.define_libfunc("get-sorted-file-tree",0,0,function(ar){
   // Returns a sorted vector of all the filenames in the filesystem,
   // exclusive of the $$*MANIFEST$$ files.
   var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-  return intp2.evaluate(Fronkensteen.fileTree());
+  return intp2.evaluate(Fronkensteen.sortedFileTree());
 });
-BiwaScheme.define_libfunc("get-file-names",0,0,function(ar){
+
+BiwaScheme.define_libfunc("get-unsorted-file-tree",0,0,function(ar){
   // Returns a sorted vector of all the filenames in the filesystem,
   // exclusive of the $$*MANIFEST$$ files.
-  return Fronkensteen.getFileNames()
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+  return intp2.evaluate(Fronkensteen.unsortedFileTree());
+});
+BiwaScheme.define_libfunc("get-sorted-file-names",0,0,function(ar){
+  // Returns a sorted vector of all the filenames in the filesystem,
+  // exclusive of the $$*MANIFEST$$ files.
+  return Fronkensteen.getSortedFileNames()
+});
+BiwaScheme.define_libfunc("get-unsorted-file-names",0,0,function(ar){
+  // Returns a sorted vector of all the filenames in the filesystem,
+  // exclusive of the $$*MANIFEST$$ files.
+  return Fronkensteen.getUnsortedFileNames()
 });
 BiwaScheme.define_libfunc("get-bales",0,0,function(ar){
   // Returns a vector of all the current bales in the filesystem.
@@ -499,11 +533,6 @@ BiwaScheme.define_libfunc("write-data-url-to-internal-file", 2, 2, function(ar, 
     return Fronkensteen.writeDataURLToInternalFile(ar[0],ar[1]);
 });
 
-BiwaScheme.define_libfunc("add-filename-to-bale", 2, 2, function(ar, intp){
-  BiwaScheme.assert_string(ar[0]);
-  BiwaScheme.assert_string(ar[1]);
-  Fronkensteen.addFilenameToBale(ar[0],ar[1]);
-})
 BiwaScheme.define_libfunc("read-internal-text-file", 1, 1, function(ar, intp){
     BiwaScheme.assert_string(ar[0])
     return Fronkensteen.readInternalTextFile(ar[0]);
@@ -539,7 +568,7 @@ BiwaScheme.define_libfunc("hereload", 1, 1, function(ar, intp){
       result = result + "\n" + Fronkensteen.CumulativeErrors.join("\n");
       console.log(result);
     }
-    return result;
   Fronkensteen.CumulativeErrors = [];
   Fronkensteen.currentBiwaSchemeLoadFile = null;
+  return result;
   });

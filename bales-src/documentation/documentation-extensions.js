@@ -116,9 +116,11 @@ BiwaScheme.define_libfunc("commit-documentation", 0, 0, function(ar, intp){
    return true;
 })
 BiwaScheme.define_libfunc("rebuild-documentation", 0, 0, function(ar, intp){
+  console.log("rebuilding documentation")
   let bale_manifest = fronkensteen_fs["$$BALEMANIFEST$$"];
   for(var i = 0; i < bale_manifest.length; i++){
-    let file_manifest = fronkensteen_fs[bale_manifest[i] + "/" + "$$FILEMANIFEST$$"];
+    let file_manifest_name = bale_manifest[i] + "/" + "$CODE_LOADER";
+    let file_manifest = Fronkensteen.readInternalTextFile(file_manifest_name).split("\n");
     for(var j = 0; j < file_manifest.length; j++){
       let filename = file_manifest[j];
       if(filename.match(/\.scm$/) !== null){

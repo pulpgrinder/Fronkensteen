@@ -51,7 +51,7 @@ Create a new directory in the `bales-src` folder and place all your desired file
 The balespec format is as follows:
 
 ```
-#bale-version 0.1
+#bale-version 0.2
 #mandatory false
 #load-bale false
 (...list of files to include, one per line)

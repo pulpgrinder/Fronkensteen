@@ -30,7 +30,6 @@ window.onpopstate = function(event) {
       intp2.invoke_closure(BiwaScheme.TopEnv["pop-browser-state_handler"], [false])
     }
     else{
-      console.log("Popped state value: " + JSON.stringify(state))
       intp2.invoke_closure(BiwaScheme.TopEnv["pop-browser-state_handler"],[JSON.stringify(state)])
     }
   }
@@ -45,20 +44,16 @@ BiwaScheme.define_libfunc("doc-root", 0, 0, function(ar){
 BiwaScheme.define_libfunc("push-browser-state", 3, 3, function(ar){
     // Pushes the specified state in the window history.
     BiwaScheme.assert_string(ar[0]); // State
-    console.log("push-browser-state: state is " + JSON.stringify(ar[0]));
     BiwaScheme.assert_string(ar[1]); // Title (not supported by all browsers)
     BiwaScheme.assert_string(ar[2]); // URL
-    console.log("Pushing state: " + ar[0] + " url: " + ar[2])
     history.pushState(JSON.parse(ar[0]),ar[1],ar[2])
 });
 
 BiwaScheme.define_libfunc("replace-browser-state", 3, 3, function(ar){
     // Replaces the current state in the window history.
     BiwaScheme.assert_string(ar[0]); // State
-    console.log("replace-browser-state: state is " + JSON.stringify(ar[0]));
     BiwaScheme.assert_string(ar[1]); // Title (not supported by all browsers)
     BiwaScheme.assert_string(ar[2]); // URL
-    console.log("Pushing state: " + ar[0] + " url: " + ar[2])
     history.replaceState(JSON.parse(ar[0]),ar[1],ar[2])
 });
 

@@ -58,7 +58,9 @@
        #f))
 
 (define (is-text-file? filename)
-  (let ((extension (file-extension filename)))
+  (if (eqv? (file-basename filename) "$CODE_LOADER")
+    #t
+    (let ((extension (file-extension filename)))
     (if (eqv? (indexOf (mime-type filename) "text") 0)
       #t
       (cond ((eqv? extension "scm") #t)
@@ -70,7 +72,7 @@
         ((eqv? extension "css") #t)
         ((eqv? extension "xml") #t)
         ((eqv? extension "html") #t)
-        (#t #f)))))
+        (#t #f))))))
 
 
 
@@ -124,7 +126,7 @@
 
 
 (define (build-file-display)
-  (build-tree-view (get-file-tree) "#fronkensteen-editor-current-file-list" tree-file-clicked)
+  (build-tree-view (get-sorted-file-tree) "#fronkensteen-editor-current-file-list" tree-file-clicked)
   (% ".treeitem" "on" "focus" (lambda (ev)
         (fronkensteen-editor-filename-focused ev)
   ))
@@ -374,7 +376,7 @@
       (alert "Please select a folder for the new file.")
       #f)
     (begin
-        (let ((base-name (prompt "Name for new file?")))
+        (let ((base-name (prompt (<< "Creating file in "  current-bale  ". Name?"))))
           (if (eqv? base-name "")
             #f
             (begin
@@ -396,7 +398,6 @@
 
 (define (fronkensteen-editor-create-file balename filename)
     (write-internal-text-file filename "")
-    (add-filename-to-bale filename balename)
     (build-file-display)
   )
 
@@ -420,7 +421,7 @@
         ((eqv? extension "css") "css")
         ((eqv? extension "xml") "xml")
         ((eqv? extension "html") "htmlmixed")
-        (#t #f)))
+        (#t "text/plain")))
 
 
 (define (check-abandon filename)
@@ -475,8 +476,6 @@
   (% "#fronkensteen-editor-find-input" "focus"))
 
 ; Toggle to internal code editor on shift+alt (or option)+click
-
-(define throttle #f)
 
 (% "#fronkensteen-wrapper" "on" "click" (lambda (ev)
     (let ((click-count (js-ref ev "detail"))

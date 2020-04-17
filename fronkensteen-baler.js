@@ -6,7 +6,7 @@ const path = require('path')
 const mime = require('mime');
 const btoa  = require('btoa');
 console.log("Root folder is " + __dirname);
-let baler_version = "0.1"
+let baler_version = "0.2"
 filewalker(__dirname + "/bales-src",".balespec",bale_processor);
 
 function bale_processor(err,results){
@@ -20,10 +20,22 @@ function bale_processor(err,results){
   }
 }
 
+function isExecutable(filename){
+  if(filename.match(/\.scm$/) !== null){
+    return true;
+  }
+  if(filename.match(/\.js$/) !== null){
+    return true;
+  }
+  if(filename.match(/\.css$/) !== null){
+    return true;
+  }
+  return false;
+}
 
 function bale(bale_path){
     let bale_object = {}
-    let bale_loader = []
+    let code_loader = []
     let directives = {}
     bale_path = bale_path.trim();
     if(bale_path === ""){
@@ -54,7 +66,9 @@ function bale(bale_path){
         }
         let bale_file_data = fs.readFileSync(bale_file,"binary");
         let outfile_name =  bale_file.substring(bale_file.lastIndexOf(bale_name + "/"))
-        bale_loader.push(outfile_name);
+        if(isExecutable(outfile_name)){
+          code_loader.push(outfile_name);
+        }
         bale_object[outfile_name] = btoa(bale_file_data)
       }
     }
@@ -69,18 +83,13 @@ function bale(bale_path){
     }
     let bale_version_name = bale_name + "/" + "$$BALE-VERSION$$"
     bale_object[bale_version_name] = directives["bale-version"];
-
-    bale_loader.push(bale_version_name)
     let version_name = bale_name + "/" + "$$VERSION$$"
     bale_object[version_name] = directives["version"];
-    bale_loader.push(version_name)
     let mandatory_name = bale_name + "/" + "$$MANDATORY$$"
     bale_object[mandatory_name] = (directives["mandatory"] === "true") ? true:false;
-    bale_loader.push(mandatory_name);
     let load_bale_name = bale_name + "/" + "$$LOAD_BALE$$"
     bale_object[load_bale_name] = (directives["load-bale"] === "false") ? false:true;
-    bale_loader.push(load_bale_name);
-    bale_object[bale_name + "/" + "$$FILEMANIFEST$$"] = bale_loader;
+    bale_object[bale_name + "/" + "$CODE_LOADER"] = btoa(code_loader.join("\n"));
     fs.writeFileSync(__dirname + "/" + "bales-dist/" + bale_name + ".bale",JSON.stringify(bale_object));
 
 }
@@ -98,21 +107,6 @@ function process_directive(directives,directive){
   return directives
 
 }
-/*
-function btoa(str) {
-  // From https://git.coolaj86.com/coolaj86/btoa.js.git
-  // By AJ ONeal.
-  // Dual-licensed MIT or Apache-2.0.
-  var buffer;
-
-  if (str instanceof Buffer) {
-    buffer = str;
-  } else {
-    buffer = Buffer.from(str.toString(), 'binary');
-  }
-
-  return buffer.toString('base64');
-} */
 
 /**
  * Explores recursively a directory and returns all the filepaths and folderpaths in the callback.

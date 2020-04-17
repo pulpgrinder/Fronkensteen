@@ -8,7 +8,8 @@
             (set! fronkensteen-selected-file relpath)
             (display-file-editor relpath))
           (if (% target "hasClass" "treefolderlevel0")
-              (set! current-bale (% target "attr" "relative-path"))
+              (begin
+                (set! current-bale (% target "attr" "relative-path"))))
               #f
           )
-          ))))
+          )))

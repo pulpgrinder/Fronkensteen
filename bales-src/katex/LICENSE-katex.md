@@ -1,4 +1,6 @@
-The Katex files are distributed under the terms of the following license:
+katex-extensions.js and katex-steenified.scm are copyright 2020 by Anthony W. Hursh and are distributed under the same MIT license as Fronkensteen as a whole.
+
+auto-render-min.js,katex.js, and the KaTeX font files are distributed under the terms of the following license:
 
 The MIT License (MIT)
 

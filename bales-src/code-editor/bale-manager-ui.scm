@@ -1,17 +1,19 @@
 (define (fronkensteen-bale-controls)
-    (dv (<<
       (dv "#fronkensteen-bale-controls"
           (<<
-          (span "Bale manager:&nbsp;")
-          (button "#fronkensteen-bale-manager-done" "Done")
-          (button "#fronkensteen-bale-manager-add-bale" "Import Bale")
-          (button "#fronkensteen-bale-manager-export-bale" "Export Bale")
-          (button "#fronkensteen-bale-manager-delete-bale" "Delete Bale")))
-      (dv (i "Drag bales into desired load order. Order changes, additions, and deletions will not take effect until the workspace has been saved and reloaded.")))))
+            (dv (h4 "!style='text-align:center;'" "Bale Manager"))
+            (dv
+              (span ".fronkensteen-editor-button-group"
+                (<<
+                  (button "#fronkensteen-bale-manager-done.fronkensteen-editor-button" "Done")
+                  (button "#fronkensteen-bale-manager-add-bale.fronkensteen-editor-button" "Import Bale")
+                  (button "#fronkensteen-bale-manager-export-bale.fronkensteen-editor-button" "Export Bale")
+                  (button "#fronkensteen-bale-manager-delete-bale.fronkensteen-editor-button" "Delete Bale"))))
+                (dv (i "Click a bale to select it. Reorder bales by dragging them into the desired load order. Uncheck a bale to suppress code evaluation at load time. Changes will not take effect until the workspace has been saved and reloaded.")))))
 
 
 (define (fronkensteen-bale-list)
-    (ul "#fronkensteen-editor-bale-list" "")
+    (ul "#fronkensteen-editor-bale-list.roundlist" "")
   )
 
 

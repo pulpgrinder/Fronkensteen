@@ -1,9 +1,10 @@
-#bale-version 0.1
+#bale-version 0.2
 #mandatory false
 LICENSE-katex.md
 katex-steenified.scm
 katex.js
 katex-extensions.js
+katex.scm
 auto-render.min.js
 fonts/KaTeX_AMS-Regular.woff2
 fonts/KaTeX_AMS-Regular.woff

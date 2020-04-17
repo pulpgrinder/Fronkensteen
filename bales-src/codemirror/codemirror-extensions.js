@@ -231,16 +231,20 @@ BiwaScheme.define_libfunc("cm-editor-eval-js-selection!",1,1,function(ar,intp){
     if(selection.length > 0){
       try{
         console.error("evaluating " + selection)
-        result = " //" + eval(selection);
+        eval(selection);
+        result = "";
       }
       catch(err){
         result = "// " + err.message;
       }
     }
     else {
-      result =  " // (nothing selected)";
+      alert("Evaluate JavaScript: nothing selected.")
+      result =  "";
     }
-    doc.replaceSelection(doc.getSelection() + result);
+    if(result !== ""){
+      doc.replaceSelection(doc.getSelection() + result);
+    }
   }
   else {
     console.error("cm-editor-eval-js-selection!: (no editor)");

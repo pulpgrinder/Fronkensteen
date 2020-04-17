@@ -15,6 +15,9 @@
             "height" "100%"
             "min-height" "100%"
             ))
+          ("#fronkensteen-bale-load-order" (
+            "display" "none"
+            ))
           ("#fronkensteen-editor-sidebar" (
             "position" "fixed"
             "width" "15em"
@@ -105,6 +108,24 @@
               (".fronkensteen-editor-button:hover" (
                 "color" "rgb(63, 255, 63)"
                 ))
+                (".fronkensteen-editor-button" (
+                  "margin" "0"
+                  "border-radius" "0"
+                  "border" "1px solid grey"
+                  "border-left" "none"
+                  "background" "none"
+                  ))
+                  (".fronkensteen-editor-button:first-child" (
+                    "border-left" "1px solid grey"
+                    "margin-left" "0.25em"
+                    ))
+
+                    (".fronkensteen-editor-search-button" (
+                      "margin" "0"
+                      "border-radius" "0"
+                      "border" "1px solid grey"
+                      "background" "none"
+                      ))
 
         ("#fronkensteen-editor-current-file-list" (
           "overflow" "auto"

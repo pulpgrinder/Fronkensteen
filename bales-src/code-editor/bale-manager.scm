@@ -20,6 +20,7 @@
       (code-editor-remove-balename-from-bale-list current-bale)
       (init-bale-list)
       (build-file-display)
+      (alert (<< current-bale ": bale deleted."))
       (set! current-bale #f)
       )))
 
@@ -64,7 +65,7 @@
 
 (define (code-editor-add-balename-to-bale-list balename)
     (% "#fronkensteen-editor-bale-list" "append"
-        (li (<< "#" balename "-bale-item" ".fronkensteen-bale-item.noselect!balename='" balename  "'")
+        (li (<< "#" balename "-bale-item" ".fronkensteen-bale-item.roundlist-item.noselect!balename='" balename  "'")
           (<< (input (<< "#bale-checkbox-" balename "!balename='" balename "'.bale_selected_checkbox!type='checkbox'" "")) balename))))
 
 

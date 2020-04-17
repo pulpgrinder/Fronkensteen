@@ -334,7 +334,8 @@ Fronkensteen.export_workspace = function(){
       }
       Fronkensteen.bale_index = i;
       if(fronkensteen_fs[bale_manifest[i] + "/" + "$$LOAD_BALE$$"] === true){
-        let file_manifest = fronkensteen_fs[bale_manifest[i] + "/" + "$$FILEMANIFEST$$"];
+        let file_manifest_name = bale_manifest[i] + "/" + "$CODE_LOADER"
+        let file_manifest = Fronkensteen.decodeText(fronkensteen_fs[file_manifest_name]).split("\n");
         if(i === start_bale_index){
             Fronkensteen.execute_bale(file_manifest,start_file_index);
         }

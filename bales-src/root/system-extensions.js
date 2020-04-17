@@ -170,7 +170,7 @@ BiwaScheme.define_libfunc("repl-here", 1, 1, function(ar){
     if(Fronkensteen.launchPhase === "scheme"){
         Fronkensteen.loadError = true;
         Fronkensteen.errorFileName = Fronkensteen.currentSourceFile;
-        Fronkensteen.displayLaunchError(errorstring,Fronkensteen.currentSourceFile,0)
+        Fronkensteen.displayLaunchError(errorstring,Fronkensteen.currentBiwaSchemeLoadFile,0)
         Fronkensteen.CumulativeErrors = [];
     }
   }

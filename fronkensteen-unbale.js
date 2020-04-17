@@ -30,7 +30,8 @@ else {
 let bale_file_data = JSON.parse(fs.readFileSync(src,"utf8"));
 let bale_filename_list = [];
 let bale_metadata = {}
-let file_manifest = bale_file_data[bale_name + "/$$FILEMANIFEST$$"]
+let manifest_data = new TextDecoder("utf-8").decode(bale_file_data[bale_name + "/$CODE_LOADER"]);
+let file_manifest = manifest_data.split("\n")
 console.log("file manifest is: ")
 console.log(file_manifest)
 console.log ("there are " + file_manifest.length + " files.")

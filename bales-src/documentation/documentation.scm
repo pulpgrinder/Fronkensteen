@@ -4,7 +4,6 @@
     (if (eqv? procname "")
       (show-blank-procedure-documentation)
       (let ((proc-def (retrieve-procedure-definition procname)))
-        (console-log proc-def)
         (% "#fronkensteen-documentation-procedure-name" "html" (escape-html procname))
         (% "#fronkensteen-documentation-procedure-name" "attr" "procname" procname)
         (if (eqv? proc-def #f)
@@ -33,7 +32,7 @@
 
 (define (documentation-search-field_input)
     (fronkensteen-documentation-search-button_click))
-    
+
 (define (fronkensteen-documentation-done-button_click)
     (nav-go-back))
 
@@ -77,7 +76,6 @@
   (% "#fronkensteen-documentation-search-results" "html" (build-procedure-list (vector->list proc-vector)))
   (% ".proc-list-entry" "on" "click" (lambda (ev)
           (let ((target (js-ref ev "currentTarget")))
-              (console-log (% target "attr" "procname"))
               (show-procedure-documentation (% target "attr" "procname"))))))
 
 
