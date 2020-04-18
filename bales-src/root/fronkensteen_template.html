@@ -15,31 +15,62 @@
      body {background-color: #fffff8}
     .debugfilename{ border-bottom:1px solid grey;}
     .debugfilename:hover{ background-color:black; color:white;}
+    .debugheader {
+      color:white;
+      background-color:black;
+      font-size:125%;
+      border:1px solid grey;
+    }
+    .debugfilelist{
+       height:10em;
+       max-height:20em;
+       overflow:auto;
+       border:1px solid grey;
+    }
+    .debugborder{
+      width:100%;
+      border:1px solid grey;
+    }
+    #fronkensteen-launch-debugger{
+      display:none;
+      z-index:50000;
+      position:fixed;
+      top:0;
+      bottom:0;
+      left:0;right:0;
+      background-color:white;
+      padding-left:2em;
+      padding-right:2em;
+      padding-top:1em;
+    }
+    #debugwrapper{
+      height:100%;
+      overflow:auto;
+    }
     </style>
   </head>
   <body>
   <div id="fronkensteen-wrapper">
   </div>
-  <div id="fronkensteen-launch-debugger" style="display:none; z-index:50000;position:fixed;top:0;bottom:0;left:0;right:0;background-color:white;padding-left:2em;padding-right:2em;padding-top:1em;">
-    <div style="height:100%;overflow:auto;">
-      <div style="color:white;background-color:black;font-size:125%;border:1px solid grey;">
+  <div id="fronkensteen-launch-debugger">
+    <div id="debugwrapper">
+      <div class="debugheader">
       <button id="fronkensteen-debug-save" onclick="Fronkensteen.saveDebugEditorFile()">Save</button>
       <button id="fronkensteen-debug-continue" onclick="Fronkensteen.continueLaunch()">Continue</button>
       <button id="fronkensteen-debug-retry" onclick="Fronkensteen.saveAndRetryLaunch()">Save and Continue Launch</button>
        <button id="fronkensteen-debug-ignore" onclick="Fronkensteen.ignoreAndContinueLaunch()">Ignore and Continue Launch</button>
-    </div>
-    <div id="fronkensteen-debug-error-message" style="color:white;background-color:black;font-size:125%;border:1px solid grey;"></div>
-    <div id="fronkensteen-debug-filename" style="color:white;background-color:black;font-size:125%;border:1px solid grey;"></div>
-    <div>Code:</div>
-    <textarea id="fronkensteen-debug-editor" rows="20" style="width:100%;border:1px solid grey;">
-    </textarea>
-    <div style="width:100%;border:1px solid grey;color:white;background-color:black;font-size:125%;border:1px solid grey;">Files (click to edit)</div>
-    <div id="fronkensteen-debug-file-list" style="height:10em;max-height:20em;overflow:auto;border:1px solid grey;">
-      Debugger files
-    </div>
-    <div style="width:100%;border:1px solid grey;color:white;background-color:black;font-size:125%;border:1px solid grey;">Bales (edit to change load order) <button onclick="Fronkensteen.updateBaleOrder()">Update</button></div>
-    <textarea id="fronkensteen-debug-bale-list" rows="10" style="width:100%;border:1px solid grey;">
-    </textarea>
+     </div>
+     <div id="fronkensteen-debug-error-message" class="debugheader"></div>
+     <div id="fronkensteen-debug-filename" class="debugheader"></div>
+     <div>Code:</div>
+     <textarea id="fronkensteen-debug-editor" rows="20" class="debugborder">
+     </textarea>
+     <div class="debugheader">Files (click to edit)</div>
+     <div id="fronkensteen-debug-file-list" class="debugfilelist">
+     </div>
+     <div class="debugheader">Bales (edit to change load order) <button onclick="Fronkensteen.updateBaleOrder()">Update</button></div>
+     <textarea id="fronkensteen-debug-bale-list" rows="10" class="debugborder">
+     </textarea>
   </div>
   <script type="text/javascript">
   // Bare-bones object.
