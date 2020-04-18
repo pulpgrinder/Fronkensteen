@@ -21,19 +21,25 @@
   <div id="fronkensteen-wrapper">
   </div>
   <div id="fronkensteen-launch-debugger" style="display:none; z-index:50000;position:fixed;top:0;bottom:0;left:0;right:0;background-color:white;padding-left:2em;padding-right:2em;padding-top:1em;">
-    <div>
+    <div style="height:100%;overflow:auto;">
+      <div style="color:white;background-color:black;font-size:125%;border:1px solid grey;">
       <button id="fronkensteen-debug-save" onclick="Fronkensteen.saveDebugEditorFile()">Save</button>
       <button id="fronkensteen-debug-continue" onclick="Fronkensteen.continueLaunch()">Continue</button>
       <button id="fronkensteen-debug-retry" onclick="Fronkensteen.saveAndRetryLaunch()">Save and Continue Launch</button>
        <button id="fronkensteen-debug-ignore" onclick="Fronkensteen.ignoreAndContinueLaunch()">Ignore and Continue Launch</button>
-    <div id="fronkensteen-debug-error-message"></div>
-    <div id="fronkensteen-debug-filename"></div>
+    </div>
+    <div id="fronkensteen-debug-error-message" style="color:white;background-color:black;font-size:125%;border:1px solid grey;"></div>
+    <div id="fronkensteen-debug-filename" style="color:white;background-color:black;font-size:125%;border:1px solid grey;"></div>
     <div>Code:</div>
     <textarea id="fronkensteen-debug-editor" rows="20" style="width:100%;border:1px solid grey;">
     </textarea>
-    <div id="fronkensteen-debug-file-list" style="height:20em;max-height:20em;overflow:auto;border:1px solid grey;">
+    <div style="width:100%;border:1px solid grey;color:white;background-color:black;font-size:125%;border:1px solid grey;">Files (click to edit)</div>
+    <div id="fronkensteen-debug-file-list" style="height:10em;max-height:20em;overflow:auto;border:1px solid grey;">
       Debugger files
     </div>
+    <div style="width:100%;border:1px solid grey;color:white;background-color:black;font-size:125%;border:1px solid grey;">Bales (edit to change load order) <button onclick="Fronkensteen.updateBaleOrder()">Update</button></div>
+    <textarea id="fronkensteen-debug-bale-list" rows="10" style="width:100%;border:1px solid grey;">
+    </textarea>
   </div>
   <script type="text/javascript">
   // Bare-bones object.
@@ -119,20 +125,17 @@ $$$FILESYSTEM$$$
 
 Fronkensteen.export_workspace = function(){
     let template = Fronkensteen.decodeText(fronkensteen_fs["root/fronkensteen_template.html"]);
-    console.log("Got template.")
     let template_lines = template.split("\n");
     let result = ""
     for(var i = 0; i < template_lines.length; i++){
       let trimmed_line = template_lines[i].trim();
       if(trimmed_line === "$$$FILESYSTEM$$$"){
-        console.log("Found filesystem")
         result = result + "let fronkensteen_fs = " + JSON.stringify(fronkensteen_fs) + "\n";
       }
       else{
         result = result + template_lines[i] + "\n";
       }
     }
-    console.log("Creating download element")
     let element = document.createElement('a');
     var blob = new Blob([result], {type: "text/html"});
     element.href = window.URL.createObjectURL(blob);
@@ -177,9 +180,13 @@ Fronkensteen.export_workspace = function(){
       }
     }
     document.getElementById("fronkensteen-debug-file-list").innerHTML = filelist;
+    document.getElementById("fronkensteen-debug-bale-list").value =
+    fronkensteen_fs["$$BALEMANIFEST$$"].join("\n");
     return true;
   };
-
+  Fronkensteen.updateBaleOrder = function(){
+    fronkensteen_fs["$$BALEMANIFEST$$"] = document.getElementById("fronkensteen-debug-bale-list").value.split("\n");
+  }
   Fronkensteen.ignoreAndContinueLaunch = function(){
       console.log("Ignoring error, attempting to continue.");
       Fronkensteen.loadError = false;
@@ -323,6 +330,8 @@ Fronkensteen.export_workspace = function(){
 
   // System launcher.
   // Boot up the app from the internal filesystem stored in the fronkensteen_fs object.
+  // start_bale_index and start_file_index are used for restarting after an
+  // error.
   Fronkensteen.launchSystem = function(start_bale_index,start_file_index){
     Fronkensteen.loadError = false;
     Fronkensteen.launchPhase = "js";
@@ -377,7 +386,6 @@ Fronkensteen.export_workspace = function(){
 
   const debug = urlParams.get('debug');
   if(debug !== null){
-    console.log("displaying debugger");
     Fronkensteen.displayLaunchError("Debugger ready.",null,0)
   }
   else{
