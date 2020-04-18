@@ -10,7 +10,6 @@ For a (possibly) somewhat stable version, go to the [github.io page](https://pul
 To get the latest bleeding-edge version, clone this repo and follow the instructions below.
 
 
-
 ## Fronkensteen system development
 
 **You don't need to do any of this stuff if all you want to do is run Fronkensteen, or use it to create an app.**
@@ -19,11 +18,12 @@ To get the latest bleeding-edge version, clone this repo and follow the instruct
 
 If you *do* want to work on the internals of Fronkensteen itself, as opposed to using Fronkensteen to create an app, read on.
 
-## Install developer tools
+## Clone repo and install developer tools
 
+1) Clone this repo.
 1) Install node.js (if you don't already have it)
 1) Install npm (if you don't already have it)
-1) Run `npm install`
+1) Run `npm install` from within the cloned repo folder.
 
 ## Rebuilding the Fronkensteen system
 
@@ -37,7 +37,7 @@ Next, run:
 
 `node fronkensteen-builder`
 
-This command gathers up the bales and generates the distributable fronkensteen.html file. This will be placed in the `dist` folder.
+This command gathers up the default bales (the ones listed in default-build.bale_config) and generates the distributable fronkensteen.html file. This will be placed in the `dist` folder.
 
 
 ## The bale system
@@ -61,7 +61,7 @@ The #bale-version directive gives the version of the baler tool that was used to
 
 The #mandatory directive specifies whether the bale is essential for a minimal running system, in an attempt to keep users from deleting a vital bale (TODO: implement the check for this).
 
-The #load-bale directive specifies whether or not to execute any Javascript or Scheme files located in the bale at load time. This lets you include files in the generated  Fronkensteen system without automatically running them. This directive is optional. If it is not included, the system assumes you want to run any Scheme or Javascript code in the bale at load time.
+The #load-bale directive specifies whether or not to load any JavaScript, CSS, or Scheme files located in the bale at load time. This lets you include files in the generated  Fronkensteen system without automatically running them. This directive is optional. If it is not included, the system assumes you want to run any Scheme or Javascript code in the bale at load time. The fronkensteen-baler script will also generate a $CODE_LOADER entry in the bale that lets you control the automatic loading of files at the individual file level. By default, the system assumes you want to load any JavaScript, CSS, or Scheme files in the bale.
 
 ## Custom configurations
 
@@ -82,3 +82,7 @@ Fronkensteen has remote REPL capability. This can be handy when testing on a dev
 Just add `?remote` to the URL for your Fronkensteen app and reload (e.g. `file:///foo/bar/baz/fronkensteen.html?remote`) and it will attempt to connect to the middleware. Alternatively, you can run `(launch-remote-repl-server)` from Scheme code (for example, in `app/init.scm`).
 
 To send commands to your app, you have a couple of options. A very basic one is to use the remote-terminal bale. Disable the standard app bale, enable the remote-terminal bale, and save the workspace, and you'll have a (very plain) remote terminal that can be run right from your browser. You may also be interested in [fronkensteen-atom-repl](https://github.com/pulpgrinder/fronkensteen-atom-repl), a plugin for the Atom text editor that lets you execute Scheme code on a remote Fronkensteen app from inside the editor.
+
+## Debugger
+
+If Fronkensteen encounters a JavaScript or Scheme error during the load process, it will kick you into a low-level debugger that provides a very simple editor for editing files, reordering bales, and so on. After making changes, you can attempt to restart the load process from where it left off. Alternatively, you can choose to ignore the error and continue.
