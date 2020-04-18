@@ -159,4 +159,9 @@
               "width" "14em"
               "overflow" "auto"
               ))
+          ("#fronkensteen-editor-bale-list-container" (
+            "height" "20em"
+            "overflow" "auto"
+            "width" "auto"
+            ))
           )))

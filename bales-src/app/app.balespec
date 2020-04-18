@@ -3,6 +3,7 @@
 LICENSE-app.md
 splash-panel.md
 markup-doc.md
+architecture-overview.md
 html-doc.md
 init-ui.scm
 init.scm

@@ -187,7 +187,7 @@ Fronkensteen.removeBale = function(bale_name){
   }
   fronkensteen_fs["$$BALEMANIFEST$$"] = newbales;
   var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-  intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+  intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], []);
 }
 
 Fronkensteen.importBale = function(balefilename,dataString){

@@ -13,8 +13,9 @@
 
 
 (define (fronkensteen-bale-list)
+    (dv "#fronkensteen-editor-bale-list-container"
     (ul "#fronkensteen-editor-bale-list.roundlist" "")
-  )
+  ))
 
 
 

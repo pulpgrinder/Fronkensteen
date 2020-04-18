@@ -316,7 +316,7 @@ Left-aligned is the default, but it's there if you need it.
 
 ### Embedded Scheme code
 
-You may insert a Scheme expression directly in your markup and it will be replaced at display time with the result of evaluating it.
+You may insert a Scheme expression directly in your markup and it will be replaced at display time with the result of evaluating it (in string format).
 
 ``` markdown
 

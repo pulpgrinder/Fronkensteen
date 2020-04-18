@@ -73,7 +73,8 @@
         "padding-top" "0.5em"
         "padding-bottom" "0.5em"
         "color" "#000"
-        "overflow" "auto"
+        "margin" "auto"
+        "width" "auto"
       ))
       (".roundlist-item:first-child" (
         "border-top" "1px solid #cacaca"

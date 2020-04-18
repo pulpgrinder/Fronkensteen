@@ -6,15 +6,15 @@
 
 It's a self-contained Scheme development environment. Everything is in one HTML file, which will work in any modern browser.{{{i.e., not Internet Explorer. Sorry.}}}
 
-Fronkensteen will work fine when loaded from a local disk. No server needed!
+Fronkensteen will work fine when loaded from a local disk. No server needed. No fooling around with CORS configurations.
 
-It can also be put on a web server, copied onto a thumb drive, emailed... use your imagination!
+It could also be put on a web server, copied onto a thumb drive, emailed, used inside a native app framework such as Electron or Cordova... use your imagination.
 
-The emphasis in Fronkensteen is on pragmatism, not theoretical purity. The goal is to have something that makes it easy to write apps, which means solid interfaces to the underlying JavaScript/CSS/HTML world, even if that involves some things that an advocate of pure functional programming might look at with a suspicious eye.
+The emphasis in Fronkensteen is on pragmatism, not theoretical purity. The goal was to have something that makes it easy to write apps, which means solid and straightforward interfaces to the underlying JavaScript/CSS/HTML world, even if that involves things that an advocate of pure functional programming might look at with a suspicious eye.
 
 # Why?
 
-Those of us of a certain age have fond memories of using computers where you could just sit down, write some code, run it, debug it, and save it for future use. No external editors. No toolchains. No servers. It's an incredibly liberating and low-friction way of exploring the world of code. Sadly, those days appeared to be gone forever. The closest modern equivalent would probably be JavaScript (built into every modern browser) but doing anything really interesting with that requires using not one, but three languages (HTML, JavaScript, and CSS). It also requires an external editor, and perhaps a running web server. Not ideal. Fronkensteen is entirely contained in a single file. There's *nothing* extra to install for basic use.
+Those of us of a certain age have fond memories of using computers where you could just sit down, write some code, run it, debug it, and save it for future use. No external editors. No toolchains. No servers. It's an incredibly liberating and low-friction way of exploring the world of code. Sadly, those days appeared to be gone forever. The closest modern equivalent would probably be JavaScript (built into every modern browser) but doing anything really interesting with that requires using not one, but three languages (HTML, JavaScript, and CSS). Also, JavaScript, though powerful and ubiquitous, is never going to win any beauty contests. Working with JavaScript also requires an external editor, and perhaps even a running web server if you want to dynamically load resources. Not ideal. Fronkensteen is entirely contained in a single file. There's *nothing* extra to install for basic use.
 
 # Where Do I Get It?
 
@@ -45,17 +45,15 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
 
 # How Do I Use It?
 
-The tutorial might be a good place to start.
+The tutorial might be a good place to start. @@(fa-icon "r" "smile-beam")@@
 
 @@ (button "#show-tutorial" "Tutorial") @@
 
 To do something other than view this page, you'll need to use the editor. The tutorial automatically opens the editor, but if you just want to use the editor, do a Shift+Alt+click (or Shift+Option+click) on this page (on a desktop machine) and the editor will open up, allowing you to edit the running code for the system. You can execute updated Scheme or JavaScript code directly from the editor. You can even edit the UI while it's actually running. Put that in hot reload's pipe and smoke it.
 
-If you're looking for a place to start, try the files in the app folder, starting with app.scm.
+If you're looking for an example of a complete app, try looking at the files in the app folder, starting with app.scm.
 
-By convention, you'd put all the code for your app in the app folder, but you're free to edit *anything at all* in the system. Just keep in mind that messing around with the underlying system files could potentially cause the system to not even "boot" the next time you run it. "With great power comes great responsibility." Make plenty of backups. :-)
-
-Most load-time errors in user code (either JavaScript or Scheme) will automatically kick you into a low-level debugger that lets you edit the offending files and then attempt to restart. The primitive editor in the debugger is not pretty, but is functional. If you've managed to hose the system at a level where not even that works, you can force the system to start in debug mode by adding ?debug to the URL (e.g., `file://whatever/fronkensteen.html?debug` or `https://whatever/fronkensteen.html?debug`).
+@@ (button "#view-architecture-docs" "View architectural details") @@
 
 # Credits
 

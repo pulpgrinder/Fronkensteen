@@ -71,6 +71,11 @@
   (view-trusted-markup-text
     (read-internal-text-file "app/html-doc.md")))
 
+
+(define (view-architecture-docs_click)
+  (view-trusted-markup-text
+    (read-internal-text-file "app/architecture-overview.md")))
+
 ; runs when the #scheme-demo-eval button is clicked.
 (define (scheme-demo-eval_click)
     (% "#scheme-demo-result" "html" (eval-scheme-string (% "#scheme-demo-text" "val"))))

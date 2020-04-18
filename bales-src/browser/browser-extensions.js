@@ -193,17 +193,16 @@ BiwaScheme.define_libfunc("open-url", 1, 1, function(ar){
 });
 
 
-BiwaScheme.define_libfunc("scroll-to-bottom",0, 0, function(ar){
-  // Scroll the current window to the bottom.
-    setTimeout(function(){
-       window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
-    },100)
-    return true;
+BiwaScheme.define_libfunc("scroll-to-bottom",1, 1, function(ar){
+  // Scroll an element to its bottom.
+  BiwaScheme.assert_string(ar[0]);
+  $(ar[0]).scrollTop($(ar[0]).height());
 });
 
-BiwaScheme.define_libfunc("scroll-to-top",0, 0, function(ar){
-  // Scroll the current window to the top.
-    window.scrollTo(0,0);
+BiwaScheme.define_libfunc("scroll-to-top",1, 1, function(ar){
+    BiwaScheme.assert_string(ar[0]);
+    $(ar[0]).scrollTop(0);
+    //window.scrollTo(0,0);
     return true;
 });
 
