@@ -202,21 +202,20 @@
 
 (define (fronkensteen-editor-delete-file-button_click)
   (if (eqv? fronkensteen-selected-file #f)
-      (begin
-        (alert "No file selected.")
-        #f)
+    (begin
+      (alert "No file selected.")
+      #f)
     (begin
       (if (confirm (<< "Delete " fronkensteen-selected-file ": are you sure?"))
-      (begin
-        (delete-internal-file fronkensteen-selected-file)
-        (console-log "internal file deleted")
-        (fronkensteen-close-editor-file fronkensteen-selected-file)
-        (console-log "File closed")
-        (set! fronkensteen-selected-file #f)
-        (build-file-display)
-        (console-log "load available editor files completed"))
-        #f
-      ))))
+          (if (eqv? (delete-internal-file fronkensteen-selected-file) #t)
+            (begin
+              (console-log "internal file deleted")
+              (fronkensteen-close-editor-file fronkensteen-selected-file)
+              (set! fronkensteen-selected-file #f)
+              (build-file-display))
+          #f)
+        #f)
+      )))
 
 
 

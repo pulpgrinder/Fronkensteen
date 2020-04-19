@@ -502,7 +502,14 @@ BiwaScheme.define_libfunc("base-64-image-to-bytes",1,1, function(ar){
 
 BiwaScheme.define_libfunc("delete-internal-file", 1, 1, function(ar, intp){
     BiwaScheme.assert_string(ar[0]);
-    Fronkensteen.deleteInternalFile(ar[0]);
+    if(Fronkensteen.file_basename(ar[0]).charAt(0) === "$"){
+      console.error(ar[0] + " is a required file, can't delete.");
+      return false;
+    }
+    else{
+      Fronkensteen.deleteInternalFile(ar[0]);
+      return true;
+    }
 });
 
 
