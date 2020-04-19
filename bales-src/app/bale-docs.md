@@ -15,6 +15,6 @@ Most load-time errors in user code (either JavaScript or Scheme) will automatica
 
 ### Making your own bales
 
-You can create your own bales using the `fronkensteen_baler tool` included with the Fronkensteen source code, available on [https://github.com/pulpgrinder/Fronkensteen](Github). A method of creating a new bale from within a running Fronkensteen system is on the to-do list.
+You can create your own bales from the internal Bale Manager, or by using the `fronkensteen_baler tool` included with the Fronkensteen source code, available on [https://github.com/pulpgrinder/Fronkensteen](Github).
 
-You're welcome to submit useful bales as pull requests for the Fronkensteen project, however, only bales offering major, and generally useful, functionality will typically be considered for inclusion in the default distribution. It should be something along the lines of the katex bale, or the beautify_html bale, not something that (e.g.) just converts a string to lower case. Naturally, you're free to create your own bales that do anything you like and put them in your own GitHub repo (or distribute them any other way you see fit).
+You're welcome to submit useful bales as pull requests for the Fronkensteen project, however, only bales offering major, and generally useful, functionality will typically be considered for inclusion in the default distribution -- in other words, something along the lines of the katex bale, or the beautify_html bale, not something that (e.g.) just converts a string to lower case. Naturally, you're free to create your own bales that do anything you like and put them in your own GitHub repo (or distribute them any other way you see fit).

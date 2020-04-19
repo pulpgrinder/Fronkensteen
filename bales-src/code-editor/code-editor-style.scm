@@ -164,4 +164,7 @@
             "overflow" "auto"
             "width" "auto"
             ))
+          ("#fronkensteen-bale-manager" (
+            "padding" "2em"
+            ))
           )))

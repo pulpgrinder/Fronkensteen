@@ -10,6 +10,16 @@
 (define (fronkensteen-bale-manager-done_click)
   (nav-go-back))
 
+(define (fronkensteen-editor-create-bale_click)
+  (let ((balename (% "#fronkensteen-editor-new-bale-name" "val")))
+        (if (bale-exists? balename)
+            (alert (<< balename ": bale already exists."))
+            (begin
+               (create-bale balename)
+               (init-bale-list)
+               (build-file-display)
+               (alert "Bale created.")))))
+
 
 (define (fronkensteen-bale-manager-delete-bale_click)
   (if (eqv? current-bale #f)

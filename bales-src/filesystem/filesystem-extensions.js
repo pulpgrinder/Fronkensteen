@@ -13,7 +13,7 @@ Fronkensteen.file_extension = function(filename){
 }
 
 Fronkensteen.isBaleLoadable = function(balename){
-  if(fronkensteen_fs[balename + "/$$LOAD_BALE$$"] == true){
+  if(fronkensteen_fs[balename + "/$$LOAD_BALE$$"] === true){
     return true;
   }
   return false;
@@ -170,6 +170,25 @@ Fronkensteen.getBales = function(){
   return fronkensteen_fs["$$BALEMANIFEST$$"];
 }
 
+Fronkensteen.doesBaleExist = function(balename){
+  let bale_manifest = fronkensteen_fs["$$BALEMANIFEST$$"];
+  for(var i = 0; i < bale_manifest.length; i++){
+    if(bale_manifest[i] === balename){
+      return true;
+    }
+  }
+  return false;
+}
+Fronkensteen.createBale = function(balename){
+  fronkensteen_fs[balename + "/" + "$$LOAD_BALE$$"] = true;
+  fronkensteen_fs[balename + "/" + "$$BALE_VERSION$$"] = Fronkensteen.bale_version;
+  fronkensteen_fs[balename + "/" + "$$VERSION$$"] = "0.0";
+  fronkensteen_fs[balename + "/" + "$$MANDATORY$$"] = false;
+  Fronkensteen.writeInternalTextFile(balename + "/$CODE_LOADER","")
+  fronkensteen_fs["$$BALEMANIFEST$$"].push(balename)
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+  intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+}
 Fronkensteen.removeBale = function(bale_name){
   let file_manifest = Fronkensteen.getInternalDir(bale_name);
   if(file_manifest === undefined){
@@ -191,25 +210,31 @@ Fronkensteen.removeBale = function(bale_name){
 }
 
 Fronkensteen.importBale = function(balefilename,dataString){
-  let balename = Fronkensteen.file_basename_no_extension(balefilename)
+  let balename = Fronkensteen.file_basename_no_extension(balefilename);
+  if(balename === ""){
+    console.error("This does not appear to be a valid compiled bale file.");
+    return;
+  }
   let data = JSON.parse(dataString);
   console.log("Import bale: data is \n" + data)
   let filenames = Object.keys(data);
   let file_manifest = ""
   for(var i = 0; i < filenames.length; i++){
+    if(filenames[i].match(/\$\$BALE_VERSION\$\$/) !== null){
+      if(data[filenames[i]] !== Fronkensteen.bale_version){
+        console.error("Incorrect bale version: " + data[filenames[i]] + ". Expected: " + Fronkensteen.bale_version);
+        return;
+      }
+    }
     if(filenames[i].match(/\$CODE_LOADER/) !== null){
       file_manifest = Fronkensteen.decodeText(data[filenames[i]]).split("\n");
     }
   }
-  if(balename === ""){
-    console.error("This does not appear to be a valid compiled bale file.");
-    return;
-  }
+
   Fronkensteen.removeBale(balename);
   for(var i = 0; i < filenames.length; i++){
     fronkensteen_fs[filenames[i]] = data[filenames[i]];
   }
-
   fronkensteen_fs["$$BALEMANIFEST$$"].push(balename);
   if(fronkensteen_fs[balename + "/" + "$$LOAD_BALE$$"] === true){
     Fronkensteen.execute_bale(file_manifest);
@@ -374,11 +399,19 @@ Fronkensteen.folder_rename = function (oldfolder,newfolder){
 
 BiwaScheme.define_libfunc("set-bale-loadable",2,2,function(ar){
   BiwaScheme.assert_string(ar[0]);
-  return Fronkensteen.setBaleLoadable(ar[0],ar[1])
+  return Fronkensteen.setBaleLoadable(ar[0],ar[1]);
 });
 BiwaScheme.define_libfunc("is-bale-loadable?",1,1,function(ar){
   BiwaScheme.assert_string(ar[0]);
-  return Fronkensteen.isBaleLoadable(ar[0])
+  return Fronkensteen.isBaleLoadable(ar[0]);
+});
+BiwaScheme.define_libfunc("bale-exists?",1,1,function(ar){
+  BiwaScheme.assert_string(ar[0]);
+  return Fronkensteen.doesBaleExist(ar[0]);
+});
+BiwaScheme.define_libfunc("create-bale",1,1,function(ar){
+  BiwaScheme.assert_string(ar[0]);
+  return Fronkensteen.createBale(ar[0]);
 });
 BiwaScheme.define_libfunc("decode-base-64-text",1,1,function(ar){
   let datastart = ar[0].substring(ar[0].indexOf(",") + 1);

@@ -17,12 +17,21 @@
     (ul "#fronkensteen-editor-bale-list.roundlist" "")
   ))
 
-
-
+(define (fronkensteen-new-bale-ui)
+  (dv (<<
+      (h4 "!style='text-align:center;'" "Create a new bale")
+      (dv
+          (<<
+            (span "Bale name:&nbsp;")
+            (input "#fronkensteen-editor-new-bale-name!type='text'")))
+     (dv
+        (button "#fronkensteen-editor-create-bale" "Create")))))
 
 (define (init-bale-manager)
   (add-ui-panel "#fronkensteen-bale-manager"
     (<<
       (fronkensteen-bale-controls)
-      (fronkensteen-bale-list)))
+      (fronkensteen-bale-list)
+      (fronkensteen-new-bale-ui)
+      ))
  (sortable "#fronkensteen-editor-bale-list"))

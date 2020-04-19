@@ -212,6 +212,7 @@
               (console-log "internal file deleted")
               (fronkensteen-close-editor-file fronkensteen-selected-file)
               (set! fronkensteen-selected-file #f)
+              (set-system-dirty)
               (build-file-display))
           #f)
         #f)
@@ -364,7 +365,7 @@
       #f)
     (begin
         (let ((base-name (prompt (<< "Creating file in "  current-bale  ". Name?"))))
-          (if (eqv? base-name "")
+          (if (or (js-null? base-name) (eqv? base-name ""))
             #f
             (begin
             (fronkensteen-editor-prompt-create-file current-bale (<< current-bale "/" base-name))
