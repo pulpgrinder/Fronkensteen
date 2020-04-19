@@ -286,7 +286,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
     }
     else{
       var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-      result = " ; value:  " + intp2.evaluate(selection) + Fronkensteen.CumulativeErrors.join("\n");
+      result = " ; value:  " + intp2.evaluate(Fronkensteen.renderREPLTemplate(selection)) + Fronkensteen.CumulativeErrors.join("\n");
       Fronkensteen.CumulativeErrors = [];
     }
     doc.replaceSelection(doc.getSelection() + result);

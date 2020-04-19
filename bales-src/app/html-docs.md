@@ -44,6 +44,26 @@ Here we have an id that begins with '#', a class that begins with '.' (again, ju
 
 The HTML procedures return strings, not DOM elements. The string must be converted to elements and inserted in the document with jQuery procedures (below).
 
+Using quoted strings for large blocks of text is something of a pain (particularly if the text block may itself contain quotes), so Fronkensteen offers a shortcut convention for that.
+
+```
+<%
+Block of text containing "quoted material", line
+breaks,
+and so on.
+%>
+```
+will result in the text between the brackets being inserted into the Scheme code as a literal string, including any line breaks, quotes, or any other otherwise troublesome characters, as shown below.
+
+@@(pre
+  <%
+  Block of text containing "quoted material", line
+  breaks,
+  and so on.
+  %>
+)@@
+
+
 ### **Sharp Corner**
 
 Unfortunately Scheme already has a procedure called `div`, so Fronkensteen uses `dv` instead. All other HTML elements use their normal names.

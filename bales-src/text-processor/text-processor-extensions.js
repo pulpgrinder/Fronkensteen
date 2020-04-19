@@ -28,16 +28,16 @@ BiwaScheme.define_libfunc("process-embedded-code",2,2, function(ar,intp){
     Fronkensteen.CumulativeErrors = [];
     let text = this.innerHTML;
     text = text.replace(/\@\@([\s\S]*?)\@\@/gm,function(match,cap) {
-      var expr = Fronkensteen.renderREPLTemplate(cap);
       // This is ugly hackery. Try to handle it better. Ideally processing
       // embedded Scheme would happen further upstream.
-      expr = expr.replace(/“/g,'"');
-      expr = expr.replace(/”/g,'"');
-      expr = expr.replace(/‘/g,"'");
-      expr = expr.replace(/’/g,"'");
-      expr = expr.replace(/\&lt\;/g,'<');
-      expr = expr.replace(/\&gt\;/g,'>');
-      expr = expr.replace(/\&amp\;/g,'&');
+      cap = cap.replace(/“/g,'"');
+      cap = cap.replace(/”/g,'"');
+      cap = cap.replace(/‘/g,"'");
+      cap = cap.replace(/’/g,"'");
+      cap = cap.replace(/\&lt\;/g,'<');
+      cap = cap.replace(/\&gt\;/g,'>');
+      cap = cap.replace(/\&amp\;/g,'&');
+      let expr = Fronkensteen.renderREPLTemplate(cap);
       BiwaScheme.assert_string(ar[0]);
       var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       let result = intp2.evaluate(expr);
