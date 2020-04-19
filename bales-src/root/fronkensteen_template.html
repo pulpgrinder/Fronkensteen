@@ -178,7 +178,10 @@ Fronkensteen.export_workspace = function(){
     element.click();
 }
 
-  Fronkensteen.loadErrorHandler = function(message, url, lineNumber) {
+  Fronkensteen.loadErrorHandler = function(event){
+    let message = event.message;
+    let lineNumber = event.linenumber;
+    let url = event.url;
     Fronkensteen.loadError = true;
     console.log("Error at url: " + url + " message: " + message + "line number: " + lineNumber);
     let filename = null;
