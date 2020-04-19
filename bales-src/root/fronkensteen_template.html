@@ -52,6 +52,7 @@
   <body>
   <div id="fronkensteen-wrapper">
   </div>
+  <!-- The low-level debugger. Maybe have an option to exclude this for final release versions of apps. -->
   <div id="fronkensteen-launch-debugger">
     <div id="debugwrapper">
       <div class="debugheader">
@@ -78,7 +79,7 @@
   let Fronkensteen = {
     CumulativeErrors:[]
   };
-
+  Fronkensteen.bale_version = "0.2";
   Fronkensteen.bytes_to_base_64 = function(buffer){
     var arr = new Uint8Array(buffer)
     let raw = '';
