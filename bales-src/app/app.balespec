@@ -2,9 +2,10 @@
 #mandatory false
 LICENSE-app.md
 splash-panel.md
-markup-doc.md
-architecture-overview.md
-html-doc.md
+markup-docs.md
+bale-docs.md
+editor-docs.md
+html-docs.md
 init-ui.scm
 init.scm
 app.scm

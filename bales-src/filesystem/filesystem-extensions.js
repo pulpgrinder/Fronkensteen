@@ -473,12 +473,6 @@ BiwaScheme.define_libfunc("file-basename-no-extension",1,1, function(ar){
   return Fronkensteen.file_basename_no_extension(ar[0]);
 });
 
-BiwaScheme.define_libfunc("file-name-no-extension",1,1, function(ar){
-  // Returns the base name (without extension) of a file name, without any preceding path.
-  BiwaScheme.assert_string(ar[0]);
-  return Fronkensteen.file_name_no_extension(ar[0]);
-});
-
 BiwaScheme.define_libfunc("file-rename",2,2, function(ar){
   // rename ar[0] to ar[1]
   BiwaScheme.assert_string(ar[0]);

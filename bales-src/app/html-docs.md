@@ -1,5 +1,4 @@
 ; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
-
 ## HTML Generation
 
 Fronkensteen has procedures corresponding to all standard HTML tags, as well as some custom tags (and you are also free to design your own tags).

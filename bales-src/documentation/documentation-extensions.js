@@ -124,11 +124,11 @@ BiwaScheme.define_libfunc("rebuild-documentation", 0, 0, function(ar, intp){
     for(var j = 0; j < file_manifest.length; j++){
       let filename = file_manifest[j];
       if(filename.match(/\.scm$/) !== null){
-        let schemeCode = Fronkensteen.decodeText(fronkensteen_fs[filename]);
+        let schemeCode = Fronkensteen.readInternalTextFile(filename);
         Fronkensteen.parseSchemeProcedureDefs(filename,schemeCode);
       }
       if(filename.match(/\.js$/) !== null){
-        let jsCode = Fronkensteen.decodeText(fronkensteen_fs[filename]);
+        let jsCode = Fronkensteen.readInternalTextFile(filename);
         Fronkensteen.parseJSProcedureDefs(filename,jsCode);
       }
     }

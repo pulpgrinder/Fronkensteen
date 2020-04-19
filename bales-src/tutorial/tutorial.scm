@@ -148,10 +148,10 @@
 
 ; Now let's see how to interact with the DOM (the "web page"). Fronkensteen
 ; uses a jQuery-like syntax to do that.
-; The "hide editor" button in the toolbar (the door icon at the extreme left)
+; The "hide editor" button in the toolbar (the check icon at the extreme left)
 ; has the HTML id fronkensteen-editor-hide-button, or
 ; #fronkensteen-editor-hide-button as a jQuery selector(you can verify this by
-; inspecting it in your browser's debugger). Let's say we don't like the door.
+; inspecting it in your browser's debugger). Let's say we don't like the check.
 ; We can use the jQuery interface to change it to anything we want.
 ; Try this:
 

@@ -7,14 +7,12 @@
       (span ".fronkensteen-editor-button-group"
       (<<
         (button "#fronkensteen-editor-hide-button.fronkensteen-editor-button!title='Hide Editor'"
-          (fa-icon "s" "door-open"))
-        (button "#fronkensteen-editor-save-world-button.fronkensteen-editor-button!title='Save workspace'"
-               (fa-icon "s" "save"))
-
-        (button "#fronkensteen-editor-reload-world-button.fronkensteen-editor-button!title='Reload workspace'"
-                      (fa-icon "s" "sync"))
-        (button "#fronkensteen-editor-save-button.fronkensteen-editor-mode-button.fronkensteen-editor-basic-button.fronkensteen-editor-button!title='Update File'"
           (fa-icon "s" "check"))
+        (button "#fronkensteen-editor-save-world-button.fronkensteen-editor-button!title='Save workspace'"
+               (fa-icon "s" "archive"))
+
+        (button "#fronkensteen-editor-save-button.fronkensteen-editor-mode-button.fronkensteen-editor-basic-button.fronkensteen-editor-button!title='Update File'"
+          (fa-icon "s" "save"))
           (button "#fronkensteen-editor-close-button.fronkensteen-editor-mode-button.fronkensteen-editor-basic-button.fronkensteen-editor-button!title='Close File Without Updating'"
             (fa-icon "s" "times-circle"))
           (button "#fronkensteen-editor-delete-file-button.fronkensteen-editor-basic-button.fronkensteen-editor-button!title='Delete File'"

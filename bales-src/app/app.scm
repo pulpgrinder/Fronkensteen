@@ -65,16 +65,20 @@
 
 (define (view-markup-docs_click)
   (view-trusted-markup-text
-    (read-internal-text-file "app/markup-doc.md")))
+    (read-internal-text-file "app/markup-docs.md")))
 
 (define (view-html-docs_click)
   (view-trusted-markup-text
-    (read-internal-text-file "app/html-doc.md")))
+    (read-internal-text-file "app/html-docs.md")))
 
-
-(define (view-architecture-docs_click)
+(define (view-editor-docs_click)
   (view-trusted-markup-text
-    (read-internal-text-file "app/architecture-overview.md")))
+    (read-internal-text-file "app/editor-docs.md")))
+
+
+(define (view-bale-docs_click)
+  (view-trusted-markup-text
+    (read-internal-text-file "app/bale-docs.md")))
 
 ; runs when the #scheme-demo-eval button is clicked.
 (define (scheme-demo-eval_click)

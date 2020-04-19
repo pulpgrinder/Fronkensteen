@@ -1,6 +1,5 @@
-## Overview of Fronkensteen Architecture
-
-### Bales
+; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
+## The Fronkensteen Bale System
 
 Fronkensteen packages units of functionality in "bales", which are collections of related files, both code (JavaScript, Scheme, and CSS) and resources (docs, images, fonts, etc.).
 

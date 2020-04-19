@@ -8,6 +8,10 @@ BiwaScheme.define_libfunc("numeric-time-stamp",0,0,function(){
   return d.toISOString().replace(/[^0-9]/g,"");
 })
 
+BiwaScheme.define_libfunc("file-version-time-stamp",0,0,function(){
+    return (new Date()).toISOString().substring(0,19).replace("T",".").replace(/\:/g,".");
+})
+
 BiwaScheme.define_libfunc("iso-8601-date",0,0, function(){
   // Returns the current date and time in ISO8601 string format.
   var d = new Date();

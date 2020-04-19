@@ -159,6 +159,16 @@ BiwaScheme.define_libfunc("window-location-pathname", 0, 0, function(ar){
   return window.location.pathname;
 });
 
+
+BiwaScheme.define_libfunc("window-location-basename-no-extension", 0, 0, function(ar){
+  // Return the base file name (no extension) of the URL for the current document.
+  return Fronkensteen.file_basename_no_extension(window.location.pathname);
+});
+
+BiwaScheme.define_libfunc("window-location-basename", 0, 0, function(ar){
+  // Return the base file name (no extension) of the URL for the current document.
+  return Fronkensteen.file_basename(window.location.pathname);
+});
 BiwaScheme.define_libfunc("window-location-port", 0, 0, function(ar){
   // Return the port number for the URL for the current document.
   return window.location.pathname;

@@ -1,8 +1,8 @@
 # Fronkensteen
 
-## Caution: this is a preliminary version. It still contains many bugs and sharp corners! Moving fast and breaking things is occurring on a constant basis.
+## Caution: this is a preliminary version. It still contains many sharp corners, and, no doubt, bugs. Moving fast and breaking things is occurring on a constant basis.
 
-Fronkensteen is a self-contained, single-file, Scheme development environment that works in any modern browser (i.e., just about everything other than Internet Explorer). You can write and execute apps without any external resources at all. No toolchain. No external editor. The entire system is contained in a single HTML file which can be put on a web server or even opened in the browser from the local file system.
+Fronkensteen is a self-contained, single-file, Scheme development environment that works in any modern browser (i.e., just about everything other than Internet Explorer). You can write and execute apps without any external resources at all. No toolchain. No server. No external editor. The entire system is contained in a single HTML file which can be opened in a browser from the local file system, put on a standard web server, embedded in a native wrapper (such as Electron or Cordova)...
 
 ## Demo/How to use
 

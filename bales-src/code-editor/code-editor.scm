@@ -288,18 +288,6 @@
         (cm-editor-eval-js-selection! active-editor-element))
 ))
 
-(define (fronkensteen-editor-reload-world-button_click)
-    (if (or (has-dirty-editors?) (eqv? system-dirty? #t))
-          (begin
-              (prompt-save-for-dirty-editors)
-              (if (confirm "Workspace has changed. Save it?")
-                (begin
-                  (alert "Saving workspace. Please click reload again after saving.")
-                  (save-the-static-world))
-                  (reload-world)))
-      (reload-world)
-    ))
-
 (define (fronkensteen-editor-save-world-button_click)
   (prompt-save-for-dirty-editors)
   (save-the-static-world))
