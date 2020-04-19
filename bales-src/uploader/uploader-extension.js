@@ -31,7 +31,6 @@ Fronkensteen.uploadFile = function(type,multiple,proc){
   uploader.off("change");
   uploader.val('');
   uploader.change(function(){
-    console.log("Changed");
     let curFiles = $("#" + Fronkensteen.uploadElement)[0].files;
     for (var i = 0; i < curFiles.length; i++) {
       let reader = new FileReader();

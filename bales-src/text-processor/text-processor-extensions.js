@@ -42,7 +42,7 @@ BiwaScheme.define_libfunc("process-embedded-code",2,2, function(ar,intp){
       var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       let result = intp2.evaluate(expr);
       if(Fronkensteen.CumulativeErrors.length !== 0){
-        console.log("Error evaluating " + expr + " in embedded Scheme code." + Fronkensteen.CumulativeErrors.join("\n"));
+        console.error("Error evaluating " + expr + " in embedded Scheme code." + Fronkensteen.CumulativeErrors.join("\n"));
         Fronkensteen.CumulativeErrors = [];
       }
       return result;
@@ -166,7 +166,6 @@ BiwaScheme.define_libfunc("process-embedded-scheme",1,1, function(ar,intp){
     BiwaScheme.assert_string(ar[0]);
     let intp2 = new BiwaScheme.Interpreter(intp);
     let processed = ar[0].replace(/\@\@([\s\S]*?)\@\@/gm,function(match,cap) {
-            console.log("Capture is " + cap)
             var expr = Fronkensteen.renderREPLTemplate(cap);
           //  let scheme_result = intp2.evaluate(expr);
             return intp2.evaluate(expr);

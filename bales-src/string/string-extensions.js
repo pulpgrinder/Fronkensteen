@@ -306,7 +306,6 @@ BiwaScheme.define_libfunc("regexp?", 1, 1, function(ar){
   }
 
   Fronkensteen.renderReadTemplate  = function(text){
-    console.log("renderReadTemplate: text is " + text)
     text = text.replace(/\<%([^]*?)%\>/gm, function (match, capture) {
       return "\"" +  Fronkensteen.patchQuotes(capture)  +  "\"";
     });
@@ -314,7 +313,6 @@ BiwaScheme.define_libfunc("regexp?", 1, 1, function(ar){
   },
 
   Fronkensteen.renderREPLTemplate = function(text){
-    console.log("renderREPLTemplate: text is " + text)
     while(text.match(/\<%([^]*?)%\>/m)){
       text = text.replace(/\<%([^]*?)%\>/gm, function (match, capture) {
         return  Fronkensteen.patchReplQuotes(capture);

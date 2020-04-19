@@ -15,19 +15,13 @@ BiwaScheme.define_libfunc("cm-find", 6, 6, function(ar,intp){
     BiwaScheme.assert_string(ar[1]);
     BiwaScheme.assert_vector(ar[2]);
     let editor_name = ar[0];
-    console.log("editor_name: " + editor_name)
     let search_lemma = ar[1];
-    console.log("search_lemma: " + search_lemma)
     let start = {line:ar[2][0],ch:ar[2][1]};
-    console.log("start: " + JSON.stringify(start));
     let fold_case = ar[3];
-    console.log("fold_case: " + fold_case)
     let is_regex = ar[4];
-    console.log("is_regex: " + is_regex)
     let search_backward = ar[5];
     let result = false;
     let doc;
-    console.log("search: " + search_backward)
     let editor = cm_editors[ar[0]];
     if(editor !== undefined){
       doc = editor.getDoc();

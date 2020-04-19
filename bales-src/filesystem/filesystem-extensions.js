@@ -216,7 +216,6 @@ Fronkensteen.importBale = function(balefilename,dataString){
     return;
   }
   let data = JSON.parse(dataString);
-  console.log("Import bale: data is \n" + data)
   let filenames = Object.keys(data);
   let file_manifest = ""
   for(var i = 0; i < filenames.length; i++){
@@ -283,11 +282,8 @@ Fronkensteen.readInternalFile = function(filename){
 
 
 Fronkensteen.writeDataURLToInternalFile = function(filename,data){
-  console.log("Filename is " + filename)
   let base64offset = data.indexOf("base64,");
-  console.log("base64 offset is " + base64offset)
   data = data.substring(base64offset + 7);
-  console.log("Data is now " + data);
   fronkensteen_fs[filename] = data;
   var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
@@ -598,9 +594,8 @@ BiwaScheme.define_libfunc("hereload", 1, 1, function(ar, intp){
     let currentData = Fronkensteen.readInternalTextFile(path);
     let result = intp2.evaluate(Fronkensteen.renderReadTemplate(currentData));
     if(Fronkensteen.CumulativeErrors.length !== 0){
-      console.log("Errors in " + ar[0])
+      console.error("Errors in " + ar[0])
       result = result + "\n" + Fronkensteen.CumulativeErrors.join("\n");
-      console.log(result);
     }
   Fronkensteen.CumulativeErrors = [];
   Fronkensteen.currentBiwaSchemeLoadFile = null;

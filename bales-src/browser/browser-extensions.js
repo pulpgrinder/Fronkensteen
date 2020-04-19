@@ -34,7 +34,7 @@ window.onpopstate = function(event) {
     }
   }
   else {
-    console.log("No pop-browser-state_handler defined.")
+    console.error("No pop-browser-state_handler defined.")
   }
 };
 
