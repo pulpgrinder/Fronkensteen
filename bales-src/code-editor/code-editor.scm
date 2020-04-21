@@ -251,18 +251,63 @@
         (fronkensteen-editor-javascript-eval-button_click)
         #f))))
 
+(define (fronkensteen-editor-replace-button_click)
+  (let ((lemma (% "#fronkensteen-editor-find-input" "val"))
+       (replacement (% "#fronkensteen-editor-replace-input" "val")))
+       (if (eqv? fronkensteen-active-editor-file #f)
+        (alert "No editor open.")
+        (if (eqv? lemma "")
+          (alert "Nothing to find")
+          (let ((editor (code-editor-element-for-filename fronkensteen-active-editor-file)))
+            (cm-editor-replace editor replacement))))))
+
+(define (fronkensteen-editor-replace-and-find-button_click)
+  (fronkensteen-editor-replace-button_click)
+  (fronkensteen-editor-find-button_click))
+
+  (define (fronkensteen-editor-replace-all-button_click)
+    (fronkensteen-editor-replace-all #t))
+
+(define (fronkensteen-editor-replace-all is-first-pass)
+    (let ((found (fronkensteen-editor-perform-find #f)))
+      (if found
+        (begin
+          (fronkensteen-editor-replace-button_click)
+          (fronkensteen-editor-replace-all is-first-pass))
+        (if is-first-pass
+          (begin
+            (cm-editor-set-cursor-position editor 0 0)
+            (fronkensteen-editor-replace-all #f))
+          #t))))
+
 (define (fronkensteen-editor-find-button_click)
+    (fronkensteen-editor-perform-find #t))
+
+(define (fronkensteen-editor-perform-find query-for-wrap?)
   (let ((foldcase (checkbox-checked? "#fronkensteen-editor-find-ignorecase"))
       (use-regex (checkbox-checked? "#fronkensteen-editor-find-regex"))
       (search-backward (checkbox-checked? "#fronkensteen-editor-find-searchbackward"))
       (lemma (% "#fronkensteen-editor-find-input" "val")))
         (if (eqv? fronkensteen-active-editor-file #f)
           (alert "No editor open.")
-          (begin
-            (let ((editor (code-editor-element-for-filename fronkensteen-active-editor-file)))
-              (if (eqv? (cm-find editor lemma (fronkensteen-editor-next-search-position editor) foldcase use-regex search-backward) #f)
-                (alert "Not found.")
-              #t))))))
+          (if (eqv? lemma "")
+            (alert "Nothing specified to find.")
+            (begin
+              (let ((editor (code-editor-element-for-filename fronkensteen-active-editor-file)))
+                (if (eqv? (cm-find editor lemma (fronkensteen-editor-next-search-position editor) foldcase use-regex search-backward) #f)
+                  (if query-for-wrap?
+                    (if (checkbox-checked? "#fronkensteen-editor-find-wrap")
+                      (timer (lambda()
+                          (if search-backward
+                            (begin
+                              (let ((doc-end (cm-end-position editor)))
+                                (cm-editor-set-cursor-position editor (vector-ref doc-end  0) (vector-ref doc-end 1))))
+                             (cm-editor-set-cursor-position editor 0 0))
+                          (fronkensteen-editor-perform-find #f)) 0.05
+                            )
+                     #f)
+                     #t)
+                  #t)))))))
 
 (define (fronkensteen-editor-next-search-position editor)
     (let ((cursor-position (cm-editor-get-cursor-position editor)))
@@ -461,7 +506,9 @@
   (write-internal-text-file filename text))
 
 (define (focus-find)
-  (% "#fronkensteen-editor-find-input" "focus"))
+  (if (eqv? (% "#fronkensteen-editor-find-input" "val") "")
+    (% "#fronkensteen-editor-find-input" "focus")
+    (fronkensteen-editor-find-button_click)))
 
 ; Toggle to internal code editor on shift+alt (or option)+click
 

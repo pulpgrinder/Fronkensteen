@@ -2,6 +2,8 @@
 // Copyright 2018-2020 by Anthony W. Hursh
 // MIT License.
 
+let cm_editors = {};
+
 
 BiwaScheme.define_libfunc("cm-find", 6, 6, function(ar,intp){
   // Runs a search of the active document. Args are:
@@ -11,6 +13,7 @@ BiwaScheme.define_libfunc("cm-find", 6, 6, function(ar,intp){
   // Returns  [result.from.line,result.from.ch,result.to.line,result.to.ch]
   // if found, false if
   // no match.
+
     BiwaScheme.assert_string(ar[0]);
     BiwaScheme.assert_string(ar[1]);
     BiwaScheme.assert_vector(ar[2]);
@@ -20,38 +23,7 @@ BiwaScheme.define_libfunc("cm-find", 6, 6, function(ar,intp){
     let fold_case = ar[3];
     let is_regex = ar[4];
     let search_backward = ar[5];
-    let result = false;
-    let doc;
-    let editor = cm_editors[ar[0]];
-    if(editor !== undefined){
-      doc = editor.getDoc();
-      if(is_regex === true){ // Regexp search
-          if(search_backward === false){
-            result = CodeMirror.commands.searchRegexpForward(doc,new RegExp(search_lemma),start);
-          }
-          else{
-            result =  CodeMirror.commands.searchRegexpBackward(doc,new RegExp(search_lemma),start);
-         }
-      }
-      else { // String search.
-        if(search_backward === false){
-          result = CodeMirror.commands.searchStringForward(doc,search_lemma,start, fold_case);
-        }
-        else{
-          result =  CodeMirror.commands.searchStringBackward(doc,search_lemma,start,fold_case);
-       }
-      }
-    }
-    else{
-      console.error("cm-find: No editor corresponding to " + ar[0]);
-    }
-    if(result !== undefined){
-      doc.setSelection(result.from,result.to);
-      return [result.from.line,result.from.ch,result.to.line,result.to.ch];
-    }
-    else{
-      return false;
-    }
+    return editDriver.find(editor_name,search_lemma,start,fold_case,is_regex,search_backward)
 })
 BiwaScheme.define_libfunc("clear-cm-editor-undo!", 1, 1, function(ar,intp){
   // Clears the undo buffer. Use after loading a file into a new editor,
@@ -69,6 +41,17 @@ BiwaScheme.define_libfunc("clear-cm-editor-undo!", 1, 1, function(ar,intp){
     }
 })
 
+BiwaScheme.define_libfunc("cm-end-position",1,1,function(ar){
+  BiwaScheme.assert_string(ar[0]);
+  let editor = cm_editors[ar[0]];
+  if(editor === undefined){
+      return null;
+  }
+  editDriver.goToEnd(ar[0]);
+  let position = editDriver.getCursorPosition(ar[0]);
+  return [position[0],position[1],position[0],position[1]];
+})
+
 BiwaScheme.define_libfunc("set-cm-editor-text!", 2, 2, function(ar,intp){
   // Set the text for the CodeMirror editor named in ar[0] to the text in ar[1]
     BiwaScheme.assert_string(ar[0]);
@@ -77,7 +60,6 @@ BiwaScheme.define_libfunc("set-cm-editor-text!", 2, 2, function(ar,intp){
     if(editor !== undefined){
       let result = editor.setValue(ar[1]);
       editor.focus();
-      editor.refresh();
       return result;
     }
     else{
@@ -122,7 +104,6 @@ BiwaScheme.define_libfunc("cm-editor-get-current-symbol",1,1,function(ar,intp){
   let editor = cm_editors[ar[0]];
   let result = "";
   if(editor !== undefined){
-    editor.focus();
     let doc = editor.getDoc();
     let cursor = doc.getCursor();
     let text = editor.getValue();
@@ -154,6 +135,7 @@ BiwaScheme.define_libfunc("cm-editor-get-current-symbol",1,1,function(ar,intp){
             end = end + 1;
           }
       }
+      editor.focus();
       return text.substring(start,end);
     }
   }
@@ -162,7 +144,6 @@ BiwaScheme.define_libfunc("cm-editor-get-current-symbol",1,1,function(ar,intp){
 Fronkensteen.getProcedureAtCursor = function(editorname){
   let editor = cm_editors[editorname];
   if(editor !== undefined){
-    editor.focus();
     let doc = editor.getDoc();
     let cursor = doc.getCursor();
     let text = editor.getValue();
@@ -195,6 +176,7 @@ Fronkensteen.getProcedureAtCursor = function(editorname){
       }
       selection = text.substring(start,end);
     }
+    editor.focus();
     return selection.trim();
 }
   return false;
@@ -217,7 +199,6 @@ BiwaScheme.define_libfunc("cm-editor-eval-js-selection!",1,1,function(ar,intp){
   let editor = cm_editors[ar[0]];
   let result = "";
   if(editor !== undefined){
-    editor.focus();
     let doc = editor.getDoc();
     let cursor = doc.getCursor();
     let text = editor.getValue();
@@ -243,6 +224,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-js-selection!",1,1,function(ar,intp){
   else {
     console.error("cm-editor-eval-js-selection!: (no editor)");
   }
+  editor.focus();
 })
 
 BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,function(ar,intp){
@@ -251,7 +233,6 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
   let editor = cm_editors[ar[0]];
   let result = "";
   if(editor !== undefined){
-    editor.focus();
     let doc = editor.getDoc();
     let cursor = doc.getCursor();
     let text = editor.getValue();
@@ -284,6 +265,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
       Fronkensteen.CumulativeErrors = [];
     }
     doc.replaceSelection(doc.getSelection() + result);
+    editor.focus();
     return true;
 
   }
@@ -299,7 +281,6 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
     let editor = cm_editors[ar[0]];
     let result = "";
     if(editor !== undefined){
-      editor.focus();
       let doc = editor.getDoc();
       let cursor = doc.getCursor();
       let text = editor.getValue();
@@ -307,6 +288,7 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
       result = " ; value: " + intp2.evaluate(text) + Fronkensteen.CumulativeErrors.join("\n");
       Fronkensteen.CumulativeErrors = [];
       editor.setValue(text + result);
+      editor.focus();
       return true;
 
     }
@@ -385,7 +367,8 @@ BiwaScheme.define_libfunc("focus-cm-editor-component!", 1, 1, function(ar,intp){
   BiwaScheme.assert_string(ar[0]);
   let editor = cm_editors[ar[0]];
   if(editor !== undefined){
-    return editor.focus();
+    editDriver.focus(editor);
+    return true;
   }
   else{
     console.error("focus-cm-editor-component!: No editor corresponding to " + ar[0]);
@@ -418,12 +401,19 @@ BiwaScheme.define_libfunc("destroy-cm-editor!", 1, 1, function(ar,intp){
   }
 })
 
-let cm_editors = {};
 
 function focusFind(){
   setTimeout(function(){
   var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.evaluate("(focus-find)");
+  return true;
+},15)
+}
+
+function findNext(){
+  setTimeout(function(){
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+  intp2.evaluate("(fronkensteen-editor-find-button_click)");
   return true;
 },15)
 }
@@ -455,6 +445,12 @@ BiwaScheme.define_libfunc("init-cm-editor!", 2, 2, function(ar,intp){
        lineNumbers:true,
        mode:ar[1],
        extraKeys: {
+         "Cmd-G": function(){
+           findNext();
+         },
+         "Ctrl-G": function(){
+           findNext();
+         },
          "Cmd-F": function(){
            focusFind();
          },
@@ -482,336 +478,7 @@ BiwaScheme.define_libfunc("init-cm-editor!", 2, 2, function(ar,intp){
 })
 
 
-class CMEditorDriver {
-    constructor(){
-      this.codeLanguage = "markdown";
-    }
-    getText(editorname){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-      return editor.getDoc().getValue();
-    }
-    setText(editorname,value){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-      editor.getDoc().setValue(value);
-      setTimeout(function(){
-        editor.refresh();
-      },1)
-    }
-    setCursorPosition(editorname,line,column){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-        console.error("No editor found for " + editorname)
-      }
-      editor.getDoc().setCursor(line,column)
-    }
-    getCursorPosition(editorname){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-        console.error("No editor found for " + editorname)
-      }
-      let cursor = editor.getCursor("to");
-      return [cursor.line,cursor.ch];
-    }
-    getLine(editorname,line_number){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-        console.error("No editor found for " + editorname)
-      }
-      return editor.getDoc().getLine(line_number);
-    }
-    scrollToLine(editorname,line){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-        console.error("No editor found for " + editorname);
-        return;
 
-      }
-      var h = editor.getScrollInfo().clientHeight;
-      var coords = editor.charCoords({line: line - 1, ch: 0}, "local");
-      editor.scrollTo(null, coords.top);
-
-    }
-    escapeRegExp(s){
-        return s.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
-    }
-    setCodeLanguage(newlanguage){
-      this.codeLanguage = newlanguage;
-    }
-    getSelection(editorname){
-      let editor = cm_editors[editorname];
-      if(editor !== undefined){
-        return editor.getSelection();
-      }
-      return null;
-    }
-    setSelection(editorname,start,end){
-      let editor = cm_editors[editorname];
-      if(editor !== undefined){
-        return editor.setSelection();
-      }
-      return null;
-    }
-
-    replaceSelectedText(editorname,text,mode){
-      let editor = cm_editors[editorname];
-      if(editor !== undefined){
-        return editor.replaceSelection(text,mode);
-      }
-      return null;
-
-    }
-    surroundSelectedText(editorname,preamble,postamble,mode){
-      let editor = cm_editors[editorname];
-      if(editor !== undefined){
-        return editor.replaceSelection(preamble + editor.getSelection() + postamble,mode);
-      }
-      return null;
-    }
-    setFence(editorname,preamble,postamble){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-
-        var seltext = this.getSelection(editorname);
-        if(seltext.length === 0){
-          alert("No text selected.")
-          return;
-        };
-        var restring = "^" + this.escapeRegExp(preamble) + ".*" + this.escapeRegExp(postamble) + "$";
-        var fencre = new RegExp(restring);
-        var fencelength = preamble.length + postamble.length;
-        if(seltext.match(fencre)){
-          this.replaceSelectedText(editorname,seltext.substring(preamble.length, seltext.length - postamble.length),"around");
-           editor.focus();
-        }
-        else{
-            this.surroundSelectedText(editorname,preamble,postamble,"around");
-            editor.focus();
-        }
-        return true;
-    }
-
-    setLinePrefix(editorname,prefix){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-        var restring = this.escapeRegExp(prefix)
-        var prefre = new RegExp("^" + restring);
-        var start = editor.getCursor("from")
-        var startLine = start.line;
-        var startCh = start.ch;
-        var end = editor.getCursor("to");
-        var endCh = end.ch;
-        var lineArr = editor.getValue().split("\n");
-        var workingLine = lineArr[startLine];
-        var prefixDelta;
-        if(workingLine.match(prefre)){
-           workingLine = workingLine.replace(prefre,"");
-             prefixDelta = -prefix.length
-        }
-        else {
-            workingLine = prefix + workingLine
-            prefixDelta = prefix.length;
-        }
-        lineArr[startLine] = workingLine
-        editor.setValue(lineArr.join("\n"));
-        editor.setSelection({line:startLine, ch:0},{line:startLine,ch:endCh + prefixDelta})
-        editor.focus();
-        return true;
-    }
-    setLineSuffix(editorname,suffix){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-        var restring = this.escapeRegExp(suffix) + ".*"
-        var suffre = new RegExp(restring + "$");
-        var selectedLine = editor.getCursor("from").line;
-        var lineArr = editor.getValue().split("\n");
-        var workingLine = lineArr[selectedLine]
-        if(workingLine.match(suffre)){
-           workingLine = workingLine.replace(suffre,"")
-        }
-        else {
-            workingLine = workingLine + suffix
-        }
-        lineArr[selectedLine] = workingLine
-        editor.setValue(lineArr.join("\n"));
-        editor.focus();
-    }
-    setItalic(editorname){
-        this.setFence(editorname,"*","*");
-    }
-    setBold(editorname){
-        this.setFence(editorname,"**","**");
-    }
-    setSuperscript(editorname){
-        this.setFence(editorname,"^","^");
-    }
-    setSubscript(editorname){
-        this.setFence(editorname,"~","~");
-    }
-    setStrikeout(editorname){
-        this.setFence(editorname,"~~","~~");
-    }
-    setNote(editorname){
-        this.setFence(editorname,"{{{","}}}");
-    }
-    setMath(editorname){
-      this.setFence(editorname,"$$","$$");
-    }
-    multilineFence(editorname,prefix,suffix){
-      let editor = cm_editors[editorname];
-        var sel = this.getSelection(editorname);
-      //  var val = editor.getValue();
-        var fencere = new RegExp("^" + this.escapeRegExp(prefix) + "((.|\n)*)" + this.escapeRegExp(suffix) + "$","m");
-        if(sel.match(fencere)){
-            this.replaceSelectedText(editorname, sel.replace(fencere,"$1"),"around");
-            editor.focus();
-        }
-        else{
-          this.replaceSelectedText(editorname, prefix + sel + suffix, "around")
-            //this.setLineSuffix(editor,suffix);
-          //  this.setLinePrefix(editor,prefix);
-            editor.focus();
-        }
-
-    }
-    setBlockPrefix(editorname,prefix,increment, space){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-        var seltext = this.getSelection(editorname);
-        var lines = seltext.split("\n");
-        var selectionLength = 0;
-        var prefixmatch = prefix + space;
-        for(var i = 0; i < lines.length; i++){
-          if(lines[i] !== ""){
-            if(lines[i].indexOf(prefixmatch) === 0){
-                lines[i] = lines[i].substring(prefixmatch.length);
-            }
-            else{
-                lines[i] = prefixmatch + lines[i];
-            }
-            if(increment === true){
-                prefix = prefix + 1;
-                prefixmatch = prefix + space;
-            }
-          }
-        }
-        seltext = lines.join("\n");
-        this.replaceSelectedText(editorname,seltext,"around");
-        editor.focus();
-
-    }
-    setBulletedList(editorname){
-        this.prefixRegion(editorname,"*",false," ")
-    }
-
-    setNumberedList(editorname){
-         this.prefixRegion(editorname,1,true,". ")
-    }
-    setBlockQuote(editorname){
-         this.prefixRegion(editorname,">",false," ");
-    }
-    setPoetry(editorname){
-        this.prefixRegion(editorname,"|",false," ");
-    }
-    setCode(editorname){
-        var seltext = this.getSelection(editorname);
-        if(seltext.indexOf("\n") !== -1){
-            this.multilineFence(editorname,"``` " + this.codeLanguage + "\n","\n```");
-        }
-        else {
-            this.setFence(editorname,"`","`");
-        }
-    }
-    prefixRegion(editorname,prefix,increment,space){
-        var seltext = this.getSelection(editorname);
-        if(seltext.indexOf("\n") === -1){
-            this.setLinePrefix(editorname,prefix + space);
-        }
-        else {
-            this.setBlockPrefix(editorname,prefix,increment,space);
-        }
-    }
-    setCenter(editorname){
-        this.prefixRegion(editorname,"-><-",false," ");
-    }
-    setJustify(editorname){
-        this.prefixRegion(editorname,"<->",false," ");
-    }
-    setAlignRight(editorname){
-        this.prefixRegion(editorname,"->",false," ");
-    }
-    setAlignLeft(editorname){
-        this.prefixRegion(editorname,"<-",false," ");
-    }
-    setComment(editorname){
-        this.prefixRegion(editorname,";",false," ");
-    }
-    setHeading(headingprefix, editorname){
-        this.prefixRegion(editorname,headingprefix,false," ");
-    }
-    find(editorname,text,wrap,ignoreCase){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-      let userCursor = editor.getCursor();
-      let searchCursor = editor.getSearchCursor(text,{line:userCursor.line,ch:userCursor.ch},{caseFold:ignoreCase});
-      if(searchCursor.findNext() === true){
-         editor.setSelection(searchCursor.from(), searchCursor.to());
-         return true;
-      }
-      if(wrap === true){
-        searchCursor = editor.getSearchCursor(text,{line:0,ch:0},{caseFold:ignoreCase});
-        if(searchCursor.findNext() === true){
-           editor.setSelection(searchCursor.from(), searchCursor.to());
-           return true;
-        }
-      }
-      return false;
-
-    }
-    replace(editorname,replacement){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-      editor.replaceSelection(replacement,"around");
-      return true;
-  }
-    replaceAll(editorname,text,replacement,ignoreCase){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-      let userCursor = editor.getCursor();
-      let searchCursor = editor.getSearchCursor(text,{line:0,ch:0},{caseFold:ignoreCase});
-      while(searchCursor.findNext() === true){
-         editor.setSelection(searchCursor.from(), searchCursor.to());
-         editor.replaceSelection(replacement,"around");
-      }
-
-    return true;
-  }
-}
-
-let editDriver = new CMEditorDriver();
-
-BiwaScheme.define_libfunc("cm-editor-find",4,4, function(ar){
-  return editDriver.find(ar[0],ar[1],ar[2],ar[3]);
-});
 BiwaScheme.define_libfunc("cm-editor-replace-all",4,4, function(ar){
   return editDriver.replaceAll(ar[0],ar[1],ar[2],ar[3]);
 });

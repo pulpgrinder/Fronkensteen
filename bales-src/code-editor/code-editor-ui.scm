@@ -51,9 +51,10 @@
 (define (fronkensteen-editor-find-and-replace)
   (dv "#fronkensteen-editor-find-and-replace" (<<
     (input "#fronkensteen-editor-find-input!type='text'!size='15'")
-    (button "#fronkensteen-editor-find-button.fronkensteen-editor-search-button!title='Find'" "Find")
+    (button "#fronkensteen-editor-find-button.fronkensteen-editor-search-button!title='Find Next'" "Find Next")
     (input "#fronkensteen-editor-replace-input!type='text'!size='15'")
     (button "#fronkensteen-editor-replace-button.fronkensteen-editor-search-button!title='Replace'" "Replace")
+    (button "#fronkensteen-editor-replace-and-find-button.fronkensteen-editor-search-button!title='Replace and Find'" "Replace and Find")
     (button "#fronkensteen-editor-replace-all-button.fronkensteen-editor-search-button!title='Replace All'" "Replace All")
     (input "#fronkensteen-editor-search-files-input!type='text'!size='15'")
     (button "#fronkensteen-editor-search-files-button.fronkensteen-editor-search-button!title='Search Project'" "Search Entire Project")
@@ -63,7 +64,8 @@
     (span ".smallfont" "/a+/&nbsp;&nbsp;")
     (input "#fronkensteen-editor-find-searchbackward!type='checkbox'!title='Search backward'")
     (span ".smallfont" "Backward&nbsp;&nbsp;")
-
+    (input "#fronkensteen-editor-find-wrap!type='checkbox'!title='Wrap'")
+    (span ".smallfont" "Wrap&nbsp;&nbsp;")
     ))
 )
 
@@ -77,4 +79,5 @@
       (fronkensteen-editor-workspace)
       (fronkensteen-editor-find-and-replace)))
       (fronkensteen-editor-sidebar)))
+  (set-checkbox-checked! "#fronkensteen-editor-find-wrap" #t)
   (init-bale-manager))

@@ -4,6 +4,7 @@ LICENSE-codemirror.md
 codemirror.css
 codemirror.scm
 codemirror.js
+editor-driver.js
 codemirror-extensions.js
 searchcursor.js
 markdown.js

@@ -1,4 +1,4 @@
-`codemirror-extensions.js` is copyright 2018-2020 by Anthony W. Hursh, and is distributed under the same MIT license as Fronkensteen as a whole.
+`codemirror-extensions.js` and `editor-driver.js` are copyright 2018-2020 by Anthony W. Hursh, and is distributed under the same MIT license as Fronkensteen as a whole.
 
 The following files are copyright by Marijn Haverbeke and others, and are distributed under the terms of the following MIT license.
 
