@@ -3,10 +3,6 @@
 // Copyright 2018-2019 by Anthony W. Hursh
 // MIT License.
 
-// Keep track of keypresses.
-var keys = {};
-window.onkeyup = function(e) { keys[e.keyCode] = false; }
-window.onkeydown = function(e) { keys[e.keyCode] = true; }
 
 
 // Try to prevent an accidental close with unsaved data.

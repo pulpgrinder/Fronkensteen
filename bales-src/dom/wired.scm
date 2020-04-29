@@ -9,10 +9,11 @@
         (console-log (string-append "wired: got " type " event on element that has no id."))
         (let ((handler-name (string-append id "_" type)))
           (if (is-procedure-defined? handler-name)
+            (begin
             (timer (lambda ()
-              (console-log "calling handler")
               ((eval (string->symbol handler-name)) ev))
-              0.01)
+              0.050)
+            #f)
             (console-log (string-append "autowire: " handler-name ": procedure not implemented."))))))))
 
 

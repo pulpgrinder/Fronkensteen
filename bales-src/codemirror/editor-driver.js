@@ -1,54 +1,356 @@
 
+CodeMirror.commands.find = function(){
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+  intp2.evaluate("(% \"#code-editor-find-field\" \"focus\")")
+}
+
 class CMEditorDriver {
     constructor(){
       this.codeLanguage = "markdown";
+      this.cm_editors = {}
+    }
+    activateEditor(editor_id){
+      console.log("activating " + editor_id)
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("showEditor: No editor corresponding to " + editor_id);
+        return;
+      }
+      editor.focus();
+      editor.refresh();
+    }
+    showEditor(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("showEditor: No editor corresponding to " + editor_id);
+        return;
+      }
+      $(editor.getWrapperElement()).show();
+    }
+    hideEditor(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("hideEditor: No editor corresponding to " + editor_id);
+        return;
+      }
+      $(editor.getWrapperElement()).hide();
+    }
+    hideAll(){
+      let editors = Object.keys(this.cm_editors);
+      for(var i = 0; i < editors.length; i++){
+        $(this.cm_editors[editors[i]].getWrapperElement()).hide();
+      }
+    }
+    evalSchemeBuffer(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("evalSchemeBuffer: No editor corresponding to " + editor_id);
+        return;
+      }
+      let doc = editor.getDoc();
+      let cursor = doc.getCursor();
+      let text = editor.getValue();
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+      result = " ; value: " + intp2.evaluate(text) + Fronkensteen.CumulativeErrors.join("\n");
+      Fronkensteen.CumulativeErrors = [];
+      editor.setValue(text + result);
+    }
+    evalSchemeSelection(editor_id){
+        let editor = this.cm_editors[editor_id];
+        let result = "";
+        if(editor === undefined){
+          console.error("evalSchemeSelection: No editor corresponding to " + editor_id);
+          return;
+        }
+        let doc = editor.getDoc();
+        let cursor = doc.getCursor();
+        let text = editor.getValue();
+        let selection = doc.getSelection();
+        let expr;
+        if(selection.length > 0){
+          let expr = selection;
+        }
+        else{
+          let index = doc.indexFromPos(cursor);
+          let preceding = text.substring(0,index);
+          selection = "";
+          let lastchar = text.charAt(preceding.length - 1);
+          if(lastchar === ")"){
+            selection = Fronkensteen.eval_extract_sexp(preceding);
+          }
+          else if(lastchar === "\""){
+            selection = Fronkensteen.eval_extract_string(preceding)
+          }
+          else {
+            selection = Fronkensteen.eval_extract_atom(preceding)
+          }
+        }
+        if(selection === null){
+          result = " ; No balanced expression found preceding cursor."
+        }
+        else{
+          var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+          result = " ; value:  " + intp2.evaluate(Fronkensteen.renderREPLTemplate(selection)) + Fronkensteen.CumulativeErrors.join("\n");
+          Fronkensteen.CumulativeErrors = [];
+        }
+        doc.replaceSelection(doc.getSelection() + result);
+
+    }
+    evalJSSelection(editor_id){
+      let editor = this.cm_editors[editor_id];
+      let result = "";
+      if(editor === undefined){
+        console.error("evalJSSelection: No editor corresponding to " + editor_id);
+        return;
+      }
+      let doc = editor.getDoc();
+      let cursor = doc.getCursor();
+      let text = editor.getValue();
+      let selection = doc.getSelection();
+      if(selection.length > 0){
+        try{
+          eval(selection);
+          result = "";
+        }
+        catch(err){
+          result = "// " + err.message;
+        }
+      }
+      else {
+        alert("Evaluate JavaScript: nothing selected.")
+        result =  "";
+      }
+      if(result !== ""){
+        doc.replaceSelection(doc.getSelection() + result);
+      }
+    }
+    getProcedureAtCursor(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("getProcedureAtCursor: No editor corresponding to " + editor_id);
+        return null;
+      };
+      let doc = editor.getDoc();
+      let cursor = doc.getCursor();
+      let text = editor.getValue();
+      let selection = doc.getSelection();
+      if(selection.length <= 0){
+        let index = doc.indexFromPos(cursor);
+        let preceding = text.substring(0,index);
+        if((text.charAt(index) === " ") || (text.charAt(index) === "\n")){
+          index = index - 1;
+        }
+        let start = index;
+        while(start >= 0){
+          if((text.charAt(start) === "(") || (text.charAt(start) === " ")  || (text.charAt(start) === "\n")){
+              start = start + 1;
+              break;
+            }
+            else{
+              start = start - 1;
+            }
+        }
+        let end = index;
+        while(end < text.length){
+          if((text.charAt(end) === ")") || (text.charAt(end) === " ") || (text.charAt(end) === "\n")){
+              break;
+
+            }
+            else{
+              end = end + 1;
+            }
+        }
+        selection = text.substring(start,end);
+      }
+      selection = selection.trim();
+      if(selection.length > 0){
+        return selection;
+      }
+      return false;
+    }
+    getCurrentSymbol(editor_id) {
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("getCurrentSymbol: No editor corresponding to " + editor_id);
+        return null;
+      }
+      let doc = editor.getDoc();
+      let cursor = doc.getCursor();
+      let text = editor.getValue();
+      let selection = doc.getSelection();
+      let expr;
+      if(selection.length > 0){
+        let expr = selection;
+      }
+      else{
+        let index = doc.indexFromPos(cursor);
+        let preceding = text.substring(0,index);
+        let start = index;
+        while(start > 0){
+          if((text.charAt(start) === "(") || (text.charAt(start) === " ")  || (text.charAt(start) === "\n")){
+              start = start + 1;
+              break;
+            }
+            else{
+              start = start - 1;
+            }
+        }
+        let end = index;
+        while(end < text.length){
+          if((text.charAt(end) === ")") || (text.charAt(end) === " ") || (text.charAt(end) === "\n")){
+              break;
+
+            }
+            else{
+              end = end + 1;
+            }
+        }
+        return text.substring(start,end);
+      }
+    }
+    undo(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("undo: No editor corresponding to " + editor_id);
+        return;
+      }
+      editor.undo();
+    }
+    redo(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("redo: No editor corresponding to " + editor_id);
+        return;
+      }
+      editor.redo();
+    }
+    isClean(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("isClean: No editor corresponding to " + editor_id);
+        return false;
+
+      }
+      return editor.getDoc().isClean();
+    }
+    markClean(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("markClean: No editor corresponding to " + editor_id);
+        return;
+      }
+      editor.getDoc().markClean();
+    }
+    clearUndo(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("clearUndo: No editor corresponding to " + editor_id);
+        return;
+      }
+      let doc = editor.getDoc();
+      doc.clearHistory();
+    }
+    createEditor(editor_id,language_mode){
+      let self = this;
+      let activeCMEditor = CodeMirror.fromTextArea($(editor_id)[0],
+       {
+           matchBrackets: true,
+           autoCloseBrackets: true,
+           lineWrapping:true,
+           viewportMargin:Infinity,
+           autoFocus:true,
+           lineNumbers:true,
+           mode:language_mode,
+           extraKeys: {
+             "Cmd-G": function(){
+               self.findNext();
+             },
+             "Ctrl-G": function(){
+               self.findNext();
+             },
+             "Cmd-F": function(){
+               self.focusFind();
+             },
+             "Ctrl-F": function(){
+               self.focusFind();
+             },
+             "Ctrl-Z": function(){
+               self.undo(editor_id);
+             },
+             "Cmd-Z": function(){
+               self.undo(editor_id);
+             },
+             "Ctrl-E": function(){
+               self.runRepl();
+             },
+             "Cmd-E": function(){
+               self.runRepl()
+             }
+             }
+       } );
+      this.cm_editors[editor_id] = activeCMEditor;
+      this.activateEditor(editor_id);
+      return activeCMEditor;
+    }
+    runRepl(){
+      setTimeout(function(){
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+      intp2.evaluate("(keyboard-repl)");
+      return true;
+    },15)
+    }
+    focusFind(){
+      setTimeout(function(){
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+      intp2.evaluate("(focus-find)");
+      return true;
+    },15)
+    }
+    findNext(){
+      setTimeout(function(){
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+      intp2.evaluate("(fronkensteen-editor-find-button_click)");
+      return true;
+    },15)
     }
     getText(editorname){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
           return null;
       }
-      editor.focus();
       return editor.getDoc().getValue();
     }
     setText(editorname,value){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
           return null;
       }
       editor.getDoc().setValue(value);
-      editor.focus();
-      setTimeout(function(){
-        editor.refresh();
-      },1)
     }
     setCursorPosition(editorname,line,column){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
         console.error("No editor found for " + editorname)
       }
-      editor.focus();
       editor.getDoc().setCursor(line,column)
     }
     getCursorPosition(editorname){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
         console.error("No editor found for " + editorname)
       }
       let cursor = editor.getCursor("to");
-      editor.focus();
       return [cursor.line,cursor.ch];
     }
     getLine(editorname,line_number){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
         console.error("No editor found for " + editorname)
       }
-      editor.focus();
       return editor.getDoc().getLine(line_number);
     }
     scrollToLine(editorname,line){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
         console.error("No editor found for " + editorname);
         return;
@@ -56,56 +358,77 @@ class CMEditorDriver {
       }
       var h = editor.getScrollInfo().clientHeight;
       var coords = editor.charCoords({line: line - 1, ch: 0}, "local");
-      editor.focus();
       editor.scrollTo(null, coords.top);
-
     }
     escapeRegExp(s){
         return s.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
+    }
+    destroyEditor(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("destroyEditor: No editor corresponding to " + editor_id);
+        return;
+      }
+      delete cm_editors[editor_id];
+      editor.toTextArea();
+    }
+    getEditorIds(){
+      return Object.keys(this.cm_editors);
+    }
+    focusEditor(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("focusEditor: No editor corresponding to " + editor_id);
+        return;
+      }
+      editor.focus();
+    }
+    refreshEditor(editor_id){
+      let editor = this.cm_editors[editor_id];
+      if(editor === undefined){
+        console.error("refreshEditor: No editor corresponding to " + editor_id);
+        return;
+      }
+      editor.refresh();
     }
     setCodeLanguage(newlanguage){
       this.codeLanguage = newlanguage;
     }
     getSelection(editorname){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor !== undefined){
-        editor.focus();
         return editor.getSelection();
       }
       return null;
     }
     setSelection(editorname,start,end){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor !== undefined){
-        editor.focus();
-        return editor.setSelection();
+        return editor.setSelection(start,end);
       }
       return null;
     }
 
     replaceSelectedText(editorname,text,mode){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor !== undefined){
-        editor.focus();
         return editor.replaceSelection(text,mode);
       }
       return null;
 
     }
     surroundSelectedText(editorname,preamble,postamble,mode){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor !== undefined){
-        editor.focus()
         return editor.replaceSelection(preamble + editor.getSelection() + postamble,mode);
       }
       return null;
     }
     setFence(editorname,preamble,postamble){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
           return null;
       }
-      editor.focus();
         var seltext = this.getSelection(editorname);
         if(seltext.length === 0){
           alert("No text selected.")
@@ -124,11 +447,10 @@ class CMEditorDriver {
     }
 
     setLinePrefix(editorname,prefix){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
           return null;
       }
-        editor.focus();
         var restring = this.escapeRegExp(prefix)
         var prefre = new RegExp("^" + restring);
         var start = editor.getCursor("from")
@@ -153,11 +475,10 @@ class CMEditorDriver {
         return true;
     }
     setLineSuffix(editorname,suffix){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
           return null;
       }
-        editor.focus();
         var restring = this.escapeRegExp(suffix) + ".*"
         var suffre = new RegExp(restring + "$");
         var selectedLine = editor.getCursor("from").line;
@@ -194,9 +515,11 @@ class CMEditorDriver {
       this.setFence(editorname,"$$","$$");
     }
     multilineFence(editorname,prefix,suffix){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
+      if(editor === undefined){
+          return;
+      }
         var sel = this.getSelection(editorname);
-        editor.focus();
         var fencere = new RegExp("^" + this.escapeRegExp(prefix) + "((.|\n)*)" + this.escapeRegExp(suffix) + "$","m");
         if(sel.match(fencere)){
             this.replaceSelectedText(editorname, sel.replace(fencere,"$1"),"around");
@@ -207,11 +530,10 @@ class CMEditorDriver {
 
     }
     setBlockPrefix(editorname,prefix,increment, space){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
           return null;
       }
-        editor.focus();
         var seltext = this.getSelection(editorname);
         var lines = seltext.split("\n");
         var selectionLength = 0;
@@ -279,50 +601,32 @@ class CMEditorDriver {
     setComment(editorname){
         this.prefixRegion(editorname,";",false," ");
     }
-    setHeading(headingprefix, editorname){
-        this.prefixRegion(editorname,headingprefix,false," ");
+    setHeading(editorname,prefix){
+        this.prefixRegion(editorname,prefix,false," ");
     }
     replace(editorname,replacement){
-      let editor = cm_editors[editorname];
+      let editor = this.cm_editors[editorname];
       if(editor === undefined){
           return null;
       }
-      editor.focus();
       editor.replaceSelection(replacement,"around");
       return true;
   }
   goToEnd(editorname){
-    let editor = cm_editors[editorname];
+    let editor = this.cm_editors[editorname];
     if(editor === undefined){
         return null;
     }
-    editor.focus();
     editor.execCommand("goDocEnd");
-  }
-  replaceAll(editorname,text,replacement,ignoreCase){
-      let editor = cm_editors[editorname];
-      if(editor === undefined){
-          return null;
-      }
-      editor.focus();
-      let userCursor = editor.getCursor();
-      let searchCursor = editor.getSearchCursor(text,{line:0,ch:0},{caseFold:ignoreCase});
-      while(searchCursor.findNext() === true){
-         editor.setSelection(searchCursor.from(), searchCursor.to());
-         editor.replaceSelection(replacement,"around");
-      }
-
-    return true;
   }
   find(editor_name,search_lemma,start,fold_case,is_regex,search_backward){
     let result = false;
     let doc;
-    let editor = cm_editors[editor_name];
+    let editor = this.cm_editors[editor_name];
     if(editor === undefined){
       console.error("editDriver.find(): No editor corresponding to " + editor_name);
       return false;
     }
-      editor.focus();
       doc = editor.getDoc();
       if(is_regex === true){ // Regexp search
           if(search_backward === false){

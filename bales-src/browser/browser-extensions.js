@@ -3,6 +3,16 @@
 // Copyright 2018-2019 by Anthony W. Hursh
 // MIT License.
 
+
+// Keep track of keypresses.
+var keys = {};
+window.onkeyup = function(evt) {
+  keys[evt.keyCode] = false;
+  }
+window.onkeydown = function(evt) {
+  keys[evt.keyCode] = true;
+}
+
 Fronkensteen.docroot =  document.location.href;
 
 Fronkensteen.clearLocalStorage = function(){

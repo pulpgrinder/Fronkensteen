@@ -88,7 +88,10 @@
     (% ".fronkensteen-editor-mode-button" "hide")
     (% ".fronkensteen-editor-basic-button" "show")
     (cond ((eqv? extension "scm") (% ".fronkensteen-editor-scheme-button" "show"))
-          ((eqv? extension "js") (% ".fronkensteen-editor-javascript-button" "show"))))
+          ((eqv? extension "js") (% ".fronkensteen-editor-javascript-button" "show"))
+          ((eqv? extension "md") (% ".fronkensteen-editor-markdown-button" "show"))
+
+          ))
 
 (define (set-active-editor filename editor-name)
     (cm-editor-hide-all)
@@ -104,7 +107,7 @@
   (% "#fronkensteen-editor-workspace" "append"
   (textarea (<<  editor-name ".fronkensteen-code-editor-text-area!filename='" filename "'") ""))
     (init-cm-editor! editor-name (editor-mode-for-file-extension (file-extension filename)))
-    (set-cm-editor-text! editor-name (read-editor-text-file filename))
+    (cm-editor-set-text editor-name (read-editor-text-file filename))
     (clear-cm-editor-undo! editor-name)
     (set-cm-editor-clean! editor-name)
     (code-editor-add-filename-to-dropdown filename)
@@ -355,9 +358,157 @@
 )))
 
 
+(define (fronkensteen-editor-footnote-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-note editor-name))))
+
+(define (fronkensteen-editor-comment-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-comment editor-name))))
+
+
+(define (fronkensteen-editor-align-left-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-align-left editor-name))))
+
+
+(define (fronkensteen-editor-align-right-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-align-right editor-name))))
+
+(define (fronkensteen-editor-justify-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-justify editor-name))))
+
+(define (fronkensteen-editor-center-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-center editor-name))))
+
+
+(define (fronkensteen-editor-latex-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-math editor-name))))
+
+(define (fronkensteen-editor-code-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-code editor-name))))
+
+
+(define (fronkensteen-editor-h3-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-heading editor-name "###"))))
+
+
+
+(define (fronkensteen-editor-preview-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+      (view-trusted-markup-text (cm-editor-get-text editor-name)))))
+
+
+(define (fronkensteen-editor-h2-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-heading editor-name "##"))))
+
+(define (fronkensteen-editor-h1-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-heading editor-name "#"))))
+
+(define (fronkensteen-editor-block-quote-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-block-quote editor-name))))
+
+(define (fronkensteen-editor-number-list-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-numbered-list editor-name))))
+
+(define (fronkensteen-editor-bullet-list-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-bulleted-list editor-name))))
+
+(define (fronkensteen-editor-strikeout-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-strikeout editor-name))))
+
+(define (fronkensteen-editor-subscript-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-subscript editor-name))))
+
+(define (fronkensteen-editor-superscript-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-superscript editor-name))))
+
+(define (fronkensteen-editor-italic-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-italic editor-name))))
+
+(define (fronkensteen-editor-bold-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-bold editor-name))))
+
+
+(define (fronkensteen-editor-poetry-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-set-poetry editor-name))))
+
+
+(define (fronkensteen-editor-undo-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+  (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-undo! editor-name))))
+
+(define (fronkensteen-editor-redo-button_click)
+  (if (eqv? fronkensteen-active-editor-file #f)
+    #f
+    (let ((editor-name (code-editor-element-for-filename fronkensteen-active-editor-file)))
+    (cm-editor-redo! editor-name))))
+
+
 (define (save-editor-file filename)
     (let ((editor-name (code-editor-element-for-filename filename)))
-      (write-editor-text-file filename (get-cm-editor-text editor-name))
+      (write-editor-text-file filename (cm-editor-get-text editor-name))
       (set-cm-editor-clean! editor-name)
       (console-log (<< "clean status for " editor-name ": " (format "~s" (is-cm-editor-clean? editor-name))))
     ))
@@ -461,7 +612,6 @@
   (if (is-cm-editor-clean? (code-editor-element-for-filename filename))
       #t
       (check-editor-save filename)))
-
 
 
 (define (check-editor-save filename)
