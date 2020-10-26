@@ -17,7 +17,6 @@
     ((eqv? ext "mp3") #t)
     (#t #f)))
 
-
 (define (is-text-file? ext)
 (cond
 ((eqv? ext "fmk") #t)

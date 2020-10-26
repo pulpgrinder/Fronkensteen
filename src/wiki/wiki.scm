@@ -281,11 +281,12 @@
     (save-the-static-world))
 
 (define (wiki-file-uploaded filename data)
-  (if (or (is-video-file? filename) (is-audio-file? filename))
-    (save-wiki-file (<< "media/" filename data))
-    (if (is-image-file? filename)
-      (save-wiki-file (<< images filename data))
-      (save-wiki-file filename data))))
+  (let ((extension (file-extension filename)))
+  (if (or (is-video-file? extension) (is-audio-file? extension))
+    (save-wiki-file (<< "media/" filename) data)
+    (if (is-image-file? extension)
+      (save-wiki-file (<< "images/" filename) data)
+      (save-wiki-file filename data)))))
 
 (define (save-wiki-file filename data)
    (let ((path (wiki-data-path filename)))
