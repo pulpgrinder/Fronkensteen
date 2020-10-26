@@ -25,6 +25,9 @@ function process_files(err,results){
 
 
 function process_packages(){
+  if (!fs.existsSync(__dirname + "/packages")){
+    fs.mkdirSync(__dirname + "/packages");
+  }
   let packageHash = {}
   let files = Object.keys(fronkensteen_fs)
   for(var i = 0; i < files.length; i++){
@@ -52,6 +55,9 @@ function process_packages(){
 }
 function write_filesystem(){
     let filesystem = JSON.stringify(fronkensteen_fs)
+    if (!fs.existsSync(__dirname + "/filesystem")){
+      fs.mkdirSync(__dirname + "/filesystem");
+    }
     fs.writeFileSync(__dirname +  "/filesystem/fronkensteen_fs.json",filesystem,"utf8");
 }
 
