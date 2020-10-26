@@ -1,9 +1,0 @@
-#bale-version 0.2
-#mandatory false
-LICENSE-documentation.md
-README-documentation.md
-documentation-extensions.js
-documentation-data.js
-documentation-ui.scm
-documentation-style.scm
-documentation.scm

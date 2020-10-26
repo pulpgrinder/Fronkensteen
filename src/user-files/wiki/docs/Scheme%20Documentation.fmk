@@ -1,0 +1,17 @@
++ (+ arg-list)
+Returns the sum of all its arguments.
+Examples:
+[code (+ 1 2) => 3 code]
+[code (+ 1 2 3)  => 5 code]
+
+car (car pair)
+Returns the first element of a pair (which may be a list)
+Examples:
+[code (car '(a b)) => 'a code]
+[code car '(2 . 3) => 2 code]
+
+-
+Returns the difference of its two arguments.
+Examples:
+[code (- 2 1) => 1 code]
+[code (- 1 2)  => -1 code]

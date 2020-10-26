@@ -1,0 +1,17 @@
+[large All Pages large]
+[!scheme
+
+(define (render-all-pages wiki-files)
+    (if (eqv? wiki-files '())
+      ""
+      (<< "[link "  (wiki-display-name (decode-uri  (car wiki-files))) " link]\n" (render-all-pages (cdr wiki-files)))))
+
+
+(let ((wiki-files (vector->list (natural-sort (get-internal-dir "user-files/wiki") #f #f))))
+  (let ((rendered-file-list (render-all-pages wiki-files)))
+    (fronkenmark (<< "[roundlist "
+        rendered-file-list
+        " roundlist]"
+    ) #f #f)))
+
+scheme!]

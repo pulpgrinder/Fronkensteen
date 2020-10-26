@@ -1,0 +1,141 @@
+This page activates the base Fronkensteen theme. This page is mostly Scheme code. To see the code, edit the page.
+
+[!scheme
+; CSS for the base theme.
+(install-css "fronkensteen-theme"
+    (proc-css-list `(
+        (".fronkensteen-wiki-content" (
+          "background-color" "#f3eedd"
+          "color" "#000055"
+          ))
+          (".fronkensteen-wiki-history-entry" (
+            "background-color" "#fff"
+            "border-bottom" "1px solid #d9d2c0"
+            "color" "#000055"
+            "font-family" "sans-serif"
+          ))
+
+          ("#fronkensteen-wiki-history-list" (
+            "background-color" "#f3eedd"
+            "color" "#000055"
+            "font-family" "sans-serif"
+          ))
+
+          (".fronkensteen-wiki-search-entry" (
+            "margin" "0"
+            "padding" "0.5em"
+            "background-color" "#fff"
+            "border-bottom" "1px solid #d9d2c0"
+            "color" "#000055"
+            "font-family" "sans-serif"
+            "cursor" "pointer"
+          ))
+          ("#fronkensteen-wiki-sidebar-display" (
+            "border-left" "1px solid #000055"
+            "background-color" "#bbb"
+            "color" "#000055"
+            ))
+            (".fronkensteen-wiki-sidebar-caption" (
+              "color" "#fff"
+              "background-color" "#555"
+              ))
+       (".fronkensteen-toolbar" (
+         "color" "#ffffff"
+         "background-color" "#000055"
+         "border-bottom" "1px solid #ffffff"
+         ))
+         (".fronkensteen-bottom-toolbar" (
+           "color" "#ffffff"
+           "background-color" "#000055"
+           "border-bottom" "1px solid #ffffff"
+           ))
+         (".fronkensteen-editor-button" (
+           "color" "#000055"
+           ))
+
+
+         (".fronkensteen-link-icon" (
+           "position" "relative"
+           "bottom" "0.5em"
+           ))
+        (".fronkensteen-offscreen-renderer" (
+          "display" "none"
+        ))
+        ("a" (
+          "color" "#000055"
+        ))
+
+        (".wikilink" (
+          "color" "rebeccapurple"
+          "cursor" "pointer"
+          ))
+          (".incoming-link" (
+            "color" "rebeccapurple"
+            "cursor" "pointer"
+            ))
+          (".externallink" (
+            "color" "orange"
+            "cursor" "pointer"
+            ))
+          (".hashlink" (
+            "color" "green"
+            "cursor" "pointer"
+            ))
+
+        ("@font-face" (
+          "font-family" "\"serif\""
+          "font-style" "normal"
+          "font-weight" "normal"
+          "font-display" "auto"
+          ))
+        ("@font-face" (
+          "font-family" "\"serif\""
+          "font-style" "normal"
+          "font-weight" "bold"
+          "font-display" "auto"))
+
+        ("@font-face" (
+          "font-family" "\"serif\""
+          "font-style" "italic"
+          "font-weight" "normal"
+          "font-display" "auto"
+          ))
+          ("@font-face" (
+            "font-family" "\"serif\""
+            "font-style" "italic"
+            "font-weight" "bold"
+            "font-display" "auto"
+            ))
+          ("@font-face" (
+            "font-family" "\"serif\""
+            "font-style" "normal"
+            "font-weight" "normal"
+            "font-variant" "small-caps"
+            "font-display" "auto"
+            ))
+          (".fronkensteen-wiki-content" (
+            "font-family" "serif"
+            ))
+          ("#fronkensteen-wiki-sidebar-display" (
+            "font-family" "serif"
+            ))
+            (".fronkensteen-dialog-title" (
+              "font-family" "sans-serif"
+              "font-size" "125%"
+              "background-color" "#000055"
+              "color" "#fff"
+              ))
+              (".fronkensteen-dialog-body" (
+                "font-family" "serif"
+                "background-color" "#f3eedd"
+                "color" "#000055"
+                "border" "1px solid #000055"
+                "border-top" "none"
+                ))
+                (".round-list-item" (
+                  "color" "#000055"
+                  "background-color" "#fff"
+                ))
+          )))
+""
+ scheme!]

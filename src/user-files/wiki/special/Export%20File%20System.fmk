@@ -1,0 +1,6 @@
+[h2 This page exports the internal Fronkensteen file system in JSON format. Edit it to see the Scheme source for this page. h2]
+
+[!scheme
+(download-file "fronkensteen_fs.json" (get-internal-filesystem-json) "application/json")
+""
+scheme!]

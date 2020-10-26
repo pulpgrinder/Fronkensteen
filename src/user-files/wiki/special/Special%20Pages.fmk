@@ -1,0 +1,20 @@
+[large Special Pages large]
+
+[!scheme
+
+(define (render-special-page-list wiki-files)
+    (if (eqv? wiki-files '())
+      ""
+      (let ((wiki-file (car wiki-files)))
+          (if (str-match? wiki-file "special/" "")
+              (<< "[link "  (wiki-display-name (decode-uri wiki-file))  " link]\n" (render-special-page-list (cdr wiki-files)))
+              (render-special-page-list (cdr wiki-files))))))
+
+(let ((wiki-files (vector->list (natural-sort (get-internal-dir "user-files/wiki") #f #f))))
+  (let ((rendered-file-list (render-special-page-list wiki-files)))
+    (fronkenmark (<< "[roundlist "
+        rendered-file-list
+        " roundlist]"
+    ) #f #f)))
+
+scheme!]

@@ -1,6 +1,0 @@
-#bale-version 0.2
-#mandatory true
-LICENSE-json.md
-README-json.md
-json.scm
-json-extensions.js

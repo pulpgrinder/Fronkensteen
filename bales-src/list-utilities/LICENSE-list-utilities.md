@@ -1,1 +1,0 @@
-list-utilities.scm is copyright 2019 by Anthony W. Hursh, and and is distributed under the terms of the same MIT license as Fronkensteen as a whole.

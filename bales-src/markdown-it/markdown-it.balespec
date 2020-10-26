@@ -1,8 +1,0 @@
-#bale-version 0.2
-#mandatory false
-LICENSE-markdown-it.md
-markdown-it.min.js
-markdown-it-sub.js
-markdown-it-sup.js
-markdown-it-extensions.js
-markup-viewer.scm

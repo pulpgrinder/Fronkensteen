@@ -1,9 +1,0 @@
-#bale-version 0.2
-#mandatory false
-LICENSE-code-editor.md
-code-editor-style.scm
-code-editor.scm
-code-editor-ui.scm
-code-editor-file-tree.scm
-bale-manager-ui.scm
-bale-manager.scm

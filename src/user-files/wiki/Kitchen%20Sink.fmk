@@ -1,0 +1,283 @@
+; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
+
+Edit this page to see the code that produces the given effects.
+
+[i Italic text. i]
+
+[b  Bold text. b]
+
+[em Emphasized text. em] (same as italic, by default)
+
+[strong Strong text. strong] (same as bold, by default)
+
+[h1 Level 1 Heading h1] (levels 1-6 are supported)
+
+[bq "If the doors of perception were cleansed, everything would appear to man as it is - infinite." ― William Blake  bq]
+
+E = mc[sup 2 sup]
+
+H[sub 2 sub]O
+
+[strike Never mind strike]
+
+[u What! u]
+
+[sc Small, but mighty sc]
+
+[link Main link] Internal wiki link.
+
+[link https://github.com/pulpgrinder/Fronkensteen link] External site link.
+
+[link Main|Start page link] Link to an internal wiki page with alternate text.
+
+[link https://github.com/pulpgrinder/Fronkensteen|the home site link] Link to an external site with alternate text.
+
+
+[p Normal paragraph (or simply separate paragraphs with blank lines):  Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  p]
+
+[pc Centered paragraph: Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pc]
+
+[pl Left-aligned paragraph: Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pl]
+
+[pr Right-aligned paragraph Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pr]
+
+[pj Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pj]
+
+[poetry text poetry] Format text as poetry (line breaks and spacing are passed through verbatim).
+
+[h2 Lists h2]
+[ul
+First item
+Second item
+Third item
+ul]
+
+[ol
+First item
+Second item
+Third item
+ol]
+
+[roundlist
+First item
+Second item
+Third item
+roundlist]
+
+[h2 Typographic markup h2]
+[hr]
+
+[br]
+
+[scenebreak *** scenebreak]
+
+[pagebreak]
+
+[pj
+[dropcap Call me Ishmael dropcap]. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.
+pj]
+By default, Fronkenmark will attempt to convert "" and '' to their "smart" (curly) counterparts, Fronkenmark also makes the following substitutions:
+
+-- Insert an "en" (short) dash.
+
+--- Insert an "em" (long) dash.
+
+... Insert an ellipsis.
+
+(c) Insert a copyright symbol.
+
+(r) Insert a registered trademark symbol.
+
+(tm) Insert a trademark symbol.
+
+
+[h2 Multimedia Tags h2]
+
+[img images/fronkensteenlogo.png img] inserts the specified (local) image at this position
+
+[img https://avatars1.githubusercontent.com/u/42942914 img] inserts the specified (web) image at this position.
+
+[img images/fronkensteenlogo.png #fronkensteen-logo!title='Fronkensteen Logo'!width='20'!height='20' img] inserts the image, using the specified [link docs/Programming|SEML link] markup.
+
+[youtube URL youtube] Produces an embedded YouTube video of the default size using the given YouTube URL
+
+[youtube URL width height youtube] Produces an embedded YouTube video of the given width and height from the given YouTube URL
+
+
+[h2 Tables h2]
+[table table data table] Renders the given data in tabular format.
+
+[code
+[table
+1,2,3
+4,5,6
+7,8,9
+table]
+code]
+
+Produces:
+[table
+1,2,3
+4,5,6
+7,8,9
+table]
+
+You may provide an optional template, which consists of one format line per line of data. It specifies whether to format the corresponding table element as a header "h", left-aligned "l", right-aligned "r" or centered "c".
+
+[code
+[table
+hhh
+ccc
+rrr
+lll
+Column 1, Column 2, Column 3
+1,2,3
+4,5,6
+7,8,9
+table]
+code]
+
+Produces:
+[table
+hhh
+ccc
+rrr
+lll
+Column 1, Column 2, Column 3
+1,2,3
+4,5,6
+7,8,9
+table]
+
+[h2 LaTeX and LaTeX-style formatting h2]
+
+[latex inline LaTex code latex]
+
+[&#33;latex display-mode (large) LaTeX code latex&#33;]
+
+[tiny tiny text tiny]
+
+[scriptsize script-size text scriptsize]
+
+[footnotesize footnote-size text footnotesize]
+
+[smallsize small-size text smallsize]
+
+[normalsize normal-size text normalsize]
+
+[large large text large]
+
+[Large Large text Large]
+
+[LARGE LARGE text LARGE]
+
+[huge huge text huge]
+
+[Huge Huge text Huge]
+
+[HUGE HUGE text HUGE]
+
+[h2 Basic Programming h2]
+
+[&#33;include page name include&#33;] Inserts the page with the given name at this point in the document, and processes it.
+
+[&#33;scheme Scheme code scheme&#33;] Inserts the supplied Scheme code at this point in the document, and executes it.
+
+[&#33;javascript JavaScript code javascript&#33;] Inserts the supplied JavaScript code at this point in the document, and executes it.
+
+[button buttonID caption button] Produces a button with the given id and caption. When the button is clicked, the Scheme procedure (buttonID_click) will be invoked (if a procedure with that name has been defined).
+
+[pid id pid] Produces an empty paragraph with the given ID and inserts it at this point in the document. The paragraph can be used to display output from a script.
+
+[counter countername] Creates a counter with the given name. Each time this counter appears, the code will be replaced by the next sequential numeric value. In other words, the first time this counter appears, it will be replaced by 1. The second time, by 2, and so on.
+
+[romancounter countername] Same as counter, but uses lower-case Roman numerals.
+
+[Romancounter countername] Same as romancounter, but uses upper-case Roman numerals.
+
+[resetcounter countername] Resets the specific counter. The next time it is invoked,its value will be 1.
+
+[resetcounters] Resets all counters. The next time any of them is invoked, its value will be 1.
+
+YouTube Video:
+
+[youtube https://youtu.be/vdvnOH060Qg 360 240 youtube]
+
+Table with format:
+
+[table
+hhh
+rrr
+lll
+ccc
+1,2,3
+4,5,6
+7,8,9
+10,11,12
+table]
+
+
+Button:
+[button marinebutton Hello, world button]
+
+Named Paragraph:
+
+[pid hello_result pid]
+
+Scheme code to handle above button and named paragraph:
+
+[!scheme
+	(define (marinebutton_click)
+		(alert "Hello, world!")
+    (% "#hello_result" "html" "Hi, there!")
+    )
+scheme!]
+
+
+Input:
+
+[input myinput Test text input]
+
+Counters:
+
+[resetcounter Test]
+
+Counter: [counter test]
+
+roman counter: [romancounter roman]
+
+Roman counter: [Romancounter Roman]
+
+[dropcap W dropcap]hen in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.
+
+Horizontal rule:
+
+[hr]
+
+Typography:
+
+
+"This", said the beadle, "is a test of how well smart quotes do or don't work. What if there's an 'embedded quote'?" [br] [br] a couple of line breaks before this. "What if it has -- en and --- em dashes? What about ampersands, like this one &?"
+
+
+Icon:
+
+[icon aperture icon]
+
+Link to internal wiki page:
+
+[link docs/Fronkenmark Text Formatting link]
+
+
+Link to internal image:
+
+[link fecit.png link]
+
+Include:
+
+[!include IncludeTest include!]
+
+
+Hashtags:
+
+#cool #beans #scheme #wiki

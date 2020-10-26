@@ -1,0 +1,92 @@
+body {
+  font-family:sans-serif;
+  background-color:#bbb;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+header {
+  font-size:150%;
+}
+
+footer{
+  font-size: 50%;
+}
+.smallfont{
+  font-size:50%;
+}
+#fronkensteen-wrapper{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+#fronkensteen-coversheet{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:#bbb;
+}
+
+#fronkensteen-content{
+  z-index:2;
+  margin:auto;
+  width:60em;
+  padding:2em;
+}
+
+
+#fronkensteen-code-editor{
+  display:none;
+  z-index:3;
+}
+#fronkensteen-documentation{
+  display:none;
+  z-index:4;
+}
+
+.fronkensteen-file-uploader{
+  visiblity:hidden;
+  z-index:0;
+}
+
+#fronkensteen-markup-viewer{
+  margin:auto;
+  width:60em;
+  padding:2em;
+}
+
+.fronkensteen-markup-content{
+
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #bbb;
+  padding:0.25em;
+}
+@media print {
+    .noprint {
+        display: none;
+    }
+    .print {
+      display:block;
+      overflow:visible;
+      width:auto;
+      height:auto;
+    }
+}

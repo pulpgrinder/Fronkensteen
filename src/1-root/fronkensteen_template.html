@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<!-- Fronkensteen Base Template. Copyright 2019-2020 by Anthony W. Hursh. MIT License. -->
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Fronkensteen">
+    <link rel="shortcut icon" id="favicon-png" type="image/png" href="data:;base64,iVBORw0KGgo=">
+    <title>Fronkensteen</title>
+    <style>
+    </style>
+  </head>
+  <body>
+  <div id="fronkensteen-print-preview"></div>
+  <div id="fronkensteen-wrapper">
+  </div>
+  <script type="text/javascript">
+  /*!
+ * natural-sort.js
+ * ===============
+ * Sorting with support for numbers, dates, unicode and more.
+ *
+ * http://github.com/studio-b12/natural-sort
+ * MIT License, © Studio B12 GmbH 2014
+ *
+ *//*
+ *
+ * Idea by Dave Koelle
+ * Original implementation by Jim Palmer
+ * Modified by Tomek Wiszniewski
+ *
+ */
+
+var naturalSort = function naturalSort (options) { 'use strict';
+  if (!options) options = {};
+
+  return function(a, b) {
+    var EQUAL = 0;
+    var GREATER = (options.direction == 'desc' ?
+      -1 :
+      1
+    );
+    var SMALLER = -GREATER;
+
+    var re = /(^-?[0-9]+(\.?[0-9]*)[df]?e?[0-9]?$|^0x[0-9a-f]+$|[0-9]+)/gi;
+    var sre = /(^[ ]*|[ ]*$)/g;
+    var dre = /(^([\w ]+,?[\w ]+)?[\w ]+,?[\w ]+\d+:\d+(:\d+)?[\w ]?|^\d{1,4}[\/\-]\d{1,4}[\/\-]\d{1,4}|^\w+, \w+ \d+, \d{4})/;
+    var hre = /^0x[0-9a-f]+$/i;
+    var ore = /^0/;
+
+    var normalize = function normalize (value) {
+      var string = '' + value;
+      return (options.caseSensitive ?
+        string :
+        string.toLowerCase()
+      );
+    };
+
+    // Normalize values to strings
+    var x = normalize(a).replace(sre, '') || '';
+    var y = normalize(b).replace(sre, '') || '';
+
+    // chunk/tokenize
+    var xN = x.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0');
+    var yN = y.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0');
+
+    // Return immediately if at least one of the values is empty.
+    if (!x && !y) return EQUAL;
+    if (!x &&  y) return GREATER;
+    if ( x && !y) return SMALLER;
+
+    // numeric, hex or date detection
+    var xD = parseInt(x.match(hre)) || (xN.length != 1 && x.match(dre) && Date.parse(x));
+    var yD = parseInt(y.match(hre)) || xD && y.match(dre) && Date.parse(y) || null;
+    var oFxNcL, oFyNcL;
+
+    // first try and sort Hex codes or Dates
+    if (yD) {
+      if ( xD < yD ) return SMALLER;
+      else if ( xD > yD ) return GREATER;
+    }
+
+    // natural sorting through split numeric strings and default strings
+    for (var cLoc=0, numS=Math.max(xN.length, yN.length); cLoc < numS; cLoc++) {
+
+      // find floats not starting with '0', string or 0 if not defined (Clint Priest)
+      oFxNcL = !(xN[cLoc] || '').match(ore) && parseFloat(xN[cLoc]) || xN[cLoc] || 0;
+      oFyNcL = !(yN[cLoc] || '').match(ore) && parseFloat(yN[cLoc]) || yN[cLoc] || 0;
+
+      // handle numeric vs string comparison - number < string - (Kyle Adams)
+      if (isNaN(oFxNcL) !== isNaN(oFyNcL)) return (isNaN(oFxNcL)) ? GREATER : SMALLER;
+
+      // rely on string comparison if different types - i.e. '02' < 2 != '02' < '2'
+      else if (typeof oFxNcL !== typeof oFyNcL) {
+        oFxNcL += '';
+        oFyNcL += '';
+      }
+
+      if (oFxNcL < oFyNcL) return SMALLER;
+      if (oFxNcL > oFyNcL) return GREATER;
+    }
+
+    return EQUAL;
+  };
+};
+
+(function (root, factory) {
+  if (typeof exports === 'object') {
+    module.exports = factory();
+  } else {
+    root.naturalSort = factory();
+  }
+}(this, function () {
+
+  return naturalSort;
+
+}));
+</script>
+  <script type="text/javascript">
+  // Bare-bones object.
+  // Functions and data fields are added to this object by the various packages.
+  let Fronkensteen = {
+    CumulativeErrors:[]
+  };
+  Fronkensteen.bytes_to_base_64 = function(buffer){
+    var arr = new Uint8Array(buffer)
+    let raw = '';
+    for (let i = 0, l = arr.length; i < l; i++) {
+      raw += String.fromCharCode(arr[i]);
+    }
+    return btoa(raw);
+  }
+
+</script>
+  <script type="text/javascript">
+    const urlParams = new URLSearchParams(window.location.search);
+  </script>
+  <script type="text/javascript">
+$$$FILESYSTEM$$$
+  </script>
+  <script type="text/javascript">
+
+
+  // Fronkensteen launcher statistics.
+  Fronkensteen.cssLoaded = [];
+  Fronkensteen.cssErrors = [];
+  Fronkensteen.jsLoaded = [];
+  Fronkensteen.jsErrors = [];
+  Fronkensteen.schemeLoaded = [];
+  Fronkensteen.schemeErrors = [];
+  Fronkensteen.logLaunchStatistics = function(){
+    console.log("CSS files loaded:\n" + Fronkensteen.cssLoaded.join(", ") + "\n")
+    console.log("CSS files with errors:\n" + Fronkensteen.cssErrors.join(", ") + "\n")
+    console.log("JS files loaded:\n" + Fronkensteen.jsLoaded.join(", ") + "\n")
+    console.log("JS files with errors:\n" + Fronkensteen.jsErrors.join(", ") + "\n")
+    console.log("Scheme files loaded:\n" + Fronkensteen.schemeLoaded.join(", ") + "\n")
+    console.log("Scheme files with errors:\n" + Fronkensteen.schemeErrors.join(", ") + "\n")
+    window.removeEventListener('error',Fronkensteen.loadErrorHandler,false);
+    Fronkensteen.launchPhase = "done";
+  }
+  // Launch debugger state variables.
+  Fronkensteen.launchPhase = "js";
+  Fronkensteen.scheme_index = 0;
+  Fronkensteen.file_index = 0;
+  Fronkensteen.loadError = false;
+
+Fronkensteen.export_workspace = function(){
+    let template = Fronkensteen.decodeText(fronkensteen_fs["1-root/fronkensteen_template.html"]["data"]);
+    let template_lines = template.split("\n");
+    let result = ""
+    for(var i = 0; i < template_lines.length; i++){
+      let trimmed_line = template_lines[i].trim();
+      if(trimmed_line === "$$$FILESYSTEM$$$"){
+        result = result + "let fronkensteen_fs = " + JSON.stringify(fronkensteen_fs) + "\n";
+      }
+      else{
+        result = result + template_lines[i] + "\n";
+      }
+    }
+    let element = document.createElement('a');
+    var blob = new Blob([result], {type: "text/html"});
+    element.href = window.URL.createObjectURL(blob);
+    element.setAttribute('download', "fronkensteen.html");
+    element.style.display = 'none';
+    element.innerHTML = "Download";
+    document.body.appendChild(element)
+    element.click();
+}
+
+  Fronkensteen.loadErrorHandler = function(event){
+    let message = event.message;
+    let lineNumber = event.linenumber;
+    let url = event.url;
+    Fronkensteen.loadError = true;
+    console.log("Error at url: " + url + " message: " + message + "line number: " + lineNumber);
+}
+  window.addEventListener('error',Fronkensteen.loadErrorHandler,false);
+
+    // Append a style element containing CSS code from the internal
+    // file system to the document head.
+  Fronkensteen.addCSS = function(filename){
+    Fronkensteen.currentSourceFile = filename;
+    let code = fronkensteen_fs[filename]["data"];
+    let style = document.createElement('style');
+    style.type = 'text/css';
+    style.appendChild(document.createTextNode(Fronkensteen.decodeText(code)));
+    document.head.appendChild(style);
+    if(Fronkensteen.loadError !== false){
+      Fronkensteen.cssErrors.push(filename)
+    }
+    Fronkensteen.currentSourceFile = null;
+  }
+  // Execute a Scheme file from the internal filesystem
+Fronkensteen.addScheme = function(filename){
+  Fronkensteen.currentSourceFile = filename;
+  var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+  intp2.evaluate("(load \"" + filename + "\")");
+  if(Fronkensteen.loadError !== false){
+    Fronkensteen.schemeErrors.push(filename);
+  }
+}
+
+  // Append a script element containing JavaScript code from the internal
+  // file system to the document body.
+  Fronkensteen.addJS = function(filename){
+   Fronkensteen.currentSourceFile = filename;
+   let code = fronkensteen_fs[filename]["data"];
+   let script = document.createElement('script');
+    script.type = 'text/javascript';
+    let jsCode = Fronkensteen.decodeText(code);
+    Fronkensteen.parseJSProcedureDefs(filename,jsCode)
+    script.appendChild(document.createTextNode(jsCode));
+    document.body.appendChild(script);
+    if(Fronkensteen.loadError !== false){
+      Fronkensteen.jsErrors.push(filename)
+    }
+    Fronkensteen.currentSourceFile = null;
+  }
+
+  Fronkensteen.decodeText = function(code){
+    var byteCharacters = atob(code);
+    var array = new Uint8Array(byteCharacters.length);
+    for( var i = 0; i < byteCharacters.length; i++ ) { array[i] = byteCharacters.charCodeAt(i);
+    }
+    return new TextDecoder("utf-8").decode(array);
+  }
+
+
+  Fronkensteen.documentationPointers = {};
+  // Parses out any JavaScript glue procedures defined in the JavaScript code
+  // in sourceData and adds them to the database.
+  // Just looks for them using a regex. Probably should do something more
+  // intelligent here.
+
+  Fronkensteen.parseJSProcedureDefs = function(filename,sourceData){
+   let re = /define_libfunc\(/g;
+    let procdef;
+    while ((procdef = re.exec(sourceData)) != null) {
+      let procstart = procdef.index + 15;
+      let procHead = sourceData.substring(procstart);
+      currentProc = procHead.substring(0,procHead.indexOf(",")).replace(/\"/g,"").replace(/\'/g,"");
+      let parencount = 1;
+      let proc_end = procdef.index + 15;
+      let max_length = sourceData.length;
+      while((parencount !== 0) && (proc_end < max_length)){
+        let current_char = sourceData.charAt(proc_end)
+        if(current_char === "("){
+          parencount = parencount + 1;
+        }
+        if(current_char === ")"){
+          parencount = parencount - 1;
+        }
+        proc_end = proc_end + 1;
+      }
+      if(proc_end === max_length){
+        console.log("parseJSProcedureDefs error: end of file in procedure " + currentProc + " in " + filename);
+        return;
+      }
+      //let procedure_def = sourceData.substring(procdef.index,proc_end);
+      if(Fronkensteen.documentationPointers[currentProc] === undefined){
+        Fronkensteen.documentationPointers[currentProc] = {}
+      }
+      Fronkensteen.documentationPointers[currentProc]["filename"] = filename;
+      Fronkensteen.documentationPointers[currentProc]["code"] = sourceData.substring(procdef.index,proc_end);
+    }
+  }
+
+  // Parses out any procedures defined in the Scheme code in sourceData
+  // and adds them to the database. Called by the custom load procedure.
+  // Just looks for them using a regex. Probably should do something more
+  // intelligent here.
+  Fronkensteen.parseSchemeProcedureDefs = function(filename,sourceData){
+    let re = /\(define\s+\(([^\s\)]+)/g;
+    let procdef;
+    while ((procdef = re.exec(sourceData)) != null) {
+      let procstart = procdef.index;
+      let procHead = sourceData.substring(procstart);
+      currentProc = procdef[1];
+      let parencount = 1;
+      let proc_end = procdef.index + 1;
+      let max_length = sourceData.length;
+      while((parencount !== 0) && (proc_end < max_length)){
+        let current_char = sourceData.charAt(proc_end)
+        if(current_char === "("){
+          parencount = parencount + 1;
+        }
+        if(current_char === ")"){
+          parencount = parencount - 1;
+        }
+        proc_end = proc_end + 1;
+      }
+      if(proc_end === max_length){
+        console.log("parseSchemeProcedureDefs error: end of file in procedure " + currentProc + " in " + filename);
+        return;
+      }
+      if(Fronkensteen.documentationPointers[currentProc] === undefined){
+        Fronkensteen.documentationPointers[currentProc] = {}
+      }
+      Fronkensteen.documentationPointers[currentProc]["filename"] = filename;
+      Fronkensteen.documentationPointers[currentProc]["code"] = sourceData.substring(procdef.index,proc_end);
+    }
+  }
+
+
+  Fronkensteen.launchSystem = function(x){
+    Fronkensteen.loadError = false;
+    let jsQueue = [];
+    let schemeQueue = [];
+    let cssQueue = [];
+    document.getElementById("fronkensteen-wrapper").innerHTML = ""
+    let filenames = Object.keys(fronkensteen_fs).sort(naturalSort());
+    for(var i = 0; i < filenames.length; i++){
+        let filename = filenames[i];
+      if(filename.match(/\.scm$/) !== null){
+        schemeQueue.push(filename)
+      }
+      if(filename.match(/\.css$/) !== null){
+          cssQueue.push(filename)
+      }
+      if(filename.match(/\.js$/) !== null){
+        jsQueue.push(filename)
+      }
+    }
+    for(var i = 0; i < cssQueue.length; i++){
+      console.log("Processing: " + cssQueue[i])
+      Fronkensteen.addCSS(cssQueue[i])
+      if(Fronkensteen.loadError === true){
+        return;
+      }
+    }
+    for(var i = 0; i < jsQueue.length; i++){
+      console.log("Processing: " + jsQueue[i])
+      Fronkensteen.addJS(jsQueue[i]);
+      if(Fronkensteen.loadError === true){
+        return;
+      }
+    }
+
+    Fronkensteen.scheme_intepreter = new BiwaScheme.Interpreter(Fronkensteen.onBiwaSchemeError)
+    var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+    intp2.evaluate("(define baseload load)");
+    intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+    intp2.evaluate("(define load hereload)");
+    for(var i = 0; i < schemeQueue.length; i++){
+      console.log("Processing: " + schemeQueue[i])
+      Fronkensteen.addScheme(schemeQueue[i])
+      if(Fronkensteen.loadError === true){
+        return;
+      }
+    }
+
+    const remote = urlParams.get('remote');
+    if(remote !== null){
+      if(Fronkensteen.remoteREPL !== undefined){
+        Fronkensteen.remoteREPL.connect(true,null);
+      }
+    }
+    setTimeout(function(){
+      let result = intp2.evaluate("(system-launch)");
+      if(Fronkensteen.CumulativeErrors.length !== 0){
+        let msg = Fronkensteen.CumulativeErrors.join("\n");
+        console.error(msg);
+        Fronkensteen.CumulativeErrors = [];
+      }
+      },100)
+  }
+
+function startREPL(){
+    Fronkensteen.remoteREPL.connect(true,null);
+}
+
+Fronkensteen.launchSystem();
+
+ </script>
+
+
+</body>
+</html>

@@ -4,6 +4,6 @@ node_modules
 package-lock.json
 .settings
 attic
-*.bale
 fronkensteen.html
 publish_live_site
+filesystem.json

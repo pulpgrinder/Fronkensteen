@@ -1,0 +1,123 @@
+; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
+[h2 HTML Generation h2]
+
+Fronkensteen has Scheme procedures corresponding to all standard HTML tags, as well as some custom tags (and you are also free to design your own tags).
+
+The elements are generated using a convention called SEML, which is based on an idea by Logan Braga, and originally implemented by him in Ruby. However, this implementation has been written from scratch in JavaScript, and differs from Braga's in some respects.
+
+SEML is designed to be reminiscent of the format used in CSS files and jQuery selectors. The general format is:
+[code
+(tagname seml-spec text-content)
+code]
+
+Note, however, that some element types, such as &lt;img&gt; don't have text content.
+
+Let's look at some examples.
+
+If we wanted to generate the paragraph element:
+[code
+<p id="foo">Words, words, words.</p>
+code]
+
+We'd use:
+
+[code
+(p "#foo" "Words, words, words.")
+code]
+
+Note that the id attribute is marked with a '#', just the same as in CSS and jQuery.
+
+Now let's look at a more complex example. Suppose we want to generate:
+
+[code
+<a id='foo' class='bar' baz='rag' href='http://www.apple.com'>Apple Home Page</a>
+code]
+
+We'd do that in Fronkensteen with:
+
+[code
+(a "#foo.bar!baz='rag'!href='http://www.apple.com'" "Apple Home Page")
+code]
+
+Here we have an id that begins with '#', a class that begins with '.' (again, just like CSS/jQuery), and some other attributes that are set off with '!'.
+
+The HTML procedures return strings, not DOM elements. The string must be converted to elements and inserted in the document with jQuery procedures (below).
+
+Using quoted strings for large blocks of text is something of a pain (particularly if the text block may itself contain quotes), so Fronkensteen offers a shortcut convention for that.
+
+[code
+<%
+Block of text containing "quoted material", line
+breaks,
+and so on.
+%>
+code]
+
+will result in the text between the brackets being inserted into the Scheme code as a literal string, including any line breaks, quotes, or any other otherwise troublesome characters.
+
+
+[h3 Sharp Corner h3]
+
+Unfortunately Scheme already has a procedure called [code div code], so Fronkensteen uses [code dv code] instead. All other HTML elements use their normal names.
+
+[h2  Auto-wiring of HTML Elements h2]
+
+Some HTML elements (such as buttons) can be "auto-wired". Using a button as an example, [code (button "#coolbutton" "My Cool Button") code] will produce [code <button id="coolbutton">My Cool Button</button> code] (just as above). If this button is inserted into the DOM and the [code (wire-ui) code] procedure is called afterward, an event handler will be added to the button that calls a procedure named [code (coolbutton_click) code] when the button is clicked (if that procedure exists). This is very convenient compared to adding an event handler to every button by hand. The element must have an id in order for this to work. Similar conventions exist for other elements.
+
+
+## jQuery Interface
+
+BiwaScheme has a nice, Scheme-like interface to jQuery. However, Fronkensteen opts for a more jQuery-like procedure syntax. Why jQuery? Because jQuery has been around for a long time, it works, and it's not going anywhere. Other frameworks seem to come and go with depressing regularity. Also, there's a vast amount of jQuery example code on the net. Translating this code to work with Fronkensteen is pretty straightforward.
+
+A jQuery call like:
+
+[code
+$("#test-div").html("New text")
+
+code]
+
+maps in a direct fashion to:
+
+[code
+(% "#test-div" "html" "New Text")
+code]
+
+Note that this actually has *fewer* parentheses than the jQuery. :-)
+
+
+
+[h2 CSS in Scheme h2]
+
+Fronkensteen lets you use Scheme code to write and install CSS. The [code proc-css-list code] procedure in:
+
+[code
+(install-css "text-processor-style"
+  (proc-css-list `(
+    (".fronkensteen-footnote-link" (
+      "font-size" "75%"
+      "vertical-align" "super"
+      "line-height" "0"
+      ))
+    (".fronkensteen-footnote" (
+      "text-decoration" "underline"
+      "cursor" "pointer"
+        )))))
+code]
+
+will generate the following CSS:
+
+[code
+.fronkensteen-footnote-link {
+  font-size:75%;
+  vertical-align:super;
+  line-height:0;
+}
+.fronkensteen-footnote {
+  text-decoration:underline;
+  cursor:pointer;
+}
+code]
+
+The [code install-css code] procedure takes that generated CSS and installs it in the document as a style element in the document head, with an id of [code text-processor-style code].
+
+The backquote/quasiquote operator in proc-css-list is not strictly necessary in this case. It's there so you can use an unquote operator in the list to include arbitrary Scheme code to be evaluated and inserted into the list.
