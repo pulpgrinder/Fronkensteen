@@ -34,7 +34,7 @@ This page activates the Moogly theme. This page is mostly Scheme code. To see th
             "background-color" "#bbb"
             "color" "rebeccapurple"
             ))
-            (".fronkensteen-wiki-sidebar-caption" (
+            (".fronkensteen-dialog-controls" (
               "color" "#fff"
               "background-color" "#555"
               ))
@@ -78,7 +78,7 @@ This page activates the Moogly theme. This page is mostly Scheme code. To see th
           "color" "rebeccapurple"
           "cursor" "pointer"
           ))
-          (".incoming-link" (
+          (".fronkensteen-incoming-link" (
             "color" "rebeccapurple"
             "cursor" "pointer"
             ))

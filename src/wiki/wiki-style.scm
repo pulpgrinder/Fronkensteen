@@ -104,10 +104,21 @@
                   "overflow" "hidden"
                   "cursor" "pointer"
                 ))
+                ("#fronkensteen-search-body" (
+                  "overflow-y" "auto"
+                  "overflow-x" "hidden"
+                  ))
+                (".fronkensteen-wiki-search-entry" (
+                  "margin" "0"
+                  "padding" "0.5em"
+                  "word-break" "break-all"
+                  "overflow" "hidden"
+                  "cursor" "pointer"
+                ))
 
-                (".fronkensteen-wiki-sidebar-caption" (
+                (".fronkensteen-dialog-controls" (
                   "position" "absolute"
-                  "height" "2em"
+                  "height" "1em"
                   "width" "100%"
                   "color" "#fff"
                   "padding" "0.5em"
@@ -121,7 +132,7 @@
                 ("#fronkensteen-wiki-search-list-wrapper" (
                   "overflow" "hidden"
                   "position" "absolute"
-                  "top" "3em"
+                  "top" "2em"
                   "width" "100%"
                   "max-height" "20em"
                 ))

@@ -37,7 +37,7 @@
 
 (build-fronkensteen-dialog "#fronkensteen-search" "Search"
   (<<
-    (dv ".fronkensteen-wiki-sidebar-caption" (<<
+    (dv ".fronkensteen-dialog-controls" (<<
       (dv (<<
         "Search:&nbsp;"
         (input "#fronkensteen-wiki-search-field")
@@ -51,7 +51,7 @@
     (dv "#fronkensteen-wiki-search-list-wrapper"
       (ul "#fronkensteen-wiki-search-list" "")))
 
-     "40em" "10em")
+     "30em" "10em")
      (wire-ui)
      (% "#fronkensteen-wiki-search-case-sensitive" "on" "change" (lambda (ev)
        (set-checkbox-checked! "#fronkensteen-wiki-search-regex" #f)
@@ -123,7 +123,6 @@
   (init-wiki-search-display))
 
 (define (fronkensteen-wiki-incoming-links-button_click ev)
-  (console-log (<< "Looking for links to " current-title))
   (let ((matching-pages (collect-linked-pages current-title (vector->list (get-internal-dir "user-files/wiki")))))
     (display-incoming-links matching-pages)))
 
@@ -131,9 +130,9 @@
   (if (eqv? (length matching-pages) 0)
     (alert "No other pages link here.")
     (begin
-      (build-fronkensteen-dialog "#fronkensteen-incoming-links" "Pages That Link Here" (ul (render-incoming-links matching-pages)) "20em" "20em")
-      (% ".incoming-link" "off" "click")
-      (% ".incoming-link" "on" "click"
+      (build-fronkensteen-dialog "#fronkensteen-incoming-links" "Pages That Link Here" (round-list (render-incoming-links matching-pages)) "20em" "20em")
+      (% ".fronkensteen-incoming-link" "off" "click")
+      (% ".fronkensteen-incoming-link" "on" "click"
       (lambda (ev)
         (let ((target (js-ref ev "currentTarget")))
           (let ((title  (element-read-attribute target "target")))
@@ -143,7 +142,7 @@
   (if (eqv? matching-pages '())
       ""
       (let ((page-name (file-basename-no-extension (car matching-pages))))
-        (<< (li (<< ".incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
+        (<< (round-list-item (<< ".fronkensteen-incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
 
 (define (collect-linked-pages title page-list)
     (collect-matching-wiki-pages (<< "[link " title " link]") page-list "case-sensitive"))
