@@ -129,6 +129,9 @@
                 "display" "grid"
                 "grid-template-rows" "3em auto"
                 ))
+                (".fronkensteen-incoming-link" (
+                  "width" "16.5em"
+                  ))
                 ("#fronkensteen-wiki-search-list-wrapper" (
                   "overflow" "hidden"
                   "position" "absolute"
@@ -168,10 +171,6 @@
                   "right" "0.5em"
                   "bottom" "0.375em"
                   ))
-
-               (".fronkensteen-dialog-button" (
-                 "float" "right"
-                 ))
 
              (".wiki-video" (
                "width" "50%"

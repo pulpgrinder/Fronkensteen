@@ -29,7 +29,7 @@
 
         (".fronkensteen-dialog-button" (
           "float" "right"
-          "margin-right" "0.5em"
+          "margin-right" "0.25em"
           ))
         (".fronkensteen-dialog-title" (
           "position" "absolute"
@@ -68,6 +68,12 @@
           "padding-right" "8px"
           "padding-left" "3px"
           ))
+
+      (".fronkensteen-toolbar-button" (
+        "height" "2em"
+        "position" "relative"
+        "bottom" "0.25em"
+        ))
       (".icon" (
         "width" "1em"
         "height" "1em"
@@ -190,7 +196,6 @@
         "padding-right" "1em"
        "padding-top" "0.5em"
         "padding-bottom" "0.5em"
-        "display" "inline-block"
         "width" "100%"
         "height" "100%"
 
