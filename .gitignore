@@ -6,4 +6,5 @@ package-lock.json
 attic
 fronkensteen.html
 publish_live_site
-filesystem.json
+filesystem/fronkensteen_fs.json
+packages

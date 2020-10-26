@@ -269,12 +269,9 @@
   #f
 )
 
-
-
 (define (show-wiki-toolbar title)
   (% ".fronkensteen-toolbar" "hide")
   (% (<< "#fronkensteen-" title "-toolbar") "show"))
-
 
 
 (define (fronkensteen-wiki-save-work_space-button_click)

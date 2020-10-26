@@ -3,8 +3,8 @@
 (% "#fronkensteen-wiki-preview" "show")
 (% ".fronkensteen-toolbar" "hide")
 (% "#fronkensteen-preview-toolbar" "show")
-(% "#fronkensteen-wiki-preview" "html" (fronkenmark text #t #t))
-)
+(% "#fronkensteen-wiki-preview" "html" (fronkenmark text #t #t)))
+
 
 (define (generate-wiki-toolbar)
   (<<
