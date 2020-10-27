@@ -65,6 +65,12 @@ BiwaScheme.define_libfunc("cm-editor-get-current-symbol",1,1,function(ar,intp){
   return editDriver.getCurrentSymbol(ar[0]);
 })
 
+BiwaScheme.define_libfunc("cm-editor-select-all",1,1,function(ar,intp){
+  // Get the selected Scheme procedure name or the procedure name before the cursor.
+  BiwaScheme.assert_string(ar[0]);
+  editDriver.activateEditor(ar[0]);
+  return editDriver.selectAll(ar[0])
+});
 BiwaScheme.define_libfunc("cm-editor-get-procedure-at-cursor",1,1,function(ar,intp){
   // Get the selected Scheme procedure name or the procedure name before the cursor.
   BiwaScheme.assert_string(ar[0]);
@@ -86,6 +92,13 @@ BiwaScheme.define_libfunc("cm-editor-eval-selection-or-expr-before-cursor!",1,1,
   editDriver.evalSchemeSelection(ar[0]);
   editDriver.activateEditor(ar[0]);
 
+});
+
+BiwaScheme.define_libfunc("cm-editor-get-scheme-selection-or-expr-before-cursor!",1,1,function(ar,intp){
+  // Tries to evaluate the Scheme expression found before the current cursor position in the CodeMirror editor specified in ar[0].
+  BiwaScheme.assert_string(ar[0]);
+  editDriver.activateEditor(ar[0]);
+  return editDriver.getSchemeSelection(ar[0]);
 });
 
   BiwaScheme.define_libfunc("cm-eval-editor-buffer!",1,1,function(ar,intp){
@@ -177,6 +190,10 @@ BiwaScheme.define_libfunc("cm-editor-get-selected-text",1,1, function(ar){
 BiwaScheme.define_libfunc("cm-editor-delete-selected-text",1,1, function(ar){
   editDriver.activateEditor(ar[0]);
   return editDriver.replaceSelectedText(ar[0],"");
+});
+BiwaScheme.define_libfunc("cm-editor-replace-selected-text",2,2, function(ar){
+  editDriver.activateEditor(ar[0]);
+  return editDriver.replaceSelectedText(ar[0],ar[1]);
 });
 BiwaScheme.define_libfunc("cm-editor-set-bold",1,1, function(ar){
   editDriver.activateEditor(ar[0]);

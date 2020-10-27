@@ -239,3 +239,7 @@ BiwaScheme.define_libfunc("write-to-clipboard!", 1, 1, function(ar){
        console.error("Unable to write to clipboard.");
        return false;
     })});
+
+BiwaScheme.define_libfunc("url-params",1,1,function(ar){
+  return urlParams.get(ar[0]);
+})

@@ -373,12 +373,12 @@ Fronkensteen.addScheme = function(filename){
       }
     }
 
-    const remote = urlParams.get('remote');
+    /*const remote = urlParams.get('remote');
     if(remote !== null){
       if(Fronkensteen.remoteREPL !== undefined){
         Fronkensteen.remoteREPL.connect(true,null);
       }
-    }
+    } */
     setTimeout(function(){
       let result = intp2.evaluate("(system-launch)");
       if(Fronkensteen.CumulativeErrors.length !== 0){

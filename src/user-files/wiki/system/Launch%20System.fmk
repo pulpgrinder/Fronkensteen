@@ -5,6 +5,9 @@ This page contains the Scheme code that will be run at system launch. You can ed
 (init-wiki-viewer)
 (show-wiki-history-dialog)
 (display-wiki-page "Main")
-;(launch-remote-repl-server)
+(if (not (js-null? (url-params "remote-server")))
+  (launch-remote-repl-server))
+(if (not (js-null? (url-params "remote-terminal")))
+  (remote-repl-terminal))
 ""
 scheme!]

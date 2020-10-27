@@ -6,7 +6,7 @@ CodeMirror.commands.find = function(){
 
 class CMEditorDriver {
     constructor(){
-      this.codeLanguage = "markdown";
+      this.codeLanguage = "fronkenmark";
       this.cm_editors = {}
     }
     activateEditor(editor_id){
@@ -58,36 +58,41 @@ class CMEditorDriver {
       Fronkensteen.CumulativeErrors = [];
       editor.setValue(text + result);
     }
+    getSchemeSelection(editor_id){
+      let editor = this.cm_editors[editor_id];
+      let result = "";
+      if(editor === undefined){
+        console.error("evalSchemeSelection: No editor corresponding to " + editor_id);
+        return;
+      }
+      let doc = editor.getDoc();
+      let cursor = doc.getCursor();
+      let text = editor.getValue();
+      let selection = doc.getSelection();
+      let expr;
+      if(selection.length > 0){
+        let expr = selection;
+      }
+      else{
+        let index = doc.indexFromPos(cursor);
+        let preceding = text.substring(0,index);
+        selection = "";
+        let lastchar = text.charAt(preceding.length - 1);
+        if(lastchar === ")"){
+          selection = Fronkensteen.eval_extract_sexp(preceding);
+        }
+        else if(lastchar === "\""){
+          selection = Fronkensteen.eval_extract_string(preceding)
+        }
+        else {
+          selection = Fronkensteen.eval_extract_atom(preceding)
+        }
+      }
+      return selection;
+
+    }
     evalSchemeSelection(editor_id){
-        let editor = this.cm_editors[editor_id];
-        let result = "";
-        if(editor === undefined){
-          console.error("evalSchemeSelection: No editor corresponding to " + editor_id);
-          return;
-        }
-        let doc = editor.getDoc();
-        let cursor = doc.getCursor();
-        let text = editor.getValue();
-        let selection = doc.getSelection();
-        let expr;
-        if(selection.length > 0){
-          let expr = selection;
-        }
-        else{
-          let index = doc.indexFromPos(cursor);
-          let preceding = text.substring(0,index);
-          selection = "";
-          let lastchar = text.charAt(preceding.length - 1);
-          if(lastchar === ")"){
-            selection = Fronkensteen.eval_extract_sexp(preceding);
-          }
-          else if(lastchar === "\""){
-            selection = Fronkensteen.eval_extract_string(preceding)
-          }
-          else {
-            selection = Fronkensteen.eval_extract_atom(preceding)
-          }
-        }
+        let selection = this.getSchemeSelection();
         if(selection === null){
           result = " ; No balanced expression found preceding cursor."
         }
@@ -98,6 +103,10 @@ class CMEditorDriver {
         }
         doc.replaceSelection(doc.getSelection() + result);
 
+    }
+    selectAll(editor_id){
+      let editor = this.cm_editors[editor_id];
+      editor.execCommand("selectAll")
     }
     evalJSSelection(editor_id){
       let editor = this.cm_editors[editor_id];

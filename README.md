@@ -8,12 +8,14 @@ The system is fully scriptable in both Scheme and JavaScript.
 
 ## Demo/How to use
 
-For the stabl(-ish) version, go to the [github.io page](https://pulpgrinder.github.io).
-To get the latest bleeding-edge version, clone this repo and follow the instructions below.
+For the stabl(-ish) version, go to the [github.io page](https://pulpgrinder.github.io). You don't need this repo to get a running Fronkensteen system.
+
+To get the latest bleeding-edge version, or to contribute to development clone this repo and follow the instructions below.
 
 ## Fronkensteen system development
 
-(to be rewritten)
+Scheme and JavaScript source libraries are placed in the src/ folder. These are loaded in natural sort order, meaning that it is possible to control the load order by prefixing the folder names with a number (i.e., the first folder loaded will be the 1-root folder). If you wish to suppress the loading of a folder, but still keep it in the repo, you may prefix the folder name with a ! (for example, the !remote-terminal folder).
+
 
 ## Remote REPL
 
