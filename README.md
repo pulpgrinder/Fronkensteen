@@ -8,9 +8,8 @@ The system is fully scriptable in both Scheme and JavaScript.
 
 ## Demo/How to use
 
-For a (possibly) somewhat stable version, go to the [github.io page](https://pulpgrinder.github.io).
+For the stabl(-ish) version, go to the [github.io page](https://pulpgrinder.github.io).
 To get the latest bleeding-edge version, clone this repo and follow the instructions below.
-
 
 ## Fronkensteen system development
 
