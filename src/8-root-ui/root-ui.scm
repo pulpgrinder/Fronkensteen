@@ -76,7 +76,7 @@
     (if (element-exists? "#fronkensteen-repl")
       #t
     (begin
-      (build-fronkensteen-dialog "#fronkensteen-repl" "Fronkensteen Scheme REPL"
+      (build-fronkensteen-dialog "#fronkensteen-repl" "Scheme Mini-REPL"
         (<<
           (dv
             (<<

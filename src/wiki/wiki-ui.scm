@@ -8,14 +8,14 @@
 
 (define (generate-wiki-toolbar)
   (<<
-    (fronkensteen-toolbar-button "fronkensteen-wiki-save-work_space-button" "Save workspace" "data-transfer-download" "")
+    (fronkensteen-toolbar-button "fronkensteen-wiki-save-work_space-button" "Save workspace" "device-floppy" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-edit-button" "Edit this page" "pencil" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-history-button" "Show history" "clock" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-refresh-button" "Refresh this page" "action-redo" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-search-button" "Search" "magnifying-glass" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-new-page-button" "Create a new page" "plus" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-incoming-links-button" "What links here?" "transfer" "")
-    (fronkensteen-toolbar-button "fronkensteen-show-repl-button" "Launch REPL" "lambda" "")
+    (fronkensteen-toolbar-button "fronkensteen-show-repl-button" "Launch Mini-REPL" "lambda" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-import-file-button" "Import media file" "data-transfer-upload" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-special-button" "Special pages" "cog" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-delete-button" "Delete this page" "trash" "")

@@ -289,6 +289,10 @@
    (let ((path (wiki-data-path filename)))
       (write-data-url-to-internal-file path data)))
 
+(define (fronkensteen-show-repl-button_click)
+  (show-mini-repl))
+
+  
 (define (fronkensteen-wiki-import-file-button_click)
     (upload-file ".png,.jpg,.gif,.svg,.mp3,.mp4,.m4v,.scm,.txt,.md" #t wiki-file-uploaded))
 
