@@ -1,9 +1,11 @@
 (install-css "code-editor"
     (proc-css-list `(
-        (".CodeMirror" (
+        (".fronkensteen-wiki-editor .CodeMirror" (
           "height" "100%"
           ))
-
+          (".fronkensteen-remote-terminal-wrapper .CodeMirror" (
+            "height" "30em"
+            ))
         ("#fronkensteen-editor-controls" (
           "position" "relative"
           "top" "-0.25em"

@@ -1,7 +1,6 @@
 (install-css "wiki-editor"
     (proc-css-list `(
         (".fronkensteen-wiki-editor" (
-          "height" "100%"
           "padding" "0"
           "margin" "auto"
           "padding-right" "0"

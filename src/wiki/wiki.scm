@@ -292,7 +292,7 @@
 (define (fronkensteen-show-repl-button_click)
   (show-mini-repl))
 
-  
+
 (define (fronkensteen-wiki-import-file-button_click)
     (upload-file ".png,.jpg,.gif,.svg,.mp3,.mp4,.m4v,.scm,.txt,.md" #t wiki-file-uploaded))
 
@@ -302,9 +302,7 @@
 
 ; Startup
 (define (system-launch)
-  (exec-wiki-page "system/Launch System")
-;  (launch-remote-repl-server)
-  )
+  (exec-wiki-page "system/Launch System"))
 
 (define (process-wiki-documentation)
   (let ((wikidata (retrieve-wiki-data "docs/Scheme Documentation")))

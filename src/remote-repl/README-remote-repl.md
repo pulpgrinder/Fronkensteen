@@ -2,9 +2,9 @@ The remote-repl package provides remote REPL functionality for Fronkensteen. Bot
 
 remote-repl.js provides the following Scheme procedures:
 
-`(launch-remote-repl-server)` -> Launches the package in server mode, and waits for incoming connections from a client.
+`(launch-remote-repl-app)` -> Launches the package in app mode, and waits for incoming connections from a remote terminal.
 
-`(launch-remote-repl-client)` -> Launches the package in client mode, and attempts to connect to a server.
+`(launch-remote-repl-terminal)` -> Launches the package in terminal mode, and attempts to connect to a remote app.
 
 Both of these prompt for a host:port address (default: localhost:5900 for the server, and localhost:5901 for the client) and a password.
 

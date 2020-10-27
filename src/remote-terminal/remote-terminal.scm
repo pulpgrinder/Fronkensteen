@@ -19,7 +19,7 @@
           (show-ui-panel "#fronkensteen-terminal")
           (wire-ui)
           (init-cm-editor! "#remote-terminal-code-input" "fronkenmark")
-          (launch-remote-repl-client))))
+          (launch-remote-repl-terminal))))
 
 (define (display-repl-result result)
   (cm-editor-replace-selected-text "#remote-terminal-code-input" (<< (cm-editor-get-selected-text "#remote-terminal-code-input") " ; " result)))

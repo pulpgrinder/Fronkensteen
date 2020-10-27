@@ -3,11 +3,13 @@ This page contains the Scheme code that will be run at system launch. You can ed
 (process-wiki-documentation)
 (exec-wiki-page "themes/Fronkensteen-Theme")
 (init-wiki-viewer)
-(show-wiki-history-dialog)
 (display-wiki-page "Main")
-(if (not (js-null? (url-params "remote-server")))
-  (launch-remote-repl-server))
-(if (not (js-null? (url-params "remote-terminal")))
-  (remote-repl-terminal))
+(if (not (js-null? (url-params "remote-app")))
+  (begin
+    (launch-remote-repl-app)
+    (show-wiki-history-dialog))
+  (if (not (js-null? (url-params "remote-terminal")))
+    (remote-repl-terminal)
+    (show-wiki-history-dialog)))
 ""
 scheme!]

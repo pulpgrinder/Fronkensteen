@@ -19,23 +19,23 @@
       defaultpassword = "sanguine";
     }
     if(isServer === true){
-      defaulthost = Fronkensteen.getLocalStorageItem("remote-repl-server");
+      defaulthost = Fronkensteen.getLocalStorageItem("remote-repl-app");
       if((defaulthost === null) || (defaulthost === false)){
         defaulthost =  "localhost:5900"
       }
     }
     else{
-      defaulthost = Fronkensteen.getLocalStorageItem("remote-repl-client");
+      defaulthost = Fronkensteen.getLocalStorageItem("remote-repl-terminal");
       if((defaulthost === null) || (defaulthost === false)){
         defaulthost =  "localhost:5901"
       }
     }
     self.host = prompt("Host:port", defaulthost);
     if(isServer === true){
-      Fronkensteen.setLocalStorageItem("remote-repl-server",self.host);
+      Fronkensteen.setLocalStorageItem("remote-repl-app",self.host);
     }
     else {
-      Fronkensteen.setLocalStorageItem("remote-repl-client",self.host);
+      Fronkensteen.setLocalStorageItem("remote-repl-terminal",self.host);
     }
     self.password = prompt("Password", defaultpassword);
     Fronkensteen.setLocalStorageItem("remote-repl-password",self.password);
@@ -106,7 +106,7 @@
     }
   }
 
-BiwaScheme.define_libfunc("launch-remote-repl-server", 0, 0, function(ar){
+BiwaScheme.define_libfunc("launch-remote-repl-app", 0, 0, function(ar){
     // Allow incoming remote REPL connections
     Fronkensteen.remoteREPL.connect(true,null);
 });
@@ -123,7 +123,7 @@ var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
 intp2.evaluate(resultString);
 }
 
-BiwaScheme.define_libfunc("launch-remote-repl-client", 0, 0, function(ar){
+BiwaScheme.define_libfunc("launch-remote-repl-terminal", 0, 0, function(ar){
     // Connect to remote REPL server.
     Fronkensteen.remoteREPL.connect(false,Fronkensteen.displayReplResult);
 });
