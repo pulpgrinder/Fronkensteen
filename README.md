@@ -14,15 +14,15 @@ To get the latest bleeding-edge version, or to contribute to development, clone 
 
 ## Fronkensteen system development
 
-Scheme and JavaScript source libraries are placed in the src/ folder. These are loaded in natural sort order, meaning that it is possible to control the load order by prefixing the folder names with a number (i.e., the first folder loaded will be the 1-root folder). If you wish to suppress the loading of a file or folder, but still keep it in the repo, you may prefix the folder name with a ! (for example, the !remote-terminal folder).
+Scheme and JavaScript source libraries are placed in the src/ folder. These are loaded in natural sort order, meaning that it is possible to control the load order by prefixing the folder names with a number (i.e., the first folder loaded will be the 1-root folder). If you wish to suppress the loading of a file or folder, but still keep it in the repo, you may prefix the file or folder name with a !.
 
 
 ## Remote REPL
 
 Fronkensteen has remote REPL capability. This can be handy when testing on a device with a small screen, where there's insufficient screen real estate to run the internal editor. Sadly, this does require running a server. After downloading the repo and running `npm install`, run `node fronkensteen-server` to start the middleware server.
 
-Just add `?remote-app` to the URL for your Fronkensteen app and reload (e.g. `file:///foo/bar/baz/fronkensteen.html?remote-app`) and it will attempt to connect to the middleware (using the port number and address of the middleware server) Alternatively, you can run `(launch-remote-repl-app)` from Scheme code.
+Just add `?remote-app` to the URL for your Fronkensteen app and reload it (e.g. `file:///foo/bar/baz/fronkensteen.html?remote-app`) and it will attempt to connect to the middleware (you will be prompted for the port number and address of the middleware server) Alternatively, you can run `(launch-remote-repl-app)` from within Scheme code.
 
-To send REPL commands to your running Fronkensteen app, you need some sort of terminal. A simple one is built-in to the Fronkensteen system. Launch another instance of Fronkensteen (which could be on a different machine) with the parameter `?remote-terminal` (e.g. `file:///foo/bar/baz/fronkensteen.html?remote-terminal`). Once again, use the port number and address you've set up for the middleware server.
+To send REPL commands to your running Fronkensteen app, you need some sort of terminal. A simple one is built in to the Fronkensteen system. Launch another instance of Fronkensteen (which could be on a different machine) with the parameter `?remote-terminal` (e.g. `file:///foo/bar/baz/fronkensteen.html?remote-terminal`). Once again, use the port number and address you've set up for the middleware server.
 
-If you use the Atom editor, you might try [fronkensteen-atom-repl](https://github.com/pulpgrinder/fronkensteen-atom-repl), a plugin hat lets you execute Scheme code on a remote Fronkensteen app from directly inside the Atom editor.
+If you use the Atom editor, you might try [fronkensteen-atom-repl](https://github.com/pulpgrinder/fronkensteen-atom-repl), a terminal plugin hat lets you execute Scheme code on a remote Fronkensteen app from directly within the Atom editor.
