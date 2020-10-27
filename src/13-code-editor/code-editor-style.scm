@@ -4,7 +4,7 @@
           "height" "100%"
           ))
           (".fronkensteen-remote-terminal-wrapper .CodeMirror" (
-            "height" "30em"
+            "height" "100%"
             ))
         ("#fronkensteen-editor-controls" (
           "position" "relative"
