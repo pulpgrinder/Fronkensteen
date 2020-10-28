@@ -18,6 +18,7 @@
     (fronkensteen-toolbar-button "fronkensteen-show-repl-button" "Launch Mini-REPL" "lambda" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-import-file-button" "Import media file" "data-transfer-upload" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-special-button" "Special pages" "cog" "")
+    (fronkensteen-toolbar-button "fronkensteen-wiki-docs-button" "Documentation" "book" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-delete-button" "Delete this page" "trash" "")
   ))
   (define (fronkensteen-toolbar-button id title icon-name text)

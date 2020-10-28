@@ -94,6 +94,9 @@
 (define (fronkensteen-wiki-special-button_click ev)
     (display-wiki-page "special/Special Pages"))
 
+(define (fronkensteen-wiki-docs-button_click ev)
+    (display-wiki-page "special/Documentation"))
+
 (define (fronkensteen-wiki-delete-button_click ev)
     (if (eqv? current-title "system/Launch System")
       (alert "Sorry, can't delete the system launch page. Feel free to edit it, though.")
@@ -268,6 +271,14 @@
 
   #f
 )
+
+(define (collect-wiki-page-list)
+  (assemble-wiki-page-list (vector->list (get-internal-dir "user-files/wiki"))))
+
+(define (assemble-wiki-page-list raw-list)
+  (if (eqv? raw-list '())
+    '()
+    (cons (wiki-display-name (decode-uri (car raw-list))) (assemble-wiki-page-list (cdr raw-list)))))
 
 (define (show-wiki-toolbar title)
   (% ".fronkensteen-toolbar" "hide")

@@ -251,6 +251,6 @@ BiwaScheme.define_libfunc("piratespeak",1,1, function(ar,intp){
   BiwaScheme.assert_string(ar[0]);
   return PirateSpeak.translate(ar[0]);
 })
-
+alert("piratespeak tag handler installed")
 return "";
 javascript!]

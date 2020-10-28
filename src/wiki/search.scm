@@ -145,4 +145,4 @@
         (<< (round-list-item (<< ".fronkensteen-incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
 
 (define (collect-linked-pages title page-list)
-    (collect-matching-wiki-pages (<< "[link " title " link]") page-list "case-sensitive"))
+    (collect-matching-wiki-pages (<< "[link " title) page-list "case-sensitive"))

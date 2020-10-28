@@ -1,0 +1,38 @@
+[large Orphan Pages large]
+[!scheme
+
+(define (is-orphan-page? page-title)
+  (cond ((eq? (indexOf page-title "special/") 0) #f)
+        ((eq? (indexOf page-title "system/") 0) #f)
+        ((eq? (indexOf page-title "images/") 0) #f)
+        ((eq? (indexOf page-title "media/") 0) #f)
+        ((eq? (indexOf page-title "themes/") 0) #f)
+        (#t
+          (let ((matching-pages (collect-linked-pages page-title (vector->list (get-internal-dir "user-files/wiki")))))
+            (if (eqv? matching-pages '())
+            #t
+            #f)))))
+
+(define (collect-orphans page-list)
+  (if (eqv? page-list '())
+      '()
+      (let ((page-name (wiki-display-name (decode-uri (car page-list)))))
+      (console-log (<< "Page name is " page-name))
+      (if (is-orphan-page? page-name)
+          (cons page-name (collect-orphans (cdr page-list)))
+          (collect-orphans (cdr page-list))))))
+
+(define (render-orphan-pages orphan-pages)
+    (if (eqv? orphan-pages '())
+      ""
+      (let ((title (car orphan-pages)))
+          (<< "[link "  (wiki-display-name (decode-uri  title)) " link]\n" (render-orphan-pages (cdr orphan-pages))))))
+
+(let ((wiki-files (collect-wiki-page-list)))
+  (let ((orphan-pages (collect-orphans wiki-files)))
+    (let ((rendered-file-list (render-orphan-pages orphan-pages)))
+    (fronkenmark (<< "[roundlist "
+        rendered-file-list
+        " roundlist]"
+    ) #f #f))))
+scheme!]
