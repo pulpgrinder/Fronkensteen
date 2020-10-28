@@ -82,11 +82,42 @@ This page activates the base Fronkensteen theme. This page is mostly Scheme code
             "cursor" "pointer"
             ))
 
+        ("@font-face" (
+          "font-family" "\"serif\""
+          "font-style" "normal"
+          "font-weight" "normal"
+          "font-display" "auto"
+          ))
+        ("@font-face" (
+          "font-family" "\"serif\""
+          "font-style" "normal"
+          "font-weight" "bold"
+          "font-display" "auto"))
+
+        ("@font-face" (
+          "font-family" "\"serif\""
+          "font-style" "italic"
+          "font-weight" "normal"
+          "font-display" "auto"
+          ))
+          ("@font-face" (
+            "font-family" "\"serif\""
+            "font-style" "italic"
+            "font-weight" "bold"
+            "font-display" "auto"
+            ))
+          ("@font-face" (
+            "font-family" "\"serif\""
+            "font-style" "normal"
+            "font-weight" "normal"
+            "font-variant" "small-caps"
+            "font-display" "auto"
+            ))
           (".fronkensteen-wiki-content" (
-            "font-family" "Cormorant"
+            "font-family" "serif"
             ))
           ("#fronkensteen-wiki-sidebar-display" (
-            "font-family" "Cormorant"
+            "font-family" "serif"
             ))
             (".fronkensteen-dialog-title" (
               "font-family" "sans-serif"
@@ -95,7 +126,7 @@ This page activates the base Fronkensteen theme. This page is mostly Scheme code
               "color" "#fff"
               ))
               (".fronkensteen-dialog-body" (
-                "font-family" "Cormorant"
+                "font-family" "serif"
                 "background-color" "#fefaef"
                 "color" "#010161"
                 "border" "1px solid #010161"

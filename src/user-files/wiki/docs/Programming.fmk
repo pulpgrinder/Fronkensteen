@@ -1,2 +1,5 @@
-Fronkensteen includes a simple built-in programming mechanism for basic tasks. For more elaborate programming, you 
+Fronkensteen includes a simple built-in programming mechanism for basic tasks, as well as the ability to add full-blown Scheme and/or JavaScript code to your pages.
+
 The emphasis in Fronkensteen is on pragmatism, not theoretical purity. The goal is to have something that makes it easy to write rich applications, which means solid and straightforward interfaces to the underlying JavaScript/CSS/HTML world, even if that involves things that an advocate of pure functional programming might look at with a suspicious eye.
+
+Have a look at [link special/Documentation link] for the available topics.
