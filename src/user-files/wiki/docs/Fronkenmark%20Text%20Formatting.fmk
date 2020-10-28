@@ -6,6 +6,7 @@ Fronkensteen uses its own markup language, called Fronkenmark, which is specifie
 
 Markdown is great for simple markup, but rapidly becomes confusing as more features are added, and there's no real standardization for extensions (while there have been some efforts in this area, they are by no means universal). Also, for the author, at least, it's a lot easier to remember [code [sub text sub] code] for subscripts than the various (and often incompatible) methods that have been used to extend Markdown.
 
+If you want to see these tags in operation, check out the [link Kitchen Sink link] page.
 
 [h2 Text formatting h2]
 
@@ -13,9 +14,9 @@ Markdown is great for simple markup, but rapidly becomes confusing as more featu
 
 [code [b text b] code] Bold text.
 
-[code [em text em] code] Emphasized text.
+[code [em text em] code] Emphasized text (same as italic, by default).
 
-[code [strong text strong] code] Strong text.
+[code [strong text strong] code] Strong text (same as bold, by default).
 
 [code [h1 text h1] code] Format text as heading level 1 (levels 1-6 supported)
 

@@ -170,7 +170,9 @@
                   "right" "0.5em"
                   "bottom" "0.375em"
                   ))
-
+             (".fronkensteen-editor-button" (
+               "height" "2em"
+               ))
              (".wiki-video" (
                "width" "50%"
                "margin" "auto"

@@ -30,7 +30,7 @@ H[sub 2 sub]O
 
 [link Main|Start page link] Link to an internal wiki page with alternate text.
 
-[link https://github.com/pulpgrinder/Fronkensteen|the home site link] Link to an external site with alternate text.
+[link https://github.com/pulpgrinder/Fronkensteen|Fronkensteen home page link] Link to an external site with alternate text.
 
 Hashtags: #cool #beans #scheme #wiki
 
@@ -40,9 +40,9 @@ Hashtags: #cool #beans #scheme #wiki
 
 [pl Left-aligned paragraph: Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pl]
 
-[pr Right-aligned paragraph Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pr]
+[pr Right-aligned paragraph: Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pr]
 
-[pj Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pj]
+[pj Justified paragraph: Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pj]
 
 [poetry [h2 Poetry h2]
 Shall I compare thee to a summer’s day?
@@ -85,7 +85,7 @@ roundlist]
 
 [br]
 
-[scenebreak *** scenebreak]
+[scenebreak *  *  * scenebreak]
 
 [pagebreak]
 
@@ -119,12 +119,19 @@ If you don't want these substitutions to happen, you can use:
 
 [img images/fronkensteenlogo.png #fronkensteen-logo!title='Fronkensteen Logo'!width='20'!height='20' img] inserts the image, using the specified [link docs/Programming|SEML link] markup.
 
+YouTube video, default dimensions:
+
 [youtube https://www.youtube.com/watch?v=nR2r__ZgO5g youtube]
+
+YouTube video, user-specified dimensions:
 
 [youtube https://www.youtube.com/watch?v=nR2r__ZgO5g 560 315 youtube]
 
+MP3 audio:
 
 [audio https://ia800204.us.archive.org/12/items/CarusoPourquoi/Caruso_Pourquoi.mp3 audio]
+
+MP4 video:
 
 [video https://ia801900.us.archive.org/23/items/twitter-1266812530833240064/SpaceX_-_Liftoff-1266812530833240064.mp4 video]
 
@@ -184,12 +191,12 @@ table]
 [!scheme
 
 (alert "Hello from Scheme!")
-"This is the Scheme return value."
+"This text was generated by Scheme."
 scheme!]
 
 [!javascript
 alert("Hello from JavaScript!")
-"This is the JavaScript return value"
+return "This text was generated by JavaScript.";
 javascript!]
 
 [button testButton Test Button button]
