@@ -64,7 +64,7 @@
         (<<
           (dv (<< id "-titlebar" ".fronkensteen-dialog-title")
             (<< title
-              (fa-icon (<< id "-close-button.fronkensteen-dialog-button") "s" "window-close")
+              (button (<< id "-close-button.fronkensteen-dialog-button") (iconic-icon "circle-x"))
               ))
           (dv (<< id "-body.fronkensteen-dialog-body") (dv (<< id "-content.fronkensteen-dialog-content") text)))))
   (set-draggable! (scheme->json `(("element" . ,id) ("dragitem" . ,(<< id "-titlebar")) ("closebutton" . ,(<< id "-close-button")) ("width" . ,width) (height . ,height))))

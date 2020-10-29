@@ -62,7 +62,6 @@
           (type (cadar history-list)))
       (let ((icon
             (if (eqv? type "page")
-              ""   ;(fa-icon "" "s" "paragraph")
               (<< (iconic-icon  "pencil") "&nbsp;"))
         ))
         (<< (li (<< ".round-list-item.fronkensteen-wiki-history-entry!title='" title "' type='" type "'") (<< icon title))
