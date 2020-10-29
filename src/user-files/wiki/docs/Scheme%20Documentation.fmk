@@ -1,9 +1,637 @@
+procedure->promise
+(procedure->promise args)
+Please help by writing some docs for this!
+
+
+!DOCTYPE
+(!DOCTYPE args)
+Used to generate an HTML DOCTYPE.
+
+Examples:
+
+You may use one of the predefined symbolic DOCTYPEs, or supply a string with a custom type:
+
+(!DOCTYPE html5) => <!DOCTYPE HTML>
+
+(!DOCTYPE xhtml-basic-1.0) => <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+"http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+
+(!DOCTYPE "My Whackadoodle Type") => <!DOCTYPE My Whackadoodle Type>
+
+Available symbolic DOCTYPEs:
+
+html5
+html-4.01-strict
+html-4.01-transitional
+html-4.01-frameset
+xhtml-1.0-strict
+xhtml-1.0-transitional
+xhtml-1.0-frameset
+xhtml-1.1-dtd
+xhtml-basic-1.0
+
+
+$
+($ args)
+BiwaScheme's default interface to jQuery. We recommend using % instead.
+
+
+%
+(% args)
+
+The Fronkensteen jQuery interface. BiwaScheme has a nice, Scheme-like interface to jQuery. However, Fronkensteen opts for a more jQuery-like procedure syntax. Why jQuery? Because jQuery has been around for a long time, it works, and it's not going anywhere. Other frameworks seem to come and go with depressing regularity. Also, there's a vast amount of jQuery example code on the net. Translating this code to work with Fronkensteen is pretty straightforward.
+
+A jQuery call like:
+
+$("#test-div").html("New text")
+
+maps in a direct fashion to:
+
+(% "#test-div" "html" "New Text")
+
+Note that this actually has *fewer* parentheses than the jQuery. :-)
+
+
+*
+(* arg-list)
+Returns the product of all its arguments.
+
+Example:
+
+(* 2 3 4) => 24
+
+
 +
 (+ arg-list)
 Returns the sum of all its arguments.
 Examples:
 (+ 1 2) => 3
 (+ 1 2 3)  => 5
+
+
+-
+(- a b)
+Returns the difference of its two arguments.
+Examples:
+(- 2 1) => 1
+(- 1 2)  => -1
+
+/
+(/ a b)
+
+Returns a / b.
+
+Example:
+
+(/ 6 2) => 3
+
+Note that BiwaScheme does not support the standard Scheme numeric tower. All numbers are JavaScript (floating point) numbers.
+
+
+<
+(< a b)
+
+Returns true if a < b, false otherwise.
+
+Examples:
+
+(< 1 2) => true
+
+(< 10 5) => false
+
+
+<<
+(<< string1 string2 string3...)
+
+Shorthand for string-append. Returns the concatenation of all its string arguments.
+
+Example:
+
+(<< "Hello" "," "world") => Hello,world
+
+Fronkensteen uses string concatenation a LOT, so it's convenient to have a form that requires less typing and less screen real estate.
+
+
+<=
+(<= a b)
+
+Returns true if a <= b, false otherwise.
+
+Examples:
+
+(<= 1 2) => true
+
+(<= 10 5) => false
+
+(<= 5 5) => true
+
+
+=
+(= a b c...)
+
+Returns true if all its (numeric) arguments are equal, false otherwise. See the other predicates, such as eq? eqv? and equal? if you need to compare non-numeric values.
+
+Examples:
+
+(= 1 1) => true
+(= 1 2) => false
+(= 2 2 2) => true
+(= 2 1 2) => false
+
+
+>
+(> a b)
+
+Returns true if a > b, false otherwise.
+
+Examples:
+
+(> 1 2) => false
+
+(> 10 5) => true
+
+
+>=
+(>= a b)
+
+Returns true if a >= b, false otherwise.
+
+Examples:
+
+(>= 1 2) => false
+
+(>= 10 5) => true
+
+(>= 5 5) => true
+
+
+DOCTYPE
+(DOCTYPE args)
+Same as !DOCTYPE
+
+
+a
+(a value)
+(a seml-spec value)
+
+Returns an HTML a tag containing the specified value. Uses the given SEML spec if provided.
+
+Examples:
+(a "This is an anchor") => <a>This is an anchor.</a>
+(a "#myanchor.myclass" "This is an anchor.") => <a id="myanchor" class="myclass">This is an anchor.</a>
+
+
+abbr
+(abbr value)
+(abbr seml-spec value)
+
+Returns an HTML abbr tag containing the specified value. Uses the given SEML spec if provided.
+
+Examples:
+(abbr "This is the text") => <abbr>This is the text</abbr>
+(abbr "#myanchor.myclass" "This is the text.") => <abbr id="myanchor" class="myclass">This is the text.</abbr>
+
+
+abs
+(abs arg)
+
+Returns the absolute value of its arg.
+
+Examples:
+
+(abs 1) => 1
+(abs -5) => 5
+
+
+acos
+(acos arg)
+
+Returns the arccosine of the arg, in radians.
+
+Examples:
+
+(acos 1) => 0
+(acos 0) => 1.5707963267948966
+
+
+acronym
+(acronym args)
+Please help by writing some docs for this!
+
+
+activate-wiki-editor
+(activate-wiki-editor args)
+Please help by writing some docs for this!
+
+
+add-handler!
+(add-handler! args)
+Please help by writing some docs for this!
+
+
+add-ui-panel
+(add-ui-panel args)
+Please help by writing some docs for this!
+
+
+add-wiki-history
+(add-wiki-history args)
+Please help by writing some docs for this!
+
+
+address
+(address args)
+Please help by writing some docs for this!
+
+
+alert
+(alert args)
+Please help by writing some docs for this!
+
+
+alist->js-obj
+(alist->js-obj args)
+Please help by writing some docs for this!
+
+
+alist-to-js-obj
+(alist-to-js-obj args)
+Please help by writing some docs for this!
+
+
+angle
+(angle args)
+Please help by writing some docs for this!
+
+
+append
+(append args)
+Please help by writing some docs for this!
+
+
+append-main-content
+(append-main-content args)
+Please help by writing some docs for this!
+
+
+applet
+(applet args)
+Please help by writing some docs for this!
+
+
+apply
+(apply args)
+Please help by writing some docs for this!
+
+
+area
+(area args)
+Please help by writing some docs for this!
+
+
+article
+(article args)
+Please help by writing some docs for this!
+
+
+aside
+(aside args)
+Please help by writing some docs for this!
+
+
+asin
+(asin args)
+Please help by writing some docs for this!
+
+
+assemble-wiki-page-list
+(assemble-wiki-page-list args)
+Please help by writing some docs for this!
+
+
+assoc
+(assoc args)
+Please help by writing some docs for this!
+
+
+assp
+(assp args)
+Please help by writing some docs for this!
+
+
+assq
+(assq args)
+Please help by writing some docs for this!
+
+
+assv
+(assv args)
+Please help by writing some docs for this!
+
+
+atan
+(atan args)
+Please help by writing some docs for this!
+
+
+attr
+(attr args)
+Please help by writing some docs for this!
+
+
+attr!
+(attr! args)
+Please help by writing some docs for this!
+
+
+audio
+(audio args)
+Please help by writing some docs for this!
+
+
+b
+(b args)
+Please help by writing some docs for this!
+
+
+base
+(base args)
+Please help by writing some docs for this!
+
+
+base-64-image-to-bytes
+(base-64-image-to-bytes args)
+Please help by writing some docs for this!
+
+
+bdi
+(bdi args)
+Please help by writing some docs for this!
+
+
+bdo
+(bdo args)
+Please help by writing some docs for this!
+
+
+beautify-html
+(beautify-html  args)
+Please help by writing some docs for this!
+
+
+binary-port?
+(binary-port? args)
+Please help by writing some docs for this!
+
+
+bitwise-and
+(bitwise-and args)
+Please help by writing some docs for this!
+
+
+bitwise-arithmetic-shift
+(bitwise-arithmetic-shift args)
+Please help by writing some docs for this!
+
+
+bitwise-arithmetic-shift-left
+(bitwise-arithmetic-shift-left args)
+Please help by writing some docs for this!
+
+
+bitwise-arithmetic-shift-right
+(bitwise-arithmetic-shift-right args)
+Please help by writing some docs for this!
+
+
+bitwise-bit-count
+(bitwise-bit-count args)
+Please help by writing some docs for this!
+
+
+bitwise-bit-field
+(bitwise-bit-field args)
+Please help by writing some docs for this!
+
+
+bitwise-bit-set?
+(bitwise-bit-set? args)
+Please help by writing some docs for this!
+
+
+bitwise-copy-bit
+(bitwise-copy-bit args)
+Please help by writing some docs for this!
+
+
+bitwise-copy-bit-field
+(bitwise-copy-bit-field args)
+Please help by writing some docs for this!
+
+
+bitwise-first-bit-set
+(bitwise-first-bit-set args)
+Please help by writing some docs for this!
+
+
+bitwise-if
+(bitwise-if args)
+Please help by writing some docs for this!
+
+
+bitwise-ior
+(bitwise-ior args)
+Please help by writing some docs for this!
+
+
+bitwise-length
+(bitwise-length args)
+Please help by writing some docs for this!
+
+
+bitwise-not
+(bitwise-not args)
+Please help by writing some docs for this!
+
+
+bitwise-reverse-bit-field
+(bitwise-reverse-bit-field args)
+Please help by writing some docs for this!
+
+
+bitwise-rotate-bit-field
+(bitwise-rotate-bit-field args)
+Please help by writing some docs for this!
+
+
+bitwise-xor
+(bitwise-xor args)
+Please help by writing some docs for this!
+
+
+blockquote
+(blockquote args)
+Please help by writing some docs for this!
+
+
+body
+(body args)
+Please help by writing some docs for this!
+
+
+boolean=?
+(boolean=? args)
+Please help by writing some docs for this!
+
+
+boolean?
+(boolean? args)
+Please help by writing some docs for this!
+
+
+bootstrap-documentation
+(bootstrap-documentation args)
+Please help by writing some docs for this!
+
+
+box
+(box args)
+Please help by writing some docs for this!
+
+
+box-top
+(box-top args)
+Please help by writing some docs for this!
+
+
+br
+(br args)
+Please help by writing some docs for this!
+
+
+build-downloader
+(build-downloader args)
+Please help by writing some docs for this!
+
+
+build-fronkensteen-dialog
+(build-fronkensteen-dialog args)
+Please help by writing some docs for this!
+
+
+build-uploader
+(build-uploader args)
+Please help by writing some docs for this!
+
+
+build-wiki-history-display
+(build-wiki-history-display args)
+Please help by writing some docs for this!
+
+
+button
+(button args)
+Please help by writing some docs for this!
+
+
+bytes-to-base-64-image
+(bytes-to-base-64-image args)
+Please help by writing some docs for this!
+
+
+caaaar
+(caaaar args)
+Please help by writing some docs for this!
+
+
+caaadr
+(caaadr args)
+Please help by writing some docs for this!
+
+
+caaar
+(caaar args)
+Please help by writing some docs for this!
+
+
+caadar
+(caadar args)
+Please help by writing some docs for this!
+
+
+caaddr
+(caaddr args)
+Please help by writing some docs for this!
+
+
+caadr
+(caadr args)
+Please help by writing some docs for this!
+
+
+caar
+(caar args)
+Please help by writing some docs for this!
+
+
+cadaar
+(cadaar args)
+Please help by writing some docs for this!
+
+
+cadadr
+(cadadr args)
+Please help by writing some docs for this!
+
+
+cadar
+(cadar args)
+Please help by writing some docs for this!
+
+
+caddar
+(caddar args)
+Please help by writing some docs for this!
+
+
+cadddr
+(cadddr args)
+Please help by writing some docs for this!
+
+
+caddr
+(caddr args)
+Please help by writing some docs for this!
+
+
+cadr
+(cadr args)
+Please help by writing some docs for this!
+
+
+call-with-port
+(call-with-port args)
+Please help by writing some docs for this!
+
+
+call-with-string-output-port
+(call-with-string-output-port args)
+Please help by writing some docs for this!
+
+
+call-with-values
+(call-with-values args)
+Please help by writing some docs for this!
+
+
+canvas
+(canvas args)
+Please help by writing some docs for this!
+
+
+caption
+(caption args)
+Please help by writing some docs for this!
 
 
 car
@@ -14,12 +642,1393 @@ Examples:
 car '(2 . 3) => 2
 
 
--
-(- a b)
-Returns the difference of its two arguments.
-Examples:
-(- 2 1) => 1
-(- 1 2)  => -1
+case-search
+(case-search args)
+Please help by writing some docs for this!
+
+
+cdaaar
+(cdaaar args)
+Please help by writing some docs for this!
+
+
+cdaadr
+(cdaadr args)
+Please help by writing some docs for this!
+
+
+cdaar
+(cdaar args)
+Please help by writing some docs for this!
+
+
+cdadar
+(cdadar args)
+Please help by writing some docs for this!
+
+
+cdaddr
+(cdaddr args)
+Please help by writing some docs for this!
+
+
+cdadr
+(cdadr args)
+Please help by writing some docs for this!
+
+
+cdar
+(cdar args)
+Please help by writing some docs for this!
+
+
+cddaar
+(cddaar args)
+Please help by writing some docs for this!
+
+
+cddadr
+(cddadr args)
+Please help by writing some docs for this!
+
+
+cddar
+(cddar args)
+Please help by writing some docs for this!
+
+
+cdddar
+(cdddar args)
+Please help by writing some docs for this!
+
+
+cddddr
+(cddddr args)
+Please help by writing some docs for this!
+
+
+cdddr
+(cdddr args)
+Please help by writing some docs for this!
+
+
+cddr
+(cddr args)
+Please help by writing some docs for this!
+
+
+cdr
+(cdr args)
+Please help by writing some docs for this!
+
+
+ceiling
+(ceiling args)
+Please help by writing some docs for this!
+
+
+center-element
+(center-element args)
+Please help by writing some docs for this!
+
+
+change_handler
+(change_handler args)
+Please help by writing some docs for this!
+
+
+char->integer
+(char->integer args)
+Please help by writing some docs for this!
+
+
+char<=?
+(char<=? args)
+Please help by writing some docs for this!
+
+
+char<?
+(char<? args)
+Please help by writing some docs for this!
+
+
+char=?
+(char=? args)
+Please help by writing some docs for this!
+
+
+char>=?
+(char>=? args)
+Please help by writing some docs for this!
+
+
+char>?
+(char>? args)
+Please help by writing some docs for this!
+
+
+char?
+(char? args)
+Please help by writing some docs for this!
+
+
+check-editor-title-change
+(check-editor-title-change args)
+Please help by writing some docs for this!
+
+
+checkbox-checked?
+(checkbox-checked? args)
+Please help by writing some docs for this!
+
+
+cite
+(cite args)
+Please help by writing some docs for this!
+
+
+classdiv
+(classdiv args)
+Please help by writing some docs for this!
+
+
+clear-cm-editor-undo!
+(clear-cm-editor-undo! args)
+Please help by writing some docs for this!
+
+
+clear-cumulative-errors
+(clear-cumulative-errors args)
+Please help by writing some docs for this!
+
+
+clear-local-storage!
+(clear-local-storage! args)
+Please help by writing some docs for this!
+
+
+clear-timer!
+(clear-timer! args)
+Please help by writing some docs for this!
+
+
+click_handler
+(click_handler args)
+Please help by writing some docs for this!
+
+
+clone-workspace
+(clone-workspace args)
+Please help by writing some docs for this!
+
+
+close-editor
+(close-editor args)
+Please help by writing some docs for this!
+
+
+close-input-port
+(close-input-port args)
+Please help by writing some docs for this!
+
+
+close-output-port
+(close-output-port args)
+Please help by writing some docs for this!
+
+
+close-port
+(close-port args)
+Please help by writing some docs for this!
+
+
+cm-editor-delete-selected-text
+(cm-editor-delete-selected-text args)
+Please help by writing some docs for this!
+
+
+cm-editor-eval-js-selection!
+(cm-editor-eval-js-selection! args)
+Please help by writing some docs for this!
+
+
+cm-editor-eval-selection-or-expr-before-cursor!
+(cm-editor-eval-selection-or-expr-before-cursor! args)
+Please help by writing some docs for this!
+
+
+cm-editor-get-current-symbol
+(cm-editor-get-current-symbol args)
+Please help by writing some docs for this!
+
+
+cm-editor-get-cursor-position
+(cm-editor-get-cursor-position args)
+Please help by writing some docs for this!
+
+
+cm-editor-get-line
+(cm-editor-get-line args)
+Please help by writing some docs for this!
+
+
+cm-editor-get-procedure-at-cursor
+(cm-editor-get-procedure-at-cursor args)
+Please help by writing some docs for this!
+
+
+cm-editor-get-scheme-selection-or-expr-before-cursor!
+(cm-editor-get-scheme-selection-or-expr-before-cursor! args)
+Please help by writing some docs for this!
+
+
+cm-editor-get-selected-text
+(cm-editor-get-selected-text args)
+Please help by writing some docs for this!
+
+
+cm-editor-get-text
+(cm-editor-get-text args)
+Please help by writing some docs for this!
+
+
+cm-editor-hide
+(cm-editor-hide args)
+Please help by writing some docs for this!
+
+
+cm-editor-hide-all
+(cm-editor-hide-all args)
+Please help by writing some docs for this!
+
+
+cm-editor-redo!
+(cm-editor-redo! args)
+Please help by writing some docs for this!
+
+
+cm-editor-replace
+(cm-editor-replace args)
+Please help by writing some docs for this!
+
+
+cm-editor-replace-selected-text
+(cm-editor-replace-selected-text args)
+Please help by writing some docs for this!
+
+
+cm-editor-scroll-to-line
+(cm-editor-scroll-to-line args)
+Please help by writing some docs for this!
+
+
+cm-editor-select-all
+(cm-editor-select-all args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-align-left
+(cm-editor-set-align-left args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-align-right
+(cm-editor-set-align-right args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-block-quote
+(cm-editor-set-block-quote args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-bold
+(cm-editor-set-bold args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-bulleted-list
+(cm-editor-set-bulleted-list args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-center
+(cm-editor-set-center args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-code
+(cm-editor-set-code args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-comment
+(cm-editor-set-comment args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-cursor-position
+(cm-editor-set-cursor-position args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-heading
+(cm-editor-set-heading args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-italic
+(cm-editor-set-italic args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-justify
+(cm-editor-set-justify args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-link
+(cm-editor-set-link args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-math
+(cm-editor-set-math args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-note
+(cm-editor-set-note args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-numbered-list
+(cm-editor-set-numbered-list args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-poetry
+(cm-editor-set-poetry args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-strikeout
+(cm-editor-set-strikeout args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-subscript
+(cm-editor-set-subscript args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-superscript
+(cm-editor-set-superscript args)
+Please help by writing some docs for this!
+
+
+cm-editor-set-text
+(cm-editor-set-text args)
+Please help by writing some docs for this!
+
+
+cm-editor-show
+(cm-editor-show args)
+Please help by writing some docs for this!
+
+
+cm-editor-undo!
+(cm-editor-undo! args)
+Please help by writing some docs for this!
+
+
+cm-end-position
+(cm-end-position args)
+Please help by writing some docs for this!
+
+
+cm-eval-editor-buffer!
+(cm-eval-editor-buffer! args)
+Please help by writing some docs for this!
+
+
+cm-find
+(cm-find args)
+Please help by writing some docs for this!
+
+
+code
+(code args)
+Please help by writing some docs for this!
+
+
+codeblock
+(codeblock args)
+Please help by writing some docs for this!
+
+
+col
+(col args)
+Please help by writing some docs for this!
+
+
+colgroup
+(colgroup args)
+Please help by writing some docs for this!
+
+
+collect-licenses
+(collect-licenses args)
+Please help by writing some docs for this!
+
+
+collect-linked-pages
+(collect-linked-pages args)
+Please help by writing some docs for this!
+
+
+collect-matching-wiki-pages
+(collect-matching-wiki-pages args)
+Please help by writing some docs for this!
+
+
+collect-wiki-page-list
+(collect-wiki-page-list args)
+Please help by writing some docs for this!
+
+
+color-box
+(color-box args)
+Please help by writing some docs for this!
+
+
+color-box-top
+(color-box-top args)
+Please help by writing some docs for this!
+
+
+command
+(command args)
+Please help by writing some docs for this!
+
+
+complex?
+(complex? args)
+Please help by writing some docs for this!
+
+
+confirm
+(confirm args)
+Please help by writing some docs for this!
+
+
+cons
+(cons args)
+Please help by writing some docs for this!
+
+
+cons*
+(cons* args)
+Please help by writing some docs for this!
+
+
+console-+name
+(console-+name args)
+Please help by writing some docs for this!
+
+
+construct-wiki-editor
+(construct-wiki-editor args)
+Please help by writing some docs for this!
+
+
+convert-roman
+(convert-roman args)
+Please help by writing some docs for this!
+
+
+convert-roman-helper
+(convert-roman-helper args)
+Please help by writing some docs for this!
+
+
+cos
+(cos args)
+Please help by writing some docs for this!
+
+
+css
+(css args)
+Please help by writing some docs for this!
+
+
+css!
+(css! args)
+Please help by writing some docs for this!
+
+
+css-string
+(css-string args)
+Please help by writing some docs for this!
+
+
+cumulative-errors
+(cumulative-errors args)
+Please help by writing some docs for this!
+
+
+current-date
+(current-date args)
+Please help by writing some docs for this!
+
+
+current-error-port
+(current-error-port args)
+Please help by writing some docs for this!
+
+
+current-input-port
+(current-input-port args)
+Please help by writing some docs for this!
+
+
+current-output-port
+(current-output-port args)
+Please help by writing some docs for this!
+
+
+datalist
+(datalist args)
+Please help by writing some docs for this!
+
+
+date->string
+(date->string args)
+Please help by writing some docs for this!
+
+
+date-day
+(date-day args)
+Please help by writing some docs for this!
+
+
+date-hour
+(date-hour args)
+Please help by writing some docs for this!
+
+
+date-millisecond
+(date-millisecond args)
+Please help by writing some docs for this!
+
+
+date-minute
+(date-minute args)
+Please help by writing some docs for this!
+
+
+date-month
+(date-month args)
+Please help by writing some docs for this!
+
+
+date-nanosecond
+(date-nanosecond args)
+Please help by writing some docs for this!
+
+
+date-second
+(date-second args)
+Please help by writing some docs for this!
+
+
+date-week-day
+(date-week-day args)
+Please help by writing some docs for this!
+
+
+date-year
+(date-year args)
+Please help by writing some docs for this!
+
+
+date?
+(date? args)
+Please help by writing some docs for this!
+
+
+dd
+(dd args)
+Please help by writing some docs for this!
+
+
+decode-base-32
+(decode-base-32 args)
+Please help by writing some docs for this!
+
+
+decode-base-64
+(decode-base-64 args)
+Please help by writing some docs for this!
+
+
+decode-base-64-text
+(decode-base-64-text args)
+Please help by writing some docs for this!
+
+
+decode-uri
+(decode-uri args)
+Please help by writing some docs for this!
+
+
+decode-uri-component
+(decode-uri-component args)
+Please help by writing some docs for this!
+
+
+del
+(del args)
+Please help by writing some docs for this!
+
+
+del-assoc
+(del-assoc args)
+Please help by writing some docs for this!
+
+
+del-assoc-list
+(del-assoc-list args)
+Please help by writing some docs for this!
+
+
+del-assq
+(del-assq args)
+Please help by writing some docs for this!
+
+
+del-assv
+(del-assv args)
+Please help by writing some docs for this!
+
+
+delete-internal-file
+(delete-internal-file args)
+Please help by writing some docs for this!
+
+
+delete-nth
+(delete-nth args)
+Please help by writing some docs for this!
+
+
+delete-package
+(delete-package args)
+Please help by writing some docs for this!
+
+
+denominator
+(denominator args)
+Please help by writing some docs for this!
+
+
+destroy-cm-editor!
+(destroy-cm-editor! args)
+Please help by writing some docs for this!
+
+
+details
+(details args)
+Please help by writing some docs for this!
+
+
+dfn
+(dfn args)
+Please help by writing some docs for this!
+
+
+disable!
+(disable! args)
+Please help by writing some docs for this!
+
+
+display
+(display args)
+Please help by writing some docs for this!
+
+
+display-incoming-links
+(display-incoming-links args)
+Please help by writing some docs for this!
+
+
+display-repl-result
+(display-repl-result args)
+Please help by writing some docs for this!
+
+
+display-search-results
+(display-search-results args)
+Please help by writing some docs for this!
+
+
+display-ui-panel
+(display-ui-panel args)
+Please help by writing some docs for this!
+
+
+display-wiki-content
+(display-wiki-content args)
+Please help by writing some docs for this!
+
+
+display-wiki-history
+(display-wiki-history args)
+Please help by writing some docs for this!
+
+
+display-wiki-page
+(display-wiki-page args)
+Please help by writing some docs for this!
+
+
+div
+(div args)
+Please help by writing some docs for this!
+
+
+div0
+(div0 args)
+Please help by writing some docs for this!
+
+
+div0-and-mod0
+(div0-and-mod0 args)
+Please help by writing some docs for this!
+
+
+dl
+(dl args)
+Please help by writing some docs for this!
+
+
+doc-root
+(doc-root args)
+Please help by writing some docs for this!
+
+
+document-object
+(document-object args)
+Please help by writing some docs for this!
+
+
+dom-create-element
+(dom-create-element args)
+Please help by writing some docs for this!
+
+
+dom-element
+(dom-element args)
+Please help by writing some docs for this!
+
+
+dom-get-attribute
+(dom-get-attribute args)
+Please help by writing some docs for this!
+
+
+dom-remove-child!
+(dom-remove-child! args)
+Please help by writing some docs for this!
+
+
+dom-remove-children!
+(dom-remove-children! args)
+Please help by writing some docs for this!
+
+
+domelem
+(domelem args)
+Please help by writing some docs for this!
+
+
+double-box
+(double-box args)
+Please help by writing some docs for this!
+
+
+double-grey-box
+(double-grey-box args)
+Please help by writing some docs for this!
+
+
+double-round-box
+(double-round-box args)
+Please help by writing some docs for this!
+
+
+double-round-grey-box
+(double-round-grey-box args)
+Please help by writing some docs for this!
+
+
+download-done_click
+(download-done_click args)
+Please help by writing some docs for this!
+
+
+download-file
+(download-file args)
+Please help by writing some docs for this!
+
+
+download-internal-file
+(download-internal-file args)
+Please help by writing some docs for this!
+
+
+dt
+(dt args)
+Please help by writing some docs for this!
+
+
+dumpobj
+(dumpobj args)
+Please help by writing some docs for this!
+
+
+dv
+(dv args)
+Please help by writing some docs for this!
+
+
+edit-wiki-page
+(edit-wiki-page args)
+Please help by writing some docs for this!
+
+
+element-absolutize!
+(element-absolutize! args)
+Please help by writing some docs for this!
+
+
+element-add-class-name
+(element-add-class-name args)
+Please help by writing some docs for this!
+
+
+element-add-class-name!
+(element-add-class-name! args)
+Please help by writing some docs for this!
+
+
+element-adjacent
+(element-adjacent args)
+Please help by writing some docs for this!
+
+
+element-ancestors
+(element-ancestors args)
+Please help by writing some docs for this!
+
+
+element-append-child!
+(element-append-child! args)
+Please help by writing some docs for this!
+
+
+element-class-names
+(element-class-names args)
+Please help by writing some docs for this!
+
+
+element-clean-whitespace!
+(element-clean-whitespace! args)
+Please help by writing some docs for this!
+
+
+element-clone-position!
+(element-clone-position! args)
+Please help by writing some docs for this!
+
+
+element-content
+(element-content args)
+Please help by writing some docs for this!
+
+
+element-cumulative-offset
+(element-cumulative-offset args)
+Please help by writing some docs for this!
+
+
+element-cumulative-scroll-offset
+(element-cumulative-scroll-offset args)
+Please help by writing some docs for this!
+
+
+element-descendant-of!
+(element-descendant-of! args)
+Please help by writing some docs for this!
+
+
+element-descendants
+(element-descendants args)
+Please help by writing some docs for this!
+
+
+element-dimensions
+(element-dimensions args)
+Please help by writing some docs for this!
+
+
+element-down
+(element-down args)
+Please help by writing some docs for this!
+
+
+element-empty!
+(element-empty! args)
+Please help by writing some docs for this!
+
+
+element-empty?
+(element-empty? args)
+Please help by writing some docs for this!
+
+
+element-exists?
+(element-exists? args)
+Please help by writing some docs for this!
+
+
+element-first-descendant
+(element-first-descendant args)
+Please help by writing some docs for this!
+
+
+element-focus!
+(element-focus! args)
+Please help by writing some docs for this!
+
+
+element-has-class-name?
+(element-has-class-name? args)
+Please help by writing some docs for this!
+
+
+element-height
+(element-height args)
+Please help by writing some docs for this!
+
+
+element-hide!
+(element-hide! args)
+Please help by writing some docs for this!
+
+
+element-identify
+(element-identify args)
+Please help by writing some docs for this!
+
+
+element-immediate-descendants
+(element-immediate-descendants args)
+Please help by writing some docs for this!
+
+
+element-insert!
+(element-insert! args)
+Please help by writing some docs for this!
+
+
+element-make-clipping!
+(element-make-clipping! args)
+Please help by writing some docs for this!
+
+
+element-make-positioned!
+(element-make-positioned! args)
+Please help by writing some docs for this!
+
+
+element-match?
+(element-match? args)
+Please help by writing some docs for this!
+
+
+element-new
+(element-new args)
+Please help by writing some docs for this!
+
+
+element-next
+(element-next args)
+Please help by writing some docs for this!
+
+
+element-next-sibling
+(element-next-sibling args)
+Please help by writing some docs for this!
+
+
+element-offset-parent
+(element-offset-parent args)
+Please help by writing some docs for this!
+
+
+element-opacity
+(element-opacity args)
+Please help by writing some docs for this!
+
+
+element-opacity-set!
+(element-opacity-set! args)
+Please help by writing some docs for this!
+
+
+element-positioned-offset
+(element-positioned-offset args)
+Please help by writing some docs for this!
+
+
+element-previous
+(element-previous args)
+Please help by writing some docs for this!
+
+
+element-previous-sibling
+(element-previous-sibling args)
+Please help by writing some docs for this!
+
+
+element-read-attribute
+(element-read-attribute args)
+Please help by writing some docs for this!
+
+
+element-relativize!
+(element-relativize! args)
+Please help by writing some docs for this!
+
+
+element-remove!
+(element-remove! args)
+Please help by writing some docs for this!
+
+
+element-remove-class-name
+(element-remove-class-name args)
+Please help by writing some docs for this!
+
+
+element-remove-class-name!
+(element-remove-class-name! args)
+Please help by writing some docs for this!
+
+
+element-replace!
+(element-replace! args)
+Please help by writing some docs for this!
+
+
+element-select
+(element-select args)
+Please help by writing some docs for this!
+
+
+element-show!
+(element-show! args)
+Please help by writing some docs for this!
+
+
+element-siblings
+(element-siblings args)
+Please help by writing some docs for this!
+
+
+element-style
+(element-style args)
+Please help by writing some docs for this!
+
+
+element-style-set!
+(element-style-set! args)
+Please help by writing some docs for this!
+
+
+element-toggle!
+(element-toggle! args)
+Please help by writing some docs for this!
+
+
+element-toggle-class-name
+(element-toggle-class-name args)
+Please help by writing some docs for this!
+
+
+element-toggle-class-name!
+(element-toggle-class-name! args)
+Please help by writing some docs for this!
+
+
+element-undo-clipping!
+(element-undo-clipping! args)
+Please help by writing some docs for this!
+
+
+element-undo-positioned!
+(element-undo-positioned! args)
+Please help by writing some docs for this!
+
+
+element-up
+(element-up args)
+Please help by writing some docs for this!
+
+
+element-update!
+(element-update! args)
+Please help by writing some docs for this!
+
+
+element-viewport-offset
+(element-viewport-offset args)
+Please help by writing some docs for this!
+
+
+element-visible?
+(element-visible? args)
+Please help by writing some docs for this!
+
+
+element-width
+(element-width args)
+Please help by writing some docs for this!
+
+
+element-wrap!
+(element-wrap! args)
+Please help by writing some docs for this!
+
+
+element-write-attribute
+(element-write-attribute args)
+Please help by writing some docs for this!
+
+
+element-write-attribute!
+(element-write-attribute! args)
+Please help by writing some docs for this!
+
+
+elems
+(elems  args)
+Please help by writing some docs for this!
+
+
+em
+(em args)
+Please help by writing some docs for this!
+
+
+embed
+(embed args)
+Please help by writing some docs for this!
+
+
+encode-base-32
+(encode-base-32 args)
+Please help by writing some docs for this!
+
+
+encode-base-64
+(encode-base-64 args)
+Please help by writing some docs for this!
+
+
+encode-uri
+(encode-uri args)
+Please help by writing some docs for this!
+
+
+encode-uri-component
+(encode-uri-component args)
+Please help by writing some docs for this!
+
+
+enum-set->list
+(enum-set->list args)
+Please help by writing some docs for this!
+
+
+enum-set-complement
+(enum-set-complement args)
+Please help by writing some docs for this!
+
+
+enum-set-constructor
+(enum-set-constructor args)
+Please help by writing some docs for this!
+
+
+enum-set-difference
+(enum-set-difference args)
+Please help by writing some docs for this!
+
+
+enum-set-indexer
+(enum-set-indexer args)
+Please help by writing some docs for this!
+
+
+enum-set-intersection
+(enum-set-intersection args)
+Please help by writing some docs for this!
+
+
+enum-set-member?
+(enum-set-member? args)
+Please help by writing some docs for this!
+
+
+enum-set-projection
+(enum-set-projection args)
+Please help by writing some docs for this!
+
+
+enum-set-subset?
+(enum-set-subset? args)
+Please help by writing some docs for this!
+
+
+enum-set-union
+(enum-set-union args)
+Please help by writing some docs for this!
+
+
+enum-set-universe
+(enum-set-universe args)
+Please help by writing some docs for this!
+
+
+enum-set=?
+(enum-set=? args)
+Please help by writing some docs for this!
+
+
+enumerate-procedures
+(enumerate-procedures args)
+Please help by writing some docs for this!
+
+
+enumerate-undocumented-procedures
+(enumerate-undocumented-procedures args)
+Please help by writing some docs for this!
+
+
+eof-object
+(eof-object args)
+Please help by writing some docs for this!
+
+
+eof-object?
+(eof-object? args)
+Please help by writing some docs for this!
+
+
+eq?
+(eq? obj1 obj2)
+
+   The eq? predicate is similar to eqv? except that in some cases it is capable of discerning distinctions finer than those detectable by eqv?.
+
+   The eq? and eqv? predicates are guaranteed to have the same behavior on symbols, booleans, the empty list, pairs, procedures, non-empty strings, bytevectors, and vectors, and records. The behavior of eq? on number objects and characters is implementation-dependent, but it always returns either #t or #f, and returns #t only when eqv? would also return #t. The eq? predicate may also behave differently from eqv? on empty vectors, empty bytevectors, and empty strings.
+
+   (eq? 'a 'a)                     ‌⇒  #t
+
+   (eq? '(a) '(a))                 ‌⇒  unspecified
+
+   (eq? (list 'a) (list 'a))       ‌⇒  #f
+
+   (eq? "a" "a")                   ‌⇒  unspecified
+
+   (eq? "" "")                     ‌⇒  unspecified
+
+   (eq? '() '())                   ‌⇒  #t
+
+   (eq? 2 2)                       ‌⇒  unspecified
+
+   (eq? #\A #\A) ‌⇒  unspecified
+
+   (eq? car car)                   ‌⇒  #t
+
+   (let ((n (+ 2 3)))
+
+     (eq? n n))      ‌⇒  unspecified
+
+   (let ((x '(a)))
+
+     (eq? x x))      ‌⇒  #t
+
+   (let ((x '#()))
+
+     (eq? x x))      ‌⇒  unspecified
+
+   (let ((p (lambda (x) x)))
+
+     (eq? p p))      ‌⇒  unspecified
+
+
+equal-hash
+(equal-hash args)
+Please help by writing some docs for this!
+
+
+equal?
+(equal? obj1 obj2)
+
+   The equal? predicate returns #t if and only if the (possibly infinite) unfoldings of its arguments into regular trees are equal as ordered trees.
+
+   The equal? predicate treats pairs and vectors as nodes with outgoing edges, uses string=? to compare strings, uses bytevector=? to compare bytevectors (see library chapter on “Bytevectors”), and uses eqv? to compare other nodes.
+
+   (equal? 'a 'a)                  ‌⇒  #t
+
+   (equal? '(a) '(a))              ‌⇒  #t
+
+   (equal? '(a (b) c)
+
+           '(a (b) c))             ‌⇒  #t
+
+   (equal? "abc" "abc")            ‌⇒  #t
+
+   (equal? 2 2)                    ‌⇒  #t
+
+   (equal? (make-vector 5 'a)
+
+           (make-vector 5 'a))     ‌⇒  #t
+
+   (equal? '#vu8(1 2 3 4 5)
+
+           (u8-list->bytevector
+
+            '(1 2 3 4 5))          ‌⇒  #t
+
+   (equal? (lambda (x) x)
+
+           (lambda (y) y))  ‌⇒  unspecified
+
+   (let* ((x (list 'a))
+
+          (y (list 'a))
+
+          (z (list x y)))
+
+     (list (equal? z (list y x))
+
+           (equal? z (list x x))))
+   ‌‌⇒  (#t #t)
+
+       Note:‌ The equal? procedure must always terminate, even if its arguments contain cycles.
 
 
 eqv?
@@ -167,93 +2176,1696 @@ eqv?
    (eqv? x x))                    ‌⇒  #t
 
 
-eq?
-(eq? obj1 obj2)
-
-   The eq? predicate is similar to eqv? except that in some cases it is capable of discerning distinctions finer than those detectable by eqv?.
-
-   The eq? and eqv? predicates are guaranteed to have the same behavior on symbols, booleans, the empty list, pairs, procedures, non-empty strings, bytevectors, and vectors, and records. The behavior of eq? on number objects and characters is implementation-dependent, but it always returns either #t or #f, and returns #t only when eqv? would also return #t. The eq? predicate may also behave differently from eqv? on empty vectors, empty bytevectors, and empty strings.
-
-   (eq? 'a 'a)                     ‌⇒  #t
-
-   (eq? '(a) '(a))                 ‌⇒  unspecified
-
-   (eq? (list 'a) (list 'a))       ‌⇒  #f
-
-   (eq? "a" "a")                   ‌⇒  unspecified
-
-   (eq? "" "")                     ‌⇒  unspecified
-
-   (eq? '() '())                   ‌⇒  #t
-
-   (eq? 2 2)                       ‌⇒  unspecified
-
-   (eq? #\A #\A) ‌⇒  unspecified
-
-   (eq? car car)                   ‌⇒  #t
-
-   (let ((n (+ 2 3)))
-
-     (eq? n n))      ‌⇒  unspecified
-
-   (let ((x '(a)))
-
-     (eq? x x))      ‌⇒  #t
-
-   (let ((x '#()))
-
-     (eq? x x))      ‌⇒  unspecified
-
-   (let ((p (lambda (x) x)))
-
-     (eq? p p))      ‌⇒  unspecified
+escape-html
+(escape-html args)
+Please help by writing some docs for this!
 
 
-equal?
-(equal? obj1 obj2)
+eval
+(eval args)
+Please help by writing some docs for this!
 
-   The equal? predicate returns #t if and only if the (possibly infinite) unfoldings of its arguments into regular trees are equal as ordered trees.
 
-   The equal? predicate treats pairs and vectors as nodes with outgoing edges, uses string=? to compare strings, uses bytevector=? to compare bytevectors (see library chapter on “Bytevectors”), and uses eqv? to compare other nodes.
+eval-js-string
+(eval-js-string args)
+Please help by writing some docs for this!
 
-   (equal? 'a 'a)                  ‌⇒  #t
 
-   (equal? '(a) '(a))              ‌⇒  #t
+eval-scheme-string
+(eval-scheme-string args)
+Please help by writing some docs for this!
 
-   (equal? '(a (b) c)
 
-           '(a (b) c))             ‌⇒  #t
+even?
+(even? args)
+Please help by writing some docs for this!
 
-   (equal? "abc" "abc")            ‌⇒  #t
 
-   (equal? 2 2)                    ‌⇒  #t
+exact-integer-sqrt
+(exact-integer-sqrt args)
+Please help by writing some docs for this!
 
-   (equal? (make-vector 5 'a)
 
-           (make-vector 5 'a))     ‌⇒  #t
+exec-wiki-page
+(exec-wiki-page args)
+Please help by writing some docs for this!
 
-   (equal? '#vu8(1 2 3 4 5)
 
-           (u8-list->bytevector
+exists
+(exists args)
+Please help by writing some docs for this!
 
-            '(1 2 3 4 5))          ‌⇒  #t
 
-   (equal? (lambda (x) x)
+exp
+(exp args)
+Please help by writing some docs for this!
 
-           (lambda (y) y))  ‌⇒  unspecified
 
-   (let* ((x (list 'a))
+expt
+(expt args)
+Please help by writing some docs for this!
 
-          (y (list 'a))
 
-          (z (list x y)))
+fieldset
+(fieldset args)
+Please help by writing some docs for this!
 
-     (list (equal? z (list y x))
 
-           (equal? z (list x x))))
-   ‌‌⇒  (#t #t)
+figcaption
+(figcaption args)
+Please help by writing some docs for this!
 
-       Note:‌ The equal? procedure must always terminate, even if its arguments contain cycles.
+
+figure
+(figure args)
+Please help by writing some docs for this!
+
+
+file-basename
+(file-basename args)
+Please help by writing some docs for this!
+
+
+file-basename-no-extension
+(file-basename-no-extension args)
+Please help by writing some docs for this!
+
+
+file-exists?
+(file-exists? args)
+Please help by writing some docs for this!
+
+
+file-extension
+(file-extension args)
+Please help by writing some docs for this!
+
+
+file-path
+(file-path args)
+Please help by writing some docs for this!
+
+
+file-path-no-extension
+(file-path-no-extension args)
+Please help by writing some docs for this!
+
+
+file-rename
+(file-rename args)
+Please help by writing some docs for this!
+
+
+file-version-time-stamp
+(file-version-time-stamp args)
+Please help by writing some docs for this!
+
+
+filter
+(filter args)
+Please help by writing some docs for this!
+
+
+find
+(find args)
+Please help by writing some docs for this!
+
+
+find-matching-wiki-pages
+(find-matching-wiki-pages args)
+Please help by writing some docs for this!
+
+
+finite?
+(finite? args)
+Please help by writing some docs for this!
+
+
+fix-uncacheable
+(fix-uncacheable args)
+Please help by writing some docs for this!
+
+
+floor
+(floor args)
+Please help by writing some docs for this!
+
+
+focus-cm-editor-component!
+(focus-cm-editor-component! args)
+Please help by writing some docs for this!
+
+
+fold-left
+(fold-left args)
+Please help by writing some docs for this!
+
+
+fold-right
+(fold-right args)
+Please help by writing some docs for this!
+
+
+folder-rename
+(folder-rename args)
+Please help by writing some docs for this!
+
+
+footer
+(footer args)
+Please help by writing some docs for this!
+
+
+for-all
+(for-all args)
+Please help by writing some docs for this!
+
+
+for-each
+(for-each args)
+Please help by writing some docs for this!
+
+
+force
+(force args)
+Please help by writing some docs for this!
+
+
+form
+(form args)
+Please help by writing some docs for this!
+
+
+format
+(format args)
+Please help by writing some docs for this!
+
+
+fronkenmark
+(fronkenmark args)
+Please help by writing some docs for this!
+
+
+fronkenmark-get-notes
+(fronkenmark-get-notes args)
+Please help by writing some docs for this!
+
+
+fronkenmark-reset-notes
+(fronkenmark-reset-notes args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-align-left-button_click
+(fronkensteen-editor-align-left-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-align-right-button_click
+(fronkensteen-editor-align-right-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-block-quote-button_click
+(fronkensteen-editor-block-quote-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-bold-button_click
+(fronkensteen-editor-bold-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-bullet-list-button_click
+(fronkensteen-editor-bullet-list-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-center-button_click
+(fronkensteen-editor-center-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-close-and-display-page
+(fronkensteen-editor-close-and-display-page args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-close-button_click
+(fronkensteen-editor-close-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-code-button_click
+(fronkensteen-editor-code-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-comment-button_click
+(fronkensteen-editor-comment-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-controls
+(fronkensteen-editor-controls args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-doc-button_click
+(fronkensteen-editor-doc-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-footnote-button_click
+(fronkensteen-editor-footnote-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-h1-button_click
+(fronkensteen-editor-h1-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-h2-button_click
+(fronkensteen-editor-h2-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-h3-button_click
+(fronkensteen-editor-h3-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-history-button_click
+(fronkensteen-editor-history-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-italic-button_click
+(fronkensteen-editor-italic-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-javascript-eval-button_click
+(fronkensteen-editor-javascript-eval-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-justify-button_click
+(fronkensteen-editor-justify-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-latex-button_click
+(fronkensteen-editor-latex-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-link-button_click
+(fronkensteen-editor-link-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-number-list-button_click
+(fronkensteen-editor-number-list-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-poetry-button_click
+(fronkensteen-editor-poetry-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-preview-button_click
+(fronkensteen-editor-preview-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-redo-button_click
+(fronkensteen-editor-redo-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-save-and-close-button_click
+(fronkensteen-editor-save-and-close-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-save-button_click
+(fronkensteen-editor-save-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-scheme-eval-button_click
+(fronkensteen-editor-scheme-eval-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-strikeout-button_click
+(fronkensteen-editor-strikeout-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-subscript-button_click
+(fronkensteen-editor-subscript-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-superscript-button_click
+(fronkensteen-editor-superscript-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-editor-undo-button_click
+(fronkensteen-editor-undo-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-preview-done-button_click
+(fronkensteen-preview-done-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-show-repl-button_click
+(fronkensteen-show-repl-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-toolbar-button
+(fronkensteen-toolbar-button args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-delete-button_click
+(fronkensteen-wiki-delete-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-docs-button_click
+(fronkensteen-wiki-docs-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-edit-button_click
+(fronkensteen-wiki-edit-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-history-button_click
+(fronkensteen-wiki-history-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-home-button_click
+(fronkensteen-wiki-home-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-import-file-button_click
+(fronkensteen-wiki-import-file-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-incoming-links-button_click
+(fronkensteen-wiki-incoming-links-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-new-page-button_click
+(fronkensteen-wiki-new-page-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-refresh-button_click
+(fronkensteen-wiki-refresh-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-save-work_space-button_click
+(fronkensteen-wiki-save-work_space-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-search-button_click
+(fronkensteen-wiki-search-button_click args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-search-field_input
+(fronkensteen-wiki-search-field_input args)
+Please help by writing some docs for this!
+
+
+fronkensteen-wiki-special-button_click
+(fronkensteen-wiki-special-button_click args)
+Please help by writing some docs for this!
+
+
+gen-id
+(gen-id args)
+Please help by writing some docs for this!
+
+
+gen_handler
+(gen_handler args)
+Please help by writing some docs for this!
+
+
+generate-doc-skeleton
+(generate-doc-skeleton args)
+Please help by writing some docs for this!
+
+
+generate-json-key-value
+(generate-json-key-value args)
+Please help by writing some docs for this!
+
+
+generate-json-number
+(generate-json-number args)
+Please help by writing some docs for this!
+
+
+generate-json-object
+(generate-json-object args)
+Please help by writing some docs for this!
+
+
+generate-json-object-rec
+(generate-json-object-rec args)
+Please help by writing some docs for this!
+
+
+generate-json-string
+(generate-json-string args)
+Please help by writing some docs for this!
+
+
+generate-json-vector
+(generate-json-vector args)
+Please help by writing some docs for this!
+
+
+generate-json-vector-items
+(generate-json-vector-items args)
+Please help by writing some docs for this!
+
+
+generate-select-items-rec
+(generate-select-items-rec args)
+Please help by writing some docs for this!
+
+
+generate-wiki-search-results
+(generate-wiki-search-results args)
+Please help by writing some docs for this!
+
+
+generate-wiki-toolbar
+(generate-wiki-toolbar args)
+Please help by writing some docs for this!
+
+
+generic-span
+(generic-span args)
+Please help by writing some docs for this!
+
+
+gensym
+(gensym args)
+Please help by writing some docs for this!
+
+
+get-cm-editor-ids
+(get-cm-editor-ids args)
+Please help by writing some docs for this!
+
+
+get-content
+(get-content args)
+Please help by writing some docs for this!
+
+
+get-id-vector
+(get-id-vector args)
+Please help by writing some docs for this!
+
+
+get-internal-dir
+(get-internal-dir args)
+Please help by writing some docs for this!
+
+
+get-internal-filesystem-json
+(get-internal-filesystem-json args)
+Please help by writing some docs for this!
+
+
+get-local-storage-item
+(get-local-storage-item args)
+Please help by writing some docs for this!
+
+
+get-matching-wiki-files
+(get-matching-wiki-files args)
+Please help by writing some docs for this!
+
+
+get-output-string
+(get-output-string args)
+Please help by writing some docs for this!
+
+
+get-package-vector
+(get-package-vector args)
+Please help by writing some docs for this!
+
+
+get-selected-index
+(get-selected-index args)
+Please help by writing some docs for this!
+
+
+get-sorted-file-names
+(get-sorted-file-names args)
+Please help by writing some docs for this!
+
+
+get-style
+(get-style args)
+Please help by writing some docs for this!
+
+
+get-unsorted-file-names
+(get-unsorted-file-names args)
+Please help by writing some docs for this!
+
+
+get-versioned-file-name
+(get-versioned-file-name args)
+Please help by writing some docs for this!
+
+
+getelem
+(getelem args)
+Please help by writing some docs for this!
+
+
+grey-box
+(grey-box args)
+Please help by writing some docs for this!
+
+
+grid-container
+(grid-container args)
+Please help by writing some docs for this!
+
+
+h1
+(h1 args)
+Please help by writing some docs for this!
+
+
+h2
+(h2 args)
+Please help by writing some docs for this!
+
+
+h3
+(h3 args)
+Please help by writing some docs for this!
+
+
+h4
+(h4 args)
+Please help by writing some docs for this!
+
+
+h5
+(h5 args)
+Please help by writing some docs for this!
+
+
+h6
+(h6 args)
+Please help by writing some docs for this!
+
+
+hang
+(hang args)
+Please help by writing some docs for this!
+
+
+hashtable-clear!
+(hashtable-clear! args)
+Please help by writing some docs for this!
+
+
+hashtable-contains?
+(hashtable-contains? args)
+Please help by writing some docs for this!
+
+
+hashtable-copy
+(hashtable-copy args)
+Please help by writing some docs for this!
+
+
+hashtable-delete!
+(hashtable-delete! args)
+Please help by writing some docs for this!
+
+
+hashtable-entries
+(hashtable-entries args)
+Please help by writing some docs for this!
+
+
+hashtable-equivalence-function
+(hashtable-equivalence-function args)
+Please help by writing some docs for this!
+
+
+hashtable-hash-function
+(hashtable-hash-function args)
+Please help by writing some docs for this!
+
+
+hashtable-keys
+(hashtable-keys args)
+Please help by writing some docs for this!
+
+
+hashtable-mutable?
+(hashtable-mutable? args)
+Please help by writing some docs for this!
+
+
+hashtable-ref
+(hashtable-ref args)
+Please help by writing some docs for this!
+
+
+hashtable-set!
+(hashtable-set! args)
+Please help by writing some docs for this!
+
+
+hashtable-size
+(hashtable-size args)
+Please help by writing some docs for this!
+
+
+hashtable-update!
+(hashtable-update! args)
+Please help by writing some docs for this!
+
+
+hashtable?
+(hashtable? args)
+Please help by writing some docs for this!
+
+
+head
+(head args)
+Please help by writing some docs for this!
+
+
+header
+(header args)
+Please help by writing some docs for this!
+
+
+hereload
+(hereload args)
+Please help by writing some docs for this!
+
+
+hgroup
+(hgroup args)
+Please help by writing some docs for this!
+
+
+hide-ui-panel
+(hide-ui-panel args)
+Please help by writing some docs for this!
+
+
+hr
+(hr args)
+Please help by writing some docs for this!
+
+
+html
+(html args)
+Please help by writing some docs for this!
+
+
+html-error
+(html-error args)
+Please help by writing some docs for this!
+
+
+html-escape
+(html-escape args)
+Please help by writing some docs for this!
+
+
+html-list
+(html-list args)
+Please help by writing some docs for this!
+
+
+html-list-rec
+(html-list-rec args)
+Please help by writing some docs for this!
+
+
+htmlmap
+(htmlmap args)
+Please help by writing some docs for this!
+
+
+http-post
+(http-post args)
+Please help by writing some docs for this!
+
+
+http-request
+(http-request args)
+Please help by writing some docs for this!
+
+
+i
+(i args)
+Please help by writing some docs for this!
+
+
+iconic-icon
+(iconic-icon args)
+Please help by writing some docs for this!
+
+
+iconic-icon-gen
+(iconic-icon-gen args)
+Please help by writing some docs for this!
+
+
+identity
+(identity args)
+Please help by writing some docs for this!
+
+
+iframe
+(iframe args)
+Please help by writing some docs for this!
+
+
+imag-part
+(imag-part args)
+Please help by writing some docs for this!
+
+
+img
+(img args)
+Please help by writing some docs for this!
+
+
+indexOf
+(indexOf args)
+Please help by writing some docs for this!
+
+
+infinite?
+(infinite? args)
+Please help by writing some docs for this!
+
+
+init-cm-editor!
+(init-cm-editor! args)
+Please help by writing some docs for this!
+
+
+init-wiki-history-display
+(init-wiki-history-display args)
+Please help by writing some docs for this!
+
+
+init-wiki-search-display
+(init-wiki-search-display args)
+Please help by writing some docs for this!
+
+
+init-wiki-viewer
+(init-wiki-viewer args)
+Please help by writing some docs for this!
+
+
+input
+(input args)
+Please help by writing some docs for this!
+
+
+input-port?
+(input-port? args)
+Please help by writing some docs for this!
+
+
+input_handler
+(input_handler args)
+Please help by writing some docs for this!
+
+
+ins
+(ins args)
+Please help by writing some docs for this!
+
+
+insert-nth
+(insert-nth args)
+Please help by writing some docs for this!
+
+
+inspect
+(inspect args)
+Please help by writing some docs for this!
+
+
+inspect!
+(inspect! args)
+Please help by writing some docs for this!
+
+
+install-css
+(install-css args)
+Please help by writing some docs for this!
+
+
+install-package
+(install-package args)
+Please help by writing some docs for this!
+
+
+integer->char
+(integer->char args)
+Please help by writing some docs for this!
+
+
+integer?
+(integer? obj)
+
+Returns #t if obj is an integer, #f otherwise.
+
+
+internal-audio
+(internal-audio args)
+Please help by writing some docs for this!
+
+
+internal-image
+(internal-image args)
+Please help by writing some docs for this!
+
+
+internal-video
+(internal-video args)
+Please help by writing some docs for this!
+
+
+intersperse
+(intersperse args)
+Please help by writing some docs for this!
+
+
+iota
+(iota args)
+Please help by writing some docs for this!
+
+
+is-alist?
+(is-alist? args)
+Please help by writing some docs for this!
+
+
+is-audio-file?
+(is-audio-file? args)
+Please help by writing some docs for this!
+
+
+is-cm-editor-clean?
+(is-cm-editor-clean? args)
+Please help by writing some docs for this!
+
+
+is-dotted-pair?
+(is-dotted-pair? args)
+Please help by writing some docs for this!
+
+
+is-image-file?
+(is-image-file? args)
+Please help by writing some docs for this!
+
+
+is-procedure-defined?
+(is-procedure-defined? args)
+Please help by writing some docs for this!
+
+
+is-system-dirty?
+(is-system-dirty? args)
+Please help by writing some docs for this!
+
+
+is-text-file?
+(is-text-file? args)
+Please help by writing some docs for this!
+
+
+is-video-file?
+(is-video-file? args)
+Please help by writing some docs for this!
+
+
+iso-8601-date
+(iso-8601-date args)
+Please help by writing some docs for this!
+
+
+iso-8601-date-epub-3
+(iso-8601-date-epub-3 args)
+Please help by writing some docs for this!
+
+
+iso-8601-date-short
+(iso-8601-date-short args)
+Please help by writing some docs for this!
+
+
+jq-attr
+(jq-attr args)
+Please help by writing some docs for this!
+
+
+jq-is-empty-object?
+(jq-is-empty-object? args)
+Please help by writing some docs for this!
+
+
+jq-length
+(jq-length args)
+Please help by writing some docs for this!
+
+
+js-array->list
+(js-array->list args)
+Please help by writing some docs for this!
+
+
+js-array-to-list
+(js-array-to-list args)
+Please help by writing some docs for this!
+
+
+js-biwa-evaluate
+(js-biwa-evaluate args)
+Please help by writing some docs for this!
+
+
+js-call
+(js-call args)
+Please help by writing some docs for this!
+
+
+js-closure
+(js-closure args)
+Please help by writing some docs for this!
+
+
+js-eval
+(js-eval args)
+Please help by writing some docs for this!
+
+
+js-function?
+(js-function? args)
+Please help by writing some docs for this!
+
+
+js-install-head
+(js-install-head args)
+Please help by writing some docs for this!
+
+
+js-invocation
+(js-invocation args)
+Please help by writing some docs for this!
+
+
+js-invoke
+(js-invoke args)
+Please help by writing some docs for this!
+
+
+js-load
+(js-load args)
+Please help by writing some docs for this!
+
+
+js-new
+(js-new args)
+Please help by writing some docs for this!
+
+
+js-null?
+(js-null? args)
+Please help by writing some docs for this!
+
+
+js-obj
+(js-obj args)
+Please help by writing some docs for this!
+
+
+js-obj->alist
+(js-obj->alist args)
+Please help by writing some docs for this!
+
+
+js-obj-to-alist
+(js-obj-to-alist args)
+Please help by writing some docs for this!
+
+
+js-ref
+(js-ref args)
+Please help by writing some docs for this!
+
+
+js-set!
+(js-set! args)
+Please help by writing some docs for this!
+
+
+js-undefined?
+(js-undefined? args)
+Please help by writing some docs for this!
+
+
+js-window-height
+(js-window-height args)
+Please help by writing some docs for this!
+
+
+js-window-width
+(js-window-width args)
+Please help by writing some docs for this!
+
+
+json->scheme
+(json->scheme args)
+Please help by writing some docs for this!
+
+
+json->sexp
+(json->sexp args)
+Please help by writing some docs for this!
+
+
+kbd
+(kbd args)
+Please help by writing some docs for this!
+
+
+keygen
+(keygen args)
+Please help by writing some docs for this!
+
+
+label
+(label args)
+Please help by writing some docs for this!
+
+
+launch-remote-repl-app
+(launch-remote-repl-app args)
+Please help by writing some docs for this!
+
+
+launch-remote-repl-terminal
+(launch-remote-repl-terminal args)
+Please help by writing some docs for this!
+
+
+legend
+(legend args)
+Please help by writing some docs for this!
+
+
+length
+(length args)
+Please help by writing some docs for this!
+
+
+li
+(li args)
+Please help by writing some docs for this!
+
+
+link
+(link args)
+Please help by writing some docs for this!
+
+
+list
+(list args)
+Please help by writing some docs for this!
+
+
+list->js-array
+(list->js-array args)
+Please help by writing some docs for this!
+
+
+list->string
+(list->string args)
+Please help by writing some docs for this!
+
+
+list->vector
+(list->vector args)
+Please help by writing some docs for this!
+
+
+list-copy
+(list-copy args)
+Please help by writing some docs for this!
+
+
+list-ref
+(list-ref args)
+Please help by writing some docs for this!
+
+
+list-sort
+(list-sort args)
+Please help by writing some docs for this!
+
+
+list-sort/comp
+(list-sort/comp args)
+Please help by writing some docs for this!
+
+
+list-tail
+(list-tail args)
+Please help by writing some docs for this!
+
+
+list-to-js-array
+(list-to-js-array args)
+Please help by writing some docs for this!
+
+
+list?
+(list? args)
+Please help by writing some docs for this!
+
+
+load
+(load args)
+Please help by writing some docs for this!
+
+
+load-iframe
+(load-iframe args)
+Please help by writing some docs for this!
+
+
+load-stylesheet
+(load-stylesheet args)
+Please help by writing some docs for this!
+
+
+log
+(log args)
+Please help by writing some docs for this!
+
+
+lower-case-letter-equivalent
+(lower-case-letter-equivalent args)
+Please help by writing some docs for this!
+
+
+macroexpand
+(macroexpand args)
+Please help by writing some docs for this!
+
+
+macroexpand-1
+(macroexpand-1 args)
+Please help by writing some docs for this!
+
+
+magnitude
+(magnitude args)
+Please help by writing some docs for this!
+
+
+make-custom-textual-output-port
+(make-custom-textual-output-port args)
+Please help by writing some docs for this!
+
+
+make-enumeration
+(make-enumeration args)
+Please help by writing some docs for this!
+
+
+make-eq-hashtable
+(make-eq-hashtable args)
+Please help by writing some docs for this!
+
+
+make-eqv-hashtable
+(make-eqv-hashtable args)
+Please help by writing some docs for this!
+
+
+make-hashtable
+(make-hashtable args)
+Please help by writing some docs for this!
+
+
+make-page-dirty
+(make-page-dirty args)
+Please help by writing some docs for this!
+
+
+make-polar
+(make-polar args)
+Please help by writing some docs for this!
+
+
+make-promise
+(make-promise args)
+Please help by writing some docs for this!
+
+
+make-record-constructor-descriptor
+(make-record-constructor-descriptor args)
+Please help by writing some docs for this!
+
+
+make-record-type-descriptor
+(make-record-type-descriptor args)
+Please help by writing some docs for this!
+
+
+make-rectangular
+(make-rectangular args)
+Please help by writing some docs for this!
+
+
+make-regexp
+(make-regexp args)
+Please help by writing some docs for this!
+
+
+make-string
+(make-string args)
+Please help by writing some docs for this!
+
+
+make-vector
+(make-vector args)
+Please help by writing some docs for this!
+
+
+map
+(map args)
+Please help by writing some docs for this!
+
+
+map-with-index
+(map-with-index args)
+Please help by writing some docs for this!
+
+
+mark
+(mark args)
+Please help by writing some docs for this!
+
+
+markdown
+(markdown args)
+Please help by writing some docs for this!
+
+
+markup-trusted-text
+(markup-trusted-text args)
+Please help by writing some docs for this!
+
+
+markup-trusted-text-file
+(markup-trusted-text-file args)
+Please help by writing some docs for this!
+
+
+markup-untrusted-text
+(markup-untrusted-text args)
+Please help by writing some docs for this!
+
+
+markup-untrusted-text-file
+(markup-untrusted-text-file args)
+Please help by writing some docs for this!
+
+
+max
+(max args)
+Please help by writing some docs for this!
+
+
+member
+(member args)
+Please help by writing some docs for this!
+
+
+memp
+(memp args)
+Please help by writing some docs for this!
+
+
+memq
+(memq args)
+Please help by writing some docs for this!
+
+
+memv
+(memv args)
+Please help by writing some docs for this!
+
+
+menu
+(menu args)
+Please help by writing some docs for this!
+
+
+meta
+(meta args)
+Please help by writing some docs for this!
+
+
+meter
+(meter args)
+Please help by writing some docs for this!
+
+
+mime-type
+(mime-type  args)
+Please help by writing some docs for this!
+
+
+min
+(min args)
+Please help by writing some docs for this!
+
+
+mla-heading-string
+(mla-heading-string args)
+Please help by writing some docs for this!
+
+
+mod
+(mod args)
+Please help by writing some docs for this!
+
+
+mod0
+(mod0 args)
+Please help by writing some docs for this!
+
+
+mono-font
+(mono-font args)
+Please help by writing some docs for this!
+
+
+nan?
+(nan? args)
+Please help by writing some docs for this!
+
+
+natural-sort
+(natural-sort args)
+Please help by writing some docs for this!
+
+
+nav
+(nav args)
+Please help by writing some docs for this!
+
+
+nav-go-back
+(nav-go-back args)
+Please help by writing some docs for this!
+
+
+nav-go-forward
+(nav-go-forward args)
+Please help by writing some docs for this!
+
+
+nav-go-history
+(nav-go-history args)
+Please help by writing some docs for this!
+
+
+navigate-url
+(navigate-url args)
+Please help by writing some docs for this!
+
+
+negative?
+(negative? args)
+Please help by writing some docs for this!
+
+
+new-wiki-page
+(new-wiki-page args)
+Please help by writing some docs for this!
+
+
+newline
+(newline args)
+Please help by writing some docs for this!
+
+
+no-dash-uuid
+(no-dash-uuid  args)
+Please help by writing some docs for this!
+
+
+noscript
+(noscript args)
+Please help by writing some docs for this!
+
+
+not
+(not args)
+Please help by writing some docs for this!
+
+
+nth
+(nth args)
+Please help by writing some docs for this!
+
+
+nth-cdr
+(nth-cdr args)
+Please help by writing some docs for this!
+
+
+null?
+(null? args)
+Please help by writing some docs for this!
+
+
+number->string
+(number->string args)
+Please help by writing some docs for this!
+
+
+number?
+(number? obj)
+
+Returns #t if obj is a number, #f otherwise.
+
+
+numerator
+(numerator args)
+Please help by writing some docs for this!
+
+
+numeric-time-stamp
+(numeric-time-stamp args)
+Please help by writing some docs for this!
+
+
+object
+(object args)
+Please help by writing some docs for this!
+
+
+odd?
+(odd? args)
+Please help by writing some docs for this!
+
+
+ol
+(ol args)
+Please help by writing some docs for this!
+
+
+olist
+(olist args)
+Please help by writing some docs for this!
+
+
+open-input-string
+(open-input-string args)
+Please help by writing some docs for this!
+
+
+open-output-string
+(open-output-string args)
+Please help by writing some docs for this!
+
+
+open-url
+(open-url args)
+Please help by writing some docs for this!
+
+
+optgroup
+(optgroup args)
+Please help by writing some docs for this!
+
+
+option
+(option args)
+Please help by writing some docs for this!
+
+
+output
+(output args)
+Please help by writing some docs for this!
+
+
+output-port?
+(output-port? args)
+Please help by writing some docs for this!
+
+
+p
+(p args)
+Please help by writing some docs for this!
+
+
+pair?
+(pair? args)
+Please help by writing some docs for this!
+
+
+param
+(param args)
+Please help by writing some docs for this!
+
+
+parse-date
+(parse-date args)
+Please help by writing some docs for this!
+
+
+parse-seml
+(parse-seml args)
+Please help by writing some docs for this!
+
+
+parse-youtube-url
+(parse-youtube-url args)
+Please help by writing some docs for this!
+
+
+partition
+(partition args)
+Please help by writing some docs for this!
+
+
+place-caret-at-end
+(place-caret-at-end  args)
+Please help by writing some docs for this!
+
+
+place-caret-at-start
+(place-caret-at-start  args)
+Please help by writing some docs for this!
+
+
+poem
+(poem args)
+Please help by writing some docs for this!
+
+
+pop-browser-state_handler
+(pop-browser-state_handler args)
+Please help by writing some docs for this!
+
+
+populate-select
+(populate-select args)
+Please help by writing some docs for this!
+
+
+port-closed?
+(port-closed? args)
+Please help by writing some docs for this!
+
+
+port?
+(port? args)
+Please help by writing some docs for this!
+
+
+positive?
+(positive? args)
+Please help by writing some docs for this!
+
+
+pre
+(pre args)
+Please help by writing some docs for this!
+
+
+print
+(print args)
+Please help by writing some docs for this!
+
+
+proc-css
+(proc-css args)
+Please help by writing some docs for this!
+
+
+proc-css-list
+(proc-css-list args)
+Please help by writing some docs for this!
+
+
+proc-css-rules
+(proc-css-rules args)
+Please help by writing some docs for this!
 
 
 procedure?
@@ -274,13 +3886,1486 @@ procedure?
                                    ‌⇒  #f
 
 
-number?
-(number? obj)
+process-doc-strings
+(process-doc-strings args)
+Please help by writing some docs for this!
 
-Returns #t if obj is a number, #f otherwise.
+
+process-internal-text-file
+(process-internal-text-file args)
+Please help by writing some docs for this!
 
 
-integer?
-(integer? obj)
+process-matching-wiki-files
+(process-matching-wiki-files args)
+Please help by writing some docs for this!
 
-Returns #t if obj is an integer, #f otherwise.
+
+process-read-template
+(process-read-template args)
+Please help by writing some docs for this!
+
+
+process-template-lines
+(process-template-lines args)
+Please help by writing some docs for this!
+
+
+process-wiki-documentation
+(process-wiki-documentation args)
+Please help by writing some docs for this!
+
+
+progress
+(progress args)
+Please help by writing some docs for this!
+
+
+promise?
+(promise? args)
+Please help by writing some docs for this!
+
+
+prompt
+(prompt args)
+Please help by writing some docs for this!
+
+
+prompt-to-save-user-data
+(prompt-to-save-user-data args)
+Please help by writing some docs for this!
+
+
+prop
+(prop args)
+Please help by writing some docs for this!
+
+
+prop!
+(prop! args)
+Please help by writing some docs for this!
+
+
+push-browser-state
+(push-browser-state args)
+Please help by writing some docs for this!
+
+
+put-char
+(put-char args)
+Please help by writing some docs for this!
+
+
+put-datum
+(put-datum args)
+Please help by writing some docs for this!
+
+
+put-string
+(put-string args)
+Please help by writing some docs for this!
+
+
+q
+(q args)
+Please help by writing some docs for this!
+
+
+raise
+(raise args)
+Please help by writing some docs for this!
+
+
+random-integer
+(random-integer args)
+Please help by writing some docs for this!
+
+
+random-real
+(random-real args)
+Please help by writing some docs for this!
+
+
+randomize-select!
+(randomize-select! args)
+Please help by writing some docs for this!
+
+
+rational?
+(rational? args)
+Please help by writing some docs for this!
+
+
+read
+(read args)
+Please help by writing some docs for this!
+
+
+read-from-string
+(read-from-string args)
+Please help by writing some docs for this!
+
+
+read-internal-data-url
+(read-internal-data-url args)
+Please help by writing some docs for this!
+
+
+read-internal-file
+(read-internal-file args)
+Please help by writing some docs for this!
+
+
+read-internal-text-file
+(read-internal-text-file args)
+Please help by writing some docs for this!
+
+
+read-line
+(read-line args)
+Please help by writing some docs for this!
+
+
+real-part
+(real-part args)
+Please help by writing some docs for this!
+
+
+real?
+(real? args)
+Please help by writing some docs for this!
+
+
+receive-jsonp
+(receive-jsonp args)
+Please help by writing some docs for this!
+
+
+record-accessor
+(record-accessor args)
+Please help by writing some docs for this!
+
+
+record-constructor
+(record-constructor args)
+Please help by writing some docs for this!
+
+
+record-field-mutable?
+(record-field-mutable? args)
+Please help by writing some docs for this!
+
+
+record-mutator
+(record-mutator args)
+Please help by writing some docs for this!
+
+
+record-predicate
+(record-predicate args)
+Please help by writing some docs for this!
+
+
+record-rtd
+(record-rtd args)
+Please help by writing some docs for this!
+
+
+record-type-descriptor?
+(record-type-descriptor? args)
+Please help by writing some docs for this!
+
+
+record-type-field-names
+(record-type-field-names args)
+Please help by writing some docs for this!
+
+
+record-type-generative?
+(record-type-generative? args)
+Please help by writing some docs for this!
+
+
+record-type-name
+(record-type-name args)
+Please help by writing some docs for this!
+
+
+record-type-opaque?
+(record-type-opaque? args)
+Please help by writing some docs for this!
+
+
+record-type-parent
+(record-type-parent args)
+Please help by writing some docs for this!
+
+
+record-type-sealed?
+(record-type-sealed? args)
+Please help by writing some docs for this!
+
+
+record-type-uid
+(record-type-uid args)
+Please help by writing some docs for this!
+
+
+record?
+(record? args)
+Please help by writing some docs for this!
+
+
+refresh-cm-editor-component!
+(refresh-cm-editor-component! args)
+Please help by writing some docs for this!
+
+
+regexp->string
+(regexp->string args)
+Please help by writing some docs for this!
+
+
+regexp-exec
+(regexp-exec args)
+Please help by writing some docs for this!
+
+
+regexp-replace-all
+(regexp-replace-all args)
+Please help by writing some docs for this!
+
+
+regexp?
+(regexp? args)
+Please help by writing some docs for this!
+
+
+reload
+(reload args)
+Please help by writing some docs for this!
+
+
+remote-eval-button_click
+(remote-eval-button_click args)
+Please help by writing some docs for this!
+
+
+remote-eval-done-button_click
+(remote-eval-done-button_click args)
+Please help by writing some docs for this!
+
+
+remote-eval-expression-button_click
+(remote-eval-expression-button_click args)
+Please help by writing some docs for this!
+
+
+remote-evaluate
+(remote-evaluate args)
+Please help by writing some docs for this!
+
+
+remote-repl-terminal
+(remote-repl-terminal args)
+Please help by writing some docs for this!
+
+
+remoteload
+(remoteload args)
+Please help by writing some docs for this!
+
+
+remove
+(remove args)
+Please help by writing some docs for this!
+
+
+remove-dirty-pages
+(remove-dirty-pages args)
+Please help by writing some docs for this!
+
+
+remove-handler!
+(remove-handler! args)
+Please help by writing some docs for this!
+
+
+remove-local-storage-item!
+(remove-local-storage-item! args)
+Please help by writing some docs for this!
+
+
+remove-wiki-history
+(remove-wiki-history args)
+Please help by writing some docs for this!
+
+
+remp
+(remp args)
+Please help by writing some docs for this!
+
+
+remq
+(remq args)
+Please help by writing some docs for this!
+
+
+remv
+(remv args)
+Please help by writing some docs for this!
+
+
+render-incoming-links
+(render-incoming-links args)
+Please help by writing some docs for this!
+
+
+render-wiki-content
+(render-wiki-content args)
+Please help by writing some docs for this!
+
+
+repl-clear-button_click
+(repl-clear-button_click args)
+Please help by writing some docs for this!
+
+
+repl-eval-buffer-button_click
+(repl-eval-buffer-button_click args)
+Please help by writing some docs for this!
+
+
+repl-eval-button_click
+(repl-eval-button_click args)
+Please help by writing some docs for this!
+
+
+repl-here
+(repl-here args)
+Please help by writing some docs for this!
+
+
+replace-browser-state
+(replace-browser-state args)
+Please help by writing some docs for this!
+
+
+replace-nth
+(replace-nth args)
+Please help by writing some docs for this!
+
+
+replace-ui-panel
+(replace-ui-panel args)
+Please help by writing some docs for this!
+
+
+reset-lower-levels
+(reset-lower-levels args)
+Please help by writing some docs for this!
+
+
+reset-mla-level-counter
+(reset-mla-level-counter args)
+Please help by writing some docs for this!
+
+
+retrieve-procedure-definition
+(retrieve-procedure-definition args)
+Please help by writing some docs for this!
+
+
+retrieve-procedure-documentation
+(retrieve-procedure-documentation args)
+Please help by writing some docs for this!
+
+
+retrieve-procedure-filename
+(retrieve-procedure-filename args)
+Please help by writing some docs for this!
+
+
+retrieve-wiki-audio
+(retrieve-wiki-audio args)
+Please help by writing some docs for this!
+
+
+retrieve-wiki-data
+(retrieve-wiki-data args)
+Please help by writing some docs for this!
+
+
+retrieve-wiki-image
+(retrieve-wiki-image args)
+Please help by writing some docs for this!
+
+
+retrieve-wiki-video
+(retrieve-wiki-video args)
+Please help by writing some docs for this!
+
+
+reverse
+(reverse args)
+Please help by writing some docs for this!
+
+
+round
+(round args)
+Please help by writing some docs for this!
+
+
+round-box
+(round-box args)
+Please help by writing some docs for this!
+
+
+round-grey-box
+(round-grey-box args)
+Please help by writing some docs for this!
+
+
+round-list
+(round-list args)
+Please help by writing some docs for this!
+
+
+round-list-item
+(round-list-item args)
+Please help by writing some docs for this!
+
+
+rp
+(rp args)
+Please help by writing some docs for this!
+
+
+rt
+(rt args)
+Please help by writing some docs for this!
+
+
+ruby
+(ruby args)
+Please help by writing some docs for this!
+
+
+run-wiki-search
+(run-wiki-search args)
+Please help by writing some docs for this!
+
+
+rxmatch
+(rxmatch args)
+Please help by writing some docs for this!
+
+
+samp
+(samp args)
+Please help by writing some docs for this!
+
+
+sans-font
+(sans-font args)
+Please help by writing some docs for this!
+
+
+save-the-static-world
+(save-the-static-world args)
+Please help by writing some docs for this!
+
+
+save-wiki-file
+(save-wiki-file args)
+Please help by writing some docs for this!
+
+
+scheme->json
+(scheme->json args)
+Please help by writing some docs for this!
+
+
+script
+(script args)
+Please help by writing some docs for this!
+
+
+scroll-element-into-view
+(scroll-element-into-view args)
+Please help by writing some docs for this!
+
+
+scroll-into-view
+(scroll-into-view args)
+Please help by writing some docs for this!
+
+
+scroll-to-bottom
+(scroll-to-bottom args)
+Please help by writing some docs for this!
+
+
+scroll-to-element!
+(scroll-to-element! args)
+Please help by writing some docs for this!
+
+
+scroll-to-top
+(scroll-to-top args)
+Please help by writing some docs for this!
+
+
+search-defined-procedures
+(search-defined-procedures args)
+Please help by writing some docs for this!
+
+
+search-hash-tag
+(search-hash-tag args)
+Please help by writing some docs for this!
+
+
+section
+(section args)
+Please help by writing some docs for this!
+
+
+select
+(select args)
+Please help by writing some docs for this!
+
+
+select_handler
+(select_handler args)
+Please help by writing some docs for this!
+
+
+seml
+(seml args)
+Please help by writing some docs for this!
+
+
+seml-element
+(seml-element args)
+Please help by writing some docs for this!
+
+
+seml-self-closing
+(seml-self-closing args)
+Please help by writing some docs for this!
+
+
+seml-self-closing-element
+(seml-self-closing-element args)
+Please help by writing some docs for this!
+
+
+serif-font
+(serif-font args)
+Please help by writing some docs for this!
+
+
+set-app-name
+(set-app-name args)
+Please help by writing some docs for this!
+
+
+set-car!
+(set-car! args)
+Please help by writing some docs for this!
+
+
+set-cdr!
+(set-cdr! args)
+Please help by writing some docs for this!
+
+
+set-checkbox-checked!
+(set-checkbox-checked! args)
+Please help by writing some docs for this!
+
+
+set-cm-editor-clean!
+(set-cm-editor-clean! args)
+Please help by writing some docs for this!
+
+
+set-content!
+(set-content! args)
+Please help by writing some docs for this!
+
+
+set-document-title
+(set-document-title args)
+Please help by writing some docs for this!
+
+
+set-draggable!
+(set-draggable! args)
+Please help by writing some docs for this!
+
+
+set-fav-icon
+(set-fav-icon args)
+Please help by writing some docs for this!
+
+
+set-handler!
+(set-handler! args)
+Please help by writing some docs for this!
+
+
+set-local-storage-item!
+(set-local-storage-item! args)
+Please help by writing some docs for this!
+
+
+set-selected-index!
+(set-selected-index! args)
+Please help by writing some docs for this!
+
+
+set-style!
+(set-style! args)
+Please help by writing some docs for this!
+
+
+set-system-clean
+(set-system-clean args)
+Please help by writing some docs for this!
+
+
+set-system-dirty
+(set-system-dirty args)
+Please help by writing some docs for this!
+
+
+set-timer!
+(set-timer! args)
+Please help by writing some docs for this!
+
+
+set-upload-element
+(set-upload-element args)
+Please help by writing some docs for this!
+
+
+set-wiki-data
+(set-wiki-data args)
+Please help by writing some docs for this!
+
+
+set-window-location-hash!
+(set-window-location-hash! args)
+Please help by writing some docs for this!
+
+
+show-download
+(show-download args)
+Please help by writing some docs for this!
+
+
+show-editor
+(show-editor args)
+Please help by writing some docs for this!
+
+
+show-editor-preview
+(show-editor-preview args)
+Please help by writing some docs for this!
+
+
+show-mini-repl
+(show-mini-repl args)
+Please help by writing some docs for this!
+
+
+show-ui-panel
+(show-ui-panel args)
+Please help by writing some docs for this!
+
+
+show-wiki-history-dialog
+(show-wiki-history-dialog args)
+Please help by writing some docs for this!
+
+
+show-wiki-toolbar
+(show-wiki-toolbar args)
+Please help by writing some docs for this!
+
+
+show-wiki-tools
+(show-wiki-tools args)
+Please help by writing some docs for this!
+
+
+sin
+(sin args)
+Please help by writing some docs for this!
+
+
+sleep
+(sleep args)
+Please help by writing some docs for this!
+
+
+small
+(small args)
+Please help by writing some docs for this!
+
+
+smallcaps-font
+(smallcaps-font args)
+Please help by writing some docs for this!
+
+
+smart-quotes
+(smart-quotes args)
+Please help by writing some docs for this!
+
+
+sort-order
+(sort-order  args)
+Please help by writing some docs for this!
+
+
+source
+(source args)
+Please help by writing some docs for this!
+
+
+span
+(span args)
+Please help by writing some docs for this!
+
+
+sqrt
+(sqrt args)
+Please help by writing some docs for this!
+
+
+str-escape
+(str-escape args)
+Please help by writing some docs for this!
+
+
+str-find
+(str-find args)
+Please help by writing some docs for this!
+
+
+str-find-unique
+(str-find-unique args)
+Please help by writing some docs for this!
+
+
+str-match?
+(str-match? args)
+Please help by writing some docs for this!
+
+
+str-replace
+(str-replace args)
+Please help by writing some docs for this!
+
+
+str-replace-re
+(str-replace-re args)
+Please help by writing some docs for this!
+
+
+str-split
+(str-split args)
+Please help by writing some docs for this!
+
+
+str-trim
+(str-trim args)
+Please help by writing some docs for this!
+
+
+str-unescape
+(str-unescape args)
+Please help by writing some docs for this!
+
+
+str-wordcount
+(str-wordcount args)
+Please help by writing some docs for this!
+
+
+string
+(string args)
+Please help by writing some docs for this!
+
+
+string->list
+(string->list args)
+Please help by writing some docs for this!
+
+
+string->number
+(string->number args)
+Please help by writing some docs for this!
+
+
+string->regexp
+(string->regexp args)
+Please help by writing some docs for this!
+
+
+string->symbol
+(string->symbol args)
+Please help by writing some docs for this!
+
+
+string-append
+(string-append args)
+Please help by writing some docs for this!
+
+
+string-ci-hash
+(string-ci-hash args)
+Please help by writing some docs for this!
+
+
+string-ci<=?
+(string-ci<=? args)
+Please help by writing some docs for this!
+
+
+string-ci<?
+(string-ci<? args)
+Please help by writing some docs for this!
+
+
+string-ci=?
+(string-ci=? args)
+Please help by writing some docs for this!
+
+
+string-ci>=?
+(string-ci>=? args)
+Please help by writing some docs for this!
+
+
+string-ci>?
+(string-ci>? args)
+Please help by writing some docs for this!
+
+
+string-concat
+(string-concat args)
+Please help by writing some docs for this!
+
+
+string-copy
+(string-copy args)
+Please help by writing some docs for this!
+
+
+string-downcase
+(string-downcase args)
+Please help by writing some docs for this!
+
+
+string-for-each
+(string-for-each args)
+Please help by writing some docs for this!
+
+
+string-hash
+(string-hash args)
+Please help by writing some docs for this!
+
+
+string-join
+(string-join args)
+Please help by writing some docs for this!
+
+
+string-length
+(string-length args)
+Please help by writing some docs for this!
+
+
+string-reader
+(string-reader args)
+Please help by writing some docs for this!
+
+
+string-reader-read
+(string-reader-read args)
+Please help by writing some docs for this!
+
+
+string-ref
+(string-ref args)
+Please help by writing some docs for this!
+
+
+string-split
+(string-split args)
+Please help by writing some docs for this!
+
+
+string-upcase
+(string-upcase args)
+Please help by writing some docs for this!
+
+
+string<=?
+(string<=? args)
+Please help by writing some docs for this!
+
+
+string<?
+(string<? args)
+Please help by writing some docs for this!
+
+
+string=?
+(string=? args)
+Please help by writing some docs for this!
+
+
+string>=?
+(string>=? args)
+Please help by writing some docs for this!
+
+
+string>?
+(string>? args)
+Please help by writing some docs for this!
+
+
+string?
+(string? args)
+Please help by writing some docs for this!
+
+
+strong
+(strong args)
+Please help by writing some docs for this!
+
+
+style
+(style args)
+Please help by writing some docs for this!
+
+
+sub
+(sub args)
+Please help by writing some docs for this!
+
+
+substring
+(substring args)
+Please help by writing some docs for this!
+
+
+summary
+(summary args)
+Please help by writing some docs for this!
+
+
+sup
+(sup args)
+Please help by writing some docs for this!
+
+
+svg
+(svg args)
+Please help by writing some docs for this!
+
+
+symbol->string
+(symbol->string args)
+Please help by writing some docs for this!
+
+
+symbol-font
+(symbol-font args)
+Please help by writing some docs for this!
+
+
+symbol-hash
+(symbol-hash args)
+Please help by writing some docs for this!
+
+
+symbol=?
+(symbol=? args)
+Please help by writing some docs for this!
+
+
+symbol?
+(symbol? args)
+Please help by writing some docs for this!
+
+
+system-launch
+(system-launch args)
+Please help by writing some docs for this!
+
+
+table
+(table args)
+Please help by writing some docs for this!
+
+
+tan
+(tan args)
+Please help by writing some docs for this!
+
+
+tbody
+(tbody args)
+Please help by writing some docs for this!
+
+
+td
+(td args)
+Please help by writing some docs for this!
+
+
+textarea
+(textarea args)
+Please help by writing some docs for this!
+
+
+textual-port?
+(textual-port? args)
+Please help by writing some docs for this!
+
+
+tfoot
+(tfoot args)
+Please help by writing some docs for this!
+
+
+th
+(th args)
+Please help by writing some docs for this!
+
+
+thead
+(thead args)
+Please help by writing some docs for this!
+
+
+time
+(time args)
+Please help by writing some docs for this!
+
+
+timer
+(timer args)
+Please help by writing some docs for this!
+
+
+title
+(title args)
+Please help by writing some docs for this!
+
+
+tr
+(tr args)
+Please help by writing some docs for this!
+
+
+track
+(track args)
+Please help by writing some docs for this!
+
+
+truncate
+(truncate args)
+Please help by writing some docs for this!
+
+
+trusted-markdown
+(trusted-markdown args)
+Please help by writing some docs for this!
+
+
+u
+(u args)
+Please help by writing some docs for this!
+
+
+ul
+(ul args)
+Please help by writing some docs for this!
+
+
+ulist
+(ulist args)
+Please help by writing some docs for this!
+
+
+unescape-html
+(unescape-html args)
+Please help by writing some docs for this!
+
+
+unique-page-title
+(unique-page-title args)
+Please help by writing some docs for this!
+
+
+unix-time
+(unix-time args)
+Please help by writing some docs for this!
+
+
+upload-file
+(upload-file args)
+Please help by writing some docs for this!
+
+
+upper-case-letter-equivalent
+(upper-case-letter-equivalent args)
+Please help by writing some docs for this!
+
+
+url-params
+(url-params args)
+Please help by writing some docs for this!
+
+
+uuid
+(uuid  args)
+Please help by writing some docs for this!
+
+
+values
+(values args)
+Please help by writing some docs for this!
+
+
+var
+(var args)
+Please help by writing some docs for this!
+
+
+vector
+(vector args)
+Please help by writing some docs for this!
+
+
+vector->list
+(vector->list args)
+Please help by writing some docs for this!
+
+
+vector-append
+(vector-append args)
+Please help by writing some docs for this!
+
+
+vector-copy
+(vector-copy args)
+Please help by writing some docs for this!
+
+
+vector-fill!
+(vector-fill! args)
+Please help by writing some docs for this!
+
+
+vector-for-each
+(vector-for-each args)
+Please help by writing some docs for this!
+
+
+vector-length
+(vector-length args)
+Please help by writing some docs for this!
+
+
+vector-map
+(vector-map args)
+Please help by writing some docs for this!
+
+
+vector-push!
+(vector-push! args)
+Please help by writing some docs for this!
+
+
+vector-ref
+(vector-ref args)
+Please help by writing some docs for this!
+
+
+vector-set!
+(vector-set! args)
+Please help by writing some docs for this!
+
+
+vector-sort
+(vector-sort args)
+Please help by writing some docs for this!
+
+
+vector-sort!
+(vector-sort! args)
+Please help by writing some docs for this!
+
+
+vector-sort/comp
+(vector-sort/comp args)
+Please help by writing some docs for this!
+
+
+vector-sort/comp!
+(vector-sort/comp! args)
+Please help by writing some docs for this!
+
+
+vector?
+(vector? args)
+Please help by writing some docs for this!
+
+
+video
+(video args)
+Please help by writing some docs for this!
+
+
+wait-for
+(wait-for args)
+Please help by writing some docs for this!
+
+
+warning-box
+(warning-box args)
+Please help by writing some docs for this!
+
+
+wbr
+(wbr args)
+Please help by writing some docs for this!
+
+
+wiki-base-name
+(wiki-base-name args)
+Please help by writing some docs for this!
+
+
+wiki-data-path
+(wiki-data-path args)
+Please help by writing some docs for this!
+
+
+wiki-display-name
+(wiki-display-name args)
+Please help by writing some docs for this!
+
+
+wiki-file-name-match
+(wiki-file-name-match args)
+Please help by writing some docs for this!
+
+
+wiki-file-text-match
+(wiki-file-text-match args)
+Please help by writing some docs for this!
+
+
+wiki-file-uploaded
+(wiki-file-uploaded args)
+Please help by writing some docs for this!
+
+
+wikilink_click
+(wikilink_click args)
+Please help by writing some docs for this!
+
+
+window-location-basename
+(window-location-basename args)
+Please help by writing some docs for this!
+
+
+window-location-basename-no-extension
+(window-location-basename-no-extension args)
+Please help by writing some docs for this!
+
+
+window-location-hash
+(window-location-hash args)
+Please help by writing some docs for this!
+
+
+window-location-host
+(window-location-host args)
+Please help by writing some docs for this!
+
+
+window-location-hostname
+(window-location-hostname args)
+Please help by writing some docs for this!
+
+
+window-location-href
+(window-location-href args)
+Please help by writing some docs for this!
+
+
+window-location-origin
+(window-location-origin args)
+Please help by writing some docs for this!
+
+
+window-location-password
+(window-location-password args)
+Please help by writing some docs for this!
+
+
+window-location-pathname
+(window-location-pathname args)
+Please help by writing some docs for this!
+
+
+window-location-port
+(window-location-port args)
+Please help by writing some docs for this!
+
+
+window-location-replace!
+(window-location-replace! args)
+Please help by writing some docs for this!
+
+
+window-location-search
+(window-location-search args)
+Please help by writing some docs for this!
+
+
+window-location-username
+(window-location-username args)
+Please help by writing some docs for this!
+
+
+window-object
+(window-object args)
+Please help by writing some docs for this!
+
+
+wire-button
+(wire-button args)
+Please help by writing some docs for this!
+
+
+wire-buttons
+(wire-buttons args)
+Please help by writing some docs for this!
+
+
+wire-change
+(wire-change args)
+Please help by writing some docs for this!
+
+
+wire-click
+(wire-click args)
+Please help by writing some docs for this!
+
+
+wire-submit-input
+(wire-submit-input args)
+Please help by writing some docs for this!
+
+
+wire-submit-inputs
+(wire-submit-inputs args)
+Please help by writing some docs for this!
+
+
+wire-text-input
+(wire-text-input args)
+Please help by writing some docs for this!
+
+
+wire-text-inputs
+(wire-text-inputs args)
+Please help by writing some docs for this!
+
+
+wire-ui
+(wire-ui args)
+Please help by writing some docs for this!
+
+
+with-output-to-port
+(with-output-to-port args)
+Please help by writing some docs for this!
+
+
+write
+(write args)
+Please help by writing some docs for this!
+
+
+write*
+(write* args)
+Please help by writing some docs for this!
+
+
+write-char
+(write-char args)
+Please help by writing some docs for this!
+
+
+write-data-url-to-internal-file
+(write-data-url-to-internal-file args)
+Please help by writing some docs for this!
+
+
+write-internal-file
+(write-internal-file args)
+Please help by writing some docs for this!
+
+
+write-internal-text-file
+(write-internal-text-file args)
+Please help by writing some docs for this!
+
+
+write-raw-internal-file
+(write-raw-internal-file args)
+Please help by writing some docs for this!
+
+
+write-to-clipboard!
+(write-to-clipboard! args)
+Please help by writing some docs for this!
+
+
+write-to-string
+(write-to-string args)
+Please help by writing some docs for this!
+
+
+write-with-shared-structure
+(write-with-shared-structure args)
+Please help by writing some docs for this!
+
+
+write/ss
+(write/ss args)
+Please help by writing some docs for this!
+
+
+youtube
+(youtube args)
+Please help by writing some docs for this!
+
+
+zero?
+(zero? args)
+Please help by writing some docs for this!
