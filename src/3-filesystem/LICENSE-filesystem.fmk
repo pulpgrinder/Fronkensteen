@@ -1,9 +1,9 @@
-`filesystem-extensions.js` is copyright 2019 and 2020 by Anthony W. Hursh.
-`filetypes-extensions.js` is copyright 2019 by Anthony W. Hursh.
+[code filesystem-extensions.js code] is copyright 2019 and 2020 by Anthony W. Hursh.
+[code filetypes-extensions.js code] is copyright 2019 by Anthony W. Hursh.
 
 Both of these are made available under the same MIT License as Fronkensteen as a whole.
 
-`filetypes.js` is copyright 2014 by Stretchr, Inc., and is distributed under the terms of the following license:
+[code filetypes.js code] is copyright 2014 by Stretchr, Inc., and is distributed under the terms of the following license:
 
 The MIT License (MIT)
 

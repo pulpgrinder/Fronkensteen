@@ -1,16 +1,16 @@
 The following files are copyright 2018-2020 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole:
 
-```
+[code
 root.css
 system-extensions.js
 index_template.html
 root-utilities.scm
 
-```
+code]
 
 The following files:
 
-```
+[code
 biwascheme/version.js
 biwascheme/header.js
 biwascheme/system/class.js
@@ -44,7 +44,7 @@ biwascheme/library/webscheme_lib.js
 biwascheme/platforms/browser/dumper.js
 biwascheme/platforms/browser/console.js
 biwascheme/platforms/browser/release_initializer.js
-```
+code]
 
 are copyright 2007-2020 by Yutaka Hara (http://route477.net) and are distributed under the terms of the MIT license:
 
@@ -67,7 +67,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-`third-party-libs/jquery-3.4.1.min.js` is distributed under the terms of the following MIT license:
+[code third-party-libs/jquery-3.4.1.min.js code] is distributed under the terms of the following MIT license:
 
 Copyright JS Foundation and other contributors, https://js.foundation/
 
@@ -93,10 +93,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 The following files:
 
-```
+[code
 third-party-libs/underscore-min.js
 third-party-libs/underscore.string.min.js
-```
+code]
 
 are distributed under the terms of the following MIT license:
 
@@ -126,10 +126,10 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 The following files:
 
-```
+[code
 uuid-extensions.js
 uuid.js
-```
+code]
 
 are distributed under the terms of the following MIT license:
 
