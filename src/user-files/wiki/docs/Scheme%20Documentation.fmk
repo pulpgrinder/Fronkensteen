@@ -272,3 +272,15 @@ procedure?
        (procedure? '(lambda (x) (* x x)))
 
                                    ‌⇒  #f
+
+
+number?
+(number? obj)
+
+Returns #t if obj is a number, #f otherwise.
+
+
+integer?
+(integer? obj)
+
+Returns #t if obj is an integer, #f otherwise.

@@ -48,10 +48,11 @@ Fronkensteen.file_path_no_extension = function(filename){
 
 Fronkensteen.collectLicenses = function(){
   let filenames = Object.keys(fronkensteen_fs);
-  let license_text = Fronkensteen.readInternalTextFile("1-root/LICENSE-Fronkensteen.fmk") + "\n\n"
+  let license_text = "[h1 The Fronkensteen License h1]\n\n" +  Fronkensteen.readInternalTextFile("1-root/LICENSE-Fronkensteen.fmk") + "\n\n"
   for(var i = 0; i < filenames.length; i++){
     if((filenames[i].match(/LICENSE/) !== null) && (filenames[i] !== "1-root/LICENSE-Fronkensteen.fmk")){
-      license_text = license_text + Fronkensteen.readInternalTextFile(filenames[i]) + "\n\n"
+      let packagename = filenames[i].substring(0,filenames[i].indexOf["/"])
+      license_text = license_text + "[h2 " + packagename + " h2]\n\n" + Fronkensteen.readInternalTextFile(filenames[i]) + "\n\n"
     }
   }
   return license_text;
