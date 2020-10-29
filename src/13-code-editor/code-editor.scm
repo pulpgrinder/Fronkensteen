@@ -15,6 +15,9 @@
     (let ((editor-name current-editor))
     (cm-editor-set-note editor-name))))
 
+(define (fronkensteen-editor-history-button_click)
+  (show-wiki-history-dialog))
+
 (define (fronkensteen-editor-comment-button_click)
   (if (eqv? current-editor #f)
     #f

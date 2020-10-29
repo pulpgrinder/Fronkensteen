@@ -130,6 +130,7 @@
   (if (eqv? (length matching-pages) 0)
     (alert "No other pages link here.")
     (begin
+      (% "#fronkensteen-incoming-links" "remove")
       (build-fronkensteen-dialog "#fronkensteen-incoming-links" "Pages That Link Here" (round-list (render-incoming-links matching-pages)) "20em" "20em")
       (% ".fronkensteen-incoming-link" "off" "click")
       (% ".fronkensteen-incoming-link" "on" "click"

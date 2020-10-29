@@ -94,6 +94,9 @@
 (define (fronkensteen-wiki-special-button_click ev)
     (display-wiki-page "special/Special Pages"))
 
+(define (fronkensteen-wiki-home-button_click ev)
+    (display-wiki-page "Main"))
+
 (define (fronkensteen-wiki-docs-button_click ev)
     (display-wiki-page "special/Documentation"))
 
@@ -305,7 +308,7 @@
 
 
 (define (fronkensteen-wiki-import-file-button_click)
-    (upload-file ".png,.jpg,.gif,.svg,.mp3,.mp4,.m4v,.scm,.txt,.md" #t wiki-file-uploaded))
+    (upload-file ".png,.jpg,.gif,.svg,.mp3,.mp4,.m4v,.scm,.txt,.fmk,.md" #t wiki-file-uploaded))
 
 (define (wikilink_click target link-text)
   ; target is the jQuery object that was clicked. Not used in this default code, but it's there if you need it.

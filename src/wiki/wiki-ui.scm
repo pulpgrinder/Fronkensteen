@@ -6,9 +6,24 @@
 (% "#fronkensteen-wiki-preview" "html" (fronkenmark text #t #t)))
 
 
+(define (fronkensteen-preview-done-button_click)
+  (% "#fronkensteen-wiki-preview" "hide")
+  (% ".fronkensteen-wiki-content" "show")
+  (% "#fronkensteen-preview-toolbar" "hide")
+  (% ".fronkensteen-toolbar" "show")
+
+  (let ((history-entry (car fronkensteen-wiki-history-list)))
+    (let ((title (car history-entry))
+          (type (cadr history-entry)))
+          (if (eqv? type "page")
+            (display-wiki-page title)
+            (edit-wiki-page title)))))
+
+
 (define (generate-wiki-toolbar)
   (<<
     (fronkensteen-toolbar-button "fronkensteen-wiki-save-work_space-button" "Save workspace" "device-floppy" "")
+    (fronkensteen-toolbar-button "fronkensteen-wiki-home-button" "Return to Main page" "home" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-edit-button" "Edit this page" "pencil" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-history-button" "Show history" "clock" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-refresh-button" "Refresh this page" "action-redo" "")

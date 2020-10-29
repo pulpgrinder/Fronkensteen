@@ -59,14 +59,6 @@
   (add-wiki-history title "editor")
 )
 
-(define (fronkensteen-preview-done-button_click)
-  (let ((history-entry (car fronkensteen-wiki-history-list)))
-    (let ((title (car history-entry))
-          (type (cadr history-entry)))
-          (if (eqv? type "page")
-            (display-wiki-page title)
-            (edit-wiki-page title)))))
-
 (define (fronkensteen-editor-close-button_click)
   (if (confirm "Close without saving? Are you sure?")
     (fronkensteen-editor-close-and-display-page)))

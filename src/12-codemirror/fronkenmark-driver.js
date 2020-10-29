@@ -62,7 +62,7 @@ class CMEditorDriver {
       let editor = this.cm_editors[editor_id];
       let result = "";
       if(editor === undefined){
-        console.error("evalSchemeSelection: No editor corresponding to " + editor_id);
+        console.error("getSchemeSelection: No editor corresponding to " + editor_id);
         return;
       }
       let doc = editor.getDoc();
@@ -92,7 +92,15 @@ class CMEditorDriver {
 
     }
     evalSchemeSelection(editor_id){
-        let selection = this.getSchemeSelection();
+
+        let editor = this.cm_editors[editor_id];
+        let result = "";
+        if(editor === undefined){
+          console.error("evalSchemeSelection: No editor corresponding to " + editor_id);
+          return;
+        }
+        let selection = this.getSchemeSelection(editor_id);
+        let doc = editor.getDoc();
         if(selection === null){
           result = " ; No balanced expression found preceding cursor."
         }

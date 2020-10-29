@@ -1,6 +1,6 @@
 This page contains the Scheme code that will be run at system launch. You can edit it if you wish, but use caution. Making a backup copy first is recommended. [icon star icon]
 [!scheme
-(process-wiki-documentation)
+;(process-wiki-documentation)
 (exec-wiki-page "themes/Fronkensteen-Theme")
 (init-wiki-viewer)
 (display-wiki-page "Main")

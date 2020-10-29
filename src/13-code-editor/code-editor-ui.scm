@@ -11,7 +11,7 @@
         (button "#fronkensteen-editor-save-and-close-button.fronkensteen-editor-button!title='Save and Close'"
           (iconic-icon "check"))
         (button "#fronkensteen-editor-save-button.fronkensteen-editor-button!title='Save'"
-          (iconic-icon "file"))
+          (iconic-icon "device-floppy"))
           (button "#fronkensteen-editor-close-button.fronkensteen-editor-button!title='Close without Saving'"
             (iconic-icon "circle-x"))
         (button "#fronkensteen-editor-undo-button.fronkensteen-editor-button!title='Undo'"
@@ -50,6 +50,7 @@
         (button "#fronkensteen-editor-footnote-button.fronkensteen-editor-button!title='Footnote'"
             (iconic-icon  "paperclip"))
         (button "#fronkensteen-editor-doc-button.fronkensteen-editor-button!title='See More Tags'" (iconic-icon "book"))
+        (button "#fronkensteen-editor-history-button.fronkensteen-editor-button!title='Show History'" (iconic-icon "clock"))
 
       ))
     ))
