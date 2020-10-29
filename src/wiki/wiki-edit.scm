@@ -22,7 +22,6 @@
               (activate-wiki-editor content-name title filename textarea-id))
               (alert "Sorry, no editor for this file type at this time. Contributions welcome!")))))
 
-
 (define (fronkensteen-wiki-new-page-button_click)
     (new-wiki-page))
 

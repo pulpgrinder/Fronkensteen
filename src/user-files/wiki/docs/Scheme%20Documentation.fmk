@@ -189,7 +189,7 @@ Returns an HTML abbr tag containing the specified value. Uses the given SEML spe
 
 Examples:
 (abbr "This is the text") => <abbr>This is the text</abbr>
-(abbr "#myanchor.myclass" "This is the text.") => <abbr id="myanchor" class="myclass">This is the text.</abbr>
+(abbr "#myabbr.myclass" "This is the text.") => <abbr id="myabbr" class="myclass">This is the text.</abbr>
 
 
 abs
@@ -215,14 +215,14 @@ Examples:
 
 
 acronym
-(acronym args)
-Please help by writing some docs for this!
+(acronym value)
+(acronym seml-spec value)
 
+Returns an HTML acronym tag containing the specified value. Uses the given SEML spec if provided.
 
-activate-wiki-editor
-(activate-wiki-editor args)
-Please help by writing some docs for this!
-
+Examples:
+(acronym "This is the text") => <acronym>This is the text</acronym>
+(acronym"#myacronym.myclass" "This is the text.") => <acronym id="myacronym class="myclass">This is the text.</acronym>
 
 add-handler!
 (add-handler! args)
@@ -234,19 +234,21 @@ add-ui-panel
 Please help by writing some docs for this!
 
 
-add-wiki-history
-(add-wiki-history args)
-Please help by writing some docs for this!
-
-
 address
-(address args)
-Please help by writing some docs for this!
+(address value)
+(address seml-spec value)
+
+Returns an HTML address tag containing the specified value. Uses the given SEML spec if provided.
+
+Examples:
+(address "This is the text") => <address>This is the text</address>
+(address"#myaddress.myclass" "This is the text.") => <address id="myaddress class="myclass">This is the text.</address>
 
 
 alert
-(alert args)
-Please help by writing some docs for this!
+(alert text)
+
+Generates a browser alert box containing the specified text.
 
 
 alist->js-obj
@@ -290,22 +292,29 @@ Please help by writing some docs for this!
 
 
 article
-(article args)
-Please help by writing some docs for this!
+(article value)
+(article seml-spec value)
+
+Returns an HTML article tag containing the specified value. Uses the given SEML spec if provided.
+
+Examples:
+(article "This is the text") => <article>This is the text</article>
+(article"#myarticle.myclass" "This is the text.") => <article id="myarticle class="myclass">This is the text.</article>
 
 
 aside
-(aside args)
-Please help by writing some docs for this!
+(aside value)
+(aside seml-spec value)
+
+Returns an HTML aside tag containing the specified value. Uses the given SEML spec if provided.
+
+Examples:
+(aside "This is the text") => <aside>This is the text</aside>
+(aside"#myaside.myclass" "This is the text.") => <aside id="myaside class="myclass">This is the text.</aside>
 
 
 asin
 (asin args)
-Please help by writing some docs for this!
-
-
-assemble-wiki-page-list
-(assemble-wiki-page-list args)
 Please help by writing some docs for this!
 
 

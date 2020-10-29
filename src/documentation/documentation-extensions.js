@@ -132,7 +132,6 @@ BiwaScheme.define_libfunc("process-doc-strings", 1,1, function(ar){
    BiwaScheme.assert_string(ar[0]);
    let docitems = ar[0].split(/^\n\n/m)
    for (var i = 0; i < docitems.length; i++){
-     console.log("docitem is " + docitems[i])
      let lines = docitems[i].split("\n");
      let procedurename = lines.shift();
      if(Fronkensteen.documentationPointers[procedurename] === undefined){
