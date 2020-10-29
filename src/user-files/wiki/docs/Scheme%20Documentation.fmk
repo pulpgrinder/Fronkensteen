@@ -1,247 +1,274 @@
-(eqv? obj1 obj2) ‌‌procedure
++
+(+ arg-list)
+Returns the sum of all its arguments.
+Examples:
+(+ 1 2) => 3
+(+ 1 2 3)  => 5
 
-The eqv? procedure defines a useful equivalence relation on objects. Briefly, it returns #t if obj1 and obj2 should normally be regarded as the same object and #f otherwise. This relation is left slightly open to interpretation, but the following partial specification of eqv? must hold for all implementations.
 
-The eqv? procedure returns #t if one of the following holds:
+car
+(car pair)
+Returns the first element of a pair (which may be a list)
+Examples:
+(car '(a b)) => 'a
+car '(2 . 3) => 2
 
-    Obj1 and obj2 are both booleans and are the same according to the boolean=? procedure (section 11.8).
 
-    Obj1 and obj2 are both symbols and are the same according to the symbol=? procedure (section 11.10).
+-
+(- a b)
+Returns the difference of its two arguments.
+Examples:
+(- 2 1) => 1
+(- 1 2)  => -1
 
-    Obj1 and obj2 are both exactnumber objects and are numerically equal (see =, section 11.7).
 
-    Obj1 and obj2 are both inexact number objects, are numerically equal (see =, section 11.7), and yield the same results (in the sense of eqv?) when passed as arguments to any other procedure that can be defined as a finite composition of Scheme's standard arithmetic procedures.
+eqv?
+(eqv? obj1 obj2)
+ The eqv? procedure defines a useful equivalence relation on objects. Briefly, it returns #t if obj1 and obj2 should normally be regarded as the same object and #f otherwise. This relation is left slightly open to interpretation, but the following partial specification of eqv? must hold for all implementations.
 
-    Obj1 and obj2 are both characters and are the same character according to the char=? procedure (section 11.11).
+ The eqv? procedure returns #t if one of the following holds:
 
-    Both obj1 and obj2 are the empty list.
+     Obj1 and obj2 are both booleans and are the same according to the boolean=? procedure (section 11.8).
 
-    Obj1 and obj2 are objects such as pairs, vectors, bytevectors (library chapter on “Bytevectors”), strings, hashtables, records (library chapter on “Records”), ports (library section on “Port I/O”), or hashtables (library chapter on “Hash tables”) that refer to the same locations in the store (section 5.10).
+     Obj1 and obj2 are both symbols and are the same according to the symbol=? procedure (section 11.10).
 
-    Obj1 and obj2 are record-type descriptors that are specified to be eqv? in library section on “Procedural layer”.
+     Obj1 and obj2 are both exactnumber objects and are numerically equal (see =, section 11.7).
 
-The eqv? procedure returns #f if one of the following holds:
+     Obj1 and obj2 are both inexact number objects, are numerically equal (see =, section 11.7), and yield the same results (in the sense of eqv?) when passed as arguments to any other procedure that can be defined as a finite composition of Scheme's standard arithmetic procedures.
 
-    Obj1 and obj2 are of different types (section 11.1).
+     Obj1 and obj2 are both characters and are the same character according to the char=? procedure (section 11.11).
 
-    Obj1 and obj2 are booleans for which the boolean=? procedure returns #f.
+     Both obj1 and obj2 are the empty list.
 
-    Obj1 and obj2 are symbols for which the symbol=? procedure returns #f.
+     Obj1 and obj2 are objects such as pairs, vectors, bytevectors (library chapter on “Bytevectors”), strings, hashtables, records (library chapter on “Records”), ports (library section on “Port I/O”), or hashtables (library chapter on “Hash tables”) that refer to the same locations in the store (section 5.10).
 
-    One of obj1 and obj2 is an exact number object but the other is an inexact number object.
+     Obj1 and obj2 are record-type descriptors that are specified to be eqv? in library section on “Procedural layer”.
 
-    Obj1 and obj2 are rational number objects for which the = procedure returns #f.
+ The eqv? procedure returns #f if one of the following holds:
 
-    Obj1 and obj2 yield different results (in the sense of eqv?) when passed as arguments to any other procedure that can be defined as a finite composition of Scheme's standard arithmetic procedures.
+     Obj1 and obj2 are of different types (section 11.1).
 
-    Obj1 and obj2 are characters for which the char=? procedure returns #f.
+     Obj1 and obj2 are booleans for which the boolean=? procedure returns #f.
 
-    One of obj1 and obj2 is the empty list, but the other is not.
+     Obj1 and obj2 are symbols for which the symbol=? procedure returns #f.
 
-    Obj1 and obj2 are objects such as pairs, vectors, bytevectors (library chapter on “Bytevectors”), strings, records (library chapter on “Records”), ports (library section on “Port I/O”), or hashtables (library chapter on “Hashtables”) that refer to distinct locations.
+     One of obj1 and obj2 is an exact number object but the other is an inexact number object.
 
-    Obj1 and obj2 are pairs, vectors, strings, or records, or hashtables, where the applying the same accessor (i.e. car, cdr, vector-ref, string-ref, or record accessors) to both yields results for which eqv? returns #f.
+     Obj1 and obj2 are rational number objects for which the = procedure returns #f.
 
-    Obj1 and obj2 are procedures that would behave differently (return different values or have different side effects) for some arguments.
+     Obj1 and obj2 yield different results (in the sense of eqv?) when passed as arguments to any other procedure that can be defined as a finite composition of Scheme's standard arithmetic procedures.
 
-    Note:‌ The eqv? procedure returning #t when obj1 and obj2 are number objects does not imply that = would also return #t when called with obj1 and obj2 as arguments.
+     Obj1 and obj2 are characters for which the char=? procedure returns #f.
 
-(eqv? 'a 'a)                     ‌⇒  #t
+     One of obj1 and obj2 is the empty list, but the other is not.
 
-(eqv? 'a 'b)                     ‌⇒  #f
+     Obj1 and obj2 are objects such as pairs, vectors, bytevectors (library chapter on “Bytevectors”), strings, records (library chapter on “Records”), ports (library section on “Port I/O”), or hashtables (library chapter on “Hashtables”) that refer to distinct locations.
 
-(eqv? 2 2)                       ‌⇒  #t
+     Obj1 and obj2 are pairs, vectors, strings, or records, or hashtables, where the applying the same accessor (i.e. car, cdr, vector-ref, string-ref, or record accessors) to both yields results for which eqv? returns #f.
 
-(eqv? '() '())                   ‌⇒  #t
+     Obj1 and obj2 are procedures that would behave differently (return different values or have different side effects) for some arguments.
 
-(eqv? 100000000 100000000)       ‌⇒  #t
+     Note:‌ The eqv? procedure returning #t when obj1 and obj2 are number objects does not imply that = would also return #t when called with obj1 and obj2 as arguments.
 
-(eqv? (cons 1 2) (cons 1 2))     ‌⇒  #f
+ (eqv? 'a 'a)                     ‌⇒  #t
 
-(eqv? (lambda () 1)
+ (eqv? 'a 'b)                     ‌⇒  #f
 
-      (lambda () 2))             ‌⇒  #f
+ (eqv? 2 2)                       ‌⇒  #t
 
-(eqv? #f 'nil)                  ‌⇒  #f
+ (eqv? '() '())                   ‌⇒  #t
 
-The following examples illustrate cases in which the above rules do not fully specify the behavior of eqv?. All that can be said about such cases is that the value returned by eqv? must be a boolean.
+ (eqv? 100000000 100000000)       ‌⇒  #t
 
-(let ((p (lambda (x) x)))
+ (eqv? (cons 1 2) (cons 1 2))     ‌⇒  #f
 
-  (eqv? p p))                    ‌⇒  unspecified
+ (eqv? (lambda () 1)
 
-(eqv? "" "")             ‌⇒  unspecified
+       (lambda () 2))             ‌⇒  #f
 
-(eqv? '#() '#())         ‌⇒  unspecified
+ (eqv? #f 'nil)                  ‌⇒  #f
 
-(eqv? (lambda (x) x)
+ The following examples illustrate cases in which the above rules do not fully specify the behavior of eqv?. All that can be said about such cases is that the value returned by eqv? must be a boolean.
 
-      (lambda (x) x))    ‌⇒  unspecified
+ (let ((p (lambda (x) x)))
 
-(eqv? (lambda (x) x)
+   (eqv? p p))                    ‌⇒  unspecified
 
-      (lambda (y) y))    ‌⇒  unspecified
+ (eqv? "" "")             ‌⇒  unspecified
 
-(eqv? +nan.0 +nan.0)             ‌⇒ unspecified
+ (eqv? '#() '#())         ‌⇒  unspecified
 
-The next set of examples shows the use of eqv? with procedures that have local state. Calls to gen-counter must return a distinct procedure every time, since each procedure has its own internal counter. Calls to gen-loser return procedures that behave equivalently when called. However, eqv? may not detect this equivalence.
+ (eqv? (lambda (x) x)
 
-(define gen-counter
+       (lambda (x) x))    ‌⇒  unspecified
 
-  (lambda ()
+ (eqv? (lambda (x) x)
 
-    (let ((n 0))
+       (lambda (y) y))    ‌⇒  unspecified
 
-      (lambda () (set! n (+ n 1)) n))))
+ (eqv? +nan.0 +nan.0)             ‌⇒ unspecified
 
-(let ((g (gen-counter)))
+ The next set of examples shows the use of eqv? with procedures that have local state. Calls to gen-counter must return a distinct procedure every time, since each procedure has its own internal counter. Calls to gen-loser return procedures that behave equivalently when called. However, eqv? may not detect this equivalence.
 
-  (eqv? g g))           ‌⇒  unspecified
+ (define gen-counter
 
-(eqv? (gen-counter) (gen-counter))
+   (lambda ()
 
-                        ‌⇒  #f
+     (let ((n 0))
 
-(define gen-loser
+       (lambda () (set! n (+ n 1)) n))))
 
-  (lambda ()
+ (let ((g (gen-counter)))
 
-    (let ((n 0))
+   (eqv? g g))           ‌⇒  unspecified
 
-      (lambda () (set! n (+ n 1)) 27))))
+ (eqv? (gen-counter) (gen-counter))
 
-(let ((g (gen-loser)))
+                         ‌⇒  #f
 
-  (eqv? g g))           ‌⇒  unspecified
+ (define gen-loser
 
-(eqv? (gen-loser) (gen-loser))
+   (lambda ()
 
-                        ‌⇒  unspecified
+     (let ((n 0))
 
-(letrec ((f (lambda () (if (eqv? f g) 'both 'f)))
+       (lambda () (set! n (+ n 1)) 27))))
 
-         (g (lambda () (if (eqv? f g) 'both 'g))))
+ (let ((g (gen-loser)))
 
-  (eqv? f g)) ‌⇒  unspecified
+   (eqv? g g))           ‌⇒  unspecified
 
-(letrec ((f (lambda () (if (eqv? f g) 'f 'both)))
+ (eqv? (gen-loser) (gen-loser))
 
-         (g (lambda () (if (eqv? f g) 'g 'both))))
+                         ‌⇒  unspecified
 
-  (eqv? f g)) ‌⇒  #f
+ (letrec ((f (lambda () (if (eqv? f g) 'both 'f)))
 
-Implementations may share structure between constants where appropriate. Furthermore, a constant may be copied at any time by the implementation so as to exist simultaneously in different sets of locations, as noted in section 11.4.1. Thus the value of eqv? on constants is sometimes implementation-dependent.
+          (g (lambda () (if (eqv? f g) 'both 'g))))
 
-(eqv? '(a) '(a))                 ‌⇒  unspecified
+   (eqv? f g)) ‌⇒  unspecified
 
-(eqv? "a" "a")                   ‌⇒  unspecified
+ (letrec ((f (lambda () (if (eqv? f g) 'f 'both)))
 
-(eqv? '(b) (cdr '(a b)))         ‌⇒  unspecified
+          (g (lambda () (if (eqv? f g) 'g 'both))))
 
-(let ((x '(a)))
+   (eqv? f g)) ‌⇒  #f
 
-  (eqv? x x))                    ‌⇒  #t
+ Implementations may share structure between constants where appropriate. Furthermore, a constant may be copied at any time by the implementation so as to exist simultaneously in different sets of locations, as noted in section 11.4.1. Thus the value of eqv? on constants is sometimes implementation-dependent.
 
+ (eqv? '(a) '(a))                 ‌⇒  unspecified
 
-  (eq? obj1 obj2) ‌‌procedure
+ (eqv? "a" "a")                   ‌⇒  unspecified
 
-  The eq? predicate is similar to eqv? except that in some cases it is capable of discerning distinctions finer than those detectable by eqv?.
+ (eqv? '(b) (cdr '(a b)))         ‌⇒  unspecified
 
-  The eq? and eqv? predicates are guaranteed to have the same behavior on symbols, booleans, the empty list, pairs, procedures, non-empty strings, bytevectors, and vectors, and records. The behavior of eq? on number objects and characters is implementation-dependent, but it always returns either #t or #f, and returns #t only when eqv? would also return #t. The eq? predicate may also behave differently from eqv? on empty vectors, empty bytevectors, and empty strings.
+ (let ((x '(a)))
 
-  (eq? 'a 'a)                     ‌⇒  #t
+   (eqv? x x))                    ‌⇒  #t
 
-  (eq? '(a) '(a))                 ‌⇒  unspecified
 
-  (eq? (list 'a) (list 'a))       ‌⇒  #f
+eq?
+(eq? obj1 obj2)
 
-  (eq? "a" "a")                   ‌⇒  unspecified
+   The eq? predicate is similar to eqv? except that in some cases it is capable of discerning distinctions finer than those detectable by eqv?.
 
-  (eq? "" "")                     ‌⇒  unspecified
+   The eq? and eqv? predicates are guaranteed to have the same behavior on symbols, booleans, the empty list, pairs, procedures, non-empty strings, bytevectors, and vectors, and records. The behavior of eq? on number objects and characters is implementation-dependent, but it always returns either #t or #f, and returns #t only when eqv? would also return #t. The eq? predicate may also behave differently from eqv? on empty vectors, empty bytevectors, and empty strings.
 
-  (eq? '() '())                   ‌⇒  #t
+   (eq? 'a 'a)                     ‌⇒  #t
 
-  (eq? 2 2)                       ‌⇒  unspecified
+   (eq? '(a) '(a))                 ‌⇒  unspecified
 
-  (eq? #\A #\A) ‌⇒  unspecified
+   (eq? (list 'a) (list 'a))       ‌⇒  #f
 
-  (eq? car car)                   ‌⇒  #t
+   (eq? "a" "a")                   ‌⇒  unspecified
 
-  (let ((n (+ 2 3)))
+   (eq? "" "")                     ‌⇒  unspecified
 
-    (eq? n n))      ‌⇒  unspecified
+   (eq? '() '())                   ‌⇒  #t
 
-  (let ((x '(a)))
+   (eq? 2 2)                       ‌⇒  unspecified
 
-    (eq? x x))      ‌⇒  #t
+   (eq? #\A #\A) ‌⇒  unspecified
 
-  (let ((x '#()))
+   (eq? car car)                   ‌⇒  #t
 
-    (eq? x x))      ‌⇒  unspecified
+   (let ((n (+ 2 3)))
 
-  (let ((p (lambda (x) x)))
+     (eq? n n))      ‌⇒  unspecified
 
-    (eq? p p))      ‌⇒  unspecified
+   (let ((x '(a)))
 
+     (eq? x x))      ‌⇒  #t
 
-    (equal? obj1 obj2)‌‌procedure
+   (let ((x '#()))
 
-    The equal? predicate returns #t if and only if the (possibly infinite) unfoldings of its arguments into regular trees are equal as ordered trees.
+     (eq? x x))      ‌⇒  unspecified
 
-    The equal? predicate treats pairs and vectors as nodes with outgoing edges, uses string=? to compare strings, uses bytevector=? to compare bytevectors (see library chapter on “Bytevectors”), and uses eqv? to compare other nodes.
+   (let ((p (lambda (x) x)))
 
-    (equal? 'a 'a)                  ‌⇒  #t
+     (eq? p p))      ‌⇒  unspecified
 
-    (equal? '(a) '(a))              ‌⇒  #t
 
-    (equal? '(a (b) c)
+equal?
+(equal? obj1 obj2)
 
-            '(a (b) c))             ‌⇒  #t
+   The equal? predicate returns #t if and only if the (possibly infinite) unfoldings of its arguments into regular trees are equal as ordered trees.
 
-    (equal? "abc" "abc")            ‌⇒  #t
+   The equal? predicate treats pairs and vectors as nodes with outgoing edges, uses string=? to compare strings, uses bytevector=? to compare bytevectors (see library chapter on “Bytevectors”), and uses eqv? to compare other nodes.
 
-    (equal? 2 2)                    ‌⇒  #t
+   (equal? 'a 'a)                  ‌⇒  #t
 
-    (equal? (make-vector 5 'a)
+   (equal? '(a) '(a))              ‌⇒  #t
 
-            (make-vector 5 'a))     ‌⇒  #t
+   (equal? '(a (b) c)
 
-    (equal? '#vu8(1 2 3 4 5)
+           '(a (b) c))             ‌⇒  #t
 
-            (u8-list->bytevector
+   (equal? "abc" "abc")            ‌⇒  #t
 
-             '(1 2 3 4 5))          ‌⇒  #t
+   (equal? 2 2)                    ‌⇒  #t
 
-    (equal? (lambda (x) x)
+   (equal? (make-vector 5 'a)
 
-            (lambda (y) y))  ‌⇒  unspecified
+           (make-vector 5 'a))     ‌⇒  #t
 
-    (let* ((x (list 'a))
+   (equal? '#vu8(1 2 3 4 5)
 
-           (y (list 'a))
+           (u8-list->bytevector
 
-           (z (list x y)))
+            '(1 2 3 4 5))          ‌⇒  #t
 
-      (list (equal? z (list y x))
+   (equal? (lambda (x) x)
 
-            (equal? z (list x x))))
-    ‌‌⇒  (#t #t)
+           (lambda (y) y))  ‌⇒  unspecified
 
-        Note:‌ The equal? procedure must always terminate, even if its arguments contain cycles.
+   (let* ((x (list 'a))
 
+          (y (list 'a))
 
-        (procedure? obj)‌‌ procedure
+          (z (list x y)))
 
-        Returns #t if obj is a procedure, otherwise returns #f.
+     (list (equal? z (list y x))
 
-        (procedure? car)            ‌⇒  #t
+           (equal? z (list x x))))
+   ‌‌⇒  (#t #t)
 
-        (procedure? 'car)           ‌⇒  #f
+       Note:‌ The equal? procedure must always terminate, even if its arguments contain cycles.
 
-        (procedure? (lambda (x) (* x x)))
 
-                                    ‌⇒  #t
+procedure?
+(procedure? obj)
 
-        (procedure? '(lambda (x) (* x x)))
+       Returns #t if obj is a procedure, otherwise returns #f.
 
-                                    ‌⇒  #f
+       (procedure? car)            ‌⇒  #t
+
+       (procedure? 'car)           ‌⇒  #f
+
+       (procedure? (lambda (x) (* x x)))
+
+                                   ‌⇒  #t
+
+       (procedure? '(lambda (x) (* x x)))
+
+                                   ‌⇒  #f

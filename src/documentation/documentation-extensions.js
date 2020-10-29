@@ -139,7 +139,7 @@ BiwaScheme.define_libfunc("retrieve-procedure-filename", 1, 1, function(ar, intp
 BiwaScheme.define_libfunc("process-doc-strings", 1,1, function(ar){
   // Processes the docstrings from the docs/Scheme Documentation wiki page.
    BiwaScheme.assert_string(ar[0]);
-   let docitems = ar[0].split(/^\n\n/")
+   let docitems = ar[0].split(/^\n\n/m)
    for (var i = 0; i < docitems.length; i++){
      let lines = docitems[i].split("\n");
      let procedureinfo = lines.shift();
