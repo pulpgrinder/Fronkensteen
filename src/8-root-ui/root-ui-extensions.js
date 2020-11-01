@@ -26,7 +26,6 @@ BiwaScheme.define_libfunc("set-draggable!", 1,1,function(ar){
   //
   BiwaScheme.assert_string(ar[0]);
   let options = JSON.parse(ar[0]);
-  console.log("Options are " + options)
   let element = $(options["element"])[0];
   let saveup = document.onmouseup;
   let savemove = document.onmousemove;

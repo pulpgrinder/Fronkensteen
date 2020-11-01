@@ -1,6 +1,6 @@
 procedure->promise
 (procedure->promise args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 !DOCTYPE
@@ -226,12 +226,12 @@ Examples:
 
 add-handler!
 (add-handler! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 add-ui-panel
 (add-ui-panel args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 address
@@ -253,42 +253,42 @@ Generates a browser alert box containing the specified text.
 
 alist->js-obj
 (alist->js-obj args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 alist-to-js-obj
 (alist-to-js-obj args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 angle
 (angle args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 append
 (append args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 append-main-content
 (append-main-content args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 applet
 (applet args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 apply
 (apply args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 area
 (area args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 article
@@ -315,332 +315,332 @@ Examples:
 
 asin
 (asin args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 assoc
 (assoc args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 assp
 (assp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 assq
 (assq args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 assv
 (assv args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 atan
 (atan args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 attr
 (attr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 attr!
 (attr! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 audio
 (audio args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 b
 (b args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 base
 (base args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 base-64-image-to-bytes
 (base-64-image-to-bytes args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bdi
 (bdi args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bdo
 (bdo args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 beautify-html
 (beautify-html  args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 binary-port?
 (binary-port? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-and
 (bitwise-and args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-arithmetic-shift
 (bitwise-arithmetic-shift args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-arithmetic-shift-left
 (bitwise-arithmetic-shift-left args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-arithmetic-shift-right
 (bitwise-arithmetic-shift-right args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-bit-count
 (bitwise-bit-count args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-bit-field
 (bitwise-bit-field args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-bit-set?
 (bitwise-bit-set? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-copy-bit
 (bitwise-copy-bit args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-copy-bit-field
 (bitwise-copy-bit-field args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-first-bit-set
 (bitwise-first-bit-set args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-if
 (bitwise-if args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-ior
 (bitwise-ior args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-length
 (bitwise-length args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-not
 (bitwise-not args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-reverse-bit-field
 (bitwise-reverse-bit-field args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-rotate-bit-field
 (bitwise-rotate-bit-field args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bitwise-xor
 (bitwise-xor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 blockquote
 (blockquote args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 body
 (body args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 boolean=?
 (boolean=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 boolean?
 (boolean? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bootstrap-documentation
 (bootstrap-documentation args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 box
 (box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 box-top
 (box-top args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 br
 (br args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 build-downloader
 (build-downloader args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 build-fronkensteen-dialog
 (build-fronkensteen-dialog args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 build-uploader
 (build-uploader args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 build-wiki-history-display
 (build-wiki-history-display args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 button
 (button args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 bytes-to-base-64-image
 (bytes-to-base-64-image args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caaaar
 (caaaar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caaadr
 (caaadr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caaar
 (caaar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caadar
 (caadar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caaddr
 (caaddr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caadr
 (caadr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caar
 (caar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cadaar
 (cadaar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cadadr
 (cadadr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cadar
 (cadar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caddar
 (caddar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cadddr
 (cadddr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caddr
 (caddr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cadr
 (cadr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 call-with-port
 (call-with-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 call-with-string-output-port
 (call-with-string-output-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 call-with-values
 (call-with-values args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 canvas
 (canvas args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 caption
 (caption args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 car
@@ -653,1297 +653,1297 @@ car '(2 . 3) => 2
 
 case-search
 (case-search args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdaaar
 (cdaaar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdaadr
 (cdaadr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdaar
 (cdaar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdadar
 (cdadar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdaddr
 (cdaddr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdadr
 (cdadr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdar
 (cdar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cddaar
 (cddaar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cddadr
 (cddadr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cddar
 (cddar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdddar
 (cdddar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cddddr
 (cddddr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdddr
 (cdddr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cddr
 (cddr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cdr
 (cdr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 ceiling
 (ceiling args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 center-element
 (center-element args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 change_handler
 (change_handler args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 char->integer
 (char->integer args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 char<=?
 (char<=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 char<?
 (char<? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 char=?
 (char=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 char>=?
 (char>=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 char>?
 (char>? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 char?
 (char? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 check-editor-title-change
 (check-editor-title-change args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 checkbox-checked?
 (checkbox-checked? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cite
 (cite args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 classdiv
 (classdiv args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 clear-cm-editor-undo!
 (clear-cm-editor-undo! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 clear-cumulative-errors
 (clear-cumulative-errors args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 clear-local-storage!
 (clear-local-storage! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 clear-timer!
 (clear-timer! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 click_handler
 (click_handler args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 clone-workspace
 (clone-workspace args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 close-editor
 (close-editor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 close-input-port
 (close-input-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 close-output-port
 (close-output-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 close-port
 (close-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-delete-selected-text
 (cm-editor-delete-selected-text args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-eval-js-selection!
 (cm-editor-eval-js-selection! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-eval-selection-or-expr-before-cursor!
 (cm-editor-eval-selection-or-expr-before-cursor! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-get-current-symbol
 (cm-editor-get-current-symbol args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-get-cursor-position
 (cm-editor-get-cursor-position args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-get-line
 (cm-editor-get-line args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-get-procedure-at-cursor
 (cm-editor-get-procedure-at-cursor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-get-scheme-selection-or-expr-before-cursor!
 (cm-editor-get-scheme-selection-or-expr-before-cursor! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-get-selected-text
 (cm-editor-get-selected-text args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-get-text
 (cm-editor-get-text args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-hide
 (cm-editor-hide args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-hide-all
 (cm-editor-hide-all args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-redo!
 (cm-editor-redo! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-replace
 (cm-editor-replace args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-replace-selected-text
 (cm-editor-replace-selected-text args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-scroll-to-line
 (cm-editor-scroll-to-line args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-select-all
 (cm-editor-select-all args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-align-left
 (cm-editor-set-align-left args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-align-right
 (cm-editor-set-align-right args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-block-quote
 (cm-editor-set-block-quote args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-bold
 (cm-editor-set-bold args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-bulleted-list
 (cm-editor-set-bulleted-list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-center
 (cm-editor-set-center args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-code
 (cm-editor-set-code args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-comment
 (cm-editor-set-comment args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-cursor-position
 (cm-editor-set-cursor-position args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-heading
 (cm-editor-set-heading args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-italic
 (cm-editor-set-italic args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-justify
 (cm-editor-set-justify args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-link
 (cm-editor-set-link args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-math
 (cm-editor-set-math args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-note
 (cm-editor-set-note args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-numbered-list
 (cm-editor-set-numbered-list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-poetry
 (cm-editor-set-poetry args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-strikeout
 (cm-editor-set-strikeout args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-subscript
 (cm-editor-set-subscript args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-superscript
 (cm-editor-set-superscript args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-set-text
 (cm-editor-set-text args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-show
 (cm-editor-show args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-editor-undo!
 (cm-editor-undo! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-end-position
 (cm-end-position args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-eval-editor-buffer!
 (cm-eval-editor-buffer! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cm-find
 (cm-find args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 code
 (code args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 codeblock
 (codeblock args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 col
 (col args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 colgroup
 (colgroup args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 collect-licenses
 (collect-licenses args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 collect-linked-pages
 (collect-linked-pages args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 collect-matching-wiki-pages
 (collect-matching-wiki-pages args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 collect-wiki-page-list
 (collect-wiki-page-list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 color-box
 (color-box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 color-box-top
 (color-box-top args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 command
 (command args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 complex?
 (complex? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 confirm
 (confirm args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cons
 (cons args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cons*
 (cons* args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 console-+name
 (console-+name args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 construct-wiki-editor
 (construct-wiki-editor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 convert-roman
 (convert-roman args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 convert-roman-helper
 (convert-roman-helper args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cos
 (cos args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 css
 (css args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 css!
 (css! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 css-string
 (css-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 cumulative-errors
 (cumulative-errors args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 current-date
 (current-date args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 current-error-port
 (current-error-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 current-input-port
 (current-input-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 current-output-port
 (current-output-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 datalist
 (datalist args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date->string
 (date->string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date-day
 (date-day args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date-hour
 (date-hour args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date-millisecond
 (date-millisecond args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date-minute
 (date-minute args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date-month
 (date-month args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date-nanosecond
 (date-nanosecond args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date-second
 (date-second args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date-week-day
 (date-week-day args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date-year
 (date-year args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 date?
 (date? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dd
 (dd args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 decode-base-32
 (decode-base-32 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 decode-base-64
 (decode-base-64 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 decode-base-64-text
 (decode-base-64-text args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 decode-uri
 (decode-uri args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 decode-uri-component
 (decode-uri-component args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 del
 (del args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 del-assoc
 (del-assoc args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 del-assoc-list
 (del-assoc-list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 del-assq
 (del-assq args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 del-assv
 (del-assv args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 delete-internal-file
 (delete-internal-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 delete-nth
 (delete-nth args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 delete-package
 (delete-package args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 denominator
 (denominator args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 destroy-cm-editor!
 (destroy-cm-editor! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 details
 (details args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dfn
 (dfn args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 disable!
 (disable! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 display
 (display args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 display-incoming-links
 (display-incoming-links args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 display-repl-result
 (display-repl-result args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 display-search-results
 (display-search-results args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 display-ui-panel
 (display-ui-panel args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 display-wiki-content
 (display-wiki-content args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 display-wiki-history
 (display-wiki-history args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 display-wiki-page
 (display-wiki-page args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 div
 (div args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 div0
 (div0 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 div0-and-mod0
 (div0-and-mod0 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dl
 (dl args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 doc-root
 (doc-root args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 document-object
 (document-object args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dom-create-element
 (dom-create-element args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dom-element
 (dom-element args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dom-get-attribute
 (dom-get-attribute args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dom-remove-child!
 (dom-remove-child! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dom-remove-children!
 (dom-remove-children! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 domelem
 (domelem args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 double-box
 (double-box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 double-grey-box
 (double-grey-box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 double-round-box
 (double-round-box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 double-round-grey-box
 (double-round-grey-box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 download-done_click
 (download-done_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 download-file
 (download-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 download-internal-file
 (download-internal-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dt
 (dt args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dumpobj
 (dumpobj args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 dv
 (dv args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 edit-wiki-page
 (edit-wiki-page args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-absolutize!
 (element-absolutize! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-add-class-name
 (element-add-class-name args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-add-class-name!
 (element-add-class-name! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-adjacent
 (element-adjacent args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-ancestors
 (element-ancestors args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-append-child!
 (element-append-child! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-class-names
 (element-class-names args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-clean-whitespace!
 (element-clean-whitespace! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-clone-position!
 (element-clone-position! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-content
 (element-content args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-cumulative-offset
 (element-cumulative-offset args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-cumulative-scroll-offset
 (element-cumulative-scroll-offset args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-descendant-of!
 (element-descendant-of! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-descendants
 (element-descendants args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-dimensions
 (element-dimensions args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-down
 (element-down args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-empty!
 (element-empty! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-empty?
 (element-empty? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-exists?
 (element-exists? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-first-descendant
 (element-first-descendant args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-focus!
 (element-focus! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-has-class-name?
 (element-has-class-name? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-height
 (element-height args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-hide!
 (element-hide! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-identify
 (element-identify args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-immediate-descendants
 (element-immediate-descendants args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-insert!
 (element-insert! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-make-clipping!
 (element-make-clipping! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-make-positioned!
 (element-make-positioned! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-match?
 (element-match? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-new
 (element-new args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-next
 (element-next args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-next-sibling
 (element-next-sibling args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-offset-parent
 (element-offset-parent args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-opacity
 (element-opacity args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-opacity-set!
 (element-opacity-set! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-positioned-offset
 (element-positioned-offset args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-previous
 (element-previous args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-previous-sibling
 (element-previous-sibling args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-read-attribute
 (element-read-attribute args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-relativize!
 (element-relativize! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-remove!
 (element-remove! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-remove-class-name
 (element-remove-class-name args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-remove-class-name!
 (element-remove-class-name! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-replace!
 (element-replace! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-select
 (element-select args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-show!
 (element-show! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-siblings
 (element-siblings args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-style
 (element-style args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-style-set!
 (element-style-set! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-toggle!
 (element-toggle! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-toggle-class-name
 (element-toggle-class-name args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-toggle-class-name!
 (element-toggle-class-name! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-undo-clipping!
 (element-undo-clipping! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-undo-positioned!
 (element-undo-positioned! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-up
 (element-up args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-update!
 (element-update! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-viewport-offset
 (element-viewport-offset args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-visible?
 (element-visible? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-width
 (element-width args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-wrap!
 (element-wrap! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-write-attribute
 (element-write-attribute args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 element-write-attribute!
 (element-write-attribute! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 elems
 (elems  args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 em
 (em args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 embed
 (embed args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 encode-base-32
 (encode-base-32 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 encode-base-64
 (encode-base-64 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 encode-uri
 (encode-uri args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 encode-uri-component
 (encode-uri-component args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set->list
 (enum-set->list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-complement
 (enum-set-complement args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-constructor
 (enum-set-constructor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-difference
 (enum-set-difference args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-indexer
 (enum-set-indexer args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-intersection
 (enum-set-intersection args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-member?
 (enum-set-member? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-projection
 (enum-set-projection args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-subset?
 (enum-set-subset? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-union
 (enum-set-union args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set-universe
 (enum-set-universe args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enum-set=?
 (enum-set=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enumerate-procedures
 (enumerate-procedures args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 enumerate-undocumented-procedures
 (enumerate-undocumented-procedures args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 eof-object
 (eof-object args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 eof-object?
 (eof-object? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 eq?
@@ -1990,7 +1990,7 @@ eq?
 
 equal-hash
 (equal-hash args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 equal?
@@ -2187,897 +2187,897 @@ eqv?
 
 escape-html
 (escape-html args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 eval
 (eval args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 eval-js-string
 (eval-js-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 eval-scheme-string
 (eval-scheme-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 even?
 (even? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 exact-integer-sqrt
 (exact-integer-sqrt args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 exec-wiki-page
 (exec-wiki-page args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 exists
 (exists args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 exp
 (exp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 expt
 (expt args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fieldset
 (fieldset args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 figcaption
 (figcaption args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 figure
 (figure args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 file-basename
 (file-basename args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 file-basename-no-extension
 (file-basename-no-extension args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 file-exists?
 (file-exists? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 file-extension
 (file-extension args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 file-path
 (file-path args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 file-path-no-extension
 (file-path-no-extension args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 file-rename
 (file-rename args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 file-version-time-stamp
 (file-version-time-stamp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 filter
 (filter args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 find
 (find args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 find-matching-wiki-pages
 (find-matching-wiki-pages args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 finite?
 (finite? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fix-uncacheable
 (fix-uncacheable args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 floor
 (floor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 focus-cm-editor-component!
 (focus-cm-editor-component! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fold-left
 (fold-left args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fold-right
 (fold-right args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 folder-rename
 (folder-rename args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 footer
 (footer args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 for-all
 (for-all args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 for-each
 (for-each args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 force
 (force args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 form
 (form args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 format
 (format args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkenmark
 (fronkenmark args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkenmark-get-notes
 (fronkenmark-get-notes args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkenmark-reset-notes
 (fronkenmark-reset-notes args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-align-left-button_click
 (fronkensteen-editor-align-left-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-align-right-button_click
 (fronkensteen-editor-align-right-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-block-quote-button_click
 (fronkensteen-editor-block-quote-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-bold-button_click
 (fronkensteen-editor-bold-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-bullet-list-button_click
 (fronkensteen-editor-bullet-list-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-center-button_click
 (fronkensteen-editor-center-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-close-and-display-page
 (fronkensteen-editor-close-and-display-page args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-close-button_click
 (fronkensteen-editor-close-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-code-button_click
 (fronkensteen-editor-code-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-comment-button_click
 (fronkensteen-editor-comment-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-controls
 (fronkensteen-editor-controls args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-doc-button_click
 (fronkensteen-editor-doc-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-footnote-button_click
 (fronkensteen-editor-footnote-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-h1-button_click
 (fronkensteen-editor-h1-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-h2-button_click
 (fronkensteen-editor-h2-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-h3-button_click
 (fronkensteen-editor-h3-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-history-button_click
 (fronkensteen-editor-history-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-italic-button_click
 (fronkensteen-editor-italic-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-javascript-eval-button_click
 (fronkensteen-editor-javascript-eval-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-justify-button_click
 (fronkensteen-editor-justify-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-latex-button_click
 (fronkensteen-editor-latex-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-link-button_click
 (fronkensteen-editor-link-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-number-list-button_click
 (fronkensteen-editor-number-list-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-poetry-button_click
 (fronkensteen-editor-poetry-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-preview-button_click
 (fronkensteen-editor-preview-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-redo-button_click
 (fronkensteen-editor-redo-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-save-and-close-button_click
 (fronkensteen-editor-save-and-close-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-save-button_click
 (fronkensteen-editor-save-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-scheme-eval-button_click
 (fronkensteen-editor-scheme-eval-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-strikeout-button_click
 (fronkensteen-editor-strikeout-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-subscript-button_click
 (fronkensteen-editor-subscript-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-superscript-button_click
 (fronkensteen-editor-superscript-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-editor-undo-button_click
 (fronkensteen-editor-undo-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-preview-done-button_click
 (fronkensteen-preview-done-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-show-repl-button_click
 (fronkensteen-show-repl-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-toolbar-button
 (fronkensteen-toolbar-button args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-delete-button_click
 (fronkensteen-wiki-delete-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-docs-button_click
 (fronkensteen-wiki-docs-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-edit-button_click
 (fronkensteen-wiki-edit-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-history-button_click
 (fronkensteen-wiki-history-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-home-button_click
 (fronkensteen-wiki-home-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-import-file-button_click
 (fronkensteen-wiki-import-file-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-incoming-links-button_click
 (fronkensteen-wiki-incoming-links-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-new-page-button_click
 (fronkensteen-wiki-new-page-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-refresh-button_click
 (fronkensteen-wiki-refresh-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-save-work_space-button_click
 (fronkensteen-wiki-save-work_space-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-search-button_click
 (fronkensteen-wiki-search-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-search-field_input
 (fronkensteen-wiki-search-field_input args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 fronkensteen-wiki-special-button_click
 (fronkensteen-wiki-special-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 gen-id
 (gen-id args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 gen_handler
 (gen_handler args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-doc-skeleton
 (generate-doc-skeleton args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-json-key-value
 (generate-json-key-value args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-json-number
 (generate-json-number args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-json-object
 (generate-json-object args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-json-object-rec
 (generate-json-object-rec args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-json-string
 (generate-json-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-json-vector
 (generate-json-vector args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-json-vector-items
 (generate-json-vector-items args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-select-items-rec
 (generate-select-items-rec args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-wiki-search-results
 (generate-wiki-search-results args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generate-wiki-toolbar
 (generate-wiki-toolbar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 generic-span
 (generic-span args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 gensym
 (gensym args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-cm-editor-ids
 (get-cm-editor-ids args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-content
 (get-content args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-id-vector
 (get-id-vector args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-internal-dir
 (get-internal-dir args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-internal-filesystem-json
 (get-internal-filesystem-json args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-local-storage-item
 (get-local-storage-item args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-matching-wiki-files
 (get-matching-wiki-files args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-output-string
 (get-output-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-package-vector
 (get-package-vector args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-selected-index
 (get-selected-index args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-sorted-file-names
 (get-sorted-file-names args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-style
 (get-style args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-unsorted-file-names
 (get-unsorted-file-names args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 get-versioned-file-name
 (get-versioned-file-name args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 getelem
 (getelem args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 grey-box
 (grey-box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 grid-container
 (grid-container args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 h1
 (h1 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 h2
 (h2 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 h3
 (h3 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 h4
 (h4 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 h5
 (h5 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 h6
 (h6 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hang
 (hang args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-clear!
 (hashtable-clear! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-contains?
 (hashtable-contains? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-copy
 (hashtable-copy args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-delete!
 (hashtable-delete! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-entries
 (hashtable-entries args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-equivalence-function
 (hashtable-equivalence-function args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-hash-function
 (hashtable-hash-function args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-keys
 (hashtable-keys args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-mutable?
 (hashtable-mutable? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-ref
 (hashtable-ref args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-set!
 (hashtable-set! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-size
 (hashtable-size args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable-update!
 (hashtable-update! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hashtable?
 (hashtable? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 head
 (head args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 header
 (header args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hereload
 (hereload args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hgroup
 (hgroup args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hide-ui-panel
 (hide-ui-panel args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 hr
 (hr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 html
 (html args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 html-error
 (html-error args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 html-escape
 (html-escape args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 html-list
 (html-list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 html-list-rec
 (html-list-rec args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 htmlmap
 (htmlmap args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 http-post
 (http-post args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 http-request
 (http-request args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 i
 (i args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 iconic-icon
 (iconic-icon args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 iconic-icon-gen
 (iconic-icon-gen args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 identity
 (identity args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 iframe
 (iframe args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 imag-part
 (imag-part args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 img
 (img args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 indexOf
 (indexOf args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 infinite?
 (infinite? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 init-cm-editor!
 (init-cm-editor! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 init-wiki-history-display
 (init-wiki-history-display args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 init-wiki-search-display
 (init-wiki-search-display args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 init-wiki-viewer
 (init-wiki-viewer args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 input
 (input args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 input-port?
 (input-port? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 input_handler
 (input_handler args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 ins
 (ins args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 insert-nth
 (insert-nth args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 inspect
 (inspect args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 inspect!
 (inspect! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 install-css
 (install-css args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 install-package
 (install-package args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 integer->char
 (integer->char args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 integer?
@@ -3088,622 +3088,622 @@ Returns #t if obj is an integer, #f otherwise.
 
 internal-audio
 (internal-audio args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 internal-image
 (internal-image args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 internal-video
 (internal-video args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 intersperse
 (intersperse args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 iota
 (iota args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 is-alist?
 (is-alist? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 is-audio-file?
 (is-audio-file? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 is-cm-editor-clean?
 (is-cm-editor-clean? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 is-dotted-pair?
 (is-dotted-pair? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 is-image-file?
 (is-image-file? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 is-procedure-defined?
 (is-procedure-defined? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 is-system-dirty?
 (is-system-dirty? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 is-text-file?
 (is-text-file? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 is-video-file?
 (is-video-file? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 iso-8601-date
 (iso-8601-date args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 iso-8601-date-epub-3
 (iso-8601-date-epub-3 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 iso-8601-date-short
 (iso-8601-date-short args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 jq-attr
 (jq-attr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 jq-is-empty-object?
 (jq-is-empty-object? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 jq-length
 (jq-length args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-array->list
 (js-array->list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-array-to-list
 (js-array-to-list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-biwa-evaluate
 (js-biwa-evaluate args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-call
 (js-call args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-closure
 (js-closure args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-eval
 (js-eval args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-function?
 (js-function? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-install-head
 (js-install-head args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-invocation
 (js-invocation args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-invoke
 (js-invoke args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-load
 (js-load args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-new
 (js-new args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-null?
 (js-null? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-obj
 (js-obj args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-obj->alist
 (js-obj->alist args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-obj-to-alist
 (js-obj-to-alist args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-ref
 (js-ref args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-set!
 (js-set! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-undefined?
 (js-undefined? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-window-height
 (js-window-height args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 js-window-width
 (js-window-width args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 json->scheme
 (json->scheme args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 json->sexp
 (json->sexp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 kbd
 (kbd args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 keygen
 (keygen args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 label
 (label args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 launch-remote-repl-app
 (launch-remote-repl-app args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 launch-remote-repl-terminal
 (launch-remote-repl-terminal args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 legend
 (legend args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 length
 (length args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 li
 (li args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 link
 (link args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list
 (list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list->js-array
 (list->js-array args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list->string
 (list->string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list->vector
 (list->vector args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list-copy
 (list-copy args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list-ref
 (list-ref args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list-sort
 (list-sort args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list-sort/comp
 (list-sort/comp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list-tail
 (list-tail args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list-to-js-array
 (list-to-js-array args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 list?
 (list? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 load
 (load args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 load-iframe
 (load-iframe args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 load-stylesheet
 (load-stylesheet args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 log
 (log args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 lower-case-letter-equivalent
 (lower-case-letter-equivalent args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 macroexpand
 (macroexpand args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 macroexpand-1
 (macroexpand-1 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 magnitude
 (magnitude args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-custom-textual-output-port
 (make-custom-textual-output-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-enumeration
 (make-enumeration args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-eq-hashtable
 (make-eq-hashtable args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-eqv-hashtable
 (make-eqv-hashtable args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-hashtable
 (make-hashtable args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-page-dirty
 (make-page-dirty args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-polar
 (make-polar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-promise
 (make-promise args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-record-constructor-descriptor
 (make-record-constructor-descriptor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-record-type-descriptor
 (make-record-type-descriptor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-rectangular
 (make-rectangular args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-regexp
 (make-regexp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-string
 (make-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 make-vector
 (make-vector args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 map
 (map args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 map-with-index
 (map-with-index args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 mark
 (mark args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 markdown
 (markdown args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 markup-trusted-text
 (markup-trusted-text args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 markup-trusted-text-file
 (markup-trusted-text-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 markup-untrusted-text
 (markup-untrusted-text args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 markup-untrusted-text-file
 (markup-untrusted-text-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 max
 (max args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 member
 (member args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 memp
 (memp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 memq
 (memq args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 memv
 (memv args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 menu
 (menu args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 meta
 (meta args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 meter
 (meter args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 mime-type
 (mime-type  args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 min
 (min args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 mla-heading-string
 (mla-heading-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 mod
 (mod args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 mod0
 (mod0 args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 mono-font
 (mono-font args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 nan?
 (nan? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 natural-sort
 (natural-sort args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 nav
 (nav args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 nav-go-back
 (nav-go-back args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 nav-go-forward
 (nav-go-forward args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 nav-go-history
 (nav-go-history args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 navigate-url
 (navigate-url args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 negative?
 (negative? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 new-wiki-page
 (new-wiki-page args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 newline
 (newline args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 no-dash-uuid
 (no-dash-uuid  args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 noscript
 (noscript args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 not
 (not args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 nth
 (nth args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 nth-cdr
 (nth-cdr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 null?
 (null? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 number->string
 (number->string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 number?
@@ -3714,167 +3714,167 @@ Returns #t if obj is a number, #f otherwise.
 
 numerator
 (numerator args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 numeric-time-stamp
 (numeric-time-stamp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 object
 (object args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 odd?
 (odd? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 ol
 (ol args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 olist
 (olist args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 open-input-string
 (open-input-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 open-output-string
 (open-output-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 open-url
 (open-url args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 optgroup
 (optgroup args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 option
 (option args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 output
 (output args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 output-port?
 (output-port? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 p
 (p args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 pair?
 (pair? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 param
 (param args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 parse-date
 (parse-date args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 parse-seml
 (parse-seml args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 parse-youtube-url
 (parse-youtube-url args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 partition
 (partition args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 place-caret-at-end
 (place-caret-at-end  args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 place-caret-at-start
 (place-caret-at-start  args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 poem
 (poem args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 pop-browser-state_handler
 (pop-browser-state_handler args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 populate-select
 (populate-select args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 port-closed?
 (port-closed? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 port?
 (port? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 positive?
 (positive? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 pre
 (pre args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 print
 (print args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 proc-css
 (proc-css args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 proc-css-list
 (proc-css-list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 proc-css-rules
 (proc-css-rules args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 procedure?
@@ -3897,1484 +3897,1484 @@ procedure?
 
 process-doc-strings
 (process-doc-strings args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 process-internal-text-file
 (process-internal-text-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 process-matching-wiki-files
 (process-matching-wiki-files args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 process-read-template
 (process-read-template args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 process-template-lines
 (process-template-lines args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 process-wiki-documentation
 (process-wiki-documentation args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 progress
 (progress args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 promise?
 (promise? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 prompt
 (prompt args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 prompt-to-save-user-data
 (prompt-to-save-user-data args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 prop
 (prop args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 prop!
 (prop! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 push-browser-state
 (push-browser-state args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 put-char
 (put-char args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 put-datum
 (put-datum args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 put-string
 (put-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 q
 (q args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 raise
 (raise args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 random-integer
 (random-integer args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 random-real
 (random-real args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 randomize-select!
 (randomize-select! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 rational?
 (rational? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 read
 (read args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 read-from-string
 (read-from-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 read-internal-data-url
 (read-internal-data-url args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 read-internal-file
 (read-internal-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 read-internal-text-file
 (read-internal-text-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 read-line
 (read-line args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 real-part
 (real-part args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 real?
 (real? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 receive-jsonp
 (receive-jsonp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-accessor
 (record-accessor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-constructor
 (record-constructor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-field-mutable?
 (record-field-mutable? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-mutator
 (record-mutator args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-predicate
 (record-predicate args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-rtd
 (record-rtd args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-type-descriptor?
 (record-type-descriptor? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-type-field-names
 (record-type-field-names args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-type-generative?
 (record-type-generative? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-type-name
 (record-type-name args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-type-opaque?
 (record-type-opaque? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-type-parent
 (record-type-parent args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-type-sealed?
 (record-type-sealed? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record-type-uid
 (record-type-uid args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 record?
 (record? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 refresh-cm-editor-component!
 (refresh-cm-editor-component! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 regexp->string
 (regexp->string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 regexp-exec
 (regexp-exec args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 regexp-replace-all
 (regexp-replace-all args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 regexp?
 (regexp? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 reload
 (reload args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remote-eval-button_click
 (remote-eval-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remote-eval-done-button_click
 (remote-eval-done-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remote-eval-expression-button_click
 (remote-eval-expression-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remote-evaluate
 (remote-evaluate args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remote-repl-terminal
 (remote-repl-terminal args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remoteload
 (remoteload args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remove
 (remove args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remove-dirty-pages
 (remove-dirty-pages args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remove-handler!
 (remove-handler! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remove-local-storage-item!
 (remove-local-storage-item! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remove-wiki-history
 (remove-wiki-history args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remp
 (remp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remq
 (remq args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 remv
 (remv args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 render-incoming-links
 (render-incoming-links args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 render-wiki-content
 (render-wiki-content args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 repl-clear-button_click
 (repl-clear-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 repl-eval-buffer-button_click
 (repl-eval-buffer-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 repl-eval-button_click
 (repl-eval-button_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 repl-here
 (repl-here args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 replace-browser-state
 (replace-browser-state args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 replace-nth
 (replace-nth args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 replace-ui-panel
 (replace-ui-panel args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 reset-lower-levels
 (reset-lower-levels args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 reset-mla-level-counter
 (reset-mla-level-counter args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 retrieve-procedure-definition
 (retrieve-procedure-definition args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 retrieve-procedure-documentation
 (retrieve-procedure-documentation args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 retrieve-procedure-filename
 (retrieve-procedure-filename args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 retrieve-wiki-audio
 (retrieve-wiki-audio args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 retrieve-wiki-data
 (retrieve-wiki-data args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 retrieve-wiki-image
 (retrieve-wiki-image args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 retrieve-wiki-video
 (retrieve-wiki-video args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 reverse
 (reverse args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 round
 (round args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 round-box
 (round-box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 round-grey-box
 (round-grey-box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 round-list
 (round-list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 round-list-item
 (round-list-item args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 rp
 (rp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 rt
 (rt args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 ruby
 (ruby args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 run-wiki-search
 (run-wiki-search args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 rxmatch
 (rxmatch args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 samp
 (samp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 sans-font
 (sans-font args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 save-the-static-world
 (save-the-static-world args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 save-wiki-file
 (save-wiki-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 scheme->json
 (scheme->json args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 script
 (script args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 scroll-element-into-view
 (scroll-element-into-view args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 scroll-into-view
 (scroll-into-view args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 scroll-to-bottom
 (scroll-to-bottom args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 scroll-to-element!
 (scroll-to-element! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 scroll-to-top
 (scroll-to-top args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 search-defined-procedures
 (search-defined-procedures args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 search-hash-tag
 (search-hash-tag args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 section
 (section args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 select
 (select args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 select_handler
 (select_handler args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 seml
 (seml args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 seml-element
 (seml-element args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 seml-self-closing
 (seml-self-closing args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 seml-self-closing-element
 (seml-self-closing-element args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 serif-font
 (serif-font args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-app-name
 (set-app-name args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-car!
 (set-car! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-cdr!
 (set-cdr! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-checkbox-checked!
 (set-checkbox-checked! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-cm-editor-clean!
 (set-cm-editor-clean! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-content!
 (set-content! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-document-title
 (set-document-title args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-draggable!
 (set-draggable! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-fav-icon
 (set-fav-icon args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-handler!
 (set-handler! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-local-storage-item!
 (set-local-storage-item! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-selected-index!
 (set-selected-index! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-style!
 (set-style! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-system-clean
 (set-system-clean args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-system-dirty
 (set-system-dirty args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-timer!
 (set-timer! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-upload-element
 (set-upload-element args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-wiki-data
 (set-wiki-data args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 set-window-location-hash!
 (set-window-location-hash! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 show-download
 (show-download args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 show-editor
 (show-editor args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 show-editor-preview
 (show-editor-preview args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 show-mini-repl
 (show-mini-repl args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 show-ui-panel
 (show-ui-panel args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 show-wiki-history-dialog
 (show-wiki-history-dialog args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 show-wiki-toolbar
 (show-wiki-toolbar args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 show-wiki-tools
 (show-wiki-tools args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 sin
 (sin args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 sleep
 (sleep args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 small
 (small args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 smallcaps-font
 (smallcaps-font args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 smart-quotes
 (smart-quotes args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 sort-order
 (sort-order  args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 source
 (source args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 span
 (span args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 sqrt
 (sqrt args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-escape
 (str-escape args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-find
 (str-find args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-find-unique
 (str-find-unique args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-match?
 (str-match? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-replace
 (str-replace args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-replace-re
 (str-replace-re args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-split
 (str-split args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-trim
 (str-trim args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-unescape
 (str-unescape args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 str-wordcount
 (str-wordcount args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string
 (string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string->list
 (string->list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string->number
 (string->number args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string->regexp
 (string->regexp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string->symbol
 (string->symbol args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-append
 (string-append args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-ci-hash
 (string-ci-hash args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-ci<=?
 (string-ci<=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-ci<?
 (string-ci<? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-ci=?
 (string-ci=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-ci>=?
 (string-ci>=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-ci>?
 (string-ci>? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-concat
 (string-concat args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-copy
 (string-copy args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-downcase
 (string-downcase args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-for-each
 (string-for-each args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-hash
 (string-hash args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-join
 (string-join args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-length
 (string-length args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-reader
 (string-reader args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-reader-read
 (string-reader-read args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-ref
 (string-ref args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-split
 (string-split args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string-upcase
 (string-upcase args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string<=?
 (string<=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string<?
 (string<? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string=?
 (string=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string>=?
 (string>=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string>?
 (string>? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 string?
 (string? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 strong
 (strong args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 style
 (style args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 sub
 (sub args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 substring
 (substring args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 summary
 (summary args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 sup
 (sup args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 svg
 (svg args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 symbol->string
 (symbol->string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 symbol-font
 (symbol-font args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 symbol-hash
 (symbol-hash args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 symbol=?
 (symbol=? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 symbol?
 (symbol? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 system-launch
 (system-launch args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 table
 (table args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 tan
 (tan args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 tbody
 (tbody args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 td
 (td args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 textarea
 (textarea args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 textual-port?
 (textual-port? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 tfoot
 (tfoot args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 th
 (th args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 thead
 (thead args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 time
 (time args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 timer
 (timer args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 title
 (title args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 tr
 (tr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 track
 (track args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 truncate
 (truncate args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 trusted-markdown
 (trusted-markdown args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 u
 (u args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 ul
 (ul args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 ulist
 (ulist args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 unescape-html
 (unescape-html args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 unique-page-title
 (unique-page-title args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 unix-time
 (unix-time args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 upload-file
 (upload-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 upper-case-letter-equivalent
 (upper-case-letter-equivalent args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 url-params
 (url-params args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 uuid
 (uuid  args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 values
 (values args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 var
 (var args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector
 (vector args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector->list
 (vector->list args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-append
 (vector-append args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-copy
 (vector-copy args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-fill!
 (vector-fill! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-for-each
 (vector-for-each args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-length
 (vector-length args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-map
 (vector-map args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-push!
 (vector-push! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-ref
 (vector-ref args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-set!
 (vector-set! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-sort
 (vector-sort args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-sort!
 (vector-sort! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-sort/comp
 (vector-sort/comp args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector-sort/comp!
 (vector-sort/comp! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 vector?
 (vector? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 video
 (video args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wait-for
 (wait-for args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 warning-box
 (warning-box args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wbr
 (wbr args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wiki-base-name
 (wiki-base-name args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wiki-data-path
 (wiki-data-path args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wiki-display-name
 (wiki-display-name args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wiki-file-name-match
 (wiki-file-name-match args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wiki-file-text-match
 (wiki-file-text-match args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wiki-file-uploaded
 (wiki-file-uploaded args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wikilink_click
 (wikilink_click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-basename
 (window-location-basename args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-basename-no-extension
 (window-location-basename-no-extension args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-hash
 (window-location-hash args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-host
 (window-location-host args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-hostname
 (window-location-hostname args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-href
 (window-location-href args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-origin
 (window-location-origin args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-password
 (window-location-password args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-pathname
 (window-location-pathname args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-port
 (window-location-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-replace!
 (window-location-replace! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-search
 (window-location-search args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-location-username
 (window-location-username args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 window-object
 (window-object args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wire-button
 (wire-button args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wire-buttons
 (wire-buttons args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wire-change
 (wire-change args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wire-click
 (wire-click args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wire-submit-input
 (wire-submit-input args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wire-submit-inputs
 (wire-submit-inputs args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wire-text-input
 (wire-text-input args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wire-text-inputs
 (wire-text-inputs args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 wire-ui
 (wire-ui args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 with-output-to-port
 (with-output-to-port args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write
 (write args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write*
 (write* args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write-char
 (write-char args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write-data-url-to-internal-file
 (write-data-url-to-internal-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write-internal-file
 (write-internal-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write-internal-text-file
 (write-internal-text-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write-raw-internal-file
 (write-raw-internal-file args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write-to-clipboard!
 (write-to-clipboard! args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write-to-string
 (write-to-string args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write-with-shared-structure
 (write-with-shared-structure args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 write/ss
 (write/ss args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 youtube
 (youtube args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
 zero?
 (zero? args)
-Please help by writing some docs for this!
+Please help by writing some docs for this! (see docs/Scheme Documentation)

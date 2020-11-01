@@ -4,6 +4,8 @@
 
 (install-css "root-ui"
     (proc-css-list `(
+      ("pre" (
+        "white-space" "pre-wrap"))
       (".fronkensteen-panel" (
         "position" "fixed"
         "top" "0"
@@ -84,6 +86,66 @@
         "min-height" "100%"
         "font-family" "monospace"
         ))
+        ("#lambda-proc-controls" (
+          "position" "absolute"
+          "top" "0"
+          "height" "2em"
+          "border-bottom" "1px solid #888"
+          "width" "100%"
+          ))
+      ("#lambda-proc-info" (
+        "position" "absolute"
+        "top" "2em"
+        "bottom" "0"
+        "width" "100%"
+        ))
+      (".lambda-doc-body" (
+        "background-color" "white"
+        "color" "black"
+        "padding" "0.5em"
+        "margin" "auto"
+        "word-wrap" "break-word"
+        )
+      )
+      ("#lambda-proc-def-wrapper" (
+        "position" "absolute"
+        "background-color" "white"
+        "color" "black"
+        "top" "0"
+        "bottom" "0"
+        "left" "0"
+        "overflow" "auto"
+        "width" "65%"
+        "padding" "0.5em"
+        ))
+    ("#lambda-proc-display-wrapper" (
+      "background-color" "white"
+      "color" "black"
+      "position" "absolute"
+      "top" "4em"
+      "overflow" "auto"
+      "width" "100%"
+      "min-width" "100%"
+      ))
+      ("#lambda-proc-search" (
+        "position" "absolute"
+        "top" "2em"
+        "padding" "0.25em"
+        "width" "100%"
+        "border-bottom" "1px solid #888"
+        ))
+      ("#lambda-proc-def" (
+
+        ))
+    ("#lambda-proc-display" (
+
+      ))
+
+   (".lambda-proc-name-entry" (
+     "border-bottom" "1px solid #888"
+     "padding" "0.25em"
+     "cursor" "pointer"))
+
       (".font-tiny" (
           "font-size" "10px"
 
