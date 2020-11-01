@@ -80,6 +80,12 @@ Second item
 Third item
 roundlist]
 
+[menu
+Main
+docs/Custom Tags
+docs/Scheme Documentation
+menu]
+
 [h2 Typographic markup h2]
 [hr]
 

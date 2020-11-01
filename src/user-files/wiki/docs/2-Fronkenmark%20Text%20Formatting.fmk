@@ -60,7 +60,10 @@ If you want to see these tags in operation, check out the [link Kitchen Sink lin
 
 [code [ol text ol] code] Format text as an ordered (numbered) list. The text should consist of the list items, one item per line.
 
-[code [roundlist text roundlist] code] Format text as a rounded list (looks rather like the menus on smart phones) The text should consist of the list items, one item per line.
+[code [menu text menu] code] Format text as a menu. The text should be a list of wiki page titles, one per line. The menu items will be auto-linked to their respective page.
+
+
+[code [roundlist text roundlist] code] Like menu, but does [b not b] auto-link the items (this lets you add your own custom behavior).
 
 [h2 Typographic markup h2]
 [code [hr] code] Insert a horizontal rule.

@@ -64,7 +64,6 @@
   (if (eqv? procs '())
       ""
       (let ((proc (car procs)))
-        (console-log (<< "Checking " proc))
         (if (lambda-proc-match proc proc-search)
             (<<
               (dv (<< ".lambda-proc-name-entry!procname='" proc "'") (html-escape proc))

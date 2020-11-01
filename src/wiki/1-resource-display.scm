@@ -27,13 +27,10 @@
 (#t #f)))
 
 (define (retrieve-wiki-image filename)
- (console-log filename)
  (<< "[!scheme  (internal-image \"" filename "\") scheme!]"))
 
 (define (retrieve-wiki-video filename)
-(console-log filename)
 (<< "[!scheme  (internal-video " "\".wiki-video\" \"" filename "\") scheme!]"))
 
 (define (retrieve-wiki-audio filename)
-(console-log filename)
 (<< "[!scheme  (internal-audio " "\".wiki-audio\" \"" filename "\") scheme!]"))

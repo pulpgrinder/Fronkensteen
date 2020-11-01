@@ -6,12 +6,14 @@
         ((eq? (indexOf page-title "system/") 0) #f)
         ((eq? (indexOf page-title "images/") 0) #f)
         ((eq? (indexOf page-title "media/") 0) #f)
+        ((eq? (indexOf page-title "docs/") 0) #f)
         ((eq? (indexOf page-title "themes/") 0) #f)
         (#t
-          (let ((matching-pages (collect-linked-pages page-title (vector->list (get-internal-dir "user-files/wiki")))))
+          (let ((page-list (vector->list (get-internal-dir "user-files/wiki"))))
+          (let ((matching-pages (append (collect-linked-pages page-title page-list) (collect-menu-pages page-title page-list))))
             (if (eqv? matching-pages '())
             #t
-            #f)))))
+            #f))))))
 
 (define (collect-orphans page-list)
   (if (eqv? page-list '())
@@ -26,13 +28,13 @@
     (if (eqv? orphan-pages '())
       ""
       (let ((title (car orphan-pages)))
-          (<< "[link "  (wiki-display-name (decode-uri  title)) " link]\n" (render-orphan-pages (cdr orphan-pages))))))
+          (<< (wiki-display-name (decode-uri  title)) "\n" (render-orphan-pages (cdr orphan-pages))))))
 
 (let ((wiki-files (collect-wiki-page-list)))
   (let ((orphan-pages (collect-orphans wiki-files)))
     (let ((rendered-file-list (render-orphan-pages orphan-pages)))
-    (fronkenmark (<< "[roundlist "
+    (fronkenmark (<< "[menu "
         rendered-file-list
-        " roundlist]"
+        " menu]"
     ) #f #f))))
 scheme!]

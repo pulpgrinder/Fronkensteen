@@ -20,6 +20,8 @@
             (iconic-icon "action-redo"))
         (button "#fronkensteen-editor-preview-button.fronkensteen-editor-button!title='Preview'"
             (iconic-icon "eye"))
+            (button "#fronkensteen-editor-menu-button.fronkensteen-editor-button!title='Insert Menu'"
+                (iconic-icon "menu"))
         (button "#fronkensteen-editor-bold-button.fronkensteen-editor-button!title='Bold'"
             (iconic-icon "bold"))
         (button "#fronkensteen-editor-italic-button.fronkensteen-editor-button!title='Italic'"

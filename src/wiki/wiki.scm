@@ -13,19 +13,16 @@
     (set! fronkensteen-dirty-pages '())
     (begin
       (let ((content-name (<< "#fronkensteen-wiki-content-" (encode-base-32 (car page-list)))))
-        (console-log (<< "remove-dirty page " (car page-list)))
         (% content-name "remove")
         (remove-dirty-pages (cdr page-list))))))
 
 
 
 (define (add-wiki-history title type)
-  (console-log (<< "Adding " title " " type))
   (let ((history-list (remove-wiki-history title type fronkensteen-wiki-history-list)))
   (if (or (eqv? history-list '())
         (not (and (eqv? (caar history-list) title) (eqv? (cadar history-list) type)) ) )
           (set! fronkensteen-wiki-history-list (cons (list title type) history-list)))
-  (console-log "displaying history")
   (display-wiki-history)))
 
 (define (remove-wiki-history title type history-list)
@@ -107,7 +104,6 @@
         (begin
             (set! fronkensteen-wiki-history-list (cdr fronkensteen-wiki-history-list))
             (let ((filename (wiki-data-path current-title)))
-              (console-log (<<  "Attempting to delete " filename))
               (delete-internal-file filename)
               (if (eqv? fronkensteen-wiki-history-list '())
                 (display-wiki-page "Main")

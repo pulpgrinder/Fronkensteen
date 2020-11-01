@@ -193,6 +193,25 @@ Fronkenmark.renderTableItems = function(text){
   return result;
 }
 
+Fronkenmark.renderMenuItems = function(text,css_class){
+  let items = text.split("\n");
+  let result = ""
+  let classstring;
+  if(css_class !== undefined){
+    classstring = " class='" + css_class + "'"
+  }
+  else {
+    classstring = ""
+  }
+  for(var i = 0; i < items.length; i++){
+    let itemtext = items[i].trim()
+    if(itemtext !== ""){
+      let item = Fronkenmark.processContent("[link " + itemtext + " link]");
+      result = result + "<li" + classstring + ">" + item + "</li>\n"
+    }
+  }
+  return result;
+}
 Fronkenmark.renderListItems = function(text,css_class){
   let items = text.split("\n");
   let result = ""
@@ -204,9 +223,10 @@ Fronkenmark.renderListItems = function(text,css_class){
     classstring = ""
   }
   for(var i = 0; i < items.length; i++){
-    let item = Fronkenmark.processContent(items[i].trim());
-    if(item !== ""){
-      result = result + "<li" + classstring + ">" + items[i].trim() + "</li>\n"
+    let itemtext = items[i].trim()
+    if(itemtext !== ""){
+      let item = Fronkenmark.processContent(itemtext);
+      result = result + "<li" + classstring + ">" + item + "</li>\n"
     }
   }
   return result;
@@ -361,7 +381,8 @@ Fronkenmark.processContent  = function(text){
       case "strike":
       case "u":
       return Fronkenmark.installSubstitute("<" + tag + ">") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</" + tag + ">");
-
+      case "menu":
+        return Fronkenmark.installSubstitute("<ul class='round-list'>") + Fronkenmark.renderMenuItems(Fronkenmark.processContent(code), "round-list-item") + Fronkenmark.installSubstitute("</ul>")
 // Inline LaTeX
     case "latex" : return Fronkenmark.installSubstitute(Fronkenmark.processInlineLaTeX(code))
 // Paragraph styles

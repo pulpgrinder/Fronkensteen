@@ -199,6 +199,10 @@ BiwaScheme.define_libfunc("cm-editor-set-bold",1,1, function(ar){
   editDriver.activateEditor(ar[0]);
   editDriver.setBold(ar[0]);
 });
+BiwaScheme.define_libfunc("cm-editor-set-menu",1,1, function(ar){
+  editDriver.activateEditor(ar[0]);
+  editDriver.setMenu(ar[0]);
+});
 BiwaScheme.define_libfunc("cm-editor-set-cursor-position",3,3, function(ar){
   editDriver.activateEditor(ar[0]);
   editDriver.setCursorPosition(ar[0],ar[1],ar[2]);

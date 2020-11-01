@@ -4,15 +4,15 @@
     ""
     (let ((wiki-file (car wiki-files)))
       (if (eqv? (indexOf wiki-file "themes/") 0)
-        (<< "[link " wiki-file " link]\n" (render-theme-pages  (cdr wiki-files)))
+        (<< wiki-file "\n" (render-theme-pages  (cdr wiki-files)))
         (render-theme-pages (cdr wiki-files))))))
 
 
 (let ((wiki-files (collect-wiki-page-list)))
 (let ((theme-list (render-theme-pages wiki-files)))
-  (fronkenmark (<< "[roundlist "
+  (fronkenmark (<< "[menu "
     theme-list
-      " roundlist]"
+      " menu]"
 ) #f #f)))
 
 scheme!]

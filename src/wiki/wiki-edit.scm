@@ -95,7 +95,6 @@
         (if (eqv? title "")
           (alert "No title specified!")
           (begin
-            (console-log (<< "attempting to write " (wiki-data-path title)))
             (write-internal-text-file (wiki-data-path title)
               (cm-editor-get-text current-editor))
             (check-editor-title-change title)
@@ -111,7 +110,6 @@
            (alert "Title has changed. Reopening.")
             (close-editor old-title)
             (let ((filename (wiki-data-path old-title)))
-              (console-log (<<  "Attempting to delete " filename))
               (delete-internal-file filename)
               (set! fronkensteen-wiki-history-list (remove-wiki-history old-title "page" fronkensteen-wiki-history-list))
               )

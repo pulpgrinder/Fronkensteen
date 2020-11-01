@@ -71,8 +71,6 @@
               )
               (#t "case-insensitive")
               )))
-    (console-log "Search mode is ")
-    (console-log search-mode)
     (let ((wiki-files (vector->list (get-internal-dir "user-files/wiki"))))
         (collect-matching-wiki-pages text wiki-files search-mode))))
 
@@ -114,7 +112,6 @@
 
 (define (run-wiki-search)
   (let ((search-term (% "#fronkensteen-wiki-search-field" "val")))
-    (console-log (<< "Search term is " search-term))
     (if (eqv? search-term "")
       (display-search-results '())
       (display-search-results (find-matching-wiki-pages search-term)))))
@@ -147,3 +144,6 @@
 
 (define (collect-linked-pages title page-list)
     (collect-matching-wiki-pages (<< "[link " title) page-list "case-sensitive"))
+
+(define (collect-menu-pages title page-list)
+        (collect-matching-wiki-pages (<< "\\[menu[\\s\\S]*" title "[\\s\\S]*menu\\]") page-list "regex"))

@@ -45,7 +45,6 @@
 (define (clone-workspace)
   (prompt-to-save-user-data)
   (let ((template (read-internal-text-file "1-root/fronkensteen_template.html")))
-    (console-log (<< "Template is " template))
     (let ((template-lines (vector->list (str-split template "\n"))))
         (process-template-lines template-lines))))
 

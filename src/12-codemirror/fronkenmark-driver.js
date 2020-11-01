@@ -645,6 +645,9 @@ class CMEditorDriver {
     setLink(editorname){
         this.setFence(editorname,"[link ", " link]")
     }
+    setMenu(editorname){
+        this.setFence(editorname,"[menu ", " menu]")
+    }
     setImage(editorname){
         this.setFence(editorname,"[img ", " img]")
     }

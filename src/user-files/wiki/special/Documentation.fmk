@@ -7,14 +7,14 @@
       ""
       (let ((wiki-file (car wiki-files)))
           (if (str-match? wiki-file "docs/" "")
-              (<< "[link "  (wiki-display-name (decode-uri wiki-file))  " link]\n" (render-documentation-page-list (cdr wiki-files)))
+              (<< (wiki-display-name (decode-uri wiki-file))  "\n" (render-documentation-page-list (cdr wiki-files)))
               (render-documentation-page-list (cdr wiki-files))))))
 
 (let ((wiki-files (vector->list (natural-sort (get-internal-dir "user-files/wiki") #f #f))))
   (let ((rendered-file-list (render-documentation-page-list wiki-files)))
-    (fronkenmark (<< "[roundlist "
+    (fronkenmark (<< "[menu "
         rendered-file-list
-        " roundlist]"
+        " menu]"
     ) #f #f)))
 
 scheme!]
