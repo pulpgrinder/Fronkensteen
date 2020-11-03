@@ -41,7 +41,7 @@
    (% dialog-body-id "html"
       (pre (html-escape (retrieve-procedure-documentation procname)))))))
 
-(define (lambda-proc-lookup_input)
+(define (#lambda-proc-lookup_input)
     (load-lambda-proc-display))
 
 (define (load-lambda-proc-display)
