@@ -1,7 +1,7 @@
 (define current-editor #f)
 
 
-(define (fronkensteen-wiki-edit-button_click ev)
+(define (#fronkensteen-wiki-edit-button_click ev)
     (edit-wiki-page current-title))
 
 
@@ -22,7 +22,7 @@
               (activate-wiki-editor content-name title filename textarea-id))
               (alert "Sorry, no editor for this file type at this time. Contributions welcome!")))))
 
-(define (fronkensteen-wiki-new-page-button_click)
+(define (#fronkensteen-wiki-new-page-button_click)
     (new-wiki-page))
 
 (define (new-wiki-page)
@@ -58,12 +58,16 @@
   (add-wiki-history title "editor")
 )
 
-(define (fronkensteen-editor-close-button_click)
+(define (#fronkensteen-editor-fullscreen-button_click)
+  (request-fullscreen))
+
+
+(define (#fronkensteen-editor-close-button_click)
   (if (confirm "Close without saving? Are you sure?")
     (fronkensteen-editor-close-and-display-page)))
 
 
-(define (fronkensteen-wiki-history-button_click)
+(define (#fronkensteen-wiki-history-button_click)
   (show-wiki-history-dialog))
 
 (define (show-wiki-history-dialog)
@@ -74,7 +78,7 @@
     "20em" "20em")
   (display-wiki-history))
 
-(define (fronkensteen-editor-doc-button_click)
+(define (#fronkensteen-editor-doc-button_click)
     (build-fronkensteen-dialog "#fronkensteen-editor-docs" "Available Tags" (fronkenmark (
       retrieve-wiki-data "docs/Fronkenmark Text Formatting"
       ) #t #t) "40em" "20em"))
@@ -84,11 +88,11 @@
       (close-editor title)
       (display-wiki-page title)))
 
-(define (fronkensteen-editor-save-and-close-button_click)
-  (fronkensteen-editor-save-button_click)
+(define (#fronkensteen-editor-save-and-close-button_click)
+  (#fronkensteen-editor-save-button_click)
   (fronkensteen-editor-close-and-display-page))
 
-  (define (fronkensteen-editor-save-button_click)
+  (define (#fronkensteen-editor-save-button_click)
     (if (eqv? current-editor #f)
         #f
        (let ((title (% "#fronkensteen-editor-page-title" "val")))

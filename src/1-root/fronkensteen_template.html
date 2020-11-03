@@ -276,7 +276,7 @@ Fronkensteen.addScheme = function(filename){
         }
         proc_end = proc_end + 1;
       }
-      if(proc_end === max_length){
+      if(proc_end > max_length){
         console.log("parseJSProcedureDefs error: end of file in procedure " + currentProc + " in " + filename);
         return;
       }
@@ -313,7 +313,7 @@ Fronkensteen.addScheme = function(filename){
         }
         proc_end = proc_end + 1;
       }
-      if(proc_end === max_length){
+      if(proc_end > max_length){
         console.log("parseSchemeProcedureDefs error: end of file in procedure " + currentProc + " in " + filename);
         return;
       }

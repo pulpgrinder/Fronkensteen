@@ -243,3 +243,40 @@ BiwaScheme.define_libfunc("write-to-clipboard!", 1, 1, function(ar){
 BiwaScheme.define_libfunc("url-params",1,1,function(ar){
   return urlParams.get(ar[0]);
 })
+
+Fronkensteen.isFullScreen = false;
+
+document.addEventListener("fullscreenchange", function(){Fronkensteen.toggleFullScreen()});
+
+document.addEventListener("mozfullscreenchange", function(){Fronkensteen.toggleFullScreen()});
+
+document.addEventListener("webkitfullscreenchange", function(){Fronkensteen.toggleFullScreen()});
+
+Fronkensteen.toggleFullScreen = function(){
+  console.log("toggling")
+  Fronkensteen.isFullScreen = !Fronkensteen.isFullScreen;
+  if(BiwaScheme.is_procedure_defined("toggle-fullscreen") === true){
+    var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+    intp2.evaluate("(toggle-fullscreen)");
+  }
+}
+BiwaScheme.define_libfunc("request-fullscreen",0,0, function(ar){
+  let elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  }
+})
+
+BiwaScheme.define_libfunc("exit-fullscreen",0,0, function(ar){
+  if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    }
+})
+
+BiwaScheme.define_libfunc("is-fullscreen?",0,0, function(ar){
+    return Fronkensteen.isFullScreen;
+  });

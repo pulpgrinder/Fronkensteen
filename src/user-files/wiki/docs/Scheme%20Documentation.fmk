@@ -1481,8 +1481,8 @@ double-round-grey-box
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-download-done_click
-(download-done_click args)
+#download-done_click
+(#download-done_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
@@ -2385,33 +2385,33 @@ fronkenmark-reset-notes
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-align-left-button_click
-(fronkensteen-editor-align-left-button_click args)
+#fronkensteen-editor-align-left-button_click
+(#fronkensteen-editor-align-left-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-align-right-button_click
-(fronkensteen-editor-align-right-button_click args)
+#fronkensteen-editor-align-right-button_click
+(#fronkensteen-editor-align-right-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-block-quote-button_click
-(fronkensteen-editor-block-quote-button_click args)
+#fronkensteen-editor-block-quote-button_click
+(#fronkensteen-editor-block-quote-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-bold-button_click
-(fronkensteen-editor-bold-button_click args)
+#fronkensteen-editor-bold-button_click
+(#fronkensteen-editor-bold-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-bullet-list-button_click
-(fronkensteen-editor-bullet-list-button_click args)
+#fronkensteen-editor-bullet-list-button_click
+(#fronkensteen-editor-bullet-list-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-center-button_click
-(fronkensteen-editor-center-button_click args)
+#fronkensteen-editor-center-button_click
+(#fronkensteen-editor-center-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
@@ -2420,18 +2420,18 @@ fronkensteen-editor-close-and-display-page
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-close-button_click
-(fronkensteen-editor-close-button_click args)
+#fronkensteen-editor-close-button_click
+(#fronkensteen-editor-close-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-code-button_click
-(fronkensteen-editor-code-button_click args)
+#fronkensteen-editor-code-button_click
+(#fronkensteen-editor-code-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-comment-button_click
-(fronkensteen-editor-comment-button_click args)
+#fronkensteen-editor-comment-button_click
+(#fronkensteen-editor-comment-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
@@ -2440,123 +2440,123 @@ fronkensteen-editor-controls
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-doc-button_click
-(fronkensteen-editor-doc-button_click args)
+#fronkensteen-editor-doc-button_click
+(#fronkensteen-editor-doc-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-footnote-button_click
-(fronkensteen-editor-footnote-button_click args)
+#fronkensteen-editor-footnote-button_click
+(#fronkensteen-editor-footnote-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-h1-button_click
-(fronkensteen-editor-h1-button_click args)
+#fronkensteen-editor-h1-button_click
+(#fronkensteen-editor-h1-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-h2-button_click
-(fronkensteen-editor-h2-button_click args)
+#fronkensteen-editor-h2-button_click
+(#fronkensteen-editor-h2-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-h3-button_click
-(fronkensteen-editor-h3-button_click args)
+#fronkensteen-editor-h3-button_click
+(#fronkensteen-editor-h3-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-history-button_click
-(fronkensteen-editor-history-button_click args)
+#fronkensteen-editor-history-button_click
+(#fronkensteen-editor-history-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-italic-button_click
-(fronkensteen-editor-italic-button_click args)
+#fronkensteen-editor-italic-button_click
+(#fronkensteen-editor-italic-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-javascript-eval-button_click
-(fronkensteen-editor-javascript-eval-button_click args)
+#fronkensteen-editor-javascript-eval-button_click
+(#fronkensteen-editor-javascript-eval-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-justify-button_click
-(fronkensteen-editor-justify-button_click args)
+#fronkensteen-editor-justify-button_click
+(#fronkensteen-editor-justify-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-latex-button_click
-(fronkensteen-editor-latex-button_click args)
+#fronkensteen-editor-latex-button_click
+(#fronkensteen-editor-latex-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-link-button_click
-(fronkensteen-editor-link-button_click args)
+#fronkensteen-editor-link-button_click
+(#fronkensteen-editor-link-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-number-list-button_click
-(fronkensteen-editor-number-list-button_click args)
+#fronkensteen-editor-number-list-button_click
+(#fronkensteen-editor-number-list-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-poetry-button_click
-(fronkensteen-editor-poetry-button_click args)
+#fronkensteen-editor-poetry-button_click
+(#fronkensteen-editor-poetry-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-preview-button_click
-(fronkensteen-editor-preview-button_click args)
+#fronkensteen-editor-preview-button_click
+(#fronkensteen-editor-preview-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-redo-button_click
-(fronkensteen-editor-redo-button_click args)
+#fronkensteen-editor-redo-button_click
+(#fronkensteen-editor-redo-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-save-and-close-button_click
-(fronkensteen-editor-save-and-close-button_click args)
+#fronkensteen-editor-save-and-close-button_click
+(#fronkensteen-editor-save-and-close-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-save-button_click
-(fronkensteen-editor-save-button_click args)
+#fronkensteen-editor-save-button_click
+(#fronkensteen-editor-save-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-scheme-eval-button_click
-(fronkensteen-editor-scheme-eval-button_click args)
+#fronkensteen-editor-scheme-eval-button_click
+(#fronkensteen-editor-scheme-eval-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-strikeout-button_click
-(fronkensteen-editor-strikeout-button_click args)
+#fronkensteen-editor-strikeout-button_click
+(#fronkensteen-editor-strikeout-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-subscript-button_click
-(fronkensteen-editor-subscript-button_click args)
+#fronkensteen-editor-subscript-button_click
+(#fronkensteen-editor-subscript-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-superscript-button_click
-(fronkensteen-editor-superscript-button_click args)
+#fronkensteen-editor-superscript-button_click
+(#fronkensteen-editor-superscript-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-editor-undo-button_click
-(fronkensteen-editor-undo-button_click args)
+#fronkensteen-editor-undo-button_click
+(#fronkensteen-editor-undo-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-preview-done-button_click
-(fronkensteen-preview-done-button_click args)
+#fronkensteen-preview-done-button_click
+(#fronkensteen-preview-done-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-show-repl-button_click
-(fronkensteen-show-repl-button_click args)
+#fronkensteen-show-repl-button_click
+(#fronkensteen-show-repl-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
@@ -2565,58 +2565,58 @@ fronkensteen-toolbar-button
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-delete-button_click
-(fronkensteen-wiki-delete-button_click args)
+#fronkensteen-wiki-delete-button_click
+(#fronkensteen-wiki-delete-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-docs-button_click
-(fronkensteen-wiki-docs-button_click args)
+#fronkensteen-wiki-docs-button_click
+(#fronkensteen-wiki-docs-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-edit-button_click
-(fronkensteen-wiki-edit-button_click args)
+#fronkensteen-wiki-edit-button_click
+(#fronkensteen-wiki-edit-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-history-button_click
-(fronkensteen-wiki-history-button_click args)
+#fronkensteen-wiki-history-button_click
+(#fronkensteen-wiki-history-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-home-button_click
-(fronkensteen-wiki-home-button_click args)
+#fronkensteen-wiki-home-button_click
+(#fronkensteen-wiki-home-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-import-file-button_click
-(fronkensteen-wiki-import-file-button_click args)
+#fronkensteen-wiki-import-file-button_click
+(#fronkensteen-wiki-import-file-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-incoming-links-button_click
-(fronkensteen-wiki-incoming-links-button_click args)
+#fronkensteen-wiki-incoming-links-button_click
+(#fronkensteen-wiki-incoming-links-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-new-page-button_click
-(fronkensteen-wiki-new-page-button_click args)
+#fronkensteen-wiki-new-page-button_click
+(#fronkensteen-wiki-new-page-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-refresh-button_click
-(fronkensteen-wiki-refresh-button_click args)
+#fronkensteen-wiki-refresh-button_click
+(#fronkensteen-wiki-refresh-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-save-work_space-button_click
-(fronkensteen-wiki-save-work_space-button_click args)
+#fronkensteen-wiki-save-work_space-button_click
+(#fronkensteen-wiki-save-work_space-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-search-button_click
-(fronkensteen-wiki-search-button_click args)
+#fronkensteen-wiki-search-button_click
+(#fronkensteen-wiki-search-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
@@ -2625,8 +2625,8 @@ fronkensteen-wiki-search-field_input
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-fronkensteen-wiki-special-button_click
-(fronkensteen-wiki-special-button_click args)
+#fronkensteen-wiki-special-button_click
+(#fronkensteen-wiki-special-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
@@ -4155,18 +4155,18 @@ reload
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-remote-eval-button_click
-(remote-eval-button_click args)
+#remote-eval-button_click
+(#remote-eval-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-remote-eval-done-button_click
-(remote-eval-done-button_click args)
+#remote-eval-done-button_click
+(#remote-eval-done-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-remote-eval-expression-button_click
-(remote-eval-expression-button_click args)
+#remote-eval-expression-button_click
+(#remote-eval-expression-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
@@ -4235,18 +4235,18 @@ render-wiki-content
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-repl-clear-button_click
-(repl-clear-button_click args)
+#repl-clear-button_click
+(#repl-clear-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-repl-eval-buffer-button_click
-(repl-eval-buffer-button_click args)
+#repl-eval-buffer-button_click
+(#repl-eval-buffer-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
-repl-eval-button_click
-(repl-eval-button_click args)
+#repl-eval-button_click
+(#repl-eval-button_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 
@@ -5187,11 +5187,6 @@ Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 wiki-file-uploaded
 (wiki-file-uploaded args)
-Please help by writing some docs for this! (see docs/Scheme Documentation)
-
-
-wikilink_click
-(wikilink_click args)
 Please help by writing some docs for this! (see docs/Scheme Documentation)
 
 

@@ -62,7 +62,7 @@ Unfortunately Scheme already has a procedure called [code div code], so Fronkens
 
 [h2  Auto-wiring of HTML Elements h2]
 
-Some HTML elements (such as buttons) can be "auto-wired". Using a button as an example, [code (button "#coolbutton" "My Cool Button") code] will produce [code <button id="coolbutton">My Cool Button</button> code] (just as above). If this button is inserted into the DOM and the [code (wire-ui) code] procedure is called afterward, an event handler will be added to the button that calls a procedure named [code (coolbutton_click) code] when the button is clicked (if that procedure exists). This is very convenient compared to adding an event handler to every button by hand. The element must have an id in order for this to work. Similar conventions exist for other elements.
+Some HTML elements (such as buttons) can be "auto-wired". Using a button as an example, [code (button "#coolbutton" "My Cool Button") code] will produce [code <button id="coolbutton">My Cool Button</button> code] (just as above). If this button is inserted into the DOM and the [code (wire-ui) code] procedure is called afterward, an event handler will be added to the button that calls a procedure named [code (#coolbutton_click) code] when the button is clicked (if that procedure exists). This is very convenient compared to adding an event handler to every button by hand. The element must have an id in order for this to work. Similar conventions exist for other elements.
 
 
 ## jQuery Interface

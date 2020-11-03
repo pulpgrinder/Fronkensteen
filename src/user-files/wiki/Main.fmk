@@ -6,14 +6,14 @@
 [menu
 Kitchen Sink
 special/Documentation
-special/All pages
+special/All Pages
 menu]
 
 [h2 What is Fronkensteen? h2]
 
-It's a self-contained, fully-programmable wiki system. Everything is in one HTML file, which will work in any modern browser.[note i.e. not Internet Explorer, or non-Chromium Microsoft Edge. Sorry. Currently supported browsers include: Firefox, Chrome, Safari (both desktop and mobile), Opera, Brave, and the new Chromium-based Microsoft Edge. note]
+It's a self-contained, fully-programmable system for building web apps using a wiki-like model. Everything is in one HTML file, which will work in any modern browser.[note i.e. not Internet Explorer, or non-Chromium Microsoft Edge. Sorry. Currently supported browsers include: Firefox, Chrome, Safari (both desktop and mobile), Opera, Brave, and the new Chromium-based Microsoft Edge. note]
 
-Fronkensteen will work fine when loaded from a local disk. You do not need a server of any kind. A Fronkensteen wiki can be copied onto a thumb drive, emailed to someone else, used inside a native app framework such as Electron or Cordova... use your imagination. It's just a file, dude! You can even put it on a web server if you wish. [icon thumb-up icon]
+Fronkensteen will work fine when loaded from a local disk. You do not need a server of any kind. A Fronkensteen app can be copied onto a thumb drive, emailed to someone else, used inside a native app framework such as Electron or Cordova... use your imagination. It's just a file, dude! You can even put it on a web server if you wish. [icon thumb-up icon]
 
 [h2 Why? h2]
 
@@ -21,8 +21,8 @@ In Ancient Times, you could just sit down at a computer, write some code, run it
 
 [h2 Where Do I Get It? h2]
 
-You're soaking in it! This page itself is a running Fronkensteen wiki.
-Clicking the [icon data-transfer-download icon] button in the top left of this page will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the wiki pages and/or code (see below), and save it as an HTML file on your local disk.[note If you want the source code, you can find that in the [link https://github.com/pulpgrinder/Fronkensteen|GitHub repository link], but that's not at all necessary for normal use. note]
+You're soaking in it! This page itself is a running Fronkensteen app.
+Clicking the [icon data-transfer-download icon] button in the top left of this page will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the app pages and/or code (see below), and save it as an HTML file on your local disk.[note If you want the source code, you can find that in the [link https://github.com/pulpgrinder/Fronkensteen|GitHub repository link], but that's not at all necessary for normal use. note]
 
 [h2 Batteries Included h2]
 
@@ -37,6 +37,9 @@ Have a look at the [link Kitchen Sink link] page to see the kinds of things you 
 Then try the [link docs/Getting Started|Getting Started link] page for an introduction to the system.
 
 For programming information, see [link docs/Programming|Programming link].
+
+Current date and time: [!scheme (iso-8601-date) scheme!]
+
 
 [h2 Credits h2]
 

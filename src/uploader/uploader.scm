@@ -19,7 +19,7 @@
         (button "#download-done" "Done"))
 ))
 
-(define (download-done_click)
+(define (#download-done_click)
     (nav-go-back))
 
 (build-downloader "#fronkensteen-wrapper")

@@ -55,7 +55,12 @@ Fronkenmark.preScripts["include"] = Fronkenmark.preScripts["js"] = function(code
 
 Fronkenmark.processJavascript = function(code){
   let result;
+  let sourcefile = Fronkenmark.sourceFile;
+  if(sourcefile === ""){
+    sourcefile = "(unavailable)"
+  }
   try{
+      Fronkensteen.parseJSProcedureDefs(sourcefile, code)
       let js_evaluator = new Function(code);
       result = js_evaluator();
   }
@@ -72,6 +77,11 @@ Fronkenmark.processJavascript = function(code){
 Fronkenmark.processScheme = function(code){
   Fronkensteen.CumulativeErrors = [];
   let expr = Fronkensteen.renderREPLTemplate(code);
+  let sourcefile = Fronkenmark.sourceFile;
+  if(sourcefile === ""){
+    sourcefile = "(unavailable)"
+  }
+  Fronkensteen.parseSchemeProcedureDefs(sourcefile,expr)
   var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   let result = intp2.evaluate(expr);
   if(Fronkensteen.CumulativeErrors.length !== 0){

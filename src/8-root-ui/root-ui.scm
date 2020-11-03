@@ -68,7 +68,14 @@
               ))
           (dv (<< id "-body.fronkensteen-dialog-body") (dv (<< id "-content.fronkensteen-dialog-content") text)))))
   (set-draggable! (scheme->json `(("element" . ,id) ("dragitem" . ,(<< id "-titlebar")) ("closebutton" . ,(<< id "-close-button")) ("width" . ,width) (height . ,height))))
-  (center-element id))))
+  (center-element id)
+  (wire-ui))))
+
+(define (.fronkensteen-dialog-title_click ev)
+  (% ".fronkensteen-dialog" "css" "z-index" "0")
+    (let ((target (js-ref ev "currentTarget")))
+      (let ((id  (element-read-attribute target "id")))
+        (% (% (<< "#" id) "parent")  "css" "z-index" "10000"))))
 
   (define (show-mini-repl)
     (let ((repl-history (get-local-storage-item "repl-history")))
@@ -92,16 +99,16 @@
             (cm-editor-set-text "#repl-input" repl-history))
           (wire-ui)))))
 
-  (define (repl-clear-button_click ev)
+  (define (#repl-clear-button_click ev)
     (cm-editor-set-text "#repl-input" "")
     (set-local-storage-item! "repl-history" ""))
 
-  (define (repl-eval-button_click ev)
+  (define (#repl-eval-button_click ev)
     (cm-editor-eval-selection-or-expr-before-cursor! "#repl-input")
     (set-local-storage-item! "repl-history" (cm-editor-get-text "#repl-input")
     ))
 
-    (define (repl-eval-buffer-button_click ev)
+    (define (#repl-eval-buffer-button_click ev)
       (cm-eval-editor-buffer! "#repl-input")
       (set-local-storage-item! "repl-history" (cm-editor-get-text "#repl-input")
       ))

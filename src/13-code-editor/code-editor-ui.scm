@@ -54,6 +54,7 @@
         (button "#fronkensteen-editor-doc-button.fronkensteen-editor-button!title='See More Tags'" (iconic-icon "book"))
         (button "#fronkensteen-editor-lambda-button.fronkensteen-editor-button!title='Script Tools'" (iconic-icon "lambda"))
         (button "#fronkensteen-editor-history-button.fronkensteen-editor-button!title='Show History'" (iconic-icon "clock"))
+        (button "#fronkensteen-editor-fullscreen-button.fronkensteen-editor-button!title='Enter distraction-free (fullscreen) mode'" (iconic-icon "fullscreen-enter"))
 
       ))
     ))

@@ -17,7 +17,7 @@
             "position" "absolute"
             "left" "0"
             "top" "0"
-            "bottom" "2em"
+            "bottom" "0"
             "right" "0"
             "display" "none"
             "outline" "none"
@@ -28,15 +28,15 @@
           ("#fronkensteen-wiki-content-container" (
             "position" "fixed"
             "top" "2em"
-            "bottom" "0"
+            "bottom" "2em"
             "left" "0"
             "right" "0"
           ))
           (".fronkensteen-wiki-content" (
             "overflow" "auto"
-            "min-height" "100%"
             "width" "60em"
             "margin" "auto"
+            "min-height" "90%"
             ))
             (".fronkensteen-wiki-content .round-list" (
               "padding-right" "3em"
@@ -52,6 +52,7 @@
                 "padding-right" "1.5em"
                 "padding-top" "1.5em"
                 "line-height" "1.25em"
+                "display" "none"
                 ))
 
                 ("#fronkensteen-wiki-viewer" (

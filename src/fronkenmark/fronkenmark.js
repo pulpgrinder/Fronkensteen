@@ -6,6 +6,7 @@ if(typeof (Fronkenmark) === "undefined"){
   Fronkenmark.substitutions = {};
 }
 
+Fronkenmark.sourceFile = "";
 Fronkenmark.errors = "";
 Fronkenmark.currentLanguage = "";
 Fronkenmark.languageClass = "";
@@ -507,11 +508,17 @@ Fronkenmark.romanize = function (num,upper) {
     return Array(+digits.join("") + 1).join("M") + roman;
 }
 
+BiwaScheme.define_libfunc("fronkenmark-set-source-file",1,1, function(ar,intp){
+  BiwaScheme.assert_string(ar[0]);
+  Fronkenmark.sourceFile = ar[0];
+})
+
 BiwaScheme.define_libfunc("fronkenmark",3,3, function(ar,intp){
   BiwaScheme.assert_string(ar[0]);
   try {
     let text= Fronkenmark.fronkenmark(ar[0],ar[1],ar[2]);
     Fronkenmark.resetSubstitutions();
+    Fronkenmark.sourceFile = "";
     return text;
   }
   catch(e){

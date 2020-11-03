@@ -12,8 +12,8 @@
       (% "#fronkensteen-wiki-search-list" "html" (generate-wiki-search-results matching-pages))
       (% ".fronkensteen-wiki-search-entry" "on" "click" (lambda (ev)
       (let ((target (js-ref ev "currentTarget")))
-      (let ((target  (element-read-attribute target "target")))
-        (display-wiki-page target)
+      (let ((wiki-title  (element-read-attribute target "target")))
+        (display-wiki-page wiki-title)
   )))))))
 
 (define (wiki-base-name filename)
@@ -107,7 +107,7 @@
 
 
 
-(define (fronkensteen-wiki-search-field_input ev)
+(define (#fronkensteen-wiki-search-field_input ev)
   (run-wiki-search))
 
 (define (run-wiki-search)
@@ -116,10 +116,10 @@
       (display-search-results '())
       (display-search-results (find-matching-wiki-pages search-term)))))
 
-(define (fronkensteen-wiki-search-button_click)
+(define (#fronkensteen-wiki-search-button_click)
   (init-wiki-search-display))
 
-(define (fronkensteen-wiki-incoming-links-button_click ev)
+(define (#fronkensteen-wiki-incoming-links-button_click ev)
   (let ((matching-pages (collect-linked-pages current-title (vector->list (get-internal-dir "user-files/wiki")))))
     (display-incoming-links matching-pages)))
 
@@ -147,3 +147,6 @@
 
 (define (collect-menu-pages title page-list)
         (collect-matching-wiki-pages (<< "\\[menu[\\s\\S]*" title "[\\s\\S]*menu\\]") page-list "regex"))
+
+(define (collect-include-pages title page-list)
+        (collect-matching-wiki-pages (<< "\\[\\!include[\\s\\S]*" title "[\\s\\S]*include\\!\\]") page-list "regex"))

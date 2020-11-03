@@ -1,4 +1,4 @@
-(define (fronkensteen-editor-lambda-button_click)
+(define (#fronkensteen-editor-lambda-button_click)
   (if (element-exists? "#fronkensteen-lambda-dialog")
     #t
 (begin
@@ -16,7 +16,7 @@
               (input "#lambda-proc-lookup!type='text'!size='15'"))
           )))
          (dv "#lambda-proc-display-wrapper" (dv "#lambda-proc-display" "")))
-     "40em" "20em")
+     "40em" "27em")
     (load-lambda-proc-display)
    (wire-ui))))
 
@@ -25,7 +25,7 @@
     (let ((dialog-body-id (<< dialog-id "-body.lambda-doc-body") ))
   (build-fronkensteen-dialog (<< dialog-id "-dialog") (<< "Source code for " procname)
    (dv dialog-body-id "")
-   "40em" "20em")
+   "40em" "22em")
    (% dialog-body-id  "html"
      (<<
        "Procedure: " procname "<br />"
@@ -37,7 +37,7 @@
     (let ((dialog-body-id (<< dialog-id "-body") ))
   (build-fronkensteen-dialog (<< dialog-id "-dialog") (<< "Documentation for " procname)
    (dv (<< dialog-body-id ".lambda-doc-body") "")
-   "40em" "20em")
+   "40em" "16em")
    (% dialog-body-id "html"
       (pre (html-escape (retrieve-procedure-documentation procname)))))))
 
@@ -70,12 +70,12 @@
               (lambda-build-proc-display-list (cdr procs) proc-search))
               (lambda-build-proc-display-list (cdr procs) proc-search)))))
 
-(define (lambda-eval-scheme-button_click ev)
+(define (#lambda-eval-scheme-button_click ev)
   (if (not (eqv? current-editor #f))
     (cm-editor-eval-selection-or-expr-before-cursor! current-editor)
   ))
 
-(define (lambda-eval-js-button_click ev)
+(define (#lambda-eval-js-button_click ev)
   (if (not (eqv? current-editor #f))
     (cm-editor-eval-js-selection! current-editor)
   ))

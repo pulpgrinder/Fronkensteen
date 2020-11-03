@@ -6,7 +6,7 @@
 (% "#fronkensteen-wiki-preview" "html" (fronkenmark text #t #t)))
 
 
-(define (fronkensteen-preview-done-button_click)
+(define (#fronkensteen-preview-done-button_click)
   (% "#fronkensteen-wiki-preview" "hide")
   (% ".fronkensteen-wiki-content" "show")
   (% "#fronkensteen-preview-toolbar" "hide")
@@ -44,3 +44,18 @@
           (iconic-icon (<< "#" id "-icon!title='" title "'") icon-name)
         )
         text)))
+
+(define (toggle-fullscreen)
+  (if (is-fullscreen?)
+    (begin
+      (% "#fronkensteen-wiki-toolbars" "hide")
+      (% "#fronkensteen-bottom-toolbars" "hide")
+      (% "#fronkensteen-wiki-content-container" "css" "top" "0")
+      (% "#fronkensteen-wiki-content-container" "css" "bottom" "0")
+    )
+    (begin
+      (% "#fronkensteen-wiki-toolbars" "show")
+      (% "#fronkensteen-bottom-toolbars" "show")
+      (% "#fronkensteen-wiki-content-container" "css" "top" "2em")
+      (% "#fronkensteen-wiki-content-container" "css" "bottom" "2em")
+    )))

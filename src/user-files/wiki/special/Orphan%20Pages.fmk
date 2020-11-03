@@ -10,7 +10,7 @@
         ((eq? (indexOf page-title "themes/") 0) #f)
         (#t
           (let ((page-list (vector->list (get-internal-dir "user-files/wiki"))))
-          (let ((matching-pages (append (collect-linked-pages page-title page-list) (collect-menu-pages page-title page-list))))
+          (let ((matching-pages (append (collect-linked-pages page-title page-list) (collect-menu-pages page-title page-list) (collect-include-pages page-title page-list))))
             (if (eqv? matching-pages '())
             #t
             #f))))))
@@ -32,9 +32,11 @@
 
 (let ((wiki-files (collect-wiki-page-list)))
   (let ((orphan-pages (collect-orphans wiki-files)))
-    (let ((rendered-file-list (render-orphan-pages orphan-pages)))
+    (if (evq? orphan-pages '())
+      "<br /><br />No Orphan Pages found.<br /><br />"
+      (let ((rendered-file-list (render-orphan-pages orphan-pages)))
     (fronkenmark (<< "[menu "
         rendered-file-list
         " menu]"
-    ) #f #f))))
+    ) #f #f)))))
 scheme!]

@@ -209,7 +209,7 @@ javascript!]
 
 [!scheme
 	; Handler for the test button above.
-	(define (testButton_click)
+	(define (#testButton_click)
 			(alert (% "#myinput" "val"))
 			(% "#result-paragraph" "html" (% "#myinput" "val"))
 

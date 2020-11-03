@@ -84,20 +84,20 @@
         (add-wiki-history title "page"))
       (edit-wiki-page title))))
 
-(define (fronkensteen-wiki-refresh-button_click ev)
+(define (#fronkensteen-wiki-refresh-button_click ev)
     (make-page-dirty current-title)
     (display-wiki-page current-title))
 
-(define (fronkensteen-wiki-special-button_click ev)
+(define (#fronkensteen-wiki-special-button_click ev)
     (display-wiki-page "special/Special Pages"))
 
-(define (fronkensteen-wiki-home-button_click ev)
+(define (#fronkensteen-wiki-home-button_click ev)
     (display-wiki-page "Main"))
 
-(define (fronkensteen-wiki-docs-button_click ev)
+(define (#fronkensteen-wiki-docs-button_click ev)
     (display-wiki-page "special/Documentation"))
 
-(define (fronkensteen-wiki-delete-button_click ev)
+(define (#fronkensteen-wiki-delete-button_click ev)
     (if (eqv? current-title "system/Launch System")
       (alert "Sorry, can't delete the system launch page. Feel free to edit it, though.")
       (if (confirm (<< current-title ": delete? Are you sure?"))
@@ -118,6 +118,7 @@
       (make-page-dirty title)))
 
 (define (display-wiki-content title wikidata)
+      (fronkenmark-set-source-file title)
       (% ".fronkensteen-toolbar" "hide")
       (% "#fronkensteen-wiki-toolbar" "show")
       (fix-uncacheable title)
@@ -167,10 +168,12 @@
 ;;;;;!
 
 (define (exec-wiki-page title)
+  (fronkenmark-set-source-file title)
   (let ((wikidata (retrieve-wiki-data title)))
     (if (eq? wikidata #f)
         (console-error (<< "Error retrieving wiki page: " title))
-        (fronkenmark wikidata #t #t))))
+        (fronkenmark wikidata #t #t)
+        )))
 
 
 (define (render-wiki-content container-id content)
@@ -284,7 +287,7 @@
   (% (<< "#fronkensteen-" title "-toolbar") "show"))
 
 
-(define (fronkensteen-wiki-save-work_space-button_click)
+(define (#fronkensteen-wiki-save-work_space-button_click)
     (save-the-static-world))
 
 (define (wiki-file-uploaded filename data)
@@ -299,16 +302,13 @@
    (let ((path (wiki-data-path filename)))
       (write-data-url-to-internal-file path data)))
 
-(define (fronkensteen-show-repl-button_click)
+(define (#fronkensteen-show-repl-button_click)
   (show-mini-repl))
 
 
-(define (fronkensteen-wiki-import-file-button_click)
+(define (#fronkensteen-wiki-import-file-button_click)
     (upload-file ".png,.jpg,.gif,.svg,.mp3,.mp4,.m4v,.scm,.txt,.fmk,.md" #t wiki-file-uploaded))
 
-(define (wikilink_click target link-text)
-  ; target is the jQuery object that was clicked. Not used in this default code, but it's there if you need it.
-  (display-wiki-page link-text))
 
 ; Startup
 (define (system-launch)

@@ -105,8 +105,10 @@ class CMEditorDriver {
           result = " ; No balanced expression found preceding cursor."
         }
         else{
+          let code = Fronkensteen.renderREPLTemplate(selection);
+          Fronkensteen.parseSchemeProcedureDefs("(defined in editor or REPL)", code);
           var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-          result = " ; value:  " + intp2.evaluate(Fronkensteen.renderREPLTemplate(selection)) + Fronkensteen.CumulativeErrors.join("\n");
+          result = " ; value:  " + intp2.evaluate(code) + Fronkensteen.CumulativeErrors.join("\n");
           Fronkensteen.CumulativeErrors = [];
         }
         doc.replaceSelection(doc.getSelection() + result);
@@ -129,6 +131,7 @@ class CMEditorDriver {
       let selection = doc.getSelection();
       if(selection.length > 0){
         try{
+          Fronkensteen.parseJSProcedureDefs("(defined in editor or REPL)", selection);
           eval(selection);
           result = "";
         }
@@ -321,7 +324,7 @@ class CMEditorDriver {
 
     save(){
         var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-        intp2.evaluate("(fronkensteen-editor-save-button_click)")
+        intp2.evaluate("(#fronkensteen-editor-save-button_click)")
     }
     focusFind(){
       setTimeout(function(){
@@ -333,7 +336,7 @@ class CMEditorDriver {
     findNext(){
       setTimeout(function(){
       var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-      intp2.evaluate("(fronkensteen-editor-find-button_click)");
+      intp2.evaluate("(#fronkensteen-editor-find-button_click)");
       return true;
     },15)
     }

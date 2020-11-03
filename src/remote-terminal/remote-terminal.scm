@@ -23,13 +23,13 @@
 (define (display-repl-result result)
   (cm-editor-replace-selected-text "#remote-terminal-code-input" (<< (cm-editor-get-selected-text "#remote-terminal-code-input") " ; " result)))
 
-(define (remote-eval-expression-button_click)
+(define (#remote-eval-expression-button_click)
     (let ((selection (cm-editor-get-scheme-selection-or-expr-before-cursor! "#remote-terminal-code-input")))
     (remote-evaluate selection)))
 
-(define (remote-eval-button_click)
+(define (#remote-eval-button_click)
     (cm-editor-select-all "#remote-terminal-code-input")
     (remote-eval-expression-button_click))
 
-(define (remote-eval-done-button_click)
+(define (#remote-eval-done-button_click)
     (show-ui-panel "#fronkensteen-wiki-wrapper"))
