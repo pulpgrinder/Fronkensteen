@@ -139,6 +139,11 @@
     (let ((editor-name current-editor))
     (cm-editor-set-bold editor-name))))
 
+    (define (#fronkensteen-editor-menu-button_click)
+      (if (eqv? current-editor #f)
+        #f
+        (let ((editor-name current-editor))
+        (cm-editor-set-menu editor-name))))
 
 (define (#fronkensteen-editor-poetry-button_click)
   (if (eqv? current-editor #f)
@@ -188,7 +193,7 @@
 (define (#fronkensteen-editor-replace-and-find-button_click)
   (cm-editor-replace-selected-text current-editor (% "#code-editor-replace-field" "val"))
   (run-editor-search))
-  
+
 (define (run-editor-search)
   (let ((cursor-direction
       (if (eqv? (checkbox-checked? "#fronkensteen-editor-search-backward") #t)

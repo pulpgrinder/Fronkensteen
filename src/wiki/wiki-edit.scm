@@ -82,7 +82,7 @@
 
 (define (#fronkensteen-editor-doc-button_click)
     (build-fronkensteen-dialog "#fronkensteen-editor-docs" "Available Tags" (fronkenmark (
-      retrieve-wiki-data "docs/Fronkenmark Text Formatting"
+      retrieve-wiki-data "docs/2-Fronkenmark Text Formatting"
       ) #t #t) "40em" "20em"))
 
 (define (fronkensteen-editor-close-and-display-page)

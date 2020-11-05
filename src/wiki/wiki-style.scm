@@ -174,6 +174,9 @@
              (".fronkensteen-editor-button" (
                "height" "2em"
                ))
+               ("#fronkensteen-editor-docs-content" (
+                 "padding" "1em"
+                 ))
              (".wiki-video" (
                "width" "50%"
                "margin" "auto"
