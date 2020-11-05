@@ -56,5 +56,23 @@
         (button "#fronkensteen-editor-history-button.fronkensteen-editor-button!title='Show History'" (iconic-icon "clock"))
         (button "#fronkensteen-editor-fullscreen-button.fronkensteen-editor-button!title='Enter distraction-free (fullscreen) mode'" (iconic-icon "fullscreen-enter"))
 
+
       ))
     ))
+
+(define (fronkensteen-editor-search-toolbar)
+ (<<
+   "&nbsp;&nbsp;Find:"
+   (input "#code-editor-find-field!type='text'")
+   (button "#fronkensteen-editor-find-button.fronkensteen-editor-button!title='Find'" "Find")
+   "&nbsp;&nbsp;Replace with:"
+   (input "#code-editor-replace-field!type='text'")
+   (button "#fronkensteen-editor-replace-button.fronkensteen-editor-button!title='Replace'" "Replace")
+   (input "#fronkensteen-editor-search-case-sensitive.fronkensteen-editor-search-option!type='checkbox'")
+   "&nbsp;case-sensitive&nbsp;&nbsp;"
+   (input "#fronkensteen-editor-search-regex.fronkensteen-editor-search-option!type='checkbox'")
+   "&nbsp;regex&nbsp;&nbsp;"
+   (input "#fronkensteen-editor-search-backward.fronkensteen-editor-search-option!type='checkbox'")
+   "&nbsp;search backward"
+   )
+)
