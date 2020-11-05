@@ -262,7 +262,7 @@ Fronkensteen.addScheme = function(filename){
     while ((procdef = re.exec(sourceData)) != null) {
       let procstart = procdef.index + 15;
       let procHead = sourceData.substring(procstart);
-      currentProc = procHead.substring(0,procHead.indexOf(",")).replace(/\"/g,"").replace(/\'/g,"");
+      currentProc = procHead.substring(0,procHead.indexOf(",")).replace(/\"/g,"").replace(/\'/g,"").trim();
       let parencount = 1;
       let proc_end = procdef.index + 15;
       let max_length = sourceData.length;
