@@ -36,7 +36,7 @@ BiwaScheme.define_libfunc("cm-end-position",1,1,function(ar){
   BiwaScheme.assert_string(ar[0]);
   editDriver.activateEditor(ar[0]);
   editDriver.goToEnd(ar[0]);
-  let position = editDriver.getCursorPosition(ar[0]);
+  let position = editDriver.getCursorPosition(ar[0],to);
   return [position[0],position[1],position[0],position[1]];
 })
 
@@ -207,9 +207,16 @@ BiwaScheme.define_libfunc("cm-editor-set-cursor-position",3,3, function(ar){
   editDriver.activateEditor(ar[0]);
   editDriver.setCursorPosition(ar[0],ar[1],ar[2]);
 });
-BiwaScheme.define_libfunc("cm-editor-get-cursor-position",1,1, function(ar){
+BiwaScheme.define_libfunc("cm-editor-get-cursor-position",1,2, function(ar){
+  let cursorArg
+  if(ar.length === 2){
+    cursorArg = ar[1]
+  }
+  else {
+    cursorArg = "to"
+  }
   editDriver.activateEditor(ar[0]);
-  return editDriver.getCursorPosition(ar[0]);
+  return editDriver.getCursorPosition(ar[0],cursorArg);
 });
 BiwaScheme.define_libfunc("cm-editor-get-line",2,2, function(ar){
   editDriver.activateEditor(ar[0]);

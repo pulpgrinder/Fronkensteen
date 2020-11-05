@@ -362,12 +362,12 @@ class CMEditorDriver {
       }
       editor.getDoc().setCursor(line,column)
     }
-    getCursorPosition(editorname){
+    getCursorPosition(editorname,cursorSelector){
       let editor = this.cm_editors[editorname];
       if(editor === undefined){
         console.error("No editor found for " + editorname)
       }
-      let cursor = editor.getCursor("to");
+      let cursor = editor.getCursor(cursorSelector);
       return [cursor.line,cursor.ch];
     }
     getLine(editorname,line_number){

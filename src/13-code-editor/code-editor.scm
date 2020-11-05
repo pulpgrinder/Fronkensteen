@@ -182,8 +182,12 @@
   (run-editor-search))
 ; editor, search lemma, start position, foldcase, regex, search_backward.
 (define (run-editor-search)
-  (cm-find current-editor (% "#code-editor-find-field" "val")
-    (cm-editor-get-cursor-position current-editor)
+  (let ((cursor-direction
+      (if (eqv? (checkbox-checked? "#fronkensteen-editor-search-backward") #t)
+        "from"
+        "to")))
+    (cm-find current-editor (% "#code-editor-find-field" "val")
+    (cm-editor-get-cursor-position current-editor cursor-direction)
     (not (checkbox-checked? "#fronkensteen-editor-search-case-sensitive"))
     (checkbox-checked? "#fronkensteen-editor-search-regex")
     (checkbox-checked? "#fronkensteen-editor-search-backward") )
