@@ -120,7 +120,9 @@
 (define (display-wiki-content title wikidata)
       (fronkenmark-set-source-file title)
       (% ".fronkensteen-toolbar" "hide")
+      (% ".fronkensteen-bottom-toolbar" "hide")
       (% "#fronkensteen-wiki-toolbar" "show")
+      (% "#fronkensteen-bottom-toolbar" "show")
       (fix-uncacheable title)
       (remove-dirty-pages fronkensteen-dirty-pages)
       (% "#fronkensteen-wiki-title" "html" title)
@@ -254,10 +256,15 @@
                 "")
             ))
            (dv "#fronkensteen-bottom-toolbars"
+            (<<
              (dv "#fronkensteen-bottom-toolbar.fronkensteen-bottom-toolbar" (<< (internal-image "!style='height:1em;'" "user-files/wiki/images/fronkensteenlogo.png")
              "&nbsp; Powered by Fronkensteen"
              (span "!style='float:right;'" (internal-image "!style='height:1em'" "user-files/wiki/images/fecit.png" ))
-             )))
+             ))
+             (dv "#fronkensteen-editor-bottom-toolbar.fronkensteen-bottom-toolbar"
+                (fronkensteen-editor-search-toolbar)
+             )
+             ))
         )
 
         ))
@@ -265,6 +272,17 @@
         )
 
   (show-ui-panel "#fronkensteen-wiki-wrapper")
+  (% "#fronkensteen-editor-search-case-sensitive" "on" "change" (lambda (ev)
+    (set-checkbox-checked! "#fronkensteen-editor-search-regex" #f)
+    (run-editor-search)
+  ))
+  (% "#fronkensteen-editor-search-regex" "on" "change" (lambda (ev)
+    (set-checkbox-checked! "#fronkensteen-editor-search-case-sensitive" #f)
+    (run-editor-search)
+  ))
+  (% "#fronkensteen-editor-search-backward" "on" "change" (lambda (ev)
+     (run-editor-search)
+  ))
   )
 
 

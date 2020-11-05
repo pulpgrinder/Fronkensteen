@@ -2,6 +2,7 @@
 (% ".fronkensteen-wiki-content" "hide")
 (% "#fronkensteen-wiki-preview" "show")
 (% ".fronkensteen-toolbar" "hide")
+(% ".fronkensteen-bottom-toolbar" "hide")
 (% "#fronkensteen-preview-toolbar" "show")
 (% "#fronkensteen-wiki-preview" "html" (fronkenmark text #t #t)))
 
@@ -10,7 +11,8 @@
   (% "#fronkensteen-wiki-preview" "hide")
   (% ".fronkensteen-wiki-content" "show")
   (% "#fronkensteen-preview-toolbar" "hide")
-  (% ".fronkensteen-toolbar" "show")
+  (% "#fronkensteen-editor-toolbar" "show")
+  (% "#fronkensteen-editor-bottom-toolbar" "show")
 
   (let ((history-entry (car fronkensteen-wiki-history-list)))
     (let ((title (car history-entry))

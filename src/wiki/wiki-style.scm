@@ -163,8 +163,8 @@
                   "font-family" "sans-serif"
                   "padding-left" "0.5em"
                   "padding-right" "1em"
-                  "padding-top" "0.5em"
-                  "padding-bottom" "1em"
+                  "padding-top" "0.25em"
+                  "padding-bottom" "0.125em"
                 ))
                 ("#fronkensteen-wiki-toolbar-buttons" (
                   "position" "absolute"

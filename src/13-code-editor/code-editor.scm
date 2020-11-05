@@ -172,3 +172,19 @@
         (let ((editor-name current-editor))
           (cm-editor-eval-js-selection! editor-name))
   ))
+
+(define (focus-find)
+  (timer (lambda()
+    (% "#code-editor-find-field" "focus")) 0.1)
+  )
+
+(define (#fronkensteen-editor-find-button_click)
+  (run-editor-search))
+; editor, search lemma, start position, foldcase, regex, search_backward.
+(define (run-editor-search)
+  (cm-find current-editor (% "#code-editor-find-field" "val")
+    (cm-editor-get-cursor-position current-editor)
+    (not (checkbox-checked? "#fronkensteen-editor-search-case-sensitive"))
+    (checkbox-checked? "#fronkensteen-editor-search-regex")
+    (checkbox-checked? "#fronkensteen-editor-search-backward") )
+)
