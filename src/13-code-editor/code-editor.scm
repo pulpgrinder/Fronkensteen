@@ -180,15 +180,26 @@
 
 (define (#fronkensteen-editor-find-button_click)
   (run-editor-search))
-; editor, search lemma, start position, foldcase, regex, search_backward.
+
+
+  (define (#fronkensteen-editor-replace-button_click)
+    (cm-editor-replace-selected-text current-editor (% "#code-editor-replace-field" "val")))
+
+(define (#fronkensteen-editor-replace-and-find-button_click)
+  (cm-editor-replace-selected-text current-editor (% "#code-editor-replace-field" "val"))
+  (run-editor-search))
+  
 (define (run-editor-search)
   (let ((cursor-direction
       (if (eqv? (checkbox-checked? "#fronkensteen-editor-search-backward") #t)
         "from"
         "to")))
-    (cm-find current-editor (% "#code-editor-find-field" "val")
+    (if (eqv? (cm-find current-editor (% "#code-editor-find-field" "val")
     (cm-editor-get-cursor-position current-editor cursor-direction)
     (not (checkbox-checked? "#fronkensteen-editor-search-case-sensitive"))
     (checkbox-checked? "#fronkensteen-editor-search-regex")
-    (checkbox-checked? "#fronkensteen-editor-search-backward") )
-)
+    (checkbox-checked? "#fronkensteen-editor-search-backward")
+    (checkbox-checked? "#fronkensteen-editor-search-wrap")
+     ) #f)
+     (alert "Not found."))
+))

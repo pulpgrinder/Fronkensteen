@@ -20,7 +20,6 @@
 
 (define (wire-event proc evtype)
   (let ((selector (str-replace proc ( << "_" evtype) "")))
-      (console-log (<< "Selector is " selector))
       (% selector "off" evtype)
       (% selector "on" evtype (lambda (ev)
             ((eval (string->symbol proc)) ev)))

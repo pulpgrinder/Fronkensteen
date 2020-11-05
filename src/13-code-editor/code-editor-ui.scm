@@ -68,11 +68,15 @@
    "&nbsp;&nbsp;Replace with:"
    (input "#code-editor-replace-field!type='text'")
    (button "#fronkensteen-editor-replace-button.fronkensteen-editor-button!title='Replace'" "Replace")
+   (button "#fronkensteen-editor-replace-and-find-button.fronkensteen-editor-button!title='Replace and Find'" "Replace and Find")
+   "&nbsp;&nbsp;"
    (input "#fronkensteen-editor-search-case-sensitive.fronkensteen-editor-search-option!type='checkbox'")
    "&nbsp;case-sensitive&nbsp;&nbsp;"
    (input "#fronkensteen-editor-search-regex.fronkensteen-editor-search-option!type='checkbox'")
    "&nbsp;regex&nbsp;&nbsp;"
    (input "#fronkensteen-editor-search-backward.fronkensteen-editor-search-option!type='checkbox'")
-   "&nbsp;search backward"
+   "&nbsp;search backward&nbsp;&nbsp;"
+   (input "#fronkensteen-editor-search-wrap.fronkensteen-editor-search-option!type='checkbox'")
+   "&nbsp;wrap"
    )
 )

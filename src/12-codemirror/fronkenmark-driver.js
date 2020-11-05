@@ -10,7 +10,6 @@ class CMEditorDriver {
       this.cm_editors = {}
     }
     activateEditor(editor_id){
-      console.log("activating " + editor_id)
       let editor = this.cm_editors[editor_id];
       if(editor === undefined){
         console.error("activateEditor: No editor corresponding to " + editor_id);
@@ -679,7 +678,7 @@ class CMEditorDriver {
     }
     editor.execCommand("goDocEnd");
   }
-  find(editor_name,search_lemma,start,fold_case,is_regex,search_backward){
+  find(editor_name,search_lemma,start,fold_case,is_regex,search_backward,wrap){
     let result = false;
     let doc;
     let editor = this.cm_editors[editor_name];
@@ -706,10 +705,23 @@ class CMEditorDriver {
       }
     if(result !== undefined){
       doc.setSelection(result.from,result.to);
-      CodeMirror.ensureCursorVisible(editor)
+      editor.scrollIntoView(result.to,100);
       return [result.from.line,result.from.ch,result.to.line,result.to.ch];
     }
     else{
+      if(wrap){
+        if((start[0] !== 0) && (start[1] !== 0)){
+          let wrapped_pos = {line:0,ch:0};
+          if(search_backward === true){
+            let nlines = doc.lineCount();
+            wrapped_pos = {line: nlines - 1,ch:doc.getLine(nlines-1).length - 1}
+          }
+          return this.find(editor_name,search_lemma,wrapped_pos,fold_case,is_regex,search_backward,false);
+        }
+        else{
+          return false;
+        }
+      }
       return false;
     }
 }

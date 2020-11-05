@@ -3,7 +3,7 @@
 // MIT License.
 
 
-BiwaScheme.define_libfunc("cm-find", 6, 6, function(ar,intp){
+BiwaScheme.define_libfunc("cm-find", 7, 7, function(ar,intp){
   // Runs a search of the active document. Args are:
   // editor, search lemma, start position, foldcase, regex, search_backward.
   // Start position is in [line,ch] format. foldcase, regex,
@@ -21,8 +21,9 @@ BiwaScheme.define_libfunc("cm-find", 6, 6, function(ar,intp){
     let fold_case = ar[3];
     let is_regex = ar[4];
     let search_backward = ar[5];
+    let wrap = ar[6];
     editDriver.activateEditor(ar[0]);
-    return editDriver.find(editor_name,search_lemma,start,fold_case,is_regex,search_backward)
+    return editDriver.find(editor_name,search_lemma,start,fold_case,is_regex,search_backward,wrap)
 })
 BiwaScheme.define_libfunc("clear-cm-editor-undo!", 1, 1, function(ar,intp){
   // Clears the undo buffer. Use after loading a file into a new editor,
