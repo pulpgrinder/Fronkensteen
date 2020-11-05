@@ -274,21 +274,15 @@
   (show-ui-panel "#fronkensteen-wiki-wrapper")
   (% "#fronkensteen-editor-search-case-sensitive" "on" "change" (lambda (ev)
     (set-checkbox-checked! "#fronkensteen-editor-search-regex" #f)
-    (run-editor-search)
   ))
   (% "#fronkensteen-editor-search-regex" "on" "change" (lambda (ev)
     (set-checkbox-checked! "#fronkensteen-editor-search-case-sensitive" #f)
-    (run-editor-search)
-  ))
-  (% "#fronkensteen-editor-search-backward" "on" "change" (lambda (ev)
-     (run-editor-search)
   ))
   )
 
 
 
 (define (init-wiki-history-display)
-
   #f
 )
 

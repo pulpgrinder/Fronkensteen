@@ -706,6 +706,7 @@ class CMEditorDriver {
       }
     if(result !== undefined){
       doc.setSelection(result.from,result.to);
+      CodeMirror.ensureCursorVisible(editor)
       return [result.from.line,result.from.ch,result.to.line,result.to.ch];
     }
     else{
