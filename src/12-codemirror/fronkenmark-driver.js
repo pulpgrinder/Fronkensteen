@@ -53,6 +53,7 @@ class CMEditorDriver {
       let doc = editor.getDoc();
       let cursor = doc.getCursor();
       let text = editor.getValue();
+      Fronkensteen.parseSchemeProcedureDefs("(defined in editor or REPL)", text);
       var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
        result = " ; value: " + intp2.evaluate(text) + Fronkensteen.CumulativeErrors.join("\n");
       Fronkensteen.CumulativeErrors = [];
