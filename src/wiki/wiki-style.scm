@@ -36,7 +36,9 @@
             "overflow" "auto"
             "width" "60em"
             "margin" "auto"
-            "min-height" "90%"
+            "position" "absolute"
+            "top" "0"
+            "bottom" "0"
             ))
             (".fronkensteen-wiki-content .round-list" (
               "padding-right" "3em"
@@ -61,7 +63,7 @@
                   "bottom" "0"
                   "left" "0"
                   "right" "0"
-                  "background-color" "#bbb"
+                  "background-color" "#555"
                 ))
                 ("#fronkensteen-wiki-toolbars" (
                   "position" "fixed"

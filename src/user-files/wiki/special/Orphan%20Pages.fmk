@@ -32,7 +32,7 @@
 
 (let ((wiki-files (collect-wiki-page-list)))
   (let ((orphan-pages (collect-orphans wiki-files)))
-    (if (evq? orphan-pages '())
+    (if (eqv? orphan-pages '())
       "<br /><br />No Orphan Pages found.<br /><br />"
       (let ((rendered-file-list (render-orphan-pages orphan-pages)))
     (fronkenmark (<< "[menu "
