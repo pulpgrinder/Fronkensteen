@@ -114,6 +114,7 @@
   (if (or
           (eq? (indexOf title "special/") 0)
           (eq? (indexOf title "system/") 0)
+          (eq? (indexOf title "themes/") 0)
           (>= (indexOf title "-nocache") 0))
       (make-page-dirty title)))
 

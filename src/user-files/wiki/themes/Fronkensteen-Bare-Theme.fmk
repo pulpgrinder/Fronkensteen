@@ -1,4 +1,6 @@
-This page activates the base Fronkensteen theme. This page is mostly Scheme code. To see the code, edit the page.
+This is the "bare" Fronkensteen theme (no toolbars). This page is mostly Scheme code. To see the code, edit the page.
+
+To get the toolbars back, choose a different theme from the [link special/List of Themes|Themes page link].
 
 [!scheme
 ; CSS for the base theme.
@@ -82,42 +84,11 @@ This page activates the base Fronkensteen theme. This page is mostly Scheme code
             "cursor" "pointer"
             ))
 
-        ("@font-face" (
-          "font-family" "\"serif\""
-          "font-style" "normal"
-          "font-weight" "normal"
-          "font-display" "auto"
-          ))
-        ("@font-face" (
-          "font-family" "\"serif\""
-          "font-style" "normal"
-          "font-weight" "bold"
-          "font-display" "auto"))
-
-        ("@font-face" (
-          "font-family" "\"serif\""
-          "font-style" "italic"
-          "font-weight" "normal"
-          "font-display" "auto"
-          ))
-          ("@font-face" (
-            "font-family" "\"serif\""
-            "font-style" "italic"
-            "font-weight" "bold"
-            "font-display" "auto"
-            ))
-          ("@font-face" (
-            "font-family" "\"serif\""
-            "font-style" "normal"
-            "font-weight" "normal"
-            "font-variant" "small-caps"
-            "font-display" "auto"
-            ))
           (".fronkensteen-wiki-content" (
-            "font-family" "serif"
+            "font-family" "sans-serif"
             ))
           ("#fronkensteen-wiki-sidebar-display" (
-            "font-family" "serif"
+            "font-family" "sans-serif"
             ))
             (".fronkensteen-dialog-title" (
               "font-family" "sans-serif"
@@ -126,7 +97,7 @@ This page activates the base Fronkensteen theme. This page is mostly Scheme code
               "color" "#fff"
               ))
               (".fronkensteen-dialog-body" (
-                "font-family" "serif"
+                "font-family" "sans-serif"
                 "background-color" "#fefaef"
                 "color" "#010161"
                 "border" "1px solid #010161"
@@ -136,6 +107,34 @@ This page activates the base Fronkensteen theme. This page is mostly Scheme code
                   "color" "#010161"
                   "background-color" "#fff"
                 ))
+        ; "Bare" theme, hide toolbars, expand main area to fill space.
+                ("#fronkensteen-wiki-toolbars" (
+                  "display" "none"
+                ))
+                ("#fronkensteen-bottom-toolbars" (
+                  "display" "none"
+                ))
+                ("#fronkensteen-wiki-content-container" (
+                  "position" "fixed"
+                  "top" "0"
+                  "bottom" "0"
+                  "left" "0"
+                  "right" "0"
+                ))
           )))
+
+          ; Fix display when entering/leavng fullscreen mode.
+          (define (toggle-fullscreen)
+            (if (is-fullscreen?)
+              (begin
+                (% "#fronkensteen-wiki-content-container" "css" "top" "0")
+                (% "#fronkensteen-wiki-content-container" "css" "bottom" "0")
+              )
+              (begin
+                (% "#fronkensteen-wiki-toolbars" "show")
+                (% "#fronkensteen-bottom-toolbars" "show")
+                (% "#fronkensteen-wiki-content-container" "css" "top" "0")
+                (% "#fronkensteen-wiki-content-container" "css" "bottom" "0")
+              )))
 ""
  scheme!]

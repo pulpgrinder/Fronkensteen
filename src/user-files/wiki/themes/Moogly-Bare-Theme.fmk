@@ -1,4 +1,6 @@
-This page activates the Moogly theme. This page is mostly Scheme code. To see the code, edit the page.
+This is the "bare" Moogly theme (no toolbars). This page is mostly Scheme code. To see the code, edit the page.
+
+To get the toolbars back, choose a different theme from the [link special/List of Themes|Themes page link].
 
 [!scheme
 ; CSS for the Moogly theme.
@@ -130,20 +132,21 @@ This page activates the Moogly theme. This page is mostly Scheme code. To see th
         ("#fronkensteen-wiki-sidebar-display" (
           "font-family" "sans-serif"
           ))
-          ; "Toolbar" theme, show toolbars, contract main area to provide space.
-            ("#fronkensteen-wiki-toolbars" (
-              "display" "block"
-            ))
-            ("#fronkensteen-bottom-toolbars" (
-              "display" "block"
-            ))
-            ("#fronkensteen-wiki-content-container" (
-              "position" "fixed"
-              "top" "2em"
-              "bottom" "2em"
-              "left" "0"
-              "right" "0"
-            ))
+
+; "Bare" theme, hide toolbars, expand main area to fill space.
+        ("#fronkensteen-wiki-toolbars" (
+          "display" "none"
+        ))
+        ("#fronkensteen-bottom-toolbars" (
+          "display" "none"
+        ))
+        ("#fronkensteen-wiki-content-container" (
+          "position" "fixed"
+          "top" "0"
+          "bottom" "0"
+          "left" "0"
+          "right" "0"
+        ))
        )))
 
  ; Fix display when entering/leavng fullscreen mode.
@@ -158,8 +161,8 @@ This page activates the Moogly theme. This page is mostly Scheme code. To see th
      (begin
        (% "#fronkensteen-wiki-toolbars" "show")
        (% "#fronkensteen-bottom-toolbars" "show")
-       (% "#fronkensteen-wiki-content-container" "css" "top" "2em")
-       (% "#fronkensteen-wiki-content-container" "css" "bottom" "2em")
+       (% "#fronkensteen-wiki-content-container" "css" "top" "0")
+       (% "#fronkensteen-wiki-content-container" "css" "bottom" "0")
      )))
 ""
  scheme!]
