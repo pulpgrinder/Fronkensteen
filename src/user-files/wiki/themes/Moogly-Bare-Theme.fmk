@@ -1,6 +1,6 @@
 This is the "bare" Moogly theme (no toolbars). This page is mostly Scheme code. To see the code, edit the page.
 
-To get the toolbars back, choose a different theme from the [link special/List of Themes|Themes page link].
+To choose a different theme, see [link special/List of Themes|Themes page link].
 
 [!scheme
 ; CSS for the Moogly theme.

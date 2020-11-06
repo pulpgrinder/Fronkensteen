@@ -1,5 +1,7 @@
 This page activates the Moogly theme. This page is mostly Scheme code. To see the code, edit the page.
 
+To choose a different theme, see [link special/List of Themes|Themes page link].
+
 [!scheme
 ; CSS for the Moogly theme.
 (install-css "fronkensteen-theme"
