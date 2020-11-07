@@ -2,6 +2,7 @@
 ; Copyright 2019-2020 by Anthony W. Hursh
 ; MIT license.
 
+(define base-font-size 18)
 (install-css "root-ui"
     (proc-css-list `(
       ("pre" (
@@ -13,9 +14,10 @@
         "left" "0"
         "right" "0"
         "padding" "0"
+        "margin" "0"
         "overflow" "auto"
         "background-color" "white"
-        "font-size" "20px"
+        "font-size" ,(<< (number->string base-font-size) "px")
         "display" "none"
 
       ))
@@ -146,40 +148,6 @@
      "padding" "0.25em"
      "cursor" "pointer"))
 
-      (".font-tiny" (
-          "font-size" "10px"
-
-        ))
-      (".font-scriptsize" (
-          "font-size" "13.3px"
-        ))
-      (".font-footnotesize" (
-          "font-size" "16.6px"
-        ))
-      (".font-smallsize" (
-          "font-size" "18.3px"
-        ))
-      (".font-normalsize" (
-          "font-size" "20px"
-        ))
-      (".font-large" (
-          "font-size" "23.3px"
-        ))
-      (".font-large2" (
-          "font-size" "28.3px"
-        ))
-      (".font-large3" (
-          "font-size" "33.3px"
-        ))
-      (".font-huge" (
-          "font-size" "38.3px"
-        ))
-      (".font-huge2" (
-          "font-size" "41.667px"
-        ))
-      (".font-huge3" (
-          "font-size" "48.667px"
-        ))
       (".fronkensteen-panel:focus" (
           "outline" "none"))
       (".box:first-child" (

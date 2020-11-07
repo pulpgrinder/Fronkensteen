@@ -10,6 +10,10 @@
 (define (set-system-dirty)
   (set! system-dirty? #t))
 
+(define (resize-root)
+  (if (is-procedure-defined? "resize-content")
+    (resize-content)))
+    
 (define (set-system-clean)
   (set! system-dirty? #f))
 

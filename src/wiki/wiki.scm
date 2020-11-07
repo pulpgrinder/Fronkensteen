@@ -130,13 +130,11 @@
       (let ((content-name (<< "#fronkensteen-wiki-content-" (encode-base-32 title))))
           (if (not (element-exists? content-name))
               (begin
-                (% "#fronkensteen-wiki-content-container" "append" (dv (<< content-name ".fronkensteen-wiki-content-wrapper!tabindex='-1'") (dv (<< content-name "-body.fronkensteen-wiki-content.fronkensteen-wiki-content-text") "")))
+                (% "#fronkensteen-wiki-content-container" "append" (dv (<< content-name ".fronkensteen-wiki-content-wrapper!tabindex='-1'") (dv (<< content-name "-body.fronkensteen-wiki-content.fronkensteen-wiki-content-text!tabindex='1'") "")))
                 (render-wiki-content (<< content-name "-body") wikidata)
                 ))
           (% ".fronkensteen-wiki-content-wrapper" "hide")
           (% content-name "show")
-          (timer (lambda ()
-            (% content-name "focus")) 0.5)
 
           (set! current-title title)
           ;(scroll-to-top content-name)
@@ -161,6 +159,9 @@
                 (search-hash-tag tag)
                ))))
       (show-ui-panel "#fronkensteen-wiki-wrapper")
+      (timer (lambda ()
+        (% (<< content-name "-body") "focus")) 1)
+
       )
 
 

@@ -136,6 +136,14 @@ BiwaScheme.define_libfunc("js-window-width", 0, 0, function(ar,intp){
   return $(window).width();
 });
 
+BiwaScheme.define_libfunc("js-document-width", 0, 0, function(ar,intp){
+  // jQuery: Returns the width of the current window.
+  return $(document).width();
+});
+BiwaScheme.define_libfunc("js-document-height", 0, 0, function(ar,intp){
+  // jQuery: Returns the width of the current window.
+  return $(document).height();
+});
 BiwaScheme.define_libfunc("%", 1, 4, function(ar,intp){
   // jQuery: the generic jQuery interface.
   switch(ar.length){

@@ -189,7 +189,7 @@ BiwaScheme.define_libfunc("repl-here", 1, 1, function(ar){
   }
 
 
-  function debouncer(func , timeout) {
+  Fronkensteen.debouncer = function(func , timeout) {
      var timeoutID , timeout = timeout || 200;
      return function () {
         var scope = this , args = arguments;
@@ -200,10 +200,11 @@ BiwaScheme.define_libfunc("repl-here", 1, 1, function(ar){
      }
   }
 
-    $(window).resize(debouncer(function (e){
-        resizeComponents();
+    $(window).resize(Fronkensteen.debouncer(function (e){
+        Fronkensteen.resizeComponents();
     }));
 
-    function resizeComponents(){
-
+    Fronkensteen.resizeComponents = function(){
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+      result = intp2.evaluate("(resize-root)")
     }

@@ -46,3 +46,11 @@
           (iconic-icon (<< "#" id "-icon!title='" title "'") icon-name)
         )
         text)))
+
+(define (resize-content)
+  (let ((new-width (js-document-width)))
+    (let ((new-width-param (if (< new-width (* base-font-size 60))
+                  (<< (number->string ( - new-width (* 5 base-font-size))) "px")
+                  "60em")))
+
+    (% ".fronkensteen-wiki-content" "css" "width" new-width-param))))

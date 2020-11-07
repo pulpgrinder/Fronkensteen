@@ -277,46 +277,36 @@ Fronkenmark.processImages  = function(text){
 
 Fronkenmark.processAudio  = function(text){
  text = text.replace(/\[audio ([\s\S]*?) audio\]/gm,function(match,code){
-   let audioparts = code.split(" ")
-   let audiotarget = audioparts.shift();
-   let audiosrc = ""
-   if(audiotarget.match(/^[a-zA-Z0-9]+\:\/\//) !== null){
-     // External audio;
-     audiosrc = audiosrc + "'" + audiotarget + "'"
-   }
-   else{
-     audiosrc = audiosrc + "'" + Fronkensteen.readInternalFileDataURL("user-files/wiki/" + audiotarget) + "'"
-   }
-   let audioseml;
-   if(audioparts.length > 0){
-     audioseml = audioparts.join(' ')
-   }
-   else audioseml = "";
-   return Fronkenmark.installSubstitute("<audio class='wiki-audio' controls " + Fronkensteen.parse_seml(audioseml) + ">" + "<source src=" + audiosrc + "type='audio/mpeg'></audio>")
+     return Fronkenmark.mediaElement(code, "audio");
  })
  return text;
 }
-
-Fronkenmark.processVideo  = function(text){
- text = text.replace(/\[video ([\s\S]*?) video\]/gm,function(match,code){
-   let videoparts = code.split(" ")
-   let videotarget = videoparts.shift();
-   let videosrc = ""
-   if(videotarget.match(/^[a-zA-Z0-9]+\:\/\//) !== null){
-     // External video;
-     videosrc = videosrc + "'" + videotarget + "'"
+ Fronkenmark.processVideo  = function(text){
+  text = text.replace(/\[video ([\s\S]*?) video\]/gm,function(match,code){
+      return Fronkenmark.mediaElement(code, "video");
+  })
+  return text;
+}
+ Fronkenmark.mediaElement = function(code,type){
+     let mediaparts = code.split(" ")
+     let mediasrcs = mediaparts.shift().split(",");
+     let mediasrc_param = ""
+     for(i = 0; i < mediasrcs.length; i++){
+       let src = mediasrcs[i].trim();
+       if(src.match(/^[a-zA-Z0-9]+\:\/\//) !== null){
+       // External src
+        mediasrc_param  = mediasrc_param + "<source src='" + src + "' type='" + Stretchr.Filetypes.mimeFor(Fronkensteen.file_extension(src)) + "'>\n"
+      }
+      else {
+        mediasrc_param  = mediasrc_param + "<source src='" + Fronkensteen.readInternalFileDataURL("user-files/wiki/" + src) + "' type='" + Stretchr.Filetypes.mimeFor(Fronkensteen.file_extension(src)) + "'>\n"
+      }
+    }
+   let mediaseml;
+   if(mediaparts.length > 0){
+     mediaseml = mediaparts.join(' ')
    }
-   else{
-     videosrc = videosrc + "'" + Fronkensteen.readInternalFileDataURL("user-files/wiki/" + videotarget) + "'"
-   }
-   let videoseml;
-   if(videoparts.length > 0){
-     videoseml = videoparts.join(' ')
-   }
-   else videoseml = "";
-   return Fronkenmark.installSubstitute("<video class='wiki-video' controls " + Fronkensteen.parse_seml(videoseml) + ">" + "<source src=" + videosrc + "type='video/mp4'></video>")
- })
- return text;
+   else mediaseml = "";
+   return Fronkenmark.installSubstitute("<" + type + " class='wiki-" + type + "' controls " + Fronkensteen.parse_seml(mediaseml) + ">\n" + mediasrc_param + "</" + type + ">")
 }
 
 Fronkenmark.getCounter = function(countername){

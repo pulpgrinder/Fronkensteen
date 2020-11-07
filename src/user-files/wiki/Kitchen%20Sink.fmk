@@ -133,6 +133,10 @@ YouTube video, user-specified dimensions:
 
 [youtube https://www.youtube.com/watch?v=nR2r__ZgO5g 560 315 youtube]
 
+Local audio (showing multiple formats):
+
+[audio media/Maple_Leaf_RagQ.ogg,media/Maple_Leaf_RagQ.mp3 audio]
+
 MP3 audio:
 
 [audio https://ia800204.us.archive.org/12/items/CarusoPourquoi/Caruso_Pourquoi.mp3 audio]

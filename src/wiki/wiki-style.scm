@@ -1,3 +1,5 @@
+(define document-width (js-document-width))
+
 (install-css "wiki-editor"
     (proc-css-list `(
         (".fronkensteen-wiki-editor" (
@@ -21,6 +23,8 @@
             "right" "0"
             "display" "none"
             "outline" "none"
+            "padding" "0"
+            "margin" "0"
           ))
           ("#fronkensteen-wiki-wrapper" (
             "overflow" "hidden"
@@ -31,10 +35,14 @@
             "bottom" "2em"
             "left" "0"
             "right" "0"
+            "padding" "0"
+            "margin" "0"
           ))
           (".fronkensteen-wiki-content" (
             "overflow" "auto"
-            "width" "60em"
+            "width" ,(if (< document-width (* base-font-size 60))
+                          (<< (number->string ( - document-width (* 5 base-font-size))) "px")
+                          "60em")
             "margin" "auto"
             "position" "absolute"
             "top" "0"
@@ -63,6 +71,8 @@
                   "bottom" "0"
                   "left" "0"
                   "right" "0"
+                  "padding" "0"
+                  "margin" "0"
                   "background-color" "#555"
                 ))
                 ("#fronkensteen-wiki-toolbars" (
