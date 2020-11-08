@@ -101,11 +101,11 @@ If you don't want this to happen, you can use:
 
 [code [img images/fronkensteenlogo.png #fronkensteen-logo!title='Fronkensteen Logo'!width='20'!height='20' img] code] inserts the image, using the specified [link docs/Programming|SEML link] markup.
 
-[code [audio https://url-to-audio-file.mp3, https://url-to-audio-file.ogg ... audio code] HTML5 audio, using remote audio files.
+[code [audio https://url-to-audio-file.mp3, https://url-to-audio-file.ogg ... audio] code] HTML5 audio, using remote audio files.
 
-[code [audio media/audio-file.mp3, media/audio-file.ogg ... audio code] HTML5 audio, using internal audio files.
+[code [audio media/audio-file.mp3, media/audio-file.ogg ... audio] code] HTML5 audio, using internal audio files.
 
-[code [video https://url-to-video-file.mp4, https://url-to-video-file.webm ... video] HTML5 video, using remote video files.
+[code [video https://url-to-video-file.mp4, https://url-to-video-file.webm ... video] code] HTML5 video, using remote video files.
 
 [code [video media/video-file.mp4, media/video-file.webm ... video] code] HTML5 audio, using internal video files.
 

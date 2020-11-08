@@ -62,11 +62,16 @@ When in eternal lines to time thou grow’st:
 poetry]
 
 [h2 Lists h2]
+
+Bulleted list:
+
 [ul
 First item
 Second item
 Third item
 ul]
+
+Numbered list:
 
 [ol
 First item
@@ -74,11 +79,15 @@ Second item
 Third item
 ol]
 
+Rounded list:
+
 [roundlist
 First item
 Second item
 Third item
 roundlist]
+
+Menus:
 
 [menu
 Main
