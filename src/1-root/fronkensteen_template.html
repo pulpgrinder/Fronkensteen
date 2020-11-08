@@ -152,6 +152,7 @@ $$$FILESYSTEM$$$
   Fronkensteen.jsErrors = [];
   Fronkensteen.schemeLoaded = [];
   Fronkensteen.schemeErrors = [];
+  Fronkensteen.currentSourceFile = null;
   Fronkensteen.logLaunchStatistics = function(){
     console.log("CSS files loaded:\n" + Fronkensteen.cssLoaded.join(", ") + "\n")
     console.log("CSS files with errors:\n" + Fronkensteen.cssErrors.join(", ") + "\n")
@@ -159,7 +160,6 @@ $$$FILESYSTEM$$$
     console.log("JS files with errors:\n" + Fronkensteen.jsErrors.join(", ") + "\n")
     console.log("Scheme files loaded:\n" + Fronkensteen.schemeLoaded.join(", ") + "\n")
     console.log("Scheme files with errors:\n" + Fronkensteen.schemeErrors.join(", ") + "\n")
-    window.removeEventListener('error',Fronkensteen.loadErrorHandler,false);
     Fronkensteen.launchPhase = "done";
   }
   // Launch debugger state variables.
@@ -191,52 +191,62 @@ Fronkensteen.export_workspace = function(){
     element.click();
 }
 
-  Fronkensteen.loadErrorHandler = function(event){
-    let message = event.message;
-    let lineNumber = event.linenumber;
-    let url = event.url;
-    Fronkensteen.loadError = true;
-    console.log("Error at url: " + url + " message: " + message + "line number: " + lineNumber);
-}
-  window.addEventListener('error',Fronkensteen.loadErrorHandler,false);
-
     // Append a style element containing CSS code from the internal
     // file system to the document head.
   Fronkensteen.addCSS = function(filename){
     Fronkensteen.currentSourceFile = filename;
-    let code = fronkensteen_fs[filename]["data"];
-    let style = document.createElement('style');
-    style.type = 'text/css';
-    style.appendChild(document.createTextNode(Fronkensteen.decodeText(code)));
-    document.head.appendChild(style);
-    if(Fronkensteen.loadError !== false){
-      Fronkensteen.cssErrors.push(filename)
+    try {
+      let code = fronkensteen_fs[filename]["data"];
+      let style = document.createElement('style');
+      style.type = 'text/css';
+      style.appendChild(document.createTextNode(Fronkensteen.decodeText(code)));
+      document.head.appendChild(style);
+    }
+    catch(e){
+      Fronkensteen.handleLoadError(filename,e);
     }
     Fronkensteen.currentSourceFile = null;
   }
   // Execute a Scheme file from the internal filesystem
 Fronkensteen.addScheme = function(filename){
   Fronkensteen.currentSourceFile = filename;
+  try{
   var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   intp2.evaluate("(load \"" + filename + "\")");
-  if(Fronkensteen.loadError !== false){
-    Fronkensteen.schemeErrors.push(filename);
   }
+  catch(e){
+      Fronkensteen.handleLoadError(filename,e)
+  }
+  Fronkensteen.currentSourceFile = null;
 }
 
+window.onerror = function (msg, url, lineNo, columnNo, error){
+  let errmsg = "";
+  if(Fronkensteen.currentSourceFile !== null){
+    errmsg = "Error in source file:" + Fronkensteen.currentSourceFile + " ->  ";
+  }
+  errmsg = errmsg + msg + "\n" + error.stack;
+  console.error(errmsg);
+  return false;
+}
+Fronkensteen.handleLoadError = function(filename,error){
+    console.error("Error in source file: " + filename + " -> " + error.toString())
+}
   // Append a script element containing JavaScript code from the internal
   // file system to the document body.
   Fronkensteen.addJS = function(filename){
    Fronkensteen.currentSourceFile = filename;
-   let code = fronkensteen_fs[filename]["data"];
-   let script = document.createElement('script');
+   try {
+    let code = fronkensteen_fs[filename]["data"];
+    let script = document.createElement('script');
     script.type = 'text/javascript';
     let jsCode = Fronkensteen.decodeText(code);
     Fronkensteen.parseJSProcedureDefs(filename,jsCode)
     script.appendChild(document.createTextNode(jsCode));
     document.body.appendChild(script);
-    if(Fronkensteen.loadError !== false){
-      Fronkensteen.jsErrors.push(filename)
+    }
+    catch(e){
+      Fronkensteen.handleLoadError(filename,e);
     }
     Fronkensteen.currentSourceFile = null;
   }
