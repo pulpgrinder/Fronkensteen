@@ -137,6 +137,8 @@
           (% content-name "show")
 
           (set! current-title title)
+          (timer (lambda ()
+            (% (<< content-name "-body") "focus")) 1)
           ;(scroll-to-top content-name)
           )
       (% ".wikilink" "off" "click")
@@ -159,8 +161,7 @@
                 (search-hash-tag tag)
                ))))
       (show-ui-panel "#fronkensteen-wiki-wrapper")
-      (timer (lambda ()
-        (% (<< content-name "-body") "focus")) 1)
+
 
       )
 
