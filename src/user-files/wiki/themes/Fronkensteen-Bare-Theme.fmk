@@ -14,13 +14,13 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
             "background-color" "#fff"
             "border-bottom" "1px solid #d9d2c0"
             "color" "#010161"
-            "font-family" "sans-serif"
+            "font-family" "sans-serif,KitchenSink"
           ))
 
           ("#fronkensteen-wiki-history-list" (
             "background-color" "#fefaef"
             "color" "#010161"
-            "font-family" "sans-serif"
+            "font-family" "sans-serif,KitchenSink"
           ))
 
           (".fronkensteen-wiki-search-entry" (
@@ -29,7 +29,7 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
             "background-color" "#fff"
             "border-bottom" "1px solid #d9d2c0"
             "color" "#010161"
-            "font-family" "sans-serif"
+            "font-family" "sans-serif,KitchenSink"
             "cursor" "pointer"
           ))
           ("#fronkensteen-wiki-sidebar-display" (
@@ -85,19 +85,19 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
             ))
 
           (".fronkensteen-wiki-content" (
-            "font-family" "sans-serif"
+            "font-family" "sans-serif,KitchenSink"
             ))
           ("#fronkensteen-wiki-sidebar-display" (
-            "font-family" "sans-serif"
+            "font-family" "sans-serif,KitchenSink"
             ))
             (".fronkensteen-dialog-title" (
-              "font-family" "sans-serif"
+              "font-family" "sans-serif,KitchenSink"
               "font-size" "125%"
               "background-color" "#010161"
               "color" "#fff"
               ))
               (".fronkensteen-dialog-body" (
-                "font-family" "sans-serif"
+                "font-family" "sans-serif,KitchenSink"
                 "background-color" "#fefaef"
                 "color" "#010161"
                 "border" "1px solid #010161"

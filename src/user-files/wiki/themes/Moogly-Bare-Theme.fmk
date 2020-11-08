@@ -19,7 +19,7 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
             "background-color" "#fff"
             "border-bottom" "1px solid #bbb"
             "color" "rebeccapurple"
-            "font-family" "sans-serif"
+            "font-family" "sans-serif,KitchenSink"
             "cursor" "pointer"
           ))
           (".fronkensteen-wiki-search-entry" (
@@ -28,7 +28,7 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
             "background-color" "#fff"
             "border-bottom" "1px solid #bbb"
             "color" "rebeccapurple"
-            "font-family" "sans-serif"
+            "font-family" "sans-serif,KitchenSink"
             "cursor" "pointer"
           ))
           ("#fronkensteen-wiki-sidebar-display" (
@@ -51,7 +51,7 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
            "border-bottom" "1px solid #ffffff"
            ))
            (".fronkensteen-dialog-title" (
-             "font-family" "sans-serif"
+             "font-family" "sans-serif,KitchenSink"
              "font-size" "125%"
              "background-color" "rebeccapurple"
              "color" "#fff"
@@ -126,11 +126,11 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
           ))
 
         (".fronkensteen-wiki-content" (
-          "font-family" "sans-serif"
+          "font-family" "sans-serif,KitchenSink"
           ))
 
         ("#fronkensteen-wiki-sidebar-display" (
-          "font-family" "sans-serif"
+          "font-family" "sans-serif,KitchenSink"
           ))
 
 ; "Bare" theme, hide toolbars, expand main area to fill space.
