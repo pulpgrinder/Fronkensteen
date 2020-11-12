@@ -55,7 +55,6 @@ Fronkenmark.processCodeBlocks = function(text){
       let match = line.match(/^\[code(.*)/);
       if(match !== null){
         Fronkenmark.currentLanguage = match[1].trim();
-        console.log("Code block: language is " + Fronkenmark.currentLanguage)
         // Handle syntax highlighting.
 
          if(Fronkenmark.currentLanguage === ""){
@@ -102,7 +101,6 @@ Fronkenmark.removeComments = function(text){
 
 Fronkenmark.processUnicode = function(text){
   text = text.replace(/U\+([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F])/gm,function(match,code){
-    console.log("code is " + code)
     return String.fromCodePoint("0x" + code)
   }
 );
@@ -173,8 +171,6 @@ Fronkenmark.renderTableItems = function(text){
   while(template.length < rows.length){
     template.push([]);
   }
-  console.log("template is " + template);
-  console.log("template length: " + template.length)
   for(var i = 0; i < rows.length; i++){
     let row = rows[i];
     let templaterow = template[i];

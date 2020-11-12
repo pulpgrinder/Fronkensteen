@@ -208,7 +208,6 @@ BiwaScheme.define_libfunc("open-url", 1, 1, function(ar){
   // Open the website URL specified in ar[0] in a new window.
   // See navigate-url if you want to open the URL in the main window.
     BiwaScheme.assert_string(ar[0]);
-    console.log("Opening " + ar[0])
     window.open(ar[0]);
     return true;
 });
@@ -253,7 +252,6 @@ document.addEventListener("mozfullscreenchange", function(){Fronkensteen.toggleF
 document.addEventListener("webkitfullscreenchange", function(){Fronkensteen.toggleFullScreen()});
 
 Fronkensteen.toggleFullScreen = function(){
-  console.log("toggling")
   Fronkensteen.isFullScreen = !Fronkensteen.isFullScreen;
   if(BiwaScheme.is_procedure_defined("toggle-fullscreen") === true){
     var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
