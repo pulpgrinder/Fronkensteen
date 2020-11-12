@@ -26,11 +26,18 @@
   (build-fronkensteen-dialog (<< dialog-id "-dialog") (<< "Source code for " procname)
    (dv dialog-body-id "")
    "40em" "22em")
-   (% dialog-body-id  "html"
-     (<<
-       "Procedure: " procname "<br />"
-       "Defined in: " (retrieve-procedure-filename procname) "<br />"
-      (pre (html-escape (retrieve-procedure-definition procname))))))))
+    (let ((encoded-proc-name (encode-base-32 procname) ))
+      (let ((textarea-name (<< "#" encoded-proc-name "-def-textarea")))
+        (% dialog-body-id  "html"
+          (<<
+            "Procedure: " procname "<br />"
+            "Defined in: " (retrieve-procedure-filename procname) "<br />"
+            (button (<< "#" encoded-proc-name "-execute-button.procdef-execute-button" "!procname='" procname "'") "Run code")
+            (button (<< "#" encoded-proc-name "-update-button.procdef-update-button" "!procname='" procname "'") "Update system")
+            "<br />"
+            (textarea textarea-name (retrieve-procedure-definition procname))))
+            (init-cm-editor! textarea-name "scheme")))
+    (wire-ui))))
 
 (define (lambda-show-proc-doc procname)
   (let ((dialog-id (<< "#fronkensteen-lambda-proc-doc-" (no-dash-uuid))))
@@ -38,9 +45,37 @@
   (build-fronkensteen-dialog (<< dialog-id "-dialog") (<< "Documentation for " procname)
    (dv (<< dialog-body-id ".lambda-doc-body") "")
    "40em" "16em")
+   (let ((encoded-proc-name (encode-base-32 procname) ))
+   (let ((textarea-name (<< "#" encoded-proc-name  "-doc-textarea")))
    (% dialog-body-id "html"
-      (pre (html-escape (retrieve-procedure-documentation procname)))))))
+    (<<
+      (dv
+        (button (<< "#" encoded-proc-name "-update-button.procdoc-update-button" "!procname='" procname "'") "Update docs"))
+      (textarea textarea-name (retrieve-procedure-documentation procname))))
+   (init-cm-editor! textarea-name "scheme")
+   (wire-ui)
+      )))))
 
+(define (.procdoc-update-button_click ev)
+  (alert "procdoc")
+  (let ((target (js-ref ev "currentTarget")))
+    (let ((procname  (element-read-attribute target "procname")))
+      (alert (<< "Updating docs for " procname))
+)))
+
+(define (.procdef-update-button_click ev)
+  (alert "procdef")
+  (let ((target (js-ref ev "currentTarget")))
+    (let ((procname  (element-read-attribute target "procname")))
+      (alert (<< "Updating def for " procname))
+)))
+
+(define (.procdef-execute-button_click ev)
+  (alert "procdef")
+  (let ((target (js-ref ev "currentTarget")))
+    (let ((procname  (element-read-attribute target "procname")))
+      (alert (<< "executing for " procname))
+)))
 (define (#lambda-proc-lookup_input)
     (load-lambda-proc-display))
 

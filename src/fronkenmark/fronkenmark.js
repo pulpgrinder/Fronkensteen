@@ -100,6 +100,14 @@ Fronkenmark.removeComments = function(text){
   return text;
 }
 
+Fronkenmark.processUnicode = function(text){
+  text = text.replace(/U\+([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F])/gm,function(match,code){
+    console.log("code is " + code)
+    return String.fromCodePoint("0x" + code)
+  }
+);
+  return text;
+}
 Fronkenmark.fronkenmark = function(text,trusted,appendNotes){
 //text = Fronkenmark.processIncludes(text)
   Fronkenmark.useSmartQuotes = true;
@@ -116,6 +124,7 @@ Fronkenmark.fronkenmark = function(text,trusted,appendNotes){
   text = Fronkenmark.processAudio(text);
   text = Fronkenmark.processVideo(text);
   text = Fronkenmark.removeComments(text);
+  text = Fronkenmark.processUnicode(text);
   // Remove other escaped chars.
   text = text.replace(/\\(.)/g, function(match,c){
     return Fronkenmark.installSubstitute(c);
