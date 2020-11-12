@@ -38,15 +38,36 @@ U+16EDU+16ABU+16B1U+16E6U+16B1U+16C1U+16A2U+16A0U+16DAU+16CFU+16E6U+16B1U+16C1U+
 
 Hashtags: #cool #beans #scheme #wiki
 
-[p Normal paragraph (or simply separate paragraphs with blank lines):  Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  p]
+[h3 Normal paragraph h3] (or simply separate paragraphs with blank lines)
 
-[pc Centered paragraph: Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pc]
+[p Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  p]
 
-[pl Left-aligned paragraph: Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pl]
+[h3 Centered paragraph h3]
+[pc Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pc]
 
-[pr Right-aligned paragraph: Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pr]
+[h3 Left-aligned paragraph h3]
+[pl Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pl]
 
-[pj Justified paragraph: Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pj]
+[h3 Right-aligned paragraph h3]
+[pr Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pr]
+
+[h3 Justified paragraph h3]
+[pj Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pj]
+
+[h3 Hanging indents h3]
+
+[ph Bukowski, C. (1979). [i Play the piano drunk like a percussion instrument until the fingers begin to bleed a bit. i] Santa Barbara: Black Sparrow Press.
+ph]
+[ph
+Hobbes, T. (1657). [i Stigmai ageōmetrias, agroichias, antipoliteas, amatheias, or, Markes of the absurd geometry, rural language, Scottish church-politicks, and barbarismes of John Wallis, professor of geometry and doctor of divinity. i] London: Printed for Andrew Crooke.
+ph]
+[ph Kirgo, G. (1960). [i How to write ten different best sellers now -in your spare time-and become the first author on your block, unless there’s an author already living on your block, in which case you’ll become the second author on your block, and that’s okay, too, and other stories. i] New York: Simon and Schuster.
+ph]
+
+[ph Rakoff, D. (2013). [i Don’t get too comfortable: the indignities of coach class, the torments of low thread count, the never- ending quest for artisanal olive oil, and other first world problems i] (Unabridged. ed.). New York: Anchor Books. ph]
+
+
+
 
 [poetry [h2 Poetry h2]
 Shall I compare thee to a summer’s day?
@@ -130,6 +151,30 @@ By default, Fronkenmark will attempt to convert "" and '' to their "smart" (typo
 If you don't want these substitutions to happen, you can use:
 [code [nosmart] code], which disables smart quotes for the page it's contained in.
 
+[h3 Font sizing h3]
+
+[tiny tiny text tiny]
+
+[scriptsize script-size text scriptsize]
+
+[footnotesize footnote-size text footnotesize]
+
+[smallsize small-size text smallsize]
+
+[normalsize normal-size text normalsize]
+
+[large large text large]
+
+[Large Large text Large]
+
+[LARGE LARGE text LARGE]
+
+[huge huge text huge]
+
+[Huge Huge text Huge]
+
+[HUGE HUGE text HUGE]
+
 [h2 Multimedia Tags h2]
 
 [img images/fronkensteenlogo.png img] inserts the specified (local) image at this position
@@ -179,33 +224,11 @@ Column 1, Column 2, Column 3
 table]
 
 
-[h2 LaTeX and LaTeX-style formatting h2]
+[h2 LaTeX h2]
 
 [latex y=mx+b latex] (inline LaTeX)
 
 [!latex x=\frac{-b\pm \sqrt{{{b}^{2}}-4ac}}{2a} latex!] (display-mode (large) LaTeX)
-
-[tiny tiny text tiny]
-
-[scriptsize script-size text scriptsize]
-
-[footnotesize footnote-size text footnotesize]
-
-[smallsize small-size text smallsize]
-
-[normalsize normal-size text normalsize]
-
-[large large text large]
-
-[Large Large text Large]
-
-[LARGE LARGE text LARGE]
-
-[huge huge text huge]
-
-[Huge Huge text Huge]
-
-[HUGE HUGE text HUGE]
 
 [h2 Basic Programming h2]
 

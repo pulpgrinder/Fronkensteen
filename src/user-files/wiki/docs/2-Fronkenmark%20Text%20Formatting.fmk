@@ -53,7 +53,9 @@ If you want to see these tags in operation, check out the [link Kitchen Sink lin
 
 [code [pj text pj] code] Format text as a justified paragraph.
 
-[code [poetry text poetry] code] Format text as poetry (line breaks and spacing are passed through verbatim).
+[code [ph text ph] code] Format text as a paragraph with "hanging indents".
+
+[code [poetry text poetry] code] Format text as poetry (line breaks and spacing are passed through verbatim, but typographic quotes are used).
 
 [h2 Lists h2]
 [code [ul text ul] code] Format text as an unordered (bulleted) list. The text should consist of the list items, one item per line.

@@ -391,6 +391,7 @@ Fronkenmark.processContent  = function(text){
       case "pl": return Fronkenmark.installSubstitute("</p><p style='text-align:left;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
       case "pr": return Fronkenmark.installSubstitute("</p><p style='text-align:right;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
       case "pj": return Fronkenmark.installSubstitute("</p><p style='text-align:justify;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
+      case "ph": return Fronkenmark.installSubstitute("</p><p style='padding-left:3em;text-indent:-3em;display:block;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
       case "pid": return Fronkenmark.installSubstitute("</p><p id='" + code + "'></p><p>")
       case "poetry": return Fronkenmark.installSubstitute("</p><p style='margin:0 auto;' class='fronken-poetry'>") +  Fronkenmark.formatPoetry(Fronkenmark.processContent(code)) +  Fronkenmark.installSubstitute("</p><p>");
 // Lists
