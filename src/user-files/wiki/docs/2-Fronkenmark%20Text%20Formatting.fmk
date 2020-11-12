@@ -93,6 +93,55 @@ By default, Fronkenmark will attempt to convert "" and '' to their "smart" (curl
 If you don't want this to happen, you can use:
 [code [nosmart] code] which disables smart quotes for the page it's in.
 
+[h3 Font sizing h3]
+
+
+[code [tiny tiny text tiny] code]
+
+[code [scriptsize script-size text scriptsize] code]
+
+[code [footnotesize footnote-size text footnotesize] code]
+
+[code [smallsize small-size text smallsize] code]
+
+[code [normalsize normal-size text normalsize] code]
+
+[code [large large text large] code]
+
+[code [Large Large text Large] code]
+
+[code [LARGE LARGE text LARGE] code]
+
+[code [huge huge text huge] code]
+
+[code [Huge Huge text Huge] code]
+
+[code [HUGE HUGE text HUGE] code]
+
+[h3 Unicode characters h3]
+
+You can enter arbitrary Unicode characters in the form U+hhhh, where hhhh are the hexadecimal digits of the desired character. For example,
+
+[code U+03EA code]
+
+produces a Coptic 'gangia' character, U+03EA,
+
+[code U+0561 code]
+
+produces an Armenian 'ayb' character, U+0561,
+
+[code U+2615 code]
+
+produces a 'hot beverage' glyph, U+2615, and
+
+[code U+265E code]
+
+produces a chess symbol, U+265E. Of course, it's nearly impossible to include every available Unicode symbol, but the included KitchenSink font has good coverage for many ancient and modern languages.
+
+Here's a phrase in Anglo-Saxon runes:
+
+U+16EDU+16ABU+16B1U+16E6U+16B1U+16C1U+16A2U+16A0U+16DAU+16CFU+16E6U+16B1U+16C1U+16A2U+16B1U+16C1U+16A6U+16A9U+16BEU+16B7U+16DAU+16ABU+16CBU+16CFU+16ABU+16C8U+16A9U+16BEU+16CFU+16ABU+16BF
+
 [h2 Multimedia Tags h2]
 
 [code [img images/fronkensteenlogo.png img] code] inserts the specified (local) image at this position
@@ -159,33 +208,11 @@ Column 1, Column 2, Column 3
 7,8,9
 table]
 
-[h2 LaTeX and LaTeX-style formatting h2]
+[h2 LaTeX formatting h2]
 
 [code [latex inline LaTex code latex] code]
 
 [code [&#33;latex display-mode (large) LaTeX code latex&#33;] code]
-
-[code [tiny tiny text tiny] code]
-
-[code [scriptsize script-size text scriptsize] code]
-
-[code [footnotesize footnote-size text footnotesize] code]
-
-[code [smallsize small-size text smallsize] code]
-
-[code [normalsize normal-size text normalsize] code]
-
-[code [large large text large] code]
-
-[code [Large Large text Large] code]
-
-[code [LARGE LARGE text LARGE] code]
-
-[code [huge huge text huge] code]
-
-[code [Huge Huge text Huge] code]
-
-[code [HUGE HUGE text HUGE] code]
 
 [h2 Basic Programming h2]
 
