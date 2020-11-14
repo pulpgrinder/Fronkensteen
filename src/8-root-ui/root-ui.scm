@@ -83,17 +83,17 @@
     (if (element-exists? "#fronkensteen-repl")
       #t
     (begin
-      (build-fronkensteen-dialog "#fronkensteen-repl" "Scheme Mini-REPL"
+      (build-fronkensteen-dialog "#fronkensteen-repl" "Mini-REPL"
         (<<
           (dv
             (<<
-              (button "#repl-eval-button!title='Evaluate selection or expression before cursor'" "Eval Expr Before Cursor")
-              (button "#repl-eval-buffer-button!title='Evaluate entire buffer'" "Eval Entire Buffer")
+              (button "#repl-eval-scheme-button!title='Evaluate selection or expression before cursor as Scheme'" "Eval as Scheme")
+              (button "#repl-eval-js-button!title='Evaluate selection as JavaScript'" "Eval as JS")
 
               (button "#repl-clear-button!title='Clear REPL history'" "Clear")))
           (textarea "#repl-input" "")
           ) "40em" "20em")
-          (init-cm-editor! "#repl-input" "scheme")
+          (init-cm-editor! "#repl-input" "")
           (if (eqv? repl-history #f)
             (cm-editor-set-text "#repl-input" "")
             (cm-editor-set-text "#repl-input" repl-history))
@@ -103,12 +103,12 @@
     (cm-editor-set-text "#repl-input" "")
     (set-local-storage-item! "repl-history" ""))
 
-  (define (#repl-eval-button_click ev)
+  (define (#repl-eval-scheme-button_click ev)
     (cm-editor-eval-selection-or-expr-before-cursor! "#repl-input")
     (set-local-storage-item! "repl-history" (cm-editor-get-text "#repl-input")
     ))
 
-    (define (#repl-eval-buffer-button_click ev)
-      (cm-eval-editor-buffer! "#repl-input")
+    (define (#repl-eval-js-button_click ev)
+      (cm-editor-eval-js-selection! "#repl-input")
       (set-local-storage-item! "repl-history" (cm-editor-get-text "#repl-input")
       ))

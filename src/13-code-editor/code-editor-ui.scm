@@ -51,8 +51,12 @@
 
         (button "#fronkensteen-editor-footnote-button.fronkensteen-editor-button!title='Footnote'"
             (iconic-icon  "paperclip"))
-        (button "#fronkensteen-editor-doc-button.fronkensteen-editor-button!title='See More Tags'" (iconic-icon "book"))
-        (button "#fronkensteen-editor-lambda-button.fronkensteen-editor-button!title='Script Tools'" (iconic-icon "lambda"))
+        (button "#fronkensteen-editor-character-button.fronkensteen-editor-button!title='Special characters and symbols'"
+                (iconic-icon "section"))
+        (button "#fronkensteen-editor-doc-button.fronkensteen-editor-button!title='See More Tags'" (iconic-icon "question-mark"))
+        (button "#fronkensteen-editor-scheme-button.fronkensteen-editor-button!title='Execute selected Scheme code or expression before cursor'" (iconic-icon "media-play"))
+        (button "#fronkensteen-editor-js-button.fronkensteen-editor-button!title='Execute selected JavaScript code'" (iconic-icon "play-circle"))
+        (button "#fronkensteen-editor-lambda-button.fronkensteen-editor-button!title='Programming Tools'" (iconic-icon "lambda"))
         (button "#fronkensteen-editor-history-button.fronkensteen-editor-button!title='Show History'" (iconic-icon "clock"))
         (button "#fronkensteen-editor-fullscreen-button.fronkensteen-editor-button!title='Enter distraction-free (fullscreen) mode'" (iconic-icon "fullscreen-enter"))
 

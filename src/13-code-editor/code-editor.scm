@@ -3,6 +3,9 @@
 ; MIT License.
 
 
+(define (#fronkensteen-editor-character-button_click)
+  (show-char-dialog))
+
 (define (#fronkensteen-editor-link-button_click)
   (if (eqv? current-editor #f)
     #f

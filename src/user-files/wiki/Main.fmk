@@ -23,7 +23,7 @@ In Ancient Times, you could just sit down at a computer, write some code, run it
 [h2 Where Do I Get It? h2]
 
 You're soaking in it! This page itself is a running Fronkensteen app.
-Clicking the [icon data-transfer-download icon] button in the top left of this page will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the app pages and/or code (see below), and save it as an HTML file on your local disk.[note If you want the source code, you can find that in the [link https://github.com/pulpgrinder/Fronkensteen|GitHub repository link], but that's not at all necessary for normal use. note]
+Clicking the [icon data-transfer-download icon] button in the top right of this page will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the app pages and/or code (see below), and save it as an HTML file on your local disk.[note If you want the source code, you can find that in the [link https://github.com/pulpgrinder/Fronkensteen|GitHub repository link], but that's not at all necessary for normal use. note]
 
 [h2 Batteries Included h2]
 

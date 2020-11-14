@@ -61,13 +61,12 @@ Fronkenmark.processJavascript = function(code){
   }
   try{
       Fronkensteen.parseJSProcedureDefs(sourcefile, code)
-      let js_evaluator = new Function(code);
-      result = js_evaluator();
-  }
-  catch(err){
-    let msg = err.toString()
-    result = "**** Embedded JavaScript error:  " + msg + " in  \"" + code + "\" ****";
-  }
+      result = eval.call(window, code)
+    }
+    catch(err){
+      let msg = err.toString()
+      result = "**** Embedded JavaScript error:  " + msg + " in  \"" + code + "\" ****";
+    }
   if(result === undefined){
     result = "";
   }

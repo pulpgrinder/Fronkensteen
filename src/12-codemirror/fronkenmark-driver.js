@@ -132,8 +132,13 @@ class CMEditorDriver {
       if(selection.length > 0){
         try{
           Fronkensteen.parseJSProcedureDefs("(defined in editor or REPL)", selection);
-          eval(selection);
-          result = "";
+          result = eval.call(window, selection)
+          if(result === undefined){
+            result = "";
+          }
+          else {
+            result = "// " + result;
+          }
         }
         catch(err){
           result = "// " + err.message;

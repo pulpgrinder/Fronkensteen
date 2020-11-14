@@ -13,4 +13,16 @@
           "position" "relative"
           "top" "-0.25em"
           ))
+        ("#chardialog" (
+          "margin" "0 auto"
+          ))
+        (".charcopy" (
+          "min-width" "1em"
+          "max-width" "1em"
+          "width" "1em"
+          "height" "2em"
+          "border" "1px solid #bbb"
+          "background-color" "white"
+          "display" "inline-block"
+          ))
             )))

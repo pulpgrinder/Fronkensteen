@@ -229,15 +229,15 @@ BiwaScheme.define_libfunc("scroll-to-top",1, 1, function(ar){
 
 BiwaScheme.define_libfunc("write-to-clipboard!", 1, 1, function(ar){
   // Copy the string in ar[0] to the clipboard. Not available in some
-  // platforms (security issue).
+  // platforms (security issue). In others you may be able to call this from a user-initiated event (such as a click).
     BiwaScheme.assert_string(ar[0]);
     navigator.clipboard.writeText(ar[0]).then(function() {
              return true;
-    }, function() {
+           }, function() {
     // Promise rejected.
-       console.error("Unable to write to clipboard.");
-       return false;
-    })});
+        console.log("Unable to write to clipboard.");
+        return false;
+      })});
 
 BiwaScheme.define_libfunc("url-params",1,1,function(ar){
   return urlParams.get(ar[0]);
