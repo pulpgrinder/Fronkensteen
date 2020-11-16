@@ -3,7 +3,7 @@ This page contains the Scheme code that will be run at system launch. You can ed
 (process-wiki-documentation)
 (exec-wiki-page "themes/Fronkensteen-Theme")
 (init-wiki-viewer)
-(display-wiki-page "Main")
+(display-wiki-page "Main" #t)
 (if (not (js-null? (url-params "remote-app")))
   (begin
     (launch-remote-repl-app)
@@ -11,5 +11,6 @@ This page contains the Scheme code that will be run at system launch. You can ed
   (if (not (js-null? (url-params "remote-terminal")))
     (remote-repl-terminal)
     (show-wiki-history-dialog)))
+(resize-content)
 ""
 scheme!]
