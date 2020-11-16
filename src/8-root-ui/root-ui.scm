@@ -71,6 +71,12 @@
   (center-element id)
   (wire-ui))))
 
+; (define (.fronkensteen-dialog_click ev)
+;   (% ".fronkensteen-dialog" "css" "z-index" "0")
+;     (let ((target (js-ref ev "currentTarget")))
+;       (let ((id  (element-read-attribute target "id")))
+;         (% (<< "#" id)  "css" "z-index" "10000"))))
+
 (define (.fronkensteen-dialog-title_click ev)
   (% ".fronkensteen-dialog" "css" "z-index" "0")
     (let ((target (js-ref ev "currentTarget")))
