@@ -58,6 +58,7 @@
   (% "#fronkensteen-editor-bottom-toolbar" "show")
   (% "#fronkensteen-editor-page-title" "val" title)
   (add-wiki-history title "editor")
+  (resize-content)
 )
 
 (define (#fronkensteen-editor-fullscreen-button_click)
@@ -88,7 +89,7 @@
 (define (fronkensteen-editor-close-and-display-page)
     (let ((title (caar fronkensteen-wiki-history-list)))
       (close-editor title)
-      (display-wiki-page title)))
+      (display-wiki-page title #t)))
 
 (define (#fronkensteen-editor-save-and-close-button_click)
   (#fronkensteen-editor-save-button_click)

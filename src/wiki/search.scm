@@ -13,7 +13,7 @@
       (% ".fronkensteen-wiki-search-entry" "on" "click" (lambda (ev)
       (let ((target (js-ref ev "currentTarget")))
       (let ((wiki-title  (element-read-attribute target "target")))
-        (display-wiki-page wiki-title)
+        (display-wiki-page wiki-title #t)
   )))))))
 
 (define (wiki-base-name filename)
@@ -134,7 +134,7 @@
       (lambda (ev)
         (let ((target (js-ref ev "currentTarget")))
           (let ((title  (element-read-attribute target "target")))
-              (display-wiki-page title))))))))
+              (display-wiki-page title #t))))))))
 
 (define (render-incoming-links matching-pages)
   (if (eqv? matching-pages '())
