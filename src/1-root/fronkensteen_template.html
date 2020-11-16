@@ -307,7 +307,23 @@ Fronkensteen.handleLoadError = function(filename,error){
     let re = /\(define\s+\(([^\s\)]+)/g;
     let procdef;
     while ((procdef = re.exec(sourceData)) != null) {
+      let foundcomment = false;
       let procstart = procdef.index;
+      let scancomment = procstart - 1;
+      while(scancomment > 0){
+        let ch = sourceData.substring(scancomment,scancomment + 1)
+        if(ch === ";"){
+          foundcomment = true;
+          break;
+        }
+        if(ch === "\n"){
+          break;
+        }
+        scancomment = scancomment - 1;
+      }
+      if(foundcomment === true){
+        continue;
+      }
       let procHead = sourceData.substring(procstart);
       currentProc = procdef[1];
       let parencount = 1;
@@ -356,14 +372,14 @@ Fronkensteen.handleLoadError = function(filename,error){
       }
     }
     for(var i = 0; i < cssQueue.length; i++){
-      console.log("Processing: " + cssQueue[i])
+      //console.log("Processing: " + cssQueue[i])
       Fronkensteen.addCSS(cssQueue[i])
       if(Fronkensteen.loadError === true){
         return;
       }
     }
     for(var i = 0; i < jsQueue.length; i++){
-      console.log("Processing: " + jsQueue[i])
+    //  console.log("Processing: " + jsQueue[i])
       Fronkensteen.addJS(jsQueue[i]);
       if(Fronkensteen.loadError === true){
         return;
@@ -376,7 +392,7 @@ Fronkensteen.handleLoadError = function(filename,error){
     intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
     intp2.evaluate("(define load hereload)");
     for(var i = 0; i < schemeQueue.length; i++){
-      console.log("Processing: " + schemeQueue[i])
+      //console.log("Processing: " + schemeQueue[i])
       Fronkensteen.addScheme(schemeQueue[i])
       if(Fronkensteen.loadError === true){
         return;
