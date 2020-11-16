@@ -18,13 +18,15 @@
     (let ((title (car history-entry))
           (type (cadr history-entry)))
           (if (eqv? type "page")
-            (display-wiki-page title)
+            (display-wiki-page title #t)
             (edit-wiki-page title)))))
 
 
 (define (generate-wiki-toolbar)
   (<<
     (fronkensteen-toolbar-button "fronkensteen-wiki-save-work_space-button" "Save workspace" "device-floppy" "")
+    (fronkensteen-toolbar-button "fronkensteen-wiki-back-button" "Go back" "chevron-left" "")
+    (fronkensteen-toolbar-button "fronkensteen-wiki-forward-button" "Go forward" "chevron-right" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-home-button" "Return to Main page" "home" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-edit-button" "Edit this page" "pencil" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-history-button" "Show history" "clock" "")
@@ -32,7 +34,7 @@
     (fronkensteen-toolbar-button "fronkensteen-wiki-search-button" "Search" "magnifying-glass" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-new-page-button" "Create a new page" "plus" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-incoming-links-button" "What links here?" "transfer" "")
-    (fronkensteen-toolbar-button "fronkensteen-show-repl-button" "Launch Mini-REPL" "lambda" "")
+    (fronkensteen-toolbar-button "fronkensteen-wiki-lambda-button" "Programming tools" "lambda" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-import-file-button" "Import media file" "data-transfer-upload" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-special-button" "Special pages" "cog" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-docs-button" "Documentation" "book" "")
@@ -46,11 +48,3 @@
           (iconic-icon (<< "#" id "-icon!title='" title "'") icon-name)
         )
         text)))
-
-(define (resize-content)
-  (let ((new-width (js-document-width)))
-    (let ((new-width-param (if (< new-width (* base-font-size 60))
-                  (<< (number->string ( - new-width (* 5 base-font-size))) "px")
-                  "60em")))
-
-    (% ".fronkensteen-wiki-content" "css" "width" new-width-param))))
