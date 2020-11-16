@@ -13,7 +13,7 @@
 (define (resize-root)
   (if (is-procedure-defined? "resize-content")
     (resize-content)))
-    
+
 (define (set-system-clean)
   (set! system-dirty? #f))
 
@@ -58,12 +58,3 @@
     (let ((template-line (str-trim (car template-lines))))
       (cond ((eqv? template-line "$$$FILESYSTEM$$$") (<< "let fronkensteen_fs = " (get-internal-filesystem-json) "\n" (process-template-lines (cdr template-lines))))
           (#t (<< template-line "\n" (process-template-lines (cdr template-lines))))))))
-
-; Toggle to internal code editor on shift+alt (or option)+click
-
-;(% "#fronkensteen-wrapper" "on" "click" (lambda (ev)
-;    (let ((click-count (js-ref ev "detail"))
-;          (alt (js-ref ev "altKey"))
-;          (shift (js-ref ev "shiftKey")))
-;        (if (and shift alt)
-;              (show-mini-repl)))))
