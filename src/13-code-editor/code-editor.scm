@@ -3,6 +3,15 @@
 ; MIT License.
 
 
+(define (#fronkensteen-editor-scheme-button_click ev)
+  (if (not (eqv? current-editor #f))
+    (cm-editor-eval-selection-or-expr-before-cursor! current-editor)
+  ))
+
+(define (#fronkensteen-editor-js-button_click ev)
+  (if (not (eqv? current-editor #f))
+    (cm-editor-eval-js-selection! current-editor)
+  ))
 (define (#fronkensteen-editor-character-button_click)
   (show-char-dialog))
 
