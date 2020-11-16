@@ -28,6 +28,9 @@
         "background-color" "rgba(0,0,0,0)"
         "padding" "0"
         "min-height" "15em"
+        "box-shadow" "3px 3px 3px 3px rgb(0.8,0.8,0.8,0.25)"
+        "border-top-left-radius" "10px"
+        "border-top-right-radius" "10px"
         "margin" "0"
         ))
 
@@ -124,14 +127,13 @@
       "background-color" "white"
       "color" "black"
       "position" "absolute"
-      "top" "4em"
+      "top" "2em"
       "overflow" "auto"
       "width" "100%"
       "min-width" "100%"
       ))
       ("#lambda-proc-search" (
         "position" "absolute"
-        "top" "2em"
         "padding" "0.25em"
         "width" "100%"
         "border-bottom" "1px solid #888"
