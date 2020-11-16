@@ -1,7 +1,19 @@
 
 (define fronkensteen-wiki-history-list '())
 
+(define fronkensteen-wiki-forward-history-list '())
+
 (define fronkensteen-dirty-pages '())
+
+(define (enable-wiki-nav-buttons)
+  (if (> (length fronkensteen-wiki-forward-history-list) 0)
+    (% "#fronkensteen-wiki-forward-button" "prop" "disabled" #f)
+    (% "#fronkensteen-wiki-forward-button" "prop" "disabled" #t))
+  (if (> (length fronkensteen-wiki-history-list) 1)
+    (% "#fronkensteen-wiki-back-button" "prop" "disabled" #f)
+    (% "#fronkensteen-wiki-back-button" "prop" "disabled" #t)))
+
+
 
 (define current-title #f)
 
@@ -17,8 +29,42 @@
         (remove-dirty-pages (cdr page-list))))))
 
 
+(define (#fronkensteen-wiki-back-button_click)
+    (if (< (length fronkensteen-wiki-history-list) 2)
+      #t
+      (begin
+          (set! fronkensteen-wiki-forward-history-list (cons (car fronkensteen-wiki-history-list) fronkensteen-wiki-forward-history-list))
+          (set! fronkensteen-wiki-history-list (cdr fronkensteen-wiki-history-list))
+          (let ((history-page (car fronkensteen-wiki-history-list)))
+            (let ((title (car history-page))
+                  (type (cadr history-page)))
+                  (if (eqv? type "page")
+                    (display-wiki-page title #f)
+                    (edit-wiki-page title))
+            ))
+            (enable-wiki-nav-buttons)
+            )
+      )
+  )
 
+(define (#fronkensteen-wiki-forward-button_click)
+    (if (eqv? fronkensteen-wiki-forward-history-list '())
+      #t
+      (begin
+          (set! fronkensteen-wiki-history-list (cons (car fronkensteen-wiki-forward-history-list) fronkensteen-wiki-history-list))
+          (set! fronkensteen-wiki-forward-history-list (cdr fronkensteen-wiki-forward-history-list))
+          (let ((history-page (car fronkensteen-wiki-history-list)))
+            (let ((title (car history-page))
+                  (type (cadr history-page)))
+                  (if (eqv? type "page")
+                    (display-wiki-page title #f)
+                    (edit-wiki-page title))
+            ))
+            (enable-wiki-nav-buttons))
+      )
+  )
 (define (add-wiki-history title type)
+  (set! fronkensteen-wiki-forward-history-list '())
   (let ((history-list (remove-wiki-history title type fronkensteen-wiki-history-list)))
   (if (or (eqv? history-list '())
         (not (and (eqv? (caar history-list) title) (eqv? (cadar history-list) type)) ) )
@@ -27,11 +73,14 @@
 
 (define (remove-wiki-history title type history-list)
   (if (eqv? history-list '())
-      '()
+      (begin
+        (enable-wiki-nav-buttons)
+      '())
       (if (and (eqv? (caar history-list) title) (eqv? (cadar history-list) type))
           (remove-wiki-history title type (cdr history-list))
           (cons (car history-list) (remove-wiki-history title type (cdr history-list)))
-      )))
+      ))
+)
 (define (show-wiki-tools show-them?)
   (if show-them?
     (% "#fronkensteen-wiki-toolbar-buttons" "show")
@@ -47,8 +96,9 @@
       (let ((title  (element-read-attribute target "title"))
             (type (element-read-attribute target "type")))
         (if (eqv? type "page")
-          (display-wiki-page title)
+          (display-wiki-page title #t)
           (edit-wiki-page title))
+          (enable-wiki-nav-buttons)
   )))))
 
 
@@ -76,26 +126,28 @@
       (<< encoded-basename ".fmk")
       encoded-basename)))
 
-(define (display-wiki-page title)
+(define (display-wiki-page title add-history)
   (let ((wikidata (retrieve-wiki-data title)))
     (if wikidata
       (begin
         (display-wiki-content title wikidata)
-        (add-wiki-history title "page"))
+        (if add-history
+          (add-wiki-history title "page"))
+        (resize-content))
       (edit-wiki-page title))))
 
 (define (#fronkensteen-wiki-refresh-button_click ev)
     (make-page-dirty current-title)
-    (display-wiki-page current-title))
+    (display-wiki-page current-title #t))
 
 (define (#fronkensteen-wiki-special-button_click ev)
-    (display-wiki-page "special/Special Pages"))
+    (display-wiki-page "special/Special Pages" #t))
 
 (define (#fronkensteen-wiki-home-button_click ev)
-    (display-wiki-page "Main"))
+    (display-wiki-page "Main" #t))
 
 (define (#fronkensteen-wiki-docs-button_click ev)
-    (display-wiki-page "special/Documentation"))
+    (display-wiki-page "special/Documentation" #t))
 
 (define (#fronkensteen-wiki-delete-button_click ev)
     (if (eqv? current-title "system/Launch System")
@@ -106,8 +158,8 @@
             (let ((filename (wiki-data-path current-title)))
               (delete-internal-file filename)
               (if (eqv? fronkensteen-wiki-history-list '())
-                (display-wiki-page "Main")
-                (display-wiki-page (caar fronkensteen-wiki-history-list))))))))
+                (display-wiki-page "Main" #t)
+                (display-wiki-page (caar fronkensteen-wiki-history-list) #t)))))))
 
 
 (define (fix-uncacheable title)
@@ -146,7 +198,7 @@
         (lambda (ev)
           (let ((target (js-ref ev "currentTarget")))
             (let ((title  (element-read-attribute target "target")))
-                (display-wiki-page title)))))
+                (display-wiki-page title #t)))))
       (% ".externallink" "off" "click")
       (% ".externallink" "on" "click"
         (lambda (ev)
@@ -262,7 +314,6 @@
             (<<
              (dv "#fronkensteen-bottom-toolbar.fronkensteen-bottom-toolbar" (<< (internal-image "!style='height:1em;'" "user-files/wiki/images/fronkensteenlogo.png")
              "&nbsp; Powered by Fronkensteen"
-             (span "!style='float:right;'" (internal-image "!style='height:1em'" "user-files/wiki/images/fecit.png" ))
              ))
              (dv "#fronkensteen-editor-bottom-toolbar.fronkensteen-bottom-toolbar"
                 (fronkensteen-editor-search-toolbar)
@@ -317,7 +368,8 @@
    (let ((path (wiki-data-path filename)))
       (write-data-url-to-internal-file path data)))
 
-(define (#fronkensteen-show-repl-button_click)
+(define (#fronkensteen-wiki-lambda-button_click)
+  (show-procedure-lookup)
   (show-mini-repl))
 
 
@@ -327,7 +379,8 @@
 
 ; Startup
 (define (system-launch)
-  (exec-wiki-page "system/Launch System"))
+  (exec-wiki-page "system/Launch System")
+  (enable-wiki-nav-buttons))
 
 (define (process-wiki-documentation)
   (let ((wikidata (retrieve-wiki-data "docs/Scheme Documentation")))
