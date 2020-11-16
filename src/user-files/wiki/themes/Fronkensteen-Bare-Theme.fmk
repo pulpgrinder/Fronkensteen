@@ -4,6 +4,17 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
 
 [!scheme
 ; CSS for the base theme.
+(define (resize-content)
+  (let ((new-width (js-window-width)))
+      (let ((item-width (if (< new-width (* base-font-size 60))
+          new-width
+          (* base-font-size 60))))
+          (% ".fronkensteen-wiki-content-container" "css" "width" (<< (number->string item-width) "px"))
+          (% ".fronkensteen-wiki-content-text" "css" "width" (<< (number->string (- item-width (* base-font-size 5))) "px"))
+          (% ".fronkensteen-wiki-editor" "css" "width" (<< (number->string item-width) "px"))
+          (% "#fronkensteen-wiki-toolbars" "css" "width" (<< (number->string item-width ) "px"))
+          (% "#fronkensteen-bottom-toolbars" "css" "width" (<< (number->string item-width) "px"))
+    )))
 (install-css "fronkensteen-theme"
     (proc-css-list `(
         (".fronkensteen-wiki-content" (
