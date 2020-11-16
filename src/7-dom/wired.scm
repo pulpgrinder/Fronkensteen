@@ -6,14 +6,15 @@
   (if (eqv? procedure-list '())
     #t
     (let ((proc (car procedure-list)))
-      (cond
-        ((str-match? proc "_click$" "")
-            (wire-event proc "click"))
-        ((str-match? proc "_input$" "")
-            (wire-event proc "input"))
-        ((str-match? proc "_change$" "")
-            (wire-event proc "change"))
-         (#t #t))
+      (if (is-procedure-defined? proc)
+        (cond
+          ((str-match? proc "_click$" "")
+              (wire-event proc "click"))
+              ((str-match? proc "_input$" "")
+              (wire-event proc "input"))
+              ((str-match? proc "_change$" "")
+              (wire-event proc "change"))
+              (#t #t)))
         (wire-procedure-list (cdr procedure-list))
   )))
 
