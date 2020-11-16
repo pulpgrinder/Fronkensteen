@@ -23,7 +23,6 @@ BiwaScheme.define_libfunc("center-element",1,1,function(ar){
 
 
 BiwaScheme.define_libfunc("set-draggable!", 1,1,function(ar){
-  //
   BiwaScheme.assert_string(ar[0]);
   let options = JSON.parse(ar[0]);
   let element = $(options["element"])[0];
@@ -49,9 +48,11 @@ BiwaScheme.define_libfunc("set-draggable!", 1,1,function(ar){
       e.preventDefault();
       let startx = e.clientX;
       let starty = e.clientY;
-      document.onmouseup = function(){
+      document.onmouseup = function(e){
+        e.preventDefault();
         document.onmouseup = saveup;
         document.onmousemove = savemove;
+        return true;
       };
     document.onmousemove = function(e){
       e.preventDefault();
@@ -61,6 +62,8 @@ BiwaScheme.define_libfunc("set-draggable!", 1,1,function(ar){
       starty = e.clientY;
       element.style.top = (element.offsetTop - endy) + "px";
       element.style.left = (element.offsetLeft - endx) + "px";
+      return true;
     };
+    return true;
   }
 })
