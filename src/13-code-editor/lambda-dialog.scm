@@ -1,27 +1,28 @@
 (define (#fronkensteen-editor-lambda-button_click)
+  (show-procedure-lookup)
+  (show-mini-repl))
+
+(define (show-procedure-lookup)
   (if (element-exists? "#fronkensteen-lambda-dialog")
     #t
 (begin
-  (build-fronkensteen-dialog "#fronkensteen-lambda-dialog" "Script Tools"
+  (build-fronkensteen-dialog "#fronkensteen-lambda-dialog" "Scheme Procedure Lookup"
     (<<
-      (dv "#lambda-proc-controls"
-        (<<
-          (dv
-            (<<
-            (button "#lambda-eval-scheme-button!title='Evaluate Scheme selection or expression before cursor'" "Eval Scheme")
-            (button "#lambda-eval-js-button!title='Evaluate JavaScript selection'" "Eval JavaScript")))
-            (dv "#lambda-proc-search"
-            (<<
-              "&nbsp;&nbsp;Procedure lookup: &nbsp;"
-              (input "#lambda-proc-lookup!type='text'!size='15'"))
-          )))
+          (dv "#lambda-proc-search"
+          (<<
+            "&nbsp;&nbsp;Procedure lookup: &nbsp;"
+            (input "#lambda-proc-lookup!type='text'!size='15'"))
+        )
          (dv "#lambda-proc-display-wrapper" (dv "#lambda-proc-display" "")))
      "40em" "27em")
     (load-lambda-proc-display)
    (wire-ui))))
 
 (define (lambda-show-proc-source procname)
-  (let ((dialog-id (<< "#fronkensteen-lambda-proc-source-" (no-dash-uuid))))
+  (let ((dialog-id (<< "#fronkensteen-lambda-proc-source-" (encode-base-32 procname))))
+  (if (element-exists? dialog-id)
+    #t
+    (begin
     (let ((dialog-body-id (<< dialog-id "-body.lambda-doc-body") ))
   (build-fronkensteen-dialog (<< dialog-id "-dialog") (<< "Source code for " procname)
    (dv dialog-body-id "")
@@ -35,26 +36,35 @@
             (button (<< "#" encoded-proc-name "-execute-button.procdef-execute-button" "!procname='" procname "'") "Run code")
             (button (<< "#" encoded-proc-name "-update-button.procdef-update-button" "!procname='" procname "'") "Update system")
             "<br />"
-            (textarea textarea-name (retrieve-procedure-definition procname))))
-            (init-cm-editor! textarea-name "scheme")))
+            (textarea textarea-name "")))
+            (init-cm-editor! textarea-name "scheme")
+            (cm-editor-set-text textarea-name (retrieve-procedure-definition procname))))
+
+    ))
     (wire-ui))))
 
 (define (lambda-show-proc-doc procname)
-  (let ((dialog-id (<< "#fronkensteen-lambda-proc-doc-" (no-dash-uuid))))
-    (let ((dialog-body-id (<< dialog-id "-body") ))
-  (build-fronkensteen-dialog (<< dialog-id "-dialog") (<< "Documentation for " procname)
-   (dv (<< dialog-body-id ".lambda-doc-body") "")
-   "40em" "16em")
-   (let ((encoded-proc-name (encode-base-32 procname) ))
-   (let ((textarea-name (<< "#" encoded-proc-name  "-doc-textarea")))
-   (% dialog-body-id "html"
-    (<<
-      (dv
-        (button (<< "#" encoded-proc-name "-update-button.procdoc-update-button" "!procname='" procname "'") "Update docs"))
-      (textarea textarea-name (retrieve-procedure-documentation procname))))
-   (init-cm-editor! textarea-name "scheme")
-   (wire-ui)
-      )))))
+  (let ((dialog-id (<< "#fronkensteen-lambda-proc-doc-" (encode-base-32 procname))))
+  (if (element-exists? dialog-id)
+    #t
+    (begin
+        (let ((dialog-body-id (<< dialog-id "-body") ))
+      (build-fronkensteen-dialog (<< dialog-id "-dialog") (<< "Documentation for " procname)
+       (dv (<< dialog-body-id ".lambda-doc-body") "")
+       "40em" "16em")
+       (let ((encoded-proc-name (encode-base-32 procname)))
+       (let ((textarea-name (<< "#" encoded-proc-name  "-doc-textarea")))
+       (% dialog-body-id "html"
+        (<<
+          (dv
+            (button (<< "#" encoded-proc-name "-update-button.procdoc-update-button" "!procname='" procname "'") "Update docs"))
+          (textarea textarea-name "")))
+       (init-cm-editor! textarea-name "scheme")
+       (cm-editor-set-text textarea-name (retrieve-procedure-documentation procname))
+
+          ))))
+          (wire-ui)
+          )))
 
 (define (.procdoc-update-button_click ev)
   (alert "procdoc")
@@ -64,18 +74,31 @@
 )))
 
 (define (.procdef-update-button_click ev)
-  (alert "procdef")
   (let ((target (js-ref ev "currentTarget")))
     (let ((procname  (element-read-attribute target "procname")))
-      (alert (<< "Updating def for " procname))
-)))
+      (let ((encoded-proc-name (encode-base-32 procname) ))
+        (let ((textarea-name (<< "#" encoded-proc-name "-def-textarea")))
+          (let ((new-def (% textarea-name "val"))
+                (old-def (retrieve-procedure-definition procname))
+                (filename (retrieve-procedure-filename procname)))
+                (alert (<< "Updating def for " procname))
+                (let ((old-data (read-internal-text-file filename)))
+                    (write-internal-text-file filename (str-replace old-data old-def new-def))
+)))))))
 
 (define (.procdef-execute-button_click ev)
-  (alert "procdef")
+  (alert "procexec")
   (let ((target (js-ref ev "currentTarget")))
     (let ((procname  (element-read-attribute target "procname")))
-      (alert (<< "executing for " procname))
-)))
+      (let ((encoded-proc-name (encode-base-32 procname) ))
+        (let ((textarea-name (<< "#" encoded-proc-name "-def-textarea")))
+          (let ((new-def (str-trim (cm-editor-get-text textarea-name))))
+            (if (eqv? (indexOf new-def "(define ") 0)
+                (eval-scheme-string new-def)
+                (if (eqv? (indexOf new-def "define_libfunc") 0)
+                  (eval-js-string (<< "BiwaScheme." new-def))
+                  (alert "Unrecognized procedure definition.")))))))))
+
 (define (#lambda-proc-lookup_input)
     (load-lambda-proc-display))
 
@@ -85,8 +108,10 @@
           (% "#lambda-proc-display" "html" (lambda-build-proc-display-list procs proc-search)))
     (% ".lambda-proc-name-entry" "on" "click"
       (lambda (ev)
+          (console-log "proc clicked")
           (let ((target (js-ref ev "currentTarget")))
               (let ((procname (% target "attr" "procname")))
+                (console-log (<< "showing info for " procname))
                 (lambda-show-proc-source procname)
                 (lambda-show-proc-doc procname))))))
 
