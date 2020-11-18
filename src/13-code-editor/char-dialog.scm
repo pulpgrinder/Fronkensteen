@@ -1,5 +1,5 @@
 (define (show-char-dialog)
-  (build-fronkensteen-dialog "#char-dialog" "Available characters (copy and paste)"
+  (build-fronkensteen-dialog "#char-dialog" "Special characters (copy and paste)"
   (dv  (char-dialog-items))
   "47em" "22em")
 
