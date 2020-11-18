@@ -18,6 +18,21 @@ Fronkensteen.doc_extract_scheme_procedure_names = function(deflines){
   }
   return [];
 }
+
+Fronkensteen.getDocStrings = function(){
+  let docs = "";
+  let keys = Fronkensteen.enumerateProcedures();
+  for(var i = 0; i < keys.length; i++){
+      let key = keys[i];
+      docstring = Fronkensteen.documentationPointers[key]["docstring"];
+      if(docstring === undefined){
+        Fronkensteen.documentationPointers[key]["docstring"] = "\n";
+      }
+      docs = docs + key + "\n" + docstring + "\n§\n\n"
+    }
+ return docs;
+}
+
 Fronkensteen.enumerateProcedures = function(){
   let procedures = []
   for(var key in Fronkensteen.documentationPointers){
@@ -88,6 +103,7 @@ BiwaScheme.define_libfunc("retrieve-procedure-definition", 1, 1, function(ar, in
   }
   return false;
 });
+
 /****! retrieve-procedure-documentation
 (retrieve-procedure-documentation procname)
 
@@ -131,16 +147,21 @@ BiwaScheme.define_libfunc("process-doc-strings", 1,1, function(ar){
   // Processes the docstrings from the docs/Scheme Documentation wiki page.
    BiwaScheme.assert_string(ar[0]);
    let docs_without_comments = ar[0].replace(/^\s*\;.*$/,"")
-   let docitems = docs_without_comments.split(/^§\n/m)
+   let docitems = docs_without_comments.split(/^§\n\n/m)
    for (var i = 0; i < docitems.length; i++){
      let lines = docitems[i].split("\n");
      let procedurename = lines.shift();
      if(Fronkensteen.documentationPointers[procedurename] === undefined){
        Fronkensteen.documentationPointers[procedurename] = {}
      }
-     Fronkensteen.documentationPointers[procedurename]["docstring"] = lines.join("\n")
+     Fronkensteen.documentationPointers[procedurename]["docstring"] = lines.join("\n").trim();
    }
 })
+
+BiwaScheme.define_libfunc("get-updated-doc-strings", 0,0, function(ar){
+  return Fronkensteen.getDocStrings();
+});
+
 
   /****! enumerate-procedures
   (enumerate-procedures)
@@ -176,11 +197,23 @@ BiwaScheme.define_libfunc("search-defined-procedures", 1,1, function(ar,intp){
   return Fronkensteen.searchDefinedProcedures(ar[0]);
 })
 
-BiwaScheme.define_libfunc("generate-doc-skeleton", 0,0, function(ar,intp){
-    let procs = Fronkensteen.enumerateProcedures().sort()
-    let docs = ""
-    for(var i = 0; i < procs.length; i++){
-      docs = docs + procs[i] + "\n" + "(" + procs[i] + " args)\nPlease help by writing some docs for this!\n\n\n"
-    }
-    Fronkensteen.writeInternalTextFile("user-files/wiki/docs/Scheme%20Documentation.fmk",docs);
-});
+BiwaScheme.define_libfunc("update-proc-def", 2,2, function(ar,intp){
+  BiwaScheme.assert_string(ar[0]);
+  BiwaScheme.assert_string(ar[1]);
+  console.log("setting def for " + ar[0] + " to " + ar[1])
+  if(Fronkensteen.documentationPointers[ar[0]] === undefined){
+    alert("No such procedure: " + ar[0]);
+    return;
+  }
+  Fronkensteen.documentationPointers[ar[0]]["code"] = ar[1];
+})
+
+BiwaScheme.define_libfunc("update-doc-string", 2,2, function(ar,intp){
+  BiwaScheme.assert_string(ar[0]);
+  BiwaScheme.assert_string(ar[1]);
+  if(Fronkensteen.documentationPointers[ar[0]] === undefined){
+    alert("No such procedure: " + ar[0]);
+    return;
+  }
+  Fronkensteen.documentationPointers[ar[0]]["docstring"] = ar[1].trim();
+})
