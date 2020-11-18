@@ -10,7 +10,7 @@
     (% "#fronkensteen-wiki-forward-button" "prop" "disabled" #f)
     (% "#fronkensteen-wiki-forward-button" "prop" "disabled" #t))
   (if (> (length fronkensteen-wiki-history-list) 1)
-    (% "#fronkensteen-wiki-back-button" "prop" "disabled" #f)
+      (% "#fronkensteen-wiki-back-button" "prop" "disabled" #f)
     (% "#fronkensteen-wiki-back-button" "prop" "disabled" #t)))
 
 
@@ -133,7 +133,8 @@
         (display-wiki-content title wikidata)
         (if add-history
           (add-wiki-history title "page"))
-        (resize-content))
+        (resize-content)
+        (enable-wiki-nav-buttons))
       (edit-wiki-page title))))
 
 (define (#fronkensteen-wiki-refresh-button_click ev)
