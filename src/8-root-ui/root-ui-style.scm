@@ -78,12 +78,21 @@
 
       (".fronkensteen-toolbar-button" (
         "height" "2em"
-        "position" "relative"
-        "bottom" "0.25em"
+        "max-height" "2em"
+        "min-height" "2em"
+        "width" "2em"
+        "max-width" "2em"
+        "min-width" "2em"
+        "padding" "0"
+        "margin" "0"
         ))
       (".icon" (
         "width" "1em"
         "height" "1em"
+        "max-width" "1em"
+        "max-height" "1em"
+        "min-width" "1em"
+        "min-height" "1em"
         ))
       ("#repl-input" (
         "position" "relative"

@@ -23,6 +23,7 @@
 
 
 (define (generate-wiki-toolbar)
+(span ".fronkensteen-wiki-button-group"
   (<<
     (fronkensteen-toolbar-button "fronkensteen-wiki-save-work_space-button" "Save workspace" "device-floppy" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-back-button" "Go back" "chevron-left" "")
@@ -39,7 +40,7 @@
     (fronkensteen-toolbar-button "fronkensteen-wiki-special-button" "Special pages" "cog" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-docs-button" "Documentation" "book" "")
     (fronkensteen-toolbar-button "fronkensteen-wiki-delete-button" "Delete this page" "trash" "")
-  ))
+  )))
   (define (fronkensteen-toolbar-button id title icon-name text)
     (button (<< "#" id ".fronkensteen-toolbar-button" "!title='" title "'")
       (<<

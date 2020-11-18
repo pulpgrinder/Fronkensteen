@@ -182,6 +182,13 @@
                   ))
              (".fronkensteen-editor-button" (
                "height" "2em"
+               "max-height" "2em"
+               "min-height" "2em"
+               "width" "2em"
+               "max-width" "2em"
+               "min-width" "2em"
+               "padding" "0"
+               "margin" "0"
                ))
                ("#fronkensteen-editor-docs-content" (
                  "padding" "1em"
