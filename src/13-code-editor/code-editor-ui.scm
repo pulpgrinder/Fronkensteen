@@ -68,11 +68,11 @@
  (<<
    "&nbsp;&nbsp;Find:"
    (input "#code-editor-find-field!type='text'")
-   (button "#fronkensteen-editor-find-button.fronkensteen-editor-button!title='Find'" "Find")
+   (button "#fronkensteen-editor-find-button!title='Find'" "Find")
    "&nbsp;&nbsp;Replace:"
    (input "#code-editor-replace-field!type='text'")
-   (button "#fronkensteen-editor-replace-button.fronkensteen-editor-button!title='Replace'" "Replace")
-   (button "#fronkensteen-editor-replace-and-find-button.fronkensteen-editor-button!title='Replace and Find'" "Replace and Find")
+   (button "#fronkensteen-editor-replace-button!title='Replace'" "Replace")
+   (button "#fronkensteen-editor-replace-and-find-button!title='Replace and Find'" "Replace and Find")
    "&nbsp;&nbsp;"
    (input "#fronkensteen-editor-search-case-sensitive.fronkensteen-editor-search-option!type='checkbox'!title='Case-sensitive'")
    "&nbsp;Aa&nbsp;&nbsp;"
