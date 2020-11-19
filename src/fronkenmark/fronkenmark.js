@@ -378,7 +378,7 @@ Fronkenmark.processContent  = function(text){
       case "u":
       return Fronkenmark.installSubstitute("<" + tag + ">") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</" + tag + ">");
       case "menu":
-        return Fronkenmark.installSubstitute("<ul class='round-list'>") + Fronkenmark.renderMenuItems(Fronkenmark.processContent(code), "round-list-item") + Fronkenmark.installSubstitute("</ul>")
+        return Fronkenmark.installSubstitute("<ul class='menu-list'>") + Fronkenmark.renderMenuItems(Fronkenmark.processContent(code), "menu-list-item") + Fronkenmark.installSubstitute("</ul>")
 // Inline LaTeX
     case "latex" : return Fronkenmark.installSubstitute(Fronkenmark.processInlineLaTeX(code))
 // Paragraph styles

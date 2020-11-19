@@ -112,6 +112,12 @@
 (define (round-list-item . args); Evaluates to an HTML div string with the .round-list-item class (list item with rounded corners).
  (apply classdiv (cons ".round-list-item"  args)))
 
+ (define (menu-list . args) ; Evaluates to an HTML div string with the .menu-list class (list container with rounded corners).
+  (apply classdiv (cons ".menu-list" args)))
+
+ (define (menu-list-item . args); Evaluates to an HTML div string with the .menu-list-item class (list item with rounded corners).
+  (apply classdiv (cons ".menu-list-item"  args)))
+
 (define (sans-font . args) ; Evaluates to an HTML div string with the .sans-font class (sans-serif font).
    (apply generic-span (cons ".sans-font"  args)))
 

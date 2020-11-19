@@ -128,7 +128,7 @@
     (alert "No other pages link here.")
     (begin
       (% "#fronkensteen-incoming-links" "remove")
-      (build-fronkensteen-dialog "#fronkensteen-incoming-links" "Pages That Link Here" (round-list (render-incoming-links matching-pages)) "20em" "20em")
+      (build-fronkensteen-dialog "#fronkensteen-incoming-links" "Pages That Link Here" (menu-list (render-incoming-links matching-pages)) "20em" "20em")
       (% ".fronkensteen-incoming-link" "off" "click")
       (% ".fronkensteen-incoming-link" "on" "click"
       (lambda (ev)
@@ -140,7 +140,7 @@
   (if (eqv? matching-pages '())
       ""
       (let ((page-name (file-basename-no-extension (car matching-pages))))
-        (<< (round-list-item (<< ".fronkensteen-incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
+        (<< (menulist-item (<< ".fronkensteen-incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
 
 (define (collect-linked-pages title page-list)
     (collect-matching-wiki-pages (<< "[link " title) page-list "case-sensitive"))

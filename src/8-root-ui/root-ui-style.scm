@@ -249,6 +249,53 @@
         "width" "100%"
         "height" "100%"
       ))
+      (".menu-list" (
+        "padding-left" "0.5em"
+        "padding-right" "0.5em"
+        "padding-top" "0.5em"
+        "padding-bottom" "0.5em"
+        "color" "#000"
+        "margin" "auto"
+        "width" "auto"
+      ))
+      (".menu-list-item:first-child" (
+        "border-top" "1px solid #cacaca"
+        "border-top-left-radius" "10px"
+        "border-top-right-radius" "10px"
+      ))
+      (".menu-list-item:last-child" (
+        "border-bottom-left-radius" "10px"
+        "border-bottom-right-radius" "10px"
+      ))
+      (".menu-list-item" (
+        "border-left" "1px solid #cacaca"
+        "border-bottom" "1px solid #cacaca"
+        "border-right" "1px solid #cacaca"
+        "display" "block"
+        "width" "auto"
+        "padding-left" "1em"
+        "padding-right" "1em"
+       "padding-top" "0.5em"
+        "padding-bottom" "0.5em"
+        "width" "100%"
+        "height" "100%"
+
+      ))
+      (".menu-list-item:hover" (
+
+      ))
+      (".menu-list-item .link" (
+        "display" "inline-block"
+        "width" "100%"
+        "height" "100%"
+      ))
+      (".menu-list-item .link::after" (
+          "position" "absolute"
+          "right" "1.25em"
+          "content" "'→'"
+          "font-size" "150%"
+          "color" "#777"
+      ))
       (".sans-font" (
        "font-family"  <%
    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",

@@ -76,7 +76,7 @@
 (define (show-wiki-history-dialog)
   (build-fronkensteen-dialog "#fronkensteen-history-dialog" "History"
   ;(dv "#fronkensteen-wiki-history-list-wrapper"
-    (ul "#fronkensteen-wiki-history-list.round-list" "")
+    (ul "#fronkensteen-wiki-history-list.menu-list" "")
   ;)
     "20em" "20em")
   (display-wiki-history))

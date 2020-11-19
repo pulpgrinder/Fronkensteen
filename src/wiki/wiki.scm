@@ -112,7 +112,7 @@
               ""
               (<< (iconic-icon  "pencil") "&nbsp;"))
         ))
-        (<< (li (<< ".round-list-item.fronkensteen-wiki-history-entry!title='" title "' type='" type "'") (<< icon title))
+        (<< (li (<< ".menu-list-item.fronkensteen-wiki-history-entry!title='" title "' type='" type "'") (<< icon title))
         (build-wiki-history-display (cdr history-list)))))))
 
 ;;;;!
