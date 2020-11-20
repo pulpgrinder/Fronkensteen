@@ -122,6 +122,9 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
                   "color" "#010161"
                   "background-color" "#fff"
                 ))
+                (".menu-list-item  .link" (
+                  "color" "#010161"
+                ))
 
                 ; "Toolbar" theme, show toolbars, contract main area to provide space.
                         ("#fronkensteen-wiki-toolbars" (

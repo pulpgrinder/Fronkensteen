@@ -122,6 +122,9 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
                   "color" "#010161"
                   "background-color" "#fff"
                 ))
+                (".menu-list-item  .link" (
+                  "color" "#010161"
+                ))
         ; "Bare" theme, hide toolbars, expand main area to fill space.
                 ("#fronkensteen-wiki-toolbars" (
                   "display" "none"

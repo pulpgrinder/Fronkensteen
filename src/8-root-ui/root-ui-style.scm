@@ -292,9 +292,8 @@
       (".menu-list-item .link::after" (
           "position" "absolute"
           "right" "1.25em"
-          "content" "'→'"
-          "font-size" "150%"
-          "color" "#777"
+          "content" "'〉'"
+          "font-size" "125%"
       ))
       (".sans-font" (
        "font-family"  <%

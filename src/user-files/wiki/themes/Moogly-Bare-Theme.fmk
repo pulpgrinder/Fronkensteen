@@ -103,7 +103,17 @@ To choose a different theme, see [link special/List of Themes|Themes page link].
             "color" "green"
             "cursor" "pointer"
             ))
-
+            (".round-list-item" (
+              "color" "#333"
+              "background-color" "#fff"
+            ))
+            (".menu-list-item" (
+              "color" "#333"
+              "background-color" "#fff"
+            ))
+            (".menu-list-item  .link" (
+              "color" "#333"
+            ))
       ("@font-face" (
         "font-family" "\"sans-serif\""
         "font-style" "normal"
