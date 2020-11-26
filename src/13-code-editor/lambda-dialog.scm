@@ -77,7 +77,7 @@
         (let ((new-doc (str-trim (cm-editor-get-text textarea-name))))
           (update-doc-string procname new-doc)
           (let ((updated-docs (get-updated-doc-strings)))
-              (set-wiki-data "docs/Scheme Documentation" (<< "; Documentation for Scheme procedures.\n; Normally accessed through the programming tools.\n; You probably shouldn't edit this by hand, though you\n; can if you're brave. The format is:\n;procedure name\n;procedure signature\n;description (can be multiple lines)\n;§\n;(blank line)\n;" updated-docs)))
+              (set-wiki-data "system/Scheme Documentation" (<< "; Documentation for Scheme procedures.\n; Normally accessed through the programming tools.\n; You probably shouldn't edit this by hand, though you\n; can if you're brave. The format is:\n;procedure name\n;procedure signature\n;description (can be multiple lines)\n;§\n;(blank line)\n;" updated-docs)))
           ))))))
 
 

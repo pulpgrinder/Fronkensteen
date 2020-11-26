@@ -63,13 +63,19 @@
     (cm-editor-set-center editor-name))))
 
 
-(define (#fronkensteen-editor-latex-button_click)
+(define (#fronkensteen-editor-inline-latex-button_click)
   (if (eqv? current-editor #f)
     #f
     (let ((editor-name current-editor))
-    (cm-editor-set-math editor-name))))
+    (cm-editor-set-inline-math editor-name))))
 
-(define (#fronkensteen-editor-code-button_click)
+  (define (#fronkensteen-editor-display-latex-button_click)
+    (if (eqv? current-editor #f)
+      #f
+      (let ((editor-name current-editor))
+      (cm-editor-set-display-math editor-name))))
+
+(define (.fronkensteen-editor-code-button_click)
   (if (eqv? current-editor #f)
     #f
     (let ((editor-name current-editor))
@@ -81,15 +87,6 @@
     #f
     (let ((editor-name current-editor))
     (cm-editor-set-heading editor-name "3"))))
-
-
-
-(define (#fronkensteen-editor-preview-button_click)
-  (if (eqv? current-editor #f)
-    #f
-    (let ((editor-name current-editor))
-      (show-editor-preview (cm-editor-get-text editor-name)))))
-
 
 (define (#fronkensteen-editor-h2-button_click)
   (if (eqv? current-editor #f)
@@ -138,6 +135,18 @@
     #f
     (let ((editor-name current-editor))
     (cm-editor-set-superscript editor-name))))
+
+(define (#fronkensteen-editor-underline-button_click)
+  (if (eqv? current-editor #f)
+    #f
+    (let ((editor-name current-editor))
+    (cm-editor-set-underline editor-name))))
+
+    (define (#fronkensteen-editor-smallcaps-button_click)
+      (if (eqv? current-editor #f)
+        #f
+        (let ((editor-name current-editor))
+        (cm-editor-set-smallcaps editor-name))))
 
 (define (#fronkensteen-editor-italic-button_click)
   (if (eqv? current-editor #f)

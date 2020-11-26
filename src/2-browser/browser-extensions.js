@@ -4,20 +4,18 @@
 // MIT License.
 
 
-// Keep track of keypresses.
-/*var keys = {};
-window.onkeyup = function(evt) {
-  keys[evt.keyCode] = false;
-  }
-window.onkeydown = function(evt) {
-  keys[evt.keyCode] = true;
-} */
-
 Fronkensteen.docroot =  document.location.href;
 
+BiwaScheme.define_libfunc("set-html-app-name", 1, 1, function(ar){
+ // Clear out local storage
+   BiwaScheme.assert_string(ar[0])
+   Fronkensteen.appName = ar[0];
+   document.title = ar[0] + ""
+});
 Fronkensteen.clearLocalStorage = function(){
   localStorage.clear();
 }
+
 BiwaScheme.define_libfunc("clear-local-storage!", 0, 0, function(ar){
  // Clear out local storage
    Fronkensteen.clearLocalStorage();
@@ -111,14 +109,16 @@ BiwaScheme.define_libfunc("nav-go-history", 1, 1, function(ar){
     history.go(ar[0]);
 });
 BiwaScheme.define_libfunc("window-object", 0, 0, function(ar){
-  // Return the URL for the current document.
+  // Return the main window object
     return window;
 });
 
 BiwaScheme.define_libfunc("document-object", 0, 0, function(ar){
-  // Return the URL for the current document.
+  // Return the current document.
     return document;
 });
+
+
 
 BiwaScheme.define_libfunc("window-location-href", 0, 0, function(ar){
   // Return the URL for the current document.

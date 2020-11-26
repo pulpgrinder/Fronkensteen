@@ -24,6 +24,8 @@
    let STATE_SINGLE=4;
    let STATE_DOUBLE=5;
    let currentState = STATE_IDLE;
+   let lastChar = null;
+   try {
    while(index < arg.length){
      let currentChar = arg.charAt(index);
      switch(currentState){
@@ -43,6 +45,9 @@
            }
        case STATE_ID:
          switch(currentChar){
+           case "\\": idstring = idstring + arg.charAt(index + 1);
+                      index = index + 2;
+                      continue;
            case "'":
            case "\"":   console.error("parse-seml: quotes not allowed in id --> " + arg)
              return "parse-seml: quotes not allowed in id " + arg;
@@ -65,6 +70,9 @@
                   }
      case STATE_CLASS:
        switch(currentChar){
+       case "\\":   classstring = classstring + arg.charAt(index + 1);
+                    index = index + 2;
+                    continue;
        case "'":
        case "\"":   console.error("parse-seml: quotes not allowed in class name --> " + arg)
          return "parse-seml: quotes not allowed in class name " + arg;
@@ -91,6 +99,9 @@
      }
      case STATE_PARAM:
        switch(currentChar){
+       case "\\": otherattrs = otherattrs + arg.charAt(index + 1);
+                    index = index + 2;
+                    continue;
        case "'": otherattrs = otherattrs + "'";
              index = index + 1;
              currentState = STATE_SINGLE;
@@ -123,11 +134,9 @@
      }
      case STATE_SINGLE:
        switch(currentChar){
-       case "\\":
-               index = index + 1;
-               otherattrs = arg.charAt(index);
-               index = index + 1;
-               continue;
+       case "\\": otherattrs = otherattrs + arg.charAt(index + 1);
+            index = index + 2;
+            continue;
        case "'": otherattrs = otherattrs + currentChar;
              index = index + 1;
              currentState = STATE_PARAM;
@@ -138,11 +147,9 @@
      }
      case STATE_DOUBLE:
        switch(currentChar){
-       case "\\":
-               index = index + 1;
-               otherattrs = arg.charAt(index);
-               index = index + 1;
-               continue;
+       case "\\": otherattrs = otherattrs + arg.charAt(index + 1);
+             index = index + 2;
+             continue;
        case "\"": otherattrs = otherattrs + currentChar;
              index = index + 1;
              currentState = STATE_PARAM;
@@ -177,6 +184,11 @@
      result = result + otherattrs;
    }
    return result;
+  }
+  catch(e){
+    console.error("SEML error: " + e.toString() + " while attemptint to parse:  " + arg);
+    return "";
+  }
  };
 
 

@@ -6,7 +6,10 @@
 
 
 (define (edit-wiki-page title)
-  (let ((content-name (<< "#fronkensteen-wiki-editor-" (encode-base-32 title))))
+  (% "#wiki-page-title" "hide")
+  (% "#wiki-editor-page-title" "show")
+  (% "#wiki-editor-page-title" "val" title)
+  (let ((content-name (<< "#wiki-editor-" (encode-base-32 title))))
     (if (element-exists? content-name)
         (show-editor content-name (<< content-name "-textarea") title)
         (construct-wiki-editor content-name title))))
@@ -15,9 +18,10 @@
   (let ((filename (wiki-data-path title)))
     (let ((extension (file-extension filename))
           (textarea-id (<< content-name "-textarea")))
+      (console-log (<< "textarea-id: " textarea-id))
       (if (is-text-file? extension)
             (begin
-              (% "#fronkensteen-wiki-content-container" "append" (dv (<< content-name  ".fronkensteen-wiki-content-wrapper!tabindex='-1'") (dv (<< content-name "-body.fronkensteen-wiki-editor.fronkensteen-wiki-content")
+                (% "#fronkensteen-content" "append" (dv (<< content-name  ".wiki-page-wrapper!tabindex='-1'") (dv (<< content-name "-body.wiki-editor.wiki-content")
               (textarea (<< textarea-id "!rows='25'!cols='80'") "") )))
               (activate-wiki-editor content-name title filename textarea-id))
               (alert "Sorry, no editor for this file type at this time. Contributions welcome!")))))
@@ -37,6 +41,7 @@
         page-title)))
 
 (define (activate-wiki-editor content-name title filename textarea-id)
+  (console-log (<< "activate-wiki-area content-name: " content-name " textarea-id" textarea-id))
   (init-cm-editor! textarea-id "fronkenmark")
   (if (file-exists? filename)
     (cm-editor-set-text textarea-id (read-internal-text-file filename))
@@ -46,19 +51,19 @@
   )
 
 (define (show-editor content-name textarea-id title)
+  (show-bottom-toolbar "#editor-control-bar")
   (set! current-editor textarea-id)
-  (% ".fronkensteen-wiki-content-wrapper" "hide")
+  (% ".wiki-page-wrapper" "hide")
   (% content-name "show")
+  (% "#wiki-page-title" "hide")
+  (% "#wiki-editor-page-title" "show")
+  (% "#wiki-editor-page-title" "val" title)
   (timer (lambda ()
     (% content-name "focus")) 0.5)
   (cm-editor-show current-editor)
-  (% ".fronkensteen-toolbar" "hide")
-  (% ".fronkensteen-bottom-toolbar" "hide")
-  (% "#fronkensteen-editor-toolbar" "show")
-  (% "#fronkensteen-editor-bottom-toolbar" "show")
-  (% "#fronkensteen-editor-page-title" "val" title)
+;  (% "#fronkensteen-editor-page-title" "val" title)
   (add-wiki-history title "editor")
-  (resize-content)
+  (enable-wiki-nav-buttons)
 )
 
 (define (#fronkensteen-editor-fullscreen-button_click)
@@ -71,15 +76,7 @@
 
 
 (define (#fronkensteen-wiki-history-button_click)
-  (show-wiki-history-dialog))
-
-(define (show-wiki-history-dialog)
-  (build-fronkensteen-dialog "#fronkensteen-history-dialog" "History"
-  ;(dv "#fronkensteen-wiki-history-list-wrapper"
-    (ul "#fronkensteen-wiki-history-list.menu-list" "")
-  ;)
-    "20em" "20em")
-  (display-wiki-history))
+    (show-popover-menu "#wiki-history-list"))
 
 (define (#fronkensteen-editor-doc-button_click)
     (build-fronkensteen-dialog "#fronkensteen-editor-docs" "Available Tags" (fronkenmark (
@@ -98,7 +95,7 @@
   (define (#fronkensteen-editor-save-button_click)
     (if (eqv? current-editor #f)
         #f
-       (let ((title (% "#fronkensteen-editor-page-title" "val")))
+       (let ((title (% "#wiki-editor-page-title" "val")))
         (if (eqv? title "")
           (alert "No title specified!")
           (begin
@@ -129,5 +126,5 @@
         (destroy-cm-editor! (<< content-name "-textarea"))
         (% content-name "remove")
         (set! fronkensteen-wiki-history-list (cdr fronkensteen-wiki-history-list))
-        (display-wiki-history)
+        (update-wiki-history-display)
         ))))

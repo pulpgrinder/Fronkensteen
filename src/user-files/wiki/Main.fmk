@@ -14,7 +14,7 @@ menu]
 
 It's a self-contained, fully-programmable system for building web apps using a wiki-like model. Everything is in one HTML file, which will work in any modern browser.[note i.e. not Internet Explorer, or non-Chromium Microsoft Edge. Sorry. Currently supported browsers include: Firefox, Chrome, Safari (both desktop and mobile), Opera, Brave, and the new Chromium-based Microsoft Edge. note]
 
-Fronkensteen will work fine when loaded from a local disk. You do not need a server of any kind. A Fronkensteen app can be copied onto a thumb drive, emailed to someone else, used inside a native app framework such as Electron or Cordova... use your imagination. It's just a file, dude! You can even put it on a web server if you wish. [icon thumb-up icon]
+Fronkensteen will work fine when loaded from a local disk. You do not need a server of any kind. A Fronkensteen app can be copied onto a thumb drive, emailed to someone else, used inside a native app framework such as Electron or Cordova... use your imagination. It's just a file, dude! You can even put it on a web server if you wish.
 
 [h2 Why? h2]
 
@@ -22,14 +22,16 @@ In Ancient Times, you could just sit down at a computer, write some code, run it
 
 [h2 Where Do I Get It? h2]
 
+#hashtag
+
 You're soaking in it! This page itself is a running Fronkensteen app.
-Clicking the [icon data-transfer-download icon] button in the top right of this page will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the app pages and/or code (see below), and save it as an HTML file on your local disk.[note If you want the source code, you can find that in the [link https://github.com/pulpgrinder/Fronkensteen|GitHub repository link], but that's not at all necessary for normal use. note]
+Clicking the [icon save icon] icon at the top of this page will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the app pages and/or code (see below), and save it as an HTML file on your local disk.[note If you want the source code, you can find that in the [link https://github.com/pulpgrinder/Fronkensteen|GitHub repository link], but that's not at all necessary for normal use. note]
 
 [h2 Batteries Included h2]
 
 Fronkensteen aims to be a batteries-included development system.
 
-It comes with a [link docs/2-Fronkenmark Text Formatting|powerful markup language link] that includes the ability to execute embedded Scheme or JavaScript code,  typeset [latex LaTeX latex] equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting,  automatic handling of #hashtags, [link wiki-style links link], and [link https://github.com/pulpgrinder/Fronkensteen|normal hyperlinks link], easy to use footnotes[note Like this one! note], and more! The screen you're looking at right now is generated from a Fronkensteen markup file. If you like, you can see the code for this page by clicking the [icon pencil icon] at the top right of the screen.
+It comes with a [link docs/2-Fronkenmark Text Formatting|powerful markup language link] that includes the ability to execute embedded Scheme or JavaScript code,  typeset [latex LaTeX latex] equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting,  automatic handling of #hashtags, [link Kitchen Sink|wiki-style links link], and [link https://github.com/pulpgrinder/Fronkensteen|normal hyperlinks link], easy to use footnotes[note Like this one! note], and more! The screen you're looking at right now is generated from a Fronkensteen markup file. If you like, you can see (and edit) the code for this page by clicking the [icon edit icon] icon at the top of the screen.
 
 [h2 How Do I Use It? h2]
 
@@ -45,4 +47,7 @@ Current date and time: [!scheme (iso-8601-date) scheme!]
 [h2 Credits h2]
 
 The Fronkensteen system is copyright 2020 by Anthony W. Hursh and is released under the MIT License. As with most large FOSS projects, Fronkensteen relies on components from many other developers and projects. However, particular credit should be given to the excellent [link https://github.com/biwascheme/biwascheme|BiwaScheme interpreter link] by Yutaka HARA. See the [link special/Licenses|Licenses link] page for a full list.
-[img images/fecit.png !width='100' img]
+[hr]
+[pc
+[img images/fecit.png !width='200' img]
+pc]

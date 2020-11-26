@@ -541,8 +541,17 @@ class CMEditorDriver {
     setNote(editorname){
         this.setFence(editorname,"[note "," note]");
     }
-    setMath(editorname){
+    setInlineMath(editorname){
+      let editor = this.cm_editors[editorname];
+      let doc = editor.getDoc();
+      let selection = doc.getSelection();
       this.setFence(editorname,"[latex "," latex]");
+    }
+    setDisplayMath(editorname){
+      let editor = this.cm_editors[editorname];
+      let doc = editor.getDoc();
+      let selection = doc.getSelection();
+      this.setFence(editorname,"[!latex "," latex!]");
     }
 
     multilineFence(editorname,prefix,suffix){
@@ -602,7 +611,7 @@ class CMEditorDriver {
     setCode(editorname){
         var seltext = this.getSelection(editorname);
         if(seltext.indexOf("\n") !== -1){
-            this.multilineFence(editorname,"[code " + this.codeLanguage + "\n"," code]");
+            this.multilineFence(editorname,"[!code " + this.codeLanguage + "\n"," code!]");
         }
         else {
           this.setFence(editorname,"[code "," code]");

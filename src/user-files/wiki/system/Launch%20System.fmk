@@ -1,16 +1,19 @@
-This page contains the Scheme code that will be run at system launch. You can edit it if you wish, but use caution. Making a backup copy first is recommended. [icon star icon]
+This page contains the Scheme code that will be run at system launch. You can edit it if you wish, but use caution. Making a backup copy of your Fronkensteen app first is highly recommended. [icon star icon]
 [!scheme
+(resize-content)
 (process-wiki-documentation)
-(exec-wiki-page "themes/Fronkensteen-Theme")
-(init-wiki-viewer)
-(display-wiki-page "Main" #t)
+;(init-wiki-viewer)
+; Remote debugging
 (if (not (js-null? (url-params "remote-app")))
   (begin
     (launch-remote-repl-app)
-    (show-wiki-history-dialog))
+    )
   (if (not (js-null? (url-params "remote-terminal")))
     (remote-repl-terminal)
-    (show-wiki-history-dialog)))
-(resize-content)
+    ))
+(wire-ui)
+; Uncomment this and change the name if you want to use a name other than Fronkensteen.
+; (set-app-name "Your New Name")
+(display-wiki-page "Main" #t)
 ""
 scheme!]

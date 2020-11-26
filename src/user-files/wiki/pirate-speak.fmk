@@ -1,5 +1,13 @@
 Implementation of a Pirate Speak Translator for Fronkensteen. Edit this page to see the source code.
 
+When in the Course of human events it becomes necessary for one people to dissolve the political bands which have connected them with another and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them...
+
+Becomes:
+
+[piratespeak
+When in the Course of human events it becomes necessary for one people to dissolve the political bands which have connected them with another and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them...
+piratespeak]
+
 This is a slightly-modified version of the code found at:
 
 https://github.com/mikewesthad/pirate-speak
@@ -252,5 +260,5 @@ BiwaScheme.define_libfunc("piratespeak",1,1, function(ar,intp){
   return PirateSpeak.translate(ar[0]);
 })
 alert("piratespeak tag handler installed")
-return "";
+"";
 javascript!]

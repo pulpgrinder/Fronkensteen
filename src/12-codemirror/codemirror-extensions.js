@@ -296,8 +296,21 @@ BiwaScheme.define_libfunc("cm-editor-set-heading",2,2, function(ar){
   editDriver.activateEditor(ar[0]);
   editDriver.setHeading(ar[0],ar[1]);
 });
-
-BiwaScheme.define_libfunc("cm-editor-set-math",1,1, function(ar){
+BiwaScheme.define_libfunc("cm-editor-set-underline",1,1, function(ar){
   editDriver.activateEditor(ar[0]);
-  editDriver.setMath(ar[0]);
+  editDriver.setUnderline(ar[0],ar[1]);
+});
+BiwaScheme.define_libfunc("cm-editor-set-smallcaps",1,1, function(ar){
+  editDriver.activateEditor(ar[0]);
+  editDriver.setSmallCaps(ar[0],ar[1]);
+});
+
+BiwaScheme.define_libfunc("cm-editor-set-inline-math",1,1, function(ar){
+  editDriver.activateEditor(ar[0]);
+  editDriver.setInlineMath(ar[0]);
+});
+
+BiwaScheme.define_libfunc("cm-editor-set-display-math",1,1, function(ar){
+  editDriver.activateEditor(ar[0]);
+  editDriver.setDisplayMath(ar[0]);
 });

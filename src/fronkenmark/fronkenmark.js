@@ -26,8 +26,8 @@ Fronkenmark.processNote = function(text){
   let noteid = Fronkensteen.no_dash_uuid();
   let noteanchor = "note-anchor-" + noteid;
   let notelink = "note-link-" + noteid;
-  Fronkenmark.substitutions[id] = "<a class='footnote-link local-link' id='" + noteanchor + "' href='#" + notelink + "'><sup>" + Fronkenmark.noteCounter + "</sup></a>";
-  Fronkenmark.notes.push("<p><a class='footnote local-link' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + Fronkenmark.noteCounter + "</a>&nbsp;" + Fronkenmark.processContent(text) + "</p>");
+  Fronkenmark.substitutions[id] = "<a class='footnote-link local-link external' id='" + noteanchor + "' href='#" + notelink + "'><sup>" + Fronkenmark.noteCounter + "</sup></a>";
+  Fronkenmark.notes.push("<p><a class='footnote local-link external' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + Fronkenmark.noteCounter + "</a>&nbsp;" + Fronkenmark.processContent(text) + "</p>");
   Fronkenmark.noteCounter = Fronkenmark.noteCounter + 1;
   return id;
 }
@@ -371,12 +371,13 @@ Fronkenmark.processContent  = function(text){
       case "h5":
       case "h6":
       case "li":
-      case "bq":
+      case "blockquote":
       case "sup":
       case "sub":
       case "strike":
       case "u":
       return Fronkenmark.installSubstitute("<" + tag + ">") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</" + tag + ">");
+      case "bq":   return Fronkenmark.installSubstitute("<blockquote>") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</blockquote>");
       case "menu":
         return Fronkenmark.installSubstitute("<ul class='menu-list'>") + Fronkenmark.renderMenuItems(Fronkenmark.processContent(code), "menu-list-item") + Fronkenmark.installSubstitute("</ul>")
 // Inline LaTeX
@@ -413,7 +414,7 @@ Fronkenmark.processContent  = function(text){
       case "tiny": return Fronkenmark.installSubstitute("<span style='font-size:50%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
       case "scriptsize": return Fronkenmark.installSubstitute("<span style='font-size:66.7%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
       case "footnotesize": return Fronkenmark.installSubstitute("<span style='font-size:82.5%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "smallsize": return Fronkenmark.installSubstitute("<span style='font-size:90%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+      case "small": return Fronkenmark.installSubstitute("<span style='font-size:90%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
       case "normalsize": return Fronkenmark.installSubstitute("<span style='font-size:100%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
       case "large": return Fronkenmark.installSubstitute("<span style='font-size:125%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
       case "Large": return Fronkenmark.installSubstitute("<span style='font-size:140%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
@@ -455,7 +456,7 @@ Fronkenmark.processContent  = function(text){
                       return Fronkenmark.installSubstitute("<input type='text'  id='" + input_id + "'" + "value='" + input_content + "'/>");
       case "note" : return Fronkenmark.processNote(code);
       case "icon" : return Fronkenmark.installSubstitute(
-        "<img class='icon' src='" + Fronkensteen.readInternalFileDataURL("open-iconic/" + code + ".svg") + "' alt='" + code + "'/>");
+        "<span class='icon'><i class='" + Fronkensteen.fa_icon_lookup(code).replace(/\./g," ") + "' " + " title='" + code + "'></i></span>");
     //  case "icon" : return Fronkenmark.installSubstitute(
       //  "<span class='icon'><i class='far fa-" + code + "'></i></span>");
       case "dropcap": return Fronkenmark.installSubstitute(Fronkenmark.generateDropCap(code));

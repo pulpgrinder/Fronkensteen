@@ -2,43 +2,63 @@
 
 Edit this page to see the code that produces the given effects.
 
+[h3 Italic h3]
 [i Italic text. i]
+
+[h3 Bold h3]
 
 [b  Bold text. b]
 
+[h3 Empasized h3]
 [em Emphasized text. em] (same as italic, by default)
 
+[h3 strong h3]
 [strong Strong text. strong] (same as bold, by default)
 
+[h3 Headings h3]
 [h1 Level 1 Heading h1] (levels 1-6 are supported)
 
+[h3 Blockquotes h3]
 [bq "If the doors of perception were cleansed, everything would appear to man as it is - infinite." ― William Blake  bq]
 
+[h3 Superscript h3]
 E = mc[sup 2 sup]
 
+[h3 Subscript h3]
 H[sub 2 sub]O
 
+[h3 Strikethrough h3]
 [strike Never mind strike]
 
+[h3 Underline h3]
 [u What! u]
 
+[h3 Small caps h3]
 [sc Small, but mighty sc]
 
-Unicode: U+03EA U+0561 U+2615 U+265E
+[h3 Unicode h3]
+
+U+03EA U+0561 U+2615 U+265E
 
 U+16EDU+16ABU+16B1U+16E6U+16B1U+16C1U+16A2U+16A0U+16DAU+16CFU+16E6U+16B1U+16C1U+16A2U+16B1U+16C1U+16A6U+16A9U+16BEU+16B7U+16DAU+16ABU+16CBU+16CFU+16ABU+16C8U+16A9U+16BEU+16CFU+16ABU+16BF
 
-[link Main link] Internal wiki link.
+[h3 Internal wiki link h3]
+[link Main link]
 
-[link https://github.com/pulpgrinder/Fronkensteen link] External site link.
+[h3 External site link h3]
+[link https://github.com/pulpgrinder/Fronkensteen link]
 
-[link Main|Start page link] Link to an internal wiki page with alternate text.
+[h3 Internal wiki link with alternate text h3]
 
-[link https://github.com/pulpgrinder/Fronkensteen|Fronkensteen home page link] Link to an external site with alternate text.
+[link Main|Start page link]
 
-Hashtags: #cool #beans #scheme #wiki
+[h3 External site link with alternate text h3]
+[link https://github.com/pulpgrinder/Fronkensteen|Fronkensteen home page link]
 
-[h3 Normal paragraph h3] (or simply separate paragraphs with blank lines)
+[h3 hashtags h3]
+#cool #beans #scheme #wiki
+
+[h3 Normal paragraph (or simply separate paragraphs with blank lines) h3]
 
 [p Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  p]
 
@@ -55,7 +75,6 @@ Hashtags: #cool #beans #scheme #wiki
 [pj Call me Ishmael. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pj]
 
 [h3 Hanging indents h3]
-
 [ph Bukowski, C. (1979). [i Play the piano drunk like a percussion instrument until the fingers begin to bleed a bit. i] Santa Barbara: Black Sparrow Press.
 ph]
 [ph
@@ -63,13 +82,10 @@ Hobbes, T. (1657). [i Stigmai ageōmetrias, agroichias, antipoliteas, amatheias,
 ph]
 [ph Kirgo, G. (1960). [i How to write ten different best sellers now -in your spare time-and become the first author on your block, unless there’s an author already living on your block, in which case you’ll become the second author on your block, and that’s okay, too, and other stories. i] New York: Simon and Schuster.
 ph]
-
 [ph Rakoff, D. (2013). [i Don’t get too comfortable: the indignities of coach class, the torments of low thread count, the never- ending quest for artisanal olive oil, and other first world problems i] (Unabridged. ed.). New York: Anchor Books. ph]
 
-
-
-
-[poetry [h2 Poetry h2]
+[h3 Poetry h3]
+[poetry
 Shall I compare thee to a summer’s day?
 Thou art more lovely and more temperate:
 Rough winds do shake the darling buds of May,
@@ -86,55 +102,53 @@ When in eternal lines to time thou grow’st:
    So long lives this, and this gives life to thee.
 poetry]
 
-[h2 Lists h2]
-
-Bulleted list:
-
+[h3 Bulleted list h3]
 [ul
 First item
 Second item
 Third item
 ul]
 
-Numbered list:
-
+[h3 Numbered list h3]
 [ol
 First item
 Second item
 Third item
 ol]
 
-Rounded list:
-
+[h3 Rounded list h3]
 [roundlist
 First item
 Second item
 Third item
 roundlist]
 
-Menus:
-
+[h3 Menus h3]
 [menu
 Main
 docs/Custom Tags
 docs/Scheme Documentation
 menu]
 
-[h2 Typographic markup h2]
+[h3 Horizontal rule h3]
 [hr]
 
+[h3 Line break h3]
 [br]
 
+[h3 Scene break h3]
 [scenebreak *  *  * scenebreak]
 
+[h3 Page break h3]
 [pagebreak]
 
+[h3 Drop caps h3]
 [pj
 [dropcap Call me Ishmael dropcap]. Some years ago -- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.
 pj]
 
-[h3 Typographic quotes h3]
-By default, Fronkenmark will attempt to convert "" and '' to their "smart" (typographic, "curly") counterparts, Fronkenmark also makes the following substitutions:
+[h3 Typographic quotes and other characters h3]
+By default, Fronkenmark will attempt to convert " and ' to their "smart" (typographic, "curly") counterparts, Fronkenmark also makes the following substitutions:
 
 -- Insert an "en" (short) dash.
 
@@ -152,14 +166,13 @@ If you don't want these substitutions to happen, you can use:
 [code [nosmart] code], which disables smart quotes for the page it's contained in.
 
 [h3 Font sizing h3]
-
 [tiny tiny text tiny]
 
 [scriptsize script-size text scriptsize]
 
 [footnotesize footnote-size text footnotesize]
 
-[smallsize small-size text smallsize]
+[small small-size text small]
 
 [normalsize normal-size text normalsize]
 
@@ -175,35 +188,35 @@ If you don't want these substitutions to happen, you can use:
 
 [HUGE HUGE text HUGE]
 
-[h2 Multimedia Tags h2]
+[h3 Local image h3]
+[img images/fronkensteenlogo.png img]
 
-[img images/fronkensteenlogo.png img] inserts the specified (local) image at this position
+[h3 Web image h3]
+[img https://avatars1.githubusercontent.com/u/42942914 img]
 
-[img https://avatars1.githubusercontent.com/u/42942914 img] inserts the specified (web) image at this position.
+[h3 Image with extra SEML markup h3]
+[img images/fronkensteenlogo.png #fronkensteen-logo!title='Fronkensteen Logo'!width='20'!height='20' img]
 
-[img images/fronkensteenlogo.png #fronkensteen-logo!title='Fronkensteen Logo'!width='20'!height='20' img] inserts the image, using the specified [link docs/Programming|SEML link] markup.
-
-YouTube video, default dimensions:
-
+[h3 YouTube video (default dimensions) h3]
 [youtube https://www.youtube.com/watch?v=nR2r__ZgO5g youtube]
 
-YouTube video, user-specified dimensions:
+[h3 YouTube video (custom dimensions) h3]
 
 [youtube https://www.youtube.com/watch?v=nR2r__ZgO5g 560 315 youtube]
 
-Local audio (showing multiple formats):
+[h3 Local audio (multiple formats) h3]
 
 [audio media/Maple_Leaf_RagQ.ogg,media/Maple_Leaf_RagQ.mp3 audio]
 
-MP3 audio:
+[h3 Remote MP3 audio h3]
 
 [audio https://ia800204.us.archive.org/12/items/CarusoPourquoi/Caruso_Pourquoi.mp3 audio]
 
-MP4 video:
+[h3 Remote MP4 video h3]
 
 [video https://ia801900.us.archive.org/23/items/twitter-1266812530833240064/SpaceX_-_Liftoff-1266812530833240064.mp4 video]
 
-[h2 Tables h2]
+
 [h3 Basic table h3]
 [table
 1,2,3
@@ -223,28 +236,33 @@ Column 1, Column 2, Column 3
 7,8,9
 table]
 
+[h3 Inline LaTeX h3]
+[latex y=mx+b latex]
 
-[h2 LaTeX h2]
+[h3 Display LaTeX h3]
 
-[latex y=mx+b latex] (inline LaTeX)
+[!latex x=\frac{-b\pm \sqrt{{{b}^{2}}-4ac}}{2a} latex!]
 
-[!latex x=\frac{-b\pm \sqrt{{{b}^{2}}-4ac}}{2a} latex!] (display-mode (large) LaTeX)
+[!latex \int_a^b x^2\; dx  = \frac{x^3}{3}\LARGE{|}{_{\small a}^{\small b}} latex!]
+[h3 Basic Programming h3]
 
-[h2 Basic Programming h2]
-
+[h3 Include h3]
 [!include IncludeTest include!]
 
+[h3 Inline Scheme code h3]
 [!scheme
 
 (alert "Hello from Scheme!")
 "This text was generated by Scheme."
 scheme!]
 
+[h3 Inline JavaScript code h3]
 [!javascript
 alert("Hello from JavaScript!")
 "This text was generated by JavaScript.";
 javascript!]
 
+[h3 Button h3]
 [button testButton Test Button button]
 
 [!scheme
@@ -255,18 +273,17 @@ javascript!]
 
 scheme!]
 
+[h3 Paragraph with ID h3]
 [pid result-paragraph pid]
 
+[h3 Text input h3]
 [input myinput Test text input]
 
-[h3 Counters h3]
-
-Try refreshing the page to see these update.
-
+[h3 Normal counter h3]
 [counter kitchencounter]
 
-[counter resettablecounter]
-
+[h3 Lower-case Roman numeral counter h3]
 [romancounter smallromancounter]
 
+[h3 Upper-case Roman numeral counter h3]
 [Romancounter largeromancounter]

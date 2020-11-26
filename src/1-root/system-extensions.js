@@ -194,6 +194,9 @@ BiwaScheme.define_libfunc("repl-here", 1, 1, function(ar){
      }
   }
 
+    $(window).on("orientationchange", function(){
+      Fronkensteen.resizeComponents();
+    })
     $(window).resize(Fronkensteen.debouncer(function (e){
         Fronkensteen.resizeComponents();
     }));

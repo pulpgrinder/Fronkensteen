@@ -14,11 +14,19 @@
     <style>
     </style>
   </head>
-  <body>
-  <div id="fronkensteen-print-preview"></div>
-  <div id="fronkensteen-wrapper">
-  </div>
+  <body id="fronkensteen-content-container">
+    <div id="fronkensteen-top-toolbar-container" class="topcoat-navigation-bar">
+    </div>
+    <div id="fronkensteen-bottom-toolbar-container" class="topcoat-tab-bar">
+    </div>
+     <div id="fronkensteen-content">
+     </div>
+
+     <div id="upload_download">
+       <a id="fronkensteen-download-link"></a>
+     </div>
   <script type="text/javascript">
+
   /*!
  * natural-sort.js
  * ===============
@@ -167,29 +175,6 @@ $$$FILESYSTEM$$$
   Fronkensteen.scheme_index = 0;
   Fronkensteen.file_index = 0;
   Fronkensteen.loadError = false;
-
-Fronkensteen.export_workspace = function(){
-    let template = Fronkensteen.decodeText(fronkensteen_fs["1-root/fronkensteen_template.html"]["data"]);
-    let template_lines = template.split("\n");
-    let result = ""
-    for(var i = 0; i < template_lines.length; i++){
-      let trimmed_line = template_lines[i].trim();
-      if(trimmed_line === "$$$FILESYSTEM$$$"){
-        result = result + "let fronkensteen_fs = " + JSON.stringify(fronkensteen_fs) + "\n";
-      }
-      else{
-        result = result + template_lines[i] + "\n";
-      }
-    }
-    let element = document.createElement('a');
-    var blob = new Blob([result], {type: "text/html"});
-    element.href = window.URL.createObjectURL(blob);
-    element.setAttribute('download', "fronkensteen.html");
-    element.style.display = 'none';
-    element.innerHTML = "Download";
-    document.body.appendChild(element)
-    element.click();
-}
 
     // Append a style element containing CSS code from the internal
     // file system to the document head.
@@ -357,7 +342,7 @@ Fronkensteen.handleLoadError = function(filename,error){
     let jsQueue = [];
     let schemeQueue = [];
     let cssQueue = [];
-    document.getElementById("fronkensteen-wrapper").innerHTML = ""
+    //document.getElementById("fronkensteen-wrapper").innerHTML = ""
     let filenames = Object.keys(fronkensteen_fs).sort(naturalSort());
     for(var i = 0; i < filenames.length; i++){
         let filename = filenames[i];
@@ -422,7 +407,6 @@ function startREPL(){
 Fronkensteen.launchSystem();
 
  </script>
-
 
 </body>
 </html>

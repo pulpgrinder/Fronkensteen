@@ -5,9 +5,11 @@ Fronkensteen lets you create a collection of pages, organized in wiki style. Pag
 
 [h3 The Save Button h3]
 
-[icon device-floppy icon] This button lets you save the current version of your Fronkensteen document, including all internal pages and resources, to your hard drive. The document is saved as a stand-alone HTML file, which can be opened in any modern browser, emailed, put on a web site, or almost anything else you can do with an HTML document.
+[icon floppy_disk icon] This button lets you save the current version of your Fronkensteen document, including all internal pages and resources, to your hard drive. The document is saved as a stand-alone HTML file, which can be opened in any modern browser, emailed, put on a web site, or almost anything else you can do with an HTML document.
 
-The default file name is fronkensteen.yyyy-mm-dd.hh.mm.ss.html, where yyyy is the current year, mm is the current month, dd is the current day of the month, hh is the current hour, mm is the current minute, and ss is the current second. All times and dates are given in UTC time (i.e., what used to be called Greenwich Mean Time), so don't be surprised if there's a variation between this file name and your current wall time. The important thing here is that you can tell at a glance which is the latest version. Save early and save often.
+The default file name is Fronkensteen.yyyy-mm-dd.hh.mm.ss.html, where yyyy is the current year, mm is the current month, dd is the current day of the month, hh is the current hour, mm is the current minute, and ss is the current second. All times and dates are given in UTC time (i.e., what used to be called Greenwich Mean Time), so don't be surprised if there's a variation between this file name and your current wall time. The important thing here is that you can tell at a glance which is the latest version. Save early and save often.
+
+If you want to change the default name to something other than Fronkensteen, you can do that in Scheme with (set-app-name "Your New Name") (for example, in [link system/Launch System link])
 
 The save location varies depending on how your browser is configured. It may go to a Downloads folder, or the browser may be set to prompt you for a save location. The latter is more flexible, and it's recommended that you configure your browser to allow this, if it's not already set up that way.
 
@@ -86,10 +88,6 @@ You can change the title of the page you're working on by simply entering the ne
 [h3 The Redo Button h3]
 
 [icon action-redo icon] This button redoes the most recently undone change.
-
-[h3 The Preview Button h3]
-
-[icon eye icon] This button shows a preview of what your page will look like, without needing to save it first.
 
 [h3 The Bold Button h3]
 

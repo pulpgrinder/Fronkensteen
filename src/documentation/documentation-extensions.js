@@ -144,7 +144,7 @@ BiwaScheme.define_libfunc("retrieve-procedure-filename", 1, 1, function(ar, intp
   return false;
 });
 BiwaScheme.define_libfunc("process-doc-strings", 1,1, function(ar){
-  // Processes the docstrings from the docs/Scheme Documentation wiki page.
+  // Processes the docstrings from the system/Scheme Documentation wiki page.
    BiwaScheme.assert_string(ar[0]);
    let docs_without_comments = ar[0].replace(/^\s*\;.*$/,"")
    let docitems = docs_without_comments.split(/^§\n\n/m)

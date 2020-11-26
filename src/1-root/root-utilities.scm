@@ -25,10 +25,11 @@
 
 (define active-document-location (window-location-href))
 
-(define app-name "fronkensteen")
+(define app-name "Fronkensteen")
 
 (define (set-app-name new-app-name)
-  (set! app-name new-app-name))
+  (set! app-name new-app-name)
+  (set-html-app-name new-app-name))
 
 (define (get-versioned-file-name)
   (let ((current-file-name (window-location-basename-no-extension)))
@@ -41,14 +42,14 @@
 
 (define (save-the-static-world) ; Save the current static content of the system. Changes done with the interactive REPL need to be saved before they will take effect.
 
-  (let ((app-file-name (<< app-name "." (file-version-time-stamp) ".html")))
+  (let ((app-file-name (<< (encode-uri app-name) "." (file-version-time-stamp) ".html")))
   (download-file app-file-name (clone-workspace) "text/html")
   (set-system-clean)))
 
 
 (define (clone-workspace)
   (prompt-to-save-user-data)
-  (let ((template (read-internal-text-file "1-root/fronkensteen_template.html")))
+  (let ((template (str-replace (read-internal-text-file "1-root/fronkensteen_template.html") "\<title\>Fronkensteen\<\/title\>" (<< "<title>" app-name "</title>"))))
     (let ((template-lines (vector->list (str-split template "\n"))))
         (process-template-lines template-lines))))
 

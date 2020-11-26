@@ -13,10 +13,11 @@
     (set-upload-element upload-element)))
 
 (define (build-downloader base-element)
-    (add-ui-panel "#fronkensteen-download-manager"
+    (% base-element "append"
+      (dv "#fronkensteen-download-manager"
       (<<
         (a "#fronkensteen-download-link" "Click to download")
-        (button "#download-done" "Done"))
+        (button "#download-done" "Done")))
 ))
 
 (define (#download-done_click)

@@ -50,13 +50,17 @@ Fronkensteen.downloadFile = function(filename,data,mime_type){
   if(element.href !== undefined){
     window.URL.revokeObjectURL(element.href);
   }
+  $("#fronkensteen-download-link").off("click")
   var bb = new Blob([data], {type: mime_type});
   element.href = window.URL.createObjectURL(bb);
   element.setAttribute('download', filename);
   //element.style.display = 'none';
   element.innerHTML = "Download";
   //document.body.appendChild(element)
-   element.click();
+  setTimeout(function(){
+    element.click();
+  },500);
+
 }
 
 

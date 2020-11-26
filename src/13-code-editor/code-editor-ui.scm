@@ -2,68 +2,92 @@
 ; Copyright 2019, 2020 by Anthony W. Hursh.
 ; MIT License.
 
-(define (fronkensteen-editor-controls) ; creates the controls for code editors.
-    (dv "#fronkensteen-editor-controls"
-      (span ".fronkensteen-editor-button-group"
-      (<<
-        "Title:&nbsp;"
-        (input "#fronkensteen-editor-page-title!type='text'!size='20'")
-        (button "#fronkensteen-editor-save-and-close-button.fronkensteen-editor-button!title='Save and Close'"
-          (iconic-icon "check"))
-        (button "#fronkensteen-editor-save-button.fronkensteen-editor-button!title='Save'"
-          (iconic-icon "device-floppy"))
-          (button "#fronkensteen-editor-close-button.fronkensteen-editor-button!title='Close without Saving'"
-            (iconic-icon "circle-x"))
-        (button "#fronkensteen-editor-undo-button.fronkensteen-editor-button!title='Undo'"
-            (iconic-icon "action-undo"))
-        (button "#fronkensteen-editor-redo-button.fronkensteen-editor-button!title='Redo'"
-            (iconic-icon "action-redo"))
-        (button "#fronkensteen-editor-preview-button.fronkensteen-editor-button!title='Preview'"
-            (iconic-icon "eye"))
-            (button "#fronkensteen-editor-menu-button.fronkensteen-editor-button!title='Insert Menu'"
-                (iconic-icon "menu"))
-        (button "#fronkensteen-editor-bold-button.fronkensteen-editor-button!title='Bold'"
-            (iconic-icon "bold"))
-        (button "#fronkensteen-editor-italic-button.fronkensteen-editor-button!title='Italic'"
-            (iconic-icon "italic"))
-      (button "#fronkensteen-editor-link-button.fronkensteen-editor-button!title='Link'"
-          (iconic-icon "link-intact"))
-        (button "#fronkensteen-editor-block-quote-button.fronkensteen-editor-button!title='Block quote'"
-            (iconic-icon "double-quote-serif-right"))
-        (button "#fronkensteen-editor-code-button.fronkensteen-editor-button!title='Source code'"
-            (iconic-icon  "code"))
-        (button "#fronkensteen-editor-poetry-button.fronkensteen-editor-button!title='Poetry/song lyrics'"
-            (iconic-icon "musical-note"))
-
-        (button "#fronkensteen-editor-center-button.fronkensteen-editor-button!title='Center'"
-            (iconic-icon  "align-center"))
-        (button "#fronkensteen-editor-justify-button.fronkensteen-editor-button!title='Justify'"
-            (iconic-icon "justify-center"))
-
-        (button "#fronkensteen-editor-align-right-button.fronkensteen-editor-button!title='Align right'"
-            (iconic-icon "align-right"))
-
-        (button "#fronkensteen-editor-align-left-button.fronkensteen-editor-button!title='Align left'"
-            (iconic-icon "align-left"))
-
-        (button "#fronkensteen-editor-comment-button.fronkensteen-editor-button!title='Mark as comment'"
-            (iconic-icon "comment-square"))
-
-        (button "#fronkensteen-editor-footnote-button.fronkensteen-editor-button!title='Footnote'"
-            (iconic-icon  "paperclip"))
-        (button "#fronkensteen-editor-character-button.fronkensteen-editor-button!title='Special characters and symbols'"
-                (iconic-icon "section"))
-        (button "#fronkensteen-editor-doc-button.fronkensteen-editor-button!title='See More Tags'" (iconic-icon "question-mark"))
-        (button "#fronkensteen-editor-scheme-button.fronkensteen-editor-button!title='Execute selected Scheme code or expression before cursor'" (iconic-icon "media-play"))
-        (button "#fronkensteen-editor-js-button.fronkensteen-editor-button!title='Execute selected JavaScript code'" (iconic-icon "play-circle"))
-        (button "#fronkensteen-editor-lambda-button.fronkensteen-editor-button!title='Programming Tools'" (iconic-icon "lambda"))
-        (button "#fronkensteen-editor-history-button.fronkensteen-editor-button!title='Show History'" (iconic-icon "clock"))
-        (button "#fronkensteen-editor-fullscreen-button.fronkensteen-editor-button!title='Enter distraction-free (fullscreen) mode'" (iconic-icon "fullscreen-enter"))
-
-
-      ))
+(define (generate-editor-toolbar)
+    (fronkensteen-bottom-toolbar "#editor-control-bar"
+    (topcoat-button-bar
+    (<<
+      ;  "Title:&nbsp;"
+      ;  (input "#fronkensteen-editor-page-title!type='text'!size='20'")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-save-and-close-button"
+          "check" "Save and Close" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-save-button"
+          "save" "Save without closing" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-close-button" "times-circle" "Close without saving" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-history-button.wiki-history-button" "clock" "Show history" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-undo-button" "undo" "Undo" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-redo-button" "redo" "Redo" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-inline-style-button"
+        "italic" "Inline styles" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-menu-button"
+        "bars" "Insert menu" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-paragraph-style-button" "" "Special characters" "¶")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-character-button" "" "Special characters" "§")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-doc-button" "question" "See more tags" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-scheme-button"
+        "play" "Execute selected Scheme code or expression before cursor" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-js-button" "play-circle" "Execute selected JavaScript code" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-lambda-button" "" "Programming tools" "λ")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-fullscreen-button" "expand" "Enter distraction-free (fullscreen) mode" "")
+      )
     ))
+    (set-inline-formatting-popover)
+    (set-paragraph-formatting-popover)
+    (wire-ui)
+    )
 
+(define (#fronkensteen-editor-inline-style-button_click)
+  (toggle-popover "#fronkensteen-editor-inline-style-button")
+  (wire-ui))
+
+
+  (define (#fronkensteen-editor-paragraph-style-button_click)
+    (toggle-popover "#fronkensteen-editor-paragraph-style-button")
+    (wire-ui))
+
+(define (set-inline-formatting-popover)
+  (set-popover "#fronkensteen-editor-inline-style-button"
+    (topcoat-button-bar
+    (<<
+      (fronkensteen-toolbar-button "#fronkensteen-editor-bold-button"
+      "bold" "Bold" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-italic-button"
+      "italic" "Italic" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-link-button"
+       "link" "Link" "")
+       (fronkensteen-toolbar-button "#fronkensteen-editor-superscript-button"
+        "superscript" "Superscript" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-subscript-button"
+         "subscript" "Subscript" "")
+         (fronkensteen-toolbar-button "#fronkensteen-editor-underline-button"
+          "underline" "Underline" "")
+          (fronkensteen-toolbar-button "#fronkensteen-editor-inline-code-button.fronkensteen-editor-code-button" "code" "Format as source code" "")
+          (fronkensteen-toolbar-button "#fronkensteen-editor-smallcaps-button"
+           "" "Small Caps" "A")
+           (fronkensteen-toolbar-button "#fronkensteen-editor-display-latex-button"
+            "" "Format as display (large) LaTeX" " ∫ ")
+           (fronkensteen-toolbar-button "#fronkensteen-editor-inline-latex-button"
+            "square-root-alt" "Format as inline (small) LaTeX" "")
+
+
+))
+        ))
+
+(define (set-paragraph-formatting-popover)
+  (set-popover "#fronkensteen-editor-paragraph-style-button"
+    (topcoat-button-bar
+    (<<
+      (fronkensteen-toolbar-button "#fronkensteen-editor-block-quote-button" "quote-left" "Block quote" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-poetry-button" "music" "Format as poetry/song lyrics" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-center-button"
+         "align-center" "Align center" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-justify-button" "align-justify" "Justify" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-align-right-button" "align-right" "Align right" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-align-left-button" "align-left" "Align left" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-paragraph-code-button.fronkensteen-editor-code-button" "code" "Format as source code" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-comment-button" "comment" "Mark as comment" "")
+      (fronkensteen-toolbar-button "#fronkensteen-editor-footnote-button" "sticky-note" "Footnote" "")
+))
+        ))
 (define (fronkensteen-editor-search-toolbar)
  (<<
    "&nbsp;&nbsp;Find:"
