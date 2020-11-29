@@ -1,16 +1,60 @@
 
 (define (search-hash-tag hash-tag)
-    (init-wiki-search-display)
-    (% "#fronkensteen-wiki-search-field" "val" hash-tag)
+    (show-and-resize "fronkensteen-search-bar-container")
+    (% "#search-field" "val" hash-tag)
     (display-search-results (find-matching-wiki-pages hash-tag)))
 
+(define (.wiki-search_click)
+  (show-and-resize "#fronkensteen-search-bar-container")
+  (wire-ui))
+
+
+(define (show-search-result-dialog)
+  (if (element-exists? "#search-result")
+    #t
+  (begin
+    (build-fronkensteen-dialog "#search-dialog" "Search Results"
+      (dv "#wiki-search-list.popup-list"
+        ""
+        ) "40em" "20em")
+        (wire-ui))))
+
+(define (generate-search-bar)
+  (% "#fronkensteen-search-bar-container" "html"
+    (<<
+      (fa-icon "#close-search-bar" "times-circle" "")
+      "&nbsp;"
+      (input "#search-field!type='text'!placeholder='Find'")
+      "&nbsp;"
+      (input "#replace-field!type='text'!placeholder='Replace'")
+      (button "#find-next-button" "Next" )
+      (button "#replace-button" "Replace")
+      (button "#replace-and-find-button" "Replace and Find")
+      (button "#replace-all-button" "Replace All")
+      (input "#search-this-page-checkbox!type='checkbox'")
+       "This page&nbsp;"
+      (input "#search-all-pages-checkbox!type='checkbox'")
+      "All pages &nbsp;"
+      (input "#search-case-sensitive-checkbox!type='checkbox'")
+      "Case-sensitive&nbsp;"
+      (input "#search-regex-checkbox!type='checkbox'")
+      "Regex&nbsp;"
+      (input  "#search-backward-checkbox!type='checkbox'")
+      "Backward&nbsp;"
+      (input "#search-wrap-checkbox!type='checkbox'")
+      "Wrap")))
+
+(define (#close-search-bar_click)
+    (hide-and-resize "#fronkensteen-search-bar-container")
+    )
 
 (define (display-search-results matching-pages)
+  (show-search-result-dialog)
   (if (eqv? matching-pages '())
-    (% "#fronkensteen-wiki-search-list" "html" "(no results)")
+    (% "#wiki-search-list" "html" "(no results)")
     (begin
-      (% "#fronkensteen-wiki-search-list" "html" (generate-wiki-search-results matching-pages))
-      (% ".fronkensteen-wiki-search-entry" "on" "click" (lambda (ev)
+      (% "#wiki-search-list" "html" (generate-wiki-search-results matching-pages))
+      (% ".wiki-search-entry" "on" "click" (lambda (ev)
       (let ((target (js-ref ev "currentTarget")))
       (let ((wiki-title  (element-read-attribute target "target")))
         (display-wiki-page wiki-title #t)
@@ -30,44 +74,33 @@
       ""
       (let ((filename (wiki-display-name (car page-list))))
       (<<
-        (li (<< ".fronkensteen-wiki-search-entry!target='" filename "'") filename)
+        (popup-list-item (<< ".wiki-search-entry!target='" filename "'") filename)
         (generate-wiki-search-results (cdr page-list))))))
 
-(define (init-wiki-search-display)
 
-(build-fronkensteen-dialog "#fronkensteen-search" "Search"
-  (<<
-    (dv ".fronkensteen-dialog-controls" (<<
-      (dv (<<
-        "Search:&nbsp;"
-        (input "#fronkensteen-wiki-search-field")
-          (input "#fronkensteen-wiki-search-case-sensitive!type='checkbox'")
-          "&nbsp;case-sensitive&nbsp;&nbsp;"
-          (input "#fronkensteen-wiki-search-regex!type='checkbox'")
-          "&nbsp;regex"
-          ))
+(define (#search-this-page-checkbox_change)
+    (set-checkbox-checked! "#search-all-pages-checkbox" #f)
+    (run-wiki-search))
 
-          ))
-    (dv "#fronkensteen-wiki-search-list-wrapper"
-      (ul "#fronkensteen-wiki-search-list" "")))
+(define (#search-all-pages-checkbox_change)
+    (set-checkbox-checked! "#search-this-page-checkbox" #f)
+    (run-wiki-search))
 
-     "30em" "10em")
-     (wire-ui)
-     (% "#fronkensteen-wiki-search-case-sensitive" "on" "change" (lambda (ev)
-       (set-checkbox-checked! "#fronkensteen-wiki-search-regex" #f)
-       (run-wiki-search)
-     ))
-     (% "#fronkensteen-wiki-search-regex" "on" "change" (lambda (ev)
-       (set-checkbox-checked! "#fronkensteen-wiki-search-case-sensitive" #f)
-       (run-wiki-search)
-     ))
-  )
+(define (#search-case-sensitive-checkbox_change)
+    (set-checkbox-checked! "#search-regex-checkbox" #f)
+    (run-wiki-search))
 
+(define (#search-regex-checkbox_change)
+    (set-checkbox-checked! "#search-case-sensitive-checkbox" #f)
+    (run-wiki-search))
+
+(define (#search-field_input)
+    (run-wiki-search))
 
 (define (find-matching-wiki-pages text)
     (let ((search-mode
-        (cond ((checkbox-checked?  "#fronkensteen-wiki-search-case-sensitive") "case-sensitive")
-              ((checkbox-checked?  "#fronkensteen-wiki-search-regex") "regex"
+        (cond ((checkbox-checked?  "#search-case-sensitive-checkbox") "case-sensitive")
+              ((checkbox-checked?  "#search-regex-checkbox") "regex"
               )
               (#t "case-insensitive")
               )))
@@ -105,21 +138,56 @@
            (collect-matching-wiki-pages text (cdr file-list) search-mode)
         ))))
 
-
-
-(define (#fronkensteen-wiki-search-field_input ev)
-  (run-wiki-search))
-
 (define (run-wiki-search)
-  (let ((search-term (% "#fronkensteen-wiki-search-field" "val")))
+  (if (eqv? (checkbox-checked? "#search-all-pages-checkbox") #t)
+      (run-global-page-search)
+      (run-current-page-search)))
+
+(define (run-global-page-search)
+  (let ((search-term (% "#search-field" "val")))
     (if (eqv? search-term "")
       (display-search-results '())
       (display-search-results (find-matching-wiki-pages search-term)))))
 
-(define (#fronkensteen-wiki-search-button_click)
-  (init-wiki-search-display))
+(define (run-current-page-search)
+  (if (in-editor?)
+    (run-editor-search)
+    (alert "Static page search not implemented yet")))
 
-(define (#fronkensteen-wiki-incoming-links-button_click ev)
+
+(define (in-editor?)
+  (let ((page-type (cadr (car wiki-history-list))))
+  (if (eqv? page-type "editor")
+    #t
+    #f)))
+
+
+(define (run-editor-search)
+  (let ((search-lemma (% "#search-field" "val")))
+    (if (eqv? search-lemma "")
+      #t
+    (let ((cursor-direction
+        (if (eqv? (checkbox-checked? "#search-backward-checkbox") #t)
+          "from"
+          "to")))
+      (if (eqv? (cm-find current-editor search-lemma
+      (cm-editor-get-cursor-position current-editor cursor-direction)
+      (not (checkbox-checked? "#search-case-sensitive-checkbox"))
+      (checkbox-checked? "#search-regex-checkbox")
+      (checkbox-checked? "#search-backward-checkbox")
+      (checkbox-checked? "#search-wrap-checkbox")
+       ) #f)
+       (alert "Not found.")))
+
+))
+(focus-find))
+
+(define (focus-find)
+  (timer (lambda()
+    (% "#search-field" "focus")) 0.1))
+
+
+(define (#wiki-incoming-links-button_click ev)
   (let ((matching-pages (collect-linked-pages current-title (vector->list (get-internal-dir "user-files/wiki")))))
     (display-incoming-links matching-pages)))
 
@@ -127,10 +195,10 @@
   (if (eqv? (length matching-pages) 0)
     (alert "No other pages link here.")
     (begin
-      (% "#fronkensteen-incoming-links" "remove")
-      (build-fronkensteen-dialog "#fronkensteen-incoming-links" "Pages That Link Here" (menu-list (render-incoming-links matching-pages)) "20em" "20em")
-      (% ".fronkensteen-incoming-link" "off" "click")
-      (% ".fronkensteen-incoming-link" "on" "click"
+      (% "#wiki-incoming-links" "remove")
+      (build-fronkensteen-dialog "#wiki-incoming-links" "Pages That Link Here" (menu-list (render-incoming-links matching-pages)) "20em" "20em")
+      (% ".wiki-incoming-link" "off" "click")
+      (% ".wiki-incoming-link" "on" "click"
       (lambda (ev)
         (let ((target (js-ref ev "currentTarget")))
           (let ((title  (element-read-attribute target "target")))
@@ -140,7 +208,7 @@
   (if (eqv? matching-pages '())
       ""
       (let ((page-name (file-basename-no-extension (car matching-pages))))
-        (<< (menulist-item (<< ".fronkensteen-incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
+        (<< (menulist-item (<< ".wiki-incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
 
 (define (collect-linked-pages title page-list)
     (collect-matching-wiki-pages (<< "[link " title) page-list "case-sensitive"))

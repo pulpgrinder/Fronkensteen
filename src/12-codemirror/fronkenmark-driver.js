@@ -4,7 +4,9 @@ CodeMirror.commands.find = function(){
   intp2.evaluate("(% \"#code-editor-find-field\" \"focus\")")
 }
 
-class CMEditorDriver {
+Fronkensteen.editDriver = new
+
+class  {
     constructor(){
       this.codeLanguage = "fronkenmark";
       this.cm_editors = {}
@@ -341,7 +343,7 @@ class CMEditorDriver {
     findNext(){
       setTimeout(function(){
       var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-      intp2.evaluate("(#fronkensteen-editor-find-button_click)");
+      intp2.evaluate("(#find-next-button_click)");
       return true;
     },15)
     }
@@ -697,7 +699,7 @@ class CMEditorDriver {
     let doc;
     let editor = this.cm_editors[editor_name];
     if(editor === undefined){
-      console.error("editDriver.find(): No editor corresponding to " + editor_name);
+      console.error("Fronkensteen.editDriver.find(): No editor corresponding to " + editor_name);
       return false;
     }
       doc = editor.getDoc();
@@ -740,5 +742,3 @@ class CMEditorDriver {
     }
 }
 }
-
-let editDriver = new CMEditorDriver();

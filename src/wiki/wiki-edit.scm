@@ -75,8 +75,6 @@
     (fronkensteen-editor-close-and-display-page)))
 
 
-(define (#fronkensteen-wiki-history-button_click)
-    (show-popover-menu "#wiki-history-list"))
 
 (define (#fronkensteen-editor-doc-button_click)
     (build-fronkensteen-dialog "#fronkensteen-editor-docs" "Available Tags" (fronkenmark (
@@ -84,7 +82,7 @@
       ) #t #t) "40em" "20em"))
 
 (define (fronkensteen-editor-close-and-display-page)
-    (let ((title (caar fronkensteen-wiki-history-list)))
+    (let ((title (caar wiki-history-list)))
       (close-editor title)
       (display-wiki-page title #t)))
 
@@ -108,23 +106,23 @@
 
 
 (define (check-editor-title-change title)
-  (let ((old-title (caar fronkensteen-wiki-history-list)))
+  (let ((old-title (caar wiki-history-list)))
     (if (not (eqv? title old-title))
         (begin
            (alert "Title has changed. Reopening.")
             (close-editor old-title)
             (let ((filename (wiki-data-path old-title)))
               (delete-internal-file filename)
-              (set! fronkensteen-wiki-history-list (remove-wiki-history old-title "page" fronkensteen-wiki-history-list))
+              (set! wiki-history-list (remove-wiki-history old-title "page" wiki-history-list))
               )
             (edit-wiki-page title)))))
 
 (define (close-editor title)
-  (let ((content-name (<< "#fronkensteen-wiki-editor-" (encode-base-32 title))))
+  (let ((content-name (<< "#wiki-editor-" (encode-base-32 title))))
     (if (element-exists? content-name)
       (begin
         (destroy-cm-editor! (<< content-name "-textarea"))
         (% content-name "remove")
-        (set! fronkensteen-wiki-history-list (cdr fronkensteen-wiki-history-list))
-        (update-wiki-history-display)
+        (set! wiki-history-list (cdr wiki-history-list))
+        (hide-editor-popovers available-popovers)
         ))))

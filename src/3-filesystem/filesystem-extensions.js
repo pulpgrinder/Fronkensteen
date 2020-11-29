@@ -108,6 +108,16 @@ Fronkensteen.readInternalFileDataURL = function(filename){
 Fronkensteen.getFileSystemJSON = function(){
   return JSON.stringify(fronkensteen_fs);
 }
+Fronkensteen.getPackageJSON = function(package_prefix){
+  let keys = Object.keys(fronkensteen_fs);
+  let package = {}
+  for(var i = 0; i < keys.length; i++){
+    if(keys[i].indexOf(package_prefix) === 0){
+      package[keys[i]] = fronkensteen_fs[keys[i]]
+    }
+  }
+  return JSON.stringify(package);
+}
 
 Fronkensteen.deleteInternalFile = function(filename){
   if(fronkensteen_fs[filename] !== undefined){
@@ -283,6 +293,11 @@ BiwaScheme.define_libfunc("get-unsorted-file-names",0,0,function(ar){
 BiwaScheme.define_libfunc("get-internal-filesystem-json",0,0,function(ar){
   // Gets the JSON representation of the internal filesystem.
   return Fronkensteen.getFileSystemJSON();
+});
+BiwaScheme.define_libfunc("get-package-json",1,1,function(ar){
+  BiwaScheme.assert_string(ar[0])
+  // Gets the JSON representation of the internal filesystem.
+  return Fronkensteen.getPackageJSON(ar[0]);
 });
 BiwaScheme.define_libfunc("get-internal-dir",1,1,function(ar){
   // Returns a vector of all the filenames in the path.

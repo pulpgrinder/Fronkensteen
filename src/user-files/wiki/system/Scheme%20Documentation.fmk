@@ -550,11 +550,6 @@ build-uploader
 
 §
 
-build-wiki-history-display
-(build-wiki-history-display args)
-
-§
-
 button
 (button args)
 
@@ -2622,8 +2617,8 @@ fronkensteen-toolbar-button
 
 §
 
-fronkensteen-wiki-search-field_input
-(fronkensteen-wiki-search-field_input args)
+fronkensteen-search-field_input
+(fronkensteen-search-field_input args)
 
 §
 

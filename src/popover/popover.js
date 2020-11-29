@@ -169,12 +169,12 @@
 
         if(!$("#"+id).length)
         $("body").append(this.htmlStr);
-
+        let self = this;
         setTimeout(function(){
 
           if(!arrowShow){
             $("#"+id).attr('class','');
-            $("#"+id).addClass("fu_popover_"+this.options.themeName);
+            $("#"+id).addClass("fu_popover_"+self.options.themeName);
           }
 
           $("#"+id).show();

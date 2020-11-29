@@ -16,6 +16,8 @@
                   ))
              ("#wiki-editor-page-title" (
                "display" "none"
+               "position" "relative"
+               "top" "0.5em"
                ))
              (".wiki-history-entry" (
                "border-left" "1px solid #ddd"
@@ -38,6 +40,11 @@
                "overflow" "auto"
                "-webkit-overflow-scrolling" "touch";
                ))
+            ("#wiki-search-list-wrapper" (
+              "overflow" "auto"
+              "max-height" "15em"
+              "margin-top" "0.5em"
+            ))
              (".wiki-editor" (
                "height" "100%"
                ))

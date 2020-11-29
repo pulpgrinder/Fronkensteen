@@ -2,6 +2,8 @@
 ; Copyright 2018-2019 by Anthony W. Hursh
 ; MIT License
 
+
+
 ; Error handling
 ;;;;!
 ;(html-error msg arg) ‌‌procedure
@@ -71,6 +73,7 @@
     (<< "<" tag " />")
     (<< "<" tag " " attrs " />")))
 
+;
 ;;;;!
 ; (seml . args ) ‌‌procedure
 ;
@@ -302,7 +305,7 @@
 (define (DOCTYPE . args) ; Same as !DOCTYPE.
   (apply !DOCTYPE args))
 
-
+;
 (define (a . args) ; HTML anchor tag.
   (apply seml (cons "a" args)))
 

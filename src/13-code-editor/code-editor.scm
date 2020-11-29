@@ -201,31 +201,18 @@
 
 (define (focus-find)
   (timer (lambda()
-    (% "#code-editor-find-field" "focus")) 0.1)
-  )
+    (% "#search-field" "focus")) 0.1))
 
-(define (#fronkensteen-editor-find-button_click)
+
+(define (#find-next-button_click)
   (run-editor-search))
 
+  (define (#replace-button_click)
+    (if (in-editor?)
+      (cm-editor-replace-selected-text current-editor (% "#replace-field" "val"))))
 
-  (define (#fronkensteen-editor-replace-button_click)
-    (cm-editor-replace-selected-text current-editor (% "#code-editor-replace-field" "val")))
-
-(define (#fronkensteen-editor-replace-and-find-button_click)
-  (cm-editor-replace-selected-text current-editor (% "#code-editor-replace-field" "val"))
-  (run-editor-search))
-
-(define (run-editor-search)
-  (let ((cursor-direction
-      (if (eqv? (checkbox-checked? "#fronkensteen-editor-search-backward") #t)
-        "from"
-        "to")))
-    (if (eqv? (cm-find current-editor (% "#code-editor-find-field" "val")
-    (cm-editor-get-cursor-position current-editor cursor-direction)
-    (not (checkbox-checked? "#fronkensteen-editor-search-case-sensitive"))
-    (checkbox-checked? "#fronkensteen-editor-search-regex")
-    (checkbox-checked? "#fronkensteen-editor-search-backward")
-    (checkbox-checked? "#fronkensteen-editor-search-wrap")
-     ) #f)
-     (alert "Not found."))
-))
+(define (#replace-and-find-button_click)
+  (if (in-editor?)
+  (begin
+  (cm-editor-replace-selected-text current-editor (% "#replace-field" "val"))
+  (run-editor-search))))

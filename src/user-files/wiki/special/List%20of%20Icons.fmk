@@ -6,2466 +6,2916 @@ code]
 
 For example, [code [icon bell icon] code] will produce [icon bell icon].
 
-[icon airplane icon] airplane
+[icon ad icon] ad
 
-[icon alarm icon] alarm
+[icon address-book icon] address-book
 
-[icon alarm_fill icon] alarm_fill
+[icon address-card icon] address-card
 
-[icon alt icon] alt
+[icon adjust icon] adjust
 
-[icon ant icon] ant
+[icon air-freshener icon] air-freshener
 
-[icon ant_circle icon] ant_circle
+[icon align-center icon] align-center
 
-[icon ant_circle_fill icon] ant_circle_fill
+[icon align-justify icon] align-justify
 
-[icon ant_fill icon] ant_fill
+[icon align-left icon] align-left
 
-[icon antenna_radiowaves_left_right icon] antenna_radiowaves_left_right
+[icon align-right icon] align-right
 
-[icon app icon] app
+[icon allergies icon] allergies
 
-[icon app_badge icon] app_badge
+[icon ambulance icon] ambulance
 
-[icon app_badge_fill icon] app_badge_fill
+[icon american-sign-language-interpreting icon] american-sign-language-interpreting
 
-[icon app_fill icon] app_fill
+[icon anchor icon] anchor
 
-[icon archivebox icon] archivebox
+[icon angle-double-down icon] angle-double-down
 
-[icon archivebox_fill icon] archivebox_fill
+[icon angle-double-left icon] angle-double-left
 
-[icon arrow_2_circlepath icon] arrow_2_circlepath
+[icon angle-double-right icon] angle-double-right
 
-[icon arrow_2_circlepath_circle icon] arrow_2_circlepath_circle
+[icon angle-double-up icon] angle-double-up
 
-[icon arrow_2_circlepath_circle_fill icon] arrow_2_circlepath_circle_fill
+[icon angle-down icon] angle-down
 
-[icon arrow_2_squarepath icon] arrow_2_squarepath
+[icon angle-left icon] angle-left
 
-[icon arrow_3_trianglepath icon] arrow_3_trianglepath
+[icon angle-right icon] angle-right
 
-[icon arrow_branch icon] arrow_branch
+[icon angle-up icon] angle-up
 
-[icon arrow_clockwise icon] arrow_clockwise
+[icon angry icon] angry
 
-[icon arrow_clockwise_circle icon] arrow_clockwise_circle
+[icon ankh icon] ankh
 
-[icon arrow_clockwise_circle_fill icon] arrow_clockwise_circle_fill
+[icon apple-alt icon] apple-alt
 
-[icon arrow_counterclockwise icon] arrow_counterclockwise
+[icon archive icon] archive
 
-[icon arrow_counterclockwise_circle icon] arrow_counterclockwise_circle
+[icon archway icon] archway
 
-[icon arrow_counterclockwise_circle_fill icon] arrow_counterclockwise_circle_fill
+[icon arrow-alt-circle-down icon] arrow-alt-circle-down
 
-[icon arrow_down icon] arrow_down
+[icon arrow-alt-circle-left icon] arrow-alt-circle-left
 
-[icon arrow_down_circle icon] arrow_down_circle
+[icon arrow-alt-circle-right icon] arrow-alt-circle-right
 
-[icon arrow_down_circle_fill icon] arrow_down_circle_fill
+[icon arrow-alt-circle-up icon] arrow-alt-circle-up
 
-[icon arrow_down_doc icon] arrow_down_doc
+[icon arrow-circle-down icon] arrow-circle-down
 
-[icon arrow_down_doc_fill icon] arrow_down_doc_fill
+[icon arrow-circle-left icon] arrow-circle-left
 
-[icon arrow_down_left icon] arrow_down_left
+[icon arrow-circle-right icon] arrow-circle-right
 
-[icon arrow_down_left_circle icon] arrow_down_left_circle
+[icon arrow-circle-up icon] arrow-circle-up
 
-[icon arrow_down_left_circle_fill icon] arrow_down_left_circle_fill
+[icon arrow-down icon] arrow-down
 
-[icon arrow_down_left_square icon] arrow_down_left_square
+[icon arrow-left icon] arrow-left
 
-[icon arrow_down_left_square_fill icon] arrow_down_left_square_fill
+[icon arrow-right icon] arrow-right
 
-[icon arrow_down_right icon] arrow_down_right
+[icon arrow-up icon] arrow-up
 
-[icon arrow_down_right_arrow_up_left icon] arrow_down_right_arrow_up_left
+[icon arrows-alt icon] arrows-alt
 
-[icon arrow_down_right_circle icon] arrow_down_right_circle
+[icon arrows-alt-h icon] arrows-alt-h
 
-[icon arrow_down_right_circle_fill icon] arrow_down_right_circle_fill
+[icon arrows-alt-v icon] arrows-alt-v
 
-[icon arrow_down_right_square icon] arrow_down_right_square
+[icon assistive-listening-systems icon] assistive-listening-systems
 
-[icon arrow_down_right_square_fill icon] arrow_down_right_square_fill
-
-[icon arrow_down_square icon] arrow_down_square
-
-[icon arrow_down_square_fill icon] arrow_down_square_fill
-
-[icon arrow_down_to_line icon] arrow_down_to_line
-
-[icon arrow_down_to_line_alt icon] arrow_down_to_line_alt
-
-[icon arrow_left icon] arrow_left
-
-[icon arrow_left_circle icon] arrow_left_circle
-
-[icon arrow_left_circle_fill icon] arrow_left_circle_fill
-
-[icon arrow_left_right icon] arrow_left_right
-
-[icon arrow_left_right_circle icon] arrow_left_right_circle
-
-[icon arrow_left_right_circle_fill icon] arrow_left_right_circle_fill
-
-[icon arrow_left_right_square icon] arrow_left_right_square
-
-[icon arrow_left_right_square_fill icon] arrow_left_right_square_fill
-
-[icon arrow_left_square icon] arrow_left_square
-
-[icon arrow_left_square_fill icon] arrow_left_square_fill
-
-[icon arrow_left_to_line icon] arrow_left_to_line
-
-[icon arrow_left_to_line_alt icon] arrow_left_to_line_alt
-
-[icon arrow_merge icon] arrow_merge
-
-[icon arrow_right icon] arrow_right
-
-[icon arrow_right_arrow_left icon] arrow_right_arrow_left
-
-[icon arrow_right_arrow_left_circle icon] arrow_right_arrow_left_circle
-
-[icon arrow_right_arrow_left_circle_fill icon] arrow_right_arrow_left_circle_fill
-
-[icon arrow_right_arrow_left_square icon] arrow_right_arrow_left_square
-
-[icon arrow_right_arrow_left_square_fill icon] arrow_right_arrow_left_square_fill
-
-[icon arrow_right_circle icon] arrow_right_circle
-
-[icon arrow_right_circle_fill icon] arrow_right_circle_fill
-
-[icon arrow_right_square icon] arrow_right_square
-
-[icon arrow_right_square_fill icon] arrow_right_square_fill
-
-[icon arrow_right_to_line icon] arrow_right_to_line
-
-[icon arrow_right_to_line_alt icon] arrow_right_to_line_alt
-
-[icon arrow_swap icon] arrow_swap
-
-[icon arrow_turn_down_left icon] arrow_turn_down_left
-
-[icon arrow_turn_down_right icon] arrow_turn_down_right
-
-[icon arrow_turn_left_down icon] arrow_turn_left_down
-
-[icon arrow_turn_left_up icon] arrow_turn_left_up
-
-[icon arrow_turn_right_down icon] arrow_turn_right_down
-
-[icon arrow_turn_right_up icon] arrow_turn_right_up
-
-[icon arrow_turn_up_left icon] arrow_turn_up_left
-
-[icon arrow_turn_up_right icon] arrow_turn_up_right
-
-[icon arrow_up icon] arrow_up
-
-[icon arrow_up_arrow_down icon] arrow_up_arrow_down
-
-[icon arrow_up_arrow_down_circle icon] arrow_up_arrow_down_circle
-
-[icon arrow_up_arrow_down_circle_fill icon] arrow_up_arrow_down_circle_fill
-
-[icon arrow_up_arrow_down_square icon] arrow_up_arrow_down_square
-
-[icon arrow_up_arrow_down_square_fill icon] arrow_up_arrow_down_square_fill
-
-[icon arrow_up_bin icon] arrow_up_bin
-
-[icon arrow_up_bin_fill icon] arrow_up_bin_fill
-
-[icon arrow_up_circle icon] arrow_up_circle
-
-[icon arrow_up_circle_fill icon] arrow_up_circle_fill
-
-[icon arrow_up_doc icon] arrow_up_doc
-
-[icon arrow_up_doc_fill icon] arrow_up_doc_fill
-
-[icon arrow_up_down icon] arrow_up_down
-
-[icon arrow_up_down_circle icon] arrow_up_down_circle
-
-[icon arrow_up_down_circle_fill icon] arrow_up_down_circle_fill
-
-[icon arrow_up_down_square icon] arrow_up_down_square
-
-[icon arrow_up_down_square_fill icon] arrow_up_down_square_fill
-
-[icon arrow_up_left icon] arrow_up_left
-
-[icon arrow_up_left_arrow_down_right icon] arrow_up_left_arrow_down_right
-
-[icon arrow_up_left_circle icon] arrow_up_left_circle
-
-[icon arrow_up_left_circle_fill icon] arrow_up_left_circle_fill
-
-[icon arrow_up_left_square icon] arrow_up_left_square
-
-[icon arrow_up_left_square_fill icon] arrow_up_left_square_fill
-
-[icon arrow_up_right icon] arrow_up_right
-
-[icon arrow_up_right_circle icon] arrow_up_right_circle
-
-[icon arrow_up_right_circle_fill icon] arrow_up_right_circle_fill
-
-[icon arrow_up_right_diamond icon] arrow_up_right_diamond
-
-[icon arrow_up_right_diamond_fill icon] arrow_up_right_diamond_fill
-
-[icon arrow_up_right_square icon] arrow_up_right_square
-
-[icon arrow_up_right_square_fill icon] arrow_up_right_square_fill
-
-[icon arrow_up_square icon] arrow_up_square
-
-[icon arrow_up_square_fill icon] arrow_up_square_fill
-
-[icon arrow_up_to_line icon] arrow_up_to_line
-
-[icon arrow_up_to_line_alt icon] arrow_up_to_line_alt
-
-[icon arrow_uturn_down icon] arrow_uturn_down
-
-[icon arrow_uturn_down_circle icon] arrow_uturn_down_circle
-
-[icon arrow_uturn_down_circle_fill icon] arrow_uturn_down_circle_fill
-
-[icon arrow_uturn_down_square icon] arrow_uturn_down_square
-
-[icon arrow_uturn_down_square_fill icon] arrow_uturn_down_square_fill
-
-[icon arrow_uturn_left icon] arrow_uturn_left
-
-[icon arrow_uturn_left_circle icon] arrow_uturn_left_circle
-
-[icon arrow_uturn_left_circle_fill icon] arrow_uturn_left_circle_fill
-
-[icon arrow_uturn_left_square icon] arrow_uturn_left_square
-
-[icon arrow_uturn_left_square_fill icon] arrow_uturn_left_square_fill
-
-[icon arrow_uturn_right icon] arrow_uturn_right
-
-[icon arrow_uturn_right_circle icon] arrow_uturn_right_circle
-
-[icon arrow_uturn_right_circle_fill icon] arrow_uturn_right_circle_fill
-
-[icon arrow_uturn_right_square icon] arrow_uturn_right_square
-
-[icon arrow_uturn_right_square_fill icon] arrow_uturn_right_square_fill
-
-[icon arrow_uturn_up icon] arrow_uturn_up
-
-[icon arrow_uturn_up_circle icon] arrow_uturn_up_circle
-
-[icon arrow_uturn_up_circle_fill icon] arrow_uturn_up_circle_fill
-
-[icon arrow_uturn_up_square icon] arrow_uturn_up_square
-
-[icon arrow_uturn_up_square_fill icon] arrow_uturn_up_square_fill
-
-[icon arrowshape_turn_up_left icon] arrowshape_turn_up_left
-
-[icon arrowshape_turn_up_left_2 icon] arrowshape_turn_up_left_2
-
-[icon arrowshape_turn_up_left_2_fill icon] arrowshape_turn_up_left_2_fill
-
-[icon arrowshape_turn_up_left_circle icon] arrowshape_turn_up_left_circle
-
-[icon arrowshape_turn_up_left_circle_fill icon] arrowshape_turn_up_left_circle_fill
-
-[icon arrowshape_turn_up_left_fill icon] arrowshape_turn_up_left_fill
-
-[icon arrowshape_turn_up_right icon] arrowshape_turn_up_right
-
-[icon arrowshape_turn_up_right_circle icon] arrowshape_turn_up_right_circle
-
-[icon arrowshape_turn_up_right_circle_fill icon] arrowshape_turn_up_right_circle_fill
-
-[icon arrowshape_turn_up_right_fill icon] arrowshape_turn_up_right_fill
-
-[icon arrowtriangle_down icon] arrowtriangle_down
-
-[icon arrowtriangle_down_circle icon] arrowtriangle_down_circle
-
-[icon arrowtriangle_down_circle_fill icon] arrowtriangle_down_circle_fill
-
-[icon arrowtriangle_down_fill icon] arrowtriangle_down_fill
-
-[icon arrowtriangle_down_square icon] arrowtriangle_down_square
-
-[icon arrowtriangle_down_square_fill icon] arrowtriangle_down_square_fill
-
-[icon arrowtriangle_left icon] arrowtriangle_left
-
-[icon arrowtriangle_left_circle icon] arrowtriangle_left_circle
-
-[icon arrowtriangle_left_circle_fill icon] arrowtriangle_left_circle_fill
-
-[icon arrowtriangle_left_fill icon] arrowtriangle_left_fill
-
-[icon arrowtriangle_left_square icon] arrowtriangle_left_square
-
-[icon arrowtriangle_left_square_fill icon] arrowtriangle_left_square_fill
-
-[icon arrowtriangle_right icon] arrowtriangle_right
-
-[icon arrowtriangle_right_circle icon] arrowtriangle_right_circle
-
-[icon arrowtriangle_right_circle_fill icon] arrowtriangle_right_circle_fill
-
-[icon arrowtriangle_right_fill icon] arrowtriangle_right_fill
-
-[icon arrowtriangle_right_square icon] arrowtriangle_right_square
-
-[icon arrowtriangle_right_square_fill icon] arrowtriangle_right_square_fill
-
-[icon arrowtriangle_up icon] arrowtriangle_up
-
-[icon arrowtriangle_up_circle icon] arrowtriangle_up_circle
-
-[icon arrowtriangle_up_circle_fill icon] arrowtriangle_up_circle_fill
-
-[icon arrowtriangle_up_fill icon] arrowtriangle_up_fill
-
-[icon arrowtriangle_up_square icon] arrowtriangle_up_square
-
-[icon arrowtriangle_up_square_fill icon] arrowtriangle_up_square_fill
-
-[icon asterisk_circle icon] asterisk_circle
-
-[icon asterisk_circle_fill icon] asterisk_circle_fill
+[icon asterisk icon] asterisk
 
 [icon at icon] at
 
-[icon at_badge_minus icon] at_badge_minus
+[icon atlas icon] atlas
 
-[icon at_badge_plus icon] at_badge_plus
+[icon atom icon] atom
 
-[icon at_circle icon] at_circle
+[icon audio-description icon] audio-description
 
-[icon at_circle_fill icon] at_circle_fill
+[icon award icon] award
+
+[icon baby icon] baby
+
+[icon baby-carriage icon] baby-carriage
+
+[icon backspace icon] backspace
 
 [icon backward icon] backward
 
-[icon backward_end icon] backward_end
+[icon bacon icon] bacon
 
-[icon backward_end_alt icon] backward_end_alt
+[icon bacteria icon] bacteria
 
-[icon backward_end_alt_fill icon] backward_end_alt_fill
+[icon bacterium icon] bacterium
 
-[icon backward_end_fill icon] backward_end_fill
+[icon bahai icon] bahai
 
-[icon backward_fill icon] backward_fill
+[icon balance-scale icon] balance-scale
 
-[icon badge_plus_radiowaves_right icon] badge_plus_radiowaves_right
+[icon balance-scale-left icon] balance-scale-left
 
-[icon bag icon] bag
+[icon balance-scale-right icon] balance-scale-right
 
-[icon bag_badge_minus icon] bag_badge_minus
+[icon ban icon] ban
 
-[icon bag_badge_plus icon] bag_badge_plus
-
-[icon bag_fill icon] bag_fill
-
-[icon bag_fill_badge_minus icon] bag_fill_badge_minus
-
-[icon bag_fill_badge_plus icon] bag_fill_badge_plus
-
-[icon bandage icon] bandage
-
-[icon bandage_fill icon] bandage_fill
+[icon band-aid icon] band-aid
 
 [icon barcode icon] barcode
 
-[icon barcode_viewfinder icon] barcode_viewfinder
-
 [icon bars icon] bars
 
-[icon battery_0 icon] battery_0
+[icon baseball-ball icon] baseball-ball
 
-[icon battery_100 icon] battery_100
+[icon basketball-ball icon] basketball-ball
 
-[icon battery_25 icon] battery_25
+[icon bath icon] bath
 
-[icon bed_double icon] bed_double
+[icon battery-empty icon] battery-empty
 
-[icon bed_double_fill icon] bed_double_fill
+[icon battery-full icon] battery-full
+
+[icon battery-half icon] battery-half
+
+[icon battery-quarter icon] battery-quarter
+
+[icon battery-three-quarters icon] battery-three-quarters
+
+[icon bed icon] bed
+
+[icon beer icon] beer
 
 [icon bell icon] bell
 
-[icon bell_circle icon] bell_circle
+[icon bell-slash icon] bell-slash
 
-[icon bell_circle_fill icon] bell_circle_fill
+[icon bezier-curve icon] bezier-curve
 
-[icon bell_fill icon] bell_fill
+[icon bible icon] bible
 
-[icon bell_slash icon] bell_slash
+[icon bicycle icon] bicycle
 
-[icon bell_slash_fill icon] bell_slash_fill
+[icon biking icon] biking
 
-[icon bin_xmark icon] bin_xmark
+[icon binoculars icon] binoculars
 
-[icon bin_xmark_fill icon] bin_xmark_fill
+[icon biohazard icon] biohazard
 
-[icon bitcoin icon] bitcoin
+[icon birthday-cake icon] birthday-cake
 
-[icon bitcoin_circle icon] bitcoin_circle
+[icon blender icon] blender
 
-[icon bitcoin_circle_fill icon] bitcoin_circle_fill
+[icon blender-phone icon] blender-phone
+
+[icon blind icon] blind
+
+[icon blog icon] blog
 
 [icon bold icon] bold
 
-[icon bold_italic_underline icon] bold_italic_underline
-
-[icon bold_underline icon] bold_underline
-
 [icon bolt icon] bolt
 
-[icon bolt_badge_a icon] bolt_badge_a
+[icon bomb icon] bomb
 
-[icon bolt_badge_a_fill icon] bolt_badge_a_fill
+[icon bone icon] bone
 
-[icon bolt_circle icon] bolt_circle
-
-[icon bolt_circle_fill icon] bolt_circle_fill
-
-[icon bolt_fill icon] bolt_fill
-
-[icon bolt_horizontal icon] bolt_horizontal
-
-[icon bolt_horizontal_circle icon] bolt_horizontal_circle
-
-[icon bolt_horizontal_circle_fill icon] bolt_horizontal_circle_fill
-
-[icon bolt_horizontal_fill icon] bolt_horizontal_fill
-
-[icon bolt_slash icon] bolt_slash
-
-[icon bolt_slash_fill icon] bolt_slash_fill
+[icon bong icon] bong
 
 [icon book icon] book
 
-[icon book_circle icon] book_circle
+[icon book-dead icon] book-dead
 
-[icon book_circle_fill icon] book_circle_fill
+[icon book-medical icon] book-medical
 
-[icon book_fill icon] book_fill
+[icon book-open icon] book-open
+
+[icon book-reader icon] book-reader
 
 [icon bookmark icon] bookmark
 
-[icon bookmark_fill icon] bookmark_fill
+[icon border-all icon] border-all
+
+[icon border-none icon] border-none
+
+[icon border-style icon] border-style
+
+[icon bowling-ball icon] bowling-ball
+
+[icon box icon] box
+
+[icon box-open icon] box-open
+
+[icon box-tissue icon] box-tissue
+
+[icon boxes icon] boxes
+
+[icon braille icon] braille
+
+[icon brain icon] brain
+
+[icon bread-slice icon] bread-slice
 
 [icon briefcase icon] briefcase
 
-[icon briefcase_fill icon] briefcase_fill
+[icon briefcase-medical icon] briefcase-medical
 
-[icon bubble_left icon] bubble_left
+[icon broadcast-tower icon] broadcast-tower
 
-[icon bubble_left_bubble_right icon] bubble_left_bubble_right
+[icon broom icon] broom
 
-[icon bubble_left_bubble_right_fill icon] bubble_left_bubble_right_fill
+[icon brush icon] brush
 
-[icon bubble_left_fill icon] bubble_left_fill
+[icon bug icon] bug
 
-[icon bubble_middle_bottom icon] bubble_middle_bottom
+[icon building icon] building
 
-[icon bubble_middle_bottom_fill icon] bubble_middle_bottom_fill
+[icon bullhorn icon] bullhorn
 
-[icon bubble_middle_top icon] bubble_middle_top
-
-[icon bubble_middle_top_fill icon] bubble_middle_top_fill
-
-[icon bubble_right icon] bubble_right
-
-[icon bubble_right_fill icon] bubble_right_fill
-
-[icon building_2_fill icon] building_2_fill
+[icon bullseye icon] bullseye
 
 [icon burn icon] burn
 
-[icon burst icon] burst
+[icon bus icon] bus
 
-[icon burst_fill icon] burst_fill
+[icon bus-alt icon] bus-alt
+
+[icon business-time icon] business-time
+
+[icon calculator icon] calculator
 
 [icon calendar icon] calendar
 
-[icon calendar_badge_minus icon] calendar_badge_minus
+[icon calendar-alt icon] calendar-alt
 
-[icon calendar_badge_plus icon] calendar_badge_plus
+[icon calendar-check icon] calendar-check
 
-[icon calendar_circle icon] calendar_circle
+[icon calendar-day icon] calendar-day
 
-[icon calendar_circle_fill icon] calendar_circle_fill
+[icon calendar-minus icon] calendar-minus
 
-[icon calendar_today icon] calendar_today
+[icon calendar-plus icon] calendar-plus
+
+[icon calendar-times icon] calendar-times
+
+[icon calendar-week icon] calendar-week
 
 [icon camera icon] camera
 
-[icon camera_circle icon] camera_circle
+[icon camera-retro icon] camera-retro
 
-[icon camera_circle_fill icon] camera_circle_fill
+[icon campground icon] campground
 
-[icon camera_fill icon] camera_fill
+[icon candy-cane icon] candy-cane
 
-[icon camera_on_rectangle icon] camera_on_rectangle
+[icon cannabis icon] cannabis
 
-[icon camera_on_rectangle_fill icon] camera_on_rectangle_fill
+[icon capsules icon] capsules
 
-[icon camera_rotate icon] camera_rotate
+[icon car icon] car
 
-[icon camera_rotate_fill icon] camera_rotate_fill
+[icon car-alt icon] car-alt
 
-[icon camera_viewfinder icon] camera_viewfinder
+[icon car-battery icon] car-battery
 
-[icon capslock icon] capslock
+[icon car-crash icon] car-crash
 
-[icon capslock_fill icon] capslock_fill
+[icon car-side icon] car-side
 
-[icon capsule icon] capsule
+[icon caravan icon] caravan
 
-[icon capsule_fill icon] capsule_fill
+[icon caret-down icon] caret-down
 
-[icon captions_bubble icon] captions_bubble
+[icon caret-left icon] caret-left
 
-[icon captions_bubble_fill icon] captions_bubble_fill
+[icon caret-right icon] caret-right
 
-[icon car_fill icon] car_fill
+[icon caret-square-down icon] caret-square-down
 
-[icon cart icon] cart
+[icon caret-square-left icon] caret-square-left
 
-[icon cart_badge_minus icon] cart_badge_minus
+[icon caret-square-right icon] caret-square-right
 
-[icon cart_badge_plus icon] cart_badge_plus
+[icon caret-square-up icon] caret-square-up
 
-[icon cart_fill icon] cart_fill
+[icon caret-up icon] caret-up
 
-[icon cart_fill_badge_minus icon] cart_fill_badge_minus
+[icon carrot icon] carrot
 
-[icon cart_fill_badge_plus icon] cart_fill_badge_plus
+[icon cart-arrow-down icon] cart-arrow-down
+
+[icon cart-plus icon] cart-plus
+
+[icon cash-register icon] cash-register
 
 [icon cat icon] cat
 
-[icon chart_bar icon] chart_bar
+[icon certificate icon] certificate
 
-[icon chart_bar_alt_fill icon] chart_bar_alt_fill
+[icon chair icon] chair
 
-[icon chart_bar_circle icon] chart_bar_circle
+[icon chalkboard icon] chalkboard
 
-[icon chart_bar_circle_fill icon] chart_bar_circle_fill
+[icon chalkboard-teacher icon] chalkboard-teacher
 
-[icon chart_bar_fill icon] chart_bar_fill
+[icon charging-station icon] charging-station
 
-[icon chart_bar_square icon] chart_bar_square
+[icon chart-area icon] chart-area
 
-[icon chart_bar_square_fill icon] chart_bar_square_fill
+[icon chart-bar icon] chart-bar
 
-[icon chart_pie icon] chart_pie
+[icon chart-line icon] chart-line
 
-[icon chart_pie_fill icon] chart_pie_fill
+[icon chart-pie icon] chart-pie
 
-[icon chat_bubble icon] chat_bubble
+[icon check icon] check
 
-[icon chat_bubble_2 icon] chat_bubble_2
+[icon check-circle icon] check-circle
 
-[icon chat_bubble_2_fill icon] chat_bubble_2_fill
+[icon check-double icon] check-double
 
-[icon chat_bubble_fill icon] chat_bubble_fill
+[icon check-square icon] check-square
 
-[icon chat_bubble_text icon] chat_bubble_text
+[icon cheese icon] cheese
 
-[icon chat_bubble_text_fill icon] chat_bubble_text_fill
+[icon chess icon] chess
 
-[icon checkmark icon] checkmark
+[icon chess-bishop icon] chess-bishop
 
-[icon checkmark_alt icon] checkmark_alt
+[icon chess-board icon] chess-board
 
-[icon checkmark_alt_circle icon] checkmark_alt_circle
+[icon chess-king icon] chess-king
 
-[icon checkmark_alt_circle_fill icon] checkmark_alt_circle_fill
+[icon chess-knight icon] chess-knight
 
-[icon checkmark_circle icon] checkmark_circle
+[icon chess-pawn icon] chess-pawn
 
-[icon checkmark_circle_fill icon] checkmark_circle_fill
+[icon chess-queen icon] chess-queen
 
-[icon checkmark_rectangle icon] checkmark_rectangle
+[icon chess-rook icon] chess-rook
 
-[icon checkmark_rectangle_fill icon] checkmark_rectangle_fill
+[icon chevron-circle-down icon] chevron-circle-down
 
-[icon checkmark_seal icon] checkmark_seal
+[icon chevron-circle-left icon] chevron-circle-left
 
-[icon checkmark_seal_fill icon] checkmark_seal_fill
+[icon chevron-circle-right icon] chevron-circle-right
 
-[icon checkmark_shield icon] checkmark_shield
+[icon chevron-circle-up icon] chevron-circle-up
 
-[icon checkmark_shield_fill icon] checkmark_shield_fill
+[icon chevron-down icon] chevron-down
 
-[icon checkmark_square icon] checkmark_square
+[icon chevron-left icon] chevron-left
 
-[icon checkmark_square_fill icon] checkmark_square_fill
+[icon chevron-right icon] chevron-right
 
-[icon chevron_compact_down icon] chevron_compact_down
+[icon chevron-up icon] chevron-up
 
-[icon chevron_compact_left icon] chevron_compact_left
+[icon child icon] child
 
-[icon chevron_compact_right icon] chevron_compact_right
-
-[icon chevron_compact_up icon] chevron_compact_up
-
-[icon chevron_down icon] chevron_down
-
-[icon chevron_down_circle icon] chevron_down_circle
-
-[icon chevron_down_circle_fill icon] chevron_down_circle_fill
-
-[icon chevron_down_square icon] chevron_down_square
-
-[icon chevron_down_square_fill icon] chevron_down_square_fill
-
-[icon chevron_left icon] chevron_left
-
-[icon chevron_left_2 icon] chevron_left_2
-
-[icon chevron_left_circle icon] chevron_left_circle
-
-[icon chevron_left_circle_fill icon] chevron_left_circle_fill
-
-[icon chevron_left_slash_chevron_right icon] chevron_left_slash_chevron_right
-
-[icon chevron_left_square icon] chevron_left_square
-
-[icon chevron_left_square_fill icon] chevron_left_square_fill
-
-[icon chevron_right icon] chevron_right
-
-[icon chevron_right_2 icon] chevron_right_2
-
-[icon chevron_right_circle icon] chevron_right_circle
-
-[icon chevron_right_circle_fill icon] chevron_right_circle_fill
-
-[icon chevron_right_square icon] chevron_right_square
-
-[icon chevron_right_square_fill icon] chevron_right_square_fill
-
-[icon chevron_up icon] chevron_up
-
-[icon chevron_up_chevron_down icon] chevron_up_chevron_down
-
-[icon chevron_up_circle icon] chevron_up_circle
-
-[icon chevron_up_circle_fill icon] chevron_up_circle_fill
-
-[icon chevron_up_square icon] chevron_up_square
-
-[icon chevron_up_square_fill icon] chevron_up_square_fill
+[icon church icon] church
 
 [icon circle icon] circle
 
-[icon circle_bottomthird_split icon] circle_bottomthird_split
+[icon circle-notch icon] circle-notch
 
-[icon circle_fill icon] circle_fill
+[icon city icon] city
 
-[icon circle_grid_3x3 icon] circle_grid_3x3
+[icon clinic-medical icon] clinic-medical
 
-[icon circle_grid_3x3_fill icon] circle_grid_3x3_fill
+[icon clipboard icon] clipboard
 
-[icon circle_grid_hex icon] circle_grid_hex
+[icon clipboard-check icon] clipboard-check
 
-[icon circle_grid_hex_fill icon] circle_grid_hex_fill
-
-[icon circle_lefthalf_fill icon] circle_lefthalf_fill
-
-[icon circle_righthalf_fill icon] circle_righthalf_fill
-
-[icon clear icon] clear
-
-[icon clear_fill icon] clear_fill
+[icon clipboard-list icon] clipboard-list
 
 [icon clock icon] clock
 
-[icon clock_fill icon] clock_fill
+[icon clone icon] clone
+
+[icon closed-captioning icon] closed-captioning
 
 [icon cloud icon] cloud
 
-[icon cloud_bolt icon] cloud_bolt
+[icon cloud-download-alt icon] cloud-download-alt
 
-[icon cloud_bolt_fill icon] cloud_bolt_fill
+[icon cloud-meatball icon] cloud-meatball
 
-[icon cloud_bolt_rain icon] cloud_bolt_rain
+[icon cloud-moon icon] cloud-moon
 
-[icon cloud_bolt_rain_fill icon] cloud_bolt_rain_fill
+[icon cloud-moon-rain icon] cloud-moon-rain
 
-[icon cloud_download icon] cloud_download
+[icon cloud-rain icon] cloud-rain
 
-[icon cloud_download_fill icon] cloud_download_fill
+[icon cloud-showers-heavy icon] cloud-showers-heavy
 
-[icon cloud_drizzle icon] cloud_drizzle
+[icon cloud-sun icon] cloud-sun
 
-[icon cloud_drizzle_fill icon] cloud_drizzle_fill
+[icon cloud-sun-rain icon] cloud-sun-rain
 
-[icon cloud_fill icon] cloud_fill
+[icon cloud-upload-alt icon] cloud-upload-alt
 
-[icon cloud_fog icon] cloud_fog
+[icon cocktail icon] cocktail
 
-[icon cloud_fog_fill icon] cloud_fog_fill
+[icon code icon] code
 
-[icon cloud_hail icon] cloud_hail
+[icon code-branch icon] code-branch
 
-[icon cloud_hail_fill icon] cloud_hail_fill
+[icon coffee icon] coffee
 
-[icon cloud_heavyrain icon] cloud_heavyrain
+[icon cog icon] cog
 
-[icon cloud_heavyrain_fill icon] cloud_heavyrain_fill
+[icon cogs icon] cogs
 
-[icon cloud_moon icon] cloud_moon
+[icon coins icon] coins
 
-[icon cloud_moon_bolt icon] cloud_moon_bolt
+[icon columns icon] columns
 
-[icon cloud_moon_bolt_fill icon] cloud_moon_bolt_fill
+[icon comment icon] comment
 
-[icon cloud_moon_fill icon] cloud_moon_fill
+[icon comment-alt icon] comment-alt
 
-[icon cloud_moon_rain icon] cloud_moon_rain
+[icon comment-dollar icon] comment-dollar
 
-[icon cloud_moon_rain_fill icon] cloud_moon_rain_fill
+[icon comment-dots icon] comment-dots
 
-[icon cloud_rain icon] cloud_rain
+[icon comment-medical icon] comment-medical
 
-[icon cloud_rain_fill icon] cloud_rain_fill
+[icon comment-slash icon] comment-slash
 
-[icon cloud_sleet icon] cloud_sleet
+[icon comments icon] comments
 
-[icon cloud_sleet_fill icon] cloud_sleet_fill
+[icon comments-dollar icon] comments-dollar
 
-[icon cloud_snow icon] cloud_snow
-
-[icon cloud_snow_fill icon] cloud_snow_fill
-
-[icon cloud_sun icon] cloud_sun
-
-[icon cloud_sun_bolt icon] cloud_sun_bolt
-
-[icon cloud_sun_bolt_fill icon] cloud_sun_bolt_fill
-
-[icon cloud_sun_fill icon] cloud_sun_fill
-
-[icon cloud_sun_rain icon] cloud_sun_rain
-
-[icon cloud_sun_rain_fill icon] cloud_sun_rain_fill
-
-[icon cloud_upload icon] cloud_upload
-
-[icon cloud_upload_fill icon] cloud_upload_fill
-
-[icon color_filter icon] color_filter
-
-[icon color_filter_fill icon] color_filter_fill
-
-[icon command icon] command
+[icon compact-disc icon] compact-disc
 
 [icon compass icon] compass
 
-[icon compass_fill icon] compass_fill
+[icon compress icon] compress
 
-[icon control icon] control
+[icon compress-alt icon] compress-alt
 
-[icon creditcard icon] creditcard
+[icon compress-arrows-alt icon] compress-arrows-alt
 
-[icon creditcard_fill icon] creditcard_fill
+[icon concierge-bell icon] concierge-bell
+
+[icon cookie icon] cookie
+
+[icon cookie-bite icon] cookie-bite
+
+[icon copy icon] copy
+
+[icon copyright icon] copyright
+
+[icon couch icon] couch
+
+[icon credit-card icon] credit-card
 
 [icon crop icon] crop
 
-[icon crop_rotate icon] crop_rotate
+[icon crop-alt icon] crop-alt
+
+[icon cross icon] cross
+
+[icon crosshairs icon] crosshairs
+
+[icon crow icon] crow
+
+[icon crown icon] crown
+
+[icon crutch icon] crutch
 
 [icon cube icon] cube
 
-[icon cube_box icon] cube_box
+[icon cubes icon] cubes
 
-[icon cube_box_fill icon] cube_box_fill
+[icon cut icon] cut
 
-[icon cube_fill icon] cube_fill
+[icon database icon] database
 
-[icon cursor_rays icon] cursor_rays
+[icon deaf icon] deaf
 
-[icon decrease_indent icon] decrease_indent
+[icon democrat icon] democrat
 
-[icon decrease_quotelevel icon] decrease_quotelevel
+[icon desktop icon] desktop
 
-[icon delete_left icon] delete_left
+[icon dharmachakra icon] dharmachakra
 
-[icon delete_left_fill icon] delete_left_fill
+[icon diagnoses icon] diagnoses
 
-[icon delete_right icon] delete_right
+[icon dice icon] dice
 
-[icon delete_right_fill icon] delete_right_fill
+[icon dice-d20 icon] dice-d20
 
-[icon desktopcomputer icon] desktopcomputer
+[icon dice-d6 icon] dice-d6
 
-[icon device_desktop icon] device_desktop
+[icon dice-five icon] dice-five
 
-[icon device_laptop icon] device_laptop
+[icon dice-four icon] dice-four
 
-[icon device_phone_landscape icon] device_phone_landscape
+[icon dice-one icon] dice-one
 
-[icon device_phone_portrait icon] device_phone_portrait
+[icon dice-six icon] dice-six
 
-[icon device_tablet_landscape icon] device_tablet_landscape
+[icon dice-three icon] dice-three
 
-[icon device_tablet_portrait icon] device_tablet_portrait
+[icon dice-two icon] dice-two
 
-[icon dial icon] dial
+[icon digital-tachograph icon] digital-tachograph
 
-[icon dial_fill icon] dial_fill
+[icon directions icon] directions
+
+[icon disease icon] disease
 
 [icon divide icon] divide
 
-[icon divide_circle icon] divide_circle
+[icon dizzy icon] dizzy
 
-[icon divide_circle_fill icon] divide_circle_fill
-
-[icon divide_square icon] divide_square
-
-[icon divide_square_fill icon] divide_square_fill
-
-[icon doc icon] doc
-
-[icon doc_append icon] doc_append
-
-[icon doc_chart icon] doc_chart
-
-[icon doc_chart_fill icon] doc_chart_fill
-
-[icon doc_checkmark icon] doc_checkmark
-
-[icon doc_checkmark_fill icon] doc_checkmark_fill
-
-[icon doc_circle icon] doc_circle
-
-[icon doc_circle_fill icon] doc_circle_fill
-
-[icon doc_fill icon] doc_fill
-
-[icon doc_on_clipboard icon] doc_on_clipboard
-
-[icon doc_on_clipboard_fill icon] doc_on_clipboard_fill
-
-[icon doc_on_doc icon] doc_on_doc
-
-[icon doc_on_doc_fill icon] doc_on_doc_fill
-
-[icon doc_person icon] doc_person
-
-[icon doc_person_fill icon] doc_person_fill
-
-[icon doc_plaintext icon] doc_plaintext
-
-[icon doc_richtext icon] doc_richtext
-
-[icon doc_text icon] doc_text
-
-[icon doc_text_fill icon] doc_text_fill
-
-[icon doc_text_search icon] doc_text_search
-
-[icon doc_text_viewfinder icon] doc_text_viewfinder
+[icon dna icon] dna
 
 [icon dog icon] dog
 
-[icon dot_radiowaves_left_right icon] dot_radiowaves_left_right
+[icon dollar-sign icon] dollar-sign
 
-[icon dot_radiowaves_right icon] dot_radiowaves_right
+[icon dolly icon] dolly
 
-[icon dot_square icon] dot_square
+[icon dolly-flatbed icon] dolly-flatbed
 
-[icon dot_square_fill icon] dot_square_fill
+[icon donate icon] donate
 
-[icon download_circle icon] download_circle
+[icon door-closed icon] door-closed
 
-[icon download_circle_fill icon] download_circle_fill
+[icon door-open icon] door-open
 
-[icon drop icon] drop
+[icon dot-circle icon] dot-circle
 
-[icon drop_fill icon] drop_fill
+[icon dove icon] dove
 
-[icon drop_triangle icon] drop_triangle
+[icon download icon] download
 
-[icon drop_triangle_fill icon] drop_triangle_fill
+[icon drafting-compass icon] drafting-compass
 
-[icon ear icon] ear
+[icon dragon icon] dragon
+
+[icon draw-polygon icon] draw-polygon
+
+[icon drum icon] drum
+
+[icon drum-steelpan icon] drum-steelpan
+
+[icon drumstick-bite icon] drumstick-bite
+
+[icon dumbbell icon] dumbbell
+
+[icon dumpster icon] dumpster
+
+[icon dumpster-fire icon] dumpster-fire
+
+[icon dungeon icon] dungeon
+
+[icon edit icon] edit
+
+[icon egg icon] egg
 
 [icon eject icon] eject
 
-[icon eject_fill icon] eject_fill
+[icon ellipsis-h icon] ellipsis-h
 
-[icon ellipses_bubble icon] ellipses_bubble
-
-[icon ellipses_bubble_fill icon] ellipses_bubble_fill
-
-[icon ellipsis icon] ellipsis
-
-[icon ellipsis_circle icon] ellipsis_circle
-
-[icon ellipsis_circle_fill icon] ellipsis_circle_fill
-
-[icon ellipsis_vertical icon] ellipsis_vertical
-
-[icon ellipsis_vertical_circle icon] ellipsis_vertical_circle
-
-[icon ellipsis_vertical_circle_fill icon] ellipsis_vertical_circle_fill
+[icon ellipsis-v icon] ellipsis-v
 
 [icon envelope icon] envelope
 
-[icon envelope_badge icon] envelope_badge
+[icon envelope-open icon] envelope-open
 
-[icon envelope_badge_fill icon] envelope_badge_fill
+[icon envelope-open-text icon] envelope-open-text
 
-[icon envelope_circle icon] envelope_circle
+[icon envelope-square icon] envelope-square
 
-[icon envelope_circle_fill icon] envelope_circle_fill
+[icon equals icon] equals
 
-[icon envelope_fill icon] envelope_fill
+[icon eraser icon] eraser
 
-[icon envelope_open icon] envelope_open
+[icon ethernet icon] ethernet
 
-[icon envelope_open_fill icon] envelope_open_fill
+[icon euro-sign icon] euro-sign
 
-[icon equal icon] equal
+[icon exchange-alt icon] exchange-alt
 
-[icon equal_circle icon] equal_circle
+[icon exclamation icon] exclamation
 
-[icon equal_circle_fill icon] equal_circle_fill
+[icon exclamation-circle icon] exclamation-circle
 
-[icon equal_square icon] equal_square
-
-[icon equal_square_fill icon] equal_square_fill
-
-[icon escape icon] escape
-
-[icon exclamationmark icon] exclamationmark
-
-[icon exclamationmark_bubble icon] exclamationmark_bubble
-
-[icon exclamationmark_bubble_fill icon] exclamationmark_bubble_fill
-
-[icon exclamationmark_circle icon] exclamationmark_circle
-
-[icon exclamationmark_circle_fill icon] exclamationmark_circle_fill
-
-[icon exclamationmark_octagon icon] exclamationmark_octagon
-
-[icon exclamationmark_octagon_fill icon] exclamationmark_octagon_fill
-
-[icon exclamationmark_shield icon] exclamationmark_shield
-
-[icon exclamationmark_shield_fill icon] exclamationmark_shield_fill
-
-[icon exclamationmark_square icon] exclamationmark_square
-
-[icon exclamationmark_square_fill icon] exclamationmark_square_fill
-
-[icon exclamationmark_triangle icon] exclamationmark_triangle
-
-[icon exclamationmark_triangle_fill icon] exclamationmark_triangle_fill
+[icon exclamation-triangle icon] exclamation-triangle
 
 [icon expand icon] expand
 
+[icon expand-alt icon] expand-alt
+
+[icon expand-arrows-alt icon] expand-arrows-alt
+
+[icon external-link-alt icon] external-link-alt
+
+[icon external-link-square-alt icon] external-link-square-alt
+
 [icon eye icon] eye
 
-[icon eye_fill icon] eye_fill
+[icon eye-dropper icon] eye-dropper
 
-[icon eye_slash icon] eye_slash
+[icon eye-slash icon] eye-slash
 
-[icon eye_slash_fill icon] eye_slash_fill
+[icon fan icon] fan
 
-[icon eyedropper icon] eyedropper
+[icon fast-backward icon] fast-backward
 
-[icon eyedropper_full icon] eyedropper_full
+[icon fast-forward icon] fast-forward
 
-[icon eyedropper_halffull icon] eyedropper_halffull
+[icon faucet icon] faucet
 
-[icon eyeglasses icon] eyeglasses
+[icon fax icon] fax
 
-[icon f_cursive icon] f_cursive
+[icon feather icon] feather
 
-[icon f_cursive_circle icon] f_cursive_circle
+[icon feather-alt icon] feather-alt
 
-[icon f_cursive_circle_fill icon] f_cursive_circle_fill
+[icon female icon] female
+
+[icon fighter-jet icon] fighter-jet
+
+[icon file icon] file
+
+[icon file-alt icon] file-alt
+
+[icon file-archive icon] file-archive
+
+[icon file-audio icon] file-audio
+
+[icon file-code icon] file-code
+
+[icon file-contract icon] file-contract
+
+[icon file-csv icon] file-csv
+
+[icon file-download icon] file-download
+
+[icon file-excel icon] file-excel
+
+[icon file-export icon] file-export
+
+[icon file-image icon] file-image
+
+[icon file-import icon] file-import
+
+[icon file-invoice icon] file-invoice
+
+[icon file-invoice-dollar icon] file-invoice-dollar
+
+[icon file-medical icon] file-medical
+
+[icon file-medical-alt icon] file-medical-alt
+
+[icon file-pdf icon] file-pdf
+
+[icon file-powerpoint icon] file-powerpoint
+
+[icon file-prescription icon] file-prescription
+
+[icon file-signature icon] file-signature
+
+[icon file-upload icon] file-upload
+
+[icon file-video icon] file-video
+
+[icon file-word icon] file-word
+
+[icon fill icon] fill
+
+[icon fill-drip icon] fill-drip
 
 [icon film icon] film
 
-[icon film_fill icon] film_fill
+[icon filter icon] filter
+
+[icon fingerprint icon] fingerprint
+
+[icon fire icon] fire
+
+[icon fire-alt icon] fire-alt
+
+[icon fire-extinguisher icon] fire-extinguisher
+
+[icon first-aid icon] first-aid
+
+[icon fish icon] fish
+
+[icon fist-raised icon] fist-raised
 
 [icon flag icon] flag
 
-[icon flag_circle icon] flag_circle
+[icon flag-checkered icon] flag-checkered
 
-[icon flag_circle_fill icon] flag_circle_fill
+[icon flag-usa icon] flag-usa
 
-[icon flag_fill icon] flag_fill
+[icon flask icon] flask
 
-[icon flag_slash icon] flag_slash
-
-[icon flag_slash_fill icon] flag_slash_fill
-
-[icon flame icon] flame
-
-[icon flame_fill icon] flame_fill
-
-[icon floppy_disk icon] floppy_disk
-
-[icon flowchart icon] flowchart
-
-[icon flowchart_fill icon] flowchart_fill
+[icon flushed icon] flushed
 
 [icon folder icon] folder
 
-[icon folder_badge_minus icon] folder_badge_minus
+[icon folder-minus icon] folder-minus
 
-[icon folder_badge_person_crop icon] folder_badge_person_crop
+[icon folder-open icon] folder-open
 
-[icon folder_badge_plus icon] folder_badge_plus
+[icon folder-plus icon] folder-plus
 
-[icon folder_circle icon] folder_circle
+[icon font icon] font
 
-[icon folder_circle_fill icon] folder_circle_fill
-
-[icon folder_fill icon] folder_fill
-
-[icon folder_fill_badge_minus icon] folder_fill_badge_minus
-
-[icon folder_fill_badge_person_crop icon] folder_fill_badge_person_crop
-
-[icon folder_fill_badge_plus icon] folder_fill_badge_plus
+[icon football-ball icon] football-ball
 
 [icon forward icon] forward
 
-[icon forward_end icon] forward_end
+[icon frog icon] frog
 
-[icon forward_end_alt icon] forward_end_alt
+[icon frown icon] frown
 
-[icon forward_end_alt_fill icon] forward_end_alt_fill
+[icon frown-open icon] frown-open
 
-[icon forward_end_fill icon] forward_end_fill
+[icon funnel-dollar icon] funnel-dollar
 
-[icon forward_fill icon] forward_fill
+[icon futbol icon] futbol
 
-[icon function icon] function
+[icon gamepad icon] gamepad
 
-[icon fx icon] fx
+[icon gas-pump icon] gas-pump
 
-[icon gamecontroller icon] gamecontroller
+[icon gavel icon] gavel
 
-[icon gamecontroller_alt_fill icon] gamecontroller_alt_fill
+[icon gem icon] gem
 
-[icon gamecontroller_fill icon] gamecontroller_fill
+[icon genderless icon] genderless
 
-[icon gauge icon] gauge
-
-[icon gauge_badge_minus icon] gauge_badge_minus
-
-[icon gauge_badge_plus icon] gauge_badge_plus
-
-[icon gear icon] gear
-
-[icon gear_alt icon] gear_alt
-
-[icon gear_alt_fill icon] gear_alt_fill
+[icon ghost icon] ghost
 
 [icon gift icon] gift
 
-[icon gift_alt icon] gift_alt
+[icon gifts icon] gifts
 
-[icon gift_alt_fill icon] gift_alt_fill
+[icon glass-cheers icon] glass-cheers
 
-[icon gift_fill icon] gift_fill
+[icon glass-martini icon] glass-martini
+
+[icon glass-martini-alt icon] glass-martini-alt
+
+[icon glass-whiskey icon] glass-whiskey
+
+[icon glasses icon] glasses
 
 [icon globe icon] globe
 
-[icon gobackward icon] gobackward
+[icon globe-africa icon] globe-africa
 
-[icon gobackward_10 icon] gobackward_10
+[icon globe-americas icon] globe-americas
 
-[icon gobackward_15 icon] gobackward_15
+[icon globe-asia icon] globe-asia
 
-[icon gobackward_30 icon] gobackward_30
+[icon globe-europe icon] globe-europe
 
-[icon gobackward_45 icon] gobackward_45
+[icon golf-ball icon] golf-ball
 
-[icon gobackward_60 icon] gobackward_60
+[icon gopuram icon] gopuram
 
-[icon gobackward_75 icon] gobackward_75
+[icon graduation-cap icon] graduation-cap
 
-[icon gobackward_90 icon] gobackward_90
+[icon greater-than icon] greater-than
 
-[icon gobackward_minus icon] gobackward_minus
+[icon greater-than-equal icon] greater-than-equal
 
-[icon goforward icon] goforward
+[icon grimace icon] grimace
 
-[icon goforward_10 icon] goforward_10
+[icon grin icon] grin
 
-[icon goforward_15 icon] goforward_15
+[icon grin-alt icon] grin-alt
 
-[icon goforward_30 icon] goforward_30
+[icon grin-beam icon] grin-beam
 
-[icon goforward_45 icon] goforward_45
+[icon grin-beam-sweat icon] grin-beam-sweat
 
-[icon goforward_60 icon] goforward_60
+[icon grin-hearts icon] grin-hearts
 
-[icon goforward_75 icon] goforward_75
+[icon grin-squint icon] grin-squint
 
-[icon goforward_90 icon] goforward_90
+[icon grin-squint-tears icon] grin-squint-tears
 
-[icon goforward_plus icon] goforward_plus
+[icon grin-stars icon] grin-stars
 
-[icon graph_circle icon] graph_circle
+[icon grin-tears icon] grin-tears
 
-[icon graph_circle_fill icon] graph_circle_fill
+[icon grin-tongue icon] grin-tongue
 
-[icon graph_square icon] graph_square
+[icon grin-tongue-squint icon] grin-tongue-squint
 
-[icon graph_square_fill icon] graph_square_fill
+[icon grin-tongue-wink icon] grin-tongue-wink
 
-[icon greaterthan icon] greaterthan
+[icon grin-wink icon] grin-wink
 
-[icon greaterthan_circle icon] greaterthan_circle
+[icon grip-horizontal icon] grip-horizontal
 
-[icon greaterthan_circle_fill icon] greaterthan_circle_fill
+[icon grip-lines icon] grip-lines
 
-[icon greaterthan_square icon] greaterthan_square
+[icon grip-lines-vertical icon] grip-lines-vertical
 
-[icon greaterthan_square_fill icon] greaterthan_square_fill
+[icon grip-vertical icon] grip-vertical
 
-[icon grid icon] grid
+[icon guitar icon] guitar
 
-[icon grid_circle icon] grid_circle
+[icon h-square icon] h-square
 
-[icon grid_circle_fill icon] grid_circle_fill
-
-[icon guitars icon] guitars
+[icon hamburger icon] hamburger
 
 [icon hammer icon] hammer
 
-[icon hammer_fill icon] hammer_fill
+[icon hamsa icon] hamsa
 
-[icon hand_draw icon] hand_draw
+[icon hand-holding icon] hand-holding
 
-[icon hand_draw_fill icon] hand_draw_fill
+[icon hand-holding-heart icon] hand-holding-heart
 
-[icon hand_point_left icon] hand_point_left
+[icon hand-holding-medical icon] hand-holding-medical
 
-[icon hand_point_left_fill icon] hand_point_left_fill
+[icon hand-holding-usd icon] hand-holding-usd
 
-[icon hand_point_right icon] hand_point_right
+[icon hand-holding-water icon] hand-holding-water
 
-[icon hand_point_right_fill icon] hand_point_right_fill
+[icon hand-lizard icon] hand-lizard
 
-[icon hand_raised icon] hand_raised
+[icon hand-middle-finger icon] hand-middle-finger
 
-[icon hand_raised_fill icon] hand_raised_fill
+[icon hand-paper icon] hand-paper
 
-[icon hand_raised_slash icon] hand_raised_slash
+[icon hand-peace icon] hand-peace
 
-[icon hand_raised_slash_fill icon] hand_raised_slash_fill
+[icon hand-point-down icon] hand-point-down
 
-[icon hand_thumbsdown icon] hand_thumbsdown
+[icon hand-point-left icon] hand-point-left
 
-[icon hand_thumbsdown_fill icon] hand_thumbsdown_fill
+[icon hand-point-right icon] hand-point-right
 
-[icon hand_thumbsup icon] hand_thumbsup
+[icon hand-point-up icon] hand-point-up
 
-[icon hand_thumbsup_fill icon] hand_thumbsup_fill
+[icon hand-pointer icon] hand-pointer
 
-[icon hare icon] hare
+[icon hand-rock icon] hand-rock
 
-[icon hare_fill icon] hare_fill
+[icon hand-scissors icon] hand-scissors
+
+[icon hand-sparkles icon] hand-sparkles
+
+[icon hand-spock icon] hand-spock
+
+[icon hands icon] hands
+
+[icon hands-helping icon] hands-helping
+
+[icon hands-wash icon] hands-wash
+
+[icon handshake icon] handshake
+
+[icon handshake-alt-slash icon] handshake-alt-slash
+
+[icon handshake-slash icon] handshake-slash
+
+[icon hanukiah icon] hanukiah
+
+[icon hard-hat icon] hard-hat
+
+[icon hashtag icon] hashtag
+
+[icon hat-cowboy icon] hat-cowboy
+
+[icon hat-cowboy-side icon] hat-cowboy-side
+
+[icon hat-wizard icon] hat-wizard
+
+[icon hdd icon] hdd
+
+[icon head-side-cough icon] head-side-cough
+
+[icon head-side-cough-slash icon] head-side-cough-slash
+
+[icon head-side-mask icon] head-side-mask
+
+[icon head-side-virus icon] head-side-virus
+
+[icon heading icon] heading
 
 [icon headphones icon] headphones
 
+[icon headphones-alt icon] headphones-alt
+
+[icon headset icon] headset
+
 [icon heart icon] heart
 
-[icon heart_circle icon] heart_circle
+[icon heart-broken icon] heart-broken
 
-[icon heart_circle_fill icon] heart_circle_fill
+[icon heartbeat icon] heartbeat
 
-[icon heart_fill icon] heart_fill
+[icon helicopter icon] helicopter
 
-[icon heart_slash icon] heart_slash
+[icon highlighter icon] highlighter
 
-[icon heart_slash_circle icon] heart_slash_circle
+[icon hiking icon] hiking
 
-[icon heart_slash_circle_fill icon] heart_slash_circle_fill
+[icon hippo icon] hippo
 
-[icon heart_slash_fill icon] heart_slash_fill
+[icon history icon] history
 
-[icon helm icon] helm
+[icon hockey-puck icon] hockey-puck
 
-[icon hexagon icon] hexagon
+[icon holly-berry icon] holly-berry
 
-[icon hexagon_fill icon] hexagon_fill
+[icon home icon] home
 
-[icon hifispeaker icon] hifispeaker
+[icon horse icon] horse
 
-[icon hifispeaker_fill icon] hifispeaker_fill
+[icon horse-head icon] horse-head
+
+[icon hospital icon] hospital
+
+[icon hospital-alt icon] hospital-alt
+
+[icon hospital-symbol icon] hospital-symbol
+
+[icon hospital-user icon] hospital-user
+
+[icon hot-tub icon] hot-tub
+
+[icon hotdog icon] hotdog
+
+[icon hotel icon] hotel
 
 [icon hourglass icon] hourglass
 
-[icon hourglass_bottomhalf_fill icon] hourglass_bottomhalf_fill
+[icon hourglass-end icon] hourglass-end
 
-[icon hourglass_tophalf_fill icon] hourglass_tophalf_fill
+[icon hourglass-half icon] hourglass-half
 
-[icon house icon] house
+[icon hourglass-start icon] hourglass-start
 
-[icon house_alt icon] house_alt
+[icon house-damage icon] house-damage
 
-[icon house_alt_fill icon] house_alt_fill
+[icon house-user icon] house-user
 
-[icon house_fill icon] house_fill
+[icon hryvnia icon] hryvnia
 
-[icon hurricane icon] hurricane
+[icon i-cursor icon] i-cursor
 
-[icon increase_indent icon] increase_indent
+[icon ice-cream icon] ice-cream
 
-[icon increase_quotelevel icon] increase_quotelevel
+[icon icicles icon] icicles
 
-[icon infinite icon] infinite
+[icon icons icon] icons
+
+[icon id-badge icon] id-badge
+
+[icon id-card icon] id-card
+
+[icon id-card-alt icon] id-card-alt
+
+[icon igloo icon] igloo
+
+[icon image icon] image
+
+[icon images icon] images
+
+[icon inbox icon] inbox
+
+[icon indent icon] indent
+
+[icon industry icon] industry
+
+[icon infinity icon] infinity
 
 [icon info icon] info
 
-[icon info_circle icon] info_circle
-
-[icon info_circle_fill icon] info_circle_fill
+[icon info-circle icon] info-circle
 
 [icon italic icon] italic
 
+[icon jedi icon] jedi
+
+[icon joint icon] joint
+
+[icon journal-whills icon] journal-whills
+
+[icon kaaba icon] kaaba
+
+[icon key icon] key
+
 [icon keyboard icon] keyboard
 
-[icon keyboard_chevron_compact_down icon] keyboard_chevron_compact_down
+[icon khanda icon] khanda
 
-[icon largecircle_fill_circle icon] largecircle_fill_circle
+[icon kiss icon] kiss
 
-[icon lasso icon] lasso
+[icon kiss-beam icon] kiss-beam
 
-[icon layers icon] layers
+[icon kiss-wink-heart icon] kiss-wink-heart
 
-[icon layers_alt icon] layers_alt
+[icon kiwi-bird icon] kiwi-bird
 
-[icon layers_alt_fill icon] layers_alt_fill
+[icon landmark icon] landmark
 
-[icon layers_fill icon] layers_fill
+[icon language icon] language
 
-[icon leaf_arrow_circlepath icon] leaf_arrow_circlepath
+[icon laptop icon] laptop
 
-[icon lessthan icon] lessthan
+[icon laptop-code icon] laptop-code
 
-[icon lessthan_circle icon] lessthan_circle
+[icon laptop-house icon] laptop-house
 
-[icon lessthan_circle_fill icon] lessthan_circle_fill
+[icon laptop-medical icon] laptop-medical
 
-[icon lessthan_square icon] lessthan_square
+[icon laugh icon] laugh
 
-[icon lessthan_square_fill icon] lessthan_square_fill
+[icon laugh-beam icon] laugh-beam
 
-[icon light_max icon] light_max
+[icon laugh-squint icon] laugh-squint
 
-[icon light_min icon] light_min
+[icon laugh-wink icon] laugh-wink
+
+[icon layer-group icon] layer-group
+
+[icon leaf icon] leaf
+
+[icon lemon icon] lemon
+
+[icon less-than icon] less-than
+
+[icon less-than-equal icon] less-than-equal
+
+[icon level-down-alt icon] level-down-alt
+
+[icon level-up-alt icon] level-up-alt
+
+[icon life-ring icon] life-ring
 
 [icon lightbulb icon] lightbulb
 
-[icon lightbulb_fill icon] lightbulb_fill
-
-[icon lightbulb_slash icon] lightbulb_slash
-
-[icon lightbulb_slash_fill icon] lightbulb_slash_fill
-
-[icon line_horizontal_3 icon] line_horizontal_3
-
-[icon line_horizontal_3_decrease icon] line_horizontal_3_decrease
-
-[icon line_horizontal_3_decrease_circle icon] line_horizontal_3_decrease_circle
-
-[icon line_horizontal_3_decrease_circle_fill icon] line_horizontal_3_decrease_circle_fill
-
 [icon link icon] link
 
-[icon link_circle icon] link_circle
+[icon lira-sign icon] lira-sign
 
-[icon link_circle_fill icon] link_circle_fill
+[icon list icon] list
 
-[icon list_bullet icon] list_bullet
+[icon list-alt icon] list-alt
 
-[icon list_bullet_below_rectangle icon] list_bullet_below_rectangle
+[icon list-ol icon] list-ol
 
-[icon list_bullet_indent icon] list_bullet_indent
+[icon list-ul icon] list-ul
 
-[icon list_dash icon] list_dash
-
-[icon list_number icon] list_number
-
-[icon list_number_rtl icon] list_number_rtl
-
-[icon location icon] location
-
-[icon location_circle icon] location_circle
-
-[icon location_circle_fill icon] location_circle_fill
-
-[icon location_fill icon] location_fill
-
-[icon location_north icon] location_north
-
-[icon location_north_fill icon] location_north_fill
-
-[icon location_north_line icon] location_north_line
-
-[icon location_north_line_fill icon] location_north_line_fill
-
-[icon location_slash icon] location_slash
-
-[icon location_slash_fill icon] location_slash_fill
+[icon location-arrow icon] location-arrow
 
 [icon lock icon] lock
 
-[icon lock_circle icon] lock_circle
+[icon lock-open icon] lock-open
 
-[icon lock_circle_fill icon] lock_circle_fill
+[icon long-arrow-alt-down icon] long-arrow-alt-down
 
-[icon lock_fill icon] lock_fill
+[icon long-arrow-alt-left icon] long-arrow-alt-left
 
-[icon lock_open icon] lock_open
+[icon long-arrow-alt-right icon] long-arrow-alt-right
 
-[icon lock_open_fill icon] lock_open_fill
+[icon long-arrow-alt-up icon] long-arrow-alt-up
 
-[icon lock_rotation icon] lock_rotation
+[icon low-vision icon] low-vision
 
-[icon lock_rotation_open icon] lock_rotation_open
+[icon luggage-cart icon] luggage-cart
 
-[icon lock_shield icon] lock_shield
+[icon lungs icon] lungs
 
-[icon lock_shield_fill icon] lock_shield_fill
+[icon lungs-virus icon] lungs-virus
 
-[icon lock_slash icon] lock_slash
+[icon magic icon] magic
 
-[icon lock_slash_fill icon] lock_slash_fill
+[icon magnet icon] magnet
 
-[icon logo_android icon] logo_android
+[icon mail-bulk icon] mail-bulk
 
-[icon logo_android_text icon] logo_android_text
-
-[icon logo_apple icon] logo_apple
-
-[icon logo_facebook icon] logo_facebook
-
-[icon logo_github icon] logo_github
-
-[icon logo_google icon] logo_google
-
-[icon logo_google_text icon] logo_google_text
-
-[icon logo_googleplus icon] logo_googleplus
-
-[icon logo_instagram icon] logo_instagram
-
-[icon logo_ios icon] logo_ios
-
-[icon logo_linkedin icon] logo_linkedin
-
-[icon logo_macos icon] logo_macos
-
-[icon logo_microsoft icon] logo_microsoft
-
-[icon logo_rss icon] logo_rss
-
-[icon logo_stackoverflow icon] logo_stackoverflow
-
-[icon logo_twitter icon] logo_twitter
-
-[icon logo_windows icon] logo_windows
-
-[icon macwindow icon] macwindow
+[icon male icon] male
 
 [icon map icon] map
 
-[icon map_fill icon] map_fill
+[icon map-marked icon] map-marked
 
-[icon map_pin icon] map_pin
+[icon map-marked-alt icon] map-marked-alt
 
-[icon map_pin_ellipse icon] map_pin_ellipse
+[icon map-marker icon] map-marker
 
-[icon map_pin_slash icon] map_pin_slash
+[icon map-marker-alt icon] map-marker-alt
 
-[icon memories icon] memories
+[icon map-pin icon] map-pin
 
-[icon memories_badge_minus icon] memories_badge_minus
+[icon map-signs icon] map-signs
 
-[icon memories_badge_plus icon] memories_badge_plus
+[icon marker icon] marker
 
-[icon menu icon] menu
+[icon mars icon] mars
 
-[icon metronome icon] metronome
+[icon mars-double icon] mars-double
 
-[icon mic icon] mic
+[icon mars-stroke icon] mars-stroke
 
-[icon mic_circle icon] mic_circle
+[icon mars-stroke-h icon] mars-stroke-h
 
-[icon mic_circle_fill icon] mic_circle_fill
+[icon mars-stroke-v icon] mars-stroke-v
 
-[icon mic_fill icon] mic_fill
+[icon mask icon] mask
 
-[icon mic_slash icon] mic_slash
+[icon medal icon] medal
 
-[icon mic_slash_fill icon] mic_slash_fill
+[icon medkit icon] medkit
+
+[icon meh icon] meh
+
+[icon meh-blank icon] meh-blank
+
+[icon meh-rolling-eyes icon] meh-rolling-eyes
+
+[icon memory icon] memory
+
+[icon menorah icon] menorah
+
+[icon mercury icon] mercury
+
+[icon meteor icon] meteor
+
+[icon microchip icon] microchip
+
+[icon microphone icon] microphone
+
+[icon microphone-alt icon] microphone-alt
+
+[icon microphone-alt-slash icon] microphone-alt-slash
+
+[icon microphone-slash icon] microphone-slash
+
+[icon microscope icon] microscope
 
 [icon minus icon] minus
 
-[icon minus_circle icon] minus_circle
+[icon minus-circle icon] minus-circle
 
-[icon minus_circle_fill icon] minus_circle_fill
+[icon minus-square icon] minus-square
 
-[icon minus_rectangle icon] minus_rectangle
+[icon mitten icon] mitten
 
-[icon minus_rectangle_fill icon] minus_rectangle_fill
+[icon mobile icon] mobile
 
-[icon minus_slash_plus icon] minus_slash_plus
+[icon mobile-alt icon] mobile-alt
 
-[icon minus_square icon] minus_square
+[icon money-bill icon] money-bill
 
-[icon minus_square_fill icon] minus_square_fill
+[icon money-bill-alt icon] money-bill-alt
 
-[icon money_dollar icon] money_dollar
+[icon money-bill-wave icon] money-bill-wave
 
-[icon money_dollar_circle icon] money_dollar_circle
+[icon money-bill-wave-alt icon] money-bill-wave-alt
 
-[icon money_dollar_circle_fill icon] money_dollar_circle_fill
+[icon money-check icon] money-check
 
-[icon money_euro icon] money_euro
+[icon money-check-alt icon] money-check-alt
 
-[icon money_euro_circle icon] money_euro_circle
-
-[icon money_euro_circle_fill icon] money_euro_circle_fill
-
-[icon money_pound icon] money_pound
-
-[icon money_pound_circle icon] money_pound_circle
-
-[icon money_pound_circle_fill icon] money_pound_circle_fill
-
-[icon money_rubl icon] money_rubl
-
-[icon money_rubl_circle icon] money_rubl_circle
-
-[icon money_rubl_circle_fill icon] money_rubl_circle_fill
-
-[icon money_yen icon] money_yen
-
-[icon money_yen_circle icon] money_yen_circle
-
-[icon money_yen_circle_fill icon] money_yen_circle_fill
+[icon monument icon] monument
 
 [icon moon icon] moon
 
-[icon moon_circle icon] moon_circle
+[icon mortar-pestle icon] mortar-pestle
 
-[icon moon_circle_fill icon] moon_circle_fill
+[icon mosque icon] mosque
 
-[icon moon_fill icon] moon_fill
+[icon motorcycle icon] motorcycle
 
-[icon moon_stars icon] moon_stars
+[icon mountain icon] mountain
 
-[icon moon_stars_fill icon] moon_stars_fill
+[icon mouse icon] mouse
 
-[icon moon_zzz icon] moon_zzz
+[icon mouse-pointer icon] mouse-pointer
 
-[icon moon_zzz_fill icon] moon_zzz_fill
+[icon mug-hot icon] mug-hot
 
-[icon move icon] move
+[icon music icon] music
 
-[icon multiply icon] multiply
+[icon network-wired icon] network-wired
 
-[icon multiply_circle icon] multiply_circle
+[icon neuter icon] neuter
 
-[icon multiply_circle_fill icon] multiply_circle_fill
+[icon newspaper icon] newspaper
 
-[icon multiply_square icon] multiply_square
+[icon not-equal icon] not-equal
 
-[icon multiply_square_fill icon] multiply_square_fill
+[icon notes-medical icon] notes-medical
 
-[icon music_albums icon] music_albums
+[icon object-group icon] object-group
 
-[icon music_albums_fill icon] music_albums_fill
+[icon object-ungroup icon] object-ungroup
 
-[icon music_house icon] music_house
+[icon oil-can icon] oil-can
 
-[icon music_house_fill icon] music_house_fill
+[icon om icon] om
 
-[icon music_mic icon] music_mic
+[icon otter icon] otter
 
-[icon music_note icon] music_note
+[icon outdent icon] outdent
 
-[icon music_note_2 icon] music_note_2
+[icon pager icon] pager
 
-[icon music_note_list icon] music_note_list
+[icon paint-brush icon] paint-brush
 
-[icon nosign icon] nosign
+[icon paint-roller icon] paint-roller
 
-[icon number icon] number
+[icon palette icon] palette
 
-[icon number_circle icon] number_circle
+[icon pallet icon] pallet
 
-[icon number_circle_fill icon] number_circle_fill
-
-[icon number_square icon] number_square
-
-[icon number_square_fill icon] number_square_fill
-
-[icon option icon] option
-
-[icon paintbrush icon] paintbrush
-
-[icon paintbrush_fill icon] paintbrush_fill
-
-[icon pano icon] pano
-
-[icon pano_fill icon] pano_fill
+[icon paper-plane icon] paper-plane
 
 [icon paperclip icon] paperclip
 
-[icon paperplane icon] paperplane
-
-[icon paperplane_fill icon] paperplane_fill
+[icon parachute-box icon] parachute-box
 
 [icon paragraph icon] paragraph
 
+[icon parking icon] parking
+
+[icon passport icon] passport
+
+[icon pastafarianism icon] pastafarianism
+
+[icon paste icon] paste
+
 [icon pause icon] pause
 
-[icon pause_circle icon] pause_circle
-
-[icon pause_circle_fill icon] pause_circle_fill
-
-[icon pause_fill icon] pause_fill
-
-[icon pause_rectangle icon] pause_rectangle
-
-[icon pause_rectangle_fill icon] pause_rectangle_fill
+[icon pause-circle icon] pause-circle
 
 [icon paw icon] paw
 
-[icon pencil icon] pencil
+[icon peace icon] peace
 
-[icon pencil_circle icon] pencil_circle
+[icon pen icon] pen
 
-[icon pencil_circle_fill icon] pencil_circle_fill
+[icon pen-alt icon] pen-alt
 
-[icon pencil_ellipsis_rectangle icon] pencil_ellipsis_rectangle
+[icon pen-fancy icon] pen-fancy
 
-[icon pencil_outline icon] pencil_outline
+[icon pen-nib icon] pen-nib
 
-[icon pencil_slash icon] pencil_slash
+[icon pen-square icon] pen-square
+
+[icon pencil-alt icon] pencil-alt
+
+[icon pencil-ruler icon] pencil-ruler
+
+[icon people-arrows icon] people-arrows
+
+[icon people-carry icon] people-carry
+
+[icon pepper-hot icon] pepper-hot
 
 [icon percent icon] percent
 
-[icon person icon] person
+[icon percentage icon] percentage
 
-[icon person_2 icon] person_2
-
-[icon person_2_alt icon] person_2_alt
-
-[icon person_2_fill icon] person_2_fill
-
-[icon person_2_square_stack icon] person_2_square_stack
-
-[icon person_2_square_stack_fill icon] person_2_square_stack_fill
-
-[icon person_3 icon] person_3
-
-[icon person_3_fill icon] person_3_fill
-
-[icon person_alt icon] person_alt
-
-[icon person_alt_circle icon] person_alt_circle
-
-[icon person_alt_circle_fill icon] person_alt_circle_fill
-
-[icon person_badge_minus icon] person_badge_minus
-
-[icon person_badge_minus_fill icon] person_badge_minus_fill
-
-[icon person_badge_plus icon] person_badge_plus
-
-[icon person_badge_plus_fill icon] person_badge_plus_fill
-
-[icon person_circle icon] person_circle
-
-[icon person_circle_fill icon] person_circle_fill
-
-[icon person_crop_circle icon] person_crop_circle
-
-[icon person_crop_circle_badge_checkmark icon] person_crop_circle_badge_checkmark
-
-[icon person_crop_circle_badge_exclam icon] person_crop_circle_badge_exclam
-
-[icon person_crop_circle_badge_minus icon] person_crop_circle_badge_minus
-
-[icon person_crop_circle_badge_plus icon] person_crop_circle_badge_plus
-
-[icon person_crop_circle_badge_xmark icon] person_crop_circle_badge_xmark
-
-[icon person_crop_circle_fill icon] person_crop_circle_fill
-
-[icon person_crop_circle_fill_badge_checkmark icon] person_crop_circle_fill_badge_checkmark
-
-[icon person_crop_circle_fill_badge_exclam icon] person_crop_circle_fill_badge_exclam
-
-[icon person_crop_circle_fill_badge_minus icon] person_crop_circle_fill_badge_minus
-
-[icon person_crop_circle_fill_badge_plus icon] person_crop_circle_fill_badge_plus
-
-[icon person_crop_circle_fill_badge_xmark icon] person_crop_circle_fill_badge_xmark
-
-[icon person_crop_rectangle icon] person_crop_rectangle
-
-[icon person_crop_rectangle_fill icon] person_crop_rectangle_fill
-
-[icon person_crop_square icon] person_crop_square
-
-[icon person_crop_square_fill icon] person_crop_square_fill
-
-[icon person_fill icon] person_fill
-
-[icon personalhotspot icon] personalhotspot
-
-[icon perspective icon] perspective
+[icon person-booth icon] person-booth
 
 [icon phone icon] phone
 
-[icon phone_arrow_down_left icon] phone_arrow_down_left
+[icon phone-alt icon] phone-alt
 
-[icon phone_arrow_right icon] phone_arrow_right
+[icon phone-slash icon] phone-slash
 
-[icon phone_arrow_up_right icon] phone_arrow_up_right
+[icon phone-square icon] phone-square
 
-[icon phone_badge_plus icon] phone_badge_plus
+[icon phone-square-alt icon] phone-square-alt
 
-[icon phone_circle icon] phone_circle
+[icon phone-volume icon] phone-volume
 
-[icon phone_circle_fill icon] phone_circle_fill
+[icon photo-video icon] photo-video
 
-[icon phone_down icon] phone_down
+[icon piggy-bank icon] piggy-bank
 
-[icon phone_down_circle icon] phone_down_circle
+[icon pills icon] pills
 
-[icon phone_down_circle_fill icon] phone_down_circle_fill
+[icon pizza-slice icon] pizza-slice
 
-[icon phone_down_fill icon] phone_down_fill
+[icon place-of-worship icon] place-of-worship
 
-[icon phone_fill icon] phone_fill
+[icon plane icon] plane
 
-[icon phone_fill_arrow_down_left icon] phone_fill_arrow_down_left
+[icon plane-arrival icon] plane-arrival
 
-[icon phone_fill_arrow_right icon] phone_fill_arrow_right
+[icon plane-departure icon] plane-departure
 
-[icon phone_fill_arrow_up_right icon] phone_fill_arrow_up_right
-
-[icon phone_fill_badge_plus icon] phone_fill_badge_plus
-
-[icon photo icon] photo
-
-[icon photo_fill icon] photo_fill
-
-[icon photo_fill_on_rectangle_fill icon] photo_fill_on_rectangle_fill
-
-[icon photo_on_rectangle icon] photo_on_rectangle
-
-[icon piano icon] piano
-
-[icon pin icon] pin
-
-[icon pin_fill icon] pin_fill
-
-[icon pin_slash icon] pin_slash
-
-[icon pin_slash_fill icon] pin_slash_fill
-
-[icon placemark icon] placemark
-
-[icon placemark_fill icon] placemark_fill
+[icon plane-slash icon] plane-slash
 
 [icon play icon] play
 
-[icon play_circle icon] play_circle
+[icon play-circle icon] play-circle
 
-[icon play_circle_fill icon] play_circle_fill
-
-[icon play_fill icon] play_fill
-
-[icon play_rectangle icon] play_rectangle
-
-[icon play_rectangle_fill icon] play_rectangle_fill
-
-[icon playpause icon] playpause
-
-[icon playpause_fill icon] playpause_fill
+[icon plug icon] plug
 
 [icon plus icon] plus
 
-[icon plus_app icon] plus_app
+[icon plus-circle icon] plus-circle
 
-[icon plus_app_fill icon] plus_app_fill
+[icon plus-square icon] plus-square
 
-[icon plus_bubble icon] plus_bubble
+[icon podcast icon] podcast
 
-[icon plus_bubble_fill icon] plus_bubble_fill
+[icon poll icon] poll
 
-[icon plus_circle icon] plus_circle
+[icon poll-h icon] poll-h
 
-[icon plus_circle_fill icon] plus_circle_fill
+[icon poo icon] poo
 
-[icon plus_rectangle icon] plus_rectangle
+[icon poo-storm icon] poo-storm
 
-[icon plus_rectangle_fill icon] plus_rectangle_fill
+[icon poop icon] poop
 
-[icon plus_rectangle_fill_on_rectangle_fill icon] plus_rectangle_fill_on_rectangle_fill
+[icon portrait icon] portrait
 
-[icon plus_rectangle_on_rectangle icon] plus_rectangle_on_rectangle
+[icon pound-sign icon] pound-sign
 
-[icon plus_slash_minus icon] plus_slash_minus
+[icon power-off icon] power-off
 
-[icon plus_square icon] plus_square
+[icon pray icon] pray
 
-[icon plus_square_fill icon] plus_square_fill
+[icon praying-hands icon] praying-hands
 
-[icon plus_square_fill_on_square_fill icon] plus_square_fill_on_square_fill
+[icon prescription icon] prescription
 
-[icon plus_square_on_square icon] plus_square_on_square
+[icon prescription-bottle icon] prescription-bottle
 
-[icon plusminus icon] plusminus
+[icon prescription-bottle-alt icon] prescription-bottle-alt
 
-[icon plusminus_circle icon] plusminus_circle
+[icon print icon] print
 
-[icon plusminus_circle_fill icon] plusminus_circle_fill
+[icon procedures icon] procedures
 
-[icon poultry_leg icon] poultry_leg
+[icon project-diagram icon] project-diagram
 
-[icon power icon] power
+[icon pump-medical icon] pump-medical
 
-[icon printer icon] printer
+[icon pump-soap icon] pump-soap
 
-[icon printer_fill icon] printer_fill
-
-[icon projective icon] projective
-
-[icon purchased icon] purchased
-
-[icon purchased_circle icon] purchased_circle
-
-[icon purchased_circle_fill icon] purchased_circle_fill
+[icon puzzle-piece icon] puzzle-piece
 
 [icon qrcode icon] qrcode
 
-[icon qrcode_viewfinder icon] qrcode_viewfinder
-
 [icon question icon] question
 
-[icon question_circle icon] question_circle
+[icon question-circle icon] question-circle
 
-[icon question_circle_fill icon] question_circle_fill
+[icon quidditch icon] quidditch
 
-[icon question_diamond icon] question_diamond
+[icon quote-left icon] quote-left
 
-[icon question_diamond_fill icon] question_diamond_fill
+[icon quote-right icon] quote-right
 
-[icon question_square icon] question_square
+[icon quran icon] quran
 
-[icon question_square_fill icon] question_square_fill
+[icon radiation icon] radiation
 
-[icon quote_bubble icon] quote_bubble
+[icon radiation-alt icon] radiation-alt
 
-[icon quote_bubble_fill icon] quote_bubble_fill
+[icon rainbow icon] rainbow
 
-[icon radiowaves_left icon] radiowaves_left
+[icon random icon] random
 
-[icon radiowaves_right icon] radiowaves_right
+[icon receipt icon] receipt
 
-[icon rays icon] rays
+[icon record-vinyl icon] record-vinyl
 
-[icon recordingtape icon] recordingtape
+[icon recycle icon] recycle
 
-[icon rectangle icon] rectangle
+[icon redo icon] redo
 
-[icon rectangle_3_offgrid icon] rectangle_3_offgrid
+[icon redo-alt icon] redo-alt
 
-[icon rectangle_3_offgrid_fill icon] rectangle_3_offgrid_fill
+[icon registered icon] registered
 
-[icon rectangle_arrow_up_right_arrow_down_left icon] rectangle_arrow_up_right_arrow_down_left
+[icon remove-format icon] remove-format
 
-[icon rectangle_arrow_up_right_arrow_down_left_slash icon] rectangle_arrow_up_right_arrow_down_left_slash
+[icon reply icon] reply
 
-[icon rectangle_badge_checkmark icon] rectangle_badge_checkmark
+[icon reply-all icon] reply-all
 
-[icon rectangle_badge_xmark icon] rectangle_badge_xmark
+[icon republican icon] republican
 
-[icon rectangle_compress_vertical icon] rectangle_compress_vertical
+[icon restroom icon] restroom
 
-[icon rectangle_dock icon] rectangle_dock
+[icon retweet icon] retweet
 
-[icon rectangle_expand_vertical icon] rectangle_expand_vertical
+[icon ribbon icon] ribbon
 
-[icon rectangle_fill icon] rectangle_fill
+[icon ring icon] ring
 
-[icon rectangle_fill_badge_checkmark icon] rectangle_fill_badge_checkmark
+[icon road icon] road
 
-[icon rectangle_fill_badge_xmark icon] rectangle_fill_badge_xmark
-
-[icon rectangle_fill_on_rectangle_angled_fill icon] rectangle_fill_on_rectangle_angled_fill
-
-[icon rectangle_fill_on_rectangle_fill icon] rectangle_fill_on_rectangle_fill
-
-[icon rectangle_grid_1x2 icon] rectangle_grid_1x2
-
-[icon rectangle_grid_1x2_fill icon] rectangle_grid_1x2_fill
-
-[icon rectangle_grid_2x2 icon] rectangle_grid_2x2
-
-[icon rectangle_grid_2x2_fill icon] rectangle_grid_2x2_fill
-
-[icon rectangle_grid_3x2 icon] rectangle_grid_3x2
-
-[icon rectangle_grid_3x2_fill icon] rectangle_grid_3x2_fill
-
-[icon rectangle_on_rectangle icon] rectangle_on_rectangle
-
-[icon rectangle_on_rectangle_angled icon] rectangle_on_rectangle_angled
-
-[icon rectangle_paperclip icon] rectangle_paperclip
-
-[icon rectangle_split_3x1 icon] rectangle_split_3x1
-
-[icon rectangle_split_3x1_fill icon] rectangle_split_3x1_fill
-
-[icon rectangle_split_3x3 icon] rectangle_split_3x3
-
-[icon rectangle_split_3x3_fill icon] rectangle_split_3x3_fill
-
-[icon rectangle_stack icon] rectangle_stack
-
-[icon rectangle_stack_badge_minus icon] rectangle_stack_badge_minus
-
-[icon rectangle_stack_badge_person_crop icon] rectangle_stack_badge_person_crop
-
-[icon rectangle_stack_badge_plus icon] rectangle_stack_badge_plus
-
-[icon rectangle_stack_fill icon] rectangle_stack_fill
-
-[icon rectangle_stack_fill_badge_minus icon] rectangle_stack_fill_badge_minus
-
-[icon rectangle_stack_fill_badge_person_crop icon] rectangle_stack_fill_badge_person_crop
-
-[icon rectangle_stack_fill_badge_plus icon] rectangle_stack_fill_badge_plus
-
-[icon rectangle_stack_person_crop icon] rectangle_stack_person_crop
-
-[icon rectangle_stack_person_crop_fill icon] rectangle_stack_person_crop_fill
-
-[icon repeat icon] repeat
-
-[icon repeat_1 icon] repeat_1
-
-[icon resize icon] resize
-
-[icon resize_h icon] resize_h
-
-[icon resize_v icon] resize_v
-
-[icon return icon] return
-
-[icon rhombus icon] rhombus
-
-[icon rhombus_fill icon] rhombus_fill
+[icon robot icon] robot
 
 [icon rocket icon] rocket
 
-[icon rocket_fill icon] rocket_fill
+[icon route icon] route
 
-[icon rosette icon] rosette
+[icon rss icon] rss
 
-[icon rotate_left icon] rotate_left
+[icon rss-square icon] rss-square
 
-[icon rotate_left_fill icon] rotate_left_fill
+[icon ruble-sign icon] ruble-sign
 
-[icon rotate_right icon] rotate_right
+[icon ruler icon] ruler
 
-[icon rotate_right_fill icon] rotate_right_fill
+[icon ruler-combined icon] ruler-combined
 
-[icon scissors icon] scissors
+[icon ruler-horizontal icon] ruler-horizontal
 
-[icon scissors_alt icon] scissors_alt
+[icon ruler-vertical icon] ruler-vertical
 
-[icon scope icon] scope
+[icon running icon] running
 
-[icon scribble icon] scribble
+[icon rupee-sign icon] rupee-sign
+
+[icon sad-cry icon] sad-cry
+
+[icon sad-tear icon] sad-tear
+
+[icon satellite icon] satellite
+
+[icon satellite-dish icon] satellite-dish
+
+[icon save icon] save
+
+[icon school icon] school
+
+[icon screwdriver icon] screwdriver
+
+[icon scroll icon] scroll
+
+[icon sd-card icon] sd-card
 
 [icon search icon] search
 
-[icon search_circle icon] search_circle
+[icon search-dollar icon] search-dollar
 
-[icon search_circle_fill icon] search_circle_fill
+[icon search-location icon] search-location
 
-[icon selection_pin_in_out icon] selection_pin_in_out
+[icon search-minus icon] search-minus
 
-[icon shield icon] shield
+[icon search-plus icon] search-plus
 
-[icon shield_fill icon] shield_fill
+[icon seedling icon] seedling
 
-[icon shield_lefthalf_fill icon] shield_lefthalf_fill
+[icon server icon] server
 
-[icon shield_slash icon] shield_slash
+[icon shapes icon] shapes
 
-[icon shield_slash_fill icon] shield_slash_fill
+[icon share icon] share
 
-[icon shift icon] shift
+[icon share-alt icon] share-alt
 
-[icon shift_fill icon] shift_fill
+[icon share-alt-square icon] share-alt-square
 
-[icon shuffle icon] shuffle
+[icon share-square icon] share-square
 
-[icon sidebar_left icon] sidebar_left
+[icon shekel-sign icon] shekel-sign
 
-[icon sidebar_right icon] sidebar_right
+[icon shield-alt icon] shield-alt
+
+[icon shield-virus icon] shield-virus
+
+[icon ship icon] ship
+
+[icon shipping-fast icon] shipping-fast
+
+[icon shoe-prints icon] shoe-prints
+
+[icon shopping-bag icon] shopping-bag
+
+[icon shopping-basket icon] shopping-basket
+
+[icon shopping-cart icon] shopping-cart
+
+[icon shower icon] shower
+
+[icon shuttle-van icon] shuttle-van
+
+[icon sign icon] sign
+
+[icon sign-in-alt icon] sign-in-alt
+
+[icon sign-language icon] sign-language
+
+[icon sign-out-alt icon] sign-out-alt
+
+[icon signal icon] signal
 
 [icon signature icon] signature
 
-[icon skew icon] skew
+[icon sim-card icon] sim-card
 
-[icon slash_circle icon] slash_circle
+[icon sink icon] sink
 
-[icon slash_circle_fill icon] slash_circle_fill
+[icon sitemap icon] sitemap
 
-[icon slider_horizontal_3 icon] slider_horizontal_3
+[icon skating icon] skating
 
-[icon slider_horizontal_below_rectangle icon] slider_horizontal_below_rectangle
+[icon skiing icon] skiing
 
-[icon slowmo icon] slowmo
+[icon skiing-nordic icon] skiing-nordic
 
-[icon smallcircle_circle icon] smallcircle_circle
+[icon skull icon] skull
 
-[icon smallcircle_circle_fill icon] smallcircle_circle_fill
+[icon skull-crossbones icon] skull-crossbones
 
-[icon smallcircle_fill_circle icon] smallcircle_fill_circle
+[icon slash icon] slash
 
-[icon smallcircle_fill_circle_fill icon] smallcircle_fill_circle_fill
+[icon sleigh icon] sleigh
 
-[icon smiley icon] smiley
+[icon sliders-h icon] sliders-h
 
-[icon smiley_fill icon] smiley_fill
+[icon smile icon] smile
 
-[icon smoke icon] smoke
+[icon smile-beam icon] smile-beam
 
-[icon smoke_fill icon] smoke_fill
+[icon smile-wink icon] smile-wink
 
-[icon snow icon] snow
+[icon smog icon] smog
 
-[icon sort_down icon] sort_down
+[icon smoking icon] smoking
 
-[icon sort_down_circle icon] sort_down_circle
+[icon smoking-ban icon] smoking-ban
 
-[icon sort_down_circle_fill icon] sort_down_circle_fill
+[icon sms icon] sms
 
-[icon sort_up icon] sort_up
+[icon snowboarding icon] snowboarding
 
-[icon sort_up_circle icon] sort_up_circle
+[icon snowflake icon] snowflake
 
-[icon sort_up_circle_fill icon] sort_up_circle_fill
+[icon snowman icon] snowman
 
-[icon sparkles icon] sparkles
+[icon snowplow icon] snowplow
 
-[icon speaker icon] speaker
+[icon soap icon] soap
 
-[icon speaker_1 icon] speaker_1
+[icon socks icon] socks
 
-[icon speaker_1_fill icon] speaker_1_fill
+[icon solar-panel icon] solar-panel
 
-[icon speaker_2 icon] speaker_2
+[icon sort icon] sort
 
-[icon speaker_2_fill icon] speaker_2_fill
+[icon sort-alpha-down icon] sort-alpha-down
 
-[icon speaker_3 icon] speaker_3
+[icon sort-alpha-down-alt icon] sort-alpha-down-alt
 
-[icon speaker_3_fill icon] speaker_3_fill
+[icon sort-alpha-up icon] sort-alpha-up
 
-[icon speaker_fill icon] speaker_fill
+[icon sort-alpha-up-alt icon] sort-alpha-up-alt
 
-[icon speaker_slash icon] speaker_slash
+[icon sort-amount-down icon] sort-amount-down
 
-[icon speaker_slash_fill icon] speaker_slash_fill
+[icon sort-amount-down-alt icon] sort-amount-down-alt
 
-[icon speaker_slash_fill_rtl icon] speaker_slash_fill_rtl
+[icon sort-amount-up icon] sort-amount-up
 
-[icon speaker_slash_rtl icon] speaker_slash_rtl
+[icon sort-amount-up-alt icon] sort-amount-up-alt
 
-[icon speaker_zzz icon] speaker_zzz
+[icon sort-down icon] sort-down
 
-[icon speaker_zzz_fill icon] speaker_zzz_fill
+[icon sort-numeric-down icon] sort-numeric-down
 
-[icon speaker_zzz_fill_rtl icon] speaker_zzz_fill_rtl
+[icon sort-numeric-down-alt icon] sort-numeric-down-alt
 
-[icon speaker_zzz_rtl icon] speaker_zzz_rtl
+[icon sort-numeric-up icon] sort-numeric-up
 
-[icon speedometer icon] speedometer
+[icon sort-numeric-up-alt icon] sort-numeric-up-alt
 
-[icon sportscourt icon] sportscourt
+[icon sort-up icon] sort-up
 
-[icon sportscourt_fill icon] sportscourt_fill
+[icon spa icon] spa
+
+[icon space-shuttle icon] space-shuttle
+
+[icon spell-check icon] spell-check
+
+[icon spider icon] spider
+
+[icon spinner icon] spinner
+
+[icon splotch icon] splotch
+
+[icon spray-can icon] spray-can
 
 [icon square icon] square
 
-[icon square_arrow_down icon] square_arrow_down
+[icon square-full icon] square-full
 
-[icon square_arrow_down_fill icon] square_arrow_down_fill
+[icon square-root-alt icon] square-root-alt
 
-[icon square_arrow_down_on_square icon] square_arrow_down_on_square
-
-[icon square_arrow_down_on_square_fill icon] square_arrow_down_on_square_fill
-
-[icon square_arrow_left icon] square_arrow_left
-
-[icon square_arrow_left_fill icon] square_arrow_left_fill
-
-[icon square_arrow_right icon] square_arrow_right
-
-[icon square_arrow_right_fill icon] square_arrow_right_fill
-
-[icon square_arrow_up icon] square_arrow_up
-
-[icon square_arrow_up_fill icon] square_arrow_up_fill
-
-[icon square_arrow_up_on_square icon] square_arrow_up_on_square
-
-[icon square_arrow_up_on_square_fill icon] square_arrow_up_on_square_fill
-
-[icon square_favorites icon] square_favorites
-
-[icon square_favorites_alt icon] square_favorites_alt
-
-[icon square_favorites_alt_fill icon] square_favorites_alt_fill
-
-[icon square_favorites_fill icon] square_favorites_fill
-
-[icon square_fill icon] square_fill
-
-[icon square_fill_line_vertical_square icon] square_fill_line_vertical_square
-
-[icon square_fill_line_vertical_square_fill icon] square_fill_line_vertical_square_fill
-
-[icon square_fill_on_circle_fill icon] square_fill_on_circle_fill
-
-[icon square_fill_on_square_fill icon] square_fill_on_square_fill
-
-[icon square_grid_2x2 icon] square_grid_2x2
-
-[icon square_grid_2x2_fill icon] square_grid_2x2_fill
-
-[icon square_grid_3x2 icon] square_grid_3x2
-
-[icon square_grid_3x2_fill icon] square_grid_3x2_fill
-
-[icon square_grid_4x3_fill icon] square_grid_4x3_fill
-
-[icon square_lefthalf_fill icon] square_lefthalf_fill
-
-[icon square_line_vertical_square icon] square_line_vertical_square
-
-[icon square_line_vertical_square_fill icon] square_line_vertical_square_fill
-
-[icon square_list icon] square_list
-
-[icon square_list_fill icon] square_list_fill
-
-[icon square_on_circle icon] square_on_circle
-
-[icon square_on_square icon] square_on_square
-
-[icon square_pencil icon] square_pencil
-
-[icon square_pencil_fill icon] square_pencil_fill
-
-[icon square_righthalf_fill icon] square_righthalf_fill
-
-[icon square_split_1x2 icon] square_split_1x2
-
-[icon square_split_1x2_fill icon] square_split_1x2_fill
-
-[icon square_split_2x1 icon] square_split_2x1
-
-[icon square_split_2x1_fill icon] square_split_2x1_fill
-
-[icon square_split_2x2 icon] square_split_2x2
-
-[icon square_split_2x2_fill icon] square_split_2x2_fill
-
-[icon square_stack icon] square_stack
-
-[icon square_stack_3d_down_dottedline icon] square_stack_3d_down_dottedline
-
-[icon square_stack_3d_down_right icon] square_stack_3d_down_right
-
-[icon square_stack_3d_down_right_fill icon] square_stack_3d_down_right_fill
-
-[icon square_stack_3d_up icon] square_stack_3d_up
-
-[icon square_stack_3d_up_fill icon] square_stack_3d_up_fill
-
-[icon square_stack_3d_up_slash icon] square_stack_3d_up_slash
-
-[icon square_stack_3d_up_slash_fill icon] square_stack_3d_up_slash_fill
-
-[icon square_stack_fill icon] square_stack_fill
-
-[icon squares_below_rectangle icon] squares_below_rectangle
+[icon stamp icon] stamp
 
 [icon star icon] star
 
-[icon star_circle icon] star_circle
+[icon star-and-crescent icon] star-and-crescent
 
-[icon star_circle_fill icon] star_circle_fill
+[icon star-half icon] star-half
 
-[icon star_fill icon] star_fill
+[icon star-half-alt icon] star-half-alt
 
-[icon star_lefthalf_fill icon] star_lefthalf_fill
+[icon star-of-david icon] star-of-david
 
-[icon star_slash icon] star_slash
+[icon star-of-life icon] star-of-life
 
-[icon star_slash_fill icon] star_slash_fill
+[icon step-backward icon] step-backward
 
-[icon staroflife icon] staroflife
+[icon step-forward icon] step-forward
 
-[icon staroflife_fill icon] staroflife_fill
+[icon stethoscope icon] stethoscope
+
+[icon sticky-note icon] sticky-note
 
 [icon stop icon] stop
 
-[icon stop_circle icon] stop_circle
-
-[icon stop_circle_fill icon] stop_circle_fill
-
-[icon stop_fill icon] stop_fill
+[icon stop-circle icon] stop-circle
 
 [icon stopwatch icon] stopwatch
 
-[icon stopwatch_fill icon] stopwatch_fill
+[icon store icon] store
+
+[icon store-alt icon] store-alt
+
+[icon store-alt-slash icon] store-alt-slash
+
+[icon store-slash icon] store-slash
+
+[icon stream icon] stream
+
+[icon street-view icon] street-view
 
 [icon strikethrough icon] strikethrough
 
-[icon suit_club icon] suit_club
+[icon stroopwafel icon] stroopwafel
 
-[icon suit_club_fill icon] suit_club_fill
+[icon subscript icon] subscript
 
-[icon suit_diamond icon] suit_diamond
+[icon subway icon] subway
 
-[icon suit_diamond_fill icon] suit_diamond_fill
+[icon suitcase icon] suitcase
 
-[icon suit_heart icon] suit_heart
+[icon suitcase-rolling icon] suitcase-rolling
 
-[icon suit_heart_fill icon] suit_heart_fill
+[icon sun icon] sun
 
-[icon suit_spade icon] suit_spade
+[icon superscript icon] superscript
 
-[icon suit_spade_fill icon] suit_spade_fill
+[icon surprise icon] surprise
 
-[icon sum icon] sum
+[icon swatchbook icon] swatchbook
 
-[icon sun_dust icon] sun_dust
+[icon swimmer icon] swimmer
 
-[icon sun_dust_fill icon] sun_dust_fill
+[icon swimming-pool icon] swimming-pool
 
-[icon sun_haze icon] sun_haze
+[icon synagogue icon] synagogue
 
-[icon sun_haze_fill icon] sun_haze_fill
+[icon sync icon] sync
 
-[icon sun_max icon] sun_max
+[icon sync-alt icon] sync-alt
 
-[icon sun_max_fill icon] sun_max_fill
-
-[icon sun_min icon] sun_min
-
-[icon sun_min_fill icon] sun_min_fill
-
-[icon sunrise icon] sunrise
-
-[icon sunrise_fill icon] sunrise_fill
-
-[icon sunset icon] sunset
-
-[icon sunset_fill icon] sunset_fill
-
-[icon t_bubble icon] t_bubble
-
-[icon t_bubble_fill icon] t_bubble_fill
+[icon syringe icon] syringe
 
 [icon table icon] table
 
-[icon table_badge_more icon] table_badge_more
+[icon table-tennis icon] table-tennis
 
-[icon table_badge_more_fill icon] table_badge_more_fill
+[icon tablet icon] tablet
 
-[icon table_fill icon] table_fill
+[icon tablet-alt icon] tablet-alt
+
+[icon tablets icon] tablets
+
+[icon tachometer-alt icon] tachometer-alt
 
 [icon tag icon] tag
 
-[icon tag_circle icon] tag_circle
+[icon tags icon] tags
 
-[icon tag_circle_fill icon] tag_circle_fill
+[icon tape icon] tape
 
-[icon tag_fill icon] tag_fill
+[icon tasks icon] tasks
 
-[icon text_aligncenter icon] text_aligncenter
+[icon taxi icon] taxi
 
-[icon text_alignleft icon] text_alignleft
+[icon teeth icon] teeth
 
-[icon text_alignright icon] text_alignright
+[icon teeth-open icon] teeth-open
 
-[icon text_append icon] text_append
+[icon temperature-high icon] temperature-high
 
-[icon text_badge_checkmark icon] text_badge_checkmark
+[icon temperature-low icon] temperature-low
 
-[icon text_badge_minus icon] text_badge_minus
+[icon tenge icon] tenge
 
-[icon text_badge_plus icon] text_badge_plus
+[icon terminal icon] terminal
 
-[icon text_badge_star icon] text_badge_star
+[icon text-height icon] text-height
 
-[icon text_badge_xmark icon] text_badge_xmark
+[icon text-width icon] text-width
 
-[icon text_bubble icon] text_bubble
+[icon th icon] th
 
-[icon text_bubble_fill icon] text_bubble_fill
+[icon th-large icon] th-large
 
-[icon text_cursor icon] text_cursor
+[icon th-list icon] th-list
 
-[icon text_insert icon] text_insert
-
-[icon text_justify icon] text_justify
-
-[icon text_justifyleft icon] text_justifyleft
-
-[icon text_justifyright icon] text_justifyright
-
-[icon text_quote icon] text_quote
-
-[icon textbox icon] textbox
-
-[icon textformat icon] textformat
-
-[icon textformat_123 icon] textformat_123
-
-[icon textformat_abc icon] textformat_abc
-
-[icon textformat_abc_dottedunderline icon] textformat_abc_dottedunderline
-
-[icon textformat_alt icon] textformat_alt
-
-[icon textformat_size icon] textformat_size
-
-[icon textformat_subscript icon] textformat_subscript
-
-[icon textformat_superscript icon] textformat_superscript
+[icon theater-masks icon] theater-masks
 
 [icon thermometer icon] thermometer
 
-[icon thermometer_snowflake icon] thermometer_snowflake
+[icon thermometer-empty icon] thermometer-empty
 
-[icon thermometer_sun icon] thermometer_sun
+[icon thermometer-full icon] thermometer-full
 
-[icon ticket icon] ticket
+[icon thermometer-half icon] thermometer-half
 
-[icon ticket_fill icon] ticket_fill
+[icon thermometer-quarter icon] thermometer-quarter
 
-[icon tickets icon] tickets
+[icon thermometer-three-quarters icon] thermometer-three-quarters
 
-[icon tickets_fill icon] tickets_fill
+[icon thumbs-down icon] thumbs-down
 
-[icon timelapse icon] timelapse
+[icon thumbs-up icon] thumbs-up
 
-[icon timer icon] timer
+[icon thumbtack icon] thumbtack
 
-[icon timer_fill icon] timer_fill
+[icon ticket-alt icon] ticket-alt
 
-[icon today icon] today
+[icon times icon] times
 
-[icon today_fill icon] today_fill
+[icon times-circle icon] times-circle
 
-[icon tornado icon] tornado
+[icon tint icon] tint
 
-[icon tortoise icon] tortoise
+[icon tint-slash icon] tint-slash
 
-[icon tortoise_fill icon] tortoise_fill
+[icon tired icon] tired
 
-[icon tram_fill icon] tram_fill
+[icon toggle-off icon] toggle-off
+
+[icon toggle-on icon] toggle-on
+
+[icon toilet icon] toilet
+
+[icon toilet-paper icon] toilet-paper
+
+[icon toilet-paper-slash icon] toilet-paper-slash
+
+[icon toolbox icon] toolbox
+
+[icon tools icon] tools
+
+[icon tooth icon] tooth
+
+[icon torah icon] torah
+
+[icon torii-gate icon] torii-gate
+
+[icon tractor icon] tractor
+
+[icon trademark icon] trademark
+
+[icon traffic-light icon] traffic-light
+
+[icon trailer icon] trailer
+
+[icon train icon] train
+
+[icon tram icon] tram
+
+[icon transgender icon] transgender
+
+[icon transgender-alt icon] transgender-alt
 
 [icon trash icon] trash
 
-[icon trash_circle icon] trash_circle
+[icon trash-alt icon] trash-alt
 
-[icon trash_circle_fill icon] trash_circle_fill
+[icon trash-restore icon] trash-restore
 
-[icon trash_fill icon] trash_fill
-
-[icon trash_slash icon] trash_slash
-
-[icon trash_slash_fill icon] trash_slash_fill
-
-[icon tray icon] tray
-
-[icon tray_2 icon] tray_2
-
-[icon tray_2_fill icon] tray_2_fill
-
-[icon tray_arrow_down icon] tray_arrow_down
-
-[icon tray_arrow_down_fill icon] tray_arrow_down_fill
-
-[icon tray_arrow_up icon] tray_arrow_up
-
-[icon tray_arrow_up_fill icon] tray_arrow_up_fill
-
-[icon tray_fill icon] tray_fill
-
-[icon tray_full icon] tray_full
-
-[icon tray_full_fill icon] tray_full_fill
+[icon trash-restore-alt icon] trash-restore-alt
 
 [icon tree icon] tree
 
-[icon triangle icon] triangle
+[icon trophy icon] trophy
 
-[icon triangle_fill icon] triangle_fill
+[icon truck icon] truck
 
-[icon triangle_lefthalf_fill icon] triangle_lefthalf_fill
+[icon truck-loading icon] truck-loading
 
-[icon triangle_righthalf_fill icon] triangle_righthalf_fill
+[icon truck-monster icon] truck-monster
 
-[icon tropicalstorm icon] tropicalstorm
+[icon truck-moving icon] truck-moving
 
-[icon tuningfork icon] tuningfork
+[icon truck-pickup icon] truck-pickup
+
+[icon tshirt icon] tshirt
+
+[icon tty icon] tty
 
 [icon tv icon] tv
 
-[icon tv_circle icon] tv_circle
-
-[icon tv_circle_fill icon] tv_circle_fill
-
-[icon tv_fill icon] tv_fill
-
-[icon tv_music_note icon] tv_music_note
-
-[icon tv_music_note_fill icon] tv_music_note_fill
-
-[icon uiwindow_split_2x1 icon] uiwindow_split_2x1
-
 [icon umbrella icon] umbrella
 
-[icon umbrella_fill icon] umbrella_fill
+[icon umbrella-beach icon] umbrella-beach
 
 [icon underline icon] underline
 
-[icon upload_circle icon] upload_circle
+[icon undo icon] undo
 
-[icon upload_circle_fill icon] upload_circle_fill
+[icon undo-alt icon] undo-alt
 
-[icon videocam icon] videocam
+[icon universal-access icon] universal-access
 
-[icon videocam_circle icon] videocam_circle
+[icon university icon] university
 
-[icon videocam_circle_fill icon] videocam_circle_fill
+[icon unlink icon] unlink
 
-[icon videocam_fill icon] videocam_fill
+[icon unlock icon] unlock
 
-[icon view_2d icon] view_2d
+[icon unlock-alt icon] unlock-alt
 
-[icon view_3d icon] view_3d
+[icon upload icon] upload
 
-[icon viewfinder icon] viewfinder
+[icon user icon] user
 
-[icon viewfinder_circle icon] viewfinder_circle
+[icon user-alt icon] user-alt
 
-[icon viewfinder_circle_fill icon] viewfinder_circle_fill
+[icon user-alt-slash icon] user-alt-slash
 
-[icon wand_rays icon] wand_rays
+[icon user-astronaut icon] user-astronaut
 
-[icon wand_rays_inverse icon] wand_rays_inverse
+[icon user-check icon] user-check
 
-[icon wand_stars icon] wand_stars
+[icon user-circle icon] user-circle
 
-[icon wand_stars_inverse icon] wand_stars_inverse
+[icon user-clock icon] user-clock
 
-[icon waveform icon] waveform
+[icon user-cog icon] user-cog
 
-[icon waveform_circle icon] waveform_circle
+[icon user-edit icon] user-edit
 
-[icon waveform_circle_fill icon] waveform_circle_fill
+[icon user-friends icon] user-friends
 
-[icon waveform_path icon] waveform_path
+[icon user-graduate icon] user-graduate
 
-[icon waveform_path_badge_minus icon] waveform_path_badge_minus
+[icon user-injured icon] user-injured
 
-[icon waveform_path_badge_plus icon] waveform_path_badge_plus
+[icon user-lock icon] user-lock
 
-[icon waveform_path_ecg icon] waveform_path_ecg
+[icon user-md icon] user-md
+
+[icon user-minus icon] user-minus
+
+[icon user-ninja icon] user-ninja
+
+[icon user-nurse icon] user-nurse
+
+[icon user-plus icon] user-plus
+
+[icon user-secret icon] user-secret
+
+[icon user-shield icon] user-shield
+
+[icon user-slash icon] user-slash
+
+[icon user-tag icon] user-tag
+
+[icon user-tie icon] user-tie
+
+[icon user-times icon] user-times
+
+[icon users icon] users
+
+[icon users-cog icon] users-cog
+
+[icon users-slash icon] users-slash
+
+[icon utensil-spoon icon] utensil-spoon
+
+[icon utensils icon] utensils
+
+[icon vector-square icon] vector-square
+
+[icon venus icon] venus
+
+[icon venus-double icon] venus-double
+
+[icon venus-mars icon] venus-mars
+
+[icon vest icon] vest
+
+[icon vest-patches icon] vest-patches
+
+[icon vial icon] vial
+
+[icon vials icon] vials
+
+[icon video icon] video
+
+[icon video-slash icon] video-slash
+
+[icon vihara icon] vihara
+
+[icon virus icon] virus
+
+[icon virus-slash icon] virus-slash
+
+[icon viruses icon] viruses
+
+[icon voicemail icon] voicemail
+
+[icon volleyball-ball icon] volleyball-ball
+
+[icon volume-down icon] volume-down
+
+[icon volume-mute icon] volume-mute
+
+[icon volume-off icon] volume-off
+
+[icon volume-up icon] volume-up
+
+[icon vote-yea icon] vote-yea
+
+[icon vr-cardboard icon] vr-cardboard
+
+[icon walking icon] walking
+
+[icon wallet icon] wallet
+
+[icon warehouse icon] warehouse
+
+[icon water icon] water
+
+[icon wave-square icon] wave-square
+
+[icon weight icon] weight
+
+[icon weight-hanging icon] weight-hanging
+
+[icon wheelchair icon] wheelchair
 
 [icon wifi icon] wifi
 
-[icon wifi_exclamationmark icon] wifi_exclamationmark
-
-[icon wifi_slash icon] wifi_slash
-
 [icon wind icon] wind
 
-[icon wind_snow icon] wind_snow
+[icon window-close icon] window-close
+
+[icon window-maximize icon] window-maximize
+
+[icon window-minimize icon] window-minimize
+
+[icon window-restore icon] window-restore
+
+[icon wine-bottle icon] wine-bottle
+
+[icon wine-glass icon] wine-glass
+
+[icon wine-glass-alt icon] wine-glass-alt
+
+[icon won-sign icon] won-sign
 
 [icon wrench icon] wrench
 
-[icon wrench_fill icon] wrench_fill
+[icon x-ray icon] x-ray
 
-[icon xmark icon] xmark
+[icon yen-sign icon] yen-sign
 
-[icon xmark_circle icon] xmark_circle
+[icon yin-yang icon] yin-yang
 
-[icon xmark_circle_fill icon] xmark_circle_fill
+[icon 500px icon] 500px
 
-[icon xmark_octagon icon] xmark_octagon
+[icon accessible-icon icon] accessible-icon
 
-[icon xmark_octagon_fill icon] xmark_octagon_fill
+[icon accusoft icon] accusoft
 
-[icon xmark_rectangle icon] xmark_rectangle
+[icon acquisitions-incorporated icon] acquisitions-incorporated
 
-[icon xmark_rectangle_fill icon] xmark_rectangle_fill
+[icon adn icon] adn
 
-[icon xmark_seal icon] xmark_seal
+[icon adversal icon] adversal
 
-[icon xmark_seal_fill icon] xmark_seal_fill
+[icon affiliatetheme icon] affiliatetheme
 
-[icon xmark_shield icon] xmark_shield
+[icon airbnb icon] airbnb
 
-[icon xmark_shield_fill icon] xmark_shield_fill
+[icon algolia icon] algolia
 
-[icon xmark_square icon] xmark_square
+[icon alipay icon] alipay
 
-[icon xmark_square_fill icon] xmark_square_fill
+[icon amazon icon] amazon
 
-[icon zoom_in icon] zoom_in
+[icon amazon-pay icon] amazon-pay
 
-[icon \1 icon] \1
+[icon amilia icon] amilia
 
-[icon zzz icon] zzz
+[icon android icon] android
 
-))
+[icon angellist icon] angellist
+
+[icon angrycreative icon] angrycreative
+
+[icon angular icon] angular
+
+[icon app-store icon] app-store
+
+[icon app-store-ios icon] app-store-ios
+
+[icon apper icon] apper
+
+[icon apple icon] apple
+
+[icon apple-pay icon] apple-pay
+
+[icon artstation icon] artstation
+
+[icon asymmetrik icon] asymmetrik
+
+[icon atlassian icon] atlassian
+
+[icon audible icon] audible
+
+[icon autoprefixer icon] autoprefixer
+
+[icon avianex icon] avianex
+
+[icon aviato icon] aviato
+
+[icon aws icon] aws
+
+[icon bandcamp icon] bandcamp
+
+[icon battle-net icon] battle-net
+
+[icon behance icon] behance
+
+[icon behance-square icon] behance-square
+
+[icon bimobject icon] bimobject
+
+[icon bitbucket icon] bitbucket
+
+[icon bitcoin icon] bitcoin
+
+[icon bity icon] bity
+
+[icon black-tie icon] black-tie
+
+[icon blackberry icon] blackberry
+
+[icon blogger icon] blogger
+
+[icon blogger-b icon] blogger-b
+
+[icon bluetooth icon] bluetooth
+
+[icon bluetooth-b icon] bluetooth-b
+
+[icon bootstrap icon] bootstrap
+
+[icon btc icon] btc
+
+[icon buffer icon] buffer
+
+[icon buromobelexperte icon] buromobelexperte
+
+[icon buy-n-large icon] buy-n-large
+
+[icon buysellads icon] buysellads
+
+[icon canadian-maple-leaf icon] canadian-maple-leaf
+
+[icon cc-amazon-pay icon] cc-amazon-pay
+
+[icon cc-amex icon] cc-amex
+
+[icon cc-apple-pay icon] cc-apple-pay
+
+[icon cc-diners-club icon] cc-diners-club
+
+[icon cc-discover icon] cc-discover
+
+[icon cc-jcb icon] cc-jcb
+
+[icon cc-mastercard icon] cc-mastercard
+
+[icon cc-paypal icon] cc-paypal
+
+[icon cc-stripe icon] cc-stripe
+
+[icon cc-visa icon] cc-visa
+
+[icon centercode icon] centercode
+
+[icon centos icon] centos
+
+[icon chrome icon] chrome
+
+[icon chromecast icon] chromecast
+
+[icon cloudflare icon] cloudflare
+
+[icon cloudscale icon] cloudscale
+
+[icon cloudsmith icon] cloudsmith
+
+[icon cloudversify icon] cloudversify
+
+[icon codepen icon] codepen
+
+[icon codiepie icon] codiepie
+
+[icon confluence icon] confluence
+
+[icon connectdevelop icon] connectdevelop
+
+[icon contao icon] contao
+
+[icon cotton-bureau icon] cotton-bureau
+
+[icon cpanel icon] cpanel
+
+[icon creative-commons icon] creative-commons
+
+[icon creative-commons-by icon] creative-commons-by
+
+[icon creative-commons-nc icon] creative-commons-nc
+
+[icon creative-commons-nc-eu icon] creative-commons-nc-eu
+
+[icon creative-commons-nc-jp icon] creative-commons-nc-jp
+
+[icon creative-commons-nd icon] creative-commons-nd
+
+[icon creative-commons-pd icon] creative-commons-pd
+
+[icon creative-commons-pd-alt icon] creative-commons-pd-alt
+
+[icon creative-commons-remix icon] creative-commons-remix
+
+[icon creative-commons-sa icon] creative-commons-sa
+
+[icon creative-commons-sampling icon] creative-commons-sampling
+
+[icon creative-commons-sampling-plus icon] creative-commons-sampling-plus
+
+[icon creative-commons-share icon] creative-commons-share
+
+[icon creative-commons-zero icon] creative-commons-zero
+
+[icon critical-role icon] critical-role
+
+[icon css3 icon] css3
+
+[icon css3-alt icon] css3-alt
+
+[icon cuttlefish icon] cuttlefish
+
+[icon d-and-d icon] d-and-d
+
+[icon d-and-d-beyond icon] d-and-d-beyond
+
+[icon dailymotion icon] dailymotion
+
+[icon dashcube icon] dashcube
+
+[icon deezer icon] deezer
+
+[icon delicious icon] delicious
+
+[icon deploydog icon] deploydog
+
+[icon deskpro icon] deskpro
+
+[icon dev icon] dev
+
+[icon deviantart icon] deviantart
+
+[icon dhl icon] dhl
+
+[icon diaspora icon] diaspora
+
+[icon digg icon] digg
+
+[icon digital-ocean icon] digital-ocean
+
+[icon discord icon] discord
+
+[icon discourse icon] discourse
+
+[icon dochub icon] dochub
+
+[icon docker icon] docker
+
+[icon draft2digital icon] draft2digital
+
+[icon dribbble icon] dribbble
+
+[icon dribbble-square icon] dribbble-square
+
+[icon dropbox icon] dropbox
+
+[icon drupal icon] drupal
+
+[icon dyalog icon] dyalog
+
+[icon earlybirds icon] earlybirds
+
+[icon ebay icon] ebay
+
+[icon edge icon] edge
+
+[icon edge-legacy icon] edge-legacy
+
+[icon elementor icon] elementor
+
+[icon ello icon] ello
+
+[icon ember icon] ember
+
+[icon empire icon] empire
+
+[icon envira icon] envira
+
+[icon erlang icon] erlang
+
+[icon ethereum icon] ethereum
+
+[icon etsy icon] etsy
+
+[icon evernote icon] evernote
+
+[icon expeditedssl icon] expeditedssl
+
+[icon facebook icon] facebook
+
+[icon facebook-f icon] facebook-f
+
+[icon facebook-messenger icon] facebook-messenger
+
+[icon facebook-square icon] facebook-square
+
+[icon fantasy-flight-games icon] fantasy-flight-games
+
+[icon fedex icon] fedex
+
+[icon fedora icon] fedora
+
+[icon figma icon] figma
+
+[icon firefox icon] firefox
+
+[icon firefox-browser icon] firefox-browser
+
+[icon first-order icon] first-order
+
+[icon first-order-alt icon] first-order-alt
+
+[icon firstdraft icon] firstdraft
+
+[icon flickr icon] flickr
+
+[icon flipboard icon] flipboard
+
+[icon fly icon] fly
+
+[icon font-awesome icon] font-awesome
+
+[icon font-awesome-alt icon] font-awesome-alt
+
+[icon font-awesome-flag icon] font-awesome-flag
+
+[icon fonticons icon] fonticons
+
+[icon fonticons-fi icon] fonticons-fi
+
+[icon fort-awesome icon] fort-awesome
+
+[icon fort-awesome-alt icon] fort-awesome-alt
+
+[icon forumbee icon] forumbee
+
+[icon foursquare icon] foursquare
+
+[icon free-code-camp icon] free-code-camp
+
+[icon freebsd icon] freebsd
+
+[icon fulcrum icon] fulcrum
+
+[icon galactic-republic icon] galactic-republic
+
+[icon galactic-senate icon] galactic-senate
+
+[icon get-pocket icon] get-pocket
+
+[icon gg icon] gg
+
+[icon gg-circle icon] gg-circle
+
+[icon git icon] git
+
+[icon git-alt icon] git-alt
+
+[icon git-square icon] git-square
+
+[icon github icon] github
+
+[icon github-alt icon] github-alt
+
+[icon github-square icon] github-square
+
+[icon gitkraken icon] gitkraken
+
+[icon gitlab icon] gitlab
+
+[icon gitter icon] gitter
+
+[icon glide icon] glide
+
+[icon glide-g icon] glide-g
+
+[icon gofore icon] gofore
+
+[icon goodreads icon] goodreads
+
+[icon goodreads-g icon] goodreads-g
+
+[icon google icon] google
+
+[icon google-drive icon] google-drive
+
+[icon google-pay icon] google-pay
+
+[icon google-play icon] google-play
+
+[icon google-plus icon] google-plus
+
+[icon google-plus-g icon] google-plus-g
+
+[icon google-plus-square icon] google-plus-square
+
+[icon google-wallet icon] google-wallet
+
+[icon gratipay icon] gratipay
+
+[icon grav icon] grav
+
+[icon gripfire icon] gripfire
+
+[icon grunt icon] grunt
+
+[icon guilded icon] guilded
+
+[icon gulp icon] gulp
+
+[icon hacker-news icon] hacker-news
+
+[icon hacker-news-square icon] hacker-news-square
+
+[icon hackerrank icon] hackerrank
+
+[icon hips icon] hips
+
+[icon hire-a-helper icon] hire-a-helper
+
+[icon hive icon] hive
+
+[icon hooli icon] hooli
+
+[icon hornbill icon] hornbill
+
+[icon hotjar icon] hotjar
+
+[icon houzz icon] houzz
+
+[icon html5 icon] html5
+
+[icon hubspot icon] hubspot
+
+[icon ideal icon] ideal
+
+[icon imdb icon] imdb
+
+[icon innosoft icon] innosoft
+
+[icon instagram icon] instagram
+
+[icon instagram-square icon] instagram-square
+
+[icon instalod icon] instalod
+
+[icon intercom icon] intercom
+
+[icon internet-explorer icon] internet-explorer
+
+[icon invision icon] invision
+
+[icon ioxhost icon] ioxhost
+
+[icon itch-io icon] itch-io
+
+[icon itunes icon] itunes
+
+[icon itunes-note icon] itunes-note
+
+[icon java icon] java
+
+[icon jedi-order icon] jedi-order
+
+[icon jenkins icon] jenkins
+
+[icon jira icon] jira
+
+[icon joget icon] joget
+
+[icon joomla icon] joomla
+
+[icon js icon] js
+
+[icon js-square icon] js-square
+
+[icon jsfiddle icon] jsfiddle
+
+[icon kaggle icon] kaggle
+
+[icon keybase icon] keybase
+
+[icon keycdn icon] keycdn
+
+[icon kickstarter icon] kickstarter
+
+[icon kickstarter-k icon] kickstarter-k
+
+[icon korvue icon] korvue
+
+[icon laravel icon] laravel
+
+[icon lastfm icon] lastfm
+
+[icon lastfm-square icon] lastfm-square
+
+[icon leanpub icon] leanpub
+
+[icon less icon] less
+
+[icon line icon] line
+
+[icon linkedin icon] linkedin
+
+[icon linkedin-in icon] linkedin-in
+
+[icon linode icon] linode
+
+[icon linux icon] linux
+
+[icon lyft icon] lyft
+
+[icon magento icon] magento
+
+[icon mailchimp icon] mailchimp
+
+[icon mandalorian icon] mandalorian
+
+[icon markdown icon] markdown
+
+[icon mastodon icon] mastodon
+
+[icon maxcdn icon] maxcdn
+
+[icon mdb icon] mdb
+
+[icon medapps icon] medapps
+
+[icon medium icon] medium
+
+[icon medium-m icon] medium-m
+
+[icon medrt icon] medrt
+
+[icon meetup icon] meetup
+
+[icon megaport icon] megaport
+
+[icon mendeley icon] mendeley
+
+[icon microblog icon] microblog
+
+[icon microsoft icon] microsoft
+
+[icon mix icon] mix
+
+[icon mixcloud icon] mixcloud
+
+[icon mixer icon] mixer
+
+[icon mizuni icon] mizuni
+
+[icon modx icon] modx
+
+[icon monero icon] monero
+
+[icon napster icon] napster
+
+[icon neos icon] neos
+
+[icon nimblr icon] nimblr
+
+[icon node icon] node
+
+[icon node-js icon] node-js
+
+[icon npm icon] npm
+
+[icon ns8 icon] ns8
+
+[icon nutritionix icon] nutritionix
+
+[icon octopus-deploy icon] octopus-deploy
+
+[icon odnoklassniki icon] odnoklassniki
+
+[icon odnoklassniki-square icon] odnoklassniki-square
+
+[icon old-republic icon] old-republic
+
+[icon opencart icon] opencart
+
+[icon openid icon] openid
+
+[icon opera icon] opera
+
+[icon optin-monster icon] optin-monster
+
+[icon orcid icon] orcid
+
+[icon osi icon] osi
+
+[icon page4 icon] page4
+
+[icon pagelines icon] pagelines
+
+[icon palfed icon] palfed
+
+[icon patreon icon] patreon
+
+[icon paypal icon] paypal
+
+[icon penny-arcade icon] penny-arcade
+
+[icon perbyte icon] perbyte
+
+[icon periscope icon] periscope
+
+[icon phabricator icon] phabricator
+
+[icon phoenix-framework icon] phoenix-framework
+
+[icon phoenix-squadron icon] phoenix-squadron
+
+[icon php icon] php
+
+[icon pied-piper icon] pied-piper
+
+[icon pied-piper-alt icon] pied-piper-alt
+
+[icon pied-piper-hat icon] pied-piper-hat
+
+[icon pied-piper-pp icon] pied-piper-pp
+
+[icon pied-piper-square icon] pied-piper-square
+
+[icon pinterest icon] pinterest
+
+[icon pinterest-p icon] pinterest-p
+
+[icon pinterest-square icon] pinterest-square
+
+[icon playstation icon] playstation
+
+[icon product-hunt icon] product-hunt
+
+[icon pushed icon] pushed
+
+[icon python icon] python
+
+[icon qq icon] qq
+
+[icon quinscape icon] quinscape
+
+[icon quora icon] quora
+
+[icon r-project icon] r-project
+
+[icon raspberry-pi icon] raspberry-pi
+
+[icon ravelry icon] ravelry
+
+[icon react icon] react
+
+[icon reacteurope icon] reacteurope
+
+[icon readme icon] readme
+
+[icon rebel icon] rebel
+
+[icon red-river icon] red-river
+
+[icon reddit icon] reddit
+
+[icon reddit-alien icon] reddit-alien
+
+[icon reddit-square icon] reddit-square
+
+[icon redhat icon] redhat
+
+[icon renren icon] renren
+
+[icon replyd icon] replyd
+
+[icon researchgate icon] researchgate
+
+[icon resolving icon] resolving
+
+[icon rev icon] rev
+
+[icon rocketchat icon] rocketchat
+
+[icon rockrms icon] rockrms
+
+[icon rust icon] rust
+
+[icon safari icon] safari
+
+[icon salesforce icon] salesforce
+
+[icon sass icon] sass
+
+[icon schlix icon] schlix
+
+[icon scribd icon] scribd
+
+[icon searchengin icon] searchengin
+
+[icon sellcast icon] sellcast
+
+[icon sellsy icon] sellsy
+
+[icon servicestack icon] servicestack
+
+[icon shirtsinbulk icon] shirtsinbulk
+
+[icon shopify icon] shopify
+
+[icon shopware icon] shopware
+
+[icon simplybuilt icon] simplybuilt
+
+[icon sistrix icon] sistrix
+
+[icon sith icon] sith
+
+[icon sketch icon] sketch
+
+[icon skyatlas icon] skyatlas
+
+[icon skype icon] skype
+
+[icon slack icon] slack
+
+[icon slack-hash icon] slack-hash
+
+[icon slideshare icon] slideshare
+
+[icon snapchat icon] snapchat
+
+[icon snapchat-ghost icon] snapchat-ghost
+
+[icon snapchat-square icon] snapchat-square
+
+[icon soundcloud icon] soundcloud
+
+[icon sourcetree icon] sourcetree
+
+[icon speakap icon] speakap
+
+[icon speaker-deck icon] speaker-deck
+
+[icon spotify icon] spotify
+
+[icon squarespace icon] squarespace
+
+[icon stack-exchange icon] stack-exchange
+
+[icon stack-overflow icon] stack-overflow
+
+[icon stackpath icon] stackpath
+
+[icon staylinked icon] staylinked
+
+[icon steam icon] steam
+
+[icon steam-square icon] steam-square
+
+[icon steam-symbol icon] steam-symbol
+
+[icon sticker-mule icon] sticker-mule
+
+[icon strava icon] strava
+
+[icon stripe icon] stripe
+
+[icon stripe-s icon] stripe-s
+
+[icon studiovinari icon] studiovinari
+
+[icon stumbleupon icon] stumbleupon
+
+[icon stumbleupon-circle icon] stumbleupon-circle
+
+[icon superpowers icon] superpowers
+
+[icon supple icon] supple
+
+[icon suse icon] suse
+
+[icon swift icon] swift
+
+[icon symfony icon] symfony
+
+[icon teamspeak icon] teamspeak
+
+[icon telegram icon] telegram
+
+[icon telegram-plane icon] telegram-plane
+
+[icon tencent-weibo icon] tencent-weibo
+
+[icon the-red-yeti icon] the-red-yeti
+
+[icon themeco icon] themeco
+
+[icon themeisle icon] themeisle
+
+[icon think-peaks icon] think-peaks
+
+[icon tiktok icon] tiktok
+
+[icon trade-federation icon] trade-federation
+
+[icon trello icon] trello
+
+[icon tripadvisor icon] tripadvisor
+
+[icon tumblr icon] tumblr
+
+[icon tumblr-square icon] tumblr-square
+
+[icon twitch icon] twitch
+
+[icon twitter icon] twitter
+
+[icon twitter-square icon] twitter-square
+
+[icon typo3 icon] typo3
+
+[icon uber icon] uber
+
+[icon ubuntu icon] ubuntu
+
+[icon uikit icon] uikit
+
+[icon umbraco icon] umbraco
+
+[icon uncharted icon] uncharted
+
+[icon uniregistry icon] uniregistry
+
+[icon unity icon] unity
+
+[icon unsplash icon] unsplash
+
+[icon untappd icon] untappd
+
+[icon ups icon] ups
+
+[icon usb icon] usb
+
+[icon usps icon] usps
+
+[icon ussunnah icon] ussunnah
+
+[icon vaadin icon] vaadin
+
+[icon viacoin icon] viacoin
+
+[icon viadeo icon] viadeo
+
+[icon viadeo-square icon] viadeo-square
+
+[icon viber icon] viber
+
+[icon vimeo icon] vimeo
+
+[icon vimeo-square icon] vimeo-square
+
+[icon vimeo-v icon] vimeo-v
+
+[icon vine icon] vine
+
+[icon vk icon] vk
+
+[icon vnv icon] vnv
+
+[icon vuejs icon] vuejs
+
+[icon watchman-monitoring icon] watchman-monitoring
+
+[icon waze icon] waze
+
+[icon weebly icon] weebly
+
+[icon weibo icon] weibo
+
+[icon weixin icon] weixin
+
+[icon whatsapp icon] whatsapp
+
+[icon whatsapp-square icon] whatsapp-square
+
+[icon whmcs icon] whmcs
+
+[icon wikipedia-w icon] wikipedia-w
+
+[icon windows icon] windows
+
+[icon wix icon] wix
+
+[icon wizards-of-the-coast icon] wizards-of-the-coast
+
+[icon wodu icon] wodu
+
+[icon wolf-pack-battalion icon] wolf-pack-battalion
+
+[icon wordpress icon] wordpress
+
+[icon wordpress-simple icon] wordpress-simple
+
+[icon wpbeginner icon] wpbeginner
+
+[icon wpexplorer icon] wpexplorer
+
+[icon wpforms icon] wpforms
+
+[icon wpressr icon] wpressr
+
+[icon xbox icon] xbox
+
+[icon xing icon] xing
+
+[icon xing-square icon] xing-square
+
+[icon y-combinator icon] y-combinator
+
+[icon yahoo icon] yahoo
+
+[icon yammer icon] yammer
+
+[icon yandex icon] yandex
+
+[icon yandex-international icon] yandex-international
+
+[icon yarn icon] yarn
+
+[icon yelp icon] yelp
+
+[icon yoast icon] yoast
+
+[icon youtube icon] youtube
+
+[icon youtube-square icon] youtube-square
+
+[icon zhihu icon] zhihu

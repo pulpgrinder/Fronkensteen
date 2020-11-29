@@ -1,5 +1,5 @@
 /* Copyright 2020 by Anthony W. Hursh. Fronkensteen license */
-BiwaScheme.define_libfunc("set-popover",2,4, function(ar){
+BiwaScheme.define_libfunc("set-popover",2,3, function(ar){
   BiwaScheme.assert_string(ar[0]);
   BiwaScheme.assert_string(ar[1]);
   let parent = ar[0];
@@ -7,14 +7,15 @@ BiwaScheme.define_libfunc("set-popover",2,4, function(ar){
 
   let params = {
     content: pop_content,
+    themeName:"Theme_topcoat"
   }
   if(ar.length > 2){
     BiwaScheme.assert_string(ar[2]);
-    params.placement = ar[2];
-  }
-  if(ar.length > 3){
-    BiwaScheme.assert_string(ar[3]);
-    params.title = ar[3];
+    let param_json = JSON.parse(ar[2])
+    let keys = Object.keys(param_json)
+    for(var i = 0; i < keys.length; i++){
+      params[keys[i]] = param_json[keys[i]]
+    }
   }
   $(ar[0]).fu_popover("destroy")
   $(ar[0]).fu_popover(params)

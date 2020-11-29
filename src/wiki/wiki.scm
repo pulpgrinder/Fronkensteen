@@ -1,5 +1,5 @@
 
-(define fronkensteen-wiki-history-list '())
+(define wiki-history-list '())
 
 (define fronkensteen-wiki-forward-history-list '())
 
@@ -9,7 +9,7 @@
   (if (> (length fronkensteen-wiki-forward-history-list) 0)
     (% "#fronkensteen-nav-forward" "show")
     (% "#fronkensteen-nav-forward" "hide"))
-  (if (> (length fronkensteen-wiki-history-list) 1)
+  (if (> (length wiki-history-list) 1)
       (% "#fronkensteen-nav-back" "show")
     (% "#fronkensteen-nav-back" "hide")))
 
@@ -30,12 +30,12 @@
 
 
 (define (#fronkensteen-nav-back_click)
-    (if (< (length fronkensteen-wiki-history-list) 2)
+    (if (< (length wiki-history-list) 2)
       #t
       (begin
-          (set! fronkensteen-wiki-forward-history-list (cons (car fronkensteen-wiki-history-list) fronkensteen-wiki-forward-history-list))
-          (set! fronkensteen-wiki-history-list (cdr fronkensteen-wiki-history-list))
-          (let ((history-page (car fronkensteen-wiki-history-list)))
+          (set! fronkensteen-wiki-forward-history-list (cons (car wiki-history-list) fronkensteen-wiki-forward-history-list))
+          (set! wiki-history-list (cdr wiki-history-list))
+          (let ((history-page (car wiki-history-list)))
             (let ((title (car history-page))
                   (type (cadr history-page)))
                   (if (eqv? type "page")
@@ -51,9 +51,9 @@
     (if (eqv? fronkensteen-wiki-forward-history-list '())
       #t
       (begin
-          (set! fronkensteen-wiki-history-list (cons (car fronkensteen-wiki-forward-history-list) fronkensteen-wiki-history-list))
+          (set! wiki-history-list (cons (car fronkensteen-wiki-forward-history-list) wiki-history-list))
           (set! fronkensteen-wiki-forward-history-list (cdr fronkensteen-wiki-forward-history-list))
-          (let ((history-page (car fronkensteen-wiki-history-list)))
+          (let ((history-page (car wiki-history-list)))
             (let ((title (car history-page))
                   (type (cadr history-page)))
                   (if (eqv? type "page")
@@ -65,10 +65,10 @@
   )
 (define (add-wiki-history title type)
   (set! fronkensteen-wiki-forward-history-list '())
-  (let ((history-list (remove-wiki-history title type fronkensteen-wiki-history-list)))
+  (let ((history-list (remove-wiki-history title type wiki-history-list)))
   (if (or (eqv? history-list '())
         (not (and (eqv? (caar history-list) title) (eqv? (cadar history-list) type)) ) )
-          (set! fronkensteen-wiki-history-list (cons (list title type) history-list)))
+          (set! wiki-history-list (cons (list title type) history-list)))
   ))
 
 (define (remove-wiki-history title type history-list)
@@ -96,7 +96,7 @@
               ""
               (<< (fa-icon "" "edit" "") "&nbsp;"))
         ))
-        (<< (dv (<< ".fronkensteen-popup-list-item.wiki-history-entry!title='" title "' type='" type "'") (<< icon title))
+        (<< (dv (<< ".popup-list-item.wiki-history-entry!title='" title "' type='" type "'") (<< icon title))
         (build-wiki-history-display (cdr history-list)))))))
 
 ;;;;!
@@ -107,7 +107,7 @@
 (define (wiki-data-path basename)
   (let ((encoded-basename (<< "user-files/wiki/"  (encode-uri basename))))
     (if (eqv? (file-extension encoded-basename) "")
-      (<< encoded-basename ".fmk") g
+      (<< encoded-basename ".fmk")
       encoded-basename)))
 
 (define (display-wiki-page title add-history)
@@ -144,12 +144,12 @@
       (alert "Sorry, can't delete the system launch page. Feel free to edit it, though.")
       (if (confirm (<< current-title ": delete? Are you sure?"))
         (begin
-            (set! fronkensteen-wiki-history-list (cdr fronkensteen-wiki-history-list))
+            (set! wiki-history-list (cdr wiki-history-list))
             (let ((filename (wiki-data-path current-title)))
               (delete-internal-file filename)
-              (if (eqv? fronkensteen-wiki-history-list '())
+              (if (eqv? wiki-history-list '())
                 (display-wiki-page "Main" #t)
-                (display-wiki-page (caar fronkensteen-wiki-history-list) #t)))))))
+                (display-wiki-page (caar wiki-history-list) #t)))))))
 
 
 (define (fix-uncacheable title)
@@ -247,7 +247,6 @@
       )))
 
 (define (retrieve-wiki-data title)
-  (console-log (<< "retrieving wiki data for " title))
   (let ((filename (wiki-data-path title)))
     (let ((extension (file-extension filename)))
       (cond ((is-text-file? extension)
@@ -289,8 +288,6 @@
 
 
 
-(define (#fronkensteen-wiki-save-workspace-button_click)
-    (save-the-static-world))
 
 (define (wiki-file-uploaded filename data)
   (let ((extension (file-extension filename)))
@@ -312,25 +309,7 @@
 (define (#fronkensteen-wiki-import-file-button_click)
     (upload-file ".png,.jpg,.gif,.svg,.mp3,.mp4,.m4v,.scm,.txt,.fmk,.md" #t wiki-file-uploaded))
 
- (define (init-wiki-viewer)
-  (generate-wiki-navbar)
-  (generate-wiki-toolbar)
-  (generate-editor-toolbar)
-  (show-top-toolbar "#wiki-nav-bar")
-  (show-bottom-toolbar "#wiki-control-bar")
-  )
-
-; Startup
-
-
-(define (system-launch)
-  (init-wiki-viewer)
-  (exec-wiki-page "system/Launch System")
-  ;(update-wiki-history-display)
-  ;(enable-wiki-nav-buttons))
-  (resize-content)
-  #t
-)
+ 
 (define (process-wiki-documentation)
   (let ((wikidata (retrieve-wiki-data "system/Scheme Documentation")))
       (process-doc-strings wikidata)))

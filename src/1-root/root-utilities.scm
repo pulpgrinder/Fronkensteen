@@ -46,6 +46,17 @@
   (download-file app-file-name (clone-workspace) "text/html")
   (set-system-clean)))
 
+(define (save-the-file-system) ; Save the internal file system in JSON format.
+  (let ((fs-file-name (<< (encode-uri app-name) "-filesystem-" (file-version-time-stamp) ".fronkensteen_fs")))
+  (download-file fs-file-name (get-internal-filesystem-json) "application/json")))
+
+(define (save-package-files package_prefix . args) ; Save a subset of internal file system in JSON format.
+  (if (= (length args) 0)
+    (let ((fs-file-name (<< (encode-uri app-name) (encode-uri package_prefix) (file-version-time-stamp) ".json")))
+    (download-file fs-file-name (get-package-json package_prefix) "application/json"))
+    (download-file (car args) (get-package-json package_prefix) (cadr args)))
+    )
+
 
 (define (clone-workspace)
   (prompt-to-save-user-data)

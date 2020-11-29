@@ -112,6 +112,12 @@
 (define (round-list-item . args); Evaluates to an HTML div string with the .round-list-item class (list item with rounded corners).
  (apply classdiv (cons ".round-list-item"  args)))
 
+ (define (popup-list . args) ; Evaluates to an HTML div string with the .popup-list class (list container with rounded corners).
+  (apply classdiv (cons ".popup-list" args)))
+
+ (define (popup-list-item . args); Evaluates to an HTML div string with the .popup-list-item class (list item with rounded corners).
+  (apply classdiv (cons ".popup-list-item"  args)))
+
  (define (menu-list . args) ; Evaluates to an HTML div string with the .menu-list class (list container with rounded corners).
   (apply classdiv (cons ".menu-list" args)))
 

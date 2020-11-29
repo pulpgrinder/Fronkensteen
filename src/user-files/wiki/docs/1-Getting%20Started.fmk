@@ -5,7 +5,7 @@ Fronkensteen lets you create a collection of pages, organized in wiki style. Pag
 
 [h3 The Save Button h3]
 
-[icon floppy_disk icon] This button lets you save the current version of your Fronkensteen document, including all internal pages and resources, to your hard drive. The document is saved as a stand-alone HTML file, which can be opened in any modern browser, emailed, put on a web site, or almost anything else you can do with an HTML document.
+[icon save icon] This button lets you save the current version of your Fronkensteen document, including all internal pages and resources, to your hard drive. The document is saved as a stand-alone HTML file, which can be opened in any modern browser, emailed, put on a web site, or almost anything else you can do with an HTML document.
 
 The default file name is Fronkensteen.yyyy-mm-dd.hh.mm.ss.html, where yyyy is the current year, mm is the current month, dd is the current day of the month, hh is the current hour, mm is the current minute, and ss is the current second. All times and dates are given in UTC time (i.e., what used to be called Greenwich Mean Time), so don't be surprised if there's a variation between this file name and your current wall time. The important thing here is that you can tell at a glance which is the latest version. Save early and save often.
 
@@ -20,7 +20,7 @@ The save location varies depending on how your browser is configured. It may go 
 
 [h3 The Edit Button h3]
 
-[icon pencil icon] This button lets you edit the current page. See the full discussion under Editor Controls, below.
+[icon edit icon] This button lets you edit the current page. See the full discussion under Editor Controls, below.
 
 [h3 The History Button h3]
 
@@ -28,11 +28,11 @@ The save location varies depending on how your browser is configured. It may go 
 
 [h3 The Refresh Button h3]
 
-[icon action-redo icon] This button allows you to refresh the page to reflect system changes. This may sometimes be necessary, especially if the page contains active scripts.
+[icon redo icon] This button allows you to refresh the page to reflect system changes. This may sometimes be necessary, especially if the page contains active scripts.
 
 [h3 The Search Button h3]
 
-[icon magnifying-glass icon] This button brings up a search dialog that lets you search all pages for a specific word or phrase.
+[icon search icon] This button brings up a search dialog that lets you search all pages for a specific word or phrase.
 
 [h3 The New Page Button h3]
 
@@ -40,15 +40,15 @@ The save location varies depending on how your browser is configured. It may go 
 
 [h3 The Incoming Links Button h3]
 
-[icon transfer icon] This button lets you see which other pages (if any) link to the current page.
+[icon hand-point-right icon] This button lets you see which other pages (if any) link to the current page.
 
 [h3 The Mini-REPL Button h3]
 
-[icon lambda icon] This button brings up a mini-REPL interface that lets you enter and execute Scheme code.
+[icon "λ" icon] This button brings up a mini-REPL interface that lets you enter and execute Scheme code.
 
 [h3 The Upload Button h3]
 
-[icon data-transfer-upload icon] This button lets you upload a file that will be stored as a page within the Fronkensteen system. Currently supported media types include: .scm,.txt,.fmk, and .md text files, .jpg, .gif, .png, and .svg images, .mp4 and .m4v videos, and .mp3 audio files. Other types are expected to be available in the future.
+[icon upload icon] This button lets you upload a file that will be stored as a page within the Fronkensteen system. Currently supported media types include: .scm,.txt,.fmk, and .md text files, .jpg, .gif, .png, and .svg images, .mp4 and .m4v videos, and .mp3 audio files. Other types are expected to be available in the future.
 
 [h3 The Special Pages Button h3]
 
@@ -74,20 +74,20 @@ You can change the title of the page you're working on by simply entering the ne
 
 [h3 The Save Button h3]
 
-[icon device-floppy icon] This button saves the current page, but leaves the editor open.
+[icon save icon] This button saves the current page, but leaves the editor open.
 
 
 [h3 The Close Without Saving Button h3]
 
-[icon circle-x icon] This button closes the current editor, abandoning any changes that may have been made.
+[icon times-circle icon] This button closes the current editor, abandoning any changes that may have been made.
 
 [h3 The Undo Button h3]
 
-[icon action-undo icon] This button undoes the most recent change.
+[icon undo icon] This button undoes the most recent change.
 
 [h3 The Redo Button h3]
 
-[icon action-redo icon] This button redoes the most recently undone change.
+[icon redo icon] This button redoes the most recently undone change.
 
 [h3 The Bold Button h3]
 
@@ -99,11 +99,11 @@ You can change the title of the page you're working on by simply entering the ne
 
 [h3 The Link Button h3]
 
-[icon link-intact icon] This button toggles the link status for the selected text.
+[icon link icon] This button toggles the link status for the selected text.
 
 [h3 The Blockquote Button h3]
 
-[icon double-quote-serif-right icon] This button toggles formatting the selected text as a block quote.
+[icon quote-left icon] This button toggles formatting the selected text as a block quote.
 
 [h3 The Code Button h3]
 
@@ -111,7 +111,7 @@ You can change the title of the page you're working on by simply entering the ne
 
 [h3 The Poetry/Song Lyrics Button h3]
 
-[icon musical-note icon] This button toggles formatting the selected text as poetry or song lyrics.
+[icon music icon] This button toggles formatting the selected text as poetry or song lyrics.
 
 [h3 The Center Button h3]
 
@@ -119,7 +119,7 @@ You can change the title of the page you're working on by simply entering the ne
 
 [h3 The Justify Button h3]
 
-[icon justify-center icon] This button toggles formatting the selected text as a justified paragraph.
+[icon align-justify icon] This button toggles formatting the selected text as a justified paragraph.
 
 [h3 The Align Right Button h3]
 
@@ -131,7 +131,7 @@ You can change the title of the page you're working on by simply entering the ne
 
 [h3 The Comment Button h3]
 
-[icon comment-square icon] This button toggles formatting the selected text as a comment. Comments are for the use of the author, and do not appear in the final page display.
+[icon comment icon] This button toggles formatting the selected text as a comment. Comments are for the use of the author, and do not appear in the final page display.
 
 [h3 The Footnote Button h3]
 

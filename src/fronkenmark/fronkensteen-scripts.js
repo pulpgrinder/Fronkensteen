@@ -1,10 +1,5 @@
 // Make sure we've got a Fronkenmark object, regardless of load order.
-if(typeof (Fronkenmark) === "undefined"){
-  Fronkenmark = {};
-  Fronkenmark.preScripts = {};
-  Fronkenmark.customTags = {};
-  Fronkenmark.substitutions = {};
-}
+
 
 Fronkenmark.resetSubstitutions = function(){
   Fronkenmark.substitutions = {};

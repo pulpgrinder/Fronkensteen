@@ -7,6 +7,50 @@
       (".icon" (
       "color" "#0a60fe"
         ))
+    (".fronkensteen-dialog" (
+      "z-index" "10000"
+      "width" "20em"
+      "position" "absolute"
+      "background-color" "rgba(0,0,0,0)"
+      "padding" "0"
+      "min-height" "15em"
+      "margin" "0"
+      ))
+
+      (".fronkensteen-dialog-button" (
+        "float" "right"
+        "margin-right" "0.25em"
+        ))
+      (".fronkensteen-dialog-title" (
+        "position" "absolute"
+        "left" "0"
+        "right" "0"
+        "font-size" "125%"
+        "height" "1.5em"
+        "padding" "0.25em"
+        "padding-bottom" "0"
+        "padding-left" "0.5em"
+        "border-top-left-radius" "10px"
+        "border-top-right-radius" "10px"
+        "background-color" "#dfe2e2"
+        ))
+        (".fronkensteen-dialog-body" (
+          "position" "absolute"
+          "top" "2em"
+          "bottom" "0"
+          "left" "0"
+          "right" "0"
+          "background-color" "#fff"
+          "color" "#000"
+          "border" "1px solid #000"
+          "border-top" "none"
+          "padding" "0"
+          "overflow" "auto"
+          ))
+          (".fronkensteen-dialog-content" (
+            "position" "relative"
+            "height" "100%"
+            ))
       ("#fronkensteen-nav-forward" (
         "position" "absolute"
         "right" "1.5em"
@@ -44,8 +88,28 @@
             "right" "0"
             "padding" "0"
             "width" "100%"
+            "border-bottom" "1px solid #aaa"
           "top" "70px"
           ))
+          ("#fronkensteen-status-bar-container" (
+            "position" "fixed"
+             "left" "0"
+              "right" "0"
+              "padding" "0"
+              "width" "100%"
+              "border-bottom" "1px solid #aaa"
+            "top" "120px"
+            ))
+            ("#fronkensteen-search-bar-container" (
+              "position" "fixed"
+               "left" "0"
+                "right" "0"
+                "padding" "0"
+                "padding-left" "0.5em"
+                "width" "100%"
+                "border-bottom" "1px solid #aaa"
+              "top" "141px"
+              ))
       ("pre" (
         "white-space" "pre-wrap"))
 
@@ -95,6 +159,44 @@
       (".roundbox " (
         "border-radius" "1em"
        ))
+      (".popup-list" (
+        "padding-left" "0.5em"
+        "padding-right" "0.5em"
+        "padding-top" "0.5em"
+        "padding-bottom" "0.5em"
+        "color" "#000"
+        "margin" "auto"
+        "width" "auto"
+      ))
+      (".popup-list-item:first-child" (
+        "border-top" "1px solid #cacaca"
+        "border-top-left-radius" "10px"
+        "border-top-right-radius" "10px"
+      ))
+      (".popup-list-item:last-child" (
+        "border-bottom-left-radius" "10px"
+        "border-bottom-right-radius" "10px"
+      ))
+      (".popup-list-item" (
+        "border-left" "1px solid #cacaca"
+        "border-bottom" "1px solid #cacaca"
+        "border-right" "1px solid #cacaca"
+        "display" "block"
+        "width" "auto"
+        "padding-left" "1em"
+        "padding-right" "1em"
+        "padding-top" "0.5em"
+        "padding-bottom" "0.5em"
+        "background-color" "white"
+      ))
+      (".popup-list-item:hover" (
+
+      ))
+      (".popup-list-item .link" (
+        "display" "inline-block"
+        "width" "100%"
+        "height" "100%"
+      ))
       (".round-list" (
         "padding-left" "0.5em"
         "padding-right" "0.5em"
@@ -125,6 +227,7 @@
         "padding-bottom" "0.5em"
         "width" "100%"
         "height" "100%"
+        "background-color" "white"
 
       ))
       (".round-list-item:hover" (
@@ -165,6 +268,7 @@
         "padding-bottom" "0.5em"
         "width" "100%"
         "height" "100%"
+        "background-color" "white"
 
       ))
       (".menu-list-item:hover" (

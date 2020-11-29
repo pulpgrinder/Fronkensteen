@@ -1,4 +1,4 @@
-let fa_lookup = {
+Fronkensteen.fa_lookup_data = {
 "ad":".fas.fa-ad",
 "address-book":".fas.fa-address-book",
 "address-card":".fas.fa-address-card",
@@ -823,7 +823,6 @@ let fa_lookup = {
 "stop":".fas.fa-stop",
 "stop-circle":".fas.fa-stop-circle",
 "stopwatch":".fas.fa-stopwatch",
-"stopwatch-20":".fas.fa-stopwatch-20",
 "store":".fas.fa-store",
 "store-alt":".fas.fa-store-alt",
 "store-alt-slash":".fas.fa-store-alt-slash",
@@ -1460,7 +1459,7 @@ let fa_lookup = {
 };
 
 Fronkensteen.fa_icon_lookup = function(icon_name){
-  let iconstring = fa_lookup[icon_name]
+  let iconstring = Fronkensteen.fa_lookup_data[icon_name];
   if(iconstring === undefined){
     console.error("Undefined Font Awesome icon: " + icon_name);
     return ".fas.fa-exclamation-triangle";

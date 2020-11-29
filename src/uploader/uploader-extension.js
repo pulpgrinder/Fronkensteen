@@ -58,8 +58,9 @@ Fronkensteen.downloadFile = function(filename,data,mime_type){
   element.innerHTML = "Download";
   //document.body.appendChild(element)
   setTimeout(function(){
+    console.log("Clicking")
     element.click();
-  },500);
+  },1500);
 
 }
 

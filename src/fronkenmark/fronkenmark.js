@@ -455,8 +455,15 @@ Fronkenmark.processContent  = function(text){
                       let input_content = input_parts.join("  ")
                       return Fronkenmark.installSubstitute("<input type='text'  id='" + input_id + "'" + "value='" + input_content + "'/>");
       case "note" : return Fronkenmark.processNote(code);
-      case "icon" : return Fronkenmark.installSubstitute(
+      case "icon" : code = code.trim();
+                    if(code.indexOf("“") === 0){
+                      return Fronkenmark.installSubstitute(
+          "<span class='icon'>" + code.replace(/“/g,"").replace(/”/g,"") + "</span>")
+                    }
+                    else {
+                      return Fronkenmark.installSubstitute(
         "<span class='icon'><i class='" + Fronkensteen.fa_icon_lookup(code).replace(/\./g," ") + "' " + " title='" + code + "'></i></span>");
+                    }
     //  case "icon" : return Fronkenmark.installSubstitute(
       //  "<span class='icon'><i class='far fa-" + code + "'></i></span>");
       case "dropcap": return Fronkenmark.installSubstitute(Fronkenmark.generateDropCap(code));

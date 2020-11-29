@@ -2,6 +2,7 @@
 ; Copyright 2019, 2020 by Anthony W. Hursh.
 ; MIT License.
 
+(define available-popovers '())
 (define (generate-editor-toolbar)
     (fronkensteen-bottom-toolbar "#editor-control-bar"
     (topcoat-button-bar
@@ -14,6 +15,7 @@
           "save" "Save without closing" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-close-button" "times-circle" "Close without saving" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-history-button.wiki-history-button" "clock" "Show history" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-search-button.wiki-history-button.wiki-search" "search" "Search" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-undo-button" "undo" "Undo" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-redo-button" "redo" "Redo" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-inline-style-button"
@@ -35,6 +37,15 @@
     (wire-ui)
     )
 
+(define (hide-editor-popovers popover-list)
+  (if (eqv? popover-list '())
+    #t
+    (begin
+      (hide-popover (car popover-list))
+      (hide-editor-popovers (cdr popover-list))
+    )
+  )
+)
 (define (#fronkensteen-editor-inline-style-button_click)
   (toggle-popover "#fronkensteen-editor-inline-style-button")
   (wire-ui))
@@ -45,6 +56,7 @@
     (wire-ui))
 
 (define (set-inline-formatting-popover)
+  (set! available-popovers (cons "#fronkensteen-editor-inline-style-button" available-popovers))
   (set-popover "#fronkensteen-editor-inline-style-button"
     (topcoat-button-bar
     (<<
@@ -73,6 +85,7 @@
         ))
 
 (define (set-paragraph-formatting-popover)
+(set! available-popovers (cons "#fronkensteen-editor-paragraph-style-button" available-popovers))
   (set-popover "#fronkensteen-editor-paragraph-style-button"
     (topcoat-button-bar
     (<<

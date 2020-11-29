@@ -116,10 +116,8 @@
           (% "#lambda-proc-display" "html" (lambda-build-proc-display-list procs proc-search)))
     (% ".lambda-proc-name-entry" "on" "click"
       (lambda (ev)
-          (console-log "proc clicked")
           (let ((target (js-ref ev "currentTarget")))
               (let ((procname (% target "attr" "procname")))
-                (console-log (<< "showing info for " procname))
                 (lambda-show-proc-source procname)
                 (lambda-show-proc-doc procname))))))
 
