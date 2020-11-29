@@ -16,6 +16,12 @@ body {
 #upload_download{
   display:none;
 }
+#fronkensteen-status-bar-container{
+  display:none;
+}
+#fronkensteen-search-bar-container{
+  display:none;
+}
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
