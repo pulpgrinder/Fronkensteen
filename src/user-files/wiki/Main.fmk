@@ -12,7 +12,7 @@ menu]
 
 [h2 What is Fronkensteen? h2]
 
-It's a self-contained, fully-programmable system for building web apps using a wiki-like model. Everything is in one HTML file, which will work in any modern browser.[note i.e. not Internet Explorer, or non-Chromium Microsoft Edge. Sorry. Currently supported browsers include: Firefox, Chrome, Safari (both desktop and mobile), Opera, Brave, and the new Chromium-based Microsoft Edge. note]
+It's a self-contained, fully-programmable system for building web apps using a wiki-like model. Everything is in one HTML file, which will work in any full-featured modern browser.[note i.e. not Internet Explorer, or non-Chromium Microsoft Edge. Sorry. Currently supported browsers include: desktop versions of Firefox, Chrome, Safari, Opera, Brave, and the new Chromium-based Microsoft Edge, as well as mobile Safari. It **may** work in other browsers, but those are the ones in which it is tested. note]
 
 Fronkensteen will work fine when loaded from a local disk. You do not need a server of any kind. A Fronkensteen app can be copied onto a thumb drive, emailed to someone else, used inside a native app framework such as Electron or Cordova... use your imagination. It's just a file, dude! You can even put it on a web server if you wish.
 
