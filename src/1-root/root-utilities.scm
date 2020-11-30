@@ -47,8 +47,8 @@
   (set-system-clean)))
 
 (define (save-the-file-system) ; Save the internal file system in JSON format.
-  (let ((fs-file-name (<< (encode-uri app-name) "-filesystem-" (file-version-time-stamp) ".fronkensteen_fs")))
-  (download-file fs-file-name (get-internal-filesystem-json) "application/json")))
+  (let ((fs-file-name (<< (encode-uri app-name) "-filesystem-" (file-version-time-stamp) ".fronkenfs")))
+  (download-file fs-file-name (get-internal-filesystem-json) "application/x-fronkenfs")))
 
 (define (save-package-files package_prefix . args) ; Save a subset of internal file system in JSON format.
   (if (= (length args) 0)
