@@ -335,6 +335,9 @@ Fronkenmark.processContent  = function(text){
  text = text.replace(/\[hr\]/g, function(match){
    return Fronkenmark.installSubstitute("<hr />")
  })
+ text = text.replace(/\[nbsp\]/g, function(match){
+   return Fronkenmark.installSubstitute("&nbsp;")
+ })
 
  text = text.replace(/\[pagebreak\]/g, function(match){
    return Fronkenmark.installSubstitute("</p><p style='page-break-after:always;'></p><p>")
