@@ -72,6 +72,8 @@ If you want to see these tags in operation, check out the [link Kitchen Sink lin
 
 [code [br] code] Insert a line break.
 
+[code [nbsp] code] Insert a non-breaking space.
+
 [code [scenebreak text scenebreak] code] Insert a scene break, with text centered on a line by itself.
 
 [code [pagebreak] code] Insert a forced page break at this point. Has no effect on a normal web screen, primarily useful for formatting ebooks.
