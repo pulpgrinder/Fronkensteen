@@ -62,12 +62,11 @@
                 "max-width" "60em"
                 "margin" "0 auto"
               ))
-              (".wiki-content-text blockquote" (
+              (".wiki-page-content blockquote" (
                 "padding" "1em"
                 "margin" "auto"
-                "max-width" "55em"
+                "max-width" "45em"
                 "background-color" "#ddd"
-                "font-style" "italic"
                 "border-radius" "10px"
                 ))
             (".menu-list" (
