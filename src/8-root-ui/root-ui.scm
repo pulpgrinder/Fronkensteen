@@ -23,10 +23,9 @@
           (<<
             (dv (<< id "-titlebar" ".fronkensteen-dialog-title")
               (<< title
-                (span (<< id "-close-button.fronkensteen-dialog-button") (i ".fas.fa-times-circle" ""))
+                (span (<< id "-close-button.fronkensteen-dialog-button.icon") (i ".fas.fa-times-circle" ""))
                 ))
             (dv (<< id "-body.fronkensteen-dialog-body") (dv (<< id "-content.fronkensteen-dialog-content") text)))))
-    (console-log "setting draggable")
     (set-draggable! (scheme->json `(("element" . ,id) ("dragitem" . ,(<< id "-titlebar")) ("closebutton" . ,(<< id "-close-button")) ("width" . ,width) (height . ,height))))
     (center-element id)
     (wire-ui))))
