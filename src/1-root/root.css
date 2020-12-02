@@ -94,6 +94,14 @@ table, th, td {
   border: 1px solid #bbb;
   padding:0.25em;
 }
+
+mark {
+  background-color: #ddd;
+}
+
+.activeSearchResult {
+  background-color:yellow;
+}
 @media print {
     .noprint {
         display: none;
