@@ -12,12 +12,19 @@ Fronkenmark.resetCounters = function(){
   Fronkenmark.counters = {}
 }
 Fronkenmark.preScripts["latex"] = function(code,trusted){
+
   // We let MathJax run regardless of trusted status. Think about this.
       let id = "renderedlatex" + Fronkensteen.no_dash_uuid();
+      if(typeof MathJax === "undefined"){
+        Fronkenmark.substitutions[id] = "MathJax is not installed."
+      }
+      else {
       let result = MathJax.tex2svg(code,{display:true});
       Fronkenmark.substitutions[id] = result.outerHTML;
+      }
       return id;
 }
+
 
 Fronkenmark.preScripts["scheme"] = function(code,trusted){
   // Scheme should only be allowed to run on trusted input.

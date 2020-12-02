@@ -91,6 +91,9 @@ Fronkenmark.processCodeBlocks = function(text){
 }
 
 Fronkenmark.processInlineLaTeX = function(code){
+  if(typeof MathJax === "undefined"){
+    return "MathJax is not installed."
+  }
    return MathJax.tex2svg(code,{display:false}).outerHTML;
 }
 
@@ -471,7 +474,6 @@ Fronkenmark.processContent  = function(text){
       //  "<span class='icon'><i class='far fa-" + code + "'></i></span>");
       case "dropcap": return Fronkenmark.installSubstitute(Fronkenmark.generateDropCap(code));
       default: if(Fronkenmark.customTags[tag] !== undefined){
-          console.log("Invoking custom handler: " + Fronkenmark.customTags[tag])
           let intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
           return intp2.invoke_closure(BiwaScheme.CoreEnv[Fronkenmark.customTags[tag]], [Fronkenmark.processContent(code)])
       }
