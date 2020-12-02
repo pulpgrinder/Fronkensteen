@@ -37,7 +37,6 @@ BiwaScheme.define_libfunc("set-draggable!", 1,1,function(ar){
     dragitem = element;
   }
   if(options["closebutton"] !== undefined){
-    console.log("Got closebutton: " + options["closebutton"])
     let closebutton = $(options["closebutton"])[0];
     closebutton.onclick = function(e){
       document.onmouseup = saveup;
