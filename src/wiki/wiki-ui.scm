@@ -21,7 +21,10 @@
       (dv "#fronkensteen-search-bar-container" "")
       (dv "#fronkensteen-content" "")
       (dv "#upload_download"
-        (a "#fronkensteen-download-link" ""))
+        (<<
+        (a "#fronkensteen-download-link" "")
+        (input "#fronkensteen-upload-element!type='file'"))
+        )
  ))
 )
 
