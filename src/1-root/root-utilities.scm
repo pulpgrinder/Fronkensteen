@@ -52,7 +52,7 @@
 
 (define (save-package-files package_prefix . args) ; Save a subset of internal file system in JSON format.
   (if (= (length args) 0)
-    (let ((fs-file-name (<< (encode-uri app-name) (encode-uri package_prefix) (file-version-time-stamp) ".json")))
+    (let ((fs-file-name (<< (encode-uri app-name) "-" (encode-uri package_prefix) "-" (file-version-time-stamp) ".json")))
     (download-file fs-file-name (get-package-json package_prefix) "application/json"))
     (download-file (car args) (get-package-json package_prefix) (cadr args)))
     )

@@ -116,6 +116,7 @@ Fronkensteen.getPackageJSON = function(package_prefix){
       package[keys[i]] = fronkensteen_fs[keys[i]]
     }
   }
+  package["version"] = Fronkensteen.packageVersion;
   return JSON.stringify(package);
 }
 
@@ -259,8 +260,8 @@ BiwaScheme.define_libfunc("install-package", 1, 1, function(ar){
   let encoded_data = ar[0].substring(ar[0].indexOf(",") + 1)
   let data = atob(encoded_data);
   let pkg = JSON.parse(data);
-  if(pkg["version"] !== "0.1beta"){
-    alert("Expected package version 0.1beta. This package is version " + pkg["version"] + ". Cannot install.");
+  if(pkg["version"] !== Fronkensteen.packageVersion){
+    alert("Expected package version " + Fronkensteen.packageVersion + ". This package is version " + pkg["version"] + ". Cannot install.");
     return;
   }
   let filenames = Object.keys(pkg);
@@ -269,8 +270,8 @@ BiwaScheme.define_libfunc("install-package", 1, 1, function(ar){
     console.log("installing " + filename)
     if(filenames[i] !== "version"){
       fronkensteen_fs[filename] = {}
-      fronkensteen_fs[filename]["data"] = pkg[filename];
-      fronkensteen_fs[filename]["timestamp"] = Date.now();
+      fronkensteen_fs[filename]["data"] = pkg[filename]["data"];
+      fronkensteen_fs[filename]["timestamp"] = pkg[filename]["timestamp"];
   }
 }
 })
@@ -296,7 +297,7 @@ BiwaScheme.define_libfunc("get-internal-filesystem-json",0,0,function(ar){
 });
 BiwaScheme.define_libfunc("get-package-json",1,1,function(ar){
   BiwaScheme.assert_string(ar[0])
-  // Gets the JSON representation of the internal filesystem.
+  // Gets the Fronkensteen package representation of a portion of the internal file system.
   return Fronkensteen.getPackageJSON(ar[0]);
 });
 BiwaScheme.define_libfunc("get-internal-dir",1,1,function(ar){

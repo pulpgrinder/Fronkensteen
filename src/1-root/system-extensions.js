@@ -4,6 +4,7 @@
 // MIT License.
 
 
+Fronkensteen.packageVersion = "0.1beta";
 
 // Try to prevent an accidental close with unsaved data.
   window.addEventListener('beforeunload', function (e) {
