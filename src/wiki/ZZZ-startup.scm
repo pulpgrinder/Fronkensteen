@@ -6,6 +6,7 @@
  (generate-editor-toolbar)
  (show-top-toolbar "#wiki-nav-bar")
  (show-bottom-toolbar "#wiki-control-bar")
+ (% ".editor-search" "hide")
  (wire-ui)
  )
 

@@ -18,7 +18,6 @@
   (let ((filename (wiki-data-path title)))
     (let ((extension (file-extension filename))
           (textarea-id (<< content-name "-textarea")))
-      (console-log (<< "textarea-id: " textarea-id))
       (if (is-text-file? extension)
             (begin
                 (% "#fronkensteen-content" "append" (dv (<< content-name  ".wiki-page-wrapper!tabindex='-1'") (dv (<< content-name "-body.wiki-editor.wiki-content")
@@ -41,7 +40,6 @@
         page-title)))
 
 (define (activate-wiki-editor content-name title filename textarea-id)
-  (console-log (<< "activate-wiki-area content-name: " content-name " textarea-id" textarea-id))
   (init-cm-editor! textarea-id "fronkenmark")
   (if (file-exists? filename)
     (cm-editor-set-text textarea-id (read-internal-text-file filename))
@@ -52,6 +50,7 @@
 
 (define (show-editor content-name textarea-id title)
   (show-bottom-toolbar "#editor-control-bar")
+  (% ".editor-search" "show")
   (set! current-editor textarea-id)
   (% ".wiki-page-wrapper" "hide")
   (% content-name "show")

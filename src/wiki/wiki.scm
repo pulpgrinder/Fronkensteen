@@ -120,6 +120,7 @@
       (begin
         (display-wiki-content title wikidata)
         (show-bottom-toolbar "#wiki-control-bar")
+        (% ".editor-search" "hide")
         (if add-history
           (add-wiki-history title "page"))
         (enable-wiki-nav-buttons))
@@ -309,7 +310,7 @@
 (define (#fronkensteen-wiki-import-file-button_click)
     (upload-file ".png,.jpg,.gif,.svg,.mp3,.mp4,.m4v,.scm,.txt,.fmk,.md" #t wiki-file-uploaded))
 
- 
+
 (define (process-wiki-documentation)
   (let ((wikidata (retrieve-wiki-data "system/Scheme Documentation")))
       (process-doc-strings wikidata)))

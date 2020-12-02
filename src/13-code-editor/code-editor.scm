@@ -202,15 +202,3 @@
 (define (focus-find)
   (timer (lambda()
     (% "#search-field" "focus")) 0.1))
-
-
-
-  (define (#replace-button_click)
-    (if (in-editor?)
-      (cm-editor-replace-selected-text current-editor (% "#replace-field" "val"))))
-
-(define (#replace-and-find-button_click)
-  (if (in-editor?)
-  (begin
-  (cm-editor-replace-selected-text current-editor (% "#replace-field" "val"))
-  (run-editor-search))))

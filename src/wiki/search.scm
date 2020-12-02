@@ -28,19 +28,17 @@
       "&nbsp;"
       (input "#search-field!type='text'!placeholder='Find'")
       "&nbsp;"
-      (input "#replace-field!type='text'!placeholder='Replace'")
+      (input "#replace-field.editor-search!type='text'!placeholder='Replace'")
       (button "#find-next-button" "Next" )
-      (button "#replace-button" "Replace")
-      (button "#replace-and-find-button" "Replace and Find")
-      (button "#replace-all-button" "Replace All")
+      (button "#find-previous-button" "Previous" )
+      (button "#replace-button.editor-search" "Replace")
+      (button "#replace-all-button.editor-search" "Replace All")
       (input "#search-all-pages-checkbox!type='checkbox'")
       "All pages &nbsp;"
       (input "#search-case-sensitive-checkbox!type='checkbox'")
       "Case-sensitive&nbsp;"
       (input "#search-regex-checkbox!type='checkbox'")
       "Regex&nbsp;"
-      (input  "#search-backward-checkbox!type='checkbox'")
-      "Backward&nbsp;"
       (input "#search-wrap-checkbox!type='checkbox'")
       "Wrap")))
 
@@ -59,6 +57,8 @@
       (let ((target (js-ref ev "currentTarget")))
       (let ((wiki-title  (element-read-attribute target "target")))
         (display-wiki-page wiki-title #t)
+        (run-wiki-search)
+
   )))))))
 
 (define (wiki-base-name filename)
@@ -90,6 +90,12 @@
 
 (define (#search-field_input)
     (run-wiki-search))
+
+(define (#replace-button_click)
+  (if (in-editor?)
+  (begin
+  (cm-editor-replace-selected-text current-editor (% "#replace-field" "val"))
+  (run-editor-search "to"))))
 
 (define (find-matching-wiki-pages text)
     (let ((is-regex? (checkbox-checked?  "#search-regex-checkbox"))
@@ -141,7 +147,7 @@
 
 (define (run-current-page-search)
   (if (in-editor?)
-    (run-editor-search)
+    (run-editor-search "start")
     (run-page-search)))
 
 
@@ -155,18 +161,24 @@
           (set! page-search-index #f))
         (begin
           (set! page-search-results result)
-          (if (checkbox-checked? "#search-backward-checkbox")
-            (set! page-search-index (- nresults 1))
-            (set! page-search-index 0))
+          (set! page-search-index 0)
           (display-page-search-result)
           ))))
 
 (define (#find-next-button_click)
   (if (in-editor?)
-    (run-editor-search)
+    (run-editor-search "to")
     (page-search-next-result)))
 
-(define (page-search-next-result-forward)
+(define (#find-previous-button_click)
+  (if (in-editor?)
+    (run-editor-search "from")
+    (page-search-previous-result)))
+
+(define (page-search-next-result)
+(if (eqv? page-search-index #f)
+  (alert "No search results.")
+  (begin
   (set! page-search-index (+ 1 page-search-index))
   (if (>= page-search-index (vector-length page-search-results))
         (if (checkbox-checked? "#search-wrap-checkbox")
@@ -175,9 +187,12 @@
               (alert "No more results.")
               (set! page-search-index (- page-search-index 1))
             )))
-  (display-page-search-result))
+  (display-page-search-result))))
 
-(define (page-search-next-result-backward)
+(define (page-search-previous-result)
+(if (eqv? page-search-index #f)
+  (alert "No search results.")
+  (begin
   (set! page-search-index (- page-search-index 1))
   (if (< page-search-index 0)
         (if (checkbox-checked? "#search-wrap-checkbox")
@@ -186,14 +201,8 @@
               (alert "No more results.")
               (set! page-search-index 0)
             )))
-  (display-page-search-result))
+  (display-page-search-result))))
 
-(define (page-search-next-result)
-(if (eqv? page-search-index #f)
-  (alert "No search results.")
-  (if (checkbox-checked? "#search-backward-checkbox")
-    (page-search-next-result-backward)
-    (page-search-next-result-forward))))
 
 (define (display-page-search-result)
   (if (eqv? page-search-index #f)
@@ -223,24 +232,23 @@
     #f)))
 
 
-(define (run-editor-search)
+(define (run-editor-search cursor-direction)
+  (if (eqv? cursor-direction "start")
+    (cm-editor-set-cursor-position current-editor 0 0))
   (let ((search-lemma (% "#search-field" "val")))
     (if (eqv? search-lemma "")
       #t
-    (let ((cursor-direction
-        (if (eqv? (checkbox-checked? "#search-backward-checkbox") #t)
-          "from"
-          "to")))
       (if (eqv? (cm-find current-editor search-lemma
       (cm-editor-get-cursor-position current-editor cursor-direction)
       (not (checkbox-checked? "#search-case-sensitive-checkbox"))
       (checkbox-checked? "#search-regex-checkbox")
-      (checkbox-checked? "#search-backward-checkbox")
+      (if (or (eqv? cursor-direction "to") (eqv? cursor-direction "start"))
+        #f
+        #t
+      )
       (checkbox-checked? "#search-wrap-checkbox")
        ) #f)
-       (alert "Not found.")))
-
-))
+       (alert "Not found."))))
 (focus-find))
 
 (define (focus-find)
