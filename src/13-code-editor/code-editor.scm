@@ -204,8 +204,6 @@
     (% "#search-field" "focus")) 0.1))
 
 
-(define (#find-next-button_click)
-  (run-editor-search))
 
   (define (#replace-button_click)
     (if (in-editor?)
