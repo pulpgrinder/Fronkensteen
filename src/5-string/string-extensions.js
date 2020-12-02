@@ -64,6 +64,12 @@ BiwaScheme.define_libfunc("unescape-html", 1, 1, function(ar){
     BiwaScheme.assert_string(ar[0]);
     return Fronkensteen.unescapeHTML(ar[0]);
 });
+
+BiwaScheme.define_libfunc("escape-regex", 1, 1, function(ar){
+    // Takes the string in ar[0] and escapes any regex special characters.
+    BiwaScheme.assert_string(ar[0]);
+    return Fronkensteen.escapeRegExp(ar[0]);
+});
 BiwaScheme.define_libfunc("indexOf", 2, 2, function(ar){
   // Return the index of string ar[1] in string ar[0],
   // or -1 if not found.
