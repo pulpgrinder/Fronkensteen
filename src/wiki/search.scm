@@ -6,7 +6,9 @@
 
 (define (.wiki-search_click)
   (show-and-resize "#fronkensteen-search-bar-container")
-  (wire-ui))
+  (wire-ui)
+  (% "#search-field" "focus")
+  )
 
 
 (define (show-search-result-dialog)
@@ -31,8 +33,6 @@
       (button "#replace-button" "Replace")
       (button "#replace-and-find-button" "Replace and Find")
       (button "#replace-all-button" "Replace All")
-      (input "#search-this-page-checkbox!type='checkbox'")
-       "This page&nbsp;"
       (input "#search-all-pages-checkbox!type='checkbox'")
       "All pages &nbsp;"
       (input "#search-case-sensitive-checkbox!type='checkbox'")
@@ -43,6 +43,7 @@
       "Backward&nbsp;"
       (input "#search-wrap-checkbox!type='checkbox'")
       "Wrap")))
+
 
 (define (#close-search-bar_click)
     (hide-and-resize "#fronkensteen-search-bar-container")
@@ -78,70 +79,59 @@
         (generate-wiki-search-results (cdr page-list))))))
 
 
-(define (#search-this-page-checkbox_change)
-    (set-checkbox-checked! "#search-all-pages-checkbox" #f)
-    (run-wiki-search))
-
 (define (#search-all-pages-checkbox_change)
-    (set-checkbox-checked! "#search-this-page-checkbox" #f)
     (run-wiki-search))
 
 (define (#search-case-sensitive-checkbox_change)
-    (set-checkbox-checked! "#search-regex-checkbox" #f)
     (run-wiki-search))
 
 (define (#search-regex-checkbox_change)
-    (set-checkbox-checked! "#search-case-sensitive-checkbox" #f)
     (run-wiki-search))
 
 (define (#search-field_input)
     (run-wiki-search))
 
 (define (find-matching-wiki-pages text)
-    (let ((search-mode
-        (cond ((checkbox-checked?  "#search-case-sensitive-checkbox") "case-sensitive")
-              ((checkbox-checked?  "#search-regex-checkbox") "regex"
-              )
-              (#t "case-insensitive")
-              )))
+    (let ((is-regex? (checkbox-checked?  "#search-regex-checkbox"))
+          (is-case-sensitive? (checkbox-checked?  "#search-case-sensitive-checkbox")))
     (let ((wiki-files (vector->list (get-internal-dir "user-files/wiki"))))
-        (collect-matching-wiki-pages text wiki-files search-mode))))
+        (collect-matching-wiki-pages text wiki-files is-regex? is-case-sensitive?))))
 
 
-(define (wiki-file-name-match text file-path search-mode)
-  (case-search (decode-uri file-path) text search-mode))
+(define (wiki-file-name-match text file-path is-regex? is-case-sensitive?)
+  (case-search (decode-uri file-path) text is-regex? is-case-sensitive?))
 
-(define (case-search str1 str2 search-mode)
-(cond ((eqv? search-mode "case-sensitive") (>= (indexOf str1 str2) 0))
-      ((eqv? search-mode "case-insensitive") (>= (indexOf (string-downcase str1) (string-downcase str2)) 0))
-      ((eqv? search-mode "regex") (str-match? str1 str2 ""))
-      (#t (begin
-          (console-error (<< "Invalid option to case-search: " search-mode))
-          #f
-        ))))
+(define (case-search haystack needle is-regex? is-case-sensitive?)
+    (let ((re (if is-regex?
+               needle
+               (escape-regex needle)))
+          (remod (if is-case-sensitive?
+                  "g"
+                  "gi")))
+      (str-match? haystack re remod)))
 
-(define (wiki-file-text-match text file-path search-mode)
+(define (wiki-file-text-match text file-path is-regex? is-case-sensitive?)
   (if (eqv? (file-extension file-path) "fmk")
-    (case-search (read-internal-text-file file-path) text search-mode)
+    (case-search (read-internal-text-file file-path) text is-regex? is-case-sensitive?)
    #f
   ))
 
-(define (collect-matching-wiki-pages text file-list search-mode)
+(define (collect-matching-wiki-pages text file-list is-regex? is-case-sensitive?)
   (if (eqv? file-list '())
       '()
       (let ((current-filename (car file-list)))
         (if
           (or
-            (wiki-file-name-match text current-filename search-mode)
-            (wiki-file-text-match text current-filename search-mode))
-           (cons (decode-uri current-filename) (collect-matching-wiki-pages text (cdr file-list) search-mode))
-           (collect-matching-wiki-pages text (cdr file-list) search-mode)
+            (wiki-file-name-match text current-filename is-regex? is-case-sensitive?)
+            (wiki-file-text-match text current-filename is-regex? is-case-sensitive?))
+           (cons (decode-uri current-filename) (collect-matching-wiki-pages text (cdr file-list) is-regex? is-case-sensitive?))
+           (collect-matching-wiki-pages text (cdr file-list) is-regex? is-case-sensitive?)
         ))))
 
 (define (run-wiki-search)
   (if (eqv? (checkbox-checked? "#search-all-pages-checkbox") #t)
-      (run-global-page-search)
-      (run-current-page-search)))
+      (run-global-page-search))
+      (run-current-page-search))
 
 (define (run-global-page-search)
   (let ((search-term (% "#search-field" "val")))
@@ -152,7 +142,78 @@
 (define (run-current-page-search)
   (if (in-editor?)
     (run-editor-search)
-    (alert "Static page search not implemented yet")))
+    (run-page-search)))
+
+
+(define page-search-results '())
+(define page-search-index #f)
+(define (search-result-handler result)
+  (let ((nresults (vector-length result)))
+      (if (eqv? nresults 0)
+        (begin
+          (set! page-search-results '())
+          (set! page-search-index #f))
+        (begin
+          (set! page-search-results result)
+          (if (checkbox-checked? "#search-backward-checkbox")
+            (set! page-search-index (- nresults 1))
+            (set! page-search-index 0))
+          (display-page-search-result)
+          ))))
+
+(define (#find-next-button_click)
+  (if (in-editor?)
+    (run-editor-search)
+    (page-search-next-result)))
+
+(define (page-search-next-result-forward)
+  (set! page-search-index (+ 1 page-search-index))
+  (if (>= page-search-index (vector-length page-search-results))
+        (if (checkbox-checked? "#search-wrap-checkbox")
+            (set! page-search-index 0)
+            (begin
+              (alert "No more results.")
+              (set! page-search-index (- page-search-index 1))
+            )))
+  (display-page-search-result))
+
+(define (page-search-next-result-backward)
+  (set! page-search-index (- page-search-index 1))
+  (if (< page-search-index 0)
+        (if (checkbox-checked? "#search-wrap-checkbox")
+            (set! page-search-index (- (vector-length page-search-results) 1))
+            (begin
+              (alert "No more results.")
+              (set! page-search-index 0)
+            )))
+  (display-page-search-result))
+
+(define (page-search-next-result)
+(if (eqv? page-search-index #f)
+  (alert "No search results.")
+  (if (checkbox-checked? "#search-backward-checkbox")
+    (page-search-next-result-backward)
+    (page-search-next-result-forward))))
+
+(define (display-page-search-result)
+  (if (eqv? page-search-index #f)
+    (alert "No search results.")
+    (begin
+      (let ((result (vector-ref page-search-results page-search-index)))
+        (% ".wiki-page-content mark" "removeClass" "activeSearchResult")
+        (% result "addClass" "activeSearchResult")
+        (scroll-into-view result)))))
+
+(define (run-page-search)
+  (let ((content-id (<< "#wiki-content-" (encode-base-32 current-title)
+    " .wiki-page-content")))
+    (html-page-search content-id
+        (% "#search-field" "val")
+        (checkbox-checked? "#search-case-sensitive-checkbox")
+        (checkbox-checked? "#search-regex-checkbox")
+        search-result-handler
+      )
+))
 
 
 (define (in-editor?)
@@ -211,10 +272,10 @@
         (<< (menulist-item (<< ".wiki-incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
 
 (define (collect-linked-pages title page-list)
-    (collect-matching-wiki-pages (<< "[link " title) page-list "case-sensitive"))
+    (collect-matching-wiki-pages (<< "[link " title) page-list #f #t))
 
 (define (collect-menu-pages title page-list)
-        (collect-matching-wiki-pages (<< "\\[menu[\\s\\S]*" title "[\\s\\S]*menu\\]") page-list "regex"))
+        (collect-matching-wiki-pages (<< "\\[menu[\\s\\S]*" title "[\\s\\S]*menu\\]") page-list #t #t))
 
 (define (collect-include-pages title page-list)
-        (collect-matching-wiki-pages (<< "\\[\\!include[\\s\\S]*" title "[\\s\\S]*include\\!\\]") page-list "regex"))
+        (collect-matching-wiki-pages (<< "\\[\\!include[\\s\\S]*" title "[\\s\\S]*include\\!\\]") page-list #t #t))
