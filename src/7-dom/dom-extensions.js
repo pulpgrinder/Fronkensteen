@@ -12,10 +12,9 @@ Fronkensteen.setDocumentTitle = function(title){
 
 
 
+// Expects a jQuery element as its arg
 BiwaScheme.define_libfunc("scroll-into-view",1,1,function(ar){
-  alert("scrolling " + ar[0])
-  BiwaScheme.assert_string(ar[0]);
-  $(ar[0]).scrollIntoView()
+  ar[0].scrollIntoView()
 })
 
 BiwaScheme.define_libfunc("parse-youtube-url",1,1,function(ar){
