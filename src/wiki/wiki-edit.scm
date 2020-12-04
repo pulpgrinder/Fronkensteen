@@ -12,7 +12,9 @@
   (let ((content-name (<< "#wiki-editor-" (encode-base-32 title))))
     (if (element-exists? content-name)
         (show-editor content-name (<< content-name "-textarea") title)
-        (construct-wiki-editor content-name title))))
+        (construct-wiki-editor content-name title)))
+  (if (element-visible? "#fronkensteen-search-bar-container")
+    (run-wiki-search)))
 
 (define (construct-wiki-editor content-name title)
   (let ((filename (wiki-data-path title)))

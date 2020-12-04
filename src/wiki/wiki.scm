@@ -111,10 +111,6 @@
       encoded-basename)))
 
 (define (display-wiki-page title add-history)
-  (if (eqv? title "system/Launch System")
-    (begin
-      (edit-wiki-page title)
-      )
   (let ((wikidata (retrieve-wiki-data title)))
     (if wikidata
       (begin
@@ -125,7 +121,9 @@
           (add-wiki-history title "page"))
         (enable-wiki-nav-buttons))
       (edit-wiki-page title))
-    )))
+    (if (element-visible? "#fronkensteen-search-bar-container")
+      (run-wiki-search))
+    ))
 
 (define (#fronkensteen-wiki-refresh-button_click ev)
     (make-page-dirty current-title)

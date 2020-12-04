@@ -88,13 +88,23 @@
 (define (#search-regex-checkbox_change)
     (run-wiki-search))
 
+(define (#search-wrap-checkbox_change)
+    (if (in-editor?)
+      (run-editor-search "to")
+    (if (eqv? page-search-index #f)
+      (begin
+        (% "#find-previous-button" "attr" "disabled" #t)
+        (% "#find-previous-button" "attr" "disabled" #t))
+      (display-page-search-result))))
+
 (define (#search-field_input)
     (run-wiki-search))
 
 (define (#replace-button_click)
   (if (in-editor?)
   (begin
-  (cm-editor-replace-selected-text current-editor (% "#replace-field" "val"))
+  (if (> (string-length (cm-editor-get-selected-text current-editor)) 0)
+    (cm-editor-replace-selected-text current-editor (% "#replace-field" "val")))
   (run-editor-search "to"))))
 
 (define (find-matching-wiki-pages text)
@@ -153,12 +163,17 @@
 
 (define page-search-results '())
 (define page-search-index #f)
+
+
 (define (search-result-handler result)
   (let ((nresults (vector-length result)))
       (if (eqv? nresults 0)
         (begin
           (set! page-search-results '())
-          (set! page-search-index #f))
+          (set! page-search-index #f)
+          (% "#find-next-button" "attr" "disabled" #t)
+          (% "#find-previous-button" "attr" "disabled" #t)
+          (fronkensteen-toast "Not found." "c" "c" "2"))
         (begin
           (set! page-search-results result)
           (set! page-search-index 0)
@@ -177,28 +192,33 @@
 
 (define (page-search-next-result)
 (if (eqv? page-search-index #f)
-  (alert "No search results.")
+  (fronkensteen-toast "No search results." "c" "c" "3")
   (begin
   (set! page-search-index (+ 1 page-search-index))
   (if (>= page-search-index (vector-length page-search-results))
         (if (checkbox-checked? "#search-wrap-checkbox")
-            (set! page-search-index 0)
             (begin
-              (alert "No more results.")
+              (set! page-search-index 0)
+              (fronkensteen-toast "Wrapped." "c" "c" "1"))
+            (begin
+              (fronkensteen-toast "No more results." "c" "c" "2")
               (set! page-search-index (- page-search-index 1))
             )))
   (display-page-search-result))))
 
 (define (page-search-previous-result)
 (if (eqv? page-search-index #f)
-  (alert "No search results.")
+  (fronkensteen-toast "No search results." "c" "c" "2")
   (begin
   (set! page-search-index (- page-search-index 1))
+  (% "#find-next-button" "attr" "disabled" #f)
   (if (< page-search-index 0)
         (if (checkbox-checked? "#search-wrap-checkbox")
-            (set! page-search-index (- (vector-length page-search-results) 1))
             (begin
-              (alert "No more results.")
+              (set! page-search-index (- (vector-length page-search-results) 1))
+              (fronkensteen-toast "Wrapped." "c" "c" "1"))
+            (begin
+              (fronkensteen-toast "No more results." "c" "c" "2")
               (set! page-search-index 0)
             )))
   (display-page-search-result))))
@@ -206,23 +226,38 @@
 
 (define (display-page-search-result)
   (if (eqv? page-search-index #f)
-    (alert "No search results.")
+    (begin
+      (fronkensteen-toast "No search results." "c" "c" "2")
+      (% "#find-next-button" "attr" "disabled" #t)
+      (% "#find-previous-button" "attr" "disabled" #t))
     (begin
       (let ((result (vector-ref page-search-results page-search-index)))
         (% ".wiki-page-content mark" "removeClass" "activeSearchResult")
         (% result "addClass" "activeSearchResult")
-        (scroll-into-view result)))))
+        (scroll-into-view result))
+      (if (or (> page-search-index 0) (checkbox-checked? "#search-wrap-checkbox"))
+        (% "#find-previous-button" "attr" "disabled" #f)
+        (% "#find-previous-button" "attr" "disabled" #t)
+      )
+      (if (or (< page-search-index (- (vector-length page-search-results) 1))
+           (checkbox-checked? "#search-wrap-checkbox"))
+           (% "#find-next-button" "attr" "disabled" #f)
+        (% "#find-next-button" "attr" "disabled" #t)
+      )
+        )))
 
 (define (run-page-search)
-  (let ((content-id (<< "#wiki-content-" (encode-base-32 current-title)
-    " .wiki-page-content")))
-    (html-page-search content-id
-        (% "#search-field" "val")
-        (checkbox-checked? "#search-case-sensitive-checkbox")
-        (checkbox-checked? "#search-regex-checkbox")
-        search-result-handler
-      )
-))
+  (let ((searchLemma (% "#search-field" "val")))
+    (if (eqv? searchLemma "")
+      #t
+    (let ((content-id (<< "#wiki-content-" (encode-base-32 current-title)
+      " .wiki-page-content")))
+      (html-page-search content-id
+          searchLemma
+          (checkbox-checked? "#search-case-sensitive-checkbox")
+          (checkbox-checked? "#search-regex-checkbox")
+          search-result-handler
+        )))))
 
 
 (define (in-editor?)
@@ -238,7 +273,7 @@
   (let ((search-lemma (% "#search-field" "val")))
     (if (eqv? search-lemma "")
       #t
-      (if (eqv? (cm-find current-editor search-lemma
+      (let ((result (cm-find current-editor search-lemma
       (cm-editor-get-cursor-position current-editor cursor-direction)
       (not (checkbox-checked? "#search-case-sensitive-checkbox"))
       (checkbox-checked? "#search-regex-checkbox")
@@ -247,8 +282,18 @@
         #t
       )
       (checkbox-checked? "#search-wrap-checkbox")
-       ) #f)
-       (alert "Not found."))))
+       ) #f))
+       (console-log result)
+       (if (eqv? (vector-ref result 0) #f)
+        (fronkensteen-toast "Not found." "c" "c" "2 "))
+       (if (eqv? (vector-ref result 1) #t)
+           (fronkensteen-toast "Wrapped." "c" "c" "1"))
+        (if (eqv? (vector-ref result 2) #t)
+           (% "#find-next-button" "attr" "disabled" #f)
+           (% "#find-next-button" "attr" "disabled" #t))
+       (if (eqv? (vector-ref result 3) #t)
+          (% "#find-previous-button" "attr" "disabled" #f)
+          (% "#find-previous-button" "attr" "disabled" #t)))))
 (focus-find))
 
 (define (focus-find)
