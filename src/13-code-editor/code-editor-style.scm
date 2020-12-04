@@ -3,6 +3,12 @@
         (".wiki-editor .CodeMirror" (
           "height" "100%"
           ))
+        (".wiki-editor .CodeMirror-selected" (
+          "background-color" "rebeccapurple !important"
+          ))
+          (".wiki-editor .CodeMirror-selectedtext" (
+            "color" "white"
+            ))
           (".fronkensteen-remote-terminal-wrapper .CodeMirror" (
             "height" "100%"
             ))
