@@ -219,6 +219,18 @@ BiwaScheme.define_libfunc("cm-editor-get-cursor-position",1,2, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   return Fronkensteen.editDriver.getCursorPosition(ar[0],cursorArg);
 });
+
+BiwaScheme.define_libfunc("cm-editor-get-next-cursor-position",1,2, function(ar){
+  let cursorArg
+  if(ar.length === 2){
+    cursorArg = ar[1]
+  }
+  else {
+    cursorArg = "to"
+  }
+  Fronkensteen.editDriver.activateEditor(ar[0]);
+  return Fronkensteen.editDriver.getNextCursorPosition(ar[0],cursorArg);
+});
 BiwaScheme.define_libfunc("cm-editor-get-line",2,2, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   return Fronkensteen.editDriver.getLine(ar[0],ar[1]);

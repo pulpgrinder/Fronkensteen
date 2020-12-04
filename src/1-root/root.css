@@ -100,7 +100,8 @@ mark {
 }
 
 .activeSearchResult {
-  background-color:yellow;
+  background-color:rebeccapurple;
+  color:white;
 }
 @media print {
     .noprint {

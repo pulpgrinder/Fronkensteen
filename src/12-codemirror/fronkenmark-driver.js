@@ -284,6 +284,7 @@ class  {
       let self = this;
       let activeCMEditor = CodeMirror.fromTextArea($(editor_id)[0],
        {
+           styleSelectedText:true,
            matchBrackets: true,
            autoCloseBrackets: true,
            lineWrapping:true,
@@ -374,6 +375,31 @@ class  {
         console.error("No editor found for " + editorname)
       }
       let cursor = editor.getCursor(cursorSelector);
+      return [cursor.line,cursor.ch];
+    }
+    getNextCursorPosition(editorname,cursorSelector){
+      let editor = this.cm_editors[editorname];
+      if(editor === undefined){
+        console.error("No editor found for " + editorname)
+      }
+      let cursor = editor.getCursor(cursorSelector);
+      let line = editor.getLine(cursor.line);
+      if(cursorSelector === "from"){
+        cursor.ch = cursor.ch + 1;
+        if(cursor.ch >= line.length){
+        cursor.line = cursor.line + 1;
+        cursor.ch = 0;
+        }
+      }
+      if(cursorSelector === "to"){
+        cursor.ch = cursor.ch - 1;
+        if(cursor.ch < 0){
+        cursor.line = cursor.line - 1;
+        if(cursor.line < 0){
+          cursor.line = 0;
+        }
+        }
+      }
       return [cursor.line,cursor.ch];
     }
     getLine(editorname,line_number){
@@ -695,21 +721,34 @@ class  {
     editor.execCommand("goDocEnd");
   }
   find(editor_name,search_lemma,start,fold_case,is_regex,search_backward,wrap){
-    let result = false;
+    let result = [false,false,false,false,-1,-1,-1,-1];
     let doc;
     let editor = this.cm_editors[editor_name];
+    console.log("start is " + JSON.stringify(start))
     if(editor === undefined){
       console.error("Fronkensteen.editDriver.find(): No editor corresponding to " + editor_name);
-      return false;
+      return [false,false,false,false,-1,-1,-1,-1];
     }
+      let moreForward;
+      let moreBackward;
       doc = editor.getDoc();
       if(is_regex === true){ // Regexp search
           if(search_backward === false){
             result = CodeMirror.commands.searchRegexpForward(doc,new RegExp(search_lemma),start);
+
           }
           else{
             result =  CodeMirror.commands.searchRegexpBackward(doc,new RegExp(search_lemma),start);
          }
+         if(result === undefined){
+           moreForward = moreBackward = false;
+         }
+         else {
+          console.log("result: " + JSON.stringify(result));
+          moreForward = (CodeMirror.commands.searchRegexpForward(doc,new RegExp(search_lemma),{line:result.from.line,ch:result.from.ch + 1}) === undefined);
+          moreBackward = (CodeMirror.commands.searchRegexpBackward(doc,new RegExp(search_lemma),{line:result.to.line,ch:result.to.ch - 1}) === undefined);
+        }
+
       }
       else { // String search.
         if(search_backward === false){
@@ -718,11 +757,20 @@ class  {
         else{
           result =  CodeMirror.commands.searchStringBackward(doc,search_lemma,start,fold_case);
        }
+       if(result === undefined){
+         moreForward = moreBackward = false;
+       }
+       else {
+         console.log("result: " + JSON.stringify(result));
+         moreForward = ( CodeMirror.commands.searchStringForward(doc,search_lemma,{line:result.from.line,ch:result.from.ch + 1}) === undefined);
+
+         moreBackward = (CodeMirror.commands.searchStringBackward(doc,search_lemma,{line:result.to.line,ch:result.to.ch - 1}) === undefined)
+       }
       }
     if(result !== undefined){
       doc.setSelection(result.from,result.to);
       editor.scrollIntoView(result.to,100);
-      return [result.from.line,result.from.ch,result.to.line,result.to.ch];
+      return [true,false,moreForward,moreBackward ,result.from.line,result.from.ch,result.to.line,result.to.ch];
     }
     else{
       if(wrap){
@@ -732,13 +780,17 @@ class  {
             let nlines = doc.lineCount();
             wrapped_pos = {line: nlines - 1,ch:doc.getLine(nlines-1).length - 1}
           }
-          return this.find(editor_name,search_lemma,wrapped_pos,fold_case,is_regex,search_backward,false);
+          let wrapped_result =  this.find(editor_name,search_lemma,wrapped_pos,fold_case,is_regex,search_backward,false);
+          if(wrapped_result[0] === true){
+            wrapped_result[1] = true;
+          }
+          return wrapped_result;
         }
         else{
-          return false;
+          return [false,false,false,false,-1,-1,-1,-1];
         }
       }
-      return false;
+      return [false,false,false,false,-1,-1,-1,-1];
     }
 }
 }
