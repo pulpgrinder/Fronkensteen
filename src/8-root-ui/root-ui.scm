@@ -14,21 +14,28 @@
   (% id "show")
   (resize-content))
 
-  (define (build-fronkensteen-dialog id title text width height)
-    (if (element-exists? id)
-      (center-element id)
-      (begin
-      (% "#fronkensteen-content-container" "append"
-        (dv (<< id ".fronkensteen-dialog!style='width:" width "; height: " height ";'")
-          (<<
-            (dv (<< id "-titlebar" ".fronkensteen-dialog-title")
-              (<< title
-                (span (<< id "-close-button.fronkensteen-dialog-button.icon") (i ".fas.fa-times-circle" ""))
-                ))
-            (dv (<< id "-body.fronkensteen-dialog-body") (dv (<< id "-content.fronkensteen-dialog-content") text)))))
-    (set-draggable! (scheme->json `(("element" . ,id) ("dragitem" . ,(<< id "-titlebar")) ("closebutton" . ,(<< id "-close-button")) ("width" . ,width) (height . ,height))))
+(define (fronkensteen-toast text horizontal-position vertical-position delay)
+  (let ((id (<< "#" (no-dash-uuid))))
+    (% "body" "append" (dv (<< id ".fronkensteen-toast") text))
+    (display-toast id horizontal-position vertical-position delay)
+  ))
+
+
+(define (build-fronkensteen-dialog id title text width height)
+  (if (element-exists? id)
     (center-element id)
-    (wire-ui))))
+    (begin
+    (% "#fronkensteen-content-container" "append"
+      (dv (<< id ".fronkensteen-dialog!style='width:" width "; height: " height ";'")
+        (<<
+          (dv (<< id "-titlebar" ".fronkensteen-dialog-title")
+            (<< title
+              (span (<< id "-close-button.fronkensteen-dialog-button.icon") (i ".fas.fa-times-circle" ""))
+              ))
+          (dv (<< id "-body.fronkensteen-dialog-body") (dv (<< id "-content.fronkensteen-dialog-content") text)))))
+  (set-draggable! (scheme->json `(("element" . ,id) ("dragitem" . ,(<< id "-titlebar")) ("closebutton" . ,(<< id "-close-button")) ("width" . ,width) (height . ,height))))
+  (center-element id)
+  (wire-ui))))
 
   (define (.fronkensteen-dialog-title_click ev)
     (% ".fronkensteen-dialog" "css" "z-index" "1")

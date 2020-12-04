@@ -7,6 +7,17 @@
       (".icon" (
       "color" "#0a60fe"
         ))
+    (".fronkensteen-toast" (
+        "z-index" "-1"
+        "position" "absolute"
+        "background-color" "rgba(0,0,0,0.7)"
+        "color" "#ddd"
+        "width" "auto"
+        "height" "auto"
+        "padding" "1em"
+        "border-radius" "10px"
+      )
+    )
     (".fronkensteen-dialog" (
       "z-index" "10000"
       "width" "20em"
