@@ -45,6 +45,10 @@
               "max-height" "15em"
               "margin-top" "0.5em"
             ))
+           ("#close-search-bar" (
+             "position" "relative"
+             "top" "0.125em"
+             ))
              (".wiki-editor" (
                "height" "100%"
                ))
