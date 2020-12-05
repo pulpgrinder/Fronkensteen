@@ -4,9 +4,7 @@ CodeMirror.commands.find = function(){
   intp2.evaluate("(% \"#code-editor-find-field\" \"focus\")")
 }
 
-Fronkensteen.editDriver = new
-
-class  {
+Fronkensteen.editDriver = new class  {
     constructor(){
       this.codeLanguage = "fronkenmark";
       this.cm_editors = {}
@@ -721,16 +719,14 @@ class  {
     editor.execCommand("goDocEnd");
   }
   find(editor_name,search_lemma,start,fold_case,is_regex,search_backward,wrap){
-    let result = [false,false,false,false,-1,-1,-1,-1];
+    let result = [false,false];
     let doc;
     let editor = this.cm_editors[editor_name];
     console.log("start is " + JSON.stringify(start))
     if(editor === undefined){
       console.error("Fronkensteen.editDriver.find(): No editor corresponding to " + editor_name);
-      return [false,false,false,false,-1,-1,-1,-1];
+      return [false,false];
     }
-      let moreForward;
-      let moreBackward;
       doc = editor.getDoc();
       if(is_regex === true){ // Regexp search
           if(search_backward === false){
@@ -740,15 +736,6 @@ class  {
           else{
             result =  CodeMirror.commands.searchRegexpBackward(doc,new RegExp(search_lemma),start);
          }
-         if(result === undefined){
-           moreForward = moreBackward = false;
-         }
-         else {
-          console.log("result: " + JSON.stringify(result));
-          moreForward = (CodeMirror.commands.searchRegexpForward(doc,new RegExp(search_lemma),{line:result.from.line,ch:result.from.ch + 1}) === undefined);
-          moreBackward = (CodeMirror.commands.searchRegexpBackward(doc,new RegExp(search_lemma),{line:result.to.line,ch:result.to.ch - 1}) === undefined);
-        }
-
       }
       else { // String search.
         if(search_backward === false){
@@ -757,20 +744,11 @@ class  {
         else{
           result =  CodeMirror.commands.searchStringBackward(doc,search_lemma,start,fold_case);
        }
-       if(result === undefined){
-         moreForward = moreBackward = false;
-       }
-       else {
-         console.log("result: " + JSON.stringify(result));
-         moreForward = ( CodeMirror.commands.searchStringForward(doc,search_lemma,{line:result.from.line,ch:result.from.ch + 1}) === undefined);
-
-         moreBackward = (CodeMirror.commands.searchStringBackward(doc,search_lemma,{line:result.to.line,ch:result.to.ch - 1}) === undefined)
-       }
       }
     if(result !== undefined){
       doc.setSelection(result.from,result.to);
       editor.scrollIntoView(result.to,100);
-      return [true,false,moreForward,moreBackward ,result.from.line,result.from.ch,result.to.line,result.to.ch];
+      return [true, false];
     }
     else{
       if(wrap){
@@ -786,11 +764,8 @@ class  {
           }
           return wrapped_result;
         }
-        else{
-          return [false,false,false,false,-1,-1,-1,-1];
-        }
       }
-      return [false,false,false,false,-1,-1,-1,-1];
+      return [false,false];
     }
 }
 }
