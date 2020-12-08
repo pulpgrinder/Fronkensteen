@@ -6,6 +6,7 @@
 
 (define (.wiki-search_click)
   (show-and-resize "#fronkensteen-search-bar-container")
+  (run-wiki-search)
   (wire-ui)
   (% "#search-field" "focus")
   )
@@ -42,6 +43,8 @@
 
 
 (define (#close-search-bar_click)
+    (% ".fronkensteen-page-content mark" "removeClass" "activeSearchResult")
+    (remove-search-marks ".fronkensteen-page-content")
     (hide-and-resize "#fronkensteen-search-bar-container")
     )
 
@@ -54,7 +57,7 @@
       (% ".wiki-search-entry" "on" "click" (lambda (ev)
       (let ((target (js-ref ev "currentTarget")))
       (let ((wiki-title  (element-read-attribute target "target")))
-        (display-wiki-page wiki-title #t)
+        (display-wiki-page wiki-title)
         (run-wiki-search)
 
   )))))))
@@ -93,8 +96,8 @@
 (define (#replace-button_click)
   (if (in-editor?)
   (begin
-  (if (> (string-length (cm-editor-get-selected-text current-editor)) 0)
-    (cm-editor-replace-selected-text current-editor (% "#replace-field" "val")))
+  (if (> (string-length (cm-editor-get-selected-text (get-tos-page-id))) 0)
+    (cm-editor-replace-selected-text (get-tos-page-id) (% "#replace-field" "val")))
   (run-editor-search "to"))))
 
 (define (find-matching-wiki-pages text)
@@ -207,7 +210,7 @@
       (fronkensteen-toast "No search results." "c" "c" "2"))
     (begin
       (let ((result (vector-ref page-search-results page-search-index)))
-        (% ".wiki-page-content mark" "removeClass" "activeSearchResult")
+        (% ".fronkensteen-page-content mark" "removeClass" "activeSearchResult")
         (% result "addClass" "activeSearchResult")
         (scroll-into-view result))
         )))
@@ -216,8 +219,8 @@
   (let ((searchLemma (% "#search-field" "val")))
     (if (eqv? searchLemma "")
       #t
-    (let ((content-id (<< "#wiki-content-" (encode-base-32 current-title)
-      " .wiki-page-content")))
+    (let ((content-id (<< (get-history-entry-id (car fronkensteen-page-history-list)) "-wrapper"
+      " .fronkensteen-page-content")))
       (html-page-search content-id
           searchLemma
           (checkbox-checked? "#search-case-sensitive-checkbox")
@@ -227,7 +230,7 @@
 
 
 (define (in-editor?)
-  (let ((page-type (cadr (car wiki-history-list))))
+  (let ((page-type (cadr (car fronkensteen-page-history-list))))
   (if (eqv? page-type "editor")
     #t
     #f)))
@@ -235,12 +238,12 @@
 
 (define (run-editor-search cursor-direction)
   (if (eqv? cursor-direction "start")
-    (cm-editor-set-cursor-position current-editor 0 0))
+    (cm-editor-set-cursor-position (get-tos-page-id) 0 0))
   (let ((search-lemma (% "#search-field" "val")))
     (if (eqv? search-lemma "")
       #t
-      (let ((result (cm-find current-editor search-lemma
-      (cm-editor-get-cursor-position current-editor cursor-direction)
+      (let ((result (cm-find (get-tos-page-id) search-lemma
+      (cm-editor-get-cursor-position (get-tos-page-id) cursor-direction)
       (not (checkbox-checked? "#search-case-sensitive-checkbox"))
       (checkbox-checked? "#search-regex-checkbox")
       (if (or (eqv? cursor-direction "to") (eqv? cursor-direction "start"))
@@ -249,7 +252,6 @@
       )
       #t ; wrap
        ) #f))
-       (console-log result)
        (if (eqv? (vector-ref result 0) #f)
         (fronkensteen-toast "Not found." "c" "c" "2 "))
        (if (eqv? (vector-ref result 1) #t)
@@ -263,7 +265,7 @@
 
 
 (define (#wiki-incoming-links-button_click ev)
-  (let ((matching-pages (collect-linked-pages current-title (vector->list (get-internal-dir "user-files/wiki")))))
+  (let ((matching-pages (collect-linked-pages (get-tos-page-title) (vector->list (get-internal-dir "user-files/wiki")))))
     (display-incoming-links matching-pages)))
 
 (define (display-incoming-links matching-pages)
@@ -277,7 +279,7 @@
       (lambda (ev)
         (let ((target (js-ref ev "currentTarget")))
           (let ((title  (element-read-attribute target "target")))
-              (display-wiki-page title #t))))))))
+              (display-wiki-page title))))))))
 
 (define (render-incoming-links matching-pages)
   (if (eqv? matching-pages '())

@@ -14,6 +14,6 @@ This page contains the Scheme code that will be run at system launch. You can ed
 (wire-ui)
 ; Uncomment this and change the name if you want to use a name other than Fronkensteen.
 ; (set-app-name "Your New Name")
-(display-wiki-page "Main" #t)
+(display-wiki-page "Main")
 ""
 scheme!]

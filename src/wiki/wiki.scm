@@ -1,104 +1,4 @@
 
-(define wiki-history-list '())
-
-(define fronkensteen-wiki-forward-history-list '())
-
-(define fronkensteen-dirty-pages '())
-
-(define (enable-wiki-nav-buttons)
-  (if (> (length fronkensteen-wiki-forward-history-list) 0)
-    (% "#fronkensteen-nav-forward" "show")
-    (% "#fronkensteen-nav-forward" "hide"))
-  (if (> (length wiki-history-list) 1)
-      (% "#fronkensteen-nav-back" "show")
-    (% "#fronkensteen-nav-back" "hide")))
-
-
-
-(define current-title #f)
-
-(define (make-page-dirty title)
-  (set! fronkensteen-dirty-pages (cons title fronkensteen-dirty-pages)))
-
-(define (remove-dirty-pages page-list)
-  (if (eqv? page-list '())
-    (set! fronkensteen-dirty-pages '())
-    (begin
-      (let ((content-name (<< "#wiki-content-" (encode-base-32 (car page-list)))))
-        (% content-name "remove")
-        (remove-dirty-pages (cdr page-list))))))
-
-
-(define (#fronkensteen-nav-back_click)
-    (if (< (length wiki-history-list) 2)
-      #t
-      (begin
-          (set! fronkensteen-wiki-forward-history-list (cons (car wiki-history-list) fronkensteen-wiki-forward-history-list))
-          (set! wiki-history-list (cdr wiki-history-list))
-          (let ((history-page (car wiki-history-list)))
-            (let ((title (car history-page))
-                  (type (cadr history-page)))
-                  (if (eqv? type "page")
-                    (display-wiki-page title #f)
-                    (edit-wiki-page title))
-            ))
-            (enable-wiki-nav-buttons)
-            )
-      )
-  )
-
-(define (#fronkensteen-nav-forward_click)
-    (if (eqv? fronkensteen-wiki-forward-history-list '())
-      #t
-      (begin
-          (set! wiki-history-list (cons (car fronkensteen-wiki-forward-history-list) wiki-history-list))
-          (set! fronkensteen-wiki-forward-history-list (cdr fronkensteen-wiki-forward-history-list))
-          (let ((history-page (car wiki-history-list)))
-            (let ((title (car history-page))
-                  (type (cadr history-page)))
-                  (if (eqv? type "page")
-                    (display-wiki-page title #f)
-                    (edit-wiki-page title))
-            ))
-            (enable-wiki-nav-buttons))
-      )
-  )
-(define (add-wiki-history title type)
-  (set! fronkensteen-wiki-forward-history-list '())
-  (let ((history-list (remove-wiki-history title type wiki-history-list)))
-  (if (or (eqv? history-list '())
-        (not (and (eqv? (caar history-list) title) (eqv? (cadar history-list) type)) ) )
-          (set! wiki-history-list (cons (list title type) history-list)))
-  ))
-
-(define (remove-wiki-history title type history-list)
-  (if (eqv? history-list '())
-      (begin
-        (enable-wiki-nav-buttons)
-      '())
-      (if (and (eqv? (caar history-list) title) (eqv? (cadar history-list) type))
-          (remove-wiki-history title type (cdr history-list))
-          (cons (car history-list) (remove-wiki-history title type (cdr history-list)))
-      ))
-)
-
-
-
-
-
-(define (build-wiki-history-display history-list)
- (if (eqv? history-list '())
-    ""
-    (let ((title (caar history-list))
-          (type (cadar history-list)))
-      (let ((icon
-            (if (eqv? type "page")
-              ""
-              (<< (fa-icon "" "edit" "") "&nbsp;"))
-        ))
-        (<< (dv (<< ".popup-list-item.wiki-history-entry!title='" title "' type='" type "'") (<< icon title))
-        (build-wiki-history-display (cdr history-list)))))))
-
 ;;;;!
 ;(wikipath basename)
 ; Returns the full path to a wiki file with the given basename.
@@ -110,79 +10,67 @@
       (<< encoded-basename ".fmk")
       encoded-basename)))
 
-(define (display-wiki-page title add-history)
+(define (display-wiki-page title)
   (let ((wikidata (retrieve-wiki-data title)))
     (if wikidata
       (begin
         (display-wiki-content title wikidata)
-        (show-bottom-toolbar "#wiki-control-bar")
-        (% ".editor-search" "hide")
-        (if add-history
-          (add-wiki-history title "page"))
-        (enable-wiki-nav-buttons))
+        (show-bottom-toolbar "#fronkensteen-page-control-bar")
+        (enable-fronkensteen-nav-buttons))
       (edit-wiki-page title))
     (if (element-visible? "#fronkensteen-search-bar-container")
       (run-wiki-search))
     ))
 
-(define (#fronkensteen-wiki-refresh-button_click ev)
-    (make-page-dirty current-title)
-    (display-wiki-page current-title #t))
+(define (#fronkensteen-page-refresh-button_click ev)
+    (make-page-dirty (get-tos-page-id))
+    (display-wiki-page (get-tos-page-title)))
 
-(define (#fronkensteen-wiki-special-button_click ev)
-    (display-wiki-page "special/Special Pages" #t))
+(define (#fronkensteen-page-special-button_click ev)
+    (display-wiki-page "special/Special Pages"))
 
-(define (#fronkensteen-wiki-home-button_click ev)
-    (display-wiki-page "Main" #t))
+(define (#fronkensteen-page-home-button_click ev)
+    (display-wiki-page "Main"))
 
-(define (#fronkensteen-wiki-docs-button_click ev)
-    (display-wiki-page "special/Documentation" #t))
+(define (#fronkensteen-page-docs-button_click ev)
+    (display-wiki-page "special/Documentation"))
 
-(define (#fronkensteen-wiki-delete-button_click ev)
-    (if (eqv? current-title "system/Launch System")
+(define (#fronkensteen-page-delete-button_click ev)
+    (if (eqv? (get-tos-page-title) "system/Launch System")
       (alert "Sorry, can't delete the system launch page. Feel free to edit it, though.")
-      (if (confirm (<< current-title ": delete? Are you sure?"))
+      (if (confirm (<< (get-tos-page-title) ": delete? Are you sure?"))
         (begin
-            (set! wiki-history-list (cdr wiki-history-list))
-            (let ((filename (wiki-data-path current-title)))
+            (set! fronkensteen-page-history-list (cdr fronkensteen-page-history-list))
+            (let ((filename (wiki-data-path (get-tos-page-title))))
               (delete-internal-file filename)
-              (if (eqv? wiki-history-list '())
-                (display-wiki-page "Main" #t)
-                (display-wiki-page (caar wiki-history-list) #t)))))))
+              (if (eqv? fronkensteen-page-history-list '())
+                (display-wiki-page "Main")
+                (display-wiki-page (caar fronkensteen-page-history-list))))))))
 
 
-(define (fix-uncacheable title)
+(define (fix-uncacheable title content-wrapper)
   (if (or
           (eq? (indexOf title "special/") 0)
           (eq? (indexOf title "system/") 0)
           (eq? (indexOf title "themes/") 0)
           (>= (indexOf title "-nocache") 0))
-      (make-page-dirty title)))
+      (make-page-dirty content-wrapper)))
 
-    (define (display-wiki-content title wikidata)
-          (fronkenmark-set-source-file title)
-          (fix-uncacheable title)
-          (remove-dirty-pages fronkensteen-dirty-pages)
-          (let ((content-id (<< "#wiki-content-" (encode-base-32 title))))
-              (if (not (element-exists? content-id))
-                  (begin
-                    (% "#fronkensteen-content" "append"  (dv (<< content-id ".wiki-page-wrapper") ""))
-                    (render-wiki-content content-id wikidata)
-                    (process-wiki-links content-id)
-                    ))
-
-             (% ".wiki-page-wrapper" "hide")
-             (% content-id "show")
-             (set! current-title title)
-             (% "#wiki-page-title" "show")
-             (% "#wiki-editor-page-title" "hide")
-             (% "#wiki-page-title" "html" title)
-             (% "#wiki-editor-page-title" "val" title)
-              ;(timer (lambda ()
-              ;  (% (<< content-name "-body") "focus")) 1)
-              ;(scroll-to-top content-name)
-
-          ))
+(define (display-wiki-content title wikidata)
+      (fronkenmark-set-source-file title)
+      (let ((content-id (<< "#id-" (encode-base-32 (wiki-data-path title)))))
+      (let ((wrapper-id (<< content-id "-wrapper")))
+      (fix-uncacheable title wrapper-id)
+      (remove-dirty-pages fronkensteen-dirty-pages)
+      (if (not (element-exists? wrapper-id))
+        (begin
+          (% "#fronkensteen-content" "append"  (dv (<< wrapper-id  ".fronkensteen-page-wrapper") ""))
+          (render-wiki-content wrapper-id wikidata)
+          (process-wiki-links wrapper-id)
+        ))
+      (add-page-history title "page" content-id)
+      (display-history-tos)
+      )))
 
 (define (process-wiki-links content-id)
   (% (<< content-id " .wikilink") "off" "click")
@@ -190,7 +78,7 @@
     (lambda (ev)
       (let ((target (js-ref ev "currentTarget")))
         (let ((title  (element-read-attribute target "target")))
-            (display-wiki-page title #t)))))
+            (display-wiki-page title)))))
   (% (<< content-id " .externallink") "off" "click")
   (% (<< content-id " .externallink") "on" "click"
     (lambda (ev)
@@ -223,7 +111,7 @@
 
 (define (render-wiki-content container-id content)
 (let ((rendered-content (fronkenmark content #t #t)))
-(% container-id "html" (dv ".wiki-page-content" rendered-content))
+(% container-id "html" (dv ".fronkensteen-page-content" rendered-content))
   (wire-ui)))
 
 (define (get-matching-wiki-files title)
@@ -272,10 +160,6 @@
 
 
 
-
-(define (init-wiki-history-display)
-  #f
-)
 
 (define (collect-wiki-page-list)
   (assemble-wiki-page-list (vector->list (get-internal-dir "user-files/wiki"))))

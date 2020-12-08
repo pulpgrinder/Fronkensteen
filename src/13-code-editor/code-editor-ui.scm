@@ -4,18 +4,16 @@
 
 (define available-popovers '())
 (define (generate-editor-toolbar)
-    (fronkensteen-bottom-toolbar "#editor-control-bar"
+    (fronkensteen-bottom-toolbar "#fronkensteen-editor-control-bar"
     (topcoat-button-bar
     (<<
-      ;  "Title:&nbsp;"
-      ;  (input "#fronkensteen-editor-page-title!type='text'!size='20'")
         (fronkensteen-toolbar-button "#fronkensteen-editor-save-and-close-button"
           "check" "Save and Close" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-save-button"
           "save" "Save without closing" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-close-button" "times-circle" "Close without saving" "")
-        (fronkensteen-toolbar-button "#fronkensteen-editor-history-button.wiki-history-button" "clock" "Show history" "")
-        (fronkensteen-toolbar-button "#fronkensteen-editor-search-button.wiki-history-button.wiki-search" "search" "Search" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-history-button.page-history-button" "clock" "Show history" "")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-search-button.page-history-button.wiki-search" "search" "Search" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-undo-button" "undo" "Undo" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-redo-button" "redo" "Redo" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-inline-style-button"
@@ -82,7 +80,10 @@
 
 
 ))
-        ))
+    "right"
+        )
+
+        )
 
 (define (set-paragraph-formatting-popover)
 (set! available-popovers (cons "#fronkensteen-editor-paragraph-style-button" available-popovers))
@@ -100,4 +101,5 @@
       (fronkensteen-toolbar-button "#fronkensteen-editor-comment-button" "comment" "Mark as comment" "")
       (fronkensteen-toolbar-button "#fronkensteen-editor-footnote-button" "sticky-note" "Footnote" "")
 ))
+    "left"
         ))

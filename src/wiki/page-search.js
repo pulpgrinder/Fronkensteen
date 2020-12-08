@@ -30,3 +30,7 @@ Fronkensteen.callSchemeSearchHandler = function(callback,contentid){
     intp2.invoke_closure(callback, [matches])
   },100);
 }
+
+BiwaScheme.define_libfunc("remove-search-marks", 1,1,function(ar){
+  $(ar[0]).unmark()
+});

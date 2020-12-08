@@ -315,4 +315,65 @@
       (".smallcaps-font" (
        "font-variant" "small-caps"
       ))
+
+      (".fronkensteen-page-content" (
+        "padding" "4em"
+        ))
+      (".fronkensteen-page-wrapper" (
+        "display" "none"
+        "max-width" "60em"
+        "margin" "auto"
+        "position" "relative"
+        "background-color" "#f5f5f0"
+        "overflow" "auto"
+        "-webkit-overflow-scrolling" "touch";
+        ))
+     ("#fronkensteen-search-list-wrapper" (
+       "overflow" "auto"
+       "max-height" "15em"
+       "margin-top" "0.5em"
+     ))
+     (".fronkensteen-toolbar" (
+       "width" "100%"
+       "display" "flex"
+       "justify-content" "space-evenly"
+       ))
+     ("#fronkensteen-editor-page-title" (
+       "display" "none"
+       "position" "relative"
+       "top" "0.5em"
+       ))
+     (".fronkensteen-history-entry" (
+       "border-left" "1px solid #ddd"
+       "border-right" "1px solid #ddd"
+       "border-bottom" "1px solid #ddd"
+       "min-width" "15em"
+       "padding" "0.25em"
+       ))
+    ("div .fronkensteen-history-entry:first-child" (
+      "border-top" "1px solid #ddd"
+      ))
+    ("#close-search-bar" (
+      "position" "relative"
+      "top" "0.125em"
+      ))
+    (".fronkensteen-editor" (
+      "height" "100%"
+      ))
+    (".fronkensteen-content-text" (
+        "padding" "4em"
+        "max-width" "60em"
+        "margin" "0 auto"
+      ))
+    (".fronkensteen-page-content blockquote" (
+      "padding" "1em"
+      "margin" "auto"
+      "max-width" "45em"
+      "background-color" "#ddd"
+      "border-radius" "10px"
+      ))
+    (".menu-list" (
+    "max-width" "50em"))
+    (".rounded-list" (
+    "max-width" "50em"))
       )))

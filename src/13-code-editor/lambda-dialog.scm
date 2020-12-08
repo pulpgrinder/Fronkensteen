@@ -137,11 +137,11 @@
               (lambda-build-proc-display-list (cdr procs) proc-search)))))
 
 (define (#lambda-eval-scheme-button_click ev)
-  (if (not (eqv? current-editor #f))
-    (cm-editor-eval-selection-or-expr-before-cursor! current-editor)
+  (if (not (eqv? (get-tos-page-id) #f))
+    (cm-editor-eval-selection-or-expr-before-cursor! (get-tos-page-id))
   ))
 
 (define (#lambda-eval-js-button_click ev)
-  (if (not (eqv? current-editor #f))
-    (cm-editor-eval-js-selection! current-editor)
+  (if (not (eqv? (get-tos-page-id) #f))
+    (cm-editor-eval-js-selection! (get-tos-page-id))
   ))
