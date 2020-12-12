@@ -54,5 +54,13 @@
     ((get-generic-editor-save-proc id) id))
 
 (define (close-generic-editor id)
-    ((get-generic-editor-close-proc id) id)
-    (set! fronkensteen-page-history-list (cdr fronkensteen-page-history-list)))
+    (console-log (<< "close-generic-editor: closing " id))
+    (let ((wrapper-name (<< id "-wrapper")))
+      (if (element-exists? wrapper-name)
+        (begin
+          (destroy-cm-editor! id)
+          (% wrapper-name "remove")
+          (hide-editor-popovers available-popovers)
+          (set! fronkensteen-page-history-list (cdr fronkensteen-page-history-list))
+          (console-log "calling custom close proc")
+          ((get-generic-editor-close-proc id) id)))))

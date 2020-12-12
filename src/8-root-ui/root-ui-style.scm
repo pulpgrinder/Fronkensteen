@@ -5,7 +5,8 @@
 (install-css "root-ui"
     (proc-css-list `(
       (".icon" (
-      "color" "#0a60fe"
+    ;  "color" "#0a60fe"
+       "color" "#d08b29"
         ))
     (".fronkensteen-toast" (
         "z-index" "-1"
@@ -43,7 +44,8 @@
         "padding-left" "0.5em"
         "border-top-left-radius" "10px"
         "border-top-right-radius" "10px"
-        "background-color" "#dfe2e2"
+        "color" "#dfe2e2"
+        "background-color" "#333"
         ))
         (".fronkensteen-dialog-body" (
           "position" "absolute"
@@ -275,10 +277,8 @@
         "width" "auto"
         "padding-left" "1em"
         "padding-right" "1em"
-       "padding-top" "0.5em"
+        "padding-top" "0.5em"
         "padding-bottom" "0.5em"
-        "width" "100%"
-        "height" "100%"
         "background-color" "white"
 
       ))

@@ -407,16 +407,15 @@ Fronkensteen.editDriver = new class  {
       }
       return editor.getDoc().getLine(line_number);
     }
-    scrollToLine(editorname,line){
+    scrollToLine(editorname,toline){
       let editor = this.cm_editors[editorname];
       if(editor === undefined){
         console.error("No editor found for " + editorname);
         return;
 
       }
-      var h = editor.getScrollInfo().clientHeight;
-      var coords = editor.charCoords({line: line - 1, ch: 0}, "local");
-      editor.scrollTo(null, coords.top);
+      editor.scrollIntoView({line:toline, char:0}, 600);
+      editor.setSelection({line:toline, ch:0},{line:toline,ch:80})
     }
     escapeRegExp(s){
         return s.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')

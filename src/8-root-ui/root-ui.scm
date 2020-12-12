@@ -51,7 +51,7 @@
       (if (element-exists? "#fronkensteen-repl")
         #t
       (begin
-        (build-fronkensteen-dialog "#fronkensteen-repl" "Scheme Mini-REPL"
+        (build-fronkensteen-dialog "#fronkensteen-repl" "Mini-REPL"
           (<<
             (dv
               (<<
@@ -84,7 +84,7 @@
 (define (show-page-toolbars history-entry)
   (let ((type (get-history-entry-type history-entry))
         (title (get-history-entry-title history-entry)))
-    (cond ((eqv? type "page")
+    (cond ((eqv? type "wiki-page")
         (begin
           (show-bottom-toolbar "#fronkensteen-page-control-bar")
           (% "#fronkensteen-editor-page-title" "hide")

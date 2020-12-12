@@ -1,13 +1,3 @@
-/*BiwaScheme.define_libfunc("set-draggable!", 1,2, function(ar){
-  // ar[0] is id, ar[1], if supplied, is  drag handle
-  if(ar.length === 1){
-    $(ar[0]).draggable()
-  }
-  else{
-    $(ar[0]).draggable({handle:ar[1]})
-  }
-
-}); */
 
 BiwaScheme.define_libfunc("center-element",1,1,function(ar){
   // Center the element specified in ar[0] in the viewport.

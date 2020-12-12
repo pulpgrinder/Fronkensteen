@@ -20,18 +20,16 @@
         "italic" "Inline styles" "")
         (fronkensteen-toolbar-button "#fronkensteen-editor-menu-button"
         "bars" "Insert menu" "")
-        (fronkensteen-toolbar-button "#fronkensteen-editor-paragraph-style-button" "" "Special characters" "¶")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-paragraph-style-button" "" "Paragraph formatting" "¶")
         (fronkensteen-toolbar-button "#fronkensteen-editor-character-button" "" "Special characters" "§")
         (fronkensteen-toolbar-button "#fronkensteen-editor-doc-button" "question" "See more tags" "")
-        (fronkensteen-toolbar-button "#fronkensteen-editor-scheme-button"
-        "play" "Execute selected Scheme code or expression before cursor" "")
-        (fronkensteen-toolbar-button "#fronkensteen-editor-js-button" "play-circle" "Execute selected JavaScript code" "")
-        (fronkensteen-toolbar-button "#fronkensteen-editor-lambda-button" "" "Programming tools" "λ")
+        (fronkensteen-toolbar-button "#fronkensteen-editor-lambda-button.progtools-button" "" "Programming tools" "λ")
         (fronkensteen-toolbar-button "#fronkensteen-editor-fullscreen-button" "expand" "Enter distraction-free (fullscreen) mode" "")
       )
     ))
     (set-inline-formatting-popover)
     (set-paragraph-formatting-popover)
+    (set-progtools-popover "#fronkensteen-editor-lambda-button")
     (wire-ui)
     )
 
@@ -49,9 +47,14 @@
   (wire-ui))
 
 
-  (define (#fronkensteen-editor-paragraph-style-button_click)
-    (toggle-popover "#fronkensteen-editor-paragraph-style-button")
-    (wire-ui))
+(define (#fronkensteen-editor-paragraph-style-button_click)
+  (toggle-popover "#fronkensteen-editor-paragraph-style-button")
+  (wire-ui))
+
+(define (#fronkensteen-editor-lambda-button_click)
+  (toggle-popover "#fronkensteen-editor-lambda-button")
+  (wire-ui))
+
 
 (define (set-inline-formatting-popover)
   (set! available-popovers (cons "#fronkensteen-editor-inline-style-button" available-popovers))
@@ -77,10 +80,8 @@
             "" "Format as display (large) LaTeX" " ∫ ")
            (fronkensteen-toolbar-button "#fronkensteen-editor-inline-latex-button"
             "square-root-alt" "Format as inline (small) LaTeX" "")
-
-
 ))
-    "right"
+    "bottom"
         )
 
         )
@@ -101,5 +102,24 @@
       (fronkensteen-toolbar-button "#fronkensteen-editor-comment-button" "comment" "Mark as comment" "")
       (fronkensteen-toolbar-button "#fronkensteen-editor-footnote-button" "sticky-note" "Footnote" "")
 ))
-    "left"
+    "bottom"
         ))
+
+(define (set-progtools-popover button-id)
+        (set! available-popovers (cons button-id available-popovers))
+          (set-popover button-id
+            (dv
+              (<<
+            (dv
+            (<<
+              (fronkensteen-toolbar-text-button "#fronkensteen-editor-scheme-button!style='width:150px;'"
+              "Evaluate selected Scheme code (or expression before cursor)" "Eval Scheme")
+              (fronkensteen-toolbar-text-button "#fronkensteen-editor-js-button!style='width:150px;'" "Execute selected JavaScript code" "Exec JS")
+              (fronkensteen-toolbar-text-button "#fronkensteen-editor-repl-button.repl-button!style='width:150px;'" "Start Mini-REPL" "REPL")))
+            (dv
+              (<<
+                  (fronkensteen-toolbar-text-button "#fronkensteen-editor-procdoc-button!style='width:150px;'" "Show documentation for selected procedure name" "Proc docs")
+              (fronkensteen-toolbar-text-button "#fronkensteen-editor-procsource-button!style='width:150px;'" "Show source code for selected procedure name" "Proc source")
+              (fronkensteen-toolbar-text-button "#fronkensteen-editor-procindex-button!style='width:150px;'" "Procedure index" "Proc index")))
+              ))
+              "bottom"))

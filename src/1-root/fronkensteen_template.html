@@ -12,7 +12,7 @@
     <link rel="shortcut icon" id="favicon-png" type="image/png" href="data:;base64,iVBORw0KGgo=">
     <title>Fronkensteen</title>
   </head>
-  
+
   <body id="fronkensteen-content-container">
     <noscript id="noscript">
       Yeah, there's absolutely no way this can work with JavaScript turned off. Sorry, my friend.
@@ -262,35 +262,21 @@ Fronkensteen.handleLoadError = function(filename,error){
   Fronkensteen.parseJSProcedureDefs = function(filename,sourceData){
    let re = /define_libfunc\(/g;
     let procdef;
-    while ((procdef = re.exec(sourceData)) != null) {
-      let procstart = procdef.index + 15;
-      let procHead = sourceData.substring(procstart);
-      currentProc = procHead.substring(0,procHead.indexOf(",")).replace(/\"/g,"").replace(/\'/g,"").trim();
-      let parencount = 1;
-      let proc_end = procdef.index + 15;
-      let max_length = sourceData.length;
-      while((parencount !== 0) && (proc_end < max_length)){
-        let current_char = sourceData.charAt(proc_end)
-        if(current_char === "("){
-          parencount = parencount + 1;
+    let sourceLines = sourceData.split("\n");
+    for(line = 0; line < sourceLines.length; line++){
+      let currentLine = sourceLines[line];
+      if((procdef = re.exec(currentLine)) != null) {
+        let procstart = procdef.index + 15;
+        let procHead = currentLine.substring(procstart);
+        currentProc = procHead.substring(0,procHead.indexOf(",")).replace(/\"/g,"").replace(/\'/g,"").trim();
+        if(Fronkensteen.documentationPointers[currentProc] === undefined){
+          Fronkensteen.documentationPointers[currentProc] = {}
         }
-        if(current_char === ")"){
-          parencount = parencount - 1;
-        }
-        proc_end = proc_end + 1;
-      }
-      if(proc_end > max_length){
-        console.log("parseJSProcedureDefs error: end of file in procedure " + currentProc + " in " + filename);
-        return;
-      }
-      //let procedure_def = sourceData.substring(procdef.index,proc_end);
-      if(Fronkensteen.documentationPointers[currentProc] === undefined){
-        Fronkensteen.documentationPointers[currentProc] = {}
-      }
-      Fronkensteen.documentationPointers[currentProc]["filename"] = filename;
-      Fronkensteen.documentationPointers[currentProc]["code"] = sourceData.substring(procdef.index,proc_end);
+        Fronkensteen.documentationPointers[currentProc]["filename"] = filename;
+        Fronkensteen.documentationPointers[currentProc]["linenumber"] = line;
     }
   }
+}
 
   // Parses out any procedures defined in the Scheme code in sourceData
   // and adds them to the database. Called by the custom load procedure.
@@ -299,50 +285,19 @@ Fronkensteen.handleLoadError = function(filename,error){
   Fronkensteen.parseSchemeProcedureDefs = function(filename,sourceData){
     let re = /\(define\s+\(([^\s\)]+)/g;
     let procdef;
-    while ((procdef = re.exec(sourceData)) != null) {
-      let foundcomment = false;
-      let procstart = procdef.index;
-      let scancomment = procstart - 1;
-      while(scancomment > 0){
-        let ch = sourceData.substring(scancomment,scancomment + 1)
-        if(ch === ";"){
-          foundcomment = true;
-          break;
-        }
-        if(ch === "\n"){
-          break;
-        }
-        scancomment = scancomment - 1;
-      }
-      if(foundcomment === true){
-        continue;
-      }
-      let procHead = sourceData.substring(procstart);
-      currentProc = procdef[1];
-      let parencount = 1;
-      let proc_end = procdef.index + 1;
-      let max_length = sourceData.length;
-      while((parencount !== 0) && (proc_end < max_length)){
-        let current_char = sourceData.charAt(proc_end)
-        if(current_char === "("){
-          parencount = parencount + 1;
-        }
-        if(current_char === ")"){
-          parencount = parencount - 1;
-        }
-        proc_end = proc_end + 1;
-      }
-      if(proc_end > max_length){
-        console.log("parseSchemeProcedureDefs error: end of file in procedure " + currentProc + " in " + filename);
-        return;
-      }
+    let sourceLines = sourceData.split("\n");
+    for(line = 0; line < sourceLines.length; line++){
+      let currentLine = sourceLines[line];
+      if((procdef = re.exec(currentLine)) != null) {
+        currentProc = procdef[1];
       if(Fronkensteen.documentationPointers[currentProc] === undefined){
         Fronkensteen.documentationPointers[currentProc] = {}
       }
       Fronkensteen.documentationPointers[currentProc]["filename"] = filename;
-      Fronkensteen.documentationPointers[currentProc]["code"] = sourceData.substring(procdef.index,proc_end);
+      Fronkensteen.documentationPointers[currentProc]["linenumber"] = line;
     }
   }
+}
 
 
   Fronkensteen.launchSystem = function(x){

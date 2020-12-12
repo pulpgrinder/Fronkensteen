@@ -8,7 +8,7 @@
   (let ((old-path (get-generic-editor-resource-path id)))
       (let ((old-extension (file-extension old-path))
            (old-base-path (file-path old-path)))
-           (let ((new-path (<< old-base-path "/" (file-basename-no-extension (% "#fronkensteen-editor-page-title" "val")) "." old-extension)))
+           (let ((new-path (<< old-base-path "/" (file-basename-no-extension (encode-uri (% "#fronkensteen-editor-page-title" "val"))) "." old-extension)))
               (if (not (eqv? old-path new-path))
                 (begin
                   (file-rename old-path new-path)
@@ -17,12 +17,5 @@
   (write-internal-text-file new-path (cm-editor-get-text id))))))
 
 (define (generic-editor-file-close id)
-  (let ((wrapper-name (<< "editor-" id "-wrapper")))
-    (if (element-exists? wrapper-name)
-      (begin
-        (destroy-cm-editor! id)
-        (% wrapper-name "remove")
-        (hide-editor-popovers available-popovers)
-        (remove-page-history id fronkensteen-page-history-list)
-        (display-history-tos)
-        ))))
+  #t ; placeholder
+        )

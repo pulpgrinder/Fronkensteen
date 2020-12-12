@@ -3,6 +3,13 @@
 ; MIT License.
 
 
+(define (.repl-button_click)
+  (show-mini-repl))
+
+
+(define (#fronkensteen-editor-procindex-button_click)
+  (show-procedure-lookup))
+  
 (define (#fronkensteen-editor-scheme-button_click ev)
   (if (not (eqv? (get-tos-page-id) #f))
     (cm-editor-eval-selection-or-expr-before-cursor! (get-tos-page-id))

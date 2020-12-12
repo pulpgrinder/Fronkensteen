@@ -40,27 +40,27 @@
       (alert "Sorry, can't delete the system launch page. Feel free to edit it, though.")
       (if (confirm (<< (get-tos-page-title) ": delete? Are you sure?"))
         (begin
+          (let ((filename (wiki-data-path (get-tos-page-title))))
+            (delete-internal-file filename)
             (set! fronkensteen-page-history-list (cdr fronkensteen-page-history-list))
-            (let ((filename (wiki-data-path (get-tos-page-title))))
-              (delete-internal-file filename)
-              (if (eqv? fronkensteen-page-history-list '())
-                (display-wiki-page "Main")
-                (display-wiki-page (caar fronkensteen-page-history-list))))))))
+            (if (eqv? fronkensteen-page-history-list '())
+              (display-wiki-page "Main")
+              (display-history-tos)))))))
 
 
-(define (fix-uncacheable title content-wrapper)
+(define (fix-uncacheable title content-id)
   (if (or
           (eq? (indexOf title "special/") 0)
           (eq? (indexOf title "system/") 0)
           (eq? (indexOf title "themes/") 0)
           (>= (indexOf title "-nocache") 0))
-      (make-page-dirty content-wrapper)))
+      (make-page-dirty content-id)))
 
 (define (display-wiki-content title wikidata)
       (fronkenmark-set-source-file title)
       (let ((content-id (<< "#id-" (encode-base-32 (wiki-data-path title)))))
       (let ((wrapper-id (<< content-id "-wrapper")))
-      (fix-uncacheable title wrapper-id)
+      (fix-uncacheable title content-id)
       (remove-dirty-pages fronkensteen-dirty-pages)
       (if (not (element-exists? wrapper-id))
         (begin
@@ -68,7 +68,7 @@
           (render-wiki-content wrapper-id wikidata)
           (process-wiki-links wrapper-id)
         ))
-      (add-page-history title "page" content-id)
+      (add-page-history title "wiki-page" content-id)
       (display-history-tos)
       )))
 
@@ -183,10 +183,6 @@
 (define (save-wiki-file filename data)
    (let ((path (wiki-data-path filename)))
       (write-data-url-to-internal-file path data)))
-
-(define (#fronkensteen-wiki-lambda-button_click)
-  (show-procedure-lookup)
-  (show-mini-repl))
 
 
 (define (#fronkensteen-wiki-import-file-button_click)

@@ -14,6 +14,10 @@
       #f
       (get-history-entry-title (car fronkensteen-page-history-list))))
 
+(define (get-tos-page-type)
+    (if (eqv? fronkensteen-page-history-list '())
+      #f
+      (get-history-entry-type (car fronkensteen-page-history-list))))
 
 (define (build-page-history-display history-list)
  (if (eqv? history-list '())
@@ -22,7 +26,7 @@
           (type (cadar history-list))
           (id (caddar history-list)))
       (let ((icon
-            (if (eqv? type "page")
+            (if (eqv? type "wiki-page")
               ""
               (<< (fa-icon "" "edit" "") "&nbsp;"))
         ))

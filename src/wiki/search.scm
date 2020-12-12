@@ -264,7 +264,8 @@
     (% "#search-field" "focus")) 0.1))
 
 
-(define (#wiki-incoming-links-button_click ev)
+(define (#fronkensteen-page-incoming-links-button_click)
+  (console-log "incoming links")
   (let ((matching-pages (collect-linked-pages (get-tos-page-title) (vector->list (get-internal-dir "user-files/wiki")))))
     (display-incoming-links matching-pages)))
 
@@ -285,7 +286,7 @@
   (if (eqv? matching-pages '())
       ""
       (let ((page-name (file-basename-no-extension (car matching-pages))))
-        (<< (menulist-item (<< ".wiki-incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
+        (<< (menu-list-item (<< ".wiki-incoming-link!target='" page-name "'" ) page-name) (render-incoming-links (cdr matching-pages))))))
 
 (define (collect-linked-pages title page-list)
     (collect-matching-wiki-pages (<< "[link " title) page-list #f #t))

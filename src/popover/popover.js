@@ -174,7 +174,7 @@
 
           if(!arrowShow){
             $("#"+id).attr('class','');
-            $("#"+id).addClass("fu_popover_"+self.options.themeName);
+            $("#"+id).addClass("fu_popover_" + self.options.themeName);
           }
 
           $("#"+id).show();
@@ -196,8 +196,9 @@
       else if(visibility === 'hide'){
         let self = this;
         setTimeout(function(){
-            $("#"+id).hide(self.options.delay.hide);
-        },100);
+            console.log("Hiding..." + id + " after " + self.options.delay.hide + " ms")
+            $("#"+id).hide();
+        },150);
       }
       else if(visibility === 'destroy'){
         $("#"+id).remove();

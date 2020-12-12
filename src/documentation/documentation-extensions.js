@@ -124,7 +124,7 @@ BiwaScheme.define_libfunc("retrieve-procedure-documentation", 1, 1, function(ar,
 });
 
 /****! retrieve-procedure-filename
-(retrieve-procedure-file_manifest_name procname)
+(retrieve-procedure-filename procname)
 
 Returns the name of the file where procname is defined.
 If procname is undefined, returns #f.
@@ -140,6 +140,28 @@ BiwaScheme.define_libfunc("retrieve-procedure-filename", 1, 1, function(ar, intp
      return doc.filename;
    }
    return ar[0] + ": no filename available."
+  }
+  return false;
+});
+
+/****! retrieve-procedure-line-number
+(retrieve-procedure-line-number procname)
+
+Returns the line number in the file where procname is defined.
+If procname is undefined, returns #f.
+If procname is defined, but has no file name available, returns a message to that effect.
+*/
+
+BiwaScheme.define_libfunc("retrieve-procedure-line-number", 1, 1, function(ar, intp){
+  // Retrieve the line number where the procedure in ar[0] is
+  // defined. If not defined, returns #f.
+  BiwaScheme.assert_string(ar[0]);
+  let doc = Fronkensteen.retrieveDocumentation(ar[0]);
+  if(doc !== false){
+    if(doc.linenumber !== undefined){
+     return doc.linenumber;
+   }
+   return false;
   }
   return false;
 });
@@ -197,16 +219,6 @@ BiwaScheme.define_libfunc("search-defined-procedures", 1,1, function(ar,intp){
   return Fronkensteen.searchDefinedProcedures(ar[0]);
 })
 
-BiwaScheme.define_libfunc("update-proc-def", 2,2, function(ar,intp){
-  BiwaScheme.assert_string(ar[0]);
-  BiwaScheme.assert_string(ar[1]);
-  console.log("setting def for " + ar[0] + " to " + ar[1])
-  if(Fronkensteen.documentationPointers[ar[0]] === undefined){
-    alert("No such procedure: " + ar[0]);
-    return;
-  }
-  Fronkensteen.documentationPointers[ar[0]]["code"] = ar[1];
-})
 
 BiwaScheme.define_libfunc("update-doc-string", 2,2, function(ar,intp){
   BiwaScheme.assert_string(ar[0]);

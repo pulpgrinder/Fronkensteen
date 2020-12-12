@@ -15,7 +15,7 @@
     (let ((wrapper-id (<< content-id "-wrapper")))
     (if (not (element-exists? wrapper-id))
       (begin
-        (create-generic-editor content-id title data-path generic-editor-file-reader generic-editor-file-writer generic-editor-file-close)
+        (create-generic-editor content-id title data-path generic-editor-file-reader generic-editor-file-writer close-wiki-editor)
       ))
     (add-page-history title "editor" content-id)
     (display-history-tos)
@@ -23,7 +23,7 @@
     (run-wiki-search)))))
 
 
-(define (#fronkensteen-wiki-new-page-button_click)
+(define (#fronkensteen-page-new-page-button_click)
     (new-wiki-page))
 
 (define (new-wiki-page)
@@ -32,10 +32,11 @@
 
 (define (unique-page-title sequence)
   (let ((page-title (<< "Untitled " (number->string sequence))))
-    (if (or (file-exists? (wiki-data-path page-title))
-            (element-exists? (<< "#fronkensteen-page-editor-" (encode-base-32 page-title))))
+    (let ((data-path (wiki-data-path page-title)))
+    (if (or (file-exists? data-path)
+            (element-exists? (<< "#editor-" (encode-base-32 data-path))))
         (unique-page-title (+ 1 sequence))
-        page-title)))
+        page-title))))
 
 
 (define (#fronkensteen-editor-fullscreen-button_click)
@@ -48,20 +49,29 @@
 
 (define (fronkensteen-wiki-editor-close-file)
     (let ((editor-id (get-tos-page-id)))
-      (close-generic-editor editor-id)
-      (make-page-dirty (get-tos-page-id))
-      (display-history-tos)))
+      (close-generic-editor editor-id)))
+
+(define (close-wiki-editor editor-id)
+   (let ((title (get-generic-editor-title editor-id)))
+    (let ((content-id (<< "#id-" (encode-base-32 (wiki-data-path title)))))
+        (make-page-dirty content-id)
+        (if (file-exists? (wiki-data-path title))
+          (display-wiki-page title)
+          (display-history-tos)
+          ))))
 
 (define (#fronkensteen-editor-doc-button_click)
     (build-fronkensteen-dialog "#fronkensteen-editor-docs" "Available Tags" (fronkenmark (
       retrieve-wiki-data "docs/2-Fronkenmark Text Formatting"
       ) #t #t) "40em" "20em"))
 
-
 (define (#fronkensteen-editor-save-and-close-button_click)
+  (console-log "calling #fronkensteen-editor-save-button_click")
   (#fronkensteen-editor-save-button_click)
   (fronkensteen-wiki-editor-close-file))
 
   (define (#fronkensteen-editor-save-button_click)
-      (let ((editor-id (get-history-entry-id (car fronkensteen-page-history-list))))
+      (console-log "in #fronkensteen-editor-save-button_click")
+      (let ((editor-id (get-tos-page-id)))
+        (console-log "calling save-generic-editor")
         (save-generic-editor editor-id)))

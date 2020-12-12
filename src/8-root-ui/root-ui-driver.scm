@@ -35,6 +35,8 @@
 
 (define (display-history-tos)
     (% ".fronkensteen-page-wrapper" "hide")
+    (if (eqv? fronkensteen-page-history-list '())
+        (display-wiki-page "Main")
     (let ((tos (car fronkensteen-page-history-list)))
       (% (<< (get-history-entry-id tos) "-wrapper") "show")
-      (show-page-toolbars tos)))
+      (show-page-toolbars tos))))
