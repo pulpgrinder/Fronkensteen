@@ -64,6 +64,10 @@
             "position" "relative"
             "height" "100%"
             ))
+
+      (".fronkensteen-dialog-text-block" (
+        "padding" "2em"
+        ))
       ("#fronkensteen-nav-forward" (
         "position" "absolute"
         "right" "1.5em"

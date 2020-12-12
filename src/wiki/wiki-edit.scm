@@ -61,9 +61,10 @@
           ))))
 
 (define (#fronkensteen-editor-doc-button_click)
-    (build-fronkensteen-dialog "#fronkensteen-editor-docs" "Available Tags" (fronkenmark (
+    (build-fronkensteen-dialog "#fronkensteen-editor-docs" "Available Tags"
+      (dv  ".fronkensteen-dialog-text-block" (fronkenmark (
       retrieve-wiki-data "docs/2-Fronkenmark Text Formatting"
-      ) #t #t) "40em" "20em"))
+      ) #t #t)) "40em" "20em"))
 
 (define (#fronkensteen-editor-save-and-close-button_click)
   (console-log "calling #fronkensteen-editor-save-button_click")
