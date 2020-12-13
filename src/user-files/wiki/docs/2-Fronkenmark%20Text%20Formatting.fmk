@@ -228,7 +228,7 @@ table]
 
 [code [button buttonID caption button] code] Produces a button with the given id and caption. When the button is clicked, the Scheme procedure (#buttonID_click) will be invoked (if a procedure with that name has been defined).
 
-[code [pid id pid] code] Produces an empty paragraph with the given ID and inserts it at this point in the document. The paragraph can be used to display output from a script.
+[code [pid id content pid] code] Produces an paragraph with the given ID and content (or an empty paragraph, if content is missing) and inserts it at this point in the document. The paragraph can be used to display output from a script.
 
 [code [counter countername] code] Creates a counter with the given name. Each time this counter appears, the code will be replaced by the next sequential numeric value. In other words, the first time this counter appears, it will be replaced by 1. The second time, by 2, and so on.
 
