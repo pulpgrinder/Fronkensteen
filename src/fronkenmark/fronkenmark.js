@@ -366,121 +366,156 @@ Fronkenmark.processContent  = function(text){
  text = text.replace(/\[([a-zA-Z][a-zA-Z0-9]*)\s([\s\S]*?)\s\1\]/gm,function(match,tag,code) {
     switch(tag){
 // Regular HTML elements.
-      case "i":
-      case "b":
-      case "strong":
-      case "em":
-      case "h1":
-      case "h2":
-      case "h3":
-      case "h4":
-      case "h5":
-      case "h6":
-      case "li":
-      case "blockquote":
-      case "sup":
-      case "sub":
-      case "strike":
-      case "u":
+    case "i":
+    case "b":
+    case "strong":
+    case "em":
+    case "h1":
+    case "h2":
+    case "h3":
+    case "h4":
+    case "h5":
+    case "h6":
+    case "li":
+    case "blockquote":
+    case "sup":
+    case "sub":
+    case "strike":
+    case "u":
       return Fronkenmark.installSubstitute("<" + tag + ">") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</" + tag + ">");
-      case "bq":   return Fronkenmark.installSubstitute("<blockquote>") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</blockquote>");
-      case "menu":
-        return Fronkenmark.installSubstitute("<ul class='menu-list'>") + Fronkenmark.renderMenuItems(Fronkenmark.processContent(code), "menu-list-item") + Fronkenmark.installSubstitute("</ul>")
+    case "bq":
+      return Fronkenmark.installSubstitute("<blockquote>") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</blockquote>");
+    case "menu":
+      return Fronkenmark.installSubstitute("<ul class='menu-list'>") + Fronkenmark.renderMenuItems(Fronkenmark.processContent(code), "menu-list-item") + Fronkenmark.installSubstitute("</ul>")
 // Inline LaTeX
-    case "latex" : return Fronkenmark.installSubstitute(Fronkenmark.processInlineLaTeX(code))
+    case "latex" :
+      return Fronkenmark.installSubstitute(Fronkenmark.processInlineLaTeX(code))
 // Paragraph styles
-      case "p": return Fronkenmark.installSubstitute("</p><p>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
-      case "pc": return Fronkenmark.installSubstitute("</p><p style='text-align:center;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
-      case "pl": return Fronkenmark.installSubstitute("</p><p style='text-align:left;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
-      case "pr": return Fronkenmark.installSubstitute("</p><p style='text-align:right;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
-      case "pj": return Fronkenmark.installSubstitute("</p><p style='text-align:justify;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
-      case "ph": return Fronkenmark.installSubstitute("</p><p style='padding-left:3em;text-indent:-3em;display:block;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
-      case "pid": return Fronkenmark.installSubstitute("</p><p id='" + code + "'></p><p>")
-      case "poetry": return Fronkenmark.installSubstitute("</p><p style='margin:0 auto;' class='fronken-poetry'>") +  Fronkenmark.formatPoetry(Fronkenmark.processContent(code)) +  Fronkenmark.installSubstitute("</p><p>");
+    case "p":
+      return Fronkenmark.installSubstitute("</p><p>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
+    case "pc":
+      return Fronkenmark.installSubstitute("</p><p style='text-align:center;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
+    case "pl":
+      return Fronkenmark.installSubstitute("</p><p style='text-align:left;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
+    case "pr":
+      return Fronkenmark.installSubstitute("</p><p style='text-align:right;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
+    case "pj":
+      return Fronkenmark.installSubstitute("</p><p style='text-align:justify;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
+    case "ph":
+      return Fronkenmark.installSubstitute("</p><p style='padding-left:3em;text-indent:-3em;display:block;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
+    case "pid":
+      let codetokens = code.split(" ");
+      let id = codetokens[0];
+      codetokens.shift();
+      let codecontent = codetokens.join(" ");
+      return Fronkenmark.installSubstitute("</p><p id='" + id + "'>" + Fronkenmark.processContent(codecontent) + "</p><p>")
+    case "poetry":
+      return Fronkenmark.installSubstitute("</p><p style='margin:0 auto;' class='fronken-poetry'>") +  Fronkenmark.formatPoetry(Fronkenmark.processContent(code)) +  Fronkenmark.installSubstitute("</p><p>");
 // Lists
-      case "ol": return Fronkenmark.installSubstitute("<ol>") + Fronkenmark.renderListItems( Fronkenmark.processContent(code)) + Fronkenmark.installSubstitute("</ol>")
-      case "ul": return Fronkenmark.installSubstitute("<ul>") + Fronkenmark.renderListItems(Fronkenmark.processContent(code)) + Fronkenmark.installSubstitute("</ul>")
-      case "roundlist": return Fronkenmark.installSubstitute("<ul class='round-list'>") + Fronkenmark.renderListItems(Fronkenmark.processContent(code), "round-list-item") + Fronkenmark.installSubstitute("</ul>")
-
+    case "ol":
+      return Fronkenmark.installSubstitute("<ol>") + Fronkenmark.renderListItems( Fronkenmark.processContent(code)) + Fronkenmark.installSubstitute("</ol>")
+    case "ul":
+      return Fronkenmark.installSubstitute("<ul>") + Fronkenmark.renderListItems(Fronkenmark.processContent(code)) + Fronkenmark.installSubstitute("</ul>")
+    case "roundlist":
+      return Fronkenmark.installSubstitute("<ul class='round-list'>") + Fronkenmark.renderListItems(Fronkenmark.processContent(code), "round-list-item") + Fronkenmark.installSubstitute("</ul>")
 //  inline code blocks
-    case "code": return Fronkenmark.installSubstitute("<code>" + code + "</code>")
+    case "code":
+      return Fronkenmark.installSubstitute("<code>" + code + "</code>")
 // Tables
-     case "table" : return Fronkenmark.installSubstitute("<table>") +
+     case "table":
+      return Fronkenmark.installSubstitute("<table>") +
       Fronkenmark.renderTableItems(Fronkenmark.processContent(code)) + Fronkenmark.installSubstitute("</table>");
 
 // Font sizes and variants.
-      case "dropcap":
-          let capcontent = Fronkenmark.processContent(code);
-          if(capcontent.length < 1){
-            return "dropcap: nothing to process."
-          }
-          return Fronkenmark.installSubstitute("<span class='dropcap'>") + capcontent.charAt(0)  +  Fronkenmark.installSubstitute("</span>") + Fronkenmark.installSubstitute("<span style='font-variant:small-caps;'>") +  capcontent.substring(1) +  Fronkenmark.installSubstitute("</span>");
-      case "sc": return Fronkenmark.installSubstitute("<span style='font-variant:small-caps;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-
-      case "tiny": return Fronkenmark.installSubstitute("<span style='font-size:50%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "scriptsize": return Fronkenmark.installSubstitute("<span style='font-size:66.7%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "footnotesize": return Fronkenmark.installSubstitute("<span style='font-size:82.5%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "small": return Fronkenmark.installSubstitute("<span style='font-size:90%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "normalsize": return Fronkenmark.installSubstitute("<span style='font-size:100%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "large": return Fronkenmark.installSubstitute("<span style='font-size:125%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "Large": return Fronkenmark.installSubstitute("<span style='font-size:140%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "LARGE": return Fronkenmark.installSubstitute("<span style='font-size:167%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "huge": return Fronkenmark.installSubstitute("<span style='font-size:190%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "Huge": return Fronkenmark.installSubstitute("<span style='font-size:200%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "HUGE": return Fronkenmark.installSubstitute("<span style='font-size:230%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
-      case "link":
-                  let linkparts = code.split("|");
-                  if(linkparts.length === 1){
-                    linkparts.push(linkparts[0])
-                  }
-                  let linktarget = linkparts.shift();
-                  let linktext = linkparts.join("|");
-                  let linkclass;
-                  let titletext;
-                  if(linktarget.match(/^[a-zA-Z0-9]+\:\/\//) !== null){
-                    // External link;
-                    linkclass = 'externallink link';
-                    titletext = "external link to " + linktarget;
-                  }
-                  else {
-                    linkclass = 'wikilink link';
-                    titletext = 'wiki link to ' + linktarget;
-                  }
+    case "dropcap":
+        let capcontent = Fronkenmark.processContent(code);
+        if(capcontent.length < 1){
+          return "dropcap: nothing to process."
+        }
+        return Fronkenmark.installSubstitute("<span class='dropcap'>") + capcontent.charAt(0)  +  Fronkenmark.installSubstitute("</span>") + Fronkenmark.installSubstitute("<span style='font-variant:small-caps;'>") +  capcontent.substring(1) +  Fronkenmark.installSubstitute("</span>");
+    case "sc":
+      return Fronkenmark.installSubstitute("<span style='font-variant:small-caps;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "tiny":
+      return Fronkenmark.installSubstitute("<span style='font-size:50%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "scriptsize":
+      return Fronkenmark.installSubstitute("<span style='font-size:66.7%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "footnotesize":
+      return Fronkenmark.installSubstitute("<span style='font-size:82.5%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "small":
+      return Fronkenmark.installSubstitute("<span style='font-size:90%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "normalsize":
+      return Fronkenmark.installSubstitute("<span style='font-size:100%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "large":
+      return Fronkenmark.installSubstitute("<span style='font-size:125%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "Large":
+      return Fronkenmark.installSubstitute("<span style='font-size:140%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "LARGE":
+      return Fronkenmark.installSubstitute("<span style='font-size:167%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "huge":
+      return Fronkenmark.installSubstitute("<span style='font-size:190%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "Huge":
+      return Fronkenmark.installSubstitute("<span style='font-size:200%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "HUGE":
+      return Fronkenmark.installSubstitute("<span style='font-size:230%;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</span>");
+    case "link":
+      let linkparts = code.split("|");
+      if(linkparts.length === 1){
+        linkparts.push(linkparts[0])
+      }
+      let linktarget = linkparts.shift();
+      let linktext = linkparts.join("|");
+      let linkclass;
+      let titletext;
+      if(linktarget.match(/^[a-zA-Z0-9]+\:\/\//) !== null){
+        // External link;
+        linkclass = 'externallink link';
+        titletext = "external link to " + linktarget;
+      }
+      else {
+        linkclass = 'wikilink link';
+        titletext = 'wiki link to ' + linktarget;
+      }
       return Fronkenmark.installSubstitute("<span class='" + linkclass + "' target='" + linktarget + "' title='" + titletext + "'>" + Fronkenmark.processContent(linktext) + "</span>");
 
 
 // Misc.
-      case "scenebreak": return Fronkenmark.installSubstitute("</p>\n<p style='text-align:center;'>" + Fronkenmark.processContent(code) + "</p><p>\n");
-      case "anchor" : return Fronkenmark.installSubstitute("<a id='" + code + "'/>");
-      case "button" : let button_parts = code.split(" ");
-                      let button_id = button_parts.shift();
-                      let button_caption = button_parts.join("  ")
-                      return Fronkenmark.installSubstitute("<button id='" + button_id + "'>") + Fronkenmark.processContent(button_caption) + "</button>";
-      case "input" : let input_parts = code.split(" ");
-                      let input_id = input_parts.shift();
-                      let input_content = input_parts.join("  ")
-                      return Fronkenmark.installSubstitute("<input type='text'  id='" + input_id + "'" + "value='" + input_content + "'/>");
-      case "note" : return Fronkenmark.processNote(code);
-      case "icon" : code = code.trim();
-                    if(code.indexOf("“") === 0){
-                      return Fronkenmark.installSubstitute(
-          "<span class='icon'>" + code.replace(/“/g,"").replace(/”/g,"") + "</span>")
-                    }
-                    else {
-                      return Fronkenmark.installSubstitute(
-        "<span class='icon'><i class='" + Fronkensteen.fa_icon_lookup(code).replace(/\./g," ") + "' " + " title='" + code + "'></i></span>");
-                    }
-    //  case "icon" : return Fronkenmark.installSubstitute(
-      //  "<span class='icon'><i class='far fa-" + code + "'></i></span>");
-      case "dropcap": return Fronkenmark.installSubstitute(Fronkenmark.generateDropCap(code));
-      default: if(Fronkenmark.customTags[tag] !== undefined){
-          let intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-          return intp2.invoke_closure(BiwaScheme.CoreEnv[Fronkenmark.customTags[tag]], [Fronkenmark.processContent(code)])
+    case "scenebreak":
+      return Fronkenmark.installSubstitute("</p>\n<p style='text-align:center;'>" + Fronkenmark.processContent(code) + "</p><p>\n");
+    case "anchor" :
+      return Fronkenmark.installSubstitute("<a id='" + code + "'/>");
+    case "button" :
+      let button_parts = code.split(" ");
+      let button_id = button_parts.shift();
+      let button_caption = button_parts.join("  ")
+      return Fronkenmark.installSubstitute("<button id='" + button_id + "'>") + Fronkenmark.processContent(button_caption) + "</button>";
+    case "input" :
+      let input_parts = code.split(" ");
+      let input_id = input_parts.shift();
+      let input_content = input_parts.join("  ")
+      return Fronkenmark.installSubstitute("<input type='text'  id='" + input_id + "'" + "value='" + input_content + "'/>");
+    case "note" :
+      return Fronkenmark.processNote(code);
+    case "icon" :
+      code = code.trim();
+      if(code.indexOf("“") === 0){
+        return Fronkenmark.installSubstitute(
+"<span class='icon'>" + code.replace(/“/g,"").replace(/”/g,"") + "</span>")
+      }
+      else {
+        return Fronkenmark.installSubstitute(
+"<span class='icon'><i class='" + Fronkensteen.fa_icon_lookup(code).replace(/\./g," ") + "' " + " title='" + code + "'></i></span>");
+      }
+    case "dropcap":
+      return Fronkenmark.installSubstitute(Fronkenmark.generateDropCap(code));
+    default:
+      if(Fronkenmark.customTags[tag] !== undefined){
+        let intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+        return intp2.invoke_closure(BiwaScheme.CoreEnv[Fronkenmark.customTags[tag]], [Fronkenmark.processContent(code)])
       }
       else{
         return "Unrecognized Fronkenmark tag: " + tag + " for text block: " + code;
       }
-    }
+  }
 
   })
   return text;
