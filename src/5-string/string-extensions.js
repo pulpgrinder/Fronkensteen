@@ -70,7 +70,7 @@ BiwaScheme.define_libfunc("escape-regex", 1, 1, function(ar){
     BiwaScheme.assert_string(ar[0]);
     return Fronkensteen.escapeRegExp(ar[0]);
 });
-BiwaScheme.define_libfunc("indexOf", 2, 2, function(ar){
+BiwaScheme.define_libfunc("index-of", 2, 2, function(ar){
   // Return the index of string ar[1] in string ar[0],
   // or -1 if not found.
   BiwaScheme.assert_string(ar[0]);

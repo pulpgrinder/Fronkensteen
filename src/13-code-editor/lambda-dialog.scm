@@ -91,7 +91,7 @@
                       (lambda-show-proc-doc procname))))))
 
 (define (lambda-proc-match procname search)
-    (if (>= (indexOf procname search) 0)
+    (if (>= (index-of procname search) 0)
         #t
         #f))
 
