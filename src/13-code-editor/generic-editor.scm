@@ -54,7 +54,6 @@
     ((get-generic-editor-save-proc id) id))
 
 (define (close-generic-editor id)
-    (console-log (<< "close-generic-editor: closing " id))
     (let ((wrapper-name (<< id "-wrapper")))
       (if (element-exists? wrapper-name)
         (begin
