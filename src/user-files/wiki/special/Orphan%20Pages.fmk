@@ -19,7 +19,6 @@
   (if (eqv? page-list '())
       '()
       (let ((page-name (wiki-display-name (decode-uri (car page-list)))))
-      (console-log (<< "Page name is " page-name))
       (if (is-orphan-page? page-name)
           (cons page-name (collect-orphans (cdr page-list)))
           (collect-orphans (cdr page-list))))))

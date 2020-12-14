@@ -67,12 +67,9 @@
       ) #t #t)) "40em" "20em"))
 
 (define (#fronkensteen-editor-save-and-close-button_click)
-  (console-log "calling #fronkensteen-editor-save-button_click")
   (#fronkensteen-editor-save-button_click)
   (fronkensteen-wiki-editor-close-file))
 
   (define (#fronkensteen-editor-save-button_click)
-      (console-log "in #fronkensteen-editor-save-button_click")
       (let ((editor-id (get-tos-page-id)))
-        (console-log "calling save-generic-editor")
         (save-generic-editor editor-id)))

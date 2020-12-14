@@ -110,7 +110,6 @@
 
 
 (define (render-wiki-content container-id content)
-(console-log (<< "content is "  content))
 (let ((rendered-content (fronkenmark content #t #t)))
 (% container-id "html" (dv ".fronkensteen-page-content" rendered-content))
   (wire-ui)))

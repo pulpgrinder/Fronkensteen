@@ -62,5 +62,4 @@
           (% wrapper-name "remove")
           (hide-editor-popovers available-popovers)
           (set! fronkensteen-page-history-list (cdr fronkensteen-page-history-list))
-          (console-log "calling custom close proc")
           ((get-generic-editor-close-proc id) id)))))
