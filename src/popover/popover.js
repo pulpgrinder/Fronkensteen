@@ -196,7 +196,6 @@
       else if(visibility === 'hide'){
         let self = this;
         setTimeout(function(){
-            console.log("Hiding..." + id + " after " + self.options.delay.hide + " ms")
             $("#"+id).hide();
         },150);
       }
