@@ -29,6 +29,7 @@
       "&nbsp;"
       (input "#search-field!type='text'!placeholder='Find'")
       "&nbsp;"
+      (button "#refresh-search-button" "Refresh" )
       (input "#replace-field.editor-search!type='text'!placeholder='Replace'")
       (button "#find-next-button" "Next" )
       (button "#find-previous-button" "Previous" )
@@ -100,6 +101,19 @@
     (cm-editor-replace-selected-text (get-tos-page-id) (% "#replace-field" "val")))
   (run-editor-search "to"))))
 
+(define (#replace-all-button_click)
+  (if (in-editor?)
+    (let ((re
+              (if (checkbox-checked?  "#search-regex-checkbox")
+                (escape-regex (% "#search-field" "val"))
+                (% "#search-field" "val")))
+          (remod
+            (if (checkbox-checked?  "#search-case-sensitive-checkbox")
+                "g"
+                "gi"))
+          (editor-id (get-tos-page-id)))
+            (cm-editor-set-text editor-id (str-replace-re (cm-editor-get-text editor-id) re remod (% "#replace-field" "val"))))))
+
 (define (find-matching-wiki-pages text)
     (let ((is-regex? (checkbox-checked?  "#search-regex-checkbox"))
           (is-case-sensitive? (checkbox-checked?  "#search-case-sensitive-checkbox")))
@@ -170,6 +184,9 @@
           (set! page-search-index 0)
           (display-page-search-result)
           ))))
+
+(define (#refresh-search-button_click)
+    (run-wiki-search))
 
 (define (#find-next-button_click)
   (if (in-editor?)
