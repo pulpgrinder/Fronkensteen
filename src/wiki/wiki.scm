@@ -10,6 +10,9 @@
       (<< encoded-basename ".fmk")
       encoded-basename)))
 
+(define (is-wiki-path? filepath)
+    (eqv? (index-of filepath "user-files/wiki/") 0))
+
 (define (display-wiki-page title)
   (let ((wikidata (retrieve-wiki-data title)))
     (if wikidata
@@ -50,10 +53,10 @@
 
 (define (fix-uncacheable title content-id)
   (if (or
-          (eq? (indexOf title "special/") 0)
-          (eq? (indexOf title "system/") 0)
-          (eq? (indexOf title "themes/") 0)
-          (>= (indexOf title "-nocache") 0))
+          (eq? (index-of title "special/") 0)
+          (eq? (index-of title "system/") 0)
+          (eq? (index-of title "themes/") 0)
+          (>= (index-of title "-nocache") 0))
       (make-page-dirty content-id)))
 
 (define (display-wiki-content title wikidata)
@@ -120,7 +123,7 @@
 (define (process-matching-wiki-files encoded-title file-list)
   (if (eqv? file-list '())
     '()
-    (if (eqv? (indexOf (file-basename (car file-list)) encoded-title) 0)
+    (if (eqv? (index-of (file-basename (car file-list)) encoded-title) 0)
       (cons (car file-list) (process-matching-wiki-files encoded-title (cdr file-list)))
       (process-matching-wiki-files encoded-title (cdr file-list)))))
 
