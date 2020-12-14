@@ -8,6 +8,20 @@
     ;  "color" "#0a60fe"
        "color" "#d08b29"
         ))
+
+    (".fronkenpoetry" (
+      "display" "table"
+      "margin" "0 auto"
+      "font-family"  <%
+  system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+              Roboto,
+              Oxygen-Sans,
+              Ubuntu,
+              Cantarell,
+              "Helvetica Neue",
+              sans-serif,
+              Kitchen-Sink %>
+      ))
     (".fronkensteen-toast" (
         "z-index" "-1"
         "position" "absolute"
@@ -305,7 +319,8 @@
                Ubuntu,
                Cantarell,
                "Helvetica Neue",
-               sans-serif %>
+               sans-serif,
+               Kitchen-Sink %>
       ))
       (".serif-font" (
        "font-family" "Libre Baskerville, Palatino, Times, serif"
