@@ -28,7 +28,9 @@
 
 (define (new-wiki-page)
   (let ((page-title (unique-page-title 1)))
-    (edit-wiki-page page-title)))
+    (let ((data-path (wiki-data-path page-title)))
+        (write-internal-text-file data-path "")
+        (edit-wiki-page page-title))))
 
 (define (unique-page-title sequence)
   (let ((page-title (<< "Untitled " (number->string sequence))))
@@ -67,8 +69,14 @@
       ) #t #t)) "40em" "20em"))
 
 (define (#fronkensteen-editor-save-and-close-button_click)
-  (#fronkensteen-editor-save-button_click)
-  (fronkensteen-wiki-editor-close-file))
+  (let ((editor-id (get-tos-page-id)))
+    (let ((resource-path (get-generic-editor-resource-path editor-id))
+          (resource-title (get-generic-editor-resource-title editor-id)))
+      (#fronkensteen-editor-save-button_click)
+      (fronkensteen-wiki-editor-close-file)
+      (if (is-wiki-path? resource-path)
+      (display-wiki-page resource-title))
+  )))
 
   (define (#fronkensteen-editor-save-button_click)
       (let ((editor-id (get-tos-page-id)))
