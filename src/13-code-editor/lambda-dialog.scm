@@ -39,7 +39,6 @@
   ))
 
 (define (.procdoc-update-button_click ev)
-  (alert "procdoc")
   (let ((target (js-ref ev "currentTarget")))
     (let ((procname  (element-read-attribute target "procname")))
       (let ((encoded-proc-name (encode-base-32 procname) ))
@@ -64,19 +63,13 @@
   (console-log (<< "show-source-code: procname is " procname))
   (let ((sourcefile (retrieve-procedure-filename procname))
         (sourceline (retrieve-procedure-line-number procname)))
-          (console-log (<< "show-source-code: sourcefile is " sourcefile))
-          (console-log (<< "show-source-code: sourceline is " (number->string sourceline)))
         (if (eqv? sourcefile #f)
           (alert (<< "No source available for " procname))
           (let ((editor-id (<< "#proceditor-" (encode-base-32 sourcefile) "-sourcefile")))
             (let ((wrapper-id (<< editor-id "-wrapper")))
             (if (not (element-exists? wrapper-id))
               (begin
-              (create-generic-editor editor-id procname sourcefile generic-editor-file-reader generic-editor-file-writer source-code-editor-close)
-
-              )
-
-              )
+              (create-generic-editor editor-id procname sourcefile generic-editor-file-reader generic-editor-file-writer source-code-editor-close)))
               (cm-editor-scroll-to-line editor-id sourceline)
               (add-page-history sourcefile "editor" editor-id)
               (display-history-tos))))))
@@ -91,11 +84,11 @@
     (let ((proc-search (% "#lambda-proc-lookup" "val"))
           (procs (vector->list (enumerate-procedures))))
           (% "#lambda-proc-display" "html" (lambda-build-proc-display-list procs proc-search)))
-    (% ".lambda-proc-name-entry" "on" "click"
-      (lambda (ev)
-          (let ((target (js-ref ev "currentTarget")))
-              (let ((procname (% target "attr" "procname")))
-                (lambda-show-proc-doc procname))))))
+          (% ".lambda-proc-name-entry" "on" "click"
+            (lambda (ev)
+                (let ((target (js-ref ev "currentTarget")))
+                    (let ((procname (% target "attr" "procname")))
+                      (lambda-show-proc-doc procname))))))
 
 (define (lambda-proc-match procname search)
     (if (>= (indexOf procname search) 0)
@@ -112,12 +105,12 @@
               (lambda-build-proc-display-list (cdr procs) proc-search))
               (lambda-build-proc-display-list (cdr procs) proc-search)))))
 
-(define (#lambda-eval-scheme-button_click ev)
+(define (.lambda-eval-scheme-button_click ev)
   (if (not (eqv? (get-tos-page-id) #f))
     (cm-editor-eval-selection-or-expr-before-cursor! (get-tos-page-id))
   ))
 
-(define (#lambda-eval-js-button_click ev)
+(define (.lambda-eval-js-button_click ev)
   (if (not (eqv? (get-tos-page-id) #f))
     (cm-editor-eval-js-selection! (get-tos-page-id))
   ))
