@@ -11,6 +11,7 @@ Fronkenmark.errors = "";
 Fronkenmark.currentLanguage = "";
 Fronkenmark.languageClass = "";
 Fronkenmark.counters = {};
+Fronkenmark.preserveSpacing = false;
 Fronkenmark.noteCounter = 1;
 Fronkenmark.notes = [];
 Fronkenmark.installSubstitute = function(text){
@@ -27,7 +28,7 @@ Fronkenmark.processNote = function(text){
   let noteanchor = "note-anchor-" + noteid;
   let notelink = "note-link-" + noteid;
   Fronkenmark.substitutions[id] = "<a class='footnote-link local-link external' id='" + noteanchor + "' href='#" + notelink + "'><sup>" + Fronkenmark.noteCounter + "</sup></a>";
-  Fronkenmark.notes.push("<p><a class='footnote local-link external' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + Fronkenmark.noteCounter + "</a>&nbsp;" + Fronkenmark.processContent(text) + "</p>");
+  Fronkenmark.notes.push("<p><a class='footnote local-link external' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + Fronkenmark.noteCounter + "</a>&nbsp;" + Fronkenmark.processContent(text,false) + "</p>");
   Fronkenmark.noteCounter = Fronkenmark.noteCounter + 1;
   return id;
 }
@@ -147,7 +148,7 @@ Fronkenmark.fronkenmark = function(text,trusted,appendNotes){
     text = text + Fronkenmark.getNotes();
     Fronkenmark.resetNotes()
   }
-  return text; //Fronkensteen.smartQuotes(text)
+  return text;
 
 }
 Fronkenmark.makeSubstitutions = function(text){
@@ -239,11 +240,6 @@ Fronkenmark.renderListItems = function(text,css_class){
     }
   }
   return result;
-}
-Fronkenmark.formatPoetry = function(text){
-  text = text.replace(/ /g,"&nbsp;");
-  text = text.replace(/\n/g,"<br />\n");
-  return text;
 }
 Fronkenmark.processParagraph = function(text){
   return Fronkenmark.installSubstitute("<p>") + Fronkenmark.processContent(text) + Fronkenmark.installSubstitute("</p>")
@@ -410,7 +406,10 @@ Fronkenmark.processContent  = function(text){
       let codecontent = codetokens.join(" ");
       return Fronkenmark.installSubstitute("</p><p id='" + id + "'>" + Fronkenmark.processContent(codecontent) + "</p><p>")
     case "poetry":
-      return Fronkenmark.installSubstitute("</p><p style='margin:0 auto;' class='fronken-poetry'>") +  Fronkenmark.formatPoetry(Fronkenmark.processContent(code)) +  Fronkenmark.installSubstitute("</p><p>");
+      Fronkenmark.preserveSpacing = true;
+      let renderedPoem = Fronkenmark.makeSubstitutions(Fronkenmark.processContent(code.replace(/\n/gm,"[br]\n")));
+     Fronkenmark.preserveSpacing = false;
+      return Fronkenmark.installSubstitute("</p><p><pre class='fronkenpoetry'>" +  renderedPoem  +  "</pre></p><p>");
 // Lists
     case "ol":
       return Fronkenmark.installSubstitute("<ol>") + Fronkenmark.renderListItems( Fronkenmark.processContent(code)) + Fronkenmark.installSubstitute("</ol>")
@@ -518,6 +517,9 @@ Fronkenmark.processContent  = function(text){
   }
 
   })
+  if(Fronkenmark.preserveSpacing === true){
+      text = text.replace(/\s/g,"&nbsp;");
+  }
   return text;
 }
 

@@ -88,22 +88,59 @@ ph]
 [ph Rakoff, D. (2013). [i Don’t get too comfortable: the indignities of coach class, the torments of low thread count, the never- ending quest for artisanal olive oil, and other first world problems i] (Unabridged. ed.). New York: Anchor Books. ph]
 
 [h3 Poetry h3]
+
+Poetry is typeset with spacing and line breaks intact. Typographic quotes and dashes are used, and the poetry block is centered based on the longest line.
+
+This piece is the famous Mouse's tail/tale from [i Alice in Wonderland i] which is formatted to resemble a mouse's tail. Font sizing is also used to make the "tail" text get smaller toward the tip.
+
+[pc [b From Alice in Wonderland b] [br] [i by Lewis Carroll i] pc]
 [poetry
-Shall I compare thee to a summer’s day?
-Thou art more lovely and more temperate:
-Rough winds do shake the darling buds of May,
-And summer’s lease hath all too short a date;
-Sometime too hot the eye of heaven shines,
-And often is his gold complexion dimm'd;
-And every fair from fair sometime declines,
-By chance or nature’s changing course untrimm'd;
-But thy eternal summer shall not fade,
-Nor lose possession of that fair thou ow’st;
-Nor shall death brag thou wander’st in his shade,
-When in eternal lines to time thou grow’st:
-   So long as men can breathe or eyes can see,
-   So long lives this, and this gives life to thee.
+         'Fury said to a
+         mouse, That he
+        met in the
+       house,
+     "Let us
+      both go to
+       law: [i I i] will
+        prosecute
+         [i you i].--Come,
+           I'll take no
+           denial; We
+          must have a
+        trial: For
+      really this
+     morning I've
+    nothing
+    to do."
+     Said the
+      mouse to the
+       cur, "Such
+        a trial,
+         dear Sir,
+            With
+          no jury
+        or judge,
+       would be
+      wasting
+      our
+      breath."
+       "I'll be
+        [small judge, I'll
+         be jury," small]
+            [footnotesize Said
+         cunning
+          old Fury:
+          "I'll
+          try the
+            whole footnotesize]
+            [scriptsize cause,
+              and
+           condemn
+           you
+          to
+           death."' scriptsize]
 poetry]
+
 
 [h3 Bulleted list h3]
 [ul
@@ -270,7 +307,7 @@ javascript!]
 
 
 [h3 Paragraph with ID h3]
-[pid result-paragraph pid]
+[pid result-paragraph This will change when you use the button below. pid]
 
 [h3 Text input h3]
 [input myinput Write something here. input]
@@ -279,15 +316,12 @@ javascript!]
 [button testButton Test Button button]
 
 [!scheme
-	; Handler for the test button above.
+  ; Handler for the test button above.
 	(define (#testButton_click)
 			(alert (<< "You wrote: " (% "#myinput" "val")))
       ; Take whatever the user has typed in the input named myinput and put it in the paragraph named "result-paragraph" (see above)
-			(% "#result-paragraph" "html" (% "#myinput" "val"))
-
+			(% "#result-paragraph" "html" (% "#myinput" "val")))
 scheme!]
-
-
 
 [h3 Normal counter h3]
 [counter kitchencounter]

@@ -3,4 +3,4 @@ BiwaScheme.define_libfunc("smart-quotes", 1, 1, function(ar,intp){
     return Fronkensteen.smartQuotes(ar[0]);
   })
 
-Fronkensteen.smartQuotes = tipograph();
+Fronkensteen.smartQuotes = tipograph({presets: ['quotes','hyphens','math','symbols']});
