@@ -282,7 +282,6 @@
 
 
 (define (#fronkensteen-page-incoming-links-button_click)
-  (console-log "incoming links")
   (let ((matching-pages (collect-linked-pages (get-tos-page-title) (vector->list (get-internal-dir "user-files/wiki")))))
     (display-incoming-links matching-pages)))
 
