@@ -112,14 +112,14 @@
               (<<
             (dv
             (<<
-              (fronkensteen-toolbar-text-button "#fronkensteen-editor-scheme-button!style='width:150px;'"
+              (fronkensteen-toolbar-text-button ".lambda-eval-scheme-button!style='width:150px;'"
               "Evaluate selected Scheme code (or expression before cursor)" "Eval Scheme")
-              (fronkensteen-toolbar-text-button "#fronkensteen-editor-js-button!style='width:150px;'" "Execute selected JavaScript code" "Exec JS")
-              (fronkensteen-toolbar-text-button "#fronkensteen-editor-repl-button.repl-button!style='width:150px;'" "Start Mini-REPL" "REPL")))
+              (fronkensteen-toolbar-text-button ".lambda-eval-js-button!style='width:150px;'" "Execute selected JavaScript code" "Exec JS")
+              (fronkensteen-toolbar-text-button ".lambda-repl-button.repl-button!style='width:150px;'" "Start Mini-REPL" "REPL")))
             (dv
               (<<
-                  (fronkensteen-toolbar-text-button "#fronkensteen-editor-procdoc-button!style='width:150px;'" "Show documentation for selected procedure name" "Proc docs")
-              (fronkensteen-toolbar-text-button "#fronkensteen-editor-procsource-button!style='width:150px;'" "Show source code for selected procedure name" "Proc source")
-              (fronkensteen-toolbar-text-button "#fronkensteen-editor-procindex-button!style='width:150px;'" "Procedure index" "Proc index")))
+                  (fronkensteen-toolbar-text-button ".lambda-procdoc-button!style='width:150px;'" "Show documentation for selected procedure name" "Proc docs")
+              (fronkensteen-toolbar-text-button ".lambda-procsource-button!style='width:150px;'" "Show source code for selected procedure name" "Proc source")
+              (fronkensteen-toolbar-text-button ".lambda-procindex-button!style='width:150px;'" "Procedure index" "Proc index")))
               ))
               "bottom"))
