@@ -61,4 +61,5 @@
           (% wrapper-name "remove")
           (hide-editor-popovers available-popovers)
           (set! fronkensteen-page-history-list (cdr fronkensteen-page-history-list))
-          ((get-generic-editor-close-proc id) id)))))
+          ((get-generic-editor-close-proc id) id)
+          (remove-generic-editor-hash id)))))

@@ -10,6 +10,9 @@
      #f)
    ))
 
+(define (remove-generic-editor-hash editor-id)
+    (hashtable-delete! editor-info-hash editor-id))
+
 (define (get-generic-editor-title editor-id)
 (let ((editor-info (hashtable-ref editor-info-hash editor-id #f)))
   (if (eqv? editor-info #f)
