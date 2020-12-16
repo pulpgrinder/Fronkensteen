@@ -71,7 +71,7 @@
 (define (#fronkensteen-editor-save-and-close-button_click)
   (let ((editor-id (get-tos-page-id)))
     (let ((resource-path (get-generic-editor-resource-path editor-id))
-          (resource-title (get-generic-editor-resource-title editor-id)))
+          (resource-title (get-generic-editor-title editor-id)))
       (#fronkensteen-editor-save-button_click)
       (fronkensteen-wiki-editor-close-file)
       (if (is-wiki-path? resource-path)
