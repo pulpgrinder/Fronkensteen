@@ -3,7 +3,7 @@
   (if (eqv? wiki-files '())
     ""
     (let ((wiki-file (car wiki-files)))
-      (if (eqv? (indexOf wiki-file "themes/") 0)
+      (if (eqv? (index-of wiki-file "themes/") 0)
         (<< wiki-file "\n" (render-theme-pages  (cdr wiki-files)))
         (render-theme-pages (cdr wiki-files))))))
 

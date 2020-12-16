@@ -2,12 +2,12 @@
 [!scheme
 
 (define (is-orphan-page? page-title)
-  (cond ((eq? (indexOf page-title "special/") 0) #f)
-        ((eq? (indexOf page-title "system/") 0) #f)
-        ((eq? (indexOf page-title "images/") 0) #f)
-        ((eq? (indexOf page-title "media/") 0) #f)
-        ((eq? (indexOf page-title "docs/") 0) #f)
-        ((eq? (indexOf page-title "themes/") 0) #f)
+  (cond ((eq? (index-of page-title "special/") 0) #f)
+        ((eq? (index-of page-title "system/") 0) #f)
+        ((eq? (index-of page-title "images/") 0) #f)
+        ((eq? (index-of page-title "media/") 0) #f)
+        ((eq? (index-of page-title "docs/") 0) #f)
+        ((eq? (index-of page-title "themes/") 0) #f)
         (#t
           (let ((page-list (vector->list (get-internal-dir "user-files/wiki"))))
           (let ((matching-pages (append (collect-linked-pages page-title page-list) (collect-menu-pages page-title page-list) (collect-include-pages page-title page-list))))
