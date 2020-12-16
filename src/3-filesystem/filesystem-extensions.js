@@ -132,6 +132,52 @@ Fronkensteen.deleteInternalFile = function(filename){
     return false;
   }
 }
+
+Fronkensteen.collectTrash = function(){
+    let trashed_files = [];
+    let keys = Object.keys(fronkensteen_fs);
+    let package = {}
+    for(var i = 0; i < keys.length; i++){
+      if(keys[i].indexOf("trash/") === 0){
+        trashed_files.push(keys[i].replace(/^trash\//,""))
+      }
+    }
+    return trashed_files;
+}
+Fronkensteen.emptyTrash = function(){
+  let trashed_files = Fronkensteen.collectTrash();
+  for(var i = 0; i < trashed_files.length; i++){
+    Fronkensteen.deleteInternalFile("trash/" + trashed_files[i])
+  }
+}
+Fronkensteen.trashInternalFile = function(filename){
+  if(fronkensteen_fs[filename] !== undefined){
+      fronkensteen_fs["trash/" + filename] = fronkensteen_fs[filename]
+      delete fronkensteen_fs[filename];
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+      intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+      return true;
+  }
+  else {
+    Fronkensteen.onBiwaSchemeError("Fronkensteen.trashInternalFile: " + filename + " is not in internal filesystem");
+    return false;
+  }
+}
+
+Fronkensteen.unTrashInternalFile = function(filename){
+  let trashname = "trash/" + filename;
+  if(fronkensteen_fs[trashname] !== undefined){
+      fronkensteen_fs[filename] = fronkensteen_fs[trashname]
+      delete fronkensteen_fs[trashname];
+      var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+      intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
+      return true;
+  }
+  else {
+    Fronkensteen.onBiwaSchemeError("Fronkensteen.unTrashInternalFile: " + filename + " is not in the trash");
+    return false;
+  }
+}
 Fronkensteen.readInternalFile = function(filename){
   if(fronkensteen_fs[filename] !== undefined){
       return Fronkensteen.base_64_to_bytes(fronkensteen_fs[filename]["data"]);
@@ -379,6 +425,29 @@ BiwaScheme.define_libfunc("delete-internal-file", 1, 1, function(ar, intp){
     return true;
 
 });
+
+BiwaScheme.define_libfunc("trash-internal-file", 1, 1, function(ar, intp){
+    BiwaScheme.assert_string(ar[0]);
+    Fronkensteen.trashInternalFile(ar[0]);
+    return true;
+
+});
+
+BiwaScheme.define_libfunc("empty-trash", 0, 0, function(ar, intp){
+    Fronkensteen.emptyTrash();
+    return true;
+});
+
+BiwaScheme.define_libfunc("collect-trash", 0, 0, function(ar, intp){
+    return Fronkensteen.collectTrash();
+    return true;
+});
+
+BiwaScheme.define_libfunc("untrash", 1, 1, function(ar, intp){
+    BiwaScheme.assert_string(ar[0]);
+    return Fronkensteen.unTrashInternalFile(ar[0]);
+});
+
 
 
 BiwaScheme.define_libfunc("read-internal-data-url", 1, 1, function(ar, intp){

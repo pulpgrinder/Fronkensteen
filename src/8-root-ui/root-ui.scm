@@ -174,7 +174,7 @@
         (fronkensteen-toolbar-button "#fronkensteen-page-import-file-button" "upload" "Import media file"  "")
         (fronkensteen-toolbar-button "#fronkensteen-page-special-button" "gift" "Special pages"  "")
         (fronkensteen-toolbar-button "#fronkensteen-page-docs-button" "book" "Documentation"  "")
-        (fronkensteen-toolbar-button "#fronkensteen-page-delete-button" "trash" "Delete this page"  "")
+        (fronkensteen-toolbar-button "#fronkensteen-page-trash-button" "trash" "Move to trash"  "")
         )))
         (set-save-popover)
         (wire-ui)

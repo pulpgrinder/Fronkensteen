@@ -10,6 +10,10 @@
                 "color" "rebeccapurple"
                 "cursor" "pointer"
                 ))
+              (".untrash-item" (
+                  "color" "rebeccapurple"
+                  "cursor" "pointer"
+                ))
                 (".hashlink" (
                   "color" "green"
                   "cursor" "pointer"

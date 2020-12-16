@@ -38,13 +38,13 @@
 (define (#fronkensteen-page-docs-button_click ev)
     (display-wiki-page "special/Documentation"))
 
-(define (#fronkensteen-page-delete-button_click ev)
+(define (#fronkensteen-page-trash-button_click ev)
     (if (eqv? (get-tos-page-title) "system/Launch System")
       (alert "Sorry, can't delete the system launch page. Feel free to edit it, though.")
-      (if (confirm (<< (get-tos-page-title) ": delete? Are you sure?"))
+      (if (confirm (<< (get-tos-page-title) ": move to Trash? Are you sure?"))
         (begin
           (let ((filename (wiki-data-path (get-tos-page-title))))
-            (delete-internal-file filename)
+            (trash-internal-file filename)
             (set! fronkensteen-page-history-list (cdr fronkensteen-page-history-list))
             (if (eqv? fronkensteen-page-history-list '())
               (display-wiki-page "Main")
