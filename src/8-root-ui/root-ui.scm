@@ -184,7 +184,7 @@
   (set-popover "#fronkensteen-page-save-button"
     (topcoat-button-bar
     (<<
-      (fronkensteen-toolbar-text-button "#fronkensteen-page-save-world-button.save-button" "Save as standalone HTML web page" "Web Page")
+      (fronkensteen-toolbar-text-button "#fronkensteen-page-save-world-button.save-button" "Save as standalone HTML web page" "Standalone App")
       (fronkensteen-toolbar-text-button "#fronkensteen-page-save-filesystem-button.save-button" "Export Fronkensteen filesystem" "File System")
       (fronkensteen-toolbar-text-button "#fronkensteen-page-save-wiki-files-button.save-button" "Only Wiki Bundle " "Wiki")
 
