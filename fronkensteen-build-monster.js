@@ -49,7 +49,7 @@ function process_packages(){
         package[files[j]] = fronkensteen_fs[files[j]]
       }
     }
-    fs.writeFileSync(__dirname + "/packages/" + packages[i] + ".json",JSON.stringify(package),"utf8");
+    fs.writeFileSync(__dirname + "/packages/" + packages[i] + ".json",JSON.stringify(package) + "\n","utf8");
 
   }
 }
