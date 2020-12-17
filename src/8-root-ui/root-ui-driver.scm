@@ -3,25 +3,14 @@
   (toggle-popover "#fronkensteen-page-save-button")
   (wire-ui))
 
-(define (#fronkensteen-page-save-wiki-files-button_click)
-    (timer (lambda ()
-      (save-package-files "user-files/wiki" (<< app-name "-wiki-" (file-version-time-stamp) ".fronkenwiki") "application/x-fronkenwiki" )
-      (hide-popover "#fronkensteen-page-save-button")
-    ) 0.1))
+
 
 (define (#fronkensteen-page-save-world-button_click)
     (timer (lambda ()
       (save-the-static-world)
-      (hide-popover "#fronkensteen-page-save-button")
     ) 0.1)
     )
 
-(define (#fronkensteen-page-save-filesystem-button_click)
-    (timer (lambda ()
-      (save-the-file-system)
-      (hide-popover "#fronkensteen-page-save-button")
-    ) 0.1)
-)
 
 
 (define (#fronkensteen-nav-back_click)
