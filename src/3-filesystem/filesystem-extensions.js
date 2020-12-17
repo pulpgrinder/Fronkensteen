@@ -117,7 +117,7 @@ Fronkensteen.getPackageJSON = function(package_prefix){
     }
   }
   package["version"] = Fronkensteen.packageVersion;
-  return JSON.stringify(package);
+  return JSON.stringify(package) + "\n";
 }
 
 Fronkensteen.deleteInternalFile = function(filename){

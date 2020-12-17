@@ -37,38 +37,44 @@ Fronkensteen.uploadFile = function(type,multiple,proc){
 }
 
 Fronkensteen.downloadFile = function(filename,data,mime_type){
-  let element = document.getElementById("fronkensteen-download-link");
-  if(element.href !== undefined){
+  console.log("Downloading blob")
+  let element = document.createElement('a')
+  //let element = document.getElementById("fronkensteen-download-link");
+/*  if(element.href !== undefined){
     window.URL.revokeObjectURL(element.href);
   }
-  $("#fronkensteen-download-link").off("click")
+  $("#fronkensteen-download-link").off("click") */
   var bb = new Blob([data], {type: mime_type});
   element.href = window.URL.createObjectURL(bb);
   element.setAttribute('download', filename);
-  //element.style.display = 'none';
+  element.style.display = 'none';
   element.innerHTML = "Download";
-  //document.body.appendChild(element)
-  setTimeout(function(){
+  document.body.appendChild(element)
     element.click();
-  },1500);
-
+    document.body.removeChild(element);
+    window.URL.revokeObjectURL(element.href);
+    delete element;
 }
 
 
 Fronkensteen.downloadInternalFile = function(filename){
-//  let element = document.createElement('a');
-  let element = document.getElementById("fronkensteen-download-link");
-  if(element.href !== undefined){
+  console.log("Downloading internal file: " + filename)
+  let element = document.createElement('a');
+//  let element = document.getElementById("fronkensteen-download-link");
+/*  if(element.href !== undefined){
     window.URL.revokeObjectURL(element.href);
-  }
+  } */
   var blob = Fronkensteen.internalFileToBlob(filename);
   if(blob !== false){
     element.href = window.URL.createObjectURL(blob);
     element.setAttribute('download', Fronkensteen.file_basename(filename));
-    //element.style.display = 'none';
+    element.style.display = 'none';
     element.innerHTML = "Download";
-    //document.body.appendChild(element)
+    document.body.appendChild(element)
     element.click();
+    document.body.removeChild(element);
+    window.URL.revokeObjectURL(element.href);
+    delete element;
     return true;
   }
   return false;

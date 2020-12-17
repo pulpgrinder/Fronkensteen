@@ -13,19 +13,26 @@ It is written in Scheme. Edit the page to see the source code.
 (define (generate-package-list-items package-list)
 	(if (eqv? package-list '())
     	""
-        (<<
-       	 (round-list-item (<<
-        	(input (<< "#" (car package-list) "-package-select.package-checkbox!type='checkbox'"))
-            "&nbsp;" (span (car package-list))))
-            (generate-package-list-items (cdr package-list)))))
+		(let ((package-name (car package-list)))
+      (<<
+     	 (round-list-item (<<
+          (span package-name) (button (<< ".package-export-button!package-name='" package-name "'!title='Export package'") (fa-icon "" "download" "")) (button (<< ".package-delete-button!package-name='" package-name "'!title='Delete package'") (fa-icon "" "trash" "")) ))
+          (generate-package-list-items (cdr package-list))))))
 
-(define (#package-delete-button_click ev)
+(define (.package-delete-button_click ev)
   (if (confirm "Removing packages may make the system unable to function. Making a backup before doing this is highly recommended. Continue with deletion?")
-    (let ((package-names (vector->list (get-package-vector))))
-      (delete-packages package-names)
-      (alert "Packages deleted.")
+		(let ((target (js-ref ev "currentTarget")))
+			(let ((package-name  (element-read-attribute target "package-name")))
+      (delete-package package-name)
+      (alert "Package deleted.")
       (% "#package-list" "html" (generate-package-list))
-      )))
+			(wire-ui)
+      ))))
+
+(define (.package-export-button_click ev)
+	(let ((target (js-ref ev "currentTarget")))
+		(let ((package-name  (element-read-attribute target "package-name")))
+        (save-package-files package-name (<< package-name "-" (file-version-time-stamp) ".json") "application/json" ))))
 
 (define (#package-import-button_click)
     (upload-file ".json" #f package-file-uploaded))
@@ -33,24 +40,27 @@ It is written in Scheme. Edit the page to see the source code.
 (define (package-file-uploaded filename data)
   (install-package data)
   (% "#package-list" "html" (generate-package-list))
-  (alert "Package installed. You should export the workspace and reload it to ensure that all changes take effect.")
+	(wire-ui)
+  (alert "Package installed. You should save the system and reload it to ensure that all changes take effect.")
   )
 
 
-(define (delete-packages package-list)
-  (if (eqv? package-list '())
-    #t
-    (begin
-      (console-log (<< "checking: " (car package-list)))
-      (if (checkbox-checked? (<< "#" (car package-list) "-package-select"))
-          (delete-package (car package-list)))
-      (delete-packages (cdr package-list)))))
 
+(define (#fronkensteen-page-save-wiki-files-button_click)
+    (timer (lambda ()
+      (save-package-files "user-files/wiki" (<< app-name "-wiki-" (file-version-time-stamp) ".json") "application/json" )
+    ) 0.1))
+
+(define (#fronkensteen-page-save-filesystem-button_click)
+    (timer (lambda ()
+      (save-the-file-system)
+    ) 0.1))
 
 (dv
   (<<
-    (button "#package-import-button" "Import Package")
-    (button "#package-delete-button" "Delete Selected Packages")
+    (button "#package-import-button" "Import package")
+		(button "#fronkensteen-page-save-filesystem-button" "Export entire Fronkensteen filesystem as package")
+		(button "#fronkensteen-page-save-wiki-files-button" "Export all wiki pages as package")
     (round-list "#package-list" (generate-package-list))))
 
 scheme!]
