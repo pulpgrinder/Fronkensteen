@@ -162,7 +162,7 @@
     (fronkensteen-bottom-toolbar "#fronkensteen-page-control-bar"
       (topcoat-button-bar
       (<<
-        (fronkensteen-toolbar-button "#fronkensteen-page-save-button"  "save" "Save Workspace" "")
+        (fronkensteen-toolbar-button "#fronkensteen-page-save-world-button"  "save" "Save workspace as standalone HTML file" "")
         (fronkensteen-toolbar-button "#fronkensteen-page-home-button" "home" "Return to Main page" "")
         (fronkensteen-toolbar-button "#fronkensteen-page-edit-button"  "edit" "Edit Page" "")
         (fronkensteen-toolbar-button "#fronkensteen-page-history-button.page-history-button" "clock" "Show history" "")
@@ -176,7 +176,7 @@
         (fronkensteen-toolbar-button "#fronkensteen-page-docs-button" "book" "Documentation"  "")
         (fronkensteen-toolbar-button "#fronkensteen-page-trash-button" "trash" "Move to trash"  "")
         )))
-        (set-save-popover)
+    ;    (set-save-popover)
         (wire-ui)
     )
 
