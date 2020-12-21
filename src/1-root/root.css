@@ -56,7 +56,7 @@ footer{
   margin:0;
   padding:0;
   position:fixed;
-  top:140px;
+  /*top:140px; */
   left:0;
   right:0;
   overflow:hidden;
@@ -103,15 +103,4 @@ mark {
 .activeSearchResult {
   background-color:rebeccapurple;
   color:white;
-}
-@media print {
-    .noprint {
-        display: none;
-    }
-    .print {
-      display:block;
-      overflow:visible;
-      width:auto;
-      height:auto;
-    }
 }

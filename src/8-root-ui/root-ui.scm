@@ -121,12 +121,13 @@
         (dv "#fronkensteen-bottom-toolbar-container.topcoat-tab-bar" "")
         (dv "#fronkensteen-status-bar-container" "")
         (dv "#fronkensteen-search-bar-container" "")
-        (dv "#fronkensteen-content" "")
+        (dv "#fronkensteen-content.printable" "")
         (dv "#upload_download"
           (<<
           (a "#fronkensteen-download-link" "")
           (input "#fronkensteen-upload-element!type='file'"))
           )
+       (dv "#pageprint" "Hi")
    ))
   )
 
@@ -181,8 +182,14 @@
 
 
 (define (resize-content)
-  (let ((topbar-height (% "#fronkensteen-top-toolbar-container" "height"))
-        (bottombar-height (% "#fronkensteen-bottom-toolbar-container" "height"))
+  (let ((topbar-height
+      (if (eqv? (% "#fronkensteen-top-toolbar-container" "css" "display") "none")
+            0
+          (% "#fronkensteen-top-toolbar-container" "height")))
+        (bottombar-height
+          (if (eqv? (% "#fronkensteen-bottom-toolbar-container" "css" "display") "none")
+    0
+           (% "#fronkensteen-bottom-toolbar-container" "height")))
         (statusbar-height
           (if (eqv? (% "#fronkensteen-status-bar-container" "css" "display") "none")
               0

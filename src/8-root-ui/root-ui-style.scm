@@ -395,4 +395,9 @@
     "max-width" "50em"))
     (".rounded-list" (
     "max-width" "50em"))
+
+    ("#page-print" (
+      "display" "none"
+      "height" "auto"
+      ))
       )))
