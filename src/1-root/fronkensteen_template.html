@@ -308,6 +308,9 @@ Fronkensteen.handleLoadError = function(filename,error){
     let filenames = Object.keys(fronkensteen_fs).sort(naturalSort());
     for(var i = 0; i < filenames.length; i++){
         let filename = filenames[i];
+      if(filename.match(/^buildtools\//)){
+        continue;
+      }
       if(filename.match(/\.scm$/) !== null){
         schemeQueue.push(filename)
       }
