@@ -1,0 +1,18 @@
+@media print {
+   body * {display:none;}
+   .printable {
+   display:block;
+   position:relative;
+   background-color:white;
+   color:black;
+   height:auto;
+   overflow:visible;
+ }
+ .printable * {
+ display:block;
+ position:relative;
+ height:auto;
+ overflow:visible;
+}
+
+}
