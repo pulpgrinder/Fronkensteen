@@ -20,6 +20,13 @@ Fronkensteen.packageVersion = "0.1beta";
 });
 
 
+Fronkensteen.overwriteSystem = function(newHTML){
+      fronkensteen_fs = null;
+      document.open();
+      document.write(newHTML);
+      document.close();
+}
+
 Fronkensteen.isProcedure = function(envItem){
   if(typeof envItem === "function"){
     return true;
@@ -30,6 +37,14 @@ Fronkensteen.isProcedure = function(envItem){
   return false;
 }
 
+
+BiwaScheme.define_libfunc("overwrite-system", 2, 2, function(ar){
+  // Clears the error accumulator.
+  console.log("Restarting system from " + ar[0])
+  BiwaScheme.assert_string(ar[1]);
+  Fronkensteen.overwriteSystem(ar[1])
+
+});
 BiwaScheme.define_libfunc("clear-cumulative-errors", 0, 0, function(ar){
   // Clears the error accumulator.
   Fronkensteen.CumulativeErrors = [];

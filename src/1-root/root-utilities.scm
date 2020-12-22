@@ -27,9 +27,23 @@
 
 (define app-name "Fronkensteen")
 
-(define (set-app-name new-app-name)
+(define app-version "0.0.1")
+
+(define app-version-description "Wild Thing")
+
+(define (app-version-info)
+  (<< "Version " app-version " (\"" app-version-description "\")"))
+
+
+(define (set-app-version! version)
+  (set! app-version version))
+
+(define (set-app-version-description! version-description)
+  (set! app-version-description version-description))
+
+(define (set-app-name! new-app-name)
   (set! app-name new-app-name)
-  (set-html-app-name new-app-name))
+  (set-html-app-name! new-app-name))
 
 (define (get-versioned-file-name)
   (let ((current-file-name (window-location-basename-no-extension)))
@@ -68,5 +82,5 @@
   (if (eqv? template-lines '())
         ""
     (let ((template-line (str-trim (car template-lines))))
-      (cond ((eqv? template-line "$$$FILESYSTEM$$$") (<< "let fronkensteen_fs = " (get-internal-filesystem-json) "\n" (process-template-lines (cdr template-lines))))
+      (cond ((eqv? template-line "$$$FILESYSTEM$$$") (<< "fronkensteen_fs = " (get-internal-filesystem-json) "\n" (process-template-lines (cdr template-lines))))
           (#t (<< template-line "\n" (process-template-lines (cdr template-lines))))))))

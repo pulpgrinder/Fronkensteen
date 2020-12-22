@@ -6,7 +6,7 @@
 
 Fronkensteen.docroot =  document.location.href;
 
-BiwaScheme.define_libfunc("set-html-app-name", 1, 1, function(ar){
+BiwaScheme.define_libfunc("set-html-app-name!", 1, 1, function(ar){
  // Clear out local storage
    BiwaScheme.assert_string(ar[0])
    Fronkensteen.appName = ar[0];

@@ -6,7 +6,6 @@ const btoa  = require('btoa');
 let fronkensteen_fs = {}
 let source_folder =  __dirname + "/src/"
 console.log("Source folder is " + source_folder);
-write_fronkensteen_loader();
 write_buildtools();
 filewalker(source_folder,null,process_files);
 
@@ -24,33 +23,6 @@ function process_files(err,results){
 
   write_filesystem();
   write_html();
-}
-
-function write_fronkensteen_loader(){
-  let loader_folder =  __dirname + "/fronkensteenloader/"
-  console.log("Fronkensteen loader folder is " + loader_folder);
-  filewalker(loader_folder,null,process_loader_files);
-
-}
-
-function process_loader_files(err,results){
-  console.log("Copying Fronkensteen loader files...")
-  if(err !== null){
-    console.error("Fronkensteen loader copy error: " + err);
-    return;
-  }
-  for(var i = 0; i < results.length; i++){
-    process_loader_file(results[i]);
-  }
-}
-function process_loader_file(loaderfile){
-  console.log("copying " + loaderfile)
-  let loaderdata = fs.readFileSync(loaderfile);
-  let loaderout = loaderfile.replace("/fronkensteenloader/","/dist/");
-  fs.writeFileSync(loaderout,loaderdata,"binary");
-  let toolsout = loaderfile.replace(__dirname,"buildtools");
-  console.log("toolsout is " + toolsout)
-  fronkensteen_fs[toolsout] = {"timestamp": Date.now(),"data":btoa(loaderdata)};
 }
 
 function write_buildtools(){
@@ -115,7 +87,7 @@ function write_html(){
     }
     else{
       switch(template_line.trim()){
-        case "$$$FILESYSTEM$$$":   template_out = template_out + "let fronkensteen_fs=" + JSON.stringify(fronkensteen_fs)
+        case "$$$FILESYSTEM$$$":   template_out = template_out + "fronkensteen_fs=" + JSON.stringify(fronkensteen_fs)
               break;
         default: template_out = template_out + template_line + "\n"
               break;
