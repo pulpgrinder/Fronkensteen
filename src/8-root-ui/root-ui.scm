@@ -164,6 +164,7 @@
       (topcoat-button-bar
       (<<
         (fronkensteen-toolbar-button "#fronkensteen-page-save-world-button"  "save" "Save workspace as standalone HTML file" "")
+        (fronkensteen-toolbar-button "#fronkensteen-page-open-workspace-button"  "door-open" "Open a saved workspace" "")
         (fronkensteen-toolbar-button "#fronkensteen-page-home-button" "home" "Return to Main page" "")
         (fronkensteen-toolbar-button "#fronkensteen-page-edit-button"  "edit" "Edit Page" "")
         (fronkensteen-toolbar-button "#fronkensteen-page-history-button.page-history-button" "clock" "Show history" "")

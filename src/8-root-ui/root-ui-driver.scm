@@ -11,6 +11,8 @@
     ) 0.1)
     )
 
+(define (#fronkensteen-page-open-workspace-button_click)
+  (upload-file ".html" #f overwrite-system "text"))
 
 
 (define (#fronkensteen-nav-back_click)
