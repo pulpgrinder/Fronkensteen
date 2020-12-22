@@ -1,7 +1,7 @@
 ; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
 [h1 Welcome to Fronkensteen! h1]
 
-[b This is still at the "moving fast and breaking things" stage. Sharp corners are pretty much guaranteed to still be present. Report bugs on the [link https://github.com/pulpgrinder/Fronkensteen|Fronkensteen project page link]. b]
+[b Release [!scheme (app-version-info) scheme!] This is still at the "moving fast and breaking things" stage. Sharp corners are pretty much guaranteed to still be present. Report bugs on the [link https://github.com/pulpgrinder/Fronkensteen|Fronkensteen project page link]. b]
 
 [menu
 Kitchen Sink|"Kitchen sink" feature demo
@@ -12,17 +12,15 @@ menu]
 
 [h2 What is Fronkensteen? h2]
 
-It's a self-contained, fully-programmable system for building web apps using a wiki-like model. Everything is in one HTML file, which will work in any full-featured modern browser.[note i.e. not Internet Explorer or non-Chromium Microsoft Edge. Sorry. Currently supported browsers include: desktop versions of Firefox, Chrome, Safari, Opera, Brave, and the new Chromium-based Microsoft Edge, as well as mobile Safari. It [b may b] work in other browsers, but those are the ones in which it is tested. note]
+It's a self-contained, fully-programmable system for building apps using a wiki-like model. Everything is in one HTML file, which will work in any full-featured modern browser. [note Currently supported desktop browsers include: [b up-to-date b] versions of Firefox, Chrome, Safari, Opera, Brave, and Chromium-based Microsoft Edge. Currently supported mobile browsers include: [b up-to-date b] versions of mobile Safari for iOS and Google Chrome for Android. Internet Explorer and non-Chromium Microsoft Edge are not supported. Sorry. Fronkensteen [b may b] work in other browsers, but these are the platforms on which it is tested. note]
 
-Fronkensteen will work fine when loaded from a local disk. You do not need a server of any kind. A Fronkensteen app can be copied onto a thumb drive, emailed to someone else, used inside a native app framework such as Electron or Cordova... use your imagination. It's just a file, dude! You can even put it on a web server if you wish.
+Fronkensteen will work fine when loaded from a local drive. You do not need a server of any kind. A Fronkensteen app can be copied onto a thumb drive, emailed to someone else, used inside a native app framework such as Electron or Cordova... use your imagination. It's just a file, dude! You can even put it on a web server if you wish.
 
 [h2 Why? h2]
 
 In Ancient Times, you could just sit down at a computer, write some code, run it, debug it, and save it for future use. No external editors. No toolchains. No servers. It was incredibly liberating and low-friction. Sadly, those days appeared to be gone forever. The closest modern equivalent would probably be JavaScript (built into every modern browser). Unfortunately JavaScript, though powerful and ubiquitous, is never going to win any beauty contests. Working with JavaScript also requires an external editor, and perhaps even a running web server (if you want to dynamically load resources). Not ideal. Fronkensteen is entirely contained in a single file. There's [i nothing i] extra to install for basic use.
 
 [h2 Where Do I Get It? h2]
-
-#hashtag
 
 You're soaking in it! This page itself is a running Fronkensteen app.
 Clicking the [icon save icon] icon at the top of this page will generate a full Fronkensteen workspace from the actual system you're looking at, including any changes you might've made to the app pages and/or code (see below), and save it as an HTML file on your local disk.[note If you want the source code, you can find that in the [link https://github.com/pulpgrinder/Fronkensteen|GitHub repository link], but that's not at all necessary for normal use. note]

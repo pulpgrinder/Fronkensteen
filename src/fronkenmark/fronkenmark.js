@@ -53,6 +53,11 @@ Fronkenmark.processCodeBlocks = function(text){
           outlines.push(Fronkenmark.installSubstitute ("<code>" +  singlematch[1].trim() + "</code>") + singlematch[2]);
           continue;
       }
+      let altmatch =  line.match(/^\[altcode (.*) altcode\](.*)/);
+      if(altmatch !== null){
+          outlines.push(Fronkenmark.installSubstitute ("<code>" +  altmatch[1].trim() + "</code>") + altmatch[2]);
+          continue;
+      }
       let match = line.match(/^\[code(.*)/);
       if(match !== null){
         Fronkenmark.currentLanguage = match[1].trim();

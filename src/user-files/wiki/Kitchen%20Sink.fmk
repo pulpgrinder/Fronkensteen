@@ -14,7 +14,7 @@ Edit this page to see the code that produces the given effects.
 [h3 Empasized h3]
 [em Emphasized text. em] (same as italic, by default)
 
-[h3 strong h3]
+[h3 Strong h3]
 [strong Strong text. strong] (same as bold, by default)
 
 [h3 Headings h3]
@@ -44,6 +44,29 @@ H[sub 2 sub]O
 U+03EA U+0561 U+2615 U+265E
 
 U+16EDU+16ABU+16B1U+16E6U+16B1U+16C1U+16A2U+16A0U+16DAU+16CFU+16E6U+16B1U+16C1U+16A2U+16B1U+16C1U+16A6U+16A9U+16BEU+16B7U+16DAU+16ABU+16CBU+16CFU+16ABU+16C8U+16A9U+16BEU+16CFU+16ABU+16BF
+
+[h3 Source Code h3]
+
+You may format text as source code either inline [code x = 3; code] or as a code block:
+
+[code
+
+(define (square x)
+  (* x x))
+
+code]
+
+Optionally, you may specify a language for a code block to ensure proper syntax highlighting (the default is [code scheme code]; the example below uses [code javascript code]):
+
+[code javascript
+
+function hello(){
+	alert("Hello, world!");
+}
+
+code]
+
+Prism.js, the syntax highlighter used by Fronkensteen, supports coloring for many common languages. See the documentation for [link https://prismjs.com/index.html|Prism.js link] for a full list.
 
 [h3 Internal wiki link h3]
 [link Main link]

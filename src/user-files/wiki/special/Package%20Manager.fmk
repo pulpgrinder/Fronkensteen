@@ -35,7 +35,7 @@ It is written in Scheme. Edit the page to see the source code.
         (save-package-files package-name (<< package-name "-" (file-version-time-stamp) ".json") "application/json" ))))
 
 (define (#package-import-button_click)
-    (upload-file ".json" #f package-file-uploaded))
+    (upload-file ".json" #f package-file-uploaded "data"))
 
 (define (package-file-uploaded filename data)
   (install-package data)

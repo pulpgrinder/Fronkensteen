@@ -4,7 +4,7 @@
 // MIT License.
 
 
-Fronkensteen.uploadFile = function(type,multiple,proc){
+Fronkensteen.uploadFile = function(type,multiple,proc,format){
   let uploader = $("#fronkensteen-upload-element");
   if(type !== false){
     uploader.attr('accept', type);
@@ -31,13 +31,20 @@ Fronkensteen.uploadFile = function(type,multiple,proc){
           intp2.invoke_closure(proc, [filename, evt.target.result]);
         };
       })(curFiles[i].name);
-      reader.readAsDataURL(curFiles[i]);
+      if(format === "data"){
+        reader.readAsDataURL(curFiles[i]);
+      }
+      else if (format === "text"){
+        reader.readAsText(curFiles[i]);
+      }
+      else {
+        console.log("Fronkensteen.uploadFile: unrecognized format requested: " + format);
+      }
     }
   })
 }
 
 Fronkensteen.downloadFile = function(filename,data,mime_type){
-  console.log("Downloading blob")
   let element = document.createElement('a')
   //let element = document.getElementById("fronkensteen-download-link");
 /*  if(element.href !== undefined){
@@ -58,7 +65,6 @@ Fronkensteen.downloadFile = function(filename,data,mime_type){
 
 
 Fronkensteen.downloadInternalFile = function(filename){
-  console.log("Downloading internal file: " + filename)
   let element = document.createElement('a');
 //  let element = document.getElementById("fronkensteen-download-link");
 /*  if(element.href !== undefined){
@@ -81,8 +87,8 @@ Fronkensteen.downloadInternalFile = function(filename){
 }
 
 
-BiwaScheme.define_libfunc("upload-file", 3, 3, function(ar, intp){
-  let result = Fronkensteen.uploadFile(ar[0],ar[1],ar[2]);
+BiwaScheme.define_libfunc("upload-file", 4, 4, function(ar, intp){
+  let result = Fronkensteen.uploadFile(ar[0],ar[1],ar[2],ar[3]);
   setTimeout(function(){$("#fronkensteen-upload-element").click()},20);
   return result;
 });

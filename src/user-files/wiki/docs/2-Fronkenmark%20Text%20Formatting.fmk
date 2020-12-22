@@ -8,7 +8,7 @@ Markdown is great for simple markup, but rapidly becomes confusing as more featu
 
 If you want to see these tags in operation, check out the [link Kitchen Sink link] page.
 
-[h2 Text formatting h2]
+[h2 Inline text formatting h2]
 
 [code [i text i] code] Italic text.
 
@@ -32,6 +32,7 @@ If you want to see these tags in operation, check out the [link Kitchen Sink lin
 
 [code [sc text sc] code] Format text using small caps.
 
+[code &#91;code text code&#93; code] Format text as source code.
 
 [h2 Links h2]
 [code [link Some Wiki Page link] code] Link to the page named "Some Wiki Page".
@@ -56,6 +57,16 @@ If you want to see these tags in operation, check out the [link Kitchen Sink lin
 [code [ph text ph] code] Format text as a paragraph with "hanging indents".
 
 [code [poetry text poetry] code] Format text as poetry (line breaks and spacing are passed through verbatim, but typographic quotes are used).
+
+
+[altcode [code language altcode]
+[code
+(sourcecode)
+code]
+[altcode code] altcode]
+
+
+Format contents as source code, highlighting it according to the rules for the given language. If the language is not supplied, the default is [code scheme code]. Other possibilities include [code javascript code], [code html code], [code css code], and many others. See the documentation for [link https://prismjs.com/index.html|Prism.js link] for a full list.
 
 [h2 Lists h2]
 [code [ul text ul] code] Format text as an unordered (bulleted) list. The text should consist of the list items, one item per line.

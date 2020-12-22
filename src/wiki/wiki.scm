@@ -181,15 +181,16 @@
     (save-wiki-file (<< "media/" filename) data)
     (if (is-image-file? extension)
       (save-wiki-file (<< "images/" filename) data)
-      (save-wiki-file filename data)))))
+      (save-wiki-file filename data))))
+(fronkensteen-toast (<< filename " uploaded") "c" "c" 2))
 
 (define (save-wiki-file filename data)
    (let ((path (wiki-data-path filename)))
       (write-data-url-to-internal-file path data)))
 
 
-(define (#fronkensteen-wiki-import-file-button_click)
-    (upload-file ".png,.jpg,.gif,.svg,.mp3,.mp4,.m4v,.scm,.txt,.fmk,.md" #t wiki-file-uploaded))
+(define (#fronkensteen-page-import-file-button_click)
+    (upload-file ".png,.jpg,.gif,.svg,.mp3,.mp4,.m4v,.scm,.txt,.fmk,.md" #t wiki-file-uploaded "data"))
 
 
 (define (process-wiki-documentation)
