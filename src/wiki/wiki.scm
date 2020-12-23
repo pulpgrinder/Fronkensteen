@@ -25,7 +25,7 @@
       (run-wiki-search))
     ))
 
-(define (#fronkensteen-page-refresh-button_click ev)
+(define (#fronkensteen-page-refresh-button_click)
     (make-page-dirty (get-tos-page-id))
     (display-wiki-page (get-tos-page-title)))
 
@@ -60,19 +60,20 @@
       (make-page-dirty content-id)))
 
 (define (display-wiki-content title wikidata)
-      (fronkenmark-set-source-file title)
+      (fronkenmark-set-source-file (wiki-data-path title))
       (let ((content-id (<< "#id-" (encode-base-32 (wiki-data-path title)))))
       (let ((wrapper-id (<< content-id "-wrapper")))
       (fix-uncacheable title content-id)
       (remove-dirty-pages fronkensteen-dirty-pages)
       (if (not (element-exists? wrapper-id))
         (begin
-          (% "#fronkensteen-content" "append"  (dv (<< wrapper-id  ".fronkensteen-page-wrapper") ""))
+          (% "#fronkensteen-content" "append"  (dv (<< wrapper-id  ".fronkensteen-page-wrapper!tabindex='-1'") ""))
           (render-wiki-content wrapper-id wikidata)
           (process-wiki-links wrapper-id)
         ))
       (add-page-history title "wiki-page" content-id)
       (display-history-tos)
+      (% wrapper-id "focus")
       )))
 
 (define (process-wiki-links content-id)
@@ -104,7 +105,7 @@
 ;;;;;!
 
 (define (exec-wiki-page title)
-  (fronkenmark-set-source-file title)
+  (fronkenmark-set-source-file (wiki-data-path title))
   (let ((wikidata (retrieve-wiki-data title)))
     (if (eq? wikidata #f)
         (console-error (<< "Error retrieving wiki page: " title))
