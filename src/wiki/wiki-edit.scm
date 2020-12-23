@@ -76,8 +76,7 @@
       (#fronkensteen-editor-save-button_click)
       (fronkensteen-wiki-editor-close-file)
       (if (is-wiki-path? resource-path)
-        (display-wiki-page new-title))
-  )))
+        (display-wiki-page new-title)))))
 
   (define (#fronkensteen-editor-save-button_click)
       (let ((editor-id (get-tos-page-id)))
