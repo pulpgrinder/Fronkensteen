@@ -114,3 +114,17 @@
   (if (not (eqv? (get-tos-page-id) #f))
     (cm-editor-eval-js-selection! (get-tos-page-id))
   ))
+
+(define (.lambda-procsource-button_click)
+  (if (not (eqv? (get-tos-page-id) #f))
+    (let ((procname (cm-editor-get-selected-text (get-tos-page-id))))
+      (if (eqv? procname "")
+        (alert "Nothing selected.")
+        (show-source-code procname)))))
+
+(define (.lambda-procdoc-button_click)
+  (if (not (eqv? (get-tos-page-id) #f))
+  (let ((procname (cm-editor-get-selected-text (get-tos-page-id))))
+    (if (eqv? procname "")
+        (alert "Nothing selected.")
+        (lambda-show-proc-doc procname))))
