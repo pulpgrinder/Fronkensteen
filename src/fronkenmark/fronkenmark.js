@@ -253,7 +253,7 @@ Fronkenmark.processParagraph = function(text){
 Fronkenmark.processScripts  = function(text,trusted){
  text = text.replace(/\[!([a-zA-Z][a-zA-Z0-9]*)[\s]([\s\S]*?)[\s]\1!\]/gm,function(match,tag,code) {
       if(Fronkenmark.preScripts[tag] !== undefined){
-          return Fronkenmark.preScripts[tag](code,trusted);
+          return Fronkenmark.preScripts[tag](text,code,trusted);
       }
       else {
         return "No handler defined for prescript type: [!" + tag;

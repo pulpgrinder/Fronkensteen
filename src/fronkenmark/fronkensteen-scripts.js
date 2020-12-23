@@ -11,7 +11,7 @@ Fronkenmark.resetCounter = function(countername){
 Fronkenmark.resetCounters = function(){
   Fronkenmark.counters = {}
 }
-Fronkenmark.preScripts["latex"] = function(code,trusted){
+Fronkenmark.preScripts["latex"] = function(text,code,trusted){
 
   // We let MathJax run regardless of trusted status. Think about this.
       let id = "renderedlatex" + Fronkensteen.no_dash_uuid();
@@ -26,26 +26,26 @@ Fronkenmark.preScripts["latex"] = function(code,trusted){
 }
 
 
-Fronkenmark.preScripts["scheme"] = function(code,trusted){
+Fronkenmark.preScripts["scheme"] = function(text,code,trusted){
   // Scheme should only be allowed to run on trusted input.
    if(trusted === true){
-    return Fronkenmark.processScheme(code);
+    return Fronkenmark.processScheme(text,code);
    }
    else {
      return "(Scheme scripts are not allowed in untrusted contexts)";
    }
 }
-Fronkenmark.preScripts["javascript"] = Fronkenmark.preScripts["js"] = function(code,trusted){
+Fronkenmark.preScripts["javascript"] = Fronkenmark.preScripts["js"] = function(text,code,trusted){
   // Javascript should only be allowed to run on trusted input.
      if(trusted === true){
-      return Fronkenmark.processJavascript(code);
+      return Fronkenmark.processJavascript(text,code);
      }
      else{
        return "(JavaScript is not allowed in untrusted contexts)";
      }
 }
 
-Fronkenmark.preScripts["include"] = Fronkenmark.preScripts["js"] = function(code,trusted){
+Fronkenmark.preScripts["include"] = Fronkenmark.preScripts["js"] = function(text,code,trusted){
   // include should only be allowed to run on trusted input.
      if(trusted === true){
       return Fronkenmark.processInclude(code);
@@ -55,14 +55,14 @@ Fronkenmark.preScripts["include"] = Fronkenmark.preScripts["js"] = function(code
      }
 }
 
-Fronkenmark.processJavascript = function(code){
+Fronkenmark.processJavascript = function(text,code){
   let result;
   let sourcefile = Fronkenmark.sourceFile;
   if(sourcefile === ""){
     sourcefile = "(unavailable)"
   }
   try{
-      Fronkensteen.parseJSProcedureDefs(sourcefile, code)
+      Fronkensteen.parseJSProcedureDefs(sourcefile, text)
       result = eval.call(window, code)
     }
     catch(err){
@@ -75,14 +75,15 @@ Fronkenmark.processJavascript = function(code){
   return Fronkenmark.installSubstitute(result);
 }
 
-Fronkenmark.processScheme = function(code){
+Fronkenmark.processScheme = function(text,code){
   Fronkensteen.CumulativeErrors = [];
   let expr = Fronkensteen.renderREPLTemplate(code);
   let sourcefile = Fronkenmark.sourceFile;
+  console.log("Processing Scheme for " + sourcefile)
   if(sourcefile === ""){
     sourcefile = "(unavailable)"
   }
-  Fronkensteen.parseSchemeProcedureDefs(sourcefile,expr)
+  Fronkensteen.parseSchemeProcedureDefs(sourcefile,text)
   var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
   let result = intp2.evaluate(expr);
   if(Fronkensteen.CumulativeErrors.length !== 0){
