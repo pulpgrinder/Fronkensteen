@@ -14,10 +14,16 @@
     (<< (li ( << ".round-list-item.untrash-item!filename='" filename "'") (decode-uri filename))
         (render-trashes (cdr trashlist))))))
 
+(define (#empty-trash_click)
+  (empty-trash)
+  (#fronkensteen-page-refresh-button_click))
+
+  
   (let ((trashes (vector->list (collect-trash))))
     (if (eqv? (length trashes) 0)
         "(nothing in the trash at the moment)"
         (<<
+        (button "#empty-trash" "Empty Trash")
         (dv "Click any trash item to restore it:")
         (ul ".round-list" (render-trashes trashes)))))
 scheme!]
