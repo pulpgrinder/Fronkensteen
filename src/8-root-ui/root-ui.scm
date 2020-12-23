@@ -146,7 +146,7 @@
         (topcoat-navigation-bar-item "#fronkensteen-nav-back.fronkensteen-nav.left" (fa-icon "" "chevron-left" ""))
         (topcoat-navigation-bar-item  "#fronkensteen-page-title-wrapper" (<<
             (topcoat-navigation-bar-title "#fronkensteen-page-title" "")
-            (input "#fronkensteen-editor-page-title.topcoat-text-input!type='text'!size='30'")
+            (input "#fronkensteen-editor-page-title.topcoat-text-input!type='text'!size='50'")
             ))
         (topcoat-navigation-bar-item "#fronkensteen-nav-forward.fronkensteen-nav.right" (fa-icon "" "chevron-right" "")))))
 
