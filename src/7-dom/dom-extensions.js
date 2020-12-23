@@ -275,3 +275,14 @@ BiwaScheme.define_libfunc("scroll-element-into-view", 1, 1, function(ar,intp){
   // Scrolls to the element in ar[0], if it exists.
   $(ar[0])[0].scrollIntoView();
 });
+BiwaScheme.define_libfunc("get-selected-text", 0, 0, function(ar,intp){
+  if (window.getSelection) {
+    return  window.getSelection() + "";
+  }
+  else if (document.getSelection){
+    return document.getSelection() + "";
+  }
+  else if (document.selection){
+    return document.selection.createRange().text;
+  }
+})
