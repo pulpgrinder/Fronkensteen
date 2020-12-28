@@ -3,6 +3,19 @@
 // Copyright 2018-2019 by Anthony W. Hursh
 // MIT License.
 
+// Handle tab keys in textareas.
+$("textarea").keydown(function(e) {
+    if(e.keyCode === 9) {
+        var start = this.selectionStart;
+            end = this.selectionEnd;
+        var $this = $(this);
+        $this.val($this.val().substring(0, start)
+                    + "    "
+                    + $this.val().substring(end));
+        this.selectionStart = this.selectionEnd = start + 1;
+        return false;
+    }
+});
 
 Fronkensteen.packageVersion = "0.1beta";
 
@@ -199,14 +212,16 @@ BiwaScheme.define_libfunc("repl-here", 1, 1, function(ar){
   }
 
 
-  Fronkensteen.debouncer = function(func , timeout) {
-     var timeoutID , timeout = timeout || 200;
-     return function () {
-        var scope = this , args = arguments;
-        clearTimeout( timeoutID );
-        timeoutID = setTimeout( function () {
-            func.apply( scope , Array.prototype.slice.call( args ) );
-        } , timeout );
+  Fronkensteen.debouncer = function(func, timeout) {
+     var timeoutID;
+     var timeout = timeout || 200;
+     return function(){
+        var scope = this;
+        var args = arguments;
+        clearTimeout(timeoutID);
+        timeoutID = setTimeout(function(){
+            func.apply(scope, Array.prototype.slice.call(args));
+        },timeout);
      }
   }
 

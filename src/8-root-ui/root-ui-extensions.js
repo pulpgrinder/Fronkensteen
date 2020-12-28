@@ -58,48 +58,30 @@ BiwaScheme.define_libfunc("display-toast",4,4,function(ar){
   })
 });
 
-BiwaScheme.define_libfunc("set-draggable!", 1,1,function(ar){
+
+BiwaScheme.define_libfunc("set-draggable!", 1,3,function(ar){
   BiwaScheme.assert_string(ar[0]);
-  let options = JSON.parse(ar[0]);
-  let element = $(options["element"])[0];
-  let saveup = document.onmouseup;
-  let savemove = document.onmousemove;
-  let endx = 0, endy = 0, startx = 0, starty = 0;
-  let dragitem;
-  if(options["dragitem"] !== undefined){
-    dragitem = $(options["dragitem"])[0];
+  let element = ar[0];
+  let handleelement;
+  if((ar.length > 1) && (ar[1] !== "self")){
+    BiwaScheme.assert_string(ar[1]);
+    handleelement = ar[1];
+      var $draggable = $(element).draggabilly({
+        handle:handleelement
+      })
   }
   else {
-    dragitem = element;
+      var $draggable = $(element).draggabilly({
+      })
   }
-  if(options["closebutton"] !== undefined){
-    let closebutton = $(options["closebutton"])[0];
-    closebutton.onclick = function(e){
-      document.onmouseup = saveup;
-      document.onmousemove = savemove;
-      $(options["element"]).remove();
-    }
+
+
+  if(ar.length > 2){
+    BiwaScheme.assert_string(ar[2]);
+    let closebutton = ar[2];
+    $(closebutton).click(function(){
+      $draggable.draggabilly("destroy")
+      $(element).remove();
+  })
   }
-  dragitem.onmousedown = function(e){
-      e.preventDefault();
-      let startx = e.clientX;
-      let starty = e.clientY;
-      document.onmouseup = function(e){
-        e.preventDefault();
-        document.onmouseup = saveup;
-        document.onmousemove = savemove;
-        return true;
-      };
-    document.onmousemove = function(e){
-      e.preventDefault();
-      endx = startx - e.clientX;
-      endy = starty - e.clientY;
-      startx = e.clientX;
-      starty = e.clientY;
-      element.style.top = (element.offsetTop - endy) + "px";
-      element.style.left = (element.offsetLeft - endx) + "px";
-      return true;
-    };
-    return true;
-  }
-})
+});

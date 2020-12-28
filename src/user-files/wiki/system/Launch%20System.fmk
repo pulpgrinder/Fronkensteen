@@ -2,7 +2,6 @@ This page contains the Scheme code that will be run at system launch. You can ed
 [!scheme
 (resize-content)
 (process-wiki-documentation)
-;(init-wiki-viewer)
 ; Remote debugging
 (if (not (js-null? (url-params "remote-app")))
   (begin

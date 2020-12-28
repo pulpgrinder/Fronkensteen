@@ -1,17 +1,12 @@
 ; Documentation for Scheme procedures.
-; Normally accessed through the programming tools.
-; You probably shouldn't edit this by hand, though you
-; can if you're brave. The format is:7
+; The format is:
 ;procedure name
 ;procedure signature
 ;description (can be multiple lines)
 ;§
 ;(blank line)
 ;
-Dont-Mess-With-This
-(unless you know what you're doing)
-
-This data is used by the internal Scheme documentation system. You probably should not edit this file directly unless you're really sure you know what you're doing (or you're brave). If either of those is true, edit the page and follow the instructions in the comments.
+This data is used by the internal Scheme documentation system. It's not intended for direct viewing.
 
 §
 
@@ -561,72 +556,100 @@ bytes-to-base-64-image
 §
 
 caaaar
-(caaaar args)
+(caaaar arg)
+
+Returns (car (car (car (car arg))))
 
 §
 
 caaadr
-(caaadr args)
+(caaadr arg)
+
+Returns (car (car (car (cdr arg))))
 
 §
 
 caaar
-(caaar args)
+(caaar arg)
+
+Returns (car (car (car arg)))
 
 §
 
 caadar
-(caadar args)
+(caadar arg)
+
+Returns (car (car (cdr (car arg))))
 
 §
 
 caaddr
-(caaddr args)
+(caaddr arg)
+
+Returns (car (car (cdr (cdr arg))))
 
 §
 
 caadr
-(caadr args)
+(caadr arg)
+
+Returns (car (car (cdr arg)))
 
 §
 
 caar
-(caar args)
+(caar arg)
+
+Returns (car (car (car arg)))
 
 §
 
 cadaar
-(cadaar args)
+(cadaar arg)
+
+Returns (car (cdr (car (car arg))))
 
 §
 
 cadadr
-(cadadr args)
+(cadadr arg)
+
+Returns (car (cdr (car (cdr arg))))
 
 §
 
 cadar
-(cadar args)
+(cadar arg)
+
+Returns (car (cdr (car arg)))
 
 §
 
 caddar
-(caddar args)
+(caddar arg)
+
+Returns (car (cdr (cdr (car arg))))
 
 §
 
 cadddr
-(cadddr args)
+(cadddr arg)
+
+Returns (car (cdr (cdr (cdr arg))))
 
 §
 
 caddr
-(caddr args)
+(caddr arg)
+
+Returns (car (cdr (cdr arg)))
 
 §
 
 cadr
-(cadr args)
+(cadr arg)
+
+Returns  (car (cdr arg)))
 
 §
 
@@ -669,77 +692,108 @@ case-search
 §
 
 cdaaar
-(cdaaar args)
+(cdaaar arg)
+
+Returns (cdr (car (car (car arg))))
 
 §
 
 cdaadr
-(cdaadr args)
+(cdaadr arg)
+
+Returns (cdr (car (car (cdr arg))))
 
 §
 
 cdaar
-(cdaar args)
+(cdaar arg)
+
+Returns  (cdr (car (car arg)))
 
 §
 
 cdadar
-(cdadar args)
+(cdadar arg)
+
+Returns (cdr (car (cdr (car arg))))
 
 §
 
 cdaddr
-(cdaddr args)
+(cdaddr arg)
+
+Returns (cdr (car (cdr (cdr arg))))
 
 §
 
 cdadr
-(cdadr args)
+(cdadr arg)
+
+Returns (cdr (car (cdr arg)))
 
 §
 
 cdar
-(cdar args)
+(cdar arg)
+
+Returns (cdr (car arg))
 
 §
 
 cddaar
-(cddaar args)
+(cddaar arg)
+
+Returns (cdr (cdr (car (car arg))))
 
 §
 
 cddadr
-(cddadr args)
+(cddadr arg)
+
+Returns (cdr (cdr (car (cdr arg))))
 
 §
 
 cddar
-(cddar args)
+(cddar arg)
+
+Returns (cdr (cdr (car arg)))
 
 §
 
 cdddar
-(cdddar args)
+(cdddar arg)
+
+Returns (cdr (cdr (cdr (car arg))))
 
 §
 
 cddddr
-(cddddr args)
+(cddddr arg)
+
+Returns (cdr (cdr (cdr (cdr arg))))
 
 §
 
 cdddr
-(cdddr args)
+(cdddr arg)
+
+Returns (cdr (cdr (cdr arg)))
+
 
 §
 
 cddr
-(cddr args)
+(cddr arg)
+
+Returns (cdr (cdr arg))
 
 §
 
 cdr
-(cdr args)
+(cdr pair)
+
+Given a pair (which may be a list or a dotted pair), cdr returns the result of removing the first item from the pair. If car produces the first item in the pair, cdr produces the "rest" of the pair, with the first item removed.
 
 §
 

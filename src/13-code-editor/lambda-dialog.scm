@@ -7,7 +7,7 @@
           (dv "#lambda-proc-search"
           (<<
             (span "!style='font-size:125%;'" "Procedure lookup:&nbsp;")
-            (input "#lambda-proc-lookup.topcoat-text-input!type='text'!size='20'"))
+            (input "#lambda-proc-lookup.topcoat-text-input!type='text'!size='20'!autocorrect='off'!autocapitalize='none'"))
         )
          (dv "#lambda-proc-display-wrapper" (dv "#lambda-proc-display" "")))
      "30em" "27em")
@@ -28,7 +28,8 @@
             (<<
               (dv
                 (<<
-                  (fronkensteen-toolbar-text-button (<< "#" encoded-proc-name "-update-button.procdoc-update-button" "!procname='" procname "'") "Write updated documentation to database" "Update docs") (fronkensteen-toolbar-text-button (<< "#" encoded-proc-name "-source-button.procdoc-source-button" "!procname='" procname "'") "Show the source code for this procedure" "Show source")))
+                  (button (<< "#" encoded-proc-name "-update-button.procdoc-update-button" "!procname='" procname "'!title='Write updated documentation to database'") "Update docs")
+                  (button (<< "#" encoded-proc-name "-source-button.procdoc-source-button" "!procname='" procname "'!title='" "Show the source code for this procedure" "'") "Show source")))
               (dv
                 (textarea (<< textarea-name "!rows='20'!cols='80'") ""))))
             (% textarea-name "val" (retrieve-procedure-documentation procname))

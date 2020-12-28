@@ -87,7 +87,7 @@ Format contents as source code, highlighting it according to the rules for the g
 
 [code [scenebreak text scenebreak] code] Insert a scene break, with text centered on a line by itself.
 
-[code [pagebreak] code] Insert a forced page break at this point. Has no effect on a normal web screen, primarily useful for formatting ebooks.
+[code [pagebreak] code] Insert a forced page break at this point. Has no effect on a normal web screen, primarily useful for printing or formatting ebooks.
 
 [code [dropcap text dropcap] code] Formats the first character of text as a drop cap. Any additional characters in text will be formatted as small capitals.
 
@@ -156,6 +156,12 @@ produces a chess symbol, U+265E. Of course, it's nearly impossible to include ev
 Here's a phrase in Anglo-Saxon runes:
 
 U+16EDU+16ABU+16B1U+16E6U+16B1U+16C1U+16A2U+16A0U+16DAU+16CFU+16E6U+16B1U+16C1U+16A2U+16B1U+16C1U+16A6U+16A9U+16BEU+16B7U+16DAU+16ABU+16CBU+16CFU+16ABU+16C8U+16A9U+16BEU+16CFU+16ABU+16BF
+
+[h3 Icons h3]
+
+[code [icon icon-name icon] code] inserts the icon with the given name.
+
+See [link special/List of Icons|List of Icons link] for a list of available icons
 
 [h2 Multimedia Tags h2]
 

@@ -64,7 +64,6 @@
         (".fronkensteen-dialog-body" (
           "position" "absolute"
           "top" "2em"
-          "bottom" "0"
           "left" "0"
           "right" "0"
           "background-color" "#fff"

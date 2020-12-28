@@ -240,6 +240,7 @@ BiwaScheme.define_libfunc("write-to-clipboard!", 1, 1, function(ar){
       })});
 
 BiwaScheme.define_libfunc("url-params",1,1,function(ar){
+   let urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(ar[0]);
 })
 

@@ -33,7 +33,7 @@
               (span (<< id "-close-button.fronkensteen-dialog-button.icon") (i ".fas.fa-times-circle" ""))
               ))
           (dv (<< id "-body.fronkensteen-dialog-body") (dv (<< id "-content.fronkensteen-dialog-content") text)))))
-  (set-draggable! (scheme->json `(("element" . ,id) ("dragitem" . ,(<< id "-titlebar")) ("closebutton" . ,(<< id "-close-button")) ("width" . ,width) (height . ,height))))
+  (set-draggable! id (<< id "-titlebar") (<< id "-close-button"))
   (center-element id)
   (wire-ui))))
 
@@ -146,7 +146,7 @@
         (topcoat-navigation-bar-item "#fronkensteen-nav-back.fronkensteen-nav.left" (fa-icon "" "chevron-left" ""))
         (topcoat-navigation-bar-item  "#fronkensteen-page-title-wrapper" (<<
             (topcoat-navigation-bar-title "#fronkensteen-page-title" "")
-            (input "#fronkensteen-editor-page-title.topcoat-text-input!type='text'!size='50'")
+            (input "#fronkensteen-editor-page-title.topcoat-text-input!type='text'!size='50'!autocorrect='off'!autocapitalize='none'")
             ))
         (topcoat-navigation-bar-item "#fronkensteen-nav-forward.fronkensteen-nav.right" (fa-icon "" "chevron-right" "")))))
 
@@ -159,6 +159,25 @@
     (fa-icon "" icon-name text)))
 
 
+(define (generate-page-toolbar-popovers)
+  (set-popover "#fronkensteen-page-save-world-button"
+    (topcoat-button-bar
+    (<<
+      (fronkensteen-toolbar-button "#fronkensteen-page-save-workspace-button" "" "Save entire system workspace image" "Workspace")
+      (fronkensteen-toolbar-button "#fronkensteen-page-save-wiki-button" "" "Save only wiki pages" "Wiki only")
+
+      ))
+      "bottom" (scheme->json '(("dismissable" . #t))))
+  (set-popover "#fronkensteen-page-open-workspace-button"
+    (topcoat-button-bar
+    (<<
+      (fronkensteen-toolbar-button "#fronkensteen-page-load-workspace-button" "" "Load entire system workspace image" "Workspace")
+      (fronkensteen-toolbar-button "#fronkensteen-page-load-wiki-button" "" "Load wiki pages" "Wiki only")
+
+      ))
+      "bottom" (scheme->json '(("dismissable" . #t))))
+  (wire-ui)
+)
 (define (generate-page-toolbar)
     (fronkensteen-bottom-toolbar "#fronkensteen-page-control-bar"
       (topcoat-button-bar
@@ -172,7 +191,7 @@
         (fronkensteen-toolbar-button "#fronkensteen-page-search-button.wiki-search" "search" "Search" "")
         (fronkensteen-toolbar-button "#fronkensteen-page-new-page-button" "plus" "Create a new page"  "")
          (fronkensteen-toolbar-button "#fronkensteen-page-incoming-links-button" "hand-point-right" "What links here?" "")
-        (fronkensteen-toolbar-button "#fronkensteen-page-lambda-button" "" "Programming tools" "λ")
+        (fronkensteen-toolbar-button "#fronkensteen-page-lambda-button.lambda-repl-button" "" "Programming tools" "λ")
         (fronkensteen-toolbar-button "#fronkensteen-page-import-file-button" "upload" "Import media file"  "")
         (fronkensteen-toolbar-button "#fronkensteen-page-special-button" "gift" "Special pages"  "")
         (fronkensteen-toolbar-button "#fronkensteen-page-docs-button" "book" "Documentation"  "")

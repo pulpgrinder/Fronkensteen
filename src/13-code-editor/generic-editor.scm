@@ -31,9 +31,12 @@
           (if (is-text-file? extension)
           (begin
               (% "#fronkensteen-content" "append" (dv (<< id "-wrapper" ".fronkensteen-page-wrapper!tabindex='-1'") (dv (<< id "-body.wiki-editor.wiki-content")
-            (textarea (<< id "!rows='25'!cols='80'") "") )))
+            (textarea (<< id ".code-editor!rows='25'!cols='80'") "") )))
             (activate-generic-text-editor id))
-            (alert "Sorry, no editor for this file type at this time. Contributions welcome!"))))))
+            (alert "Sorry, no editor for this file type at this time. Contributions welcome!")))))
+            (wire-ui)
+            )
+
 
 (define (activate-generic-text-editor id)
   (let ((extension (file-extension (get-generic-editor-resource-path id))))

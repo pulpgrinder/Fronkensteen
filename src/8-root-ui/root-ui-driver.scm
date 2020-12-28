@@ -1,19 +1,21 @@
 
-(define (#fronkensteen-page-save-button_click)
-  (toggle-popover "#fronkensteen-page-save-button")
+(define (#fronkensteen-page-save-world-button_click)
+  (toggle-popover "#fronkensteen-page-save-world-button")
+  (wire-ui))
+
+(define (#fronkensteen-page-open-workspace-button_click)
+  (toggle-popover "#fronkensteen-page-open-workspace-button")
   (wire-ui))
 
 
-
-(define (#fronkensteen-page-save-world-button_click)
+(define (#fronkensteen-page-save-workspace-button_click)
     (timer (lambda ()
       (save-the-static-world)
     ) 0.1)
     )
 
-(define (#fronkensteen-page-open-workspace-button_click)
+(define (#fronkensteen-page-load-workspace-button_click)
   (upload-file ".html" #f overwrite-system "text"))
-
 
 (define (#fronkensteen-nav-back_click)
   (navigate-history-back)

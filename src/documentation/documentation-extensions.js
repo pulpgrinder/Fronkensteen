@@ -139,7 +139,7 @@ BiwaScheme.define_libfunc("retrieve-procedure-filename", 1, 1, function(ar, intp
     if(doc.filename !== undefined){
      return doc.filename;
    }
-   return ar[0] + ": no filename available."
+   return false;
   }
   return false;
 });

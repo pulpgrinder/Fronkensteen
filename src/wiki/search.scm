@@ -27,10 +27,10 @@
     (<<
       (fa-icon "#close-search-bar" "times-circle" "")
       "&nbsp;"
-      (input "#search-field!type='text'!placeholder='Find'")
+      (input "#search-field!type='text'!placeholder='Find'!autocorrect='off'!autocapitalize='none'")
       "&nbsp;"
       (button "#refresh-search-button" "Refresh" )
-      (input "#replace-field.editor-search!type='text'!placeholder='Replace'")
+      (input "#replace-field.editor-search!type='text'!placeholder='Replace'!autocorrect='off'!autocapitalize='none'")
       (button "#find-next-button" "Next" )
       (button "#find-previous-button" "Previous" )
       (button "#replace-button.editor-search" "Replace")

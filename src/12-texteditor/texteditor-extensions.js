@@ -33,13 +33,6 @@ BiwaScheme.define_libfunc("clear-cm-editor-undo!", 1, 1, function(ar,intp){
     Fronkensteen.editDriver.clearUndo(ar[0])
 })
 
-BiwaScheme.define_libfunc("cm-end-position",1,1,function(ar){
-  BiwaScheme.assert_string(ar[0]);
-  Fronkensteen.editDriver.activateEditor(ar[0]);
-  Fronkensteen.editDriver.goToEnd(ar[0]);
-  let position = Fronkensteen.editDriver.getCursorPosition(ar[0],to);
-  return [position[0],position[1],position[0],position[1]];
-})
 
 
 BiwaScheme.define_libfunc("cm-editor-show",1,1,function(ar,intp){
@@ -157,12 +150,28 @@ BiwaScheme.define_libfunc("destroy-cm-editor!", 1, 1, function(ar,intp){
 })
 
 
-// Returns a vector of the ids of the textareas associated with each active CodeMirror editor.
+BiwaScheme.define_libfunc("cm-editor-shrink-char",2,2,function(ar,intp){
+  Fronkensteen.editDriver.shrinkChar(ar[0],ar[1]);
+})
+BiwaScheme.define_libfunc("cm-editor-grow-char",2,2,function(ar,intp){
+  Fronkensteen.editDriver.growChar(ar[0],ar[1]);
+})
+BiwaScheme.define_libfunc("cm-editor-shrink-word",2,2,function(ar,intp){
+  Fronkensteen.editDriver.shrinkWord(ar[0],ar[1]);
+})
+BiwaScheme.define_libfunc("cm-editor-grow-word",2,2,function(ar,intp){
+  Fronkensteen.editDriver.growWord(ar[0],ar[1]);
+})
+
+// Returns a vector of active editors. Used for CodeMirror editor, not for plain text editor.
 BiwaScheme.define_libfunc("get-cm-editor-ids",1,1,function(ar,intp){
   return Fronkensteen.editDriver.getEditorIds();
 
 });
 
+BiwaScheme.define_libfunc("cm-editor-arrow-key", 2, 2, function(ar,intp){
+  return Fronkensteen.editDriver.arrowKey(ar[0],ar[1]);
+});
 
 BiwaScheme.define_libfunc("init-cm-editor!", 2, 2, function(ar,intp){
   // Convert the textarea in ar[0] to a CodeMirror text editor.

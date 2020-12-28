@@ -1,20 +1,21 @@
 (install-css "code-editor"
     (proc-css-list `(
-        (".wiki-editor .CodeMirror" (
-          "height" "100%"
+        (".wiki-editor .code-editor" (
+          "position" "absolute"
+          "top" "0"
+          "bottom" "0"
+          "left" "0"
+          "right" "0"
+          "font-size" "18px"
+          "font-family" "monospace"
+          "padding-left" "2em"
+          "padding-right" "2em"
+          "padding-top" "1em"
+          "padding-bottom" "1em"
+          "-webkit-touch-callout" "none"
+          "-webkit-user-callout" "none"
           ))
-        (".wiki-editor .CodeMirror-selected" (
-          "background-color" "rebeccapurple !important"
-          ))
-          (".wiki-editor .CodeMirror-selectedtext" (
-            "color" "white"
-            ))
-          (".fronkensteen-remote-terminal-wrapper .CodeMirror" (
-            "height" "100%"
-            ))
-            ("#fronkensteen-repl-content .CodeMirror" (
-              "height" "19em"
-              ))
+
         ("#fronkensteen-editor-controls" (
           "position" "relative"
           "top" "-0.25em"
