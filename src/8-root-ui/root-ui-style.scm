@@ -66,6 +66,7 @@
           "top" "2em"
           "left" "0"
           "right" "0"
+          "bottom" "0"
           "background-color" "#fff"
           "color" "#000"
           "border" "1px solid #000"
