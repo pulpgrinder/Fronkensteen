@@ -1,6 +1,5 @@
 // Make sure we've got a Fronkenmark object, regardless of load order.
 
-
 Fronkenmark.resetSubstitutions = function(){
   Fronkenmark.substitutions = {};
 }
