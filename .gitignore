@@ -4,7 +4,11 @@ node_modules
 package-lock.json
 .settings
 attic
-fronkensteen.html
+/dist/fronkensteen.html
 publish_live_site
 filesystem/fronkensteen_fs.json
+/dist/sw.js
+/dist/icon*
+/dist/manifest*
+/pwa/sw.js
 packages
