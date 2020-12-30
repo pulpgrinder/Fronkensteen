@@ -6,9 +6,45 @@ const btoa  = require('btoa');
 let fronkensteen_fs = {}
 let source_folder =  __dirname + "/src/"
 console.log("Source folder is " + source_folder);
+bump_version();
 write_buildtools();
 filewalker(source_folder,null,process_files);
 
+let pwa_folder =  __dirname + "/pwa/"
+
+filewalker(pwa_folder,null,process_pwa);
+
+function bump_version(){
+  version_info = parseFloat(fs.readFileSync(__dirname + "/version","utf8"));
+  build_info = parseInt(fs.readFileSync(__dirname + "/build","utf8"));
+  build_info = build_info + 1;
+  fs.writeFileSync(__dirname + "/build","" + build_info,"utf8");
+  worker_data = fs.readFileSync(__dirname + "/sw.js","utf8");
+  worker_data = worker_data.replace(/___VERSION___/g, "'v" + version_info + "-build_" + build_info + "'")
+  fs.writeFileSync(__dirname + "/pwa/sw.js",worker_data,"utf8")
+}
+function process_pwa(err,results){
+    console.log("Processing pwa files...")
+    if(err !== null){
+      console.error("Build Monster error: " + err);
+      return;
+    }
+    for(var i = 0; i < results.length; i++){
+      process_pwa_file(results[i]);
+    }
+}
+
+function process_pwa_file(file_name){
+  // Don't need extraneous MacOS metadata files.
+  if(file_name.match(/\.DS_Store$/) !== null){
+    return;
+  }
+
+  let outfile_name = file_name.replace(/\/pwa\//,"/dist/")
+  console.log("Processing: " + outfile_name)
+  let file_data = fs.readFileSync(file_name,"binary");
+  fs.writeFileSync(outfile_name,file_data,"binary");
+}
 
 function process_files(err,results){
   console.log("Building internal filesystem...")
@@ -34,7 +70,7 @@ function write_buildtools(){
   write_buildtool("CONTRIBUTING.md")
 }
 function write_buildtool(filename){
-  let tooldata = fs.readFileSync(__dirname + "/" + filename);
+  let tooldata = fs.readFileSync(__dirname + "/" + filename,"utf8");
   let toolkey = "buildtools/" + filename;
   fronkensteen_fs[toolkey] = {"timestamp": Date.now(),"data":btoa(tooldata)};
 }
@@ -103,6 +139,7 @@ function process_file(file_name){
   if(file_name.match(/\.DS_Store$/) !== null){
     return;
   }
+
   let outfile_name = file_name.replace(source_folder,"")
   if(outfile_name.match(/!/)){
     console.log("Skipping: " + outfile_name);
