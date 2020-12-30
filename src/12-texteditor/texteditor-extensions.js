@@ -162,6 +162,9 @@ BiwaScheme.define_libfunc("cm-editor-shrink-word",2,2,function(ar,intp){
 BiwaScheme.define_libfunc("cm-editor-grow-word",2,2,function(ar,intp){
   Fronkensteen.editDriver.growWord(ar[0],ar[1]);
 })
+BiwaScheme.define_libfunc("cm-editor-set-selection",3,3,function(ar,intp){
+  Fronkensteen.editDriver.setSelection(ar[0],ar[1],ar[2]);
+})
 
 // Returns a vector of active editors. Used for CodeMirror editor, not for plain text editor.
 BiwaScheme.define_libfunc("get-cm-editor-ids",1,1,function(ar,intp){
