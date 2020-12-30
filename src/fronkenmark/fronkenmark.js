@@ -123,8 +123,7 @@ Fronkenmark.fronkenmark = function(text,trusted,appendNotes){
   text = Fronkenmark.processCodeBlocks(text);
   // Handle backslash-escaped tags.
   text = text.replace(/\\\[/g, function(match){
-  return Fronkenmark.installSubstitute('[');
-    return id;
+    return Fronkenmark.installSubstitute('[');
   })
   text = Fronkenmark.processScripts(text,trusted);
   text = Fronkenmark.processImages(text);
