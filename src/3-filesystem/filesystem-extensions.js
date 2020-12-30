@@ -89,7 +89,7 @@ Fronkensteen.internalFileToBlob = function(filename) {
     let bytes = Fronkensteen.base_64_to_bytes(fronkensteen_fs[filename]["data"]);
     var blob = new Blob([bytes], {type: mimetype});
   return blob;
-}
+  }
   Fronkensteen.onBiwaSchemeError("Fronkensteen.internalFileToBlob: " + filename + " is not in internal filesystem");
   return false;
 }
@@ -186,7 +186,10 @@ Fronkensteen.readInternalFile = function(filename){
   return null;
 }
 
-
+Fronkensteen.dataToDataURL = function(data,mimetype){
+  let base64data = Fronkensteen.bytes_to_base_64(new TextEncoder("utf-8").encode(data))
+  return 'data:' + mimetype + ';base64,' + base64data;
+}
 Fronkensteen.writeDataURLToInternalFile = function(filename,data){
   let base64offset = data.indexOf("base64,");
   data = data.substring(base64offset + 7);
@@ -244,6 +247,7 @@ Fronkensteen.fileExists = function(filename){
   }
   return false;
 }
+
 Fronkensteen.file_rename = function (oldname,newname){
   if(fronkensteen_fs[newname] !== undefined){
     console.error("Can't rename " + oldname + " to " + newname +  ". " + newname + " exists.")
@@ -322,7 +326,6 @@ BiwaScheme.define_libfunc("install-package", 1, 1, function(ar){
 }
 })
 
-
 BiwaScheme.define_libfunc("decode-base-64-text",1,1,function(ar){
   let datastart = ar[0].substring(ar[0].indexOf(",") + 1);
   return Fronkensteen.decodeText(datastart);
@@ -376,6 +379,7 @@ BiwaScheme.define_libfunc("file-path",1,1, function(ar){
   BiwaScheme.assert_string(ar[0]);
   return Fronkensteen.file_path(ar[0])
 });
+
 
 BiwaScheme.define_libfunc("collect-licenses",0,0, function(ar){
 // Return the text of all LICENSE* files.
@@ -440,7 +444,6 @@ BiwaScheme.define_libfunc("empty-trash", 0, 0, function(ar, intp){
 
 BiwaScheme.define_libfunc("collect-trash", 0, 0, function(ar, intp){
     return Fronkensteen.collectTrash();
-    return true;
 });
 
 BiwaScheme.define_libfunc("untrash", 1, 1, function(ar, intp){
@@ -455,7 +458,7 @@ BiwaScheme.define_libfunc("read-internal-data-url", 1, 1, function(ar, intp){
     return Fronkensteen.readInternalFileDataURL(ar[0]);
 });
 
-BiwaScheme.define_libfunc("read-internal-file", 2, 2, function(ar, intp){
+BiwaScheme.define_libfunc("read-internal-file", 1, 1, function(ar, intp){
     BiwaScheme.assert_string(ar[0]);
     return Fronkensteen.readInternalFile(ar[0]);
 });
@@ -475,6 +478,10 @@ BiwaScheme.define_libfunc("write-data-url-to-internal-file", 2, 2, function(ar, 
     BiwaScheme.assert_string(ar[0]);
     BiwaScheme.assert_string(ar[1]);
     return Fronkensteen.writeDataURLToInternalFile(ar[0],ar[1]);
+});
+
+BiwaScheme.define_libfunc("data-to-dataurl", 2, 2, function(ar, intp){
+    return Fronkensteen.dataToDataURL(ar[0],ar[1]);
 });
 
 BiwaScheme.define_libfunc("read-internal-text-file", 1, 1, function(ar, intp){
