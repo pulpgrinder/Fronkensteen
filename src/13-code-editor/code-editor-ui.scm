@@ -44,16 +44,25 @@
 )
 (define (#fronkensteen-editor-inline-style-button_click)
   (toggle-popover "#fronkensteen-editor-inline-style-button")
-  (wire-ui))
+  (wire-ui)
+  (if (eqv? active-editor #f)
+    #f
+  (% active-editor "focus")))
 
 
 (define (#fronkensteen-editor-paragraph-style-button_click)
   (toggle-popover "#fronkensteen-editor-paragraph-style-button")
-  (wire-ui))
+    (wire-ui)
+    (if (eqv? active-editor #f)
+      #f
+    (% active-editor "focus")))
 
 (define (#fronkensteen-editor-lambda-button_click)
   (toggle-popover "#fronkensteen-editor-lambda-button")
-  (wire-ui))
+  (wire-ui)
+  (if (eqv? active-editor #f)
+    #f
+  (% active-editor "focus")))
 
 
 (define (set-inline-formatting-popover)
