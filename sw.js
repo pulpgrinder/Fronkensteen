@@ -31,3 +31,19 @@ self.addEventListener('fetch', function(event) {
     }
   }));
 });
+
+/*
+self.addEventListener("activate", event => {
+  console.log("activate")
+  event.waitUntil(
+    caches.keys().then (cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== ___VERSION___){
+            console.log("deleting old cache: " + cacheName)
+            return caches.delete(cacheName);
+          }
+        });
+      );
+    }));
+  }); */
