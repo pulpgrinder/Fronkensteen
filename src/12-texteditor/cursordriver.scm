@@ -1,5 +1,10 @@
 (define active-editor #f)
 
+(define (hide-cursor-controls)
+  (if (element-exists? "#cursordriver")
+    (% "#cursordriver" "remove")))
+
+
 (define (show-cursor-controls)
   (console-log "In show-cursor-controls")
   (if (element-exists? "#cursordriver")
@@ -27,7 +32,7 @@
                 ))
               )))
 
-   (set-draggable! "#cursordriver" "self" "#cursorclose")
+   (set-draggable! "#cursordriver" "self" "#cursorclose" active-editor)
    (wire-ui))
 
 (define (#cursordriver_click ev)
@@ -79,7 +84,7 @@
 
 (define (#shrink-char-left-button_click ev)
   (if (eqv? active-editor #f)
-    #f 
+    #f
     (begin
       (% active-editor "focus")
       (cm-editor-shrink-char active-editor "left"))))
