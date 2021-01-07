@@ -31,7 +31,7 @@
           (if (is-text-file? extension)
           (begin
               (% "#fronkensteen-content" "append" (dv (<< id "-wrapper" ".fronkensteen-page-wrapper!tabindex='-1'") (dv (<< id "-body.wiki-editor.wiki-content")
-            (textarea (<< id ".code-editor!rows='25'!cols='80'!autocorrect='off'!autocapitalize='off'!spellcheck='false'") "") )))
+            (textarea (<< id ".code-editor!rows='25'!cols='79'!autocorrect='off'!autocapitalize='off'!spellcheck='false'") "") )))
             (activate-generic-text-editor id))
             (alert "Sorry, no editor for this file type at this time. Contributions welcome!")))))
             (wire-ui)
