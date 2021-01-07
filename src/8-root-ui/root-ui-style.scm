@@ -120,6 +120,7 @@
             "padding" "0"
             "width" "100%"
             "border-bottom" "1px solid #aaa"
+            "background" "#e5e9e8"
           "top" "70px"
           ))
           ("#fronkensteen-status-bar-container" (
