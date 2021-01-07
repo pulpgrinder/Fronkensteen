@@ -47,7 +47,9 @@
 
 (define (#fronkensteen-editor-close-button_click)
   (if (confirm "Close without saving? Are you sure?")
-      (fronkensteen-wiki-editor-close-file)))
+      (begin
+        (hide-cursor-controls)
+        (fronkensteen-wiki-editor-close-file))))
 
 (define (fronkensteen-wiki-editor-close-file)
     (let ((editor-id (get-tos-page-id)))
@@ -74,6 +76,7 @@
           (resource-title (get-generic-editor-title editor-id))
           (new-title (% "#fronkensteen-editor-page-title" "val")))
       (#fronkensteen-editor-save-button_click)
+      (hide-cursor-controls)
       (fronkensteen-wiki-editor-close-file)
       (if (is-wiki-path? resource-path)
         (display-wiki-page new-title)))))
