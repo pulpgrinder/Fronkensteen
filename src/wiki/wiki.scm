@@ -22,7 +22,9 @@
         (enable-fronkensteen-nav-buttons))
       (edit-wiki-page title))
     (if (element-visible? "#fronkensteen-search-bar-container")
-      (run-wiki-search))
+      (begin
+        (% ".fronkensteen-edit-replace" "hide")
+      (run-wiki-search)))
     ))
 
 (define (#fronkensteen-page-refresh-button_click)

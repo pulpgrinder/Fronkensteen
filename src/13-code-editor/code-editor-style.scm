@@ -16,6 +16,12 @@
           "-webkit-user-callout" "none"
           ))
 
+        (".wiki-editor" (
+          "overflow" "auto"
+          ))
+        (".fronkensteen-edit-replace" (
+          "display" "none"
+          ))
         ("#fronkensteen-editor-controls" (
           "position" "relative"
           "top" "-0.25em"

@@ -20,7 +20,9 @@
     (add-page-history title "editor" content-id)
     (display-history-tos)
   (if (element-visible? "#fronkensteen-search-bar-container")
-    (run-wiki-search)))))
+    (begin
+      (% ".fronkensteen-edit-replace" "show")
+      (run-wiki-search))))))
 
 
 (define (#fronkensteen-page-new-page-button_click)
