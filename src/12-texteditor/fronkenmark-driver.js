@@ -74,6 +74,35 @@ Fronkensteen.editDriver = new class  {
       }
       $(editor_id).setSelection(currentStart,currentEnd);
     }
+
+  shrinkWord(editor_id, direction){
+      let text = $(editor_id).val();
+      let textlength = text.length;
+      let selection = $(editor_id).getSelection()
+      let currentStart = selection.start;
+      let currentEnd = selection.end;
+      if(direction === "right"){
+        currentEnd = currentEnd - 1;
+        while(this.isEditorSpace(text.charAt(currentEnd)) && (currentEnd >= currentStart)) {
+          currentEnd = currentEnd - 1;
+        }
+        while(!this.isEditorSpace(text.charAt(currentEnd)) && (currentEnd >= currentStart)) {
+          currentEnd = currentEnd - 1;
+        }
+      }
+      else{
+        console.log("shrinking word from left")
+        currentStart = currentStart + 1;
+          while(!this.isEditorSpace(text.charAt(currentStart)) && (currentStart <= currentEnd)) {
+            currentStart = currentStart + 1;
+          }
+          while(this.isEditorSpace(text.charAt(currentStart)) && (currentStart <= currentEnd)) {
+            currentStart = currentStart + 1;
+          }
+
+      }
+      $(editor_id).setSelection(currentStart,currentEnd);
+    }
     arrowKey(editor_id,direction){
       console.log("arrowKey: direction is " + direction)
       let currentStart = $(editor_id).getSelection().start
@@ -147,7 +176,6 @@ Fronkensteen.editDriver = new class  {
           Fronkensteen.CumulativeErrors = [];
         }
       $(editor_id).replaceSelectedText($(editor_id).getSelection().text + result,"select");
-
     }
     selectAll(editor_id){
       let text = $(editor_id).val();
@@ -178,7 +206,6 @@ Fronkensteen.editDriver = new class  {
       }
       $(editor_id).replaceSelectedText(selected_text + result);
       $(editor_id).setSelection(startSelection.end + 1,startSelection.end + result.length + 1)
-
     }
     getProcedureAtCursor(editor_id){
       let text = $(editor_id).val();
@@ -360,16 +387,21 @@ Fronkensteen.editDriver = new class  {
       return false;
     }
     scrollToLine(editorname,toline){
+      console.log("editorname is " + editorname);
+      console.log("toline is " + toline)
       let textlines = $(editorname).val().split("\n")
       let offset = 0;
       for(var line = 0; line <= toline; line++){
         offset = offset + textlines[line].length + 1;
       }
-      $(editor_id).setSelection(offset);
-      $(editor_id).blur();
-      $(editor_id).focus();
+      $(editorname).setSelection(offset);
+      $(editorname).blur();
+      $(editorname).focus();
     }
-
+    scrollToSelection(editorname){
+        $(editorname).blur();
+        $(editorname).focus();
+    }
     escapeRegExp(s){
         return s.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
     }
@@ -606,57 +638,94 @@ Fronkensteen.editDriver = new class  {
     var textlength = $(editorname).val().length;
     $(editorname).setSelection(textlength);
   }
-  find(editor_name,search_lemma,start,fold_case,is_regex,search_backward,wrap){
-    console.log("Not implemented yet");
-    return [false,false];
-    /*
-    let result = [false,false];
-    let doc;
-    let editor = this.cm_editors[editor_name];
-    console.log("start is " + JSON.stringify(start))
-    if(editor === undefined){
-      console.error("Fronkensteen.editDriver.find(): No editor corresponding to " + editor_name);
-      return [false,false];
-    }
-      doc = editor.getDoc();
-      if(is_regex === true){ // Regexp search
-          if(search_backward === false){
-            result = CodeMirror.commands.searchRegexpForward(doc,new RegExp(search_lemma),start);
-
-          }
-          else{
-            result =  CodeMirror.commands.searchRegexpBackward(doc,new RegExp(search_lemma),start);
-         }
-      }
-      else { // String search.
-        if(search_backward === false){
-          result = CodeMirror.commands.searchStringForward(doc,search_lemma,start, fold_case);
-        }
-        else{
-          result =  CodeMirror.commands.searchStringBackward(doc,search_lemma,start,fold_case);
-       }
-      }
-    if(result !== undefined){
-      doc.setSelection(result.from,result.to);
-      editor.scrollIntoView(result.to,100);
-      return [true, false];
+  find(editor_id,search_lemma,start,fold_case,is_regex,search_backward,wrap, is_wrapped){
+    console.log("start = " + start);
+    let text =  $(editor_id).val();
+    let re;
+    let remod;
+    if(fold_case === true){
+      remod = "gi";
     }
     else{
-      if(wrap){
-        if((start[0] !== 0) && (start[1] !== 0)){
-          let wrapped_pos = {line:0,ch:0};
-          if(search_backward === true){
-            let nlines = doc.lineCount();
-            wrapped_pos = {line: nlines - 1,ch:doc.getLine(nlines-1).length - 1}
-          }
-          let wrapped_result =  this.find(editor_name,search_lemma,wrapped_pos,fold_case,is_regex,search_backward,false);
-          if(wrapped_result[0] === true){
-            wrapped_result[1] = true;
-          }
-          return wrapped_result;
+      remod = "g";
+    }
+    if(is_regex === true){ // Regexp search
+        re = RegExp(search_lemma,remod);
+    }
+    else{
+      re = RegExp(Fronkensteen.escapeRegExp(search_lemma),remod);
+    }
+    let selectionStart;
+    let selectionEnd;
+    if(start === "start"){
+      $(editor_id).setSelection(0,0);
+    }
+    if(start === "end"){
+      $(editor_id).setSelection(text.length - 1,text.length - 1);
+    }
+    let selection = $(editor_id).getSelection()
+    let currentStart = selection.start;
+    let currentEnd = selection.end;
+    console.log("currentStart = " + currentStart);
+    console.log("currentEnd = " + currentEnd);
+
+    let occurrences = [];
+    let result;
+    while((result = re.exec(text)) !== null){
+      occurrences.push({"string": result[0],"index":result.index})
+    };
+    console.log("There are " + occurrences.length + " occurrences");
+    for(var i = 0; i < occurrences.length; i++){
+      console.log("string: " + occurrences[i].string + " index: " + occurrences[i].index + "\n")
+    }
+    if(occurrences.length === 0){
+      return false;
+    }
+    if((start === "start") || (start === "after")){
+        let occ_index = 0;
+        while((occ_index < occurrences.length) && (occurrences[occ_index].index <= currentStart)){
+          occ_index = occ_index + 1;
         }
+        if(occ_index === occurrences.length){
+          if(is_wrapped){
+            return false;
+          }
+          $(editor_id).setSelection(0,0);
+          return this.find(editor_id,search_lemma,start,fold_case,is_regex,search_backward,wrap, true)
+        }
+        console.log("found at " + occurrences[occ_index].index)
+        console.log("length is " + occurrences[occ_index].string.length)
+          let highlightStart = occurrences[occ_index].index;
+          let highlightEnd = highlightStart + occurrences[occ_index].string.length;
+          $(editor_id).setSelection(highlightStart, highlightEnd);
+          $(editor_id).blur();
+          $(editor_id).focus();
+        if(is_wrapped){
+          return "wrapped"
+        }
+        return true;
       }
-      return [false,false];
-    } */
-}
+    else{
+      let occ_index = occurrences.length - 1;
+      while((occ_index >= 0) && (occurrences[occ_index].index >= currentStart)){
+        occ_index = occ_index - 1;
+      }
+      if(occ_index === -1){
+        if(is_wrapped){
+          return false;
+        }
+        $(editor_id).setSelection(text.length - 1, text.length - 1)
+        return this.find(editor_id,search_lemma,"before",fold_case,is_regex,search_backward,wrap, true)
+      }
+      let highlightStart = occurrences[occ_index].index;
+      let highlightEnd = highlightStart + occurrences[occ_index].string.length;
+      $(editor_id).setSelection(highlightStart, highlightEnd);
+      $(editor_id).blur();
+      $(editor_id).focus();
+      if(is_wrapped){
+        return "wrapped"
+      }
+      return true;
+    }
+  }
 }

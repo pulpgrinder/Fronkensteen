@@ -205,7 +205,3 @@
         (let ((editor-name (get-tos-page-id)))
           (cm-editor-eval-js-selection! editor-name))
   ))
-
-(define (focus-find)
-  (timer (lambda()
-    (% "#search-field" "focus")) 0.1))

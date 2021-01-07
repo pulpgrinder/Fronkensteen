@@ -6,24 +6,19 @@
 BiwaScheme.define_libfunc("cm-find", 7, 7, function(ar,intp){
   // Runs a search of the active document. Args are:
   // editor, search lemma, start position, foldcase, regex, search_backward.
-  // Start position is in [line,ch] format. foldcase, regex,
-  // and search_backwards are boolean.
-  // Returns  [result.from.line,result.from.ch,result.to.line,result.to.ch]
-  // if found, false if
-  // no match.
 
     BiwaScheme.assert_string(ar[0]);
     BiwaScheme.assert_string(ar[1]);
-    BiwaScheme.assert_vector(ar[2]);
+    BiwaScheme.assert_string(ar[2]);
     let editor_name = ar[0];
     let search_lemma = ar[1];
-    let start = {line:ar[2][0],ch:ar[2][1]};
+    let start = ar[2];
     let fold_case = ar[3];
     let is_regex = ar[4];
     let search_backward = ar[5];
     let wrap = ar[6];
     Fronkensteen.editDriver.activateEditor(ar[0]);
-    return Fronkensteen.editDriver.find(editor_name,search_lemma,start,fold_case,is_regex,search_backward,wrap)
+    return Fronkensteen.editDriver.find(editor_name,search_lemma,start,fold_case,is_regex,search_backward,wrap,false)
 })
 BiwaScheme.define_libfunc("clear-cm-editor-undo!", 1, 1, function(ar,intp){
   // Clears the undo buffer. Use after loading a file into a new editor,
@@ -177,7 +172,7 @@ BiwaScheme.define_libfunc("cm-editor-arrow-key", 2, 2, function(ar,intp){
 });
 
 BiwaScheme.define_libfunc("init-cm-editor!", 2, 2, function(ar,intp){
-  // Convert the textarea in ar[0] to a CodeMirror text editor.
+  // Convert the textarea in ar[0] to a text editor.
   BiwaScheme.assert_string(ar[0]);
   BiwaScheme.assert_string(ar[1]);
   return Fronkensteen.editDriver.createEditor(ar[0],ar[1]);
@@ -250,6 +245,10 @@ BiwaScheme.define_libfunc("cm-editor-get-line",2,2, function(ar){
 BiwaScheme.define_libfunc("cm-editor-scroll-to-line",2,2, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   Fronkensteen.editDriver.scrollToLine(ar[0],ar[1]);
+});
+BiwaScheme.define_libfunc("cm-editor-scroll-to-selection",1,1, function(ar){
+  Fronkensteen.editDriver.activateEditor(ar[0]);
+  Fronkensteen.editDriver.scrollToSelection(ar[0]);
 });
 BiwaScheme.define_libfunc("cm-editor-set-italic",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
