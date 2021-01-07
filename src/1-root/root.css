@@ -15,6 +15,22 @@ body {
   background: #979898;
   overflow:hidden;
 }
+
+textarea::-moz-selection {
+  color: white;
+  background-color: rebeccapurple;
+}
+
+textarea::-webkit-selection {
+  color: white;
+  background-color: rebeccapurple;
+}
+textarea::selection {
+  color: white;
+  background-color: rebeccapurple;
+}
+
+
 #upload_download{
   display:none;
 }
