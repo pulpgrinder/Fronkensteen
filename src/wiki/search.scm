@@ -29,7 +29,7 @@
       "&nbsp;"
       (input "#search-field!type='text'!placeholder='Find'!autocorrect='off'!autocapitalize='none'")
       "&nbsp;"
-      (button "#refresh-search-button" "Refresh" )
+      (button "#do-search-button" "Find" )
       (input "#replace-field.editor-search!type='text'!placeholder='Replace'!autocorrect='off'!autocapitalize='none'")
       (button "#find-next-button" "Next" )
       (button "#find-previous-button" "Previous" )
@@ -91,15 +91,12 @@
     (run-wiki-search))
 
 
-(define (#search-field_input)
-    (run-wiki-search))
-
 (define (#replace-button_click)
   (if (in-editor?)
   (begin
   (if (> (string-length (cm-editor-get-selected-text (get-tos-page-id))) 0)
     (cm-editor-replace-selected-text (get-tos-page-id) (% "#replace-field" "val")))
-  (run-editor-search "to"))))
+  (run-editor-search "after"))))
 
 (define (#replace-all-button_click)
   (if (in-editor?)
@@ -185,17 +182,17 @@
           (display-page-search-result)
           ))))
 
-(define (#refresh-search-button_click)
+(define (#do-search-button_click)
     (run-wiki-search))
 
 (define (#find-next-button_click)
   (if (in-editor?)
-    (run-editor-search "to")
+    (run-editor-search "after")
     (page-search-next-result)))
 
 (define (#find-previous-button_click)
   (if (in-editor?)
-    (run-editor-search "from")
+    (run-editor-search "before")
     (page-search-previous-result)))
 
 (define (page-search-next-result)
@@ -254,13 +251,10 @@
 
 
 (define (run-editor-search cursor-direction)
-  (if (eqv? cursor-direction "start")
-    (cm-editor-set-cursor-position (get-tos-page-id) 0 0))
   (let ((search-lemma (% "#search-field" "val")))
     (if (eqv? search-lemma "")
       #t
-      (let ((result (cm-find (get-tos-page-id) search-lemma
-      (cm-editor-get-cursor-position (get-tos-page-id) cursor-direction)
+      (let ((result (cm-find (get-tos-page-id) search-lemma cursor-direction
       (not (checkbox-checked? "#search-case-sensitive-checkbox"))
       (checkbox-checked? "#search-regex-checkbox")
       (if (or (eqv? cursor-direction "to") (eqv? cursor-direction "start"))
@@ -269,16 +263,12 @@
       )
       #t ; wrap
        ) #f))
-       (if (eqv? (vector-ref result 0) #f)
+       (if (eqv? result #f)
         (fronkensteen-toast "Not found." "c" "c" "2 "))
-       (if (eqv? (vector-ref result 1) #t)
+       (if (eqv? result "wrapped")
            (fronkensteen-toast "Wrapped." "c" "c" "1"))
        )))
-(focus-find))
-
-(define (focus-find)
-  (timer (lambda()
-    (% "#search-field" "focus")) 0.1))
+)
 
 
 (define (#fronkensteen-page-incoming-links-button_click)
