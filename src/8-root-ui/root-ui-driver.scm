@@ -7,15 +7,35 @@
   (toggle-popover "#fronkensteen-page-open-workspace-button")
   (wire-ui))
 
+(define (#fronkensteen-page-save-wiki-button_click)
+    (timer (lambda ()
+      (save-package-files "user-files/wiki" (<< app-name "-wiki-" (file-version-time-stamp) ".json") "application/json" )
+      (toggle-popover "#fronkensteen-page-save-world-button")
+    ) 0.1))
 
-(define (#fronkensteen-page-save-workspace-button_click)
+(define (#fronkensteen-page-load-wiki-button_click)
+      (console-log "fronkensteen-page-load-wiki-button")
+      (upload-file ".json" #f wiki-data-file-uploaded "data")
+      (toggle-popover "#fronkensteen-page-open-workspace-button")
+      )
+
+(define (wiki-data-file-uploaded filename data)
+  (console-log "wiki file uploaded")
+  (install-package data)
+  (display-wiki-page "Main")
+  (#fronkensteen-page-refresh-button_click)
+	(wire-ui))
+
+(define (#fronkensteen-page-save-world-button_click)
     (timer (lambda ()
       (save-the-static-world)
+      (toggle-popover "#fronkensteen-page-save-world-button")
     ) 0.1)
     )
 
-(define (#fronkensteen-page-load-workspace-button_click)
-  (upload-file ".html" #f overwrite-system "text"))
+(define (#fronkensteen-page-open-workspace-button_click)
+  (upload-file ".html" #f overwrite-system "text")
+  (toggle-popover "#fronkensteen-page-open-workspace-button"))
 
 (define (#fronkensteen-nav-back_click)
   (navigate-history-back)
