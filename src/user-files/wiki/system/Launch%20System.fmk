@@ -15,7 +15,6 @@ This page contains the Scheme code that will be run at system launch. You can ed
 (set-app-name! "Fronkensteen")
 (set-app-version! "0.0.1")
 (set-app-version-description! "Wild Thing")
-
 (display-wiki-page "Main")
 ""
 scheme!]
