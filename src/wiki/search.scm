@@ -28,13 +28,14 @@
       (fa-icon "#close-search-bar" "times-circle" "")
       "&nbsp;"
       (input "#search-field!type='text'!placeholder='Find'!autocorrect='off'!autocapitalize='none'")
+      (button "#find-next-button" "Find Next" )
+      (button "#find-previous-button" "Find Previous" )
       "&nbsp;"
-      (button "#do-search-button" "Find" )
-      (input "#replace-field.editor-search!type='text'!placeholder='Replace'!autocorrect='off'!autocapitalize='none'")
-      (button "#find-next-button" "Next" )
-      (button "#find-previous-button" "Previous" )
-      (button "#replace-button.editor-search" "Replace")
-      (button "#replace-all-button.editor-search" "Replace All")
+      "&nbsp;"
+      (input "#replace-field.editor-search.fronkensteen-edit-replace!type='text'!placeholder='Replace'!autocorrect='off'!autocapitalize='none'")
+
+      (button "#replace-button.fronkensteen-edit-replace.editor-search" "Replace")
+      (button "#replace-all-button.fronkensteen-edit-replace.editor-search" "Replace All")
       (input "#search-all-pages-checkbox!type='checkbox'")
       "All pages &nbsp;"
       (input "#search-case-sensitive-checkbox!type='checkbox'")
@@ -149,6 +150,7 @@
         ))))
 
 (define (run-wiki-search)
+  (set! last-search-lemma #f)
   (if (eqv? (checkbox-checked? "#search-all-pages-checkbox") #t)
       (run-global-page-search))
       (run-current-page-search))
@@ -188,7 +190,7 @@
 (define (#find-next-button_click)
   (if (in-editor?)
     (run-editor-search "after")
-    (page-search-next-result)))
+    (run-current-page-search)))
 
 (define (#find-previous-button_click)
   (if (in-editor?)
@@ -229,18 +231,22 @@
         (scroll-into-view result))
         )))
 
+(define last-search-lemma #f)
 (define (run-page-search)
-  (let ((searchLemma (% "#search-field" "val")))
-    (if (eqv? searchLemma "")
+  (let ((search-lemma (% "#search-field" "val")))
+    (if (eqv? search-lemma "")
       #t
-    (let ((content-id (<< (get-history-entry-id (car fronkensteen-page-history-list)) "-wrapper"
-      " .fronkensteen-page-content")))
-      (html-page-search content-id
-          searchLemma
-          (checkbox-checked? "#search-case-sensitive-checkbox")
+    (if (eqv? search-lemma last-search-lemma)
+      (page-search-next-result)
+      (let ((content-id (<< (get-history-entry-id (car fronkensteen-page-history-list)) "-wrapper"
+        " .fronkensteen-page-content")))
+        (set! last-search-lemma search-lemma)
+        (html-page-search content-id
+            search-lemma
+            (checkbox-checked? "#search-case-sensitive-checkbox")
           (checkbox-checked? "#search-regex-checkbox")
-          search-result-handler
-        )))))
+            search-result-handler
+            ))))))
 
 
 (define (in-editor?)
