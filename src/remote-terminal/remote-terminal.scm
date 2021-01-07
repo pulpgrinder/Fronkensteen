@@ -14,7 +14,7 @@
             (button "#remote-eval-expression-button" "Eval selection or expression before cursor")
             (button "#remote-eval-done-button" "Done")))
         (dv ".fronkensteen-remote-terminal-wrapper"
-          (textarea "#remote-terminal-code-input" ""))))
+          (textarea "#remote-terminal-code-input!autocorrect='off'!autocapitalize='off'!spellcheck='false'" ""))))
           (show-ui-panel "#fronkensteen-terminal")
           (wire-ui)
           (init-cm-editor! "#remote-terminal-code-input" "fronkenmark")
