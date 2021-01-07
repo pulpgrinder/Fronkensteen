@@ -12,6 +12,7 @@ body {
   margin:0;
   padding:0;
   line-height:1.33em;
+  background: #979898;
   overflow:hidden;
 }
 #upload_download{
