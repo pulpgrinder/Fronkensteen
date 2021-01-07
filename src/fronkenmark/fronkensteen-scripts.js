@@ -78,7 +78,7 @@ Fronkenmark.processScheme = function(text,code){
   Fronkensteen.CumulativeErrors = [];
   let expr = Fronkensteen.renderREPLTemplate(code);
   let sourcefile = Fronkenmark.sourceFile;
-  console.log("Processing Scheme for " + sourcefile)
+  console.log("Processing Scheme code segment for " + sourcefile)
   if(sourcefile === ""){
     sourcefile = "(unavailable)"
   }
