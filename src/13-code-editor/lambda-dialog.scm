@@ -31,7 +31,7 @@
                   (button (<< "#" encoded-proc-name "-update-button.procdoc-update-button" "!procname='" procname "'!title='Write updated documentation to database'") "Update docs")
                   (button (<< "#" encoded-proc-name "-source-button.procdoc-source-button" "!procname='" procname "'!title='" "Show the source code for this procedure" "'") "Show source")))
               (dv
-                (textarea (<< textarea-name "!rows='20'!cols='80'") ""))))
+                (textarea (<< textarea-name "!rows='20'!cols='80'!autocorrect='off'!autocapitalize='off'!spellcheck='false'") ""))))
             (% textarea-name "val" (retrieve-procedure-documentation procname))
       ))))
   (timer (lambda ()
@@ -71,6 +71,7 @@
             (if (not (element-exists? wrapper-id))
               (begin
               (create-generic-editor editor-id procname sourcefile generic-editor-file-reader generic-editor-file-writer source-code-editor-close)))
+            (console-log "Calling cm-editor-scroll-to-line")
               (cm-editor-scroll-to-line editor-id sourceline)
               (add-page-history sourcefile "editor" editor-id)
               (display-history-tos))))))
