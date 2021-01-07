@@ -2,7 +2,6 @@
  (generate-root-ui)
  (generate-fronkensteen-navbar)
  (generate-page-toolbar)
- (generate-page-toolbar-popovers)
  (generate-search-bar)
  (generate-editor-toolbar)
  (show-top-toolbar "#fronkensteen-nav-bar")
