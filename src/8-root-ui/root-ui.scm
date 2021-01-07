@@ -59,8 +59,8 @@
                 (button "#repl-eval-buffer-button!title='Evaluate entire buffer'" "Eval Entire Buffer")
 
                 (button "#repl-clear-button!title='Clear REPL history'" "Clear")))
-            (textarea "#repl-input" "")
-            ) "40em" "20em")
+            (textarea "#repl-input!rows='20'!cols='80'!autocorrect='off'!autocapitalize='off'!spellcheck='false'" "")
+            ) "45em" "24em")
             (init-cm-editor! "#repl-input" "scheme")
             (if (eqv? repl-history #f)
               (cm-editor-set-text "#repl-input" "")
@@ -159,25 +159,6 @@
     (fa-icon "" icon-name text)))
 
 
-(define (generate-page-toolbar-popovers)
-  (set-popover "#fronkensteen-page-save-world-button"
-    (topcoat-button-bar
-    (<<
-      (fronkensteen-toolbar-button "#fronkensteen-page-save-workspace-button" "" "Save entire system workspace image" "Workspace")
-      (fronkensteen-toolbar-button "#fronkensteen-page-save-wiki-button" "" "Save only wiki pages" "Wiki only")
-
-      ))
-      "bottom" (scheme->json '(("dismissable" . #t))))
-  (set-popover "#fronkensteen-page-open-workspace-button"
-    (topcoat-button-bar
-    (<<
-      (fronkensteen-toolbar-button "#fronkensteen-page-load-workspace-button" "" "Load entire system workspace image" "Workspace")
-      (fronkensteen-toolbar-button "#fronkensteen-page-load-wiki-button" "" "Load wiki pages" "Wiki only")
-
-      ))
-      "bottom" (scheme->json '(("dismissable" . #t))))
-  (wire-ui)
-)
 (define (generate-page-toolbar)
     (fronkensteen-bottom-toolbar "#fronkensteen-page-control-bar"
       (topcoat-button-bar
@@ -193,7 +174,7 @@
          (fronkensteen-toolbar-button "#fronkensteen-page-incoming-links-button" "hand-point-right" "What links here?" "")
         (fronkensteen-toolbar-button "#fronkensteen-page-lambda-button.lambda-repl-button" "" "Programming tools" "λ")
         (fronkensteen-toolbar-button "#fronkensteen-page-import-file-button" "upload" "Import media file"  "")
-        (fronkensteen-toolbar-button "#fronkensteen-page-special-button" "gift" "Special pages"  "")
+        (fronkensteen-toolbar-button "#fronkensteen-page-special-button" "cog" "Special pages"  "")
         (fronkensteen-toolbar-button "#fronkensteen-page-docs-button" "book" "Documentation"  "")
         (fronkensteen-toolbar-button "#fronkensteen-page-trash-button" "trash" "Move to trash"  "")
         )))
