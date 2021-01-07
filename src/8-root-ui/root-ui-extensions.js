@@ -59,7 +59,7 @@ BiwaScheme.define_libfunc("display-toast",4,4,function(ar){
 });
 
 
-BiwaScheme.define_libfunc("set-draggable!", 1,3,function(ar){
+BiwaScheme.define_libfunc("set-draggable!", 1,4,function(ar){
   BiwaScheme.assert_string(ar[0]);
   let element = ar[0];
   let handleelement;
@@ -74,14 +74,21 @@ BiwaScheme.define_libfunc("set-draggable!", 1,3,function(ar){
       var $draggable = $(element).draggabilly({
       })
   }
-
-
   if(ar.length > 2){
-    BiwaScheme.assert_string(ar[2]);
-    let closebutton = ar[2];
-    $(closebutton).click(function(){
-      $draggable.draggabilly("destroy")
-      $(element).remove();
-  })
+    if(ar[2] !== false){
+      BiwaScheme.assert_string(ar[2]);
+      let closebutton = ar[2];
+      $(closebutton).click(function(){
+        $draggable.draggabilly("destroy")
+        $(element).remove();
+      }
+   )
+  }
+ }
+  if(ar.length > 3){
+      $draggable.on("dragEnd",
+      function(){
+        $(ar[3]).focus();
+      })
   }
 });
