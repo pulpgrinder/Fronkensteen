@@ -139,8 +139,9 @@
                 "padding" "0"
                 "padding-left" "0.5em"
                 "width" "100%"
-                "border-bottom" "1px solid #aaa"
-              "top" "141px"
+                "top" "141px"
+                "background-color" "#f7f7f7"
+                "color" "black"
               ))
       ("pre" (
         "white-space" "pre-wrap"))
