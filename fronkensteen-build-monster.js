@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path')
 const mime = require('mime');
 const btoa  = require('btoa');
+let version_info
+let build_info;
 let fronkensteen_fs = {}
 let source_folder =  __dirname + "/src/"
 console.log("Source folder is " + source_folder);
@@ -15,13 +17,10 @@ let pwa_folder =  __dirname + "/pwa/"
 filewalker(pwa_folder,null,process_pwa);
 
 function bump_version(){
-  version_info = parseFloat(fs.readFileSync(__dirname + "/version","utf8"));
-  build_info = parseInt(fs.readFileSync(__dirname + "/build","utf8"));
+  version_info = parseFloat(fs.readFileSync(__dirname + "/src/1-root/version","utf8"));
+  build_info = parseInt(fs.readFileSync(__dirname + "/src/1-root/build","utf8"));
   build_info = build_info + 1;
-  fs.writeFileSync(__dirname + "/build","" + build_info,"utf8");
-  worker_data = fs.readFileSync(__dirname + "/sw.js","utf8");
-  worker_data = worker_data.replace(/___VERSION___/g, "'v" + version_info + "-build_" + build_info + "'")
-  fs.writeFileSync(__dirname + "/pwa/sw.js",worker_data,"utf8")
+  fs.writeFileSync(__dirname + "/src/1-root/build","" + build_info,"utf8");
 }
 function process_pwa(err,results){
     console.log("Processing pwa files...")
@@ -39,10 +38,11 @@ function process_pwa_file(file_name){
   if(file_name.match(/\.DS_Store$/) !== null){
     return;
   }
-
   let outfile_name = file_name.replace(/\/pwa\//,"/dist/")
   console.log("Processing: " + outfile_name)
   let file_data = fs.readFileSync(file_name,"binary");
+  file_data = file_data.replace(/___VERSION___/g, version_info);
+  file_data = file_data.replace(/___BUILD___/g, build_info);
   fs.writeFileSync(outfile_name,file_data,"binary");
 }
 
@@ -114,10 +114,12 @@ function write_filesystem(){
 
 function write_html(){
   let template = fs.readFileSync(__dirname + "/src/1-root/fronkensteen_template.html","utf8");
+  template = template.replace(/___VERSION___/g, version_info);
+  template = template.replace(/___BUILD___/g, build_info);
   let template_out = "";
   let template_lines = template.split("\n");
   for(var i = 0; i < template_lines.length; i++){
-    let template_line = template_lines[i].trim();
+    let template_line = template_lines[i];
     if(template_line.indexOf("$$$") === -1){
       template_out = template_out + template_line + "\n";
     }
