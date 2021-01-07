@@ -53,8 +53,14 @@ let remoteREPL = {
   },
   start: function(){
       let self = this;
+      let serverOptions = {
+        maxage:0,
+        setHeaders: function (res, path, stat) {
+      
+        }
+      };
       let app = express();
-      app.use(express.static(path.join(__dirname, 'dist')))
+      app.use(express.static(path.join(__dirname, 'dist'),serverOptions))
       let httpServer = http.createServer(app);
       httpServer.listen(remoteREPL.webport,'0.0.0.0');;
       let replServer = http.createServer(app);
