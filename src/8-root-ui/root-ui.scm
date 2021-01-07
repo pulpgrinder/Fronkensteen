@@ -86,6 +86,7 @@
         (title (get-history-entry-title history-entry)))
     (cond ((eqv? type "wiki-page")
         (begin
+          (% ".fronkensteen-edit-replace" "hide")
           (show-bottom-toolbar "#fronkensteen-page-control-bar")
           (% "#fronkensteen-editor-page-title" "hide")
           (% "#fronkensteen-page-title" "html" title)
@@ -93,6 +94,7 @@
           ))
         ((eqv? type "editor")
         (begin
+            (% ".fronkensteen-edit-replace" "show")
             (show-bottom-toolbar "#fronkensteen-editor-control-bar")
             (% "#fronkensteen-page-title" "hide")
             (% "#fronkensteen-editor-page-title" "val" title)
