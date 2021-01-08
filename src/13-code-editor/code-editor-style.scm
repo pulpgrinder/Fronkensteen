@@ -15,10 +15,6 @@
           "-webkit-touch-callout" "none"
           "-webkit-user-callout" "none"
           ))
-
-        (".wiki-editor" (
-          "overflow" "auto"
-          ))
         (".fronkensteen-edit-replace" (
           "display" "none"
           ))
