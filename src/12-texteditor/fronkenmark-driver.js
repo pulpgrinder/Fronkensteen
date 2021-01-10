@@ -1,7 +1,8 @@
 Fronkensteen.editDriver = new class  {
     constructor(){
     }
-
+    editor_undo_stacks = {}
+    editor_redo_stacks = {}
     shrinkChar(editor_id, direction){
       let selection = $(editor_id).getSelection()
       let currentStart = selection.start;
@@ -279,11 +280,34 @@ Fronkensteen.editDriver = new class  {
       }
     }
     undo(editor_id){
-      alert("Undo not implemented yet")
+      let oldVal = $(editor_id).val();
+      let currentSelection = $(editor_id).getSelection();
+      let patchData = Fronkensteen.editDriver.editor_undo_stacks[editor_id].pop();
+      if(patchData !== undefined){
+        let patch = patchData.patch;
+        let oldSelection = patchData.selection;
+        let undoneText = dmp.patch_apply(patch,oldVal)[0];
+        Fronkensteen.editDriver.editor_redo_stacks[editor_id].push({patch:dmp.patch_make(undoneText,oldVal),selection:currentSelection})
+        $(editor_id).val(undoneText);
+        $(editor_id).setSelection(oldSelection.start, oldSelection.end);
+        $(editor_id).blur();
+        $(editor_id).focus();
+      }
     }
     redo(editor_id){
-        alert("Redo not implemented yet")
-
+      let oldVal = $(editor_id).val();
+      let currentSelection = $(editor_id).getSelection();
+      let patchData = Fronkensteen.editDriver.editor_redo_stacks[editor_id].pop();
+      if(patchData !== undefined){
+        let patch = patchData.patch;
+        let oldSelection = patchData.selection;
+        let redoneText = dmp.patch_apply(patch,oldVal)[0];
+        Fronkensteen.editDriver.editor_undo_stacks[editor_id].push({patch:dmp.patch_make(redoneText,oldVal),selection:currentSelection})
+        $(editor_id).val(redoneText);
+        $(editor_id).setSelection(oldSelection.start, oldSelection.end);
+        $(editor_id).blur();
+        $(editor_id).focus();
+      }
     }
     isClean(editor_id){
       alert("isClean not implemented yet");
@@ -293,9 +317,78 @@ Fronkensteen.editDriver = new class  {
       alert("markClean not implemented yet");
     }
     clearUndo(editor_id){
-      alert("clearUndo not implemented yet");
+      Fronkensteen.editDriver.editor_undo_stacks[editor_id] = [];
+      Fronkensteen.editDriver.editor_redo_stacks[editor_id] = [];
+      Fronkensteen.editDriver.prestageTextChange(editor_id)
+    }
+    markInsert(editor_id){
+
+    }
+    insertText(editor_id,text){
+      Fronkensteen.editDriver.prestageTextChange(editor_id);
+      let oldVal = $(editor_id).val();
+      let oldSel = $(editor_id).getSelection()
+      let newVal = oldVal.slice(0, oldSel.start) + text + oldVal.slice(oldSel.end,oldVal.length);
+      $(editor_id).val(newVal);
+      let newSelectionStart = oldSel.start + text.length;
+      $(editor_id).setSelection(newSelectionStart,newSelectionStart);
+      Fronkensteen.editDriver.postProcessTextChange(editor_id);
+      Fronkensteen.editDriver.editor_redo_stacks[editor_id] = [];
+    }
+    prestageTextChange(editor_id){
+      Fronkensteen.editDriver.keyBefore = { val: $(editor_id).val(),selection:$(editor_id).getSelection()}
+    }
+    postProcessTextChange(editor_id){
+        let newText = $(editor_id).val();
+        let newSelection = $(editor_id).getSelection();
+        let oldText = Fronkensteen.editDriver.keyBefore.val
+        let oldSelection = Fronkensteen.editDriver.keyBefore.selection;
+        if((newText === oldText) && (oldSelection === newSelection)){
+          return;
+        }
+        let patchVal = dmp.patch_make(newText,oldText);
+        if(patchVal === []){
+          return;
+        }
+        console.log(dmp.patch_toText(patchVal))
+        Fronkensteen.editDriver.editor_undo_stacks[editor_id].push({patch:patchVal,selection:oldSelection})
     }
     createEditor(editor_id,language_mode){
+      $(editor_id).setSelection(0,0)
+      if(this.editor_undo_stacks[editor_id] === undefined){
+        this.editor_undo_stacks[editor_id] = [];
+      }
+      if(this.editor_redo_stacks[editor_id] === undefined){
+        this.editor_redo_stacks[editor_id] = [];
+      }
+      $(editor_id).on("beforeinput",function(e){
+        Fronkensteen.editDriver.prestageTextChange(editor_id);
+        return true;
+      })
+        $(editor_id).on("input",function(e){
+          Fronkensteen.editDriver.postProcessTextChange(editor_id);
+          Fronkensteen.editDriver.editor_redo_stacks[editor_id] = [];
+          return true;
+        })
+      $(editor_id).on("keydown",function(e){
+        if(e.keyCode === 9){
+          e.preventDefault();
+          Fronkensteen.editDriver.insertText(editor_id,"    ");
+          return false;
+        }
+       else if((e.keyCode === 90) && ((e.metaKey === true) || (e.ctrlKey === true))) {
+          if(e.shiftKey === false){
+            Fronkensteen.editDriver.undo(editor_id)
+          }
+          else {
+            Fronkensteen.editDriver.redo(editor_id)
+          }
+          return false;
+        }
+        else if((e.keyCode === 89) &&  ((e.metaKey === true) || (e.ctrlKey === true))){
+          Fronkensteen.editDriver.redo(editor_id)
+        }
+      })
       this.activateEditor(editor_id);
       return editor_id;
     }
@@ -321,8 +414,14 @@ Fronkensteen.editDriver = new class  {
     getText(editor_id){
       return $(editor_id).val();
     }
+    getSelectedText(editor_id){
+      let selection = $(editor_id).getSelection();
+      return selection.text;
+    }
     setText(editor_id,value){
+      this.prestageTextChange(editor_id);
       $(editor_id).val(value);
+      this.postProcessTextChange(editor_id)
     }
     setCursorPosition(editor_id,line,column){
       let text = $(editor_id).val();

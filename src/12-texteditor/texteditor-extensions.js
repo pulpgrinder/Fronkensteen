@@ -191,9 +191,14 @@ BiwaScheme.define_libfunc("cm-editor-set-text",2,2, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   return Fronkensteen.editDriver.setText(ar[0],ar[1]);
 });
+BiwaScheme.define_libfunc("cm-editor-init-text",2,2, function(ar){
+  Fronkensteen.editDriver.activateEditor(ar[0]);
+  Fronkensteen.editDriver.setText(ar[0],ar[1]);
+  Fronkensteen.editDriver.clearUndo(ar[0]);
+});
 BiwaScheme.define_libfunc("cm-editor-get-selected-text",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
-  return Fronkensteen.editDriver.getSelection(ar[0]);
+  return Fronkensteen.editDriver.getSelectedText(ar[0]);
 });
 BiwaScheme.define_libfunc("cm-editor-delete-selected-text",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);

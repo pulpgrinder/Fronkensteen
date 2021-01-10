@@ -63,8 +63,8 @@
             ) "45em" "24em")
             (init-cm-editor! "#repl-input" "scheme")
             (if (eqv? repl-history #f)
-              (cm-editor-set-text "#repl-input" "")
-              (cm-editor-set-text "#repl-input" repl-history))
+              (cm-editor-init-text "#repl-input" "")
+              (cm-editor-init-text "#repl-input" repl-history))
             (wire-ui)))))
 
 (define (#repl-clear-button_click ev)

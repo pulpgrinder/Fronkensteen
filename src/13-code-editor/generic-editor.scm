@@ -50,7 +50,7 @@
         (init-cm-editor! id "markdown"))
         (#t
         (init-cm-editor! id "text"))))
-  (cm-editor-set-text id ((get-generic-editor-load-proc id) id))
+  (cm-editor-init-text id ((get-generic-editor-load-proc id) id))
   (cm-editor-set-selection id 0 0);
   (show-generic-editor id))
 

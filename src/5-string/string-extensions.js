@@ -336,6 +336,7 @@ BiwaScheme.define_libfunc("regexp?", 1, 1, function(ar){
       BiwaScheme.assert_string(ar[0]);
       return Fronkensteen.renderReadTemplate(ar[0])
   });
+
   Fronkensteen.renderReadTemplate  = function(text){
     text = text.replace(/\<%([^]*?)%\>/gm, function (match, capture) {
       return "\"" +  Fronkensteen.patchQuotes(capture)  +  "\"";
