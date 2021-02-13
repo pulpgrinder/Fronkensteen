@@ -1,1 +1,0 @@
-The files supplied with the system are released subject to the same MIT license as Fronkensteen as a whole. You own the copyright to any files created by you, and they may be released under any license you like. :-)

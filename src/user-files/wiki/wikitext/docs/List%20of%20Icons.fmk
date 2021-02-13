@@ -1,0 +1,2925 @@
+Use these in your wiki pages with
+
+[code javascript
+[icon icon-name icon]
+code]
+
+For example, [code [icon bell icon] code] will produce [icon bell icon].
+
+[icon ad icon] ad
+
+[icon address-book icon] address-book
+
+[icon address-card icon] address-card
+
+[icon adjust icon] adjust
+
+[icon air-freshener icon] air-freshener
+
+[icon align-center icon] align-center
+
+[icon align-justify icon] align-justify
+
+[icon align-left icon] align-left
+
+[icon align-right icon] align-right
+
+[icon allergies icon] allergies
+
+[icon ambulance icon] ambulance
+
+[icon american-sign-language-interpreting icon] american-sign-language-interpreting
+
+[icon anchor icon] anchor
+
+[icon angle-double-down icon] angle-double-down
+
+[icon angle-double-left icon] angle-double-left
+
+[icon angle-double-right icon] angle-double-right
+
+[icon angle-double-up icon] angle-double-up
+
+[icon angle-down icon] angle-down
+
+[icon angle-left icon] angle-left
+
+[icon angle-right icon] angle-right
+
+[icon angle-up icon] angle-up
+
+[icon angry icon] angry
+
+[icon ankh icon] ankh
+
+[icon apple-alt icon] apple-alt
+
+[icon archive icon] archive
+
+[icon archway icon] archway
+
+[icon arrow-alt-circle-down icon] arrow-alt-circle-down
+
+[icon arrow-alt-circle-left icon] arrow-alt-circle-left
+
+[icon arrow-alt-circle-right icon] arrow-alt-circle-right
+
+[icon arrow-alt-circle-up icon] arrow-alt-circle-up
+
+[icon arrow-circle-down icon] arrow-circle-down
+
+[icon arrow-circle-left icon] arrow-circle-left
+
+[icon arrow-circle-right icon] arrow-circle-right
+
+[icon arrow-circle-up icon] arrow-circle-up
+
+[icon arrow-down icon] arrow-down
+
+[icon arrow-left icon] arrow-left
+
+[icon arrow-right icon] arrow-right
+
+[icon arrow-up icon] arrow-up
+
+[icon arrows-alt icon] arrows-alt
+
+[icon arrows-alt-h icon] arrows-alt-h
+
+[icon arrows-alt-v icon] arrows-alt-v
+
+[icon assistive-listening-systems icon] assistive-listening-systems
+
+[icon asterisk icon] asterisk
+
+[icon at icon] at
+
+[icon atlas icon] atlas
+
+[icon atom icon] atom
+
+[icon audio-description icon] audio-description
+
+[icon award icon] award
+
+[icon baby icon] baby
+
+[icon baby-carriage icon] baby-carriage
+
+[icon backspace icon] backspace
+
+[icon backward icon] backward
+
+[icon bacon icon] bacon
+
+[icon bacteria icon] bacteria
+
+[icon bacterium icon] bacterium
+
+[icon bahai icon] bahai
+
+[icon balance-scale icon] balance-scale
+
+[icon balance-scale-left icon] balance-scale-left
+
+[icon balance-scale-right icon] balance-scale-right
+
+[icon ban icon] ban
+
+[icon band-aid icon] band-aid
+
+[icon barcode icon] barcode
+
+[icon bars icon] bars
+
+[icon baseball-ball icon] baseball-ball
+
+[icon basketball-ball icon] basketball-ball
+
+[icon bath icon] bath
+
+[icon battery-empty icon] battery-empty
+
+[icon battery-full icon] battery-full
+
+[icon battery-half icon] battery-half
+
+[icon battery-quarter icon] battery-quarter
+
+[icon battery-three-quarters icon] battery-three-quarters
+
+[icon bed icon] bed
+
+[icon beer icon] beer
+
+[icon bell icon] bell
+
+[icon bell-slash icon] bell-slash
+
+[icon bezier-curve icon] bezier-curve
+
+[icon bible icon] bible
+
+[icon bicycle icon] bicycle
+
+[icon biking icon] biking
+
+[icon binoculars icon] binoculars
+
+[icon biohazard icon] biohazard
+
+[icon birthday-cake icon] birthday-cake
+
+[icon blender icon] blender
+
+[icon blender-phone icon] blender-phone
+
+[icon blind icon] blind
+
+[icon blog icon] blog
+
+[icon bold icon] bold
+
+[icon bolt icon] bolt
+
+[icon bomb icon] bomb
+
+[icon bone icon] bone
+
+[icon bong icon] bong
+
+[icon book icon] book
+
+[icon book-dead icon] book-dead
+
+[icon book-medical icon] book-medical
+
+[icon book-open icon] book-open
+
+[icon book-reader icon] book-reader
+
+[icon bookmark icon] bookmark
+
+[icon border-all icon] border-all
+
+[icon border-none icon] border-none
+
+[icon border-style icon] border-style
+
+[icon bowling-ball icon] bowling-ball
+
+[icon box icon] box
+
+[icon box-open icon] box-open
+
+[icon box-tissue icon] box-tissue
+
+[icon boxes icon] boxes
+
+[icon braille icon] braille
+
+[icon brain icon] brain
+
+[icon bread-slice icon] bread-slice
+
+[icon briefcase icon] briefcase
+
+[icon briefcase-medical icon] briefcase-medical
+
+[icon broadcast-tower icon] broadcast-tower
+
+[icon broom icon] broom
+
+[icon brush icon] brush
+
+[icon bug icon] bug
+
+[icon building icon] building
+
+[icon bullhorn icon] bullhorn
+
+[icon bullseye icon] bullseye
+
+[icon burn icon] burn
+
+[icon bus icon] bus
+
+[icon bus-alt icon] bus-alt
+
+[icon business-time icon] business-time
+
+[icon calculator icon] calculator
+
+[icon calendar icon] calendar
+
+[icon calendar-alt icon] calendar-alt
+
+[icon calendar-check icon] calendar-check
+
+[icon calendar-day icon] calendar-day
+
+[icon calendar-minus icon] calendar-minus
+
+[icon calendar-plus icon] calendar-plus
+
+[icon calendar-times icon] calendar-times
+
+[icon calendar-week icon] calendar-week
+
+[icon camera icon] camera
+
+[icon camera-retro icon] camera-retro
+
+[icon campground icon] campground
+
+[icon candy-cane icon] candy-cane
+
+[icon cannabis icon] cannabis
+
+[icon capsules icon] capsules
+
+[icon car icon] car
+
+[icon car-alt icon] car-alt
+
+[icon car-battery icon] car-battery
+
+[icon car-crash icon] car-crash
+
+[icon car-side icon] car-side
+
+[icon caravan icon] caravan
+
+[icon caret-down icon] caret-down
+
+[icon caret-left icon] caret-left
+
+[icon caret-right icon] caret-right
+
+[icon caret-square-down icon] caret-square-down
+
+[icon caret-square-left icon] caret-square-left
+
+[icon caret-square-right icon] caret-square-right
+
+[icon caret-square-up icon] caret-square-up
+
+[icon caret-up icon] caret-up
+
+[icon carrot icon] carrot
+
+[icon cart-arrow-down icon] cart-arrow-down
+
+[icon cart-plus icon] cart-plus
+
+[icon cash-register icon] cash-register
+
+[icon cat icon] cat
+
+[icon certificate icon] certificate
+
+[icon chair icon] chair
+
+[icon chalkboard icon] chalkboard
+
+[icon chalkboard-teacher icon] chalkboard-teacher
+
+[icon charging-station icon] charging-station
+
+[icon chart-area icon] chart-area
+
+[icon chart-bar icon] chart-bar
+
+[icon chart-line icon] chart-line
+
+[icon chart-pie icon] chart-pie
+
+[icon check icon] check
+
+[icon check-circle icon] check-circle
+
+[icon check-double icon] check-double
+
+[icon check-square icon] check-square
+
+[icon cheese icon] cheese
+
+[icon chess icon] chess
+
+[icon chess-bishop icon] chess-bishop
+
+[icon chess-board icon] chess-board
+
+[icon chess-king icon] chess-king
+
+[icon chess-knight icon] chess-knight
+
+[icon chess-pawn icon] chess-pawn
+
+[icon chess-queen icon] chess-queen
+
+[icon chess-rook icon] chess-rook
+
+[icon chevron-circle-down icon] chevron-circle-down
+
+[icon chevron-circle-left icon] chevron-circle-left
+
+[icon chevron-circle-right icon] chevron-circle-right
+
+[icon chevron-circle-up icon] chevron-circle-up
+
+[icon chevron-down icon] chevron-down
+
+[icon chevron-left icon] chevron-left
+
+[icon chevron-right icon] chevron-right
+
+[icon chevron-up icon] chevron-up
+
+[icon child icon] child
+
+[icon church icon] church
+
+[icon circle icon] circle
+
+[icon circle-notch icon] circle-notch
+
+[icon city icon] city
+
+[icon clinic-medical icon] clinic-medical
+
+[icon clipboard icon] clipboard
+
+[icon clipboard-check icon] clipboard-check
+
+[icon clipboard-list icon] clipboard-list
+
+[icon clock icon] clock
+
+[icon clone icon] clone
+
+[icon closed-captioning icon] closed-captioning
+
+[icon cloud icon] cloud
+
+[icon cloud-download-alt icon] cloud-download-alt
+
+[icon cloud-meatball icon] cloud-meatball
+
+[icon cloud-moon icon] cloud-moon
+
+[icon cloud-moon-rain icon] cloud-moon-rain
+
+[icon cloud-rain icon] cloud-rain
+
+[icon cloud-showers-heavy icon] cloud-showers-heavy
+
+[icon cloud-sun icon] cloud-sun
+
+[icon cloud-sun-rain icon] cloud-sun-rain
+
+[icon cloud-upload-alt icon] cloud-upload-alt
+
+[icon cocktail icon] cocktail
+
+[icon code icon] code
+
+[icon code-branch icon] code-branch
+
+[icon coffee icon] coffee
+
+[icon cog icon] cog
+
+[icon cogs icon] cogs
+
+[icon coins icon] coins
+
+[icon columns icon] columns
+
+[icon comment icon] comment
+
+[icon comment-alt icon] comment-alt
+
+[icon comment-dollar icon] comment-dollar
+
+[icon comment-dots icon] comment-dots
+
+[icon comment-medical icon] comment-medical
+
+[icon comment-slash icon] comment-slash
+
+[icon comments icon] comments
+
+[icon comments-dollar icon] comments-dollar
+
+[icon compact-disc icon] compact-disc
+
+[icon compass icon] compass
+
+[icon compress icon] compress
+
+[icon compress-alt icon] compress-alt
+
+[icon compress-arrows-alt icon] compress-arrows-alt
+
+[icon concierge-bell icon] concierge-bell
+
+[icon cookie icon] cookie
+
+[icon cookie-bite icon] cookie-bite
+
+[icon copy icon] copy
+
+[icon copyright icon] copyright
+
+[icon couch icon] couch
+
+[icon credit-card icon] credit-card
+
+[icon crop icon] crop
+
+[icon crop-alt icon] crop-alt
+
+[icon cross icon] cross
+
+[icon crosshairs icon] crosshairs
+
+[icon crow icon] crow
+
+[icon crown icon] crown
+
+[icon crutch icon] crutch
+
+[icon cube icon] cube
+
+[icon cubes icon] cubes
+
+[icon cut icon] cut
+
+[icon database icon] database
+
+[icon deaf icon] deaf
+
+[icon democrat icon] democrat
+
+[icon desktop icon] desktop
+
+[icon dharmachakra icon] dharmachakra
+
+[icon diagnoses icon] diagnoses
+
+[icon dice icon] dice
+
+[icon dice-d20 icon] dice-d20
+
+[icon dice-d6 icon] dice-d6
+
+[icon dice-five icon] dice-five
+
+[icon dice-four icon] dice-four
+
+[icon dice-one icon] dice-one
+
+[icon dice-six icon] dice-six
+
+[icon dice-three icon] dice-three
+
+[icon dice-two icon] dice-two
+
+[icon digital-tachograph icon] digital-tachograph
+
+[icon directions icon] directions
+
+[icon disease icon] disease
+
+[icon divide icon] divide
+
+[icon dizzy icon] dizzy
+
+[icon dna icon] dna
+
+[icon dog icon] dog
+
+[icon dollar-sign icon] dollar-sign
+
+[icon dolly icon] dolly
+
+[icon dolly-flatbed icon] dolly-flatbed
+
+[icon donate icon] donate
+
+[icon door-closed icon] door-closed
+
+[icon door-open icon] door-open
+
+[icon dot-circle icon] dot-circle
+
+[icon dove icon] dove
+
+[icon download icon] download
+
+[icon drafting-compass icon] drafting-compass
+
+[icon dragon icon] dragon
+
+[icon draw-polygon icon] draw-polygon
+
+[icon drum icon] drum
+
+[icon drum-steelpan icon] drum-steelpan
+
+[icon drumstick-bite icon] drumstick-bite
+
+[icon dumbbell icon] dumbbell
+
+[icon dumpster icon] dumpster
+
+[icon dumpster-fire icon] dumpster-fire
+
+[icon dungeon icon] dungeon
+
+[icon edit icon] edit
+
+[icon egg icon] egg
+
+[icon eject icon] eject
+
+[icon ellipsis-h icon] ellipsis-h
+
+[icon ellipsis-v icon] ellipsis-v
+
+[icon envelope icon] envelope
+
+[icon envelope-open icon] envelope-open
+
+[icon envelope-open-text icon] envelope-open-text
+
+[icon envelope-square icon] envelope-square
+
+[icon equals icon] equals
+
+[icon eraser icon] eraser
+
+[icon ethernet icon] ethernet
+
+[icon euro-sign icon] euro-sign
+
+[icon exchange-alt icon] exchange-alt
+
+[icon exclamation icon] exclamation
+
+[icon exclamation-circle icon] exclamation-circle
+
+[icon exclamation-triangle icon] exclamation-triangle
+
+[icon expand icon] expand
+
+[icon expand-alt icon] expand-alt
+
+[icon expand-arrows-alt icon] expand-arrows-alt
+
+[icon external-link-alt icon] external-link-alt
+
+[icon external-link-square-alt icon] external-link-square-alt
+
+[icon eye icon] eye
+
+[icon eye-dropper icon] eye-dropper
+
+[icon eye-slash icon] eye-slash
+
+[icon fan icon] fan
+
+[icon fast-backward icon] fast-backward
+
+[icon fast-forward icon] fast-forward
+
+[icon faucet icon] faucet
+
+[icon fax icon] fax
+
+[icon feather icon] feather
+
+[icon feather-alt icon] feather-alt
+
+[icon female icon] female
+
+[icon fighter-jet icon] fighter-jet
+
+[icon file icon] file
+
+[icon file-alt icon] file-alt
+
+[icon file-archive icon] file-archive
+
+[icon file-audio icon] file-audio
+
+[icon file-code icon] file-code
+
+[icon file-contract icon] file-contract
+
+[icon file-csv icon] file-csv
+
+[icon file-download icon] file-download
+
+[icon file-excel icon] file-excel
+
+[icon file-export icon] file-export
+
+[icon file-image icon] file-image
+
+[icon file-import icon] file-import
+
+[icon file-invoice icon] file-invoice
+
+[icon file-invoice-dollar icon] file-invoice-dollar
+
+[icon file-medical icon] file-medical
+
+[icon file-medical-alt icon] file-medical-alt
+
+[icon file-pdf icon] file-pdf
+
+[icon file-powerpoint icon] file-powerpoint
+
+[icon file-prescription icon] file-prescription
+
+[icon file-signature icon] file-signature
+
+[icon file-upload icon] file-upload
+
+[icon file-video icon] file-video
+
+[icon file-word icon] file-word
+
+[icon fill icon] fill
+
+[icon fill-drip icon] fill-drip
+
+[icon film icon] film
+
+[icon filter icon] filter
+
+[icon fingerprint icon] fingerprint
+
+[icon fire icon] fire
+
+[icon fire-alt icon] fire-alt
+
+[icon fire-extinguisher icon] fire-extinguisher
+
+[icon first-aid icon] first-aid
+
+[icon fish icon] fish
+
+[icon fist-raised icon] fist-raised
+
+[icon flag icon] flag
+
+[icon flag-checkered icon] flag-checkered
+
+[icon flag-usa icon] flag-usa
+
+[icon flask icon] flask
+
+[icon flushed icon] flushed
+
+[icon folder icon] folder
+
+[icon folder-minus icon] folder-minus
+
+[icon folder-open icon] folder-open
+
+[icon folder-plus icon] folder-plus
+
+[icon font icon] font
+
+[icon football-ball icon] football-ball
+
+[icon forward icon] forward
+
+[icon frog icon] frog
+
+[icon frown icon] frown
+
+[icon frown-open icon] frown-open
+
+[icon funnel-dollar icon] funnel-dollar
+
+[icon futbol icon] futbol
+
+[icon gamepad icon] gamepad
+
+[icon gas-pump icon] gas-pump
+
+[icon gavel icon] gavel
+
+[icon gem icon] gem
+
+[icon genderless icon] genderless
+
+[icon ghost icon] ghost
+
+[icon gift icon] gift
+
+[icon gifts icon] gifts
+
+[icon glass-cheers icon] glass-cheers
+
+[icon glass-martini icon] glass-martini
+
+[icon glass-martini-alt icon] glass-martini-alt
+
+[icon glass-whiskey icon] glass-whiskey
+
+[icon glasses icon] glasses
+
+[icon globe icon] globe
+
+[icon globe-africa icon] globe-africa
+
+[icon globe-americas icon] globe-americas
+
+[icon globe-asia icon] globe-asia
+
+[icon globe-europe icon] globe-europe
+
+[icon golf-ball icon] golf-ball
+
+[icon gopuram icon] gopuram
+
+[icon graduation-cap icon] graduation-cap
+
+[icon greater-than icon] greater-than
+
+[icon greater-than-equal icon] greater-than-equal
+
+[icon grimace icon] grimace
+
+[icon grin icon] grin
+
+[icon grin-alt icon] grin-alt
+
+[icon grin-beam icon] grin-beam
+
+[icon grin-beam-sweat icon] grin-beam-sweat
+
+[icon grin-hearts icon] grin-hearts
+
+[icon grin-squint icon] grin-squint
+
+[icon grin-squint-tears icon] grin-squint-tears
+
+[icon grin-stars icon] grin-stars
+
+[icon grin-tears icon] grin-tears
+
+[icon grin-tongue icon] grin-tongue
+
+[icon grin-tongue-squint icon] grin-tongue-squint
+
+[icon grin-tongue-wink icon] grin-tongue-wink
+
+[icon grin-wink icon] grin-wink
+
+[icon grip-horizontal icon] grip-horizontal
+
+[icon grip-lines icon] grip-lines
+
+[icon grip-lines-vertical icon] grip-lines-vertical
+
+[icon grip-vertical icon] grip-vertical
+
+[icon guitar icon] guitar
+
+[icon h-square icon] h-square
+
+[icon hamburger icon] hamburger
+
+[icon hammer icon] hammer
+
+[icon hamsa icon] hamsa
+
+[icon hand-holding icon] hand-holding
+
+[icon hand-holding-heart icon] hand-holding-heart
+
+[icon hand-holding-medical icon] hand-holding-medical
+
+[icon hand-holding-usd icon] hand-holding-usd
+
+[icon hand-holding-water icon] hand-holding-water
+
+[icon hand-lizard icon] hand-lizard
+
+[icon hand-middle-finger icon] hand-middle-finger
+
+[icon hand-paper icon] hand-paper
+
+[icon hand-peace icon] hand-peace
+
+[icon hand-point-down icon] hand-point-down
+
+[icon hand-point-left icon] hand-point-left
+
+[icon hand-point-right icon] hand-point-right
+
+[icon hand-point-up icon] hand-point-up
+
+[icon hand-pointer icon] hand-pointer
+
+[icon hand-rock icon] hand-rock
+
+[icon hand-scissors icon] hand-scissors
+
+[icon hand-sparkles icon] hand-sparkles
+
+[icon hand-spock icon] hand-spock
+
+[icon hands icon] hands
+
+[icon hands-helping icon] hands-helping
+
+[icon hands-wash icon] hands-wash
+
+[icon handshake icon] handshake
+
+[icon handshake-alt-slash icon] handshake-alt-slash
+
+[icon handshake-slash icon] handshake-slash
+
+[icon hanukiah icon] hanukiah
+
+[icon hard-hat icon] hard-hat
+
+[icon hashtag icon] hashtag
+
+[icon hat-cowboy icon] hat-cowboy
+
+[icon hat-cowboy-side icon] hat-cowboy-side
+
+[icon hat-wizard icon] hat-wizard
+
+[icon hdd icon] hdd
+
+[icon head-side-cough icon] head-side-cough
+
+[icon head-side-cough-slash icon] head-side-cough-slash
+
+[icon head-side-mask icon] head-side-mask
+
+[icon head-side-virus icon] head-side-virus
+
+[icon heading icon] heading
+
+[icon headphones icon] headphones
+
+[icon headphones-alt icon] headphones-alt
+
+[icon headset icon] headset
+
+[icon heart icon] heart
+
+[icon heart-broken icon] heart-broken
+
+[icon heartbeat icon] heartbeat
+
+[icon helicopter icon] helicopter
+
+[icon highlighter icon] highlighter
+
+[icon hiking icon] hiking
+
+[icon hippo icon] hippo
+
+[icon history icon] history
+
+[icon hockey-puck icon] hockey-puck
+
+[icon holly-berry icon] holly-berry
+
+[icon home icon] home
+
+[icon horse icon] horse
+
+[icon horse-head icon] horse-head
+
+[icon hospital icon] hospital
+
+[icon hospital-alt icon] hospital-alt
+
+[icon hospital-symbol icon] hospital-symbol
+
+[icon hospital-user icon] hospital-user
+
+[icon hot-tub icon] hot-tub
+
+[icon hotdog icon] hotdog
+
+[icon hotel icon] hotel
+
+[icon hourglass icon] hourglass
+
+[icon hourglass-end icon] hourglass-end
+
+[icon hourglass-half icon] hourglass-half
+
+[icon hourglass-start icon] hourglass-start
+
+[icon house-damage icon] house-damage
+
+[icon house-user icon] house-user
+
+[icon hryvnia icon] hryvnia
+
+[icon i-cursor icon] i-cursor
+
+[icon ice-cream icon] ice-cream
+
+[icon icicles icon] icicles
+
+[icon icons icon] icons
+
+[icon id-badge icon] id-badge
+
+[icon id-card icon] id-card
+
+[icon id-card-alt icon] id-card-alt
+
+[icon igloo icon] igloo
+
+[icon image icon] image
+
+[icon images icon] images
+
+[icon inbox icon] inbox
+
+[icon indent icon] indent
+
+[icon industry icon] industry
+
+[icon infinity icon] infinity
+
+[icon info icon] info
+
+[icon info-circle icon] info-circle
+
+[icon italic icon] italic
+
+[icon jedi icon] jedi
+
+[icon joint icon] joint
+
+[icon journal-whills icon] journal-whills
+
+[icon kaaba icon] kaaba
+
+[icon key icon] key
+
+[icon keyboard icon] keyboard
+
+[icon khanda icon] khanda
+
+[icon kiss icon] kiss
+
+[icon kiss-beam icon] kiss-beam
+
+[icon kiss-wink-heart icon] kiss-wink-heart
+
+[icon kiwi-bird icon] kiwi-bird
+
+[icon landmark icon] landmark
+
+[icon language icon] language
+
+[icon laptop icon] laptop
+
+[icon laptop-code icon] laptop-code
+
+[icon laptop-house icon] laptop-house
+
+[icon laptop-medical icon] laptop-medical
+
+[icon laugh icon] laugh
+
+[icon laugh-beam icon] laugh-beam
+
+[icon laugh-squint icon] laugh-squint
+
+[icon laugh-wink icon] laugh-wink
+
+[icon layer-group icon] layer-group
+
+[icon leaf icon] leaf
+
+[icon lemon icon] lemon
+
+[icon less-than icon] less-than
+
+[icon less-than-equal icon] less-than-equal
+
+[icon level-down-alt icon] level-down-alt
+
+[icon level-up-alt icon] level-up-alt
+
+[icon life-ring icon] life-ring
+
+[icon lightbulb icon] lightbulb
+
+[icon link icon] link
+
+[icon lira-sign icon] lira-sign
+
+[icon list icon] list
+
+[icon list-alt icon] list-alt
+
+[icon list-ol icon] list-ol
+
+[icon list-ul icon] list-ul
+
+[icon location-arrow icon] location-arrow
+
+[icon lock icon] lock
+
+[icon lock-open icon] lock-open
+
+[icon long-arrow-alt-down icon] long-arrow-alt-down
+
+[icon long-arrow-alt-left icon] long-arrow-alt-left
+
+[icon long-arrow-alt-right icon] long-arrow-alt-right
+
+[icon long-arrow-alt-up icon] long-arrow-alt-up
+
+[icon low-vision icon] low-vision
+
+[icon luggage-cart icon] luggage-cart
+
+[icon lungs icon] lungs
+
+[icon lungs-virus icon] lungs-virus
+
+[icon magic icon] magic
+
+[icon magnet icon] magnet
+
+[icon mail-bulk icon] mail-bulk
+
+[icon male icon] male
+
+[icon map icon] map
+
+[icon map-marked icon] map-marked
+
+[icon map-marked-alt icon] map-marked-alt
+
+[icon map-marker icon] map-marker
+
+[icon map-marker-alt icon] map-marker-alt
+
+[icon map-pin icon] map-pin
+
+[icon map-signs icon] map-signs
+
+[icon marker icon] marker
+
+[icon mars icon] mars
+
+[icon mars-double icon] mars-double
+
+[icon mars-stroke icon] mars-stroke
+
+[icon mars-stroke-h icon] mars-stroke-h
+
+[icon mars-stroke-v icon] mars-stroke-v
+
+[icon mask icon] mask
+
+[icon medal icon] medal
+
+[icon medkit icon] medkit
+
+[icon meh icon] meh
+
+[icon meh-blank icon] meh-blank
+
+[icon meh-rolling-eyes icon] meh-rolling-eyes
+
+[icon memory icon] memory
+
+[icon menorah icon] menorah
+
+[icon mercury icon] mercury
+
+[icon meteor icon] meteor
+
+[icon microchip icon] microchip
+
+[icon microphone icon] microphone
+
+[icon microphone-alt icon] microphone-alt
+
+[icon microphone-alt-slash icon] microphone-alt-slash
+
+[icon microphone-slash icon] microphone-slash
+
+[icon microscope icon] microscope
+
+[icon minus icon] minus
+
+[icon minus-circle icon] minus-circle
+
+[icon minus-square icon] minus-square
+
+[icon mitten icon] mitten
+
+[icon mobile icon] mobile
+
+[icon mobile-alt icon] mobile-alt
+
+[icon money-bill icon] money-bill
+
+[icon money-bill-alt icon] money-bill-alt
+
+[icon money-bill-wave icon] money-bill-wave
+
+[icon money-bill-wave-alt icon] money-bill-wave-alt
+
+[icon money-check icon] money-check
+
+[icon money-check-alt icon] money-check-alt
+
+[icon monument icon] monument
+
+[icon moon icon] moon
+
+[icon mortar-pestle icon] mortar-pestle
+
+[icon mosque icon] mosque
+
+[icon motorcycle icon] motorcycle
+
+[icon mountain icon] mountain
+
+[icon mouse icon] mouse
+
+[icon mouse-pointer icon] mouse-pointer
+
+[icon mug-hot icon] mug-hot
+
+[icon music icon] music
+
+[icon network-wired icon] network-wired
+
+[icon neuter icon] neuter
+
+[icon newspaper icon] newspaper
+
+[icon not-equal icon] not-equal
+
+[icon notes-medical icon] notes-medical
+
+[icon object-group icon] object-group
+
+[icon object-ungroup icon] object-ungroup
+
+[icon oil-can icon] oil-can
+
+[icon om icon] om
+
+[icon otter icon] otter
+
+[icon outdent icon] outdent
+
+[icon pager icon] pager
+
+[icon paint-brush icon] paint-brush
+
+[icon paint-roller icon] paint-roller
+
+[icon palette icon] palette
+
+[icon pallet icon] pallet
+
+[icon paper-plane icon] paper-plane
+
+[icon paperclip icon] paperclip
+
+[icon parachute-box icon] parachute-box
+
+[icon paragraph icon] paragraph
+
+[icon parking icon] parking
+
+[icon passport icon] passport
+
+[icon pastafarianism icon] pastafarianism
+
+[icon paste icon] paste
+
+[icon pause icon] pause
+
+[icon pause-circle icon] pause-circle
+
+[icon paw icon] paw
+
+[icon peace icon] peace
+
+[icon pen icon] pen
+
+[icon pen-alt icon] pen-alt
+
+[icon pen-fancy icon] pen-fancy
+
+[icon pen-nib icon] pen-nib
+
+[icon pen-square icon] pen-square
+
+[icon pencil-alt icon] pencil-alt
+
+[icon pencil-ruler icon] pencil-ruler
+
+[icon people-arrows icon] people-arrows
+
+[icon people-carry icon] people-carry
+
+[icon pepper-hot icon] pepper-hot
+
+[icon percent icon] percent
+
+[icon percentage icon] percentage
+
+[icon person-booth icon] person-booth
+
+[icon phone icon] phone
+
+[icon phone-alt icon] phone-alt
+
+[icon phone-slash icon] phone-slash
+
+[icon phone-square icon] phone-square
+
+[icon phone-square-alt icon] phone-square-alt
+
+[icon phone-volume icon] phone-volume
+
+[icon photo-video icon] photo-video
+
+[icon piggy-bank icon] piggy-bank
+
+[icon pills icon] pills
+
+[icon pizza-slice icon] pizza-slice
+
+[icon place-of-worship icon] place-of-worship
+
+[icon plane icon] plane
+
+[icon plane-arrival icon] plane-arrival
+
+[icon plane-departure icon] plane-departure
+
+[icon plane-slash icon] plane-slash
+
+[icon play icon] play
+
+[icon play-circle icon] play-circle
+
+[icon plug icon] plug
+
+[icon plus icon] plus
+
+[icon plus-circle icon] plus-circle
+
+[icon plus-square icon] plus-square
+
+[icon podcast icon] podcast
+
+[icon poll icon] poll
+
+[icon poll-h icon] poll-h
+
+[icon poo icon] poo
+
+[icon poo-storm icon] poo-storm
+
+[icon poop icon] poop
+
+[icon portrait icon] portrait
+
+[icon pound-sign icon] pound-sign
+
+[icon power-off icon] power-off
+
+[icon pray icon] pray
+
+[icon praying-hands icon] praying-hands
+
+[icon prescription icon] prescription
+
+[icon prescription-bottle icon] prescription-bottle
+
+[icon prescription-bottle-alt icon] prescription-bottle-alt
+
+[icon print icon] print
+
+[icon procedures icon] procedures
+
+[icon project-diagram icon] project-diagram
+
+[icon pump-medical icon] pump-medical
+
+[icon pump-soap icon] pump-soap
+
+[icon puzzle-piece icon] puzzle-piece
+
+[icon qrcode icon] qrcode
+
+[icon question icon] question
+
+[icon question-circle icon] question-circle
+
+[icon quidditch icon] quidditch
+
+[icon quote-left icon] quote-left
+
+[icon quote-right icon] quote-right
+
+[icon quran icon] quran
+
+[icon radiation icon] radiation
+
+[icon radiation-alt icon] radiation-alt
+
+[icon rainbow icon] rainbow
+
+[icon random icon] random
+
+[icon receipt icon] receipt
+
+[icon record-vinyl icon] record-vinyl
+
+[icon recycle icon] recycle
+
+[icon redo icon] redo
+
+[icon redo-alt icon] redo-alt
+
+[icon registered icon] registered
+
+[icon remove-format icon] remove-format
+
+[icon reply icon] reply
+
+[icon reply-all icon] reply-all
+
+[icon republican icon] republican
+
+[icon restroom icon] restroom
+
+[icon retweet icon] retweet
+
+[icon ribbon icon] ribbon
+
+[icon ring icon] ring
+
+[icon road icon] road
+
+[icon robot icon] robot
+
+[icon rocket icon] rocket
+
+[icon route icon] route
+
+[icon rss icon] rss
+
+[icon rss-square icon] rss-square
+
+[icon ruble-sign icon] ruble-sign
+
+[icon ruler icon] ruler
+
+[icon ruler-combined icon] ruler-combined
+
+[icon ruler-horizontal icon] ruler-horizontal
+
+[icon ruler-vertical icon] ruler-vertical
+
+[icon running icon] running
+
+[icon rupee-sign icon] rupee-sign
+
+[icon sad-cry icon] sad-cry
+
+[icon sad-tear icon] sad-tear
+
+[icon satellite icon] satellite
+
+[icon satellite-dish icon] satellite-dish
+
+[icon save icon] save
+
+[icon school icon] school
+
+[icon screwdriver icon] screwdriver
+
+[icon scroll icon] scroll
+
+[icon sd-card icon] sd-card
+
+[icon search icon] search
+
+[icon search-dollar icon] search-dollar
+
+[icon search-location icon] search-location
+
+[icon search-minus icon] search-minus
+
+[icon search-plus icon] search-plus
+
+[icon seedling icon] seedling
+
+[icon server icon] server
+
+[icon shapes icon] shapes
+
+[icon share icon] share
+
+[icon share-alt icon] share-alt
+
+[icon share-alt-square icon] share-alt-square
+
+[icon share-square icon] share-square
+
+[icon shekel-sign icon] shekel-sign
+
+[icon shield-alt icon] shield-alt
+
+[icon shield-virus icon] shield-virus
+
+[icon ship icon] ship
+
+[icon shipping-fast icon] shipping-fast
+
+[icon shoe-prints icon] shoe-prints
+
+[icon shopping-bag icon] shopping-bag
+
+[icon shopping-basket icon] shopping-basket
+
+[icon shopping-cart icon] shopping-cart
+
+[icon shower icon] shower
+
+[icon shuttle-van icon] shuttle-van
+
+[icon sign icon] sign
+
+[icon sign-in-alt icon] sign-in-alt
+
+[icon sign-language icon] sign-language
+
+[icon sign-out-alt icon] sign-out-alt
+
+[icon signal icon] signal
+
+[icon signature icon] signature
+
+[icon sim-card icon] sim-card
+
+[icon sink icon] sink
+
+[icon sitemap icon] sitemap
+
+[icon skating icon] skating
+
+[icon skiing icon] skiing
+
+[icon skiing-nordic icon] skiing-nordic
+
+[icon skull icon] skull
+
+[icon skull-crossbones icon] skull-crossbones
+
+[icon slash icon] slash
+
+[icon sleigh icon] sleigh
+
+[icon sliders-h icon] sliders-h
+
+[icon smile icon] smile
+
+[icon smile-beam icon] smile-beam
+
+[icon smile-wink icon] smile-wink
+
+[icon smog icon] smog
+
+[icon smoking icon] smoking
+
+[icon smoking-ban icon] smoking-ban
+
+[icon sms icon] sms
+
+[icon snowboarding icon] snowboarding
+
+[icon snowflake icon] snowflake
+
+[icon snowman icon] snowman
+
+[icon snowplow icon] snowplow
+
+[icon soap icon] soap
+
+[icon socks icon] socks
+
+[icon solar-panel icon] solar-panel
+
+[icon sort icon] sort
+
+[icon sort-alpha-down icon] sort-alpha-down
+
+[icon sort-alpha-down-alt icon] sort-alpha-down-alt
+
+[icon sort-alpha-up icon] sort-alpha-up
+
+[icon sort-alpha-up-alt icon] sort-alpha-up-alt
+
+[icon sort-amount-down icon] sort-amount-down
+
+[icon sort-amount-down-alt icon] sort-amount-down-alt
+
+[icon sort-amount-up icon] sort-amount-up
+
+[icon sort-amount-up-alt icon] sort-amount-up-alt
+
+[icon sort-down icon] sort-down
+
+[icon sort-numeric-down icon] sort-numeric-down
+
+[icon sort-numeric-down-alt icon] sort-numeric-down-alt
+
+[icon sort-numeric-up icon] sort-numeric-up
+
+[icon sort-numeric-up-alt icon] sort-numeric-up-alt
+
+[icon sort-up icon] sort-up
+
+[icon spa icon] spa
+
+[icon space-shuttle icon] space-shuttle
+
+[icon spell-check icon] spell-check
+
+[icon spider icon] spider
+
+[icon spinner icon] spinner
+
+[icon splotch icon] splotch
+
+[icon spray-can icon] spray-can
+
+[icon square icon] square
+
+[icon square-full icon] square-full
+
+[icon square-root-alt icon] square-root-alt
+
+[icon stamp icon] stamp
+
+[icon star icon] star
+
+[icon star-and-crescent icon] star-and-crescent
+
+[icon star-half icon] star-half
+
+[icon star-half-alt icon] star-half-alt
+
+[icon star-of-david icon] star-of-david
+
+[icon star-of-life icon] star-of-life
+
+[icon step-backward icon] step-backward
+
+[icon step-forward icon] step-forward
+
+[icon stethoscope icon] stethoscope
+
+[icon sticky-note icon] sticky-note
+
+[icon stop icon] stop
+
+[icon stop-circle icon] stop-circle
+
+[icon stopwatch icon] stopwatch
+
+[icon store icon] store
+
+[icon store-alt icon] store-alt
+
+[icon store-alt-slash icon] store-alt-slash
+
+[icon store-slash icon] store-slash
+
+[icon stream icon] stream
+
+[icon street-view icon] street-view
+
+[icon strikethrough icon] strikethrough
+
+[icon stroopwafel icon] stroopwafel
+
+[icon subscript icon] subscript
+
+[icon subway icon] subway
+
+[icon suitcase icon] suitcase
+
+[icon suitcase-rolling icon] suitcase-rolling
+
+[icon sun icon] sun
+
+[icon superscript icon] superscript
+
+[icon surprise icon] surprise
+
+[icon swatchbook icon] swatchbook
+
+[icon swimmer icon] swimmer
+
+[icon swimming-pool icon] swimming-pool
+
+[icon synagogue icon] synagogue
+
+[icon sync icon] sync
+
+[icon sync-alt icon] sync-alt
+
+[icon syringe icon] syringe
+
+[icon table icon] table
+
+[icon table-tennis icon] table-tennis
+
+[icon tablet icon] tablet
+
+[icon tablet-alt icon] tablet-alt
+
+[icon tablets icon] tablets
+
+[icon tachometer-alt icon] tachometer-alt
+
+[icon tag icon] tag
+
+[icon tags icon] tags
+
+[icon tape icon] tape
+
+[icon tasks icon] tasks
+
+[icon taxi icon] taxi
+
+[icon teeth icon] teeth
+
+[icon teeth-open icon] teeth-open
+
+[icon temperature-high icon] temperature-high
+
+[icon temperature-low icon] temperature-low
+
+[icon tenge icon] tenge
+
+[icon terminal icon] terminal
+
+[icon text-height icon] text-height
+
+[icon text-width icon] text-width
+
+[icon th icon] th
+
+[icon th-large icon] th-large
+
+[icon th-list icon] th-list
+
+[icon theater-masks icon] theater-masks
+
+[icon thermometer icon] thermometer
+
+[icon thermometer-empty icon] thermometer-empty
+
+[icon thermometer-full icon] thermometer-full
+
+[icon thermometer-half icon] thermometer-half
+
+[icon thermometer-quarter icon] thermometer-quarter
+
+[icon thermometer-three-quarters icon] thermometer-three-quarters
+
+[icon thumbs-down icon] thumbs-down
+
+[icon thumbs-up icon] thumbs-up
+
+[icon thumbtack icon] thumbtack
+
+[icon ticket-alt icon] ticket-alt
+
+[icon times icon] times
+
+[icon times-circle icon] times-circle
+
+[icon tint icon] tint
+
+[icon tint-slash icon] tint-slash
+
+[icon tired icon] tired
+
+[icon toggle-off icon] toggle-off
+
+[icon toggle-on icon] toggle-on
+
+[icon toilet icon] toilet
+
+[icon toilet-paper icon] toilet-paper
+
+[icon toilet-paper-slash icon] toilet-paper-slash
+
+[icon toolbox icon] toolbox
+
+[icon tools icon] tools
+
+[icon tooth icon] tooth
+
+[icon torah icon] torah
+
+[icon torii-gate icon] torii-gate
+
+[icon tractor icon] tractor
+
+[icon trademark icon] trademark
+
+[icon traffic-light icon] traffic-light
+
+[icon trailer icon] trailer
+
+[icon train icon] train
+
+[icon tram icon] tram
+
+[icon transgender icon] transgender
+
+[icon transgender-alt icon] transgender-alt
+
+[icon trash icon] trash
+
+[icon trash-alt icon] trash-alt
+
+[icon trash-restore icon] trash-restore
+
+[icon trash-restore-alt icon] trash-restore-alt
+
+[icon tree icon] tree
+
+[icon trophy icon] trophy
+
+[icon truck icon] truck
+
+[icon truck-loading icon] truck-loading
+
+[icon truck-monster icon] truck-monster
+
+[icon truck-moving icon] truck-moving
+
+[icon truck-pickup icon] truck-pickup
+
+[icon tshirt icon] tshirt
+
+[icon tty icon] tty
+
+[icon tv icon] tv
+
+[icon umbrella icon] umbrella
+
+[icon umbrella-beach icon] umbrella-beach
+
+[icon underline icon] underline
+
+[icon undo icon] undo
+
+[icon undo-alt icon] undo-alt
+
+[icon universal-access icon] universal-access
+
+[icon university icon] university
+
+[icon unlink icon] unlink
+
+[icon unlock icon] unlock
+
+[icon unlock-alt icon] unlock-alt
+
+[icon upload icon] upload
+
+[icon user icon] user
+
+[icon user-alt icon] user-alt
+
+[icon user-alt-slash icon] user-alt-slash
+
+[icon user-astronaut icon] user-astronaut
+
+[icon user-check icon] user-check
+
+[icon user-circle icon] user-circle
+
+[icon user-clock icon] user-clock
+
+[icon user-cog icon] user-cog
+
+[icon user-edit icon] user-edit
+
+[icon user-friends icon] user-friends
+
+[icon user-graduate icon] user-graduate
+
+[icon user-injured icon] user-injured
+
+[icon user-lock icon] user-lock
+
+[icon user-md icon] user-md
+
+[icon user-minus icon] user-minus
+
+[icon user-ninja icon] user-ninja
+
+[icon user-nurse icon] user-nurse
+
+[icon user-plus icon] user-plus
+
+[icon user-secret icon] user-secret
+
+[icon user-shield icon] user-shield
+
+[icon user-slash icon] user-slash
+
+[icon user-tag icon] user-tag
+
+[icon user-tie icon] user-tie
+
+[icon user-times icon] user-times
+
+[icon users icon] users
+
+[icon users-cog icon] users-cog
+
+[icon users-slash icon] users-slash
+
+[icon utensil-spoon icon] utensil-spoon
+
+[icon utensils icon] utensils
+
+[icon vector-square icon] vector-square
+
+[icon venus icon] venus
+
+[icon venus-double icon] venus-double
+
+[icon venus-mars icon] venus-mars
+
+[icon vest icon] vest
+
+[icon vest-patches icon] vest-patches
+
+[icon vial icon] vial
+
+[icon vials icon] vials
+
+[icon video icon] video
+
+[icon video-slash icon] video-slash
+
+[icon vihara icon] vihara
+
+[icon virus icon] virus
+
+[icon virus-slash icon] virus-slash
+
+[icon viruses icon] viruses
+
+[icon voicemail icon] voicemail
+
+[icon volleyball-ball icon] volleyball-ball
+
+[icon volume-down icon] volume-down
+
+[icon volume-mute icon] volume-mute
+
+[icon volume-off icon] volume-off
+
+[icon volume-up icon] volume-up
+
+[icon vote-yea icon] vote-yea
+
+[icon vr-cardboard icon] vr-cardboard
+
+[icon walking icon] walking
+
+[icon wallet icon] wallet
+
+[icon warehouse icon] warehouse
+
+[icon water icon] water
+
+[icon wave-square icon] wave-square
+
+[icon weight icon] weight
+
+[icon weight-hanging icon] weight-hanging
+
+[icon wheelchair icon] wheelchair
+
+[icon wifi icon] wifi
+
+[icon wind icon] wind
+
+[icon window-close icon] window-close
+
+[icon window-maximize icon] window-maximize
+
+[icon window-minimize icon] window-minimize
+
+[icon window-restore icon] window-restore
+
+[icon wine-bottle icon] wine-bottle
+
+[icon wine-glass icon] wine-glass
+
+[icon wine-glass-alt icon] wine-glass-alt
+
+[icon won-sign icon] won-sign
+
+[icon wrench icon] wrench
+
+[icon x-ray icon] x-ray
+
+[icon yen-sign icon] yen-sign
+
+[icon yin-yang icon] yin-yang
+
+[icon 500px icon] 500px
+
+[icon accessible-icon icon] accessible-icon
+
+[icon accusoft icon] accusoft
+
+[icon acquisitions-incorporated icon] acquisitions-incorporated
+
+[icon adn icon] adn
+
+[icon adversal icon] adversal
+
+[icon affiliatetheme icon] affiliatetheme
+
+[icon airbnb icon] airbnb
+
+[icon algolia icon] algolia
+
+[icon alipay icon] alipay
+
+[icon amazon icon] amazon
+
+[icon amazon-pay icon] amazon-pay
+
+[icon amilia icon] amilia
+
+[icon android icon] android
+
+[icon angellist icon] angellist
+
+[icon angrycreative icon] angrycreative
+
+[icon angular icon] angular
+
+[icon app-store icon] app-store
+
+[icon app-store-ios icon] app-store-ios
+
+[icon apper icon] apper
+
+[icon apple icon] apple
+
+[icon apple-pay icon] apple-pay
+
+[icon artstation icon] artstation
+
+[icon asymmetrik icon] asymmetrik
+
+[icon atlassian icon] atlassian
+
+[icon audible icon] audible
+
+[icon autoprefixer icon] autoprefixer
+
+[icon avianex icon] avianex
+
+[icon aviato icon] aviato
+
+[icon aws icon] aws
+
+[icon bandcamp icon] bandcamp
+
+[icon battle-net icon] battle-net
+
+[icon behance icon] behance
+
+[icon behance-square icon] behance-square
+
+[icon bimobject icon] bimobject
+
+[icon bitbucket icon] bitbucket
+
+[icon bitcoin icon] bitcoin
+
+[icon bity icon] bity
+
+[icon black-tie icon] black-tie
+
+[icon blackberry icon] blackberry
+
+[icon blogger icon] blogger
+
+[icon blogger-b icon] blogger-b
+
+[icon bluetooth icon] bluetooth
+
+[icon bluetooth-b icon] bluetooth-b
+
+[icon bootstrap icon] bootstrap
+
+[icon btc icon] btc
+
+[icon buffer icon] buffer
+
+[icon buromobelexperte icon] buromobelexperte
+
+[icon buy-n-large icon] buy-n-large
+
+[icon buysellads icon] buysellads
+
+[icon canadian-maple-leaf icon] canadian-maple-leaf
+
+[icon cc-amazon-pay icon] cc-amazon-pay
+
+[icon cc-amex icon] cc-amex
+
+[icon cc-apple-pay icon] cc-apple-pay
+
+[icon cc-diners-club icon] cc-diners-club
+
+[icon cc-discover icon] cc-discover
+
+[icon cc-jcb icon] cc-jcb
+
+[icon cc-mastercard icon] cc-mastercard
+
+[icon cc-paypal icon] cc-paypal
+
+[icon cc-stripe icon] cc-stripe
+
+[icon cc-visa icon] cc-visa
+
+[icon centercode icon] centercode
+
+[icon centos icon] centos
+
+[icon chrome icon] chrome
+
+[icon chromecast icon] chromecast
+
+[icon cloudflare icon] cloudflare
+
+[icon cloudscale icon] cloudscale
+
+[icon cloudsmith icon] cloudsmith
+
+[icon cloudversify icon] cloudversify
+
+[icon codepen icon] codepen
+
+[icon codiepie icon] codiepie
+
+[icon confluence icon] confluence
+
+[icon connectdevelop icon] connectdevelop
+
+[icon contao icon] contao
+
+[icon cotton-bureau icon] cotton-bureau
+
+[icon cpanel icon] cpanel
+
+[icon creative-commons icon] creative-commons
+
+[icon creative-commons-by icon] creative-commons-by
+
+[icon creative-commons-nc icon] creative-commons-nc
+
+[icon creative-commons-nc-eu icon] creative-commons-nc-eu
+
+[icon creative-commons-nc-jp icon] creative-commons-nc-jp
+
+[icon creative-commons-nd icon] creative-commons-nd
+
+[icon creative-commons-pd icon] creative-commons-pd
+
+[icon creative-commons-pd-alt icon] creative-commons-pd-alt
+
+[icon creative-commons-remix icon] creative-commons-remix
+
+[icon creative-commons-sa icon] creative-commons-sa
+
+[icon creative-commons-sampling icon] creative-commons-sampling
+
+[icon creative-commons-sampling-plus icon] creative-commons-sampling-plus
+
+[icon creative-commons-share icon] creative-commons-share
+
+[icon creative-commons-zero icon] creative-commons-zero
+
+[icon critical-role icon] critical-role
+
+[icon css3 icon] css3
+
+[icon css3-alt icon] css3-alt
+
+[icon cuttlefish icon] cuttlefish
+
+[icon d-and-d icon] d-and-d
+
+[icon d-and-d-beyond icon] d-and-d-beyond
+
+[icon dailymotion icon] dailymotion
+
+[icon dashcube icon] dashcube
+
+[icon deezer icon] deezer
+
+[icon delicious icon] delicious
+
+[icon deploydog icon] deploydog
+
+[icon deskpro icon] deskpro
+
+[icon dev icon] dev
+
+[icon deviantart icon] deviantart
+
+[icon dhl icon] dhl
+
+[icon diaspora icon] diaspora
+
+[icon digg icon] digg
+
+[icon digital-ocean icon] digital-ocean
+
+[icon discord icon] discord
+
+[icon discourse icon] discourse
+
+[icon dochub icon] dochub
+
+[icon docker icon] docker
+
+[icon draft2digital icon] draft2digital
+
+[icon dribbble icon] dribbble
+
+[icon dribbble-square icon] dribbble-square
+
+[icon dropbox icon] dropbox
+
+[icon drupal icon] drupal
+
+[icon dyalog icon] dyalog
+
+[icon earlybirds icon] earlybirds
+
+[icon ebay icon] ebay
+
+[icon edge icon] edge
+
+[icon edge-legacy icon] edge-legacy
+
+[icon elementor icon] elementor
+
+[icon ello icon] ello
+
+[icon ember icon] ember
+
+[icon empire icon] empire
+
+[icon envira icon] envira
+
+[icon erlang icon] erlang
+
+[icon ethereum icon] ethereum
+
+[icon etsy icon] etsy
+
+[icon evernote icon] evernote
+
+[icon expeditedssl icon] expeditedssl
+
+[icon facebook icon] facebook
+
+[icon facebook-f icon] facebook-f
+
+[icon facebook-messenger icon] facebook-messenger
+
+[icon facebook-square icon] facebook-square
+
+[icon fantasy-flight-games icon] fantasy-flight-games
+
+[icon fedex icon] fedex
+
+[icon fedora icon] fedora
+
+[icon figma icon] figma
+
+[icon firefox icon] firefox
+
+[icon firefox-browser icon] firefox-browser
+
+[icon first-order icon] first-order
+
+[icon first-order-alt icon] first-order-alt
+
+[icon firstdraft icon] firstdraft
+
+[icon flickr icon] flickr
+
+[icon flipboard icon] flipboard
+
+[icon fly icon] fly
+
+[icon font-awesome icon] font-awesome
+
+[icon font-awesome-alt icon] font-awesome-alt
+
+[icon font-awesome-flag icon] font-awesome-flag
+
+[icon fonticons icon] fonticons
+
+[icon fonticons-fi icon] fonticons-fi
+
+[icon fort-awesome icon] fort-awesome
+
+[icon fort-awesome-alt icon] fort-awesome-alt
+
+[icon forumbee icon] forumbee
+
+[icon foursquare icon] foursquare
+
+[icon free-code-camp icon] free-code-camp
+
+[icon freebsd icon] freebsd
+
+[icon fulcrum icon] fulcrum
+
+[icon galactic-republic icon] galactic-republic
+
+[icon galactic-senate icon] galactic-senate
+
+[icon get-pocket icon] get-pocket
+
+[icon gg icon] gg
+
+[icon gg-circle icon] gg-circle
+
+[icon git icon] git
+
+[icon git-alt icon] git-alt
+
+[icon git-square icon] git-square
+
+[icon github icon] github
+
+[icon github-alt icon] github-alt
+
+[icon github-square icon] github-square
+
+[icon gitkraken icon] gitkraken
+
+[icon gitlab icon] gitlab
+
+[icon gitter icon] gitter
+
+[icon glide icon] glide
+
+[icon glide-g icon] glide-g
+
+[icon gofore icon] gofore
+
+[icon goodreads icon] goodreads
+
+[icon goodreads-g icon] goodreads-g
+
+[icon google icon] google
+
+[icon google-drive icon] google-drive
+
+[icon google-pay icon] google-pay
+
+[icon google-play icon] google-play
+
+[icon google-plus icon] google-plus
+
+[icon google-plus-g icon] google-plus-g
+
+[icon google-plus-square icon] google-plus-square
+
+[icon google-wallet icon] google-wallet
+
+[icon gratipay icon] gratipay
+
+[icon grav icon] grav
+
+[icon gripfire icon] gripfire
+
+[icon grunt icon] grunt
+
+[icon guilded icon] guilded
+
+[icon gulp icon] gulp
+
+[icon hacker-news icon] hacker-news
+
+[icon hacker-news-square icon] hacker-news-square
+
+[icon hackerrank icon] hackerrank
+
+[icon hips icon] hips
+
+[icon hire-a-helper icon] hire-a-helper
+
+[icon hive icon] hive
+
+[icon hooli icon] hooli
+
+[icon hornbill icon] hornbill
+
+[icon hotjar icon] hotjar
+
+[icon houzz icon] houzz
+
+[icon html5 icon] html5
+
+[icon hubspot icon] hubspot
+
+[icon ideal icon] ideal
+
+[icon imdb icon] imdb
+
+[icon innosoft icon] innosoft
+
+[icon instagram icon] instagram
+
+[icon instagram-square icon] instagram-square
+
+[icon instalod icon] instalod
+
+[icon intercom icon] intercom
+
+[icon internet-explorer icon] internet-explorer
+
+[icon invision icon] invision
+
+[icon ioxhost icon] ioxhost
+
+[icon itch-io icon] itch-io
+
+[icon itunes icon] itunes
+
+[icon itunes-note icon] itunes-note
+
+[icon java icon] java
+
+[icon jedi-order icon] jedi-order
+
+[icon jenkins icon] jenkins
+
+[icon jira icon] jira
+
+[icon joget icon] joget
+
+[icon joomla icon] joomla
+
+[icon js icon] js
+
+[icon js-square icon] js-square
+
+[icon jsfiddle icon] jsfiddle
+
+[icon kaggle icon] kaggle
+
+[icon keybase icon] keybase
+
+[icon keycdn icon] keycdn
+
+[icon kickstarter icon] kickstarter
+
+[icon kickstarter-k icon] kickstarter-k
+
+[icon korvue icon] korvue
+
+[icon laravel icon] laravel
+
+[icon lastfm icon] lastfm
+
+[icon lastfm-square icon] lastfm-square
+
+[icon leanpub icon] leanpub
+
+[icon less icon] less
+
+[icon line icon] line
+
+[icon linkedin icon] linkedin
+
+[icon linkedin-in icon] linkedin-in
+
+[icon linode icon] linode
+
+[icon linux icon] linux
+
+[icon lyft icon] lyft
+
+[icon magento icon] magento
+
+[icon mailchimp icon] mailchimp
+
+[icon mandalorian icon] mandalorian
+
+[icon markdown icon] markdown
+
+[icon mastodon icon] mastodon
+
+[icon maxcdn icon] maxcdn
+
+[icon mdb icon] mdb
+
+[icon medapps icon] medapps
+
+[icon medium icon] medium
+
+[icon medium-m icon] medium-m
+
+[icon medrt icon] medrt
+
+[icon meetup icon] meetup
+
+[icon megaport icon] megaport
+
+[icon mendeley icon] mendeley
+
+[icon microblog icon] microblog
+
+[icon microsoft icon] microsoft
+
+[icon mix icon] mix
+
+[icon mixcloud icon] mixcloud
+
+[icon mixer icon] mixer
+
+[icon mizuni icon] mizuni
+
+[icon modx icon] modx
+
+[icon monero icon] monero
+
+[icon napster icon] napster
+
+[icon neos icon] neos
+
+[icon nimblr icon] nimblr
+
+[icon node icon] node
+
+[icon node-js icon] node-js
+
+[icon npm icon] npm
+
+[icon ns8 icon] ns8
+
+[icon nutritionix icon] nutritionix
+
+[icon octopus-deploy icon] octopus-deploy
+
+[icon odnoklassniki icon] odnoklassniki
+
+[icon odnoklassniki-square icon] odnoklassniki-square
+
+[icon old-republic icon] old-republic
+
+[icon opencart icon] opencart
+
+[icon openid icon] openid
+
+[icon opera icon] opera
+
+[icon optin-monster icon] optin-monster
+
+[icon orcid icon] orcid
+
+[icon osi icon] osi
+
+[icon page4 icon] page4
+
+[icon pagelines icon] pagelines
+
+[icon palfed icon] palfed
+
+[icon patreon icon] patreon
+
+[icon paypal icon] paypal
+
+[icon penny-arcade icon] penny-arcade
+
+[icon perbyte icon] perbyte
+
+[icon periscope icon] periscope
+
+[icon phabricator icon] phabricator
+
+[icon phoenix-framework icon] phoenix-framework
+
+[icon phoenix-squadron icon] phoenix-squadron
+
+[icon php icon] php
+
+[icon pied-piper icon] pied-piper
+
+[icon pied-piper-alt icon] pied-piper-alt
+
+[icon pied-piper-hat icon] pied-piper-hat
+
+[icon pied-piper-pp icon] pied-piper-pp
+
+[icon pied-piper-square icon] pied-piper-square
+
+[icon pinterest icon] pinterest
+
+[icon pinterest-p icon] pinterest-p
+
+[icon pinterest-square icon] pinterest-square
+
+[icon playstation icon] playstation
+
+[icon product-hunt icon] product-hunt
+
+[icon pushed icon] pushed
+
+[icon python icon] python
+
+[icon qq icon] qq
+
+[icon quinscape icon] quinscape
+
+[icon quora icon] quora
+
+[icon r-project icon] r-project
+
+[icon raspberry-pi icon] raspberry-pi
+
+[icon ravelry icon] ravelry
+
+[icon react icon] react
+
+[icon reacteurope icon] reacteurope
+
+[icon readme icon] readme
+
+[icon rebel icon] rebel
+
+[icon red-river icon] red-river
+
+[icon reddit icon] reddit
+
+[icon reddit-alien icon] reddit-alien
+
+[icon reddit-square icon] reddit-square
+
+[icon redhat icon] redhat
+
+[icon renren icon] renren
+
+[icon replyd icon] replyd
+
+[icon researchgate icon] researchgate
+
+[icon resolving icon] resolving
+
+[icon rev icon] rev
+
+[icon rocketchat icon] rocketchat
+
+[icon rockrms icon] rockrms
+
+[icon rust icon] rust
+
+[icon safari icon] safari
+
+[icon salesforce icon] salesforce
+
+[icon sass icon] sass
+
+[icon schlix icon] schlix
+
+[icon scribd icon] scribd
+
+[icon searchengin icon] searchengin
+
+[icon sellcast icon] sellcast
+
+[icon sellsy icon] sellsy
+
+[icon servicestack icon] servicestack
+
+[icon shirtsinbulk icon] shirtsinbulk
+
+[icon shopify icon] shopify
+
+[icon shopware icon] shopware
+
+[icon simplybuilt icon] simplybuilt
+
+[icon sistrix icon] sistrix
+
+[icon sith icon] sith
+
+[icon sketch icon] sketch
+
+[icon skyatlas icon] skyatlas
+
+[icon skype icon] skype
+
+[icon slack icon] slack
+
+[icon slack-hash icon] slack-hash
+
+[icon slideshare icon] slideshare
+
+[icon snapchat icon] snapchat
+
+[icon snapchat-ghost icon] snapchat-ghost
+
+[icon snapchat-square icon] snapchat-square
+
+[icon soundcloud icon] soundcloud
+
+[icon sourcetree icon] sourcetree
+
+[icon speakap icon] speakap
+
+[icon speaker-deck icon] speaker-deck
+
+[icon spotify icon] spotify
+
+[icon squarespace icon] squarespace
+
+[icon stack-exchange icon] stack-exchange
+
+[icon stack-overflow icon] stack-overflow
+
+[icon stackpath icon] stackpath
+
+[icon staylinked icon] staylinked
+
+[icon steam icon] steam
+
+[icon steam-square icon] steam-square
+
+[icon steam-symbol icon] steam-symbol
+
+[icon sticker-mule icon] sticker-mule
+
+[icon strava icon] strava
+
+[icon stripe icon] stripe
+
+[icon stripe-s icon] stripe-s
+
+[icon studiovinari icon] studiovinari
+
+[icon stumbleupon icon] stumbleupon
+
+[icon stumbleupon-circle icon] stumbleupon-circle
+
+[icon superpowers icon] superpowers
+
+[icon supple icon] supple
+
+[icon suse icon] suse
+
+[icon swift icon] swift
+
+[icon symfony icon] symfony
+
+[icon teamspeak icon] teamspeak
+
+[icon telegram icon] telegram
+
+[icon telegram-plane icon] telegram-plane
+
+[icon tencent-weibo icon] tencent-weibo
+
+[icon the-red-yeti icon] the-red-yeti
+
+[icon themeco icon] themeco
+
+[icon themeisle icon] themeisle
+
+[icon think-peaks icon] think-peaks
+
+[icon tiktok icon] tiktok
+
+[icon trade-federation icon] trade-federation
+
+[icon trello icon] trello
+
+[icon tripadvisor icon] tripadvisor
+
+[icon tumblr icon] tumblr
+
+[icon tumblr-square icon] tumblr-square
+
+[icon twitch icon] twitch
+
+[icon twitter icon] twitter
+
+[icon twitter-square icon] twitter-square
+
+[icon typo3 icon] typo3
+
+[icon uber icon] uber
+
+[icon ubuntu icon] ubuntu
+
+[icon uikit icon] uikit
+
+[icon umbraco icon] umbraco
+
+[icon uncharted icon] uncharted
+
+[icon uniregistry icon] uniregistry
+
+[icon unity icon] unity
+
+[icon unsplash icon] unsplash
+
+[icon untappd icon] untappd
+
+[icon ups icon] ups
+
+[icon usb icon] usb
+
+[icon usps icon] usps
+
+[icon ussunnah icon] ussunnah
+
+[icon vaadin icon] vaadin
+
+[icon viacoin icon] viacoin
+
+[icon viadeo icon] viadeo
+
+[icon viadeo-square icon] viadeo-square
+
+[icon viber icon] viber
+
+[icon vimeo icon] vimeo
+
+[icon vimeo-square icon] vimeo-square
+
+[icon vimeo-v icon] vimeo-v
+
+[icon vine icon] vine
+
+[icon vk icon] vk
+
+[icon vnv icon] vnv
+
+[icon vuejs icon] vuejs
+
+[icon watchman-monitoring icon] watchman-monitoring
+
+[icon waze icon] waze
+
+[icon weebly icon] weebly
+
+[icon weibo icon] weibo
+
+[icon weixin icon] weixin
+
+[icon whatsapp icon] whatsapp
+
+[icon whatsapp-square icon] whatsapp-square
+
+[icon whmcs icon] whmcs
+
+[icon wikipedia-w icon] wikipedia-w
+
+[icon windows icon] windows
+
+[icon wix icon] wix
+
+[icon wizards-of-the-coast icon] wizards-of-the-coast
+
+[icon wodu icon] wodu
+
+[icon wolf-pack-battalion icon] wolf-pack-battalion
+
+[icon wordpress icon] wordpress
+
+[icon wordpress-simple icon] wordpress-simple
+
+[icon wpbeginner icon] wpbeginner
+
+[icon wpexplorer icon] wpexplorer
+
+[icon wpforms icon] wpforms
+
+[icon wpressr icon] wpressr
+
+[icon xbox icon] xbox
+
+[icon xing icon] xing
+
+[icon xing-square icon] xing-square
+
+[icon y-combinator icon] y-combinator
+
+[icon yahoo icon] yahoo
+
+[icon yammer icon] yammer
+
+[icon yandex icon] yandex
+
+[icon yandex-international icon] yandex-international
+
+[icon yarn icon] yarn
+
+[icon yelp icon] yelp
+
+[icon yoast icon] yoast
+
+[icon youtube icon] youtube
+
+[icon youtube-square icon] youtube-square
+
+[icon zhihu icon] zhihu
+
+
+Icon set courtesy [link https://fontawesome.com/|Font Awesome link].
+All trademarks are the property of their respective owners.

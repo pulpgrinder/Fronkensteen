@@ -1,0 +1,16 @@
+Red  #651616
+     #7e1b1b
+Orange #b87231
+       #d68539
+Yellow #9c9350
+       #c5ba65
+Green: #3c7437
+       #488b42
+Cyan: #5292a0
+      #579aa9
+Blue: #434292
+      #5352b4
+Violet: #544972
+        #695b8e
+Magenta: #87455f
+         #a05271

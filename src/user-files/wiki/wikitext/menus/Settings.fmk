@@ -1,0 +1,27 @@
+[!scheme
+
+  (define (.set-theme_touch_click evt)
+    (console-log "Setting theme")
+    (let ((target (js-ref evt "currentTarget")))
+      (let ((theme (% target "attr" "themecolor")))
+        (let ((theme-active (<< theme "-active")))
+          (set-wiki-theme  (eval (string->symbol theme)) (eval (string->symbol theme-active)))
+          (set-local-storage-item! "fronkensteen-theme"  (eval (string->symbol theme)))
+          (set-local-storage-item! "fronkensteen-theme-active"  (eval (string->symbol theme-active)))
+          ))))
+
+(<<
+  (h1 "Theme")
+  (pbutton-group "#themebuttons"
+    (<<
+        (pbutton ".set-theme.pcolor-red!themecolor='p-red'" "Red")
+        (pbutton ".set-theme.pcolor-orange!themecolor='p-orange'" "Orange")
+        (pbutton ".set-theme.pcolor-yellow!themecolor='p-yellow'" "Yellow")
+        (pbutton ".set-theme.pcolor-green!themecolor='p-green'" "Green")
+        (pbutton ".set-theme.pcolor-cyan!themecolor='p-cyan'" "Cyan")
+        (pbutton  ".set-theme.pcolor-blue!themecolor='p-blue'"  "Blue")
+        (pbutton  ".set-theme.pcolor-violet!themecolor='p-violet'" "Violet")
+        (pbutton ".set-theme.pcolor-magenta!themecolor='p-magenta'" "Magenta")
+      )))
+
+scheme!]

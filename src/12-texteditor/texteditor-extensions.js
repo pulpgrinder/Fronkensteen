@@ -171,11 +171,15 @@ BiwaScheme.define_libfunc("cm-editor-arrow-key", 2, 2, function(ar,intp){
   return Fronkensteen.editDriver.arrowKey(ar[0],ar[1]);
 });
 
-BiwaScheme.define_libfunc("init-cm-editor!", 2, 2, function(ar,intp){
+BiwaScheme.define_libfunc("init-cm-editor!", 1, 1, function(ar,intp){
   // Convert the textarea in ar[0] to a text editor.
   BiwaScheme.assert_string(ar[0]);
-  BiwaScheme.assert_string(ar[1]);
-  return Fronkensteen.editDriver.createEditor(ar[0],ar[1]);
+  return Fronkensteen.editDriver.createEditor(ar[0]);
+})
+BiwaScheme.define_libfunc("dispose-cm-editor!", 1, 1, function(ar,intp){
+  // Remove text editor cruft from  textarea in ar[0]
+  BiwaScheme.assert_string(ar[0]);
+  return Fronkensteen.editDriver.disposeEditor(ar[0]);
 })
 
 BiwaScheme.define_libfunc("cm-editor-replace",2,2, function(ar){

@@ -1,4 +1,4 @@
-The files [code string-utilities.scm code] and [code string-extensions.js code] are copyright 2018-2020 by Anthony W. Hursh, and are distributed under the terms of the same MIT license as Fronkensteen as a whole.
+The files [code string-utilities.scm code] and [code string-extensions.js code] are [copyright] 2018-2020 by Anthony W. Hursh, and are distributed under the terms of the same MIT license as Fronkensteen as a whole.
 
 The code in [code natural-sort.js code] is Copyright © 2014–2016 Studio B12 and is used under the terms of the following license:
 
@@ -51,7 +51,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-The code in [code 1-diff_match_patch_uncompressed.js code] is Copyright 2018 The diff-match-patch Authors and is distributed under the terms of the following license: 
+The code in [code 1-diff_match_patch_uncompressed.js code] is Copyright 2018 The diff-match-patch Authors and is distributed under the terms of the following license:
 
 
 

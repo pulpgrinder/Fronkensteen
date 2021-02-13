@@ -13,21 +13,21 @@ Fronkensteen.prettyJSON = function(text){
 
 
 BiwaScheme.define_libfunc("decode-base-32",1,1, function(ar){
-  // Encodes the string given in ar[0] as a URI.
+  // Encodes the string given in ar[0] as base-32.
   return base32.decode(ar[0]);
 });
 
 BiwaScheme.define_libfunc("encode-base-32",1,1, function(ar){
-  // Encodes the string given in ar[0] as a URI.
+  // Encodes the string given in ar[0] as base-32.
   return base32.encode(ar[0]);
 });
 BiwaScheme.define_libfunc("decode-base-64",1,1, function(ar){
-  // Encodes the string given in ar[0] as a URI.
+  // Encodes the string given in ar[0] as base-64.
   return atob(ar[0]);
 });
 
 BiwaScheme.define_libfunc("encode-base-64",1,1, function(ar){
-  // Encodes the string given in ar[0] as a URI.
+  // Encodes the string given in ar[0] as base-64.
   return btoa(ar[0]);
 });
 BiwaScheme.define_libfunc("encode-uri",1,1, function(ar){

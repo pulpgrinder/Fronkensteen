@@ -63,6 +63,11 @@
     (dv extra (car args))
     (dv (<< (car args) extra) (cadr args))))
 
+(define (class-container container-type extra . args) ; Helper function for synthetic DOM elements.
+  (if (eqv? (length args) 1)
+    (container-type extra (car args))
+    (container-type (<< (car args) extra) (cadr args))))
+
 (define (generic-span extra . args)  ; Helper function for synthetic DOM elements.
   (if (eqv? (length args) 1)
     (span extra (car args))

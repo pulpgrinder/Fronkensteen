@@ -12,7 +12,7 @@ body {
   margin:0;
   padding:0;
   line-height:1.33em;
-  background: #979898;
+  background: #bbb;
   overflow:hidden;
 }
 
@@ -34,12 +34,7 @@ textarea::selection {
 #upload_download{
   display:none;
 }
-#fronkensteen-status-bar-container{
-  display:none;
-}
-#fronkensteen-search-bar-container{
-  display:none;
-}
+
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -59,50 +54,15 @@ footer{
 .smallfont{
   font-size:50%;
 }
-#fronkensteen-wrapper{
-  position:fixed;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-}
 
 
-#fronkensteen-content{
-  z-index:0;
-  margin:0;
-  padding:0;
-  position:fixed;
-  /*top:140px; */
-  left:0;
-  right:0;
-  overflow:hidden;
-}
-
-
-#fronkensteen-code-editor{
-  display:none;
-  z-index:3;
-}
-#fronkensteen-documentation{
-  display:none;
-  z-index:4;
-}
 
 .fronkensteen-file-uploader{
   visiblity:hidden;
   z-index:0;
 }
 
-#fronkensteen-markup-viewer{
-  margin:auto;
-  width:60em;
-  padding:2em;
-}
 
-.fronkensteen-markup-content{
-
-}
 
 table {
   border-collapse: collapse;

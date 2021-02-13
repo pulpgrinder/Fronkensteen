@@ -1,0 +1,484 @@
+[h2 Inline text formatting h2]
+
+Italic: [code [i Italic text. i] code] [i Italic text. i]
+
+Bold: [code [b Bold text. b] code] [b Bold text b]
+
+Emphasized: [code [em Emphasized text em] code] [em Emphasized text em] (same as italic, by default).
+
+Strong: [code [strong Strong text strong] code] [strong Strong text strong] (same as bold, by default).
+
+Headings: [code [h3 This is a third-level heading h3] code] Format text as heading level 3 (levels 1-6 are supported)
+
+[h3 This is a third-level heading h3]
+
+Blockquotes: [altcode [bq If the doors of perception were cleansed, everything would appear to man as it is -- infinite. [br][br] -- William Blake bq] altcode] Format text as a block quote.
+
+[bq If the doors of perception were cleansed, everything would appear to man as it is -- infinite. [br][br] -- William Blake bq]
+
+Superscript: [code e=mc[sup 2 sup] code]
+
+e=mc[sup 2 sup]
+
+Subscript: [code H[sub 2 sub]O code]
+
+H[sub 2 sub]O
+
+Strikethrough: [code [strike text strike] code]
+
+[strike text strike]
+
+Underline: [code [u text u] code]
+
+[u text u]
+
+Small caps: [code [sc Small, but mighty. sc] code]
+
+[sc Small, but mighty. sc]
+
+[altcode [code some computer source code code] altcode] Format text as source code, e.g. [code some computer source code code] (there is also a paragraph form of this tag for use with larger code blocks -- see below).
+
+Cursive: [code [cursive Fancy! cursive] code]
+
+[cursive Fancy! cursive]
+
+Fantasy: [code [fantasy In ancient times... fantasy] code]
+
+[fantasy In ancient times... fantasy]
+
+[code [stet verbatim text stet] code] The [code stet code] tag prevents [i any i] processing of the enclosed text from occurring. No Fronkenmark formatting. No smart quotes. No linking. The text will appear exactly as it is written. This is occasionally useful.
+
+[h2 Links h2]
+
+[code [link Secondary Page link] code] Link to the internal page with the title "Secondary Page".
+
+[code [link https://some.external.site.com link] code] Link to the external site with the URL https://some.external.site.com.
+
+[code [link Secondary Page|Cool Page link] code] Link to the internal page with the title "Secondary Page", but display the alternate text "Cool Page" rather than "Secondary Page".
+
+[code [link https://some.external.site.com|Cool Site link] code] Link to the external site with URL https://some.external.site.com, but display the text "Cool Site" rather than the URL.
+
+[code [menulink Settings link] code] Opens the internal menu with the title "Settings". The difference between this and a wiki link is that opening a menu does not navigate away from the current page. When the menu is closed, the original page reappears. Menus are kept in the menus/ folder.
+
+[code [doclink Formatting doclink] code] Opens the internal documentation page with the title "Formatting" (in other words, the exact document you're looking at right now). As with menulink, doclink does not navigate away from the current page. When the doc is closed, the original page reappears. Docs are kept in the docs/ folder.
+
+
+[h2 Paragraph formatting h2]
+
+[code [p text p] code] Format text as a normal paragraph (you can also simply separate paragraphs with blank lines, as you would in Markdown).
+
+[p Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  p]
+
+[code [pc text pc] code] Format text as a centered paragraph.
+
+[pc Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pc]
+
+[code [pl text pl] code] Format text as a left-aligned paragraph (this is the default, but you may occasionally need to use this if some other code has changed the alignment).
+
+[pl Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pl]
+
+[code [pr text pr] code] Format text as a right-aligned paragraph.
+
+[pr Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.  pr]
+
+[code [pj text pj] code] Format text as a justified paragraph.
+
+[pj Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pj]
+
+[code [ph text ph] code] Format text as a paragraph with "hanging indents".
+
+[ph Bukowski, C. (1979). [i Play the piano drunk like a percussion instrument until the fingers begin to bleed a bit. i] Santa Barbara: Black Sparrow Press.
+ph]
+[ph
+Hobbes, T. (1657). [i Stigmai ageōmetrias, agroichias, antipoliteas, amatheias, or, Markes of the absurd geometry, rural language, Scottish church-politicks, and barbarismes of John Wallis, professor of geometry and doctor of divinity. i] London: Printed for Andrew Crooke.
+ph]
+[ph Kirgo, G. (1960). [i How to write ten different best sellers now -in your spare time-and become the first author on your block, unless there’s an author already living on your block, in which case you’ll become the second author on your block, and that’s okay, too, and other stories. i] New York: Simon and Schuster.
+ph]
+[ph Rakoff, D. (2013). [i Don’t get too comfortable: the indignities of coach class, the torments of low thread count, the never- ending quest for artisanal olive oil, and other first world problems i] (Unabridged. ed.). New York: Anchor Books. ph]
+
+
+[code [poetry text poetry] code] Poetry is typeset with spacing and line breaks intact. Typographic quotes and dashes are used, and the poetry block is centered based on the longest line.
+
+This piece is the famous Mouse's tail/tale from [i Alice in Wonderland i] which is formatted to resemble a mouse's tail. Font sizing (see below) is also used to make the "tail" text get smaller toward the tip.
+
+[pc [b From Alice in Wonderland b] [br] [i by Lewis Carroll i] pc]
+[poetry
+         'Fury said to a
+         mouse, That he
+        met in the
+       house,
+     "Let us
+      both go to
+       law: [i I i] will
+        prosecute
+         [i you i].--Come,
+           I'll take no
+           denial; We
+          must have a
+        trial: For
+      really this
+     morning I've
+    nothing
+    to do."
+     Said the
+      mouse to the
+       cur, "Such
+        a trial,
+         dear Sir,
+            With
+          no jury
+        or judge,
+       would be
+      wasting
+      our
+      breath."
+       "I'll be
+        [small judge, I'll
+         be jury," small]
+            [footnotesize Said
+         cunning
+          old Fury:
+          "I'll
+          try the
+            whole footnotesize]
+            [scriptsize cause,
+              and
+           condemn
+           you
+          to scriptsize]
+          [tiny death."' tiny]
+poetry]
+
+[code [pcursive paragraph pcursive] code] Set an entire paragraph in a cursive typeface. See [code [cursive] code] above for doing this in the middle of a block of text.
+
+[pcursive Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pcursive]
+
+
+[code [pfantasy paragraph pfantasy] code] Set an entire paragraph in a fantasy typeface. See [code [fantasy] code] above for doing this in the middle of a block of text.
+
+[pfantasy Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pfantasy]
+
+
+[altcode [code text code] altcode]
+
+You may format text as source code either inline [code x = 3; code] or as a code block:
+[altcode
+[code
+
+(define (square x)
+  (* x x))
+
+code]
+altcode]
+
+produces:
+
+[code
+
+(define (square x)
+  (* x x))
+
+code]
+Optionally, you may specify a language for a code block to ensure proper syntax highlighting The default is [code scheme code], as seen in the previous example. The example below uses [code javascript code]):
+[altcode
+
+[code javascript
+
+function hello(){
+	alert("Hello, world!");
+}
+
+code]
+altcode]
+
+produces:
+
+[code javascript
+
+function hello(){
+	alert("Hello, world!");
+}
+
+code]
+
+Even more occasionally, you may need to use verbatim [altcode [code code] altcode] tags in a document -- that is, you may want the code tag to be visible, rather than performing its normal function (many of the examples in this document needed to do that). You can accomplish this by wrapping the content in &lsqb;altcode altcode&rsqb; tags.
+
+[h2 Lists h2]
+[code
+[ul
+First item
+Second item
+Third item
+ul]
+code]
+
+This formats the items as an unordered (bulleted) list, like this:
+[ul
+First item
+Second item
+Third item
+ul]
+
+[code
+[ol
+First item
+Second item
+Third item
+ol]
+code]
+
+This formats the items as ordered (numbered) list, like this:
+[ol
+First item
+Second item
+Third item
+ol]
+
+[code
+[menu
+Main
+Kitchen Sink
+IncludeTest
+menu]
+code]
+
+Produces a menu for selecting wiki pages. The text should be a list of wiki page titles, one per line. The menu items will be auto-linked to their respective page, like this:
+[menu
+Main
+Kitchen Sink
+IncludeTest
+menu]
+
+[code
+[!schememenu
+First choice|(alert "You clicked the first one!") (alert "And here's another expression!")
+Second choice|(alert "You clicked the second one!")
+Third choice|(alert "You clicked the third one!")
+schememenu!]
+code]
+
+This produces a menu where Scheme expressions are evaluated when the items are clicked. As with the regular menu, the text contains one entry per line, but the menu text is followed by a | character, then the Scheme expression(s) to evaluate. The result of the above code is this:
+
+[!schememenu
+First choice|(alert "You clicked the first one!")  (alert "And here's another expression!")
+Second choice|(alert "You clicked the second one!")
+Third choice|(alert "You clicked the third one!")
+schememenu!]
+
+The Scheme expression(s) are wrapped in a lambda to make it easier to evaluate multiple expressions:
+[code
+
+  (lambda (evt)
+    expression 1
+    expression 2
+       .
+       .
+       .
+    expression n)
+code]
+
+The [code evt code] parameter is the JavaScript click event on the menu item, so if need be you can locate the source of the event, etc.
+
+
+[code
+[roundlist
+First item
+Second item
+Third item
+roundlist]
+code]
+
+Like menu, but does [b not b] auto-link the items. Each item has the class [code .round-list-item code], so you can add your own custom handler if desired. The above code produces this:
+
+[roundlist
+First item
+Second item
+Third item
+roundlist]
+
+[h2 Typographic markup h2]
+
+[code [hr] code] Insert a horizontal rule, as below.
+
+[hr]
+
+[code [br] code] Insert a line break.
+
+[code [nbsp] code] Insert a non-breaking (hard) space.
+
+[code [scenebreak text scenebreak] code] Insert a scene break, with the specified text centered on a line by itself (usually the text will be something like asterisks, or a decorative character like [hedera], etc.) Examples:
+[scenebreak * * * scenebreak]
+[scenebreak [hedera][hedera][hedera] scenebreak]
+
+[code [pagebreak] code] Insert a forced page break at this point. Has no visible effect on a normal web screen, primarily useful for printing or in  formatting ebooks.
+
+[code [dropcap Call me Ishmael. dropcap] code] Formats the first character of the text as a drop cap. Any additional characters in the text will be formatted as small caps.
+
+[dropcap Call me Ishmael. dropcap] Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation.
+
+Fronkenmark attempts to convert "" and '' to their "smart" (curly) counterparts (support for proper quotes in non-English languages is forthcoming). Unfortunately, proper quoting in English (at least) is not easily reducible to a simple algorithm. It's not hard to [i almost i] get it right, but there are tough corner cases. If need be, you can cheat by manually inserting [code &amp;lsquo; code] for &lsquo;, [code &amp;rsquo; code] for &rsquo;, [code &amp;ldquo; code] for &ldquo;, and  [code &amp;rdquo; code] for &rdquo;.
+
+Fronkenmark also makes the following substitutions:
+
+[code -- code] Insert an "en" (short) dash, --
+
+
+[code --- code] Insert an "em" (long) dash, ---
+
+
+[code ... code] Insert an ellipsis, ...
+
+
+If you don't want "smart quoting" to happen, you can use:
+[code [nosmart] code] which disables smart quotes for the page it's in.
+
+[h3 Special characters h3]
+[code [asterism] code] -> [asterism],
+[code [club] code] -> [club],
+[code [c] code] -> [c],
+[code [dagger] code] -> [dagger],
+[code [degree] code] -> [degree],
+[code [diamond] code] -> [diamond],
+[code [doubledagger] code] -> [doubledagger],
+[code [frown] code] -> [frown],
+[code [heart] code] -> [heart],
+[code [hedera] code] -> [hedera],
+[code [lozenge] code] -> [lozenge],
+[code [manicule] code] -> [manicule],
+[code [numero] code] -> [numero],
+[code [orda] code] -> [orda],
+[code [ordo] code] -> [ordo],
+[code [p] code] -> [p],
+[code [peace] code] -> [peace],
+[code [pilcrow] code] -> [pilcrow],
+[code [refmark] code] -> [refmark],
+[code [r] code] -> [r],
+[code [sectionsign] code] -> [sectionsign],
+[code [sm] code] -> [sm],
+[code [smile] code] -> [smile],
+[code [spade] code] -> [spade],
+[code [tm] code] -> [tm]
+
+The appearance of these may vary considerably, depending on the system you're using and what fonts are installed.
+
+[h3 Font sizing h3]
+
+Fronkenmark supports [latex LaTeX latex]-style font sizing:
+
+[code [tiny text tiny] code] produces [tiny text tiny].
+
+[code [scriptsize text scriptsize] code] produces [scriptsize text scriptsize].
+
+[code [footnotesize text footnotesize] code] produces [footnotesize text footnotesize].
+
+[code [small text small] code] produces [small text small].
+
+[code [normalsize text normalsize] code] produces [normalsize text normalsize].
+
+[code [large text large] code] produces [large text large].
+
+[code [Large text Large] code] produces [Large text Large].
+
+[code [LARGE text LARGE] code] produces [LARGE text LARGE].
+
+[code [huge text huge] code] produces [huge text huge].
+
+[code [Huge text Huge] code] produces [Huge text Huge].
+
+[code [HUGE text HUGE] code] produces [HUGE text HUGE].
+
+[h3 Unicode characters h3]
+
+You can enter arbitrary Unicode characters in the form [code U+hhhh code], where hhhh corresponds to the hexadecimal digits of the desired character.  Of course, it's impossible to include every available Unicode symbol, but the included KitchenSink font package has good coverage for many ancient and modern languages, and most modern browsers have good coverage of emoji.
+
+For example:
+
+[code U+1F600 code] produces U+1F600.
+
+[code U+1F480 code] produces U+1F480.
+
+
+[h3 Icons h3]
+
+[code [icon smile icon] code] inserts the icon with the given name.
+
+
+[icon smile icon]
+
+Note that this is different from the [smile] special character (though they may look similar depending on which font your machine is using). Icons are [i images i] rather than [i characters i].
+
+See [doclink List of Icons doclink] for a list of available icons.
+
+
+[h2 Multimedia Tags h2]
+
+[code [img images/fronkensteenlogo.png img] code] inserts the specified (local) image at this position
+
+[code [img https://avatars1.githubusercontent.com/u/42942914 img] code] inserts the specified (web) image at this position.
+
+[code [img images/fronkensteenlogo.png #fronkensteen-logo!title='Fronkensteen Logo'!width='100'!height='100' img] code] inserts the image, using the specified [doclink HTML Generation|SEML doclink] markup.
+
+[h3 HTML5 audio and video h3]
+
+The HTML5 audio and video tags support the use of multiple formats. Just add additional files in the tag, separating each one with a comma.
+
+[code [audio https://url-to-audio-file.mp3 audio] code] HTML5 audio, using an audio file on the web.
+
+[code [audio media/audio-file.mp3 audio] code] HTML5 audio, using an internal internal audio file resource.
+
+[code [video https://url-to-video-file.mp4 video] code] HTML5 video, using a video file from the web..
+
+[code [video media/video-file.mp4, media/video-file.webm ... video] code] HTML5 video, using an internal video file.
+
+[code [youtube URL youtube] code] Produces an embedded YouTube video of the default size using the given YouTube URL
+
+[code [youtube URL width height youtube] code] Produces an embedded YouTube video of the given width and height from the given YouTube URL
+
+[h2 Tables h2]
+[code [table table data table] code] Renders the given data in tabular format.
+
+[code
+[table
+1,2,3
+4,5,6
+7,8,9
+table]
+code]
+
+Produces:
+[table
+1,2,3
+4,5,6
+7,8,9
+table]
+
+You may provide an optional template, which consists of one format line per line of data. It specifies whether to format the corresponding table element as a header "h", left-aligned "l", right-aligned "r" or centered "c".
+
+[code
+[table
+hhh
+ccc
+rrr
+lll
+Column 1, Column 2, Column 3
+1,2,3
+4,5,6
+7,8,9
+table]
+code]
+
+Produces:
+[table
+hhh
+ccc
+rrr
+lll
+Column 1, Column 2, Column 3
+1,2,3
+4,5,6
+7,8,9
+table]
+
+[h2 Programming h2]
+
+The Fronkensteen system is fully programmable. See the [doclink Programming doclink] page for further information.

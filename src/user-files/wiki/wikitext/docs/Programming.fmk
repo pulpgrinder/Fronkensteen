@@ -1,0 +1,165 @@
+; Copyright 2020 by Anthony W. Hursh. Distributed under the same MIT license as Fronkensteen as a whole.
+
+[h1 Programming the Fronkensteen System h1]
+
+The Fronkensteen system is fully programmable, both in Scheme and Javascript. This document is a very high-level overview of the available features. A full treatment will be found in the forthcoming book and the online tutorial material.
+
+[h2 Basic Programming Tags h2]
+
+[code [&#33;include page title include&#33;] code] Processes the wiki page with the given title and inserts it at this point in the document.
+
+[code [&#33;scheme Scheme code scheme&#33;] code] Executes the supplied Scheme code. The result of executing the Scheme code (which should be a string) is inserted at this point in the document.
+
+[code [&#33;javascript JavaScript code javascript&#33;] code] Executes the supplied JavaScript code and inserts the result (which should be a string) at this point in the document.
+
+[code [button buttonID caption button] code] Produces a button with the given id and caption. When the button is clicked, the Scheme procedure (#buttonID_click) will be invoked (if a procedure with that name has been defined). If a procedure named (#buttonID_touch_click) has been defined, that procedure will be invoked if the button is touched (on a touch-screen device) [b or b] clicked. See "HTML Generation", below, for more information on how this works.
+
+[code [pid id content pid] code] Produces an paragraph with the given ID and content (or an empty paragraph, if content is missing) and inserts it at this point in the document. The paragraph can be used to display output from a script.
+
+[code [counter countername] code] Creates a counter with the given name. Each time this counter appears, the code will be replaced by the next sequential numeric value. In other words, the first time this counter appears, it will be replaced by 1. The second time, by 2, and so on.
+
+[code [romancounter countername] code] Same as counter, but uses lower-case Roman numerals.
+
+[code [Romancounter countername] code] Same as romancounter, but uses upper-case Roman numerals.
+
+[code [resetcounter countername] code] Resets the specific counter. The next time it is invoked,its value will be 1.
+
+[code [resetcounters] code] Resets all counters. The next time any of them is invoked, its value will be 1.
+
+[h2 HTML Generation h2]
+
+Fronkensteen has Scheme procedures corresponding to all standard HTML tags, as well as some custom tags (and you are also free to design your own tags).
+
+The elements are generated using a convention called SEML, which is based on an idea by Logan Braga, and originally implemented by him in Ruby. However, this implementation has been written from scratch in JavaScript, and differs from Braga's in some respects.
+
+SEML is designed to be reminiscent of the format used in CSS files and jQuery selectors. The general format is:
+[code
+(tagname seml-spec text-content)
+code]
+
+Note, however, that some element types, such as &lt;img&gt; don't have text content.
+
+Let's look at some examples.
+
+If we wanted to generate the paragraph element:
+[code
+<p id="foo">Words, words, words.</p>
+code]
+
+We'd use:
+
+[code
+(p "#foo" "Words, words, words.")
+code]
+
+Note that the id attribute is marked with a '#', just the same as in CSS and jQuery.
+
+Now let's look at a more complex example. Suppose we want to generate:
+
+[code
+<a id='foo' class='bar' baz='rag' href='http://www.apple.com'>Apple Home Page</a>
+code]
+
+We'd do that in Fronkensteen with:
+
+[code
+(a "#foo.bar!baz='rag'!href='http://www.apple.com'" "Apple Home Page")
+code]
+
+Here we have an id that begins with '#', a class that begins with '.' (again, just like CSS/jQuery), and some other attributes that are set off with '!'.
+
+The HTML procedures return strings, not DOM elements. The string must be converted to elements and inserted in the document with jQuery procedures (see below).
+
+Using quoted strings for large blocks of text is something of a pain (particularly if the text block may itself contain quotes), so Fronkensteen offers a shortcut convention for that.
+
+[code
+<%
+Block of text containing "quoted material", line
+breaks,
+and so on.
+%>
+code]
+
+will result in the text between the brackets being inserted into the Scheme code as a literal string, including any line breaks, quotes, or any other otherwise troublesome characters.
+
+
+[h3 Sharp Corner h3]
+
+Unfortunately Scheme already has a procedure called [code div code], so Fronkensteen uses [code dv code] instead. All other HTML elements use their normal names.
+
+[h2  Auto-wiring of HTML Elements h2]
+
+Some HTML elements (such as buttons) can be "auto-wired". Using a button as an example, [code (button "#coolbutton" "My Cool Button") code] will produce [code <button id="coolbutton">My Cool Button</button> code] (just as above). If this button is inserted into the DOM and the [code (wire-ui) code] procedure is called afterward, an event handler will be added to the button that calls a procedure named [code (#coolbutton_click event) code] when the button is clicked (if that procedure exists). This is very convenient compared to adding an event handler to every button by hand. This also works with classes. [code (button "#coolbutton2.neatbutton" "My Other Cool Button") code] will produce [code <button id="coolbutton2" class="neatbutton">My Other Cool Button</button> code], and a procedure named [code (.neatbutton_click event) code] will be called if the button is clicked, if that procedure exists.
+
+Touch screen device support is handled by using procedures named with a _touch_click extension (e.g. [code (.neatbutton_touch_click event) code]). In this case, the procedure will be evaluated if the button is touched (on a touch-screen device) or clicked (on a non-touch-screen device).
+
+Note that There Can Be Only One here. If both the id handler and one or more class handlers exist, the one that comes last in alphabetical order will take precedence. In this case, a class handler (.neatbutton_click event) will be called in preference to an id handler (#coolbutton2_click) if both exist, as .neatbutton_click  comes later in alphabetical order than #coolbutton2_click.
+
+Similar auto-wired event handlers exist for input and change events. More are planned, and you may add your own by overriding the wire-procedure-list procedure as defined in dom/wired.scm.
+
+
+## jQuery Interface
+
+BiwaScheme has a nice, Scheme-like interface to jQuery. However, Fronkensteen opts for a more jQuery-like procedure syntax. Why jQuery? Because jQuery has been around for a long time, it works, and it's not going anywhere. Other frameworks seem to come and go with depressing regularity. Also, there's a vast amount of jQuery example code on the net. Translating this code to work with Fronkensteen is pretty straightforward.
+
+A jQuery call like:
+
+[code
+$("#test-div").html("New text")
+code]
+
+maps in a direct fashion to:
+
+[code
+(% "#test-div" "html" "New Text")
+code]
+
+Note that this actually has *fewer* parentheses than the jQuery. [smile]
+
+
+
+[h2 CSS in Scheme h2]
+
+Fronkensteen lets you use Scheme code to write and install CSS. The [code proc-css-list code] procedure in:
+
+[code
+(install-css "text-processor-style"
+  (proc-css-list `(
+    (".fronkensteen-footnote-link" (
+      "font-size" "75%"
+      "vertical-align" "super"
+      "line-height" "0"
+      ))
+    (".fronkensteen-footnote" (
+      "text-decoration" "underline"
+      "cursor" "pointer"
+        )))))
+code]
+
+will generate the following CSS:
+
+[code
+.fronkensteen-footnote-link {
+  font-size:75%;
+  vertical-align:super;
+  line-height:0;
+}
+.fronkensteen-footnote {
+  text-decoration:underline;
+  cursor:pointer;
+}
+code]
+
+The [code install-css code] procedure takes that generated CSS and installs it in the document as a style element in the document head, with an id of [code text-processor-style code] (the id is handy if you might want to replace this CSS at another point in the code).
+
+The backquote/quasiquote operator in proc-css-list is not strictly necessary in this case. It's there so you can use an unquote operator in the list to include arbitrary Scheme code to be evaluated and inserted into the list.
+
+[h2 Custom Tags h2]
+
+Fronkensteen's internal markup system allows you to define your own custom tags. To do that, you need to write your tag handler (in Scheme, JavaScript, or a mixture of the two), then run that handler code to install the tag.
+
+A simple example of this is the [link pirate-speak link] handler. By visiting this page, a handler will be installed for a [code [piratespeak text piratespeak] code] tag which converts the supplied text to "Pirate Speak".
+
+Once the the handler has been installed, you may use the [code piratespeak code] tag in any page.
+
+If you want to automatically install a handler on system launch, add an [code [scheme! (exec-wiki-page pagename) scheme!] code]  to [link Main link] to cause your handler installation page to be run at startup.

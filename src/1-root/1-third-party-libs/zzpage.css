@@ -1,0 +1,15 @@
+.ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page {
+  position:relative;
+  margin:0 auto;
+  max-width:60em;
+}
+
+.ui-footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+#fronkensteen-content-container{
+  background-color:#999;
+}

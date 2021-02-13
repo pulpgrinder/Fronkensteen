@@ -29,3 +29,18 @@ MathJax.tex = {
     formatError:               // function called when TeX syntax errors occur
         (jax, err) => jax.formatError(err) */
   }
+
+
+Fronkenmark.preScripts["latex"] = function(text,code,trusted){
+
+  // We let MathJax run regardless of trusted status. Think about this.
+      let id = "renderedlatex" + Fronkensteen.no_dash_uuid();
+      if(typeof MathJax === "undefined"){
+        Fronkenmark.substitutions[id] = "MathJax is not installed."
+      }
+      else {
+      let result = MathJax.tex2svg(code,{display:true});
+      Fronkenmark.substitutions[id] = result.outerHTML;
+      }
+      return id;
+}

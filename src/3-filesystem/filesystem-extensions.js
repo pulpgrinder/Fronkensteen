@@ -58,6 +58,18 @@ Fronkensteen.collectLicenses = function(){
   return license_text;
 
 }
+
+Fronkensteen.collectUsages = function(){
+  let filenames = Object.keys(fronkensteen_fs);
+  let usage_text = Fronkensteen.readInternalTextFile("fronkenmark/USAGE-fronkenmark.fmk") + "\n\n"
+  for(var i = 0; i < filenames.length; i++){
+    if((filenames[i].match(/USAGE/) !== null) && (filenames[i] !== "fronkenmark/USAGE-fronkenmark.fmk")){
+      usage_text = usage_text +  Fronkensteen.readInternalTextFile(filenames[i]) + "\n\n"
+    }
+  }
+  return usage_text;
+
+}
 Fronkensteen.base_64_to_bytes = function(string_buffer){
   //let datastart = string_buffer.substring(string_buffer.indexOf(",") + 1);
   //let contentType = string_buffer.substring(11,string_buffer.indexOf(";"))
@@ -384,6 +396,11 @@ BiwaScheme.define_libfunc("file-path",1,1, function(ar){
 BiwaScheme.define_libfunc("collect-licenses",0,0, function(ar){
 // Return the text of all LICENSE* files.
   return Fronkensteen.collectLicenses()
+});
+
+BiwaScheme.define_libfunc("collect-usages",0,0, function(ar){
+// Return the text of all LICENSE* files.
+  return Fronkensteen.collectUsages()
 });
 BiwaScheme.define_libfunc("file-path-no-extension",1,1, function(ar){
   // Returns the base name (without extension) of a file name, without any preceding path.

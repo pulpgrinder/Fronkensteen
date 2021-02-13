@@ -14,6 +14,37 @@ Fronkenmark.counters = {};
 Fronkenmark.preserveSpacing = false;
 Fronkenmark.noteCounter = 1;
 Fronkenmark.notes = [];
+Fronkenmark.typographic_symbols = {
+  "hr" : "<hr />",
+  "br" : "<br />",
+  "nbsp" : "&nbsp;",
+  "pagebreak" : "</p><p style='page-break-after:always;'></p><p>",
+   "peace":"✌",
+   "hedera":"❧",
+   "manicule":"☞",
+   "refmark":"※",
+   "pilcrow":"¶",
+   "sectionsign":"§",
+   "dagger":"†",
+   "doubledagger":"‡",
+   "smile":"☺",
+   "frown":"☹",
+   "asterism":"⁂",
+   "lozenge":"◊",
+   "numero": " №",
+   "orda": "ª ",
+   "ordo": "º ",
+   "degree": "°",
+   "c":"©",
+   "p":"℗",
+   "r":"®",
+   "sm":"&#8480;",
+   "tm":"&trade; ",
+   "spade":"&spades;",
+   "heart":"&hearts;",
+   "diamond": "&diams;",
+   "club" : "&clubs;"
+}
 Fronkenmark.installSubstitute = function(text){
   let id = "fronkenrender" + Fronkensteen.no_dash_uuid();
   Fronkenmark.substitutions[id] = text;
@@ -40,22 +71,27 @@ Fronkenmark.resetNotes = function(){
   Fronkenmark.notes = [];
   Fronkenmark.noteCounter = 1;
 }
+Fronkenmark.processStetBlocks = function(text){
+   // Process top-level [code] blocks
+   text = text.replace(/\[stet\s([\s\S]*?)\sstet\]/gm,function(match,code){
+     return Fronkenmark.installSubstitute("<pre>" + code + "</pre>")
+   })
+   return text;
+ }
 Fronkenmark.processCodeBlocks = function(text){
    // Process top-level [code] blocks
+   text = text.replace(/\[altcode\s([\s\S]*?)\saltcode\]/gm,function(match,code){
+     return Fronkenmark.installSubstitute("<pre><code>" + code + "</code></pre>")
+   })
    let lines = text.split("\n");
     let outlines = [];
     let currentCode = "";
     let inCode = false;
     for(var i = 0; i < lines.length; i++){
       let line = lines[i];
-      let singlematch =  line.match(/^\[code (.*) code\](.*)/);
+      let singlematch =  line.match(/^\[code (.*?) code\](.*)/);
       if(singlematch !== null){
           outlines.push(Fronkenmark.installSubstitute ("<code>" +  singlematch[1].trim() + "</code>") + singlematch[2]);
-          continue;
-      }
-      let altmatch =  line.match(/^\[altcode (.*) altcode\](.*)/);
-      if(altmatch !== null){
-          outlines.push(Fronkenmark.installSubstitute ("<code>" +  altmatch[1].trim() + "</code>") + altmatch[2]);
           continue;
       }
       let match = line.match(/^\[code(.*)/);
@@ -73,7 +109,7 @@ Fronkenmark.processCodeBlocks = function(text){
             currentCode = currentCode + lines[i] + "\n";
             i = i + 1;
             if(i === lines.length){
-              Fronkenmark.errors = Fronkenmark.errors + "\nEnd of text in code block. Possibly missing closing [code] tag."
+              Fronkenmark.errors = Fronkenmark.errors + "\nEnd of text in code block. Possibly missing closing code] tag."
               return "";
             }
         }
@@ -109,7 +145,7 @@ Fronkenmark.removeComments = function(text){
 }
 
 Fronkenmark.processUnicode = function(text){
-  text = text.replace(/U\+([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F])/gm,function(match,code){
+  text = text.replace(/U\+([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]+)/gm,function(match,code){
     return String.fromCodePoint("0x" + code)
   }
 );
@@ -119,8 +155,11 @@ Fronkenmark.fronkenmark = function(text,trusted,appendNotes){
 //text = Fronkenmark.processIncludes(text)
   Fronkenmark.useSmartQuotes = true;
   Fronkenmark.errors = ""
-  // First separate out code blocks to be rendered verbatim.
-  text = Fronkenmark.processCodeBlocks(text);
+  // Find code blocks to be rendered verbatim.
+    text = Fronkenmark.processCodeBlocks(text);
+  // Find stet blocks to rendered verbatim.
+  text = Fronkenmark.processStetBlocks(text);
+
   // Handle backslash-escaped tags.
   text = text.replace(/\\\[/g, function(match){
     return Fronkenmark.installSubstitute('[');
@@ -157,8 +196,15 @@ Fronkenmark.fronkenmark = function(text,trusted,appendNotes){
 }
 Fronkenmark.makeSubstitutions = function(text){
   let keys = Object.keys(Fronkenmark.substitutions);
-  for(var i = 0; i < keys.length; i++){
-    text = text.replace(keys[i],Fronkenmark.substitutions[keys[i]])
+  let oldtext = text;
+  while(true){
+    for(var i = 0; i < keys.length; i++){
+      text = text.replace(keys[i],Fronkenmark.substitutions[keys[i]])
+    }
+    if(oldtext === text){
+      break;
+    }
+    oldtext = text;
   }
   return text;
 }
@@ -226,6 +272,8 @@ Fronkenmark.renderMenuItems = function(text,css_class){
   }
   return result;
 }
+
+
 Fronkenmark.renderListItems = function(text,css_class){
   let items = text.split("\n");
   let result = ""
@@ -332,6 +380,14 @@ Fronkenmark.processHashTags = function(text){
   return text;
 }
 Fronkenmark.processContent  = function(text){
+ let singletags = Object.keys(Fronkenmark.typographic_symbols);
+ let singlere;
+ for(var i = 0; i < singletags.length; i++){
+   text = text.replace(RegExp("\\[" + singletags[i]  + "\\]","g"), function(match){
+     return Fronkenmark.installSubstitute(Fronkenmark.typographic_symbols[singletags[i]])
+   })
+ }
+ /*
  text = text.replace(/\[br\]/g, function(match){
    return Fronkenmark.installSubstitute("<br />")
  })
@@ -340,7 +396,7 @@ Fronkenmark.processContent  = function(text){
  })
  text = text.replace(/\[nbsp\]/g, function(match){
    return Fronkenmark.installSubstitute("&nbsp;")
- })
+ }) */
 
  text = text.replace(/\[pagebreak\]/g, function(match){
    return Fronkenmark.installSubstitute("</p><p style='page-break-after:always;'></p><p>")
@@ -383,10 +439,15 @@ Fronkenmark.processContent  = function(text){
     case "strike":
     case "u":
       return Fronkenmark.installSubstitute("<" + tag + ">") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</" + tag + ">");
+    case "cursive":
+        return Fronkenmark.installSubstitute("<span class='cursive'>") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</span>");
+    case "fantasy":
+        return Fronkenmark.installSubstitute("<span class='fantasy'>") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</span>");
     case "bq":
       return Fronkenmark.installSubstitute("<blockquote>") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</blockquote>");
     case "menu":
       return Fronkenmark.installSubstitute("<ul class='menu-list'>") + Fronkenmark.renderMenuItems(Fronkenmark.processContent(code), "menu-list-item") + Fronkenmark.installSubstitute("</ul>")
+
 // Inline LaTeX
     case "latex" :
       return Fronkenmark.installSubstitute(Fronkenmark.processInlineLaTeX(code))
@@ -403,6 +464,10 @@ Fronkenmark.processContent  = function(text){
       return Fronkenmark.installSubstitute("</p><p style='text-align:justify;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
     case "ph":
       return Fronkenmark.installSubstitute("</p><p style='padding-left:3em;text-indent:-3em;display:block;'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>");
+      case "pcursive":
+        return Fronkenmark.installSubstitute("</p><p class='cursive'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>")
+    case "pfantasy":
+      return Fronkenmark.installSubstitute("</p><p class='fantasy'>") +  Fronkenmark.processContent(code) +  Fronkenmark.installSubstitute("</p><p>")
     case "pid":
       let codetokens = code.split(" ");
       let id = codetokens[0];
@@ -480,17 +545,44 @@ Fronkenmark.processContent  = function(text){
       }
       return Fronkenmark.installSubstitute("<span class='" + linkclass + "' target='" + linktarget + "' title='" + titletext + "'>" + Fronkenmark.processContent(linktext) + "</span>");
 
+// Menulink
+case "menulink":
+  let menuparts = code.split("|");
+  if(menuparts.length === 1){
+    menuparts.push(menuparts[0])
+  }
+  let menutarget = menuparts.shift();
+  let menutext = menuparts.join("|");
+  let menuclass;
+  let menutitletext;
+  menuclass = 'menulink link';
+  menutitletext = 'menu link to ' + menutarget;
+  return Fronkenmark.installSubstitute("<span class='" + menuclass + "' target='" + menutarget + "' title='" + menutitletext + "'>" + Fronkenmark.processContent(menutext) + "</span>");
+
+// doclink
+case "doclink":
+  let docparts = code.split("|");
+  if(docparts.length === 1){
+    docparts.push(docparts[0])
+  }
+  let doctarget = docparts.shift();
+  let doctext = docparts.join("|");
+  let docclass;
+  let doctitletext;
+  docclass = 'doclink link';
+  doctitletext = 'doc link to ' + doctarget;
+  return Fronkenmark.installSubstitute("<span class='" + docclass + "' target='" + doctarget + "' title='" + doctitletext + "'>" + Fronkenmark.processContent(doctext) + "</span>");
 
 // Misc.
     case "scenebreak":
-      return Fronkenmark.installSubstitute("</p>\n<p style='text-align:center;'>" + Fronkenmark.processContent(code) + "</p><p>\n");
+      return Fronkenmark.installSubstitute("</p>\n<p style='text-align:center;'>") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</p><p>\n");
     case "anchor" :
       return Fronkenmark.installSubstitute("<a id='" + code + "'/>");
     case "button" :
       let button_parts = code.split(" ");
       let button_id = button_parts.shift();
       let button_caption = button_parts.join("  ")
-      return Fronkenmark.installSubstitute("<button id='" + button_id + "'>") + Fronkenmark.processContent(button_caption) + "</button>";
+      return Fronkenmark.installSubstitute("<div class='pure-button pbutton wiki-theme' id='" + button_id + "'>") + Fronkenmark.processContent(button_caption) + "</div>";
     case "input" :
       let input_parts = code.split(" ");
       let input_id = input_parts.shift();

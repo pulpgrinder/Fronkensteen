@@ -1,0 +1,31 @@
+[!scheme
+  (define (.untrash-item_touch_click ev)
+    (let ((target (js-ref ev "currentTarget")))
+      (let ((trashfile  (% target "attr" "filename")))
+          (untrash trashfile)
+          (alert (<< (% target "html") " has been restored."))
+          (% "#trash-menu-trash-items" "html" (render-trashes (vector->list (collect-trash))))
+          (wire-ui)
+          )))
+
+(define (render-trashes trashlist)
+  (if (eqv? trashlist '())
+    ""
+    (let ((filename (car trashlist)))
+    (<< (li ( << ".round-list-item.untrash-item!filename='" filename "'") (decode-uri filename))
+        (render-trashes (cdr trashlist))))))
+
+(define (#empty-trash_touch_click)
+  (empty-trash)
+  (% "#trash-menu-trash-items" "html" (render-trashes (vector->list (collect-trash))))
+  (wire-ui))
+
+
+  (let ((trashes (vector->list (collect-trash))))
+    (if (eqv? (length trashes) 0)
+        "(nothing in the trash at the moment)"
+        (<<
+        (button "#empty-trash" "Empty Trash")
+        (dv "Click any trash item to restore it:")
+        (ul "#trash-menu-trash-items.round-list" (render-trashes trashes)))))
+scheme!]

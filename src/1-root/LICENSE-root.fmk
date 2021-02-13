@@ -1,4 +1,4 @@
-The following files are copyright 2018-2020 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole:
+The following files are [copyright] 2018-2020 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole:
 
 [code
 root.css
@@ -46,7 +46,7 @@ biwascheme/platforms/browser/console.js
 biwascheme/platforms/browser/release_initializer.js
 code]
 
-are copyright 2007-2020 by Yutaka Hara (http://route477.net) and are distributed under the terms of the MIT license:
+are [copyright] 2007-2020 by Yutaka Hara (http://route477.net) and are distributed under the terms of the MIT license:
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -67,7 +67,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[code third-party-libs/jquery-3.4.1.min.js code] is distributed under the terms of the following MIT license:
+[code third-party-libs/jquery-3.4.1.min.js and jquery.mobile-1.5.0-rc1.js code] are distributed under the terms of the following MIT license:
 
 Copyright JS Foundation and other contributors, https://js.foundation/
 
@@ -90,6 +90,21 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+[code jquery.mobile.squareui.css code] is distributed under the terms of the following license:
+
+           DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                   Version 2, December 2004
+
+Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+
+Everyone is permitted to copy and distribute verbatim or modified
+copies of this license document, and changing it is allowed as long
+as the name is changed.
+
+           DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+ 0. You just DO WHAT THE FUCK YOU WANT TO.
 
 The following files:
 

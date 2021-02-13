@@ -1,0 +1,24 @@
+[h2 LaTeX formatting h2]
+
+[h3 Inline LaTeX h3]
+[code latex
+[latex y=mx+b latex]
+code]
+
+produces [latex y=mx+b latex]. As the name implies, this produces a small result, suitable for displaying in the middle of a line.
+
+[h3 Display LaTeX h3]
+
+[code latex
+[!latex x=\frac{-b\pm \sqrt{{{b}^{2}}-4ac}}{2a} latex!]
+code] produces:
+
+[!latex x=\frac{-b\pm \sqrt{{{b}^{2}}-4ac}}{2a} latex!]
+
+[code latex
+[!latex \int_a^b x^2\; dx  = \frac{x^3}{3}\LARGE{|}{_{\small a}^{\small b}} latex!]
+code] produces:
+
+[!latex \int_a^b x^2\; dx  = \frac{x^3}{3}\LARGE{|}{_{\small a}^{\small b}} latex!]
+
+Display mode produces large [latex LaTeX latex] equations, suitable as a stand-alone display.

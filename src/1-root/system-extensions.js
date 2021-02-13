@@ -236,3 +236,90 @@ BiwaScheme.define_libfunc("repl-here", 1, 1, function(ar){
       var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
       result = intp2.evaluate("(resize-root)")
     }
+
+/**
+* Simulate the shuffling of a deck of cards.
+* Generates a pseudo-random permutation of the positive integers
+* from 0 to decksize-1. In other words, Fronkensteen.shuffle(3)
+* might return something like [1,0,2] or [2,1,0].
+*
+* If the optional onebased parameter is true, the permutation
+* contains positive integers from 1 to decksize, rather than
+* zero to decksize - 1.
+* Not intended for cryptographic use or anything of that nature.
+*/
+Fronkensteen.nullshuffle = function(decksize, onebased){
+    if(onebased === undefined){
+      onebased = false;
+    }
+    let shuffled = new Array();
+    for(var i = 0; i < decksize; i++){
+      shuffled.push(i);
+    }
+    if(onebased === true){
+      for(var i = 0; i < decksize; i++){
+        shuffled[i] = shuffled[i] + 1;
+      }
+    }
+    return shuffled;
+}
+Fronkensteen.shuffle = function(decksize, onebased){
+  if(onebased === undefined){
+    onebased = false;
+  }
+  let shuffled = new Array();
+  for(var i = 0; i < decksize; i++){
+    shuffled.push(i);
+  }
+  let temp,card1,card2;
+  let shuffles = decksize * 1000;
+  for(var i = 0; i < shuffles; i++){
+    card1 = Math.floor(Math.random() * decksize);
+    card2 = Math.floor(Math.random() * decksize);
+    temp = shuffled[card1];
+    shuffled[card1] = shuffled[card2];
+    shuffled[card2] = temp;
+  }
+  if(onebased === true){
+    for(var i = 0; i < decksize; i++){
+      shuffled[i] = shuffled[i] + 1;
+    }
+  }
+  return shuffled;
+}
+
+/**
+  * (shuffle n) returns a vector containing a permutation
+  * of the numbers 0 to ar[0] -1   in pseudo-random order.
+  * Can be used to (e.g.) simulate the shuffling of a deck of cards.
+  * Suitable for games and the like. Not intended for
+  * cryptographic applications. If the optional second parameter
+  * is set to #t, the permutation contains numbers from 1 to
+  * ar[0] rather than 0 to ar[0] - 1.
+  * */
+
+  BiwaScheme.define_libfunc("shuffle",1,2, function(ar){
+    let decksize = ar[0]
+    let onebased = false;
+    if(ar.length > 1){
+      onebased = ar[1];
+    }
+    return Fronkensteen.shuffle(decksize, onebased)
+  });
+
+/**
+  * (nullshuffle n) returns a vector containing the numbers
+  * 0 to ar[0] -1 in order.
+  * If the optional second parameter is set to #t, returns a vector
+  * containing the numbers 1 to ar[0] in order.
+  * Like shuffle, except the result is always in order.
+  */
+
+  BiwaScheme.define_libfunc("nullshuffle",1,2, function(ar){
+    let decksize = ar[0]
+    let onebased = false;
+    if(ar.length > 1){
+      onebased = ar[1];
+    }
+    return Fronkensteen.shuffle(decksize, onebased)
+  });

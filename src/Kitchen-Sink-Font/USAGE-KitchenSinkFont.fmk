@@ -1,0 +1,25 @@
+[h2 Kitchen Sink Font h2]
+
+The "Kitchen Sink" font package includes support for characters from many ancient and modern languages, as well as many other special characters.
+
+For example,
+
+[code U+03EA code]
+
+produces a Coptic 'gangia' character, U+03EA,
+
+[code U+0561 code]
+
+produces an Armenian 'ayb' character, U+0561,
+
+[code U+2615 code]
+
+produces a 'hot beverage' glyph, U+2615, and
+
+[code U+265E code]
+
+produces a chess symbol, U+265E.
+
+Here's a phrase in Anglo-Saxon runes:
+
+U+16EDU+16ABU+16B1U+16E6U+16B1U+16C1U+16A2U+16A0U+16DAU+16CFU+16E6U+16B1U+16C1U+16A2U+16B1U+16C1U+16A6U+16A9U+16BEU+16B7U+16DAU+16ABU+16CBU+16CFU+16ABU+16C8U+16A9U+16BEU+16CFU+16ABU+16BF

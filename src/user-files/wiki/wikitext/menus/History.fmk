@@ -1,0 +1,21 @@
+[!scheme
+
+(define (iterate-history-list history-list)
+  (if (eqv? history-list '())
+      ""
+      (let ((title (car history-list)))
+        (string-append title "\n" (iterate-history-list (cdr history-list))))))
+
+(define (#clear-history-button_touch_click evt)
+    (clear-history)
+    (% (<< active-menu-page " .pure-text") "html" "(no history)"))
+
+(if (> (length full-history-list) 0)
+  (fronkenmark (<< "[menu "
+    (iterate-history-list full-history-list)
+    " menu]"
+    (pbutton "#clear-history-button.wiki-theme" "Clear History")
+    ) #t #t)
+  "(no history)")
+
+scheme!]

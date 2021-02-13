@@ -1,4 +1,54 @@
 
+/*
+(show-page page-id reverse transition)
+Animate the page  with the given page-id into view.
+reverse (optional) specifies whether to run the transition in the reverse direction (default: false)
+transition (optional) specifies which transition animation to use. Available
+options: slide, fade, cover, cover-double,revolution, bounce.
+Default: cover-double.
+*/
+BiwaScheme.define_libfunc("js-show-page",1,3,function(ar){
+  BiwaScheme.assert_string(ar[0]);
+  let inblock = $(ar[0])[0];
+  let outblock;
+  let existing = $("#fronkensteen-active-pages div").first()
+  if(existing.length > 0){
+    outblock = existing[0];
+  }
+  else{
+    outblock = null;
+  }
+  let reverse = false;
+
+  if(ar.length > 1){
+    reverse = ar[1];
+  }
+  console.log("reverse = " + reverse)
+  let transition = "cover-double";
+  if(ar.length > 2){
+    transition = ar[2];
+  }
+  if(reverse === true){
+    transition = transition + "-out"
+  }
+  else{
+    transition = transition + "-in"
+  }
+  AnimateTransition({
+        container: $("#fronkensteen-active-pages")[0],
+        blockIn: inblock,
+        blockOut:outblock,
+        animation: transition,
+        onTransitionEnd: function (blockIn, blockOut, container, event) {
+          if(outblock !== null){
+            $("#fronkensteen-page-store").append(outblock)
+          }
+        }
+
+    })
+})
+
+
 BiwaScheme.define_libfunc("center-element",1,1,function(ar){
   // Center the element specified in ar[0] in the viewport.
   // Hat tip: James Hibbard at https://hibbard.eu/how-to-center-an-html-element-using-javascript/

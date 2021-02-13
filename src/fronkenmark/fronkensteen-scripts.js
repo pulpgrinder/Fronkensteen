@@ -10,19 +10,29 @@ Fronkenmark.resetCounter = function(countername){
 Fronkenmark.resetCounters = function(){
   Fronkenmark.counters = {}
 }
-Fronkenmark.preScripts["latex"] = function(text,code,trusted){
 
-  // We let MathJax run regardless of trusted status. Think about this.
-      let id = "renderedlatex" + Fronkensteen.no_dash_uuid();
-      if(typeof MathJax === "undefined"){
-        Fronkenmark.substitutions[id] = "MathJax is not installed."
+Fronkenmark.preScripts["schememenu"] = function(text,code,trusted) {
+   if(trusted !== true){
+     return "(Scheme scripts and menus are not allowed in untrusted contexts)";
+  }
+    let items = code.split("\n");
+    let result = ""
+    let classstring = " class='menu-list-item schemelink' ";
+    for(var i = 0; i < items.length; i++){
+      let itemtext = items[i].trim()
+      if(itemtext !== ""){
+        item_items = itemtext.split("|");
+        if(item_items.length < 2){
+          item_items[1] = '(alert "Missing Scheme procedure in menu")'
+        }
+        let procstring = "schemeproc='" + base32.encode(item_items[1].trim()) + "' "
+        let item = Fronkenmark.processContent(item_items[0].trim());
+        result = result + "<li" + classstring +  procstring + ">" + item + "</li>\n"
       }
-      else {
-      let result = MathJax.tex2svg(code,{display:true});
-      Fronkenmark.substitutions[id] = result.outerHTML;
-      }
-      return id;
-}
+    }
+     return Fronkenmark.installSubstitute("<ul class='menu-list'>" + result + "</ul>\n");
+
+  }
 
 
 Fronkenmark.preScripts["scheme"] = function(text,code,trusted){
@@ -108,14 +118,7 @@ Fronkenmark.processInclude = function(code){
   }
 }
 
-Fronkenmark.highlighter = function(code){
-  if(Fronkenmark.currentLanguage !== ""){
-    if(Prism.languages[Fronkenmark.currentLanguage] !== undefined){
-      return Prism.highlight(code,Prism.languages[Fronkenmark.currentLanguage],Fronkenmark.currentLanguage);
-    }
-  }
-  return Prism.highlight(code,"scheme", "scheme");
-}
+
 
 
 

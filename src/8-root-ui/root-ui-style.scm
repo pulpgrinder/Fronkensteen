@@ -2,150 +2,28 @@
 ; Copyright 2019-2020 by Anthony W. Hursh
 ; MIT license.
 
+
 (install-css "root-ui"
     (proc-css-list `(
-      (".icon" (
-    ;  "color" "#0a60fe"
-       "color" "#d08b29"
-        ))
-
-    (".fronkenpoetry" (
-      "display" "table"
-      "margin" "0 auto"
-      "font-family"  <%
-  system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-              Roboto,
-              Oxygen-Sans,
-              Ubuntu,
-              Cantarell,
-              "Helvetica Neue",
-              sans-serif,
-              Kitchen-Sink %>
-      ))
-    (".fronkensteen-toast" (
-        "z-index" "-1"
-        "position" "absolute"
-        "background-color" "rgba(0,0,0,0.7)"
-        "color" "#ddd"
-        "width" "auto"
-        "height" "auto"
-        "padding" "1em"
-        "border-radius" "10px"
-      )
-    )
-    (".fronkensteen-dialog" (
-      "z-index" "10000"
-      "width" "20em"
-      "position" "absolute"
-      "background-color" "rgba(0,0,0,0)"
-      "padding" "0"
-      "min-height" "15em"
-      "margin" "0"
-      ))
-
-      (".fronkensteen-dialog-button" (
-        "float" "right"
-        "margin-right" "0.25em"
-        ))
-      (".fronkensteen-dialog-title" (
-        "position" "absolute"
-        "left" "0"
-        "right" "0"
-        "font-size" "125%"
-        "height" "1.5em"
-        "padding" "0.25em"
-        "padding-bottom" "0"
-        "padding-left" "0.5em"
-        "border-top-left-radius" "10px"
-        "border-top-right-radius" "10px"
-        "color" "#dfe2e2"
-        "background-color" "#333"
-        ))
-        (".fronkensteen-dialog-body" (
-          "position" "absolute"
-          "top" "2em"
-          "left" "0"
-          "right" "0"
-          "bottom" "0"
-          "background-color" "#fff"
-          "color" "#000"
-          "border" "1px solid #000"
-          "border-top" "none"
-          "padding" "0"
-          "overflow" "auto"
-          ))
-          (".fronkensteen-dialog-content" (
-            "position" "relative"
-            "height" "100%"
-            ))
-
-      (".fronkensteen-dialog-text-block" (
-        "padding" "2em"
-        ))
-      ("#fronkensteen-nav-forward" (
-        "position" "absolute"
-        "right" "1.5em"
-        "cursor" "pointer"
-        "display" "none"
-        ))
-        ("#fronkensteen-nav-back" (
-          "position" "absolute"
-          "left" "1em"
-          "cursor" "pointer"
-          "display" "none"
-          ))
-      ("#fronkensteen-top-toolbar-container" (
-        "position" "fixed"
-        "left" "0"
-        "top" "0"
-        "right" "0"
-        "padding" "0"
-        ))
-        (".fronkensteen-top-toolbar" (
-          "display" "none"
-          "margin" "0"
-          "padding" "0"
-          "justify-content" "center"
-          ))
-          (".fronkensteen-bottom-toolbar" (
-            "display" "none"
-            "margin" "0 auto"
-            "padding" "0"
-            "justify-content" "center"
-            ))
-        ("#fronkensteen-bottom-toolbar-container" (
-          "position" "fixed"
-           "left" "0"
-            "right" "0"
-            "padding" "0"
-            "width" "100%"
-            "border-bottom" "1px solid #aaa"
-            "background" "#e5e9e8"
-          "top" "70px"
-          ))
-          ("#fronkensteen-status-bar-container" (
-            "position" "fixed"
-             "left" "0"
-              "right" "0"
-              "padding" "0"
-              "width" "100%"
-              "border-bottom" "1px solid #aaa"
-            "top" "120px"
-            ))
-            ("#fronkensteen-search-bar-container" (
-              "position" "fixed"
-               "left" "0"
-                "right" "0"
-                "padding" "0"
-                "padding-left" "0.5em"
-                "width" "100%"
-                "top" "141px"
-                "background-color" "#f7f7f7"
-                "color" "black"
-              ))
       ("pre" (
         "white-space" "pre-wrap"))
 
+      ("blockquote" (
+        "background-color" "#ddd"
+        "padding" "1em"
+        "border-radius" "10px"
+
+        ))
+      ("code" (
+        "font-family" "Inconsolata, Noto Mono, Menlo, Consolas, DejaVu Sans Mono, Monaco, monospace"
+        "color" "green"
+       ))
+       (".cursive" (
+         "font-family" "cursive"
+        ))
+        (".fantasy" (
+          "font-family" "fantasy"
+         ))
         (".dropcap" (
           "float" "left"
           "font-size" "75px"
@@ -192,44 +70,7 @@
       (".roundbox " (
         "border-radius" "1em"
        ))
-      (".popup-list" (
-        "padding-left" "0.5em"
-        "padding-right" "0.5em"
-        "padding-top" "0.5em"
-        "padding-bottom" "0.5em"
-        "color" "#000"
-        "margin" "auto"
-        "width" "auto"
-      ))
-      (".popup-list-item:first-child" (
-        "border-top" "1px solid #cacaca"
-        "border-top-left-radius" "10px"
-        "border-top-right-radius" "10px"
-      ))
-      (".popup-list-item:last-child" (
-        "border-bottom-left-radius" "10px"
-        "border-bottom-right-radius" "10px"
-      ))
-      (".popup-list-item" (
-        "border-left" "1px solid #cacaca"
-        "border-bottom" "1px solid #cacaca"
-        "border-right" "1px solid #cacaca"
-        "display" "block"
-        "width" "auto"
-        "padding-left" "1em"
-        "padding-right" "1em"
-        "padding-top" "0.5em"
-        "padding-bottom" "0.5em"
-        "background-color" "white"
-      ))
-      (".popup-list-item:hover" (
 
-      ))
-      (".popup-list-item .link" (
-        "display" "inline-block"
-        "width" "100%"
-        "height" "100%"
-      ))
       (".round-list" (
         "padding-left" "0.5em"
         "padding-right" "0.5em"
@@ -258,8 +99,6 @@
         "padding-right" "1em"
        "padding-top" "0.5em"
         "padding-bottom" "0.5em"
-        "width" "100%"
-        "height" "100%"
         "background-color" "white"
 
       ))
@@ -337,69 +176,35 @@
        "font-variant" "small-caps"
       ))
 
-      (".fronkensteen-page-content" (
-        "padding" "4em"
-        ))
-      (".fronkensteen-page-wrapper" (
-        "display" "none"
-        "max-width" "60em"
-        "margin" "auto"
-        "position" "relative"
-        "background-color" "#f5f5f0"
-        "overflow" "auto"
-        "-webkit-overflow-scrolling" "touch";
-        ))
-     ("#fronkensteen-search-list-wrapper" (
-       "overflow" "auto"
-       "max-height" "15em"
-       "margin-top" "0.5em"
-     ))
-     (".fronkensteen-toolbar" (
-       "width" "100%"
-       "display" "flex"
-       "justify-content" "space-evenly"
-       ))
-     ("#fronkensteen-editor-page-title" (
-       "display" "none"
-       "position" "relative"
-       "top" "0.5em"
-       ))
-     (".fronkensteen-history-entry" (
-       "border-left" "1px solid #ddd"
-       "border-right" "1px solid #ddd"
-       "border-bottom" "1px solid #ddd"
-       "min-width" "15em"
-       "padding" "0.25em"
-       ))
-    ("div .fronkensteen-history-entry:first-child" (
-      "border-top" "1px solid #ddd"
-      ))
-    ("#close-search-bar" (
-      "position" "relative"
-      "top" "0.125em"
-      ))
-    (".fronkensteen-editor" (
-      "height" "100%"
-      ))
-    (".fronkensteen-content-text" (
-        "padding" "4em"
-        "max-width" "60em"
-        "margin" "0 auto"
-      ))
-    (".fronkensteen-page-content blockquote" (
-      "padding" "1em"
-      "margin" "auto"
-      "max-width" "45em"
-      "background-color" "#ddd"
-      "border-radius" "10px"
-      ))
     (".menu-list" (
     "max-width" "50em"))
     (".rounded-list" (
     "max-width" "50em"))
 
-    ("#page-print" (
-      "display" "none"
-      "height" "auto"
-      ))
+      (".fronkenpoetry" (
+        "display" "table"
+        "margin" "0 auto"
+        "font-family"  <%
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto,
+                Oxygen-Sans,
+                Ubuntu,
+                Cantarell,
+                "Helvetica Neue",
+                sans-serif,
+                Kitchen-Sink %>
+        ))
+      (".fronkensteen-toast" (
+          "z-index" "-1"
+          "position" "absolute"
+          "background-color" "rgba(0,0,0,0.7)"
+          "color" "#ddd"
+          "width" "auto"
+          "height" "auto"
+          "padding" "1em"
+          "border-radius" "10px"
+        ))
+      ("#fronkensteen-page-store" (
+        "display" "none"
+        ))
       )))

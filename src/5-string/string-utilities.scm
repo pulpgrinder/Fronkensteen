@@ -67,3 +67,9 @@
   (if (and (<= number 26) (>= number 1))
     (string (integer->char (+ number 64)))
     "upper-case-letter-equivalent: number must be between 1-26 inclusive."))
+
+(define (read-string text)
+  (read (open-input-string text)))
+
+(define (exec-string-lambda string-lambda . args)
+  (apply (eval (read-string string-lambda )) args))

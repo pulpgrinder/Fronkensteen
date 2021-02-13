@@ -1,0 +1,6 @@
+(define (.quizselection_change evt)
+  (let ((target (js-ref evt "currentTarget")))
+    (let ((value (% target "attr" "value")))
+      (if (eqv? value "true")
+          (alert "Correct!")
+          (alert "Sorry, that is not correct.")))))

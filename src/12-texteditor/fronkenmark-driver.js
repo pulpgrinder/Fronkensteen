@@ -92,7 +92,6 @@ Fronkensteen.editDriver = new class  {
         }
       }
       else{
-        console.log("shrinking word from left")
         currentStart = currentStart + 1;
           while(!this.isEditorSpace(text.charAt(currentStart)) && (currentStart <= currentEnd)) {
             currentStart = currentStart + 1;
@@ -105,7 +104,6 @@ Fronkensteen.editDriver = new class  {
       $(editor_id).setSelection(currentStart,currentEnd);
     }
     arrowKey(editor_id,direction){
-      console.log("arrowKey: direction is " + direction)
       let currentStart = $(editor_id).getSelection().start
       switch(direction){
         case "left":
@@ -118,7 +116,8 @@ Fronkensteen.editDriver = new class  {
     }
     activateEditor(editor_id){
       setTimeout(function(){
-      $(editor_id).focus();
+        true;
+    //  $(editor_id).focus();
     },50);
     }
     showEditor(editor_id){
@@ -160,7 +159,6 @@ Fronkensteen.editDriver = new class  {
           selected_text = Fronkensteen.eval_extract_atom(preceding)
         }
       }
-      console.log("returning " + selected_text)
       return selected_text;
     }
     evalSchemeSelection(editor_id){
@@ -350,10 +348,13 @@ Fronkensteen.editDriver = new class  {
         if(patchVal === []){
           return;
         }
-        console.log(dmp.patch_toText(patchVal))
         Fronkensteen.editDriver.editor_undo_stacks[editor_id].push({patch:patchVal,selection:oldSelection})
     }
-    createEditor(editor_id,language_mode){
+    disposeEditor(editor_id){
+      delete this.editor_undo_stacks[editor_id];
+      delete this.editor_redo_stacks[editor_id]
+    }
+    createEditor(editor_id){
       $(editor_id).setSelection(0,0)
       if(this.editor_undo_stacks[editor_id] === undefined){
         this.editor_undo_stacks[editor_id] = [];
@@ -395,7 +396,7 @@ Fronkensteen.editDriver = new class  {
 
     save(){
         var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-        intp2.evaluate("(#fronkensteen-editor-save-button_click)")
+        intp2.evaluate("(#fronkensteen-editor-save-button_touch_click)")
     }
     focusFind(){
       setTimeout(function(){
@@ -407,7 +408,7 @@ Fronkensteen.editDriver = new class  {
     findNext(){
       setTimeout(function(){
       var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
-      intp2.evaluate("(#find-next-button_click)");
+      intp2.evaluate("(#find-next-button_touch_click)");
       return true;
     },15)
   }
@@ -482,12 +483,10 @@ Fronkensteen.editDriver = new class  {
       if(textlines.length > line_number){
         return textlines[line_number]
       }
-      console.log("editDriver.getLine: tried to get a line past end of buffer");
+      console.error("editDriver.getLine: tried to get a line past end of buffer");
       return false;
     }
     scrollToLine(editorname,toline){
-      console.log("editorname is " + editorname);
-      console.log("toline is " + toline)
       let textlines = $(editorname).val().split("\n")
       let offset = 0;
       for(var line = 0; line <= toline; line++){
@@ -509,7 +508,7 @@ Fronkensteen.editDriver = new class  {
       // Nothing needed for plain textarea editor.
     }
     getEditorIds(){
-      console.log("getEditorIds: not implemented.")
+      console.error("getEditorIds: not implemented.")
       return false;
     }
     focusEditor(editor_id){
@@ -738,7 +737,6 @@ Fronkensteen.editDriver = new class  {
     $(editorname).setSelection(textlength);
   }
   find(editor_id,search_lemma,start,fold_case,is_regex,search_backward,wrap, is_wrapped){
-    console.log("start = " + start);
     let text =  $(editor_id).val();
     let re;
     let remod;
@@ -765,17 +763,13 @@ Fronkensteen.editDriver = new class  {
     let selection = $(editor_id).getSelection()
     let currentStart = selection.start;
     let currentEnd = selection.end;
-    console.log("currentStart = " + currentStart);
-    console.log("currentEnd = " + currentEnd);
 
     let occurrences = [];
     let result;
     while((result = re.exec(text)) !== null){
       occurrences.push({"string": result[0],"index":result.index})
     };
-    console.log("There are " + occurrences.length + " occurrences");
     for(var i = 0; i < occurrences.length; i++){
-      console.log("string: " + occurrences[i].string + " index: " + occurrences[i].index + "\n")
     }
     if(occurrences.length === 0){
       return false;
@@ -792,8 +786,6 @@ Fronkensteen.editDriver = new class  {
           $(editor_id).setSelection(0,0);
           return this.find(editor_id,search_lemma,start,fold_case,is_regex,search_backward,wrap, true)
         }
-        console.log("found at " + occurrences[occ_index].index)
-        console.log("length is " + occurrences[occ_index].string.length)
           let highlightStart = occurrences[occ_index].index;
           let highlightEnd = highlightStart + occurrences[occ_index].string.length;
           $(editor_id).setSelection(highlightStart, highlightEnd);

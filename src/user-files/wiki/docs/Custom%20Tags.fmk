@@ -1,7 +1,0 @@
-[link docs/Fronkenmark Text Formatting|Fronkenmark link], Fronkensteen's internal markup system, allows you to define your own custom tags. To do that, you need to write your tag handler (in Scheme, JavaScript, or a mixture of the two), then run that handler code to install the tag.
-
-A simple example of this is the [link pirate-speak link] handler. By visiting this page, a handler will be installed for a [code [piratespeak text piratespeak] code] tag which converts the supplied text to "Pirate Speak".
-
-Once the the handler has been installed, you may use the [code piratespeak code] in any page. You can see it in action by visiting [link Pirate Demo link]. Note that if you've visited this page before installing the handler, you'll need to refresh it to see the updated version.
-
-If you want to automatically install a handler on system launch, add an [code exec-wiki-page code] directive to [link system/Launch System link]
