@@ -437,7 +437,7 @@ The HTML5 audio and video tags support the use of multiple formats. Just add add
 [h2 Tables h2]
 [code [table table data table] code] Renders the given data in tabular format.
 
-[code
+[code html
 [table
 1,2,3
 4,5,6

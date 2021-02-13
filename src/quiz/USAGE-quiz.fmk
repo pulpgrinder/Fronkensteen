@@ -1,6 +1,6 @@
 [h2 Self-Test Quizzes h2]
 
-Fronkenmark allows you to create multiple-choice quizzes for self-testing. Questions should be preceded by a number, followed by either a parenthesis ) or a period. Answers should be preceded by a letter, followed by either a parenthesis or a period. The correct answer should be marked with an asterisk character.
+Fronkenmark allows you to create multiple-choice quizzes for self-testing. Questions should be preceded by a number, followed by either a parenthesis ) or a period. Answers should be preceded by a letter, followed by either a parenthesis or a period. The correct answer should be marked with an asterisk character. This is similar to the basic multiple-choice format used in the popular Respondus system.
 
 [b Note that Fronkenmark quizzes make no pretense at security, and should therefore be used only as a self-test tool, not for any kind of formal assessment or grading. b]
 
@@ -8,9 +8,11 @@ Example:
 [code html
 [!quiz
 1. Who is buried in Grant's Tomb?
-  a) Grant
-  b) Grant and Mrs. Grant
-  *c) No one. Grant and Mrs. Grant are interred in the Tomb above ground.
+  a) Ulysses S. Grant
+  b) Ulysses S. Grant and his wife, Julia Grant
+  c) Lou Grant
+  d) Cary Grant
+  *c) No one. Grant and Mrs. Grant are interred in the Tomb, but above ground, not buried.
 2. Is this a quiz?
   *a) True
   b) False
@@ -19,9 +21,11 @@ code]
 
 [!quiz
 1. Who is buried in Grant's Tomb?
-  a) Grant
-  b) Grant and Mrs. Grant
-  *c) No one. Grant and Mrs. Grant are interred in the Tomb above ground.
+  a) Ulysses S. Grant
+  b) Ulysses S. Grant and his wife, Julia Grant
+  c) Lou Grant
+  d) Cary Grant
+  *c) No one. Grant and Mrs. Grant are interred in the Tomb, but above ground, not buried.
 2. Is this a quiz?
   *a) True
   b) False
@@ -62,3 +66,5 @@ or:
 [code [scheme! (set-quiz-incorrect-response! "Bzzt!") scheme!] code]
 
 Again, changes to these settings are global.
+
+[small Respondus is a trademark of Respondus, Inc. Other trademarks are the property of their respective owners. small]
