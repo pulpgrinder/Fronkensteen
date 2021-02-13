@@ -1,4 +1,4 @@
-[code texteditor.scm, texteditor-extensions.js,  fronkenmark-driver.scm, cursordriver.scm,  and text-editor-style.scm code] are [copyright] 2018-2021 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole.
+[code texteditor.scm, texteditor-extensions.js,  fronkenmark-driver.scm, cursordriver.scm,  and text-editor-style.scm code] are [c] 2018-2021 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole.
 
 [code rangyinputs-jquery.js code] is copyright 2017 by Tim Down, and is distributed under the terms of the following license:
 

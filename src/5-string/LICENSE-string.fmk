@@ -1,4 +1,4 @@
-The files [code string-utilities.scm code] and [code string-extensions.js code] are [copyright] 2018-2020 by Anthony W. Hursh, and are distributed under the terms of the same MIT license as Fronkensteen as a whole.
+The files [code string-utilities.scm code] and [code string-extensions.js code] are [c] 2018-2020 by Anthony W. Hursh, and are distributed under the terms of the same MIT license as Fronkensteen as a whole.
 
 The code in [code natural-sort.js code] is Copyright © 2014–2016 Studio B12 and is used under the terms of the following license:
 

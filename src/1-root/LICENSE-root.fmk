@@ -1,4 +1,4 @@
-The following files are [copyright] 2018-2020 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole:
+The following files are [c] 2018-2020 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole:
 
 [code
 root.css
@@ -46,7 +46,7 @@ biwascheme/platforms/browser/console.js
 biwascheme/platforms/browser/release_initializer.js
 code]
 
-are [copyright] 2007-2020 by Yutaka Hara (http://route477.net) and are distributed under the terms of the MIT license:
+are [c] 2007-2020 by Yutaka Hara (http://route477.net) and are distributed under the terms of the MIT license:
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

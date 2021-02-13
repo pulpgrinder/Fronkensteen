@@ -33,7 +33,7 @@ Current date and time: [!scheme (iso-8601-date) scheme!]
 
 [h2 Credits h2]
 
-The Fronkensteen system is [copyright] 2018-2021 by Anthony W. Hursh and is released under the MIT License. As with most large FOSS projects, Fronkensteen relies on components from many other developers and projects. However, particular credit should be given to the excellent [link https://github.com/biwascheme/biwascheme|BiwaScheme interpreter link] by Yutaka HARA. See the [doclink Licenses doclink] page for a full list.
+The Fronkensteen system is [c] 2018-2021 by Anthony W. Hursh and is released under the MIT License. As with most large FOSS projects, Fronkensteen relies on components from many other developers and projects. However, particular credit should be given to the excellent [link https://github.com/biwascheme/biwascheme|BiwaScheme interpreter link] by Yutaka HARA. See the [doclink Licenses doclink] page for a full list.
 [hr]
 [pc
 [img images/fecit.png !width='200' img]

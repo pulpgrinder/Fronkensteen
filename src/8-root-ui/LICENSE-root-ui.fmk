@@ -1,4 +1,4 @@
-The files [code root-ui-style.scm code], [code root-ui.scm code], and [code root-ui-extensions.js code] are [copyright] 2019-2020 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole.
+The files [code root-ui-style.scm code], [code root-ui.scm code], and [code root-ui-extensions.js code] are [c] 2019-2020 by Anthony W. Hursh, and are distributed under the same MIT license as Fronkensteen as a whole.
 
 The files [code animateTransition.js code] and [code transitions.css code] are
 Copyright (c) 2015 Mobidev and are distributed under the terms of the following license:
