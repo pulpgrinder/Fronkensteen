@@ -2,5 +2,5 @@
   (let ((target (js-ref evt "currentTarget")))
     (let ((value (% target "attr" "value")))
       (if (eqv? value "true")
-          (alert "Correct!")
-          (alert "Sorry, that is not correct.")))))
+          (alert (get-quiz-correct-response))
+          (alert (get-quiz-incorrect-response))))))

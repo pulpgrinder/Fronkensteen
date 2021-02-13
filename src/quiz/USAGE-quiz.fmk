@@ -44,3 +44,21 @@ and/or:
 [code [scheme! (set-shuffle-quiz-answers! #t) scheme!] code]
 
 will turn shuffling back on, if it has been turned off.
+
+You can change the default responses for correct and incorrect answers by using
+
+[code [scheme! (set-quiz-correct-response! new response) scheme!] code]
+
+and
+
+[code [scheme! (set-quiz-incorrect-response! new response) scheme!] code]
+
+For example:
+
+[code [scheme! (set-quiz-correct-response! "Awesome") scheme!] code]
+
+or:
+
+[code [scheme! (set-quiz-incorrect-response! "Bzzt!") scheme!] code]
+
+Again, changes to these settings are global.

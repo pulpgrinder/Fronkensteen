@@ -1,6 +1,8 @@
 Fronkensteen.quiz = {}
 Fronkensteen.quiz.shuffle_quiz_questions = true;
 Fronkensteen.quiz.shuffle_quiz_answers = true;
+Fronkensteen.quiz.correct_response = "Correct!";
+Fronkensteen.quiz.incorrect_response = "Sorry, that is incorrect.";
 
 Fronkenmark.preScripts["quiz"] = function(text,code,trusted){
   let lines = code.split("\n");
@@ -75,10 +77,24 @@ Fronkenmark.preScripts["quiz"] = function(text,code,trusted){
     return Fronkenmark.installSubstitute(result);
 }
 
-  BiwaScheme.define_libfunc("set-shuffle-quiz-questions!",1,1, function(ar){
+BiwaScheme.define_libfunc("set-shuffle-quiz-questions!",1,1, function(ar){
     Fronkensteen.quiz.shuffle_quiz_questions = ar[0];
   });
 
 BiwaScheme.define_libfunc("set-shuffle-quiz-answers!",1,1, function(ar){
   Fronkensteen.quiz.shuffle_quiz_answers = ar[0];
+});
+
+BiwaScheme.define_libfunc("set-quiz-incorrect-response!",1,1, function(ar){
+  Fronkensteen.quiz.incorrect_response = ar[0];
+});
+BiwaScheme.define_libfunc("set-quiz-correct-response!",1,1, function(ar){
+  Fronkensteen.quiz.correct_response = ar[0];
+});
+
+BiwaScheme.define_libfunc("get-quiz-incorrect-response",0,0, function(ar){
+  return Fronkensteen.quiz.incorrect_response;
+});
+BiwaScheme.define_libfunc("get-quiz-correct-response",0,0, function(ar){
+  return Fronkensteen.quiz.correct_response;
 });
