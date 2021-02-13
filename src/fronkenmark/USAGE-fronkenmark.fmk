@@ -428,7 +428,7 @@ The HTML5 audio and video tags support the use of multiple formats. Just add add
 
 [code [video https://url-to-video-file.mp4 video] code] HTML5 video, using a video file from the web..
 
-[code [video media/video-file.mp4, media/video-file.webm ... video] code] HTML5 video, using an internal video file.
+[code [video media/video-file.mp4 video] code] HTML5 video, using an internal video file.
 
 [code [youtube URL youtube] code] Produces an embedded YouTube video of the default size using the given YouTube URL
 
