@@ -31,7 +31,7 @@ Fronkensteen.getLocalStorageItem = function(key){
 
 var lastevent;
 window.onpopstate = function(event) {
-  if(BiwaScheme.is_procedure_defined("pop-browser-state_handler")){
+  if(BiwaScheme.is_defined("pop-browser-state_handler")){
     var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
     let state = event.state;
     if(state === null){
@@ -254,7 +254,7 @@ document.addEventListener("webkitfullscreenchange", function(){Fronkensteen.togg
 
 Fronkensteen.toggleFullScreen = function(){
   Fronkensteen.isFullScreen = !Fronkensteen.isFullScreen;
-  if(BiwaScheme.is_procedure_defined("toggle-fullscreen") === true){
+  if(BiwaScheme.is_defined("toggle-fullscreen") === true){
     var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
     intp2.evaluate("(toggle-fullscreen)");
   }

@@ -15,7 +15,7 @@
   (if (eqv? procedure-list '())
     #t
     (let ((proc (car procedure-list)))
-      (if (and (is-procedure-defined? proc) (str-match? proc "_" ""))
+      (if (and (is-defined? proc) (str-match? proc "_" ""))
         (cond
           ((str-match? proc "_touch_click$" "")
             (if is-touch-device?
