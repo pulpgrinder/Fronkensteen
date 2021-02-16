@@ -43,6 +43,10 @@ BiwaScheme.define_libfunc("js-show-page",1,3,function(ar){
           if(outblock !== null){
             $("#fronkensteen-page-store").append(outblock)
           }
+          if(BiwaScheme.is_defined("post-display") === true){
+            var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
+            let system_dirty = intp2.invoke_closure(BiwaScheme.TopEnv["post-display"], []);
+          }
         }
 
     })
