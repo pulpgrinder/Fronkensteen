@@ -1,14 +1,26 @@
 (define active-wiki-page #f)
 (define active-menu-page #f)
 (define active-doc-page #f)
+(define active-editor #f)
 (define active-editor-page #f)
+(define active-code-editor #f)
+(define active-code-editor-page #f)
 (define display-mode "wiki")
 (define full-history-list '())
 (define menu-back-list '())
 (define doc-back-list '())
 (define page-back-list '())
 (define page-forward-list '())
-
+; if on-page-display is set to a procedure (rather than #f)
+; that procedure will be invoked after a page transition has finished.
+(define on-page-display #f)
+(define post-display
+  (lambda ()
+    (if (eqv? on-page-display #f)
+      #t
+      (begin
+        (on-page-display)
+        (set! on-page-display #f)))))
 
 (define (display-wiki-doc-page title)
     (let ((id (wiki-page-id title)))
@@ -19,7 +31,7 @@
         (set! doc-back-list (cons title doc-back-list)))
       (process-wiki-links id)
       (wire-ui)))
-      
+
 (define (display-wiki-menu-page title)
     (let ((id (wiki-page-id title)))
       (create-wiki-menu-page title)
@@ -50,8 +62,19 @@
           (show-page id #f "revolution"))
         (set! active-editor (<< id "-textarea"))
         (init-cm-editor! active-editor)
-        (set! display-mode "editor")
+        (set! display-mode "wiki-editor")
         (set! active-editor-page id)
+        (wire-ui)))
+
+(define (display-code-editor-page filename . args)
+    (let ((id (create-code-editor-page filename)))
+      (if (> (length args) 0)
+          (show-page id (car args) "revolution")
+          (show-page id #f "revolution"))
+        (set! active-code-editor (<< id "-textarea"))
+        (init-cm-editor! active-code-editor)
+        (set! display-mode "code-editor")
+        (set! active-code-editor-page id)
         (wire-ui)))
 
 (define (add-to-history title)
