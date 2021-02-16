@@ -87,18 +87,8 @@ will result in the text between the brackets being inserted into the Scheme code
 
 Unfortunately Scheme already has a procedure called [code div code], so Fronkensteen uses [code dv code] instead. All other HTML elements use their normal names.
 
-[h2  Auto-wiring of HTML Elements h2]
 
-Some HTML elements (such as buttons) can be "auto-wired". Using a button as an example, [code (button "#coolbutton" "My Cool Button") code] will produce [code <button id="coolbutton">My Cool Button</button> code] (just as above). If this button is inserted into the DOM and the [code (wire-ui) code] procedure is called afterward, an event handler will be added to the button that calls a procedure named [code (#coolbutton_click event) code] when the button is clicked (if that procedure exists). This is very convenient compared to adding an event handler to every button by hand. This also works with classes. [code (button "#coolbutton2.neatbutton" "My Other Cool Button") code] will produce [code <button id="coolbutton2" class="neatbutton">My Other Cool Button</button> code], and a procedure named [code (.neatbutton_click event) code] will be called if the button is clicked, if that procedure exists.
-
-Touch screen device support is handled by using procedures named with a _touch_click extension (e.g. [code (.neatbutton_touch_click event) code]). In this case, the procedure will be evaluated if the button is touched (on a touch-screen device) or clicked (on a non-touch-screen device).
-
-Note that There Can Be Only One here. If both the id handler and one or more class handlers exist, the one that comes last in alphabetical order will take precedence. In this case, a class handler (.neatbutton_click event) will be called in preference to an id handler (#coolbutton2_click) if both exist, as .neatbutton_click  comes later in alphabetical order than #coolbutton2_click.
-
-Similar auto-wired event handlers exist for input and change events. More are planned, and you may add your own by overriding the wire-procedure-list procedure as defined in dom/wired.scm.
-
-
-## jQuery Interface
+[h2 jQuery Interface h2]
 
 BiwaScheme has a nice, Scheme-like interface to jQuery. However, Fronkensteen opts for a more jQuery-like procedure syntax. Why jQuery? Because jQuery has been around for a long time, it works, and it's not going anywhere. Other frameworks seem to come and go with depressing regularity. Also, there's a vast amount of jQuery example code on the net. Translating this code to work with Fronkensteen is pretty straightforward.
 
@@ -116,7 +106,15 @@ code]
 
 Note that this actually has *fewer* parentheses than the jQuery. [smile]
 
+[h2  Auto-wiring of HTML Elements h2]
 
+Some HTML elements (such as buttons) can be "auto-wired". Using a button as an example, [code (button "#coolbutton" "My Cool Button") code] will produce [code <button id="coolbutton">My Cool Button</button> code] (just as above). If this button is inserted into the DOM and the [code (wire-ui) code] procedure is called afterward, an event handler will be added to the button that calls a procedure named [code (#coolbutton_click event) code] when the button is clicked (if that procedure exists). This is very convenient compared to adding an event handler to every button by hand. This also works with classes. [code (button "#coolbutton2.neatbutton" "My Other Cool Button") code] will produce [code <button id="coolbutton2" class="neatbutton">My Other Cool Button</button> code], and a procedure named [code (.neatbutton_click event) code] will be called if the button is clicked, if that procedure exists.
+
+Touch screen device support is handled by using procedures named with a _touch_click extension (e.g. [code (.neatbutton_touch_click event) code]). In this case, the procedure will be evaluated if the button is touched (on a touch-screen device) or clicked (on a non-touch-screen device).
+
+Note that There Can Be Only One here. If both the id handler and one or more class handlers exist, the one that comes last in alphabetical order will take precedence. In this case, a class handler (.neatbutton_click event) will be called in preference to an id handler (#coolbutton2_click) if both exist, as .neatbutton_click  comes later in alphabetical order than #coolbutton2_click.
+
+Similar auto-wired event handlers exist for input and change events. More are planned, and you may add your own by overriding the wire-procedure-list procedure as defined in dom/wired.scm.
 
 [h2 CSS in Scheme h2]
 
