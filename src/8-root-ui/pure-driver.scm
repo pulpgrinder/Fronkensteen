@@ -340,11 +340,12 @@
 (define (pfieldset . args)
     (apply class-container fieldset (cons ".pure-group" args)))
 
-(define (pcheckbox-label . args)
-    (apply class-container label (cons ".pure-checkbox" args)))
+(define (pcheckbox id caption )
+  (label (<< ".pure-checkbox!for='" (str-replace id "#" "") "'") (<< (input (<< id "!type='checkbox'!value=''")) caption)))
 
-(define (pradio-label . args)
-    (apply class-container label (cons ".pure-radio" args)))
+(define (pradio id name caption )
+  (label (<< ".pure-radio!for='" (str-replace id "#" "") "'") (<< (input (<< id "!type='radio'!name='" name "'")) caption)))
+
 
 ; Put the page in a hidden div, waiting to be shown later with (show-page id)
 (define (stage-page page-data)
