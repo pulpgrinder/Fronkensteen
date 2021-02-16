@@ -87,7 +87,7 @@ Fronkensteen.getInternalDir = function(basedir){
   let filelist = Object.keys(fronkensteen_fs).sort();
   for(var i = 0; i < filelist.length; i++){
     let key = filelist[i];
-    if(key.indexOf(basedir) === 0){
+    if((basedir === "") || (key.match(RegExp("^" + Fronkensteen.makeGlob(basedir))) !== null)){
         dirfiles.push(key);
     }
   }
@@ -364,9 +364,9 @@ BiwaScheme.define_libfunc("get-package-json",1,1,function(ar){
 BiwaScheme.define_libfunc("get-internal-dir",1,1,function(ar){
   // Returns a vector of all the filenames in the path.
   BiwaScheme.assert_string(ar[0]);
-  if(ar[0].charAt(ar[0].length - 1) !== "/") {
+/*  if(ar[0].charAt(ar[0].length - 1) !== "/") {
     ar[0] = ar[0] + "/";
-  }
+  } */
   return Fronkensteen.getInternalDir(ar[0]);
 });
 
@@ -399,7 +399,7 @@ BiwaScheme.define_libfunc("collect-licenses",0,0, function(ar){
 });
 
 BiwaScheme.define_libfunc("collect-usages",0,0, function(ar){
-// Return the text of all LICENSE* files.
+// Return the text of all USAGE* files.
   return Fronkensteen.collectUsages()
 });
 BiwaScheme.define_libfunc("file-path-no-extension",1,1, function(ar){

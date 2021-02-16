@@ -362,4 +362,8 @@ Fronkensteen.escapeRegExp = function(text) {
       return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
     }
 
+Fronkensteen.makeGlob = function(text) {
+      text =  text.replace(/[-[\]{}()+.,\\^$|#\s]/g, '\\$&')
+      return text.replace(/\*/,".*")
+    }
 // ISBN regex ^(ISBN[-]*(1[03])*[ ]*(: ){0,1})*(([0-9Xx][- ]*){13}|([0-9Xx][- ]*){10})$
