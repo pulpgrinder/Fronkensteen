@@ -2,7 +2,11 @@
   (<< "user-files/wiki/wikitext/"  (encode-uri basename) ".fmk"))
 
 (define (wiki-page-id title)
-  (<< "#id-" (encode-base-32 (wiki-data-path title))))
+  (code-page-id (wiki-data-path title)))
+
+
+(define (code-page-id filename)
+  (<< "#id-" (encode-base-32 filename)))
 
 
 (define (wiki-base-name filename)

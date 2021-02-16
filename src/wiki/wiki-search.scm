@@ -1,7 +1,17 @@
+(define search-value #f)
+(define search-case-sensitive #f)
+(define search-regex #f)
+(define search-all-files #f)
+
+(define (search-hash-tag tag)
+    (set! search-value tag)
+    (display-wiki-menu-page "Search"))
+
 (define (collect-matching-wiki-pages text file-list is-regex? is-case-sensitive?)
   (if (eqv? file-list '())
       '()
       (let ((current-filename (car file-list)))
+        (console-log (<< "Checking " current-filename))
         (if
           (or
             (wiki-file-name-match text current-filename is-regex? is-case-sensitive?)
@@ -42,7 +52,5 @@
       (str-match? haystack re remod)))
 
 (define (wiki-file-text-match text file-path is-regex? is-case-sensitive?)
-  (if (eqv? (file-extension file-path) "fmk")
-    (case-search (read-internal-text-file file-path) text is-regex? is-case-sensitive?)
-   #f
-  ))
+  (console-log (<< "checking " file-path " for " text " regex " (format "~s" is-regex?) "case-sensitive " (format "~s" is-case-sensitive?)))
+  (case-search (read-internal-text-file file-path) text is-regex? is-case-sensitive?))

@@ -1,1 +1,84 @@
-Search
+[!scheme
+(set! on-page-display (lambda()
+  (set-checkbox-checked! "#wiki-search-case-sensitive" search-case-sensitive)
+  (set-checkbox-checked! "#wiki-search-regex" search-regex)
+  (set-checkbox-checked! "#wiki-search-all-files" search-all-files)
+  (let ((saved-search search-value))
+      (if (eqv? saved-search #f)
+        #t
+       (begin
+        (% "#wiki-search-input" "val" saved-search)
+        (run-wiki-search))
+         ))))
+
+(define (#do-wiki-search_click)
+  (run-wiki-search))
+
+(define (.search-checkbox_change)
+  (run-wiki-search))
+  
+(define (#wiki-search-input_input)
+  (run-wiki-search))
+
+
+(define (collect-matching-files lemma search-all-files is-regex is-case-sensitive)
+  (let ((file-list
+      (if search-all-files
+        (get-internal-dir "")
+         (get-internal-dir "user-files/wiki/wikitext")
+         )))
+ (let ((search-files (vector->list (natural-sort file-list #f #f))))
+   (let ((search-results (collect-matching-wiki-pages lemma search-files is-regex is-case-sensitive)))
+     (if (case-search (collect-usages) lemma is-regex is-case-sensitive)
+         (set! search-results (cons "docs/Formatting.fmk" search-results)))
+  search-results))))
+
+
+(define (run-wiki-search)
+  (let ((lemma (% "#wiki-search-input" "val"))
+    (is-case-sensitive (checkbox-checked? "#wiki-search-case-sensitive"))
+    (is-regex (checkbox-checked? "#wiki-search-regex"))
+    (wiki-search-all-files (checkbox-checked? "#wiki-search-all-files")))
+     (if (eqv? lemma "")
+      (begin
+        (set! search-value #f)
+        (% "#wiki-search-results" "html" ""))
+      (let ((search-results (collect-matching-files lemma wiki-search-all-files is-regex is-case-sensitive)))
+          (set! search-value lemma)
+          (set! search-case-sensitive is-case-sensitive)
+          (set! search-regex is-regex)
+          (set! search-all-files wiki-search-all-files)
+          (% "#wiki-search-results" "html"
+          (fronkenmark (<< "[!schememenu "
+              (render-search-results search-results)
+              " schememenu!]"
+          ) #t #f))
+          (process-wiki-links "#wiki-search-results")
+          ))))
+
+(define (render-search-results results)
+  (if (eqv? results '())
+      ""
+      (<<
+      (let ((result (car results)))
+        (let ((file-ext (file-extension result)))
+          (cond
+            ((str-match? result "user-files/wiki/wiki-text" "") (<< (wiki-display-name result) "|(display-wiki-page \"" (wiki-display-name result) "\")\n"))
+            (#t (<< result "|(display-code-editor-page \""  result "\")\n")))))
+            (render-search-results (cdr results)))))
+
+(<<
+  (pform
+    (<<
+      (dv
+        (<<
+          (input "#wiki-search-input!type='text'!size='15'")
+          (pbutton "#do-wiki-search.wiki-theme" "Search")))
+      (dv
+        (<<
+          (pcheckbox "#wiki-search-case-sensitive.search-checkbox" "case-sensitive")
+          (pcheckbox "#wiki-search-regex.search-checkbox" "regex")
+          (pcheckbox "#wiki-search-all-files.search-checkbox" "also search code files")
+        ))))
+      (ptext "#wiki-search-results" ""))
+scheme!]

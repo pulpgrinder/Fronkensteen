@@ -3,6 +3,10 @@
 (define (active-page-title)
   (decode-base-32 (% active-wiki-page "attr" "wiki-title"))
 )
+
+(define (active-code-filename)
+  (decode-base-32 (% active-code-editor-page "attr" "filename"))
+)
 (define (refresh-current-wiki-page)
   (refresh-wiki-page active-wiki-page))
 
@@ -52,8 +56,8 @@
       (<<
           (pheader (<< ".wiki-page.wiki-theme")
             (<<
-              (pnav-button (<< ".peditor-done"  ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
-              (pnav-button (<< ".pnav-editor-doc" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Help'" "question-circle" "")))
+              (pnav-button (<< ".pnav-wiki-editor-done"  ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
+              (pnav-button (<< ".pnav-wiki-editor-doc" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Help'" "question-circle" "")))
               (input (<< ".wiki-editor-title!type='text'!value='" title "'"))
               ""
               )
@@ -63,6 +67,26 @@
     (wire-ui)
     id))
 
+(define (create-code-editor-page filename)
+  (let ((code-data (read-internal-text-file filename))
+      (id (<< (code-page-id filename) "-editor")))
+    (if (element-exists? id)
+      (% id "remove"))
+    (stage-page
+      (peditor (<< id "!type='code-editor-page'!filename='" (encode-base-32 filename) "'")
+      (<<
+          (pheader (<< ".code-page.wiki-theme")
+            (<<
+              (pnav-button (<< ".pnav-code-editor-done"  ".code-editor-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
+              (pnav-button (<< ".pnav-code-editor-doc" ".code-editor-page.wiki-theme") (fa-icon ".pnav-left!title='Help'" "question-circle" "")))
+              (input (<< ".code-editor-title!type='text'!value='" filename "'"))
+              ""
+              )
+            (peditor-content (textarea (<< id "-textarea.wiki-editor-area") code-data))
+        )
+    ))
+    (wire-ui)
+    id))
 
 (define (create-wiki-page title)
   (let ((wiki-data (retrieve-wiki-data title))
@@ -151,16 +175,23 @@
 (define (.pnav-menu_touch_click evt)
   (display-wiki-menu-page "Wiki Menu"))
 
-(define (.pnav-editor-doc_touch_click evt)
+(define (.pnav-wiki-editor-doc_touch_click evt)
   (display-wiki-doc-page "Formatting"))
+
+(define (.pnav-code-editor-doc_touch_click evt)
+  (display-wiki-doc-page "Code Editor"))
 
 (define (.pnav-menu-done_touch_click evt)
     (close-menu))
 
-(define (.pnav-doc-done_touch_click evt)
-    (close-doc))
+;.pnav-code-editor-done
+;.pnav-code-editor-doc
 
-(define (close-doc)
+(define (.pnav-doc-done_touch_click evt)
+    (close-wiki-doc))
+
+(define (close-wiki-doc)
+   (console-log "close-wiki-doc")
    (if (> (length doc-back-list) 1)
        (begin
           (let ((prevpage (cadr doc-back-list)))
@@ -169,9 +200,11 @@
               ))
        (begin
           (set! doc-back-list '())
-          (if (eqv? display-mode "editor")
-            (show-page active-editor-page #t "cover")
-            (show-page active-wiki-page #t "cover")))))
+          (cond
+            ((eqv? display-mode "wiki-editor") (show-page active-editor-page #t "cover"))
+            ((eqv? display-mode "code-editor") (show-page active-code-editor-page #t "cover"))
+            ((eqv? display-mode "wiki") (show-page active-wiki-page #t "cover"))
+            ))))
 
 (define (close-menu)
    (if (> (length menu-back-list) 1)
@@ -210,7 +243,8 @@
               (display-wiki-page nextpage #f)
               (show-nav-buttons)))))
 
-(define (.peditor-done_touch_click evt)
+
+(define (.pnav-wiki-editor-done_touch_click evt)
   (let ((title (% (<< active-wiki-page "-editor .wiki-editor-title") "val"))
          (old-title (active-page-title)))
        (if (not (eqv? title old-title))
@@ -225,6 +259,21 @@
        )
 
 
+(define (.pnav-code-editor-done_touch_click evt)
+  (let ((filename (% (<< active-code-editor-page " .code-editor-title") "val"))
+         (old-filename (active-code-filename)))
+       (if (not (eqv? filename old-filename))
+          (file-rename old-filename filename))
+       (write-internal-text-file filename (cm-editor-get-text active-code-editor))
+       (dispose-cm-editor! active-code-editor)
+       (set! display-mode "wiki")
+       (set! active-code-editor-page #f)
+       (display-wiki-page (active-page-title) #t "revolution")
+       )
+
+       )
+
+
 
 (define (set-wiki-theme base active)
   (install-css "wiki-theme"
@@ -233,7 +282,7 @@
               "background-color" ,base
               "color" "white"
               ))
-              (".wiki-theme" (
+              (".wiki-theme active" (
               "background-color" ,active
               "color" "white"
               ))
