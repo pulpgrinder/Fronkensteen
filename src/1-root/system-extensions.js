@@ -106,10 +106,10 @@ BiwaScheme.define_libfunc("is-dotted-pair?", 1, 1, function(ar){
   return BiwaScheme.isDottedPair(ar[0]);
 });
 
-BiwaScheme.define_libfunc("is-procedure-defined?", 1, 1, function(ar){
+BiwaScheme.define_libfunc("is-defined?", 1, 1, function(ar){
     // Returns #t if procedure named ar[0] is defined, #f otherwise.
     BiwaScheme.assert_string(ar[0]);
-    return BiwaScheme.is_procedure_defined(ar[0])
+    return BiwaScheme.is_defined(ar[0])
 });
 
 BiwaScheme.isAlist = function(candidate){
@@ -190,7 +190,7 @@ BiwaScheme.define_libfunc("repl-here", 1, 1, function(ar){
 
   // Determines if something is defined or not. Used by the
   // UI wiring code.
-  BiwaScheme.is_procedure_defined = function(name){
+  BiwaScheme.is_defined = function(name){
     if((BiwaScheme.TopEnv.hasOwnProperty(name) === true) ||
         (BiwaScheme.CoreEnv.hasOwnProperty(name) === true)){
             return true;
