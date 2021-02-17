@@ -1,6 +1,17 @@
-[h2 This page manages the installed packages. h2]
+[h1 Package Manager h1]
 
-It is written in Scheme. Edit the page to see the source code.
+This page lets you export, import, and remove packages. Use caution when removing packages, as removing some packages may produce a system that is unable to start after being saved. It is strongly recommended that you save a copy of your system before experimenting with anything on this page. [smile]
+
+The following packages can safely be removed to reduce system size, at the cost of losing the associated functionality:
+
+[ul
+9-mathjax-latex (saves 3.7 MB, but LaTeX will no longer work)
+11-prismjs (saves 635 KB, but syntax highlighting will no longer work)
+Kitchen-Sink-Font (saves 1.8 MB, but characters from many ancient and modern languages will no longer display properly, unless your browser's default font supports them)
+quiz (saves 10 KB, but you will not be able to use quizzes)
+ul]
+
+In general, changes from adding or removing a package will not take effect until the system has been saved and reloaded.
 
 [!scheme
 
@@ -16,7 +27,7 @@ It is written in Scheme. Edit the page to see the source code.
 		(let ((package-name (car package-list)))
       (<<
      	 (round-list-item (<<
-          (span package-name) (button (<< ".package-export-button!package-name='" package-name "'!title='Export package'") (fa-icon "" "download" "")) (button (<< ".package-delete-button!package-name='" package-name "'!title='Delete package'") (fa-icon "" "trash" "")) ))
+          (span package-name) "&nbsp;&nbsp;"(button (<< ".package-export-button!package-name='" package-name "'!title='Export package'") (fa-icon "" "download" "")) (button (<< ".package-delete-button!package-name='" package-name "'!title='Delete package'") (fa-icon "" "trash" "")) ))
           (generate-package-list-items (cdr package-list))))))
 
 (define (.package-delete-button_touch_click ev)
