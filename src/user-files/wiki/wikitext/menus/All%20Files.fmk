@@ -1,0 +1,18 @@
+[large All Files large]
+[!scheme
+
+(define (render-all-files file-list)
+    (if (eqv? file-list '())
+      ""
+      (let ((result (car file-list)))
+      (<<  (decode-uri  result) "|(display-code-editor-page \""  result "\")\n" (render-all-files (cdr file-list))))))
+
+
+(let ((all-files (vector->list (natural-sort (get-internal-dir "") #f #f))))
+  (let ((rendered-file-list (render-all-files all-files)))
+    (fronkenmark (<< "[!schememenu "
+        rendered-file-list
+        " schememenu!]"
+    ) #t #f)))
+
+scheme!]
