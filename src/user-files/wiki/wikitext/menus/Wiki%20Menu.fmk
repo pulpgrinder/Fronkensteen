@@ -1,3 +1,12 @@
+[!scheme
+(define (prompt-for-new-page)
+  (let ((page-name (prompt "Name for New Page?")))
+    (if (eqv? page-name "")
+        #t
+    (display-wiki-page page-name))))
+
+scheme!]
+
 [!schememenu
 Save/Load Workspace | (display-wiki-menu-page "Save and Load")
 Home | (display-wiki-page "Main")
@@ -5,8 +14,8 @@ Edit | (display-wiki-editor-page (active-page-title))
 Search | (display-wiki-menu-page "Search")
 Scheme Toolbox | (display-wiki-menu-page "Scheme")
 History | (display-wiki-menu-page "History")
-New Page | (create-wiki-page)
-All Pages | (display-wiki-menu-page "All Pages")
+New Page | (prompt-for-new-page)
+All Pages | (display-wiki-menu-page "All Wiki Pages")
 Orphan Pages | (display-wiki-menu-page "Orphan Pages")
 What Links Here? | (display-wiki-menu-page "Incoming Links")
 Import Media Files | (import-media-files)
@@ -15,6 +24,7 @@ Documentation | (display-wiki-menu-page "Documentation")
 Move to Trash |  (trash-current-wiki-page)
 View Trash | (display-wiki-menu-page "Trash")
 Package Manager | (display-wiki-menu-page "Package Manager")
-List of Icons | (display-wiki-menu-page "List of Icons")
-Licenses | (display-wiki-menu-page "Licenses")
+All Files | (display-wiki-menu-page "All Files")
+List of Icons | (display-wiki-doc-page "List of Icons")
+Licenses | (display-wiki-doc-page "Licenses")
 schememenu!]
