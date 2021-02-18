@@ -1,1 +1,23 @@
-What Links Here?
+[!scheme
+
+(define (render-incoming-links matching-pages)
+  (if (eqv? matching-pages '())
+      ""
+        (<<  (wiki-display-name (car matching-pages)) "\n"  (render-incoming-links (cdr matching-pages)))))
+
+
+(define (collect-incoming-pages title page-list)
+  (append
+    (collect-linked-pages title page-list)
+    (collect-menu-pages title page-list)
+    (collect-include-pages title page-list)))
+
+(let ((matching-pages (collect-incoming-pages (active-page-title) (vector->list (get-internal-dir "user-files/wiki/wikitext")))))
+  (if (eqv? (length matching-pages) 0)
+    "(no other pages link here)"
+    (fronkenmark (<< "[menu "
+        (render-incoming-links matching-pages)
+        " menu]"
+    ) #f #f)
+     ))
+scheme!]
