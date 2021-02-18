@@ -11,7 +11,6 @@
   (if (eqv? file-list '())
       '()
       (let ((current-filename (car file-list)))
-        (console-log (<< "Checking " current-filename))
         (if
           (or
             (wiki-file-name-match text current-filename is-regex? is-case-sensitive?)
@@ -36,7 +35,7 @@
 (define (assemble-wiki-page-list raw-list)
   (if (eqv? raw-list '())
     '()
-    (cons (wiki-display-name (decode-uri (car raw-list))) (assemble-wiki-page-list (cdr raw-list)))))
+    (cons (wiki-display-name  (car raw-list)) (assemble-wiki-page-list (cdr raw-list)))))
 
 
 (define (wiki-file-name-match text file-path is-regex? is-case-sensitive?)
@@ -52,5 +51,4 @@
       (str-match? haystack re remod)))
 
 (define (wiki-file-text-match text file-path is-regex? is-case-sensitive?)
-  (console-log (<< "checking " file-path " for " text " regex " (format "~s" is-regex?) "case-sensitive " (format "~s" is-case-sensitive?)))
   (case-search (read-internal-text-file file-path) text is-regex? is-case-sensitive?))

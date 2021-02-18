@@ -18,7 +18,7 @@
 (define (collect-orphans page-list)
   (if (eqv? page-list '())
       '()
-      (let ((page-name (wiki-display-name (decode-uri (car page-list)))))
+      (let ((page-name (wiki-display-name  (car page-list))))
       (if (is-orphan-page? page-name)
           (cons page-name (collect-orphans (cdr page-list)))
           (collect-orphans (cdr page-list))))))
@@ -27,7 +27,7 @@
     (if (eqv? orphan-pages '())
       ""
       (let ((title (car orphan-pages)))
-          (<< (wiki-display-name (decode-uri  title)) "\n" (render-orphan-pages (cdr orphan-pages))))))
+          (<< (wiki-display-name  title) "\n" (render-orphan-pages (cdr orphan-pages))))))
 
 (let ((wiki-files (collect-wiki-page-list)))
   (let ((orphan-pages (collect-orphans wiki-files)))

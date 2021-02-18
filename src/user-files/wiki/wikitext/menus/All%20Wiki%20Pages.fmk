@@ -4,7 +4,7 @@
 (define (render-all-pages wiki-files)
     (if (eqv? wiki-files '())
       ""
-      (<< (wiki-display-name (decode-uri  (car wiki-files))) "\n" (render-all-pages (cdr wiki-files)))))
+      (<< (wiki-display-name (car wiki-files)) "\n" (render-all-pages (cdr wiki-files)))))
 
 
 (let ((wiki-files (vector->list (natural-sort (get-internal-dir "user-files/wiki/wikitext") #f #f))))
