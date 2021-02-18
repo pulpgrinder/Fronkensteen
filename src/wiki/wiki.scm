@@ -30,6 +30,7 @@
       (if (not (eqv? doc-back-list '()))
         (set! doc-back-list (cons title doc-back-list)))
       (process-wiki-links id)
+      (% (<< id " .pure-text") "focus")
       (wire-ui)))
 
 (define (display-wiki-menu-page title)
@@ -40,6 +41,7 @@
       (if (not (eqv? menu-back-list '()))
         (set! menu-back-list (cons title menu-back-list)))
       (process-wiki-links id)
+      (% (<< id " .pure-text") "focus")
       (wire-ui)))
 
 (define (clear-history)
@@ -97,6 +99,7 @@
       (set! active-wiki-page id)
       (show-nav-buttons)
       (process-wiki-links id)
+      (% (<< id " .pure-text") "focus")
       (wire-ui)
       ))
 

@@ -105,7 +105,7 @@
               )
               title
               (pnav-button (<< ".pnav-forward" ".wiki-page.wiki-theme") (fa-icon ".pnav-right!title='Go Forward'" "angle-right" "")))
-            (ppage-content (ptext (render-wiki-content (retrieve-wiki-data title))))
+            (ppage-content (ptext "!tabindex='-1'" (render-wiki-content (retrieve-wiki-data title))))
         )
     ))
     id))
