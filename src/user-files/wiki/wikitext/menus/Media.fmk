@@ -1,0 +1,45 @@
+[h1 Media Manager h1]
+
+This page lets you import and remove media files.
+
+[!scheme
+
+(define (generate-media-list)
+		(<<
+			(generate-media-list-items (vector->list (get-internal-dir "user-files/wiki/media/") ))
+      ))
+
+
+
+(define (generate-media-list-items media-list)
+	(if (eqv? media-list '())
+    	""
+		(let ((media-name (car media-list)))
+      (<<
+     	 (round-list-item (<<
+          (span media-name) "&nbsp;&nbsp;" (button (<< ".media-delete-button!media-name='" media-name "'!title='Delete media file'") (fa-icon "" "trash" "")) ))
+          (generate-media-list-items (cdr media-list))))))
+
+(define (.media-delete-button_touch_click ev)
+		(let ((target (js-ref ev "currentTarget")))
+			(let ((media-name  (element-read-attribute target "media-name")))
+        ((trash-internal-file  media-name)
+        (alert "File moved to trash folder."))
+      (% "#media-list" "html" (generate-media-list))
+			(wire-ui)
+      )))
+
+(define (#media-import-button_touch_click)
+    (upload-file ".mp3,.ogg,.mp4,.jpg,.jpeg,.gif,.png" #f media-file-uploaded "data"))
+
+(define (media-file-uploaded filename data)
+  (write-data-url-to-internal-file (<< "user-files/wiki/media/" filename) data)
+  (% "#media-list" "html" (generate-media-list))
+	(wire-ui))
+
+(dv
+  (<<
+    (button "#media-import-button" "Import media file")
+    (round-list "#media-list" (generate-media-list))))
+
+scheme!]

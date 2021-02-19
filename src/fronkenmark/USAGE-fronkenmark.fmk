@@ -412,15 +412,19 @@ See [doclink List of Icons doclink] for a list of available icons.
 
 [h2 Multimedia Tags h2]
 
-[code [img images/fronkensteenlogo.png img] code] inserts the specified (local) image at this position
+[h3 Images h3]
+
+Both remote images and images in the internal Fronkensteen file system are supported. Images can be imported into the file system from the Media submenu of the Main menu.
+
+[code [img fronkensteenlogo.png img] code] inserts the specified (local) image at this position
 
 [code [img https://avatars1.githubusercontent.com/u/42942914 img] code] inserts the specified (web) image at this position.
 
-[code [img images/fronkensteenlogo.png #fronkensteen-logo!title='Fronkensteen Logo'!width='100'!height='100' img] code] inserts the image, using the specified [doclink HTML Generation|SEML doclink] markup.
+[code [img fronkensteenlogo.png #fronkensteen-logo!title='Fronkensteen Logo'!width='100'!height='100' img] code] inserts the image, using the specified [doclink Programming|SEML doclink] markup.
 
 [h3 HTML5 audio and video h3]
 
-The HTML5 audio and video tags support the use of multiple formats. Just add additional files in the tag, separating each one with a comma.
+The HTML5 audio and video tags support the use of multiple formats. Just add additional files in the tag, separating each one with a comma. Both remotely loaded and internal files are supported. Media files can be imported into the file system from the Media submenu of the main menu. Internal audio and video files should be used sparingly, as they tend to bloat the Fronkensteen file size and slow down page loading. If practical, link to audio and video files on the Web.
 
 [code [audio https://url-to-audio-file.mp3 audio] code] HTML5 audio, using an audio file on the web.
 

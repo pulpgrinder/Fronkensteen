@@ -318,7 +318,7 @@ Fronkenmark.processImages  = function(text){
      imgsrc = imgsrc + "'" + imgtarget + "'"
    }
    else{
-     imgsrc = imgsrc + "'" + Fronkensteen.readInternalFileDataURL("user-files/wiki/" + imgtarget) + "'"
+     imgsrc = imgsrc + "'" + Fronkensteen.readInternalFileDataURL("user-files/wiki/media/" + imgtarget) + "'"
    }
    let imgseml;
    if(imgparts.length > 0){
@@ -354,7 +354,7 @@ Fronkenmark.processAudio  = function(text){
         mediasrc_param  = mediasrc_param + "<source src='" + src + "' type='" + Stretchr.Filetypes.mimeFor(Fronkensteen.file_extension(src)) + "'>\n"
       }
       else {
-        mediasrc_param  = mediasrc_param + "<source src='" + Fronkensteen.readInternalFileDataURL("user-files/wiki/" + src) + "' type='" + Stretchr.Filetypes.mimeFor(Fronkensteen.file_extension(src)) + "'>\n"
+        mediasrc_param  = mediasrc_param + "<source src='" + Fronkensteen.readInternalFileDataURL("user-files/wiki/media/" + src) + "' type='" + Stretchr.Filetypes.mimeFor(Fronkensteen.file_extension(src)) + "'>\n"
       }
     }
    let mediaseml;

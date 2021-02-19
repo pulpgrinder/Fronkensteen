@@ -173,7 +173,7 @@
   )
 
 (define (.pnav-menu_touch_click evt)
-  (display-wiki-menu-page "Wiki Menu"))
+  (display-wiki-menu-page "Main Menu"))
 
 (define (.pnav-wiki-editor-doc_touch_click evt)
   (display-wiki-doc-page "Formatting"))
