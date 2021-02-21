@@ -26,10 +26,7 @@ Fronkensteen aims to be a batteries-included development system.
 It comes with a powerful markup language that includes the ability to execute embedded Scheme or JavaScript code,  typeset [latex LaTeX latex] equations, perform text alignment such as centering, right/left alignment, and justification, poetry formatting, quizzes, automatic handling of #hashtags, [link Secondary Page|wiki-style links link], and [link https://github.com/pulpgrinder/Fronkensteen|normal hyperlinks link], easy to use footnotes[note Like this one! note], and more! The screen you're looking at right now is generated from a Fronkensteen markup file. You can see (and edit) the live code for this page by clicking the [icon edit icon] icon at the top of the screen.
 
 [h2 How Do I Use It? h2]
-
-Have a look at the [doclink Formatting doclink] page to see the kinds of things you can do with the markup language. Then have a look at the [doclink Programming doclink] page to get an intro to advanced programming topics.
-
-Current date and time: [!scheme (iso-8601-date) scheme!]
+Explore the various menu options from the [icon bars icon] hamburger menu above. Then have a look at the [doclink Formatting doclink] page to see the kinds of things you can do with the markup language. If you are a programmer (or want to be one) have a look at the [doclink Programming doclink] page to get an intro to programming topics.
 
 [h2 Credits h2]
 
