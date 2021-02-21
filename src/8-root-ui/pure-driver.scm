@@ -1,5 +1,7 @@
 (define p-red-active   "#651616")
 (define p-red  "#7e1b1b")
+(define p-grey-active   "#bbb")
+(define p-grey  "#ddd")
 (define p-orange-active  "#b87231")
 (define p-orange   "#d68539")
 (define p-yellow-active  "#9c9350")
@@ -25,6 +27,20 @@
 
 (install-css "pure"
     (proc-css-list `(
+      (".editor-toolbar" (
+        "background-color" ,p-grey
+        "color" "#333"
+        ))
+        (".pcolor-grey" (
+          "background-color" ,p-grey
+          "color" "#333"
+          "border" ,(<< "1px solid " p-grey-active)
+          ))
+        (".pbutton.pcolor-grey:active" (
+         "background-color" ,p-grey-active
+         "color" "#333"
+         "border" "1px solid white"
+        ))
       (".pcolor-red" (
         "background-color" ,p-red
         "color" "white"
@@ -174,6 +190,17 @@
       "grid-template-rows" "auto 1fr"
       "background-color" "#bbb"
       ))
+        (".peditor-toolbar" (
+          "position" "fixed"
+          "top" "0"
+          "bottom" "0"
+          "left" "0"
+          "right" "0"
+          "height" "100%"
+          "display" "grid"
+          "grid-template-rows" "auto auto 1fr"
+          "background-color" "#bbb"
+          ))
       (".ppage-no-footer" (
         "position" "fixed"
         "top" "0"
@@ -185,6 +212,17 @@
         "grid-template-rows" "auto 1fr"
         "background-color" "#bbb"
         ))
+        (".ppage-double-header-no-footer" (
+          "position" "fixed"
+          "top" "0"
+          "bottom" "0"
+          "left" "0"
+          "right" "0"
+          "height" "100%"
+          "display" "grid"
+          "grid-template-rows" "auto auto 1fr"
+          "background-color" "#bbb"
+          ))
       (".ppage-no-header" (
         "position" "fixed"
         "top" "0"
@@ -225,22 +263,23 @@
       ))
     (".pure-bar" (
       "position" "relative"
-      "max-width" "60em"
       "width" "100%"
-      "padding-top" "0.125in"
-      "padding-left" "0.25in"
-      "padding-right" "0.25in"
-      "padding-bottom" "0.125in"
       "margin" "0 auto"
+      "font-size" "36px"
+      "padding" "0.25em"
       "box-sizing" "border-box"
+      "border-bottom" "1px solid black"
+      ))
+    (".pure-header" (
+      "margin" "0"
       ))
     (".pure-title" (
       "text-align" "center"
-      "padding-top" "0.25em"
-      "padding-bottom" "0.25em"
       "text-overflow" "ellipsis"
       "overflow" "hidden"
       "white-space" "nowrap"
+      "padding-top" "0.25em"
+      "padding-bottom" "0.25em"
       ))
       (".pure-right-tools" (
         "text-align" "right"
@@ -258,11 +297,18 @@
         ))
      (".pnav-button" (
        "display" "inline-block"
-       "margin-right" "0.75em"
+       "margin-right" "0.5em"
+       "margin-left" "0.5em"
        ))
-     (".pheadersize" (
-       "font-size" "0.5in"
-       ))
+    (".peditor-button" (
+      "display" "inline-block"
+      "padding-top" "0.5em"
+      "margin-right" "0.5em"
+      "margin-left" "0.5em"
+      ))
+    (".pure-button-group .pure-button:last-child" (
+      "border-right" "1px solid rgba(0,0,0,.2)"
+      ))
 )))
 
 
@@ -275,9 +321,9 @@
 (define (pheader seml lefttools title righttools)
   (dv (<< seml ".pure-header.pure-bar.pure-g")
     (<<
-        (dv ".pure-u-1-4.pure-left-tools.pheadersize" lefttools)
-        (dv ".pure-title.pure-u-1-2.pheadersize" title)
-        (dv ".pure-u-1-4.pure-right-tools.pheadersize" righttools)
+        (dv ".pure-u-1-6.pure-left-tools" lefttools)
+        (dv ".pure-title.pure-u-2-3" title)
+        (dv ".pure-u-1-6.pure-right-tools" righttools)
       )
 ))
 
@@ -295,14 +341,21 @@
 (define (pnav-button . args)
     (apply classdiv (cons  ".pnav-button.pbutton" args)))
 
+(define (peditor-button . args)
+    (apply classdiv (cons  ".peditor-button.pbutton" args)))
+
 (define (ppage . args)
   (apply classdiv (cons  ".ppage"  args)))
 (define (peditor . args)
   (apply classdiv (cons  ".peditor"  args)))
+(define (peditor-toolbar . args)
+  (apply classdiv (cons  ".peditor-toolbar"  args)))
 (define (ppage-blank . args)
   (apply classdiv (cons  ".ppage-blank"  args)))
 (define (ppage-no-header . args)
   (apply classdiv (cons  ".ppage-no-header"  args)))
+(define (ppage-double-header-no-footer . args)
+  (apply classdiv (cons  ".ppage-double-header-no-footer"  args)))
 (define (ppage-no-footer . args)
   (apply classdiv (cons  ".ppage-no-footer"  args)))
 
