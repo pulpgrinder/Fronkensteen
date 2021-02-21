@@ -210,10 +210,12 @@ Fronkenmark.makeSubstitutions = function(text){
 }
 Fronkenmark.renderTableItems = function(text){
   let template = [];
+  let lastformat = []
   let rows = text.split("\n")
   while(rows[0].match(/[^hlrc]/) === null){
     let formatrow = rows.shift();
-    template.push(formatrow.split(""))
+    lastformat = formatrow.split("")
+    template.push(lastformat)
   }
   text = rows.join("\n");
   rows = Papa.parse(text).data;
@@ -223,7 +225,7 @@ Fronkenmark.renderTableItems = function(text){
   }
   let result = "<tbody>";
   while(template.length < rows.length){
-    template.push([]);
+    template.push(lastformat);
   }
   for(var i = 0; i < rows.length; i++){
     let row = rows[i];
