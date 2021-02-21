@@ -48,7 +48,7 @@ Fronkensteen.file_path_no_extension = function(filename){
 
 Fronkensteen.collectLicenses = function(){
   let filenames = Object.keys(fronkensteen_fs);
-  let license_text = "[h1 The Fronkensteen License h1]\n\n" +  Fronkensteen.readInternalTextFile("1-root/LICENSE-Fronkensteen.fmk") + "\n\n"
+  let license_text = Fronkensteen.readInternalTextFile("1-root/LICENSE-Fronkensteen.fmk") + "\n\n"
   for(var i = 0; i < filenames.length; i++){
     if((filenames[i].match(/LICENSE/) !== null) && (filenames[i] !== "1-root/LICENSE-Fronkensteen.fmk")){
       let packagename = filenames[i].substring(0,filenames[i].indexOf["/"])
@@ -212,6 +212,12 @@ Fronkensteen.writeDataURLToInternalFile = function(filename,data){
   intp2.invoke_closure(BiwaScheme.TopEnv["set-system-dirty"], [])
   return true;
 }
+Fronkensteen.getFileTimeStamp = function(filename){
+  if(fronkensteen_fs[filename] === undefined){
+    return false;
+  }
+  return parseInt(fronkensteen_fs[filename]["timestamp"])
+}
 Fronkensteen.writeInternalFile = function(filename,data){
   Fronkensteen.writeRawInternalFile(filename,  Fronkensteen.bytes_to_base_64(data));
 }
@@ -352,6 +358,11 @@ BiwaScheme.define_libfunc("get-unsorted-file-names",0,0,function(ar){
   return Fronkensteen.getUnsortedFileNames()
 });
 
+BiwaScheme.define_libfunc("get-file-timestamp",1,1,function(ar){
+  // Returns the file timestamp (Unix time) or false if it does not exist.
+  BiwaScheme.assert_string(ar[0]);
+  return Fronkensteen.getFileTimeStamp(ar[0]);
+});
 BiwaScheme.define_libfunc("get-internal-filesystem-json",0,0,function(ar){
   // Gets the JSON representation of the internal filesystem.
   return Fronkensteen.getFileSystemJSON();
