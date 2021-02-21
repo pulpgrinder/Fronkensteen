@@ -14,10 +14,7 @@
   connect:function(isServer,resultHandler){
     let self = this;
     let defaulthost = ""
-    let defaultpassword = Fronkensteen.getLocalStorageItem("remote-repl-password");
-    if((defaultpassword === null) || (defaultpassword === false)){
-      defaultpassword = "sanguine";
-    }
+    let defaultpassword = "sanguine"
     if(isServer === true){
       defaulthost = Fronkensteen.getLocalStorageItem("remote-repl-app");
       if((defaulthost === null) || (defaulthost === false)){
@@ -38,8 +35,6 @@
       Fronkensteen.setLocalStorageItem("remote-repl-terminal",self.host);
     }
     self.password = prompt("Password", defaultpassword);
-    Fronkensteen.setLocalStorageItem("remote-repl-password",self.password);
-
     self.replsocket = new WebSocket("ws://" + self.host);
     self.replsocket.onopen = function(event) {
         console.log('remoteREPL connected as ' + (isServer ? 'server':'client') + '. Waiting for  commands.');
