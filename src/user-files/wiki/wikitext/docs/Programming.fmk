@@ -2,7 +2,7 @@
 
 [h1 Programming the Fronkensteen System h1]
 
-The Fronkensteen system is fully programmable, both in Scheme and Javascript. This document is a very high-level overview of the available features. A full treatment will be found in the forthcoming book and the online tutorial material.
+The Fronkensteen system is fully programmable, both in Scheme and Javascript. This document is a very high-level overview of the available features.  More docs and tutorials are planned, but in the interim you can learn a lot by looking at the source code for the various menu items.
 
 [h2 Basic Programming Tags h2]
 
@@ -42,7 +42,7 @@ Note, however, that some element types, such as &lt;img&gt; don't have text cont
 Let's look at some examples.
 
 If we wanted to generate the paragraph element:
-[code
+[code html
 <p id="foo">Words, words, words.</p>
 code]
 
@@ -56,7 +56,7 @@ Note that the id attribute is marked with a '#', just the same as in CSS and jQu
 
 Now let's look at a more complex example. Suppose we want to generate:
 
-[code
+[code html
 <a id='foo' class='bar' baz='rag' href='http://www.apple.com'>Apple Home Page</a>
 code]
 
@@ -94,7 +94,7 @@ BiwaScheme has a nice, Scheme-like interface to jQuery. However, Fronkensteen op
 
 A jQuery call like:
 
-[code
+[code javascript
 $("#test-div").html("New text")
 code]
 
@@ -104,17 +104,17 @@ maps in a direct fashion to:
 (% "#test-div" "html" "New Text")
 code]
 
-Note that this actually has *fewer* parentheses than the jQuery. [smile]
+Note that this actually has [b fewer b] parentheses than the jQuery. [smile]
 
 [h2  Auto-wiring of HTML Elements h2]
 
-Some HTML elements (such as buttons) can be "auto-wired". Using a button as an example, [code (button "#coolbutton" "My Cool Button") code] will produce [code <button id="coolbutton">My Cool Button</button> code] (just as above). If this button is inserted into the DOM and the [code (wire-ui) code] procedure is called afterward, an event handler will be added to the button that calls a procedure named [code (#coolbutton_click event) code] when the button is clicked (if that procedure exists). This is very convenient compared to adding an event handler to every button by hand. This also works with classes. [code (button "#coolbutton2.neatbutton" "My Other Cool Button") code] will produce [code <button id="coolbutton2" class="neatbutton">My Other Cool Button</button> code], and a procedure named [code (.neatbutton_click event) code] will be called if the button is clicked, if that procedure exists.
+Some HTML elements (such as buttons) can be "auto-wired". Using a button as an example, [code (button "#coolbutton" "My Cool Button") code] will produce [code <button id="coolbutton">My Cool Button</button> code] (just as above). If this button is inserted into the DOM and the [code (wire-ui) code] procedure is called afterward, an event handler will be added to the button that calls a procedure named [code (#coolbutton_click event) code] when the button is clicked (if that procedure exists). This is very convenient compared to adding an event handler to every button by hand. This also works with classes. [code (button ".neatbutton" "My Other Cool Button") code] will produce [code <button class="neatbutton">My Other Cool Button</button> code], and a procedure named [code (.neatbutton_click event) code] will be called if the button is clicked, if that procedure exists.
 
 Touch screen device support is handled by using procedures named with a _touch_click extension (e.g. [code (.neatbutton_touch_click event) code]). In this case, the procedure will be evaluated if the button is touched (on a touch-screen device) or clicked (on a non-touch-screen device).
 
-Note that There Can Be Only One here. If both the id handler and one or more class handlers exist, the one that comes last in alphabetical order will take precedence. In this case, a class handler (.neatbutton_click event) will be called in preference to an id handler (#coolbutton2_click) if both exist, as .neatbutton_click  comes later in alphabetical order than #coolbutton2_click.
+Note that There Can Be Only One here. If both the id handler and one or more class handlers exist, the one that comes last in alphabetical order will take precedence. In this case, a class handler [code  (.neatbutton_click event) code] will be called in preference to an id handler [code (#coolbutton2_click) code] if both exist, as [code .neatbutton_click code]  comes later in alphabetical order than [code  #coolbutton2_click code] .
 
-Similar auto-wired event handlers exist for input and change events. More are planned, and you may add your own by overriding the wire-procedure-list procedure as defined in dom/wired.scm.
+Similar auto-wired event handlers exist for input and change events. More are planned, and you may add your own by overriding the wire-procedure-list procedure as defined in [code 7-dom/wired.scm code].
 
 [h2 CSS in Scheme h2]
 
@@ -130,13 +130,12 @@ Fronkensteen lets you use Scheme code to write and install CSS. The [code proc-c
       ))
     (".fronkensteen-footnote" (
       "text-decoration" "underline"
-      "cursor" "pointer"
-        )))))
+      "cursor" "pointer")))))
 code]
 
 will generate the following CSS:
 
-[code
+[code css
 .fronkensteen-footnote-link {
   font-size:75%;
   vertical-align:super;
