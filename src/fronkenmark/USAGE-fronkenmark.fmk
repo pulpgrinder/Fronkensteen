@@ -456,7 +456,7 @@ Produces:
 7,8,9
 table]
 
-You may provide an optional template, which consists of one format line per line of data. It specifies whether to format the corresponding table element as a header "h", left-aligned "l", right-aligned "r" or centered "c".
+You may provide an optional template, which consists of one format line per line of data. It specifies whether to format the corresponding table element as a header "h", left-aligned "l", right-aligned "r" or centered "c". The default is "r" (right-aligned). If there are more data lines than template line, the last template line is used for all subsequent data lines.
 
 [code
 [table
