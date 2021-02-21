@@ -102,15 +102,16 @@
       (id (<< (wiki-page-id title) "-editor")))
   (stage-page
     (peditor (<< id "!type='wiki-editor-page'!wiki-title='" (encode-base-32 title) "'!wiki-timestamp='" (number->string  (unix-time)) "'")
+      (<<
         (pheader (<< ".wiki-page.wiki-theme")
             (peditor-button (<< ".wiki-editor-done"  ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
             (input (<< ".wiki-editor-title!type='text'!value='" title "'"))
             (peditor-button (<< ".wiki-editor-doc" ".wiki-page.wiki-theme") (fa-icon ".pnav-right!title='Help'" "question-circle" ""))
             )
-          (peditor-content (textarea (<< id "-textarea.wiki-editor-area!autocorrect='off'!autocapitalize='off'!spellcheck='false'") wiki-data))
+          (peditor-content (textarea (<< id "-textarea.wiki-editor-area!autocorrect='off'!autocapitalize='off'!spellcheck='false'") wiki-data)))
       )
-))
-id)
+)
+id))
 
 (define (new-wiki-editor-toolbar-element title)
   (let ((wiki-data (retrieve-wiki-data title))
