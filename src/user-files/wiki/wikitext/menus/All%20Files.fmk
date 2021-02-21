@@ -25,6 +25,6 @@
       (let ((result (car file-list)))
       (<<  (round-list-item  "" (<< (decode-uri  result) "&nbsp;&nbsp;" (button (<< ".af-edit-file-button!filename='" result "'") (fa-icon "" "edit" "")) "&nbsp;&nbsp;" (button (<< ".af-trash-file-button!filename='" result "'") (fa-icon "" "trash" ""))))  (render-all-files-rec (cdr file-list))))))
 
-    (round-list "#af-file-list" (render-all-files))
+(round-list "#af-file-list" (render-all-files))
 
 scheme!]
