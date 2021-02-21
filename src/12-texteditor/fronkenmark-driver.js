@@ -333,6 +333,7 @@ Fronkensteen.editDriver = new class  {
       Fronkensteen.editDriver.postProcessTextChange(editor_id);
       Fronkensteen.editDriver.editor_redo_stacks[editor_id] = [];
     }
+
     prestageTextChange(editor_id){
       Fronkensteen.editDriver.keyBefore = { val: $(editor_id).val(),selection:$(editor_id).getSelection()}
     }
@@ -474,7 +475,7 @@ Fronkensteen.editDriver = new class  {
         cursorpos[1] = cursorpos[1] - 1;
         if(cursorpos[1] < 0){
         cursorpos[0] = cursorpos[0] - 1;
-        if(  cursorpos[0] < 0){
+        if(cursorpos[0] < 0){
             cursorpos[0] = 0;
         }
         }
@@ -550,6 +551,7 @@ Fronkensteen.editDriver = new class  {
           alert("No text selected.")
           return;
         };
+        Fronkensteen.editDriver.prestageTextChange(editorname)
         var restring = "^" + this.escapeRegExp(preamble) + ".*" + this.escapeRegExp(postamble) + "$";
         var fencre = new RegExp(restring);
         var fencelength = preamble.length + postamble.length;
@@ -559,10 +561,12 @@ Fronkensteen.editDriver = new class  {
         else{
             this.surroundSelectedText(editorname,preamble,postamble,"select");
         }
+        Fronkensteen.editDriver.postProcessTextChange(editorname)
         return true;
     }
 
     setLinePrefix(editorname,prefix){
+        Fronkensteen.editDriver.prestageTextChange(editorname)
         let sel = $(editorname).getSelection();
         var restring = this.escapeRegExp(prefix)
         var prefre = new RegExp("^" + restring);
@@ -576,9 +580,11 @@ Fronkensteen.editDriver = new class  {
           }
         }
         $(editorname).replaceSelectedText(lineArr.join("\n"),"select");
+        Fronkensteen.editDriver.postProcessTextChange(editorname)
         return true;
     }
     setLineSuffix(editorname,suffix){
+        Fronkensteen.editDriver.prestageTextChange(editorname)
         let sel = $(editorname).getSelection();
         var restring = this.escapeRegExp(suffix)
         var prefre = new RegExp(restring + "$");
@@ -592,6 +598,7 @@ Fronkensteen.editDriver = new class  {
           }
         }
         $(editorname).replaceSelectedText(lineArr.join("\n"),"select");
+        Fronkensteen.editDriver.postProcessTextChange(editorname)
         return true;
     }
     setItalic(editorname){
@@ -611,13 +618,14 @@ Fronkensteen.editDriver = new class  {
         this.setFence(editorname,"[note "," note]");
     }
     setInlineMath(editorname){
-      this.setFence(editorname,"[latex "," latex]");
+      this.multilineFence(editorname,"[latex "," latex]");
     }
     setDisplayMath(editorname){
-      this.setFence(editorname,"[!latex "," latex!]");
+      this.multilineFence(editorname,"[!latex "," latex!]");
     }
 
     multilineFence(editorname,prefix,suffix){
+      Fronkensteen.editDriver.prestageTextChange(editorname)
       let sel = $(editorname).getSelection();
         var fencere = new RegExp("^" + this.escapeRegExp(prefix) + "((.|\n)*)" + this.escapeRegExp(suffix) + "$","m");
         if(sel.text.match(fencere)){
@@ -626,9 +634,10 @@ Fronkensteen.editDriver = new class  {
         else{
           $(editorname).replaceSelectedText(prefix + sel.text + suffix,"select")
         }
-
+        Fronkensteen.editDriver.postProcessTextChange(editorname)
     }
     setBlockPrefix(editorname,prefix,increment, space){
+        Fronkensteen.editDriver.prestageTextChange(editorname)
         var seltext = $(editorname).getSelection().text;
         var lines = seltext.split("\n");
         var selectionLength = 0;
@@ -649,16 +658,17 @@ Fronkensteen.editDriver = new class  {
         }
         seltext = lines.join("\n");
         $(editorname).replaceSelectedText(seltext,"select");
+        Fronkensteen.editDriver.postProcessTextChange(editorname)
     }
     setBulletedList(editorname){
-      this.setFence(editorname,"[ol "," ol]");
+      this.multilineFence(editorname,"[ul "," ul]");
     }
 
     setNumberedList(editorname){
-        this.setFence(editorname,"[ul "," ul]");
+        this.multilineFence(editorname,"[ol "," ol]");
     }
     setBlockQuote(editorname){
-        this.setFence(editorname,"[bq "," bq]");
+        this.multilineFence(editorname,"[bq "," bq]");
     }
     setPoetry(editorname){
         this.multilineFence(editorname,"[poetry "," poetry]");
@@ -693,8 +703,14 @@ Fronkensteen.editDriver = new class  {
     setAlignLeft(editorname){
         this.multilineFence(editorname,"[pl "," pl]");
     }
+    setHangingIndent(editorname){
+        this.multilineFence(editorname,"[ph "," ph]");
+    }
     setJavaScript(editorname){
-        this.multilineFence(editorname,"[javascript "," javascript]");
+        this.multilineFence(editorname,"[!javascript "," javascript!]");
+    }
+    setScheme(editorname){
+        this.multilineFence(editorname,"[!scheme "," scheme!]");
     }
     setComment(editorname){
         this.prefixRegion(editorname,";",false," ");

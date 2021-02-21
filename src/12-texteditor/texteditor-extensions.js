@@ -267,6 +267,15 @@ BiwaScheme.define_libfunc("cm-editor-set-link",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   Fronkensteen.editDriver.setLink(ar[0]);
 });
+BiwaScheme.define_libfunc("cm-editor-set-javascript",1,1, function(ar){
+  Fronkensteen.editDriver.activateEditor(ar[0]);
+  Fronkensteen.editDriver.setJavaScript(ar[0]);
+});
+
+BiwaScheme.define_libfunc("cm-editor-set-scheme",1,1, function(ar){
+  Fronkensteen.editDriver.activateEditor(ar[0]);
+  Fronkensteen.editDriver.setScheme(ar[0]);
+});
 BiwaScheme.define_libfunc("cm-editor-set-superscript",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   Fronkensteen.editDriver.setSuperscript(ar[0]);
@@ -314,6 +323,10 @@ BiwaScheme.define_libfunc("cm-editor-set-align-left",1,1, function(ar){
 BiwaScheme.define_libfunc("cm-editor-set-align-right",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   Fronkensteen.editDriver.setAlignRight(ar[0]);
+});
+BiwaScheme.define_libfunc("cm-editor-set-hanging-indent",1,1, function(ar){
+  Fronkensteen.editDriver.activateEditor(ar[0]);
+  Fronkensteen.editDriver.setHangingIndent(ar[0]);
 });
 BiwaScheme.define_libfunc("cm-editor-set-comment",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);

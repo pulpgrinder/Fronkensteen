@@ -60,8 +60,14 @@
     (cm-editor-eval-js-selection! editor))
 
 
+(define (text-editor-format-scheme editor)
+   (cm-editor-set-scheme editor))
+
+(define (text-editor-format-javascript editor)
+   (cm-editor-set-javascript editor))
+
 (define (text-editor-scheme-doc editor)
-  (alert "show scheme docs"))
+  (alert "show scheme docs (not implemented yet)"))
 
 (define (text-editor-scheme-run editor)
     (cm-eval-editor-buffer! editor))
@@ -79,12 +85,14 @@
 (define (text-editor-align-right editor)
     (cm-editor-set-align-right editor))
 
-(define (text-editor-justify editor)
+(define (text-editor-align-justify editor)
     (cm-editor-set-justify editor))
 
-(define (text-editor-center editor)
+(define (text-editor-align-center editor)
     (cm-editor-set-center editor))
 
+(define (text-editor-align-hanging-indent editor)
+    (cm-editor-set-hanging-indent editor))
 
 (define (text-editor-inline-latex editor)
     (cm-editor-set-inline-math editor))
@@ -92,7 +100,7 @@
 (define (text-editor-display-latex editor)
     (cm-editor-set-display-math editor))
 
-(define (text-editor-code editor)
+(define (text-editor-format-code editor)
     (cm-editor-set-code editor))
 
 
@@ -107,15 +115,15 @@
 
 
 (define (text-editor-preview editor)
-    (view-trusted-markup-text (cm-editor-get-text editor)))
+    (alert "Preview (not implemented yet)"))
 
 (define (text-editor-block-quote editor)
     (cm-editor-set-block-quote editor))
 
-(define (text-editor-number-list editor)
+(define (text-editor-numbered-list editor)
     (cm-editor-set-numbered-list editor))
 
-(define (text-editor-bullet-list editor)
+(define (text-editor-bulleted-list editor)
     (cm-editor-set-bulleted-list editor))
 
 (define (text-editor-strikeout editor)
