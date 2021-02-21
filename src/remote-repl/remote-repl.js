@@ -16,7 +16,7 @@
     let defaulthost = ""
     let defaultpassword = "sanguine"
     if(isServer === true){
-      defaulthost = Fronkensteen.getLocalStorageItem("remote-repl-app");
+      defaulthost = Fronkensteen.getLocalStorageItem("remote-repl-host");
       if((defaulthost === null) || (defaulthost === false)){
         defaulthost =  "localhost:5900"
       }
@@ -29,7 +29,7 @@
     }
     self.host = prompt("Host:port", defaulthost);
     if(isServer === true){
-      Fronkensteen.setLocalStorageItem("remote-repl-app",self.host);
+      Fronkensteen.setLocalStorageItem("remote-repl-host",self.host);
     }
     else {
       Fronkensteen.setLocalStorageItem("remote-repl-terminal",self.host);
