@@ -1,1 +1,32 @@
-Scheme
+[h1 Scheme Toolbox h1]
+
+[!scheme
+(set! on-page-display (lambda()
+  (let ((repl-history (get-local-storage-item "repl-history")))
+    (if (eqv? repl-history #f)
+      (% "#repl-input" "val" "")
+      (% "#repl-input" "val" repl-history)
+  ))))
+  (define (#repl-clear-button_click ev)
+  (cm-editor-set-text "#repl-input" "")
+  (set-local-storage-item! "repl-history" ""))
+
+  (define (#repl-eval-button_click ev)
+  (cm-editor-eval-selection-or-expr-before-cursor! "#repl-input")
+  (set-local-storage-item! "repl-history" (cm-editor-get-text "#repl-input")
+  ))
+
+  (define (#repl-eval-buffer-button_click ev)
+    (cm-eval-editor-buffer! "#repl-input")
+    (set-local-storage-item! "repl-history" (cm-editor-get-text "#repl-input")
+    ))
+
+  (<<
+    (dv
+      (<<
+        (span "REPL:&nbsp;&nbsp;")
+        (pbutton "#repl-eval-button.wiki-theme!title='Evaluate selection or expression before cursor'" "Eval Expr Before Cursor")
+        (pbutton "#repl-eval-buffer-button.wiki-theme!title='Evaluate entire buffer'" "Eval Entire Buffer")
+        (pbutton "#repl-clear-button.wiki-theme!title='Clear REPL history'" "Clear")))
+        (textarea "#repl-input.wiki-editor-area!rows='20'!cols='80'!autocorrect='off'!autocapitalize='off'!spellcheck='false'" "")
+scheme!]
