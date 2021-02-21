@@ -1,4 +1,4 @@
-[h1 Scheme Toolbox h1]
+[h1 Scheme REPL h1]
 
 [!scheme
 (set! on-page-display (lambda()
