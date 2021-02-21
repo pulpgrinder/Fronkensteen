@@ -1,210 +1,144 @@
-(define (fronkensteen-editor-replace-button_click)
-  (let ((lemma (% "#fronkensteen-editor-find-input" "val"))
-       (replacement (% "#fronkensteen-editor-replace-input" "val")))
-        (if (eqv? lemma "")
-          (alert "Nothing to find")
-          (cm-editor-replace active-editor replacement))))
+(define (text-editor-replace editor lemma replacement)
+  (if (eqv? lemma "")
+    (alert "Nothing to find")
+    (cm-editor-replace editor replacement)))
 
-(define (fronkensteen-editor-replace-and-find-button_click)
-  (fronkensteen-editor-replace-button_click)
-  (fronkensteen-editor-find-button_click))
+(define (text-editor-replace-and-find editor lemma replacement)
+  (text-editor-replace editor lemma replacement)
+  (text-editor-find editor lemma))
 
-  (define (fronkensteen-editor-replace-all-button_click)
-    (fronkensteen-editor-replace-all #t))
+  (define (text-editor-replace-all editor lemma replacement)
+    (text-editor-replace-iter #t editor lemma replacement))
 
-(define (fronkensteen-editor-replace-all is-first-pass)
-    (let ((found (fronkensteen-editor-perform-find #f)))
+(define (text-editor-replace-all is-first-pass editor lemma replacement)
+    (let ((found (text-editor-perform-find #f editor lemma replacement)))
       (if found
         (begin
-          (fronkensteen-editor-replace-button_click)
-          (fronkensteen-editor-replace-all is-first-pass))
+          (text-editor-replace editor lemma replacement)
+          (text-editor-replace-all is-first-pass editor lemma replacement))
         (if is-first-pass
           (begin
-            (cm-editor-set-cursor-position active-editor 0 0)
-            (fronkensteen-editor-replace-all #f))
+            (cm-editor-set-cursor-position editor 0 0)
+            (text-editor-replace-all #f editor lemma replacement))
           #t))))
 
-(define (fronkensteen-editor-find-button_click)
-    (fronkensteen-editor-perform-find #t))
+(define (text-editor-find editor lemma foldcase use-regex search-backward )
+    (text-editor-perform-find #t editor lemma foldcase use-regex search-backward))
 
-(define (fronkensteen-editor-perform-find query-for-wrap?)
-  (let ((foldcase (checkbox-checked? "#fronkensteen-editor-find-ignorecase"))
-      (use-regex (checkbox-checked? "#fronkensteen-editor-find-regex"))
-      (search-backward (checkbox-checked? "#fronkensteen-editor-find-searchbackward"))
-      (lemma (% "#fronkensteen-editor-find-input" "val")))
-        (if (eqv? active-editor #f)
-          (alert "No editor open.")
-          (if (eqv? lemma "")
-            (alert "Nothing specified to find.")
-            (begin
-                (if (eqv? (cm-find active-editor lemma (fronkensteen-editor-next-search-position active-editor) foldcase use-regex search-backward) #f)
-                  (if query-for-wrap?
-                    (if (checkbox-checked? "#fronkensteen-editor-find-wrap")
-                      (timer (lambda()
-                          (if search-backward
-                            (begin
-                              (let ((doc-end (cm-end-position editor)))
-                                (cm-editor-set-cursor-position active-editor (vector-ref doc-end  0) (vector-ref doc-end 1))))
-                             (cm-editor-set-cursor-position active-editor 0 0))
-                          (fronkensteen-editor-perform-find #f)) 0.05)
-                     #f)
-                     #t)
-                  #t))))))
+(define (text-editor-perform-find query-for-wrap? editor lemma foldcase use-regex search-backward)
+  (if (eqv? lemma "")
+    (alert "Nothing specified to find.")
+    (begin
+        (if (eqv? (cm-find editor lemma (text-editor-next-search-position editor search-backward) foldcase use-regex search-backward) #f)
+          (if query-for-wrap?
+            (if (checkbox-checked? "#text-editor-find-wrap")
+              (timer (lambda()
+                  (if search-backward
+                    (begin
+                      (let ((doc-end (cm-end-position editor)))
+                        (cm-editor-set-cursor-position editor (vector-ref doc-end  0) (vector-ref doc-end 1))))
+                     (cm-editor-set-cursor-position editor 0 0))
+                  (text-editor-perform-find #f editor lemma foldcase use-regex search-backward)) 0.05)
+             #f)
+             #t)
+          #t))))
 
-(define (fronkensteen-editor-next-search-position)
-    (let ((cursor-position (cm-editor-get-cursor-position active-editor)))
-      (if (checkbox-checked? "#fronkensteen-editor-find-searchbackward")
-        (let ((last-line (vector-ref cursor-position 0))
-            (last-ch (vector-ref cursor-position 1)))
-            (if (eqv? last-ch 0)
-              `#(,(- last-line 1) (string-length (cm-editor-get-line active-editor (- last-line 1))))
-              `#(,last-line ,(- last-ch 1))))
-      cursor-position)))
+  (define (text-editor-next-search-position editor search-backward)
+      (let ((cursor-position (cm-editor-get-cursor-position editor)))
+        (if search-backward
+          (let ((last-line (vector-ref cursor-position 0))
+              (last-ch (vector-ref cursor-position 1)))
+              (if (eqv? last-ch 0)
+                `#(,(- last-line 1) (string-length (cm-editor-get-line editor (- last-line 1))))
+                `#(,last-line ,(- last-ch 1))))
+        cursor-position)))
 
-(define (fronkensteen-editor-scheme-eval-button_click)
-  (if (eqv? active-editor #f)
-    #f
-   (cm-editor-eval-selection-or-expr-before-cursor! active-editor)))
+(define (text-editor-scheme-eval editor)
+   (cm-editor-eval-selection-or-expr-before-cursor! editor))
 
-(define (fronkensteen-editor-javascript-eval-button_click)
-  (if (eqv? active-editor-file #f)
-    #f
-    (cm-editor-eval-js-selection! active-editor))
-)
+(define (text-editor-javascript-eval editor)
+    (cm-editor-eval-js-selection! editor))
 
 
-(define (fronkensteen-editor-scheme-doc-button_click)
+(define (text-editor-scheme-doc editor)
   (alert "show scheme docs"))
 
-(define (fronkensteen-editor-scheme-run-button_click)
-  (if (eqv? active-editor-file #f)
-    #f
-    (cm-eval-editor-buffer! active-editor)
-))
+(define (text-editor-scheme-run editor)
+    (cm-eval-editor-buffer! editor))
 
-(define (fronkensteen-editor-footnote-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-note active-editor)))
+(define (text-editor-footnote editor)
+    (cm-editor-set-note editor))
 
-(define (fronkensteen-editor-comment-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-comment active-editor)))
+(define (text-editor-comment editor)
+    (cm-editor-set-comment editor))
 
-(define (fronkensteen-editor-align-left-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-align-left active-editor)))
+(define (text-editor-align-left editor)
+    (cm-editor-set-align-left editor))
 
 
-(define (fronkensteen-editor-align-right-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-align-right active-editor)))
+(define (text-editor-align-right editor)
+    (cm-editor-set-align-right editor))
 
-(define (fronkensteen-editor-justify-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-justify active-editor)))
+(define (text-editor-justify editor)
+    (cm-editor-set-justify editor))
 
-(define (fronkensteen-editor-center-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-center active-editor)))
+(define (text-editor-center editor)
+    (cm-editor-set-center editor))
 
 
-(define (fronkensteen-editor-inline-latex-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-inline-math active-editor)))
-    
-(define (fronkensteen-editor-display-latex-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-display-math active-editor)))
+(define (text-editor-inline-latex editor)
+    (cm-editor-set-inline-math editor))
 
-(define (fronkensteen-editor-code-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-code active-editor)))
+(define (text-editor-display-latex editor)
+    (cm-editor-set-display-math editor))
+
+(define (text-editor-code editor)
+    (cm-editor-set-code editor))
 
 
-(define (fronkensteen-editor-h3-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-heading active-editor "3")))
+(define (text-editor-h3 editor)
+    (cm-editor-set-heading editor "3"))
+
+(define (text-editor-h2 editor)
+    (cm-editor-set-heading editor "2"))
+
+(define (text-editor-h1 editor)
+    (cm-editor-set-heading editor "1"))
 
 
+(define (text-editor-preview editor)
+    (view-trusted-markup-text (cm-editor-get-text editor)))
 
-(define (fronkensteen-editor-preview-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (view-trusted-markup-text (cm-editor-get-text active-editor))))
+(define (text-editor-block-quote editor)
+    (cm-editor-set-block-quote editor))
 
+(define (text-editor-number-list editor)
+    (cm-editor-set-numbered-list editor))
 
-(define (fronkensteen-editor-h2-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-heading active-editor "2")))
+(define (text-editor-bullet-list editor)
+    (cm-editor-set-bulleted-list editor))
 
-(define (fronkensteen-editor-h1-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-heading active-editor "3")))
+(define (text-editor-strikeout editor)
+    (cm-editor-set-strikeout editor))
 
-(define (fronkensteen-editor-block-quote-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-block-quote active-editor)))
+(define (text-editor-subscript editor)
+    (cm-editor-set-subscript editor))
 
-(define (fronkensteen-editor-number-list-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-numbered-list active-editor)))
+(define (text-editor-superscript editor)
+    (cm-editor-set-superscript editor))
 
-(define (fronkensteen-editor-bullet-list-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-bulleted-list active-editor)))
+(define (text-editor-italic editor)
+    (cm-editor-set-italic editor))
 
-(define (fronkensteen-editor-strikeout-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-strikeout active-editor)))
+(define (text-editor-bold editor)
+    (cm-editor-set-bold editor))
 
-(define (fronkensteen-editor-subscript-button_click)
-  (if (eqv? active-editor #f)
-    #f
-    (cm-editor-set-subscript active-editor)))
-
-(define (fronkensteen-editor-superscript-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-superscript active-editor)))
-
-(define (fronkensteen-editor-italic-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-italic active-editor)))
-
-(define (fronkensteen-editor-bold-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-bold active-editor)))
-
-(define (fronkensteen-editor-poetry-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-set-poetry active-editor)))
+(define (text-editor-poetry editor)
+    (cm-editor-set-poetry editor))
 
 
-(define (fronkensteen-editor-undo-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-undo! active-editor)))
+(define (text-editor-undo editor)
+    (cm-editor-undo! editor))
 
-(define (fronkensteen-editor-redo-button_click)
-    (if (eqv? active-editor #f)
-      #f
-    (cm-editor-redo! active-editor)))
+(define (text-editor-redo editor)
+    (cm-editor-redo! editor))

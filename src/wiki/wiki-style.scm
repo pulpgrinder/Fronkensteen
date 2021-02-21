@@ -39,6 +39,9 @@
             (".wiki-editor-title" (
                 "text-align" "center"
                 ))
+            (".code-editor-title" (
+              "width" "75%"
+              ))
             (".wiki-editor-area" (
               "margin" "0 auto"
               "height" "100%"

@@ -46,69 +46,62 @@
           (ppage-content (ptext (render-wiki-content (retrieve-wiki-data  (<< "menus/" title))))))))
     id))
 
-(define (create-wiki-editor-page title)
-  (let ((wiki-data (retrieve-wiki-data title))
-      (id (<< (wiki-page-id title) "-editor")))
-    (if (element-exists? id)
-      (% id "remove"))
-    (stage-page
-      (peditor (<< id "!type='wiki-editor-page'!wiki-title='" (encode-base-32 title) "'")
-      (<<
-          (pheader (<< ".wiki-page.wiki-theme")
-            (<<
-              (pnav-button (<< ".pnav-wiki-editor-done"  ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
-              (pnav-button (<< ".pnav-wiki-editor-doc" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Help'" "question-circle" "")))
-              (input (<< ".wiki-editor-title!type='text'!value='" title "'"))
-              ""
-              )
-            (peditor-content (textarea (<< id "-textarea.wiki-editor-area") wiki-data))
-        )
-    ))
-    (wire-ui)
-    id))
-
-(define (create-code-editor-page filename)
-  (let ((code-data (read-internal-text-file filename))
-      (id (<< (code-page-id filename) "-editor")))
-    (if (element-exists? id)
-      (% id "remove"))
-    (stage-page
-      (peditor (<< id "!type='code-editor-page'!filename='" (encode-base-32 filename) "'")
-      (<<
-          (pheader (<< ".code-page.wiki-theme")
-            (<<
-              (pnav-button (<< ".pnav-code-editor-done"  ".code-editor-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
-              (pnav-button (<< ".pnav-code-editor-doc" ".code-editor-page.wiki-theme") (fa-icon ".pnav-left!title='Help'" "question-circle" "")))
-              (input (<< ".code-editor-title!type='text'!value='" filename "'"))
-              ""
-              )
-            (peditor-content (textarea (<< id "-textarea.wiki-editor-area") code-data))
-        )
-    ))
-    (wire-ui)
-    id))
-
-(define (create-wiki-page title)
-  (let ((wiki-data (retrieve-wiki-data title))
+(define (new-wiki-page-element title)
+    (let ((wiki-data (retrieve-wiki-data title))
     (id (wiki-page-id title)))
-      (if (element-exists? id)
-        (% id "remove"))
      (stage-page
-      (ppage-no-footer (<< id "!type='wiki-page'!wiki-title='" (encode-base-32 title) "'")
+      (ppage-double-header-no-footer (<< id "!type='wiki-page'!wiki-title='" (encode-base-32 title) "'!wiki-timestamp='" (number->string (unix-time)) "'")
       (<<
           (pheader (<< ".wiki-page.wiki-theme")
+            (pnav-button (<< ".pnav-back"  ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Go back'" "angle-left" ""))
+             title
+             (pnav-button (<< ".pnav-forward" ".wiki-page.wiki-theme") (fa-icon ".pnav-right!title='Go Forward'" "angle-right" "")))
+          (pbar (<< ".wiki-page.wiki-theme")
             (<<
-              (pnav-button (<< ".pnav-back"  ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Go back'" "angle-left" ""))
               (pnav-button (<< ".pnav-menu" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Menu'" "bars" ""))
               (pnav-button (<< ".pnav-edit" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Edit this page'" "edit" ""))
 
               )
-              title
-              (pnav-button (<< ".pnav-forward" ".wiki-page.wiki-theme") (fa-icon ".pnav-right!title='Go Forward'" "angle-right" "")))
+              )
+
             (ppage-content (ptext "!tabindex='-1'" (render-wiki-content (retrieve-wiki-data title))))
         )
     ))
     id))
+
+(define (wiki-page-dirty? title id)
+  (let ((file-time (/ (get-file-timestamp (wiki-data-path title)) 1000))
+        (display-time (string->number (% id "attr" "wiki-timestamp"))))
+        (console-log "file-time " (number->string file-time))
+        (console-log "display-time " (number->string display-time))
+        (if (> file-time display-time)
+          #t
+          #f)))
+
+(define (code-page-dirty? filename id)
+  (let ((file-time (/ (get-file-timestamp filename) 1000))
+        (display-time (string->number (% id "attr" "wiki-timestamp"))))
+        (console-log "file-time " (number->string file-time))
+        (console-log "display-time " (number->string display-time))
+        (if (> file-time display-time)
+          #t
+          #f)))
+
+(define (create-wiki-page title)
+  (let ((id (wiki-page-id title)))
+      (if (element-exists? id)
+        (if (wiki-page-dirty? title id)
+            (begin
+              (console-log "Page is dirty, trashing and recreating.")
+              (% id "remove")
+              (new-wiki-page-element title))
+             (begin
+               (console-log "Page exists, reusing")
+              id))
+        (begin
+          (console-log "New page, creating for first time.")
+          (new-wiki-page-element title)
+          id))))
 
 (define (process-wiki-links content-id)
   (console-log (<<  "Processing " content-id))
@@ -175,11 +168,7 @@
 (define (.pnav-menu_touch_click evt)
   (display-wiki-menu-page "Main Menu"))
 
-(define (.pnav-wiki-editor-doc_touch_click evt)
-  (display-wiki-doc-page "Formatting"))
 
-(define (.pnav-code-editor-doc_touch_click evt)
-  (display-wiki-doc-page "Code Editor"))
 
 (define (.pnav-menu-done_touch_click evt)
     (close-menu))
@@ -222,8 +211,6 @@
 (define (.pnav-back_touch_click evt)
     (nav-back))
 
-(define (.pnav-edit_touch_click evt)
-    (display-wiki-editor-page (active-page-title)))
 
 (define (nav-back)
    (if (> (length page-back-list) 1)
@@ -242,36 +229,6 @@
               (set! page-forward-list (cdr page-forward-list))
               (display-wiki-page nextpage #f)
               (show-nav-buttons)))))
-
-
-(define (.pnav-wiki-editor-done_touch_click evt)
-  (let ((title (% (<< active-wiki-page "-editor .wiki-editor-title") "val"))
-         (old-title (active-page-title)))
-       (if (not (eqv? title old-title))
-          (file-rename (wiki-data-path old-title) (wiki-data-path title)))
-       (write-internal-text-file (wiki-data-path title) (cm-editor-get-text active-editor))
-       (dispose-cm-editor! active-editor)
-       (set! display-mode "wiki")
-       (set! active-editor-page #f)
-       (display-wiki-page title #t "revolution")
-       )
-
-       )
-
-
-(define (.pnav-code-editor-done_touch_click evt)
-  (let ((filename (% (<< active-code-editor-page " .code-editor-title") "val"))
-         (old-filename (active-code-filename)))
-       (if (not (eqv? filename old-filename))
-          (file-rename old-filename filename))
-       (write-internal-text-file filename (cm-editor-get-text active-code-editor))
-       (dispose-cm-editor! active-code-editor)
-       (set! display-mode "wiki")
-       (set! active-code-editor-page #f)
-       (display-wiki-page (active-page-title) #t "revolution")
-       )
-
-       )
 
 
 

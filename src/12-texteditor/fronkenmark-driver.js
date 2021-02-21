@@ -359,6 +359,10 @@ Fronkensteen.editDriver = new class  {
       if(this.editor_undo_stacks[editor_id] === undefined){
         this.editor_undo_stacks[editor_id] = [];
       }
+      else{ /* Already created */
+        this.activateEditor(editor_id);
+        return editor_id;
+      }
       if(this.editor_redo_stacks[editor_id] === undefined){
         this.editor_redo_stacks[editor_id] = [];
       }
