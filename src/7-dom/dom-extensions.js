@@ -17,6 +17,7 @@ BiwaScheme.define_libfunc("scroll-into-view",1,1,function(ar){
   ar[0].scrollIntoView()
 })
 
+
 BiwaScheme.define_libfunc("parse-youtube-url",1,1,function(ar){
   BiwaScheme.assert_string(ar[0]);
   return Fronkensteen.parseYouTubeURL(ar[0]);
@@ -142,6 +143,20 @@ BiwaScheme.define_libfunc("js-document-width", 0, 0, function(ar,intp){
 BiwaScheme.define_libfunc("js-document-height", 0, 0, function(ar,intp){
   // jQuery: Returns the width of the current window.
   return $(document).height();
+});
+
+/**
+ * Stop JavaScript event from propagating.
+ */
+BiwaScheme.define_libfunc("stop-event-propagation", 1, 1, function(ar,intp){
+  ar[0].stopPropagation();
+});
+
+/**
+ * Prevent default action for JavaScript event.
+ */
+BiwaScheme.define_libfunc("prevent-event-default", 1, 1, function(ar,intp){
+  ar[0].preventDefault();
 });
 BiwaScheme.define_libfunc("%", 1, 4, function(ar,intp){
   // jQuery: the generic jQuery interface.
