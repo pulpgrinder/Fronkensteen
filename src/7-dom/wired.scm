@@ -18,9 +18,8 @@
       (if (and (is-defined? proc) (str-match? proc "_" ""))
         (cond
           ((str-match? proc "_touch_click$" "")
-            (if is-touch-device?
                 (wire-event proc "touchstart")
-                (wire-event proc "click")))
+                (wire-event proc "click"))
           ((str-match? proc "_click$" "")
               (wire-event proc "click"))
           ((str-match? proc "_touchstart$" "")
@@ -38,5 +37,6 @@
   (let ((selector (str-replace-re proc "_(.*)$" "" "")))
       (% selector "off" evtype)
       (% selector "on" evtype (lambda (ev)
+            (prevent-event-default ev)
             ((eval (string->symbol proc)) ev)))
       ))
