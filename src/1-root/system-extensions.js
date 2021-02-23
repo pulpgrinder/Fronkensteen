@@ -143,7 +143,11 @@ BiwaScheme.define_libfunc("prompt", 1, 1, function(ar){
   // ar[0]. Neither prompt nor confirm work in Electron, sadly,
   // though alert does.
     BiwaScheme.assert_string(ar[0]);
-    return prompt(ar[0]);
+    let result = prompt(ar[0])
+    if(result === null){
+      return false;
+    }
+    return result;
 });
 
 BiwaScheme.define_libfunc("reload",0, 0, function(ar){
