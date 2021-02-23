@@ -16,7 +16,7 @@
 
 (define (.search-checkbox_change)
   (run-wiki-search))
-  
+
 (define (#wiki-search-input_input)
   (run-wiki-search))
 
@@ -56,6 +56,7 @@
           (process-wiki-links "#wiki-search-results")
           ))))
 
+
 (define (render-search-results results)
   (if (eqv? results '())
       ""
@@ -63,7 +64,7 @@
       (let ((result (car results)))
         (let ((file-ext (file-extension result)))
           (cond
-            ((str-match? result "user-files/wiki/wiki-text" "") (<< (wiki-display-name result) "|(display-wiki-page \"" (wiki-display-name result) "\")\n"))
+            ((eqv? (index-of result "user-files/wiki/wikitext") 0) (<< (wiki-display-name result) "|(display-wiki-page \"" (wiki-display-name result) "\")\n"))
             (#t (<< result "|(display-code-editor-page \""  result "\")\n")))))
             (render-search-results (cdr results)))))
 
