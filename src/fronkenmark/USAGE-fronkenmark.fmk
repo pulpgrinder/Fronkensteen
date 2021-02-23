@@ -46,6 +46,8 @@ Fantasy: [code [fantasy In ancient times... fantasy] code]
 
 [fantasy In ancient times... fantasy]
 
+[small [i Note that the appearance of fantasy and cursive may differ considerably between different browsers i] small]
+
 [code [stet verbatim text stet] code] The [code stet code] tag prevents [i any i] processing of the enclosed text from occurring. No Fronkenmark formatting. No smart quotes. No linking. The text will appear exactly as it is written. This is occasionally useful.
 
 [h2 Links h2]
@@ -62,6 +64,13 @@ Fantasy: [code [fantasy In ancient times... fantasy] code]
 
 [code [doclink Formatting doclink] code] Opens the internal documentation page with the title "Formatting" (in other words, the exact document you're looking at right now). As with menulink, doclink does not navigate away from the current page. When the doc is closed, the original page reappears. Docs are kept in the docs/ folder.
 
+[code [!schemelink caption|(scheme procedure) schemelink!] code] creates a link with the given caption that executes the supplied Scheme procedure when the link is clicked.
+
+Example:
+
+[code [!schemelink Home|(display-wiki-page "Main") schemelink!] code] produces:
+
+[!schemelink Home|(display-wiki-page "Main") schemelink!]
 
 [h2 Paragraph formatting h2]
 
@@ -157,6 +166,8 @@ poetry]
 [code [pfantasy paragraph pfantasy] code] Set an entire paragraph in a fantasy typeface. See [code [fantasy] code] above for doing this in the middle of a block of text.
 
 [pfantasy Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off -- then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. pfantasy]
+
+[small [i Note that the appearance of pfantasy and pcursive may differ considerably between different browsers i] small]
 
 
 [altcode [code text code] altcode]
