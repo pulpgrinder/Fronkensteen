@@ -1,57 +1,18 @@
-(define (text-editor-replace editor lemma replacement)
-  (if (eqv? lemma "")
-    (alert "Nothing to find")
-    (cm-editor-replace editor replacement)))
+(define (text-editor-replace editor replacement)
+    (cm-editor-replace editor replacement))
 
-(define (text-editor-replace-and-find editor lemma replacement)
-  (text-editor-replace editor lemma replacement)
-  (text-editor-find editor lemma))
-
-  (define (text-editor-replace-all editor lemma replacement)
-    (text-editor-replace-iter #t editor lemma replacement))
-
-(define (text-editor-replace-all is-first-pass editor lemma replacement)
-    (let ((found (text-editor-perform-find #f editor lemma replacement)))
-      (if found
-        (begin
-          (text-editor-replace editor lemma replacement)
-          (text-editor-replace-all is-first-pass editor lemma replacement))
-        (if is-first-pass
-          (begin
-            (cm-editor-set-cursor-position editor 0 0)
-            (text-editor-replace-all #f editor lemma replacement))
-          #t))))
+(define (text-editor-replace-all editor search_lemma replace_lemma foldcase use_regex)
+    (cm-replace-all editor search_lemma replace_lemma foldcase use_regex))
 
 (define (text-editor-find editor lemma foldcase use-regex search-backward )
-    (text-editor-perform-find #t editor lemma foldcase use-regex search-backward))
-
-(define (text-editor-perform-find query-for-wrap? editor lemma foldcase use-regex search-backward)
   (if (eqv? lemma "")
     (alert "Nothing specified to find.")
-    (begin
-        (if (eqv? (cm-find editor lemma (text-editor-next-search-position editor search-backward) foldcase use-regex search-backward) #f)
-          (if query-for-wrap?
-            (if (checkbox-checked? "#text-editor-find-wrap")
-              (timer (lambda()
-                  (if search-backward
-                    (begin
-                      (let ((doc-end (cm-end-position editor)))
-                        (cm-editor-set-cursor-position editor (vector-ref doc-end  0) (vector-ref doc-end 1))))
-                     (cm-editor-set-cursor-position editor 0 0))
-                  (text-editor-perform-find #f editor lemma foldcase use-regex search-backward)) 0.05)
-             #f)
-             #t)
-          #t))))
-
-  (define (text-editor-next-search-position editor search-backward)
-      (let ((cursor-position (cm-editor-get-cursor-position editor)))
-        (if search-backward
-          (let ((last-line (vector-ref cursor-position 0))
-              (last-ch (vector-ref cursor-position 1)))
-              (if (eqv? last-ch 0)
-                `#(,(- last-line 1) (string-length (cm-editor-get-line editor (- last-line 1))))
-                `#(,last-line ,(- last-ch 1))))
-        cursor-position)))
+    (let ((search-result (cm-find editor lemma foldcase use-regex search-backward #t)))
+      (cond
+      ((eqv? search-result #t) #t)
+      ((eqv? search-result #f) (fronkensteen-toast "Not found" "c" "c" 1))
+      ((eqv? search-result "wrapped") (fronkensteen-toast "Wrapped..." "c" "c" 0.5))
+      ))))
 
 (define (text-editor-scheme-eval editor)
    (cm-editor-eval-selection-or-expr-before-cursor! editor))
@@ -140,6 +101,15 @@
 
 (define (text-editor-bold editor)
     (cm-editor-set-bold editor))
+
+(define (text-editor-underline editor)
+    (cm-editor-set-underline editor))
+
+(define (text-editor-link editor)
+    (cm-editor-set-link editor))
+
+(define (text-editor-menu editor)
+    (cm-editor-set-menu editor))
 
 (define (text-editor-poetry editor)
     (cm-editor-set-poetry editor))
