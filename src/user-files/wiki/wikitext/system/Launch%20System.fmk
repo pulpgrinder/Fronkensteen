@@ -1,14 +1,18 @@
-This page contains the Scheme code that will be run at system launch. You can edit it if you wish, but use caution. Making a backup copy of your Fronkensteen app first is highly recommended.
 [!scheme
+; This page contains the Scheme code that will be run at system launch. You can edit it if you wish, but use caution -- errors in this file may make the app unstartable. Making a backup copy of your Fronkensteen app first is highly recommended.
+
+; Adjust display for screen size.
 (resize-content)
-; Remote debugging
+
+; Remote debugging/remote terminal. Using either of these requires that
+; you run the fronkensteen-server middleware.
 (if (not (js-null? (url-params "remote-app")))
   (begin
-    (launch-remote-repl-app)
-    )
+    (launch-remote-repl-app))
+
 (if (not (js-null? (url-params "remote-terminal")))
-  (remote-repl-terminal)
-  ))
+  (remote-repl-terminal)))
+
 (wire-ui)
 (set-app-name! "Fronkensteen")
 (set-app-version! "0.0.1")
