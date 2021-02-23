@@ -127,6 +127,7 @@ Fronkensteen.editDriver = new class  {
       $(editor_id).parent().hide();
     }
     evalSchemeBuffer(editor_id){
+      Fronkensteen.editDriver.prestageTextChange(editor_id);
       let result = "";
       let text = $(editor_id).val();
       Fronkensteen.parseSchemeProcedureDefs("(defined in editor or REPL)", text);
@@ -134,6 +135,7 @@ Fronkensteen.editDriver = new class  {
        result = " ; value: " + intp2.evaluate(text) + Fronkensteen.CumulativeErrors.join("\n");
       Fronkensteen.CumulativeErrors = [];
       $(editor_id).val(text + result);
+      Fronkensteen.editDriver.postProcessTextChange(editor_id);
     }
     getSchemeSelection(editor_id){
       let result = "";
@@ -162,6 +164,7 @@ Fronkensteen.editDriver = new class  {
       return selected_text;
     }
     evalSchemeSelection(editor_id){
+        Fronkensteen.editDriver.prestageTextChange(editor_id);
         let result = "";
         let selection = this.getSchemeSelection(editor_id);
         if(selection === null){
@@ -175,12 +178,37 @@ Fronkensteen.editDriver = new class  {
           Fronkensteen.CumulativeErrors = [];
         }
       $(editor_id).replaceSelectedText($(editor_id).getSelection().text + result,"select");
+      Fronkensteen.editDriver.postProcessTextChange(editor_id);
+    }
+    replaceAll(editor_id,search_lemma,replace_lemma,fold_case,is_regex){
+      let text =  $(editor_id).val();
+      let re;
+      let remod;
+      if(fold_case === true){
+        remod = "gi";
+      }
+      else{
+        remod = "g";
+      }
+      if(is_regex === true){ // Regexp search
+          re = RegExp(search_lemma,remod);
+      }
+      else{
+        re = RegExp(Fronkensteen.escapeRegExp(search_lemma),remod);
+      }
+      text = text.replace(re,replace_lemma);
+      Fronkensteen.editDriver.prestageTextChange(editor_id);
+      $(editor_id).val(text);
+      Fronkensteen.editDriver.postProcessTextChange(editor_id);
+      $(editor_id).blur();
+      $(editor_id).focus();
     }
     selectAll(editor_id){
       let text = $(editor_id).val();
       $(editor_id).setSelection(0,(text.length() - 1));
     }
     evalJSSelection(editor_id){
+      Fronkensteen.editDriver.prestageTextChange(editor_id);
       let startSelection = $(editor_id).getSelection()
       let selected_text = startSelection.text;
       let result;
@@ -205,6 +233,7 @@ Fronkensteen.editDriver = new class  {
       }
       $(editor_id).replaceSelectedText(selected_text + result);
       $(editor_id).setSelection(startSelection.end + 1,startSelection.end + result.length + 1)
+      Fronkensteen.editDriver.postProcessTextChange(editor_id);
     }
     getProcedureAtCursor(editor_id){
       let text = $(editor_id).val();
@@ -436,7 +465,7 @@ Fronkensteen.editDriver = new class  {
       for(var currentline = 0; currentline < line; currentline++){
         lineoffset = lineoffset +  lines[currentline].length + 1;
       }
-      lineoffset = lineoffest + column;
+      lineoffset = lineoffset + column;
       $(editor_id).setSelection(lineoffset);
     }
     getCursorPosition(editor_id,cursorSelector){
@@ -452,7 +481,7 @@ Fronkensteen.editDriver = new class  {
       let lines = text.split("\n");
       let lineoffset = 0;
       for(var currentline = 0; currentline < line; currentline++){
-        let linelength = lines[currentline].length() + 1;
+        let linelength = lines[currentline].length + 1;
         if(lineoffset + linelength > limit){
           break;
         }
@@ -734,7 +763,7 @@ Fronkensteen.editDriver = new class  {
         this.setFence(editorname,"[link ", " link]")
     }
     setMenu(editorname){
-        this.setFence(editorname,"[menu ", " menu]")
+        this.multilineFence(editorname,"[menu ", " menu]")
     }
     setImage(editorname){
         this.setFence(editorname,"[img ", " img]")
@@ -749,14 +778,14 @@ Fronkensteen.editDriver = new class  {
         this.setFence(editorname,"[icon ",  " icon]")
     }
     replace(editorname,replacement){
-      $(editorname).replaceSelection(replacement,"select");
+      $(editorname).replaceSelectedText(replacement,"select");
       return true;
   }
   goToEnd(editorname){
     var textlength = $(editorname).val().length;
     $(editorname).setSelection(textlength);
   }
-  find(editor_id,search_lemma,start,fold_case,is_regex,search_backward,wrap, is_wrapped){
+  find(editor_id,search_lemma,fold_case,is_regex,search_backward,wrap, is_wrapped){
     let text =  $(editor_id).val();
     let re;
     let remod;
@@ -774,27 +803,18 @@ Fronkensteen.editDriver = new class  {
     }
     let selectionStart;
     let selectionEnd;
-    if(start === "start"){
-      $(editor_id).setSelection(0,0);
-    }
-    if(start === "end"){
-      $(editor_id).setSelection(text.length - 1,text.length - 1);
-    }
     let selection = $(editor_id).getSelection()
     let currentStart = selection.start;
     let currentEnd = selection.end;
-
     let occurrences = [];
     let result;
     while((result = re.exec(text)) !== null){
       occurrences.push({"string": result[0],"index":result.index})
     };
-    for(var i = 0; i < occurrences.length; i++){
-    }
     if(occurrences.length === 0){
       return false;
     }
-    if((start === "start") || (start === "after")){
+    if(search_backward === false){
         let occ_index = 0;
         while((occ_index < occurrences.length) && (occurrences[occ_index].index <= currentStart)){
           occ_index = occ_index + 1;
@@ -804,7 +824,7 @@ Fronkensteen.editDriver = new class  {
             return false;
           }
           $(editor_id).setSelection(0,0);
-          return this.find(editor_id,search_lemma,start,fold_case,is_regex,search_backward,wrap, true)
+          return this.find(editor_id,search_lemma,fold_case,is_regex,search_backward,wrap, true)
         }
           let highlightStart = occurrences[occ_index].index;
           let highlightEnd = highlightStart + occurrences[occ_index].string.length;
@@ -826,7 +846,7 @@ Fronkensteen.editDriver = new class  {
           return false;
         }
         $(editor_id).setSelection(text.length - 1, text.length - 1)
-        return this.find(editor_id,search_lemma,"before",fold_case,is_regex,search_backward,wrap, true)
+        return this.find(editor_id,search_lemma,fold_case,is_regex,search_backward,wrap, true)
       }
       let highlightStart = occurrences[occ_index].index;
       let highlightEnd = highlightStart + occurrences[occ_index].string.length;
