@@ -34,6 +34,24 @@ Fronkenmark.preScripts["schememenu"] = function(text,code,trusted) {
 
   }
 
+  Fronkenmark.preScripts["schemelink"] = function(text,code,trusted) {
+     if(trusted !== true){
+       return "(Scheme scripts and menus are not allowed in untrusted contexts)";
+    }
+      let classstring = " class='link schemelink' ";
+      let processed_link_text = "Error in schemelink";
+      let procstring = 'schemeproc = \'(alert "schemelink: missing Scheme procedure")\''
+      if(code !== ""){
+          let code_items = code.split("|");
+          if(code_items.length < 2){
+            code_items[1] = '(alert "Missing Scheme procedure in schemelink")'
+          }
+          procstring = "schemeproc='" + base32.encode(code_items[1].trim()) + "'"
+          processed_link_text = Fronkenmark.processContent(code_items[0].trim());
+        }
+        return Fronkenmark.installSubstitute("<span" + classstring +  procstring + ">" + processed_link_text + "</span>")
+    }
+
 
 Fronkenmark.preScripts["scheme"] = function(text,code,trusted){
   // Scheme should only be allowed to run on trusted input.
