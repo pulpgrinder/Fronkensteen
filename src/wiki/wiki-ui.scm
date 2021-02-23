@@ -5,7 +5,7 @@
 )
 
 (define (active-code-filename)
-  (decode-base-32 (% active-code-editor-page "attr" "filename"))
+  (decode-base-32 (% active-editor-page "attr" "filename"))
 )
 (define (refresh-current-wiki-page)
   (refresh-wiki-page active-wiki-page))
@@ -46,8 +46,16 @@
           (ppage-content (ptext (render-wiki-content (retrieve-wiki-data  (<< "menus/" title))))))))
     id))
 
+(define (retrieve-if-not-special title)
+    (console-log (<< "Checking " title " for specialhood"))
+    (cond
+      ((eqv? (index-of title "system/") 0) "This is a system file, not intended for direct display. However, you can edit it.")
+      ((eqv? (index-of title "menus/") 0) "This is a menu file, not intended for direct display. However, you can edit it.")
+      (#t (retrieve-wiki-data title))))
+
 (define (new-wiki-page-element title)
-    (let ((wiki-data (retrieve-wiki-data title))
+    (console-log "new-wiki-page-element")
+    (let ((wiki-data (retrieve-if-not-special title))
     (id (wiki-page-id title)))
      (stage-page
       (ppage-double-header-no-footer (<< id "!type='wiki-page'!wiki-title='" (encode-base-32 title) "'!wiki-timestamp='" (number->string (unix-time)) "'")
@@ -59,12 +67,15 @@
           (pbar (<< ".wiki-page.wiki-theme")
             (<<
               (pnav-button (<< ".pnav-menu" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Menu'" "bars" ""))
+              (pnav-button (<< ".pnav-save" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Save/Load Workspace'" "save" ""))
               (pnav-button (<< ".pnav-edit" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Edit this page'" "edit" ""))
-
+              (pnav-button (<< ".pnav-home" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Home'" "home" ""))
+              (pnav-button (<< ".pnav-history" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='History'" "history" ""))
+              (pnav-button (<< ".pnav-search" ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Search'" "search" ""))
               )
               )
 
-            (ppage-content (ptext "!tabindex='-1'" (render-wiki-content (retrieve-wiki-data title))))
+            (ppage-content (ptext "!tabindex='-1'" (render-wiki-content wiki-data)))
         )
     ))
     id))
@@ -169,6 +180,17 @@
   (display-wiki-menu-page "Main Menu"))
 
 
+(define (.pnav-save_touch_click evt)
+  (display-wiki-menu-page "Save and Load"))
+
+(define (.pnav-search_touch_click evt)
+  (display-wiki-menu-page "Search"))
+
+(define (.pnav-history_touch_click evt)
+  (display-wiki-menu-page "History"))
+
+(define (.pnav-home_touch_click evt)
+  (display-wiki-page "Main"))
 
 (define (.pnav-menu-done_touch_click evt)
     (close-menu))
@@ -190,8 +212,7 @@
        (begin
           (set! doc-back-list '())
           (cond
-            ((eqv? display-mode "wiki-editor") (show-page active-editor-page #t "cover"))
-            ((eqv? display-mode "code-editor") (show-page active-code-editor-page #t "cover"))
+            ((eqv? display-mode "text-editor") (show-page active-editor-page #t "cover"))
             ((eqv? display-mode "wiki") (show-page active-wiki-page #t "cover"))
             ))))
 
@@ -204,7 +225,7 @@
               ))
        (begin
           (set! menu-back-list '())
-          (if (eqv? display-mode "editor")
+          (if (eqv? display-mode "text-editor")
             (show-page active-editor-page #t "cover")
             (show-page active-wiki-page #t "cover")))))
 
