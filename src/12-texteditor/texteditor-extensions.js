@@ -2,23 +2,32 @@
 // Copyright 2018-2020 by Anthony W. Hursh
 // MIT License.
 
-
-BiwaScheme.define_libfunc("cm-find", 7, 7, function(ar,intp){
+BiwaScheme.define_libfunc("cm-replace-all", 5, 5, function(ar,intp){
+  BiwaScheme.assert_string(ar[0]);
+  BiwaScheme.assert_string(ar[1]);
+  BiwaScheme.assert_string(ar[2]);
+  let editor_id = ar[0];
+  let search_lemma = ar[1];
+  let replace_lemma = ar[2];
+  let fold_case = ar[3];
+  let is_regex = ar[4];
+  Fronkensteen.editDriver.activateEditor(ar[0]);
+  return Fronkensteen.editDriver.replaceAll(editor_id,search_lemma,replace_lemma,fold_case,is_regex);
+})
+BiwaScheme.define_libfunc("cm-find", 6, 6, function(ar,intp){
   // Runs a search of the active document. Args are:
-  // editor, search lemma, start position, foldcase, regex, search_backward.
+  // editor, search lemma, start position, foldcase, regex, search_backward
 
     BiwaScheme.assert_string(ar[0]);
     BiwaScheme.assert_string(ar[1]);
-    BiwaScheme.assert_string(ar[2]);
     let editor_name = ar[0];
     let search_lemma = ar[1];
-    let start = ar[2];
-    let fold_case = ar[3];
-    let is_regex = ar[4];
-    let search_backward = ar[5];
-    let wrap = ar[6];
+    let fold_case = ar[2];
+    let is_regex = ar[3];
+    let search_backward = ar[4];
+    let wrap = ar[5]
     Fronkensteen.editDriver.activateEditor(ar[0]);
-    return Fronkensteen.editDriver.find(editor_name,search_lemma,start,fold_case,is_regex,search_backward,wrap,false)
+    return Fronkensteen.editDriver.find(editor_name,search_lemma,fold_case,is_regex,search_backward,wrap,false)
 })
 BiwaScheme.define_libfunc("clear-cm-editor-undo!", 1, 1, function(ar,intp){
   // Clears the undo buffer. Use after loading a file into a new editor,
@@ -216,10 +225,7 @@ BiwaScheme.define_libfunc("cm-editor-set-bold",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   Fronkensteen.editDriver.setBold(ar[0]);
 });
-BiwaScheme.define_libfunc("cm-editor-set-menu",1,1, function(ar){
-  Fronkensteen.editDriver.activateEditor(ar[0]);
-  Fronkensteen.editDriver.setMenu(ar[0]);
-});
+
 BiwaScheme.define_libfunc("cm-editor-set-cursor-position",3,3, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   Fronkensteen.editDriver.setCursorPosition(ar[0],ar[1],ar[2]);
@@ -266,6 +272,11 @@ BiwaScheme.define_libfunc("cm-editor-set-italic",1,1, function(ar){
 BiwaScheme.define_libfunc("cm-editor-set-link",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   Fronkensteen.editDriver.setLink(ar[0]);
+});
+
+BiwaScheme.define_libfunc("cm-editor-set-menu",1,1, function(ar){
+  Fronkensteen.editDriver.activateEditor(ar[0]);
+  Fronkensteen.editDriver.setMenu(ar[0]);
 });
 BiwaScheme.define_libfunc("cm-editor-set-javascript",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
