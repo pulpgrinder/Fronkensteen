@@ -46,7 +46,7 @@
               "margin" "0 auto"
               "height" "100%"
               "width" "100%"
-              "padding" "2em"
+              "padding" "0.5em"
               "color" "black"
               "background-color" "white"
               "font-family" "monospace"
