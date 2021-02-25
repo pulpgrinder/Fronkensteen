@@ -72,7 +72,6 @@
           (show-page id (car args) "revolution")
           (show-page id #f "revolution"))
         (set! active-editor (<< id "-textarea"))
-        (init-cm-editor! active-editor)
         (set! display-mode "text-editor")
         (set! active-editor-page id)
         (wire-ui)))
