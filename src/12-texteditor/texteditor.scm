@@ -4,6 +4,13 @@
 (define (text-editor-replace-all editor search_lemma replace_lemma foldcase use_regex)
     (cm-replace-all editor search_lemma replace_lemma foldcase use_regex))
 
+(define (text-editor-install-css editor)
+  (js-install-head (style (<< "#" (gen-css-id) ".dynamic_style_sheet")
+   (cm-editor-get-selected-text editor))))
+
+(define (text-editor-clear editor)
+  (cm-editor-set-text editor ""))
+     
 (define (text-editor-find editor lemma foldcase use-regex search-backward )
   (if (eqv? lemma "")
     (alert "Nothing specified to find.")
