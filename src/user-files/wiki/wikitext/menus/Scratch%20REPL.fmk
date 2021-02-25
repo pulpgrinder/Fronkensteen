@@ -1,0 +1,37 @@
+[h1 Scratch REPL h1]
+
+[!scheme
+(set! on-page-display (lambda()
+  (init-cm-editor! "#repl-input")
+  (let ((repl-history (get-local-storage-item "repl-history")))
+    (if (eqv? repl-history #f)
+      (% "#repl-input" "val" "")
+      (% "#repl-input" "val" repl-history)
+  ))))
+
+
+(define (.repl-button_click ev)
+  (let ((target (js-ref ev "currentTarget"))
+    (editor "#repl-input"))
+    (let ((command (% target "attr" "command")))
+      (console-log (<< "Command is " command))
+      (cond
+        ((eqv? command "run-scheme") (text-editor-scheme-eval editor))
+        ((eqv? command "run-js") (text-editor-javascript-eval editor))
+        ((eqv? command "install-css") (text-editor-install-css editor))
+        ((eqv? command "clear-buffer") (text-editor-clear editor))
+        (#t (alert (<< "Unrecognized REPL command: " command))))
+      (set-local-storage-item! "repl-history" (% editor "val")))))
+
+  (<<
+    (dv
+     (pbutton-group
+      (<<
+      (pbutton ".pcolor-grey.repl-button!command='run-scheme'!title='Eval selected Scheme code (or expression preceding cursor)'"  (b "λ"))
+      (pbutton ".pcolor-grey.repl-button!command='run-js'!title='Run selected JavaScript code'"   (fa-icon "" "js" ""))
+      (pbutton ".pcolor-grey.repl-button!command='install-css'!title='Install selected CSS code'"   (fa-icon "" "css3-alt" ""))
+      (pbutton ".pcolor-grey.repl-button!command='scheme-doc'!title='Look up selected Scheme procedure in docs'"  (fa-icon "" "info" ""))
+      (pbutton ".pcolor-grey.repl-button!command='clear-buffer'!title='Clear buffer'"  (fa-icon "" "eraser" ""))
+    (dv
+    (textarea "#repl-input.wiki-editor-area!rows='20'!cols='80'!autocorrect='off'!autocapitalize='off'!spellcheck='false'" "")))
+scheme!]
