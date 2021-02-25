@@ -30,7 +30,7 @@ Fronkensteen.getLocalStorageItem = function(key){
 }
 
 var lastevent;
-window.onpopstate = function(event) {
+/*window.onpopstate = function(event) {
   if(BiwaScheme.is_defined("pop-browser-state_handler")){
     var intp2 = new BiwaScheme.Interpreter(Fronkensteen.scheme_intepreter);
     let state = event.state;
@@ -44,7 +44,7 @@ window.onpopstate = function(event) {
   else {
     console.error("No pop-browser-state_handler defined.")
   }
-};
+}; */
 
 BiwaScheme.define_libfunc("doc-root", 0, 0, function(ar){
   return Fronkensteen.docroot;
