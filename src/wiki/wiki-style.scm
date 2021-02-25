@@ -10,6 +10,11 @@
                 "color" "rebeccapurple"
                 "cursor" "pointer"
                 ))
+            (".locallink" (
+              "color" "rebeccapurple"
+              "cursor" "pointer"
+              "text-decoration" "none"
+              ))
                 (".doclink" (
                   "color" "rebeccapurple"
                   "cursor" "pointer"
