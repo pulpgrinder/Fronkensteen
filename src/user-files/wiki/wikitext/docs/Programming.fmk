@@ -123,13 +123,14 @@ Fronkensteen lets you use Scheme code to write and install CSS. The [code proc-c
 [code
 (install-css "text-processor-style"
   (proc-css-list `(
-    (".fronkensteen-footnote-link" (
+    (".footnotelink" (
       "font-size" "75%"
       "vertical-align" "super"
+      "text-decoration" "none"
       "line-height" "0"
       ))
-    (".fronkensteen-footnote" (
-      "text-decoration" "underline"
+    (".footnote" (
+      "text-decoration" "none"
       "cursor" "pointer")))))
 code]
 
