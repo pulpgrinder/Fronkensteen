@@ -1,5 +1,12 @@
-[large All Files large]
 [!scheme
+(set! on-page-display (lambda()
+    (render-all-files)))
+
+(define (#all-files-filter_input evt)
+  (render-all-files))
+
+(define (#all-files-case-sensitive_change)
+  (render-all-files))
 
 (define (.af-trash-file-button_touch_click evt)
   (let ((target (js-ref evt "currentTarget")))
@@ -15,9 +22,28 @@
         (display-code-editor-page filename)
       )))
 
+(define (filter-all-files file-list)
+  (let ((filter-val (% "#all-files-filter" "val"))
+        (filter-case-sensitive
+          (if (checkbox-checked? "#all-files-case-sensitive")
+              ""
+              "i")))
+  (if (eqv? filter-val "")
+      file-list
+      (filter-all-files-rec file-list filter-val filter-case-sensitive))))
+
+(define (filter-all-files-rec file-list filter-val filter-case-sensitive)
+
+  (if (eqv? file-list '())
+      '()
+      (let ((filename (car file-list)))
+        (if (str-match? (decode-uri filename) filter-val filter-case-sensitive)
+            (cons filename (filter-all-files-rec (cdr file-list) filter-val filter-case-sensitive))
+            (filter-all-files-rec (cdr file-list) filter-val filter-case-sensitive)))))
+
 (define (render-all-files)
-  (let ((all-files (vector->list (natural-sort (get-internal-dir "") #f #f))))
-    (render-all-files-rec all-files)))
+  (let ((all-files (filter-all-files (vector->list (natural-sort (get-internal-dir "") #f #f)))))
+  (% "#af-file-list" "html" (render-all-files-rec all-files))))
 
 (define (render-all-files-rec file-list)
     (if (eqv? file-list '())
@@ -25,6 +51,14 @@
       (let ((result (car file-list)))
       (<<  (round-list-item  "" (<< (decode-uri  result) "&nbsp;&nbsp;" (button (<< ".af-edit-file-button!filename='" result "'") (fa-icon "" "edit" "")) "&nbsp;&nbsp;" (button (<< ".af-trash-file-button!filename='" result "'") (fa-icon "" "trash" ""))))  (render-all-files-rec (cdr file-list))))))
 
-(round-list "#af-file-list" (render-all-files))
+(<<
+  (dv
+    (<<
+    "Show file names matching regexp:&nbsp;"
+    (input "#all-files-filter!type='text'")
+    "&nbsp;"
+    (input "#all-files-case-sensitive!type='checkbox'")
+  " case-sensitive" ))
+    (round-list "#af-file-list" ""))
 
 scheme!]
