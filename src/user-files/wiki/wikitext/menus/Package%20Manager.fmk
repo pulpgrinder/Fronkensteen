@@ -27,7 +27,7 @@ In general, changes from adding or removing a package will not take effect until
 		(let ((package-name (car package-list)))
       (<<
      	 (round-list-item (<<
-          (span package-name) "&nbsp;&nbsp;"(button (<< ".package-export-button!package-name='" package-name "'!title='Export package'") (fa-icon "" "download" "")) (button (<< ".package-delete-button!package-name='" package-name "'!title='Delete package'") (fa-icon "" "trash" "")) ))
+          (span package-name) "&nbsp;&nbsp;"(button (<< ".package-export-button!package-name='" package-name "'!title='Export package'") (fa-icon "" "download" "")) "&nbsp;&nbsp;" (button (<< ".package-delete-button!package-name='" package-name "'!title='Delete package'") (fa-icon "" "trash" "")) ))
           (generate-package-list-items (cdr package-list))))))
 
 (define (.package-delete-button_touch_click ev)
