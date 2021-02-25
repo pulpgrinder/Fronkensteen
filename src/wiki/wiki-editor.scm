@@ -23,6 +23,8 @@
         ((eqv? command "underline") (text-editor-underline active-editor))
         ((eqv? command "run-scheme") (text-editor-scheme-eval active-editor))
         ((eqv? command "run-js") (text-editor-javascript-eval active-editor))
+        ((eqv? command "scratch") (display-wiki-menu-page "Scratch REPL"))
+        ((eqv? command "install-css") (text-editor-install-css active-editor))
         ((eqv? command "scheme-doc") (text-editor-scheme-doc active-editor))
         ((eqv? command "footnote") (text-editor-footnote active-editor))
         ((eqv? command "link") (text-editor-link active-editor))
@@ -47,6 +49,7 @@
         ((eqv? command "replace-and-find") (wiki-editor-replace-and-find active-editor))
         ((eqv? command "replace-all") (wiki-editor-replace-all active-editor))
         )
+
 
 )))
 
@@ -84,14 +87,14 @@
     (pbutton ".pcolor-grey.text-editor-button!command='replace'" "Replace")
     (pbutton ".pcolor-grey.text-editor-button!command='replace-and-find'" "Replace and find")
     (pbutton ".pcolor-grey.text-editor-button!command='replace-all'" "Replace all")
-    (span "&nbsp;")
-    (input ".text-editor-case-sensitive.search-checkbox!type='checkbox'") (span ".text-editor-search-caption" "case-sensitive")
-    (span "&nbsp;")
+    (span "&nbsp;&nbsp;")
+    (input ".text-editor-case-sensitive.search-checkbox!type='checkbox'") (span ".text-editor-search-caption" "&nbsp;case-sensitive")
+    (span "&nbsp;&nbsp;")
     (input ".text-editor-regex.search-checkbox!type='checkbox'")
-    (span ".text-editor-search-caption" "regex")
-    (span "&nbsp;")
+    (span ".text-editor-search-caption" "&nbsp;regex")
+    (span "&nbsp;&nbsp;")
     (input ".text-editor-search-backward.search-checkbox!type='checkbox'")
-    (span ".text-editor-search-caption" "search backward")
+    (span ".text-editor-search-caption" "&nbsp;search backward")
 )))
 
 (define (text-editor-tools)
@@ -124,7 +127,9 @@
 
     (pbutton ".pcolor-grey.text-editor-button!command='run-scheme'!title='Eval selected Scheme code (or expression preceding cursor)'"  (b "λ"))
     (pbutton ".pcolor-grey.text-editor-button!command='run-js'!title='Run selected JavaScript code'"   (fa-icon "" "js" ""))
+    (pbutton ".pcolor-grey.text-editor-button!command='install-css'!title='Install selected CSS code'"   (fa-icon "" "css3-alt" ""))
     (pbutton ".pcolor-grey.text-editor-button!command='scheme-doc'!title='Look up selected Scheme procedure in docs'"  (fa-icon "" "info" ""))
+    (pbutton ".pcolor-grey.text-editor-button!command='scratch'!title='Scratch REPL'"   (fa-icon "" "terminal" ""))
     (pbutton ".pcolor-grey.text-editor-button!command='inline-latex'!title='Format selected text as inline (small) LaTeX'"  (b "σ"))
     (pbutton ".pcolor-grey.text-editor-button!command='display-latex'!title='Format selected text as display (large) LaTeX'"  (b "∑"))
     )))
@@ -135,6 +140,8 @@
     (pbutton ".pcolor-grey.text-editor-button!command='redo'!title='Redo'" (fa-icon "" "redo" ""))
       (pbutton ".pcolor-grey.text-editor-button!command='run-scheme'!title='Eval selected Scheme code (or expression preceding cursor)'"  (b "λ"))
       (pbutton ".pcolor-grey.text-editor-button!command='run-js'!title='Run selected JavaScript code'"   (fa-icon "" "js" ""))
+      (pbutton ".pcolor-grey.text-editor-button!command='install-css'!title='Install selected CSS code'"   (fa-icon "" "css3-alt" ""))
+      (pbutton ".pcolor-grey.text-editor-button!command='scratch'!title='Scratch REPL'"   (fa-icon "" "terminal" ""))
     )))
 
 (define (.code-editor-done_touch_click evt)
@@ -173,8 +180,7 @@
           (pheader (<< ".code-page.wiki-theme")
               (pnav-button (<< ".code-editor-done"  ".code-editor-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
               (input (<< ".code-editor-title!type='text'!autocorrect='off'!autocapitalize='off'!spellcheck='false'!value='" filename "'"))
-              (pnav-button (<< ".code-editor-doc" ".code-editor-page.wiki-theme") (fa-icon ".pnav-right!title='Help'" "question-circle" ""))
-              )
+              (pnav-button (<< ".code-editor-doc" ".code-editor-page.wiki-theme") (fa-icon ".pnav-right!title='Help'" "question-circle" "")))
             (dv ".editor-toolbar" (code-editor-tools))
 
             (dv ".editor-toolbar" (text-editor-search-tools))
@@ -183,6 +189,7 @@
         )
     ))
     (wire-ui)
+    (init-cm-editor! (<< id "-textarea"))
     id))
 
 (define (new-code-editor-notoolbar-element filename)
@@ -200,6 +207,7 @@
         ))
     )
     (wire-ui)
+    (init-cm-editor! (<< id "-textarea"))
     id))
 
 
