@@ -229,7 +229,7 @@ Fronkensteen.editDriver = new class  {
       }
       else {
         alert("Evaluate JavaScript: nothing selected.")
-        result =  "";
+        result =  " ";
       }
       $(editor_id).replaceSelectedText(selected_text + result);
       $(editor_id).setSelection(startSelection.end + 1,startSelection.end + result.length + 1)
@@ -400,7 +400,7 @@ Fronkensteen.editDriver = new class  {
         Fronkensteen.editDriver.prestageTextChange(editor_id);
         return true;
       })
-        $(editor_id).on("input",function(e){
+      $(editor_id).on("input",function(e){
           Fronkensteen.editDriver.postProcessTextChange(editor_id);
           Fronkensteen.editDriver.editor_redo_stacks[editor_id] = [];
           return true;
