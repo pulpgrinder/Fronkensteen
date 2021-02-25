@@ -58,8 +58,8 @@ Fronkenmark.processNote = function(text){
   let noteid = Fronkensteen.no_dash_uuid();
   let noteanchor = "note-anchor-" + noteid;
   let notelink = "note-link-" + noteid;
-  Fronkenmark.substitutions[id] = "<a class='footnote-link local-link external' id='" + noteanchor + "' href='#" + notelink + "'><sup>" + Fronkenmark.noteCounter + "</sup></a>";
-  Fronkenmark.notes.push("<p><a class='footnote local-link external' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + Fronkenmark.noteCounter + "</a>&nbsp;" + Fronkenmark.processContent(text,false) + "</p>");
+  Fronkenmark.substitutions[id] = "<a class='footnotelink locallink external' id='" + noteanchor + "' href='#" + notelink + "'><sup>" + Fronkenmark.noteCounter + "</sup></a>";
+  Fronkenmark.notes.push("<p><a class='footnote locallink external' id='" + notelink + "' href='#" + noteanchor + "'>" + "&uarr;" + Fronkenmark.noteCounter + "</a>&nbsp;" + Fronkenmark.processContent(text,false) + "</p>");
   Fronkenmark.noteCounter = Fronkenmark.noteCounter + 1;
   return id;
 }
@@ -541,7 +541,7 @@ Fronkenmark.processContent  = function(text){
         linkclass = 'externallink link';
         titletext = "external link to " + linktarget;
       }
-      else {
+     else {
         linkclass = 'wikilink link';
         titletext = 'wiki link to ' + linktarget;
       }
@@ -574,12 +574,28 @@ case "doclink":
   docclass = 'doclink link';
   doctitletext = 'doc link to ' + doctarget;
   return Fronkenmark.installSubstitute("<span class='" + docclass + "' target='" + doctarget + "' title='" + doctitletext + "'>" + Fronkenmark.processContent(doctext) + "</span>");
-
+ case "anchorlink":
+    // Anchor on page;
+    let anchorlinkparts = code.split("|");
+    if(anchorlinkparts.length === 1){
+      anchorlinkparts.push(anchorlinkparts[0])
+    }
+    let anchorlinktarget = anchorlinkparts.shift();
+    let anchorlinktext = anchorlinkparts.join("|");
+    let anchorlinkclass = 'anchorlink locallink link';
+    let anchortitletext = "link to anchor " + anchorlinktarget;
+    return Fronkenmark.installSubstitute("<a class='" + anchorlinkclass +  "' href='#" + anchorlinktarget + "' title='" + anchortitletext + "'>" + anchorlinktext + "</a>");
 // Misc.
     case "scenebreak":
       return Fronkenmark.installSubstitute("</p>\n<p style='text-align:center;'>") + Fronkenmark.processContent(code) + Fronkenmark.installSubstitute("</p><p>\n");
     case "anchor" :
-      return Fronkenmark.installSubstitute("<a id='" + code + "'/>");
+      let anchorparts = code.split("|");
+      if(anchorparts.length === 1){
+        anchorparts.push("")
+      }
+      let anchor_id = anchorparts.shift();
+      let anchortext = anchorparts.join("|");
+      return Fronkenmark.installSubstitute("<a class='locallink' id='" + anchor_id + "'>" + anchortext + "</a>");
     case "button" :
       let button_parts = code.split(" ");
       let button_id = button_parts.shift();

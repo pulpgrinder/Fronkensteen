@@ -64,13 +64,31 @@ Fantasy: [code [fantasy In ancient times... fantasy] code]
 
 [code [doclink Formatting doclink] code] Opens the internal documentation page with the title "Formatting" (in other words, the exact document you're looking at right now). As with menulink, doclink does not navigate away from the current page. When the doc is closed, the original page reappears. Docs are kept in the docs/ folder.
 
-[code [!schemelink caption|(scheme procedure) schemelink!] code] creates a link with the given caption that executes the supplied Scheme procedure when the link is clicked.
+[code [!schemelink (scheme procedure)| caption schemelink!] code] creates a link with the given caption that executes the supplied Scheme procedure when the link is clicked.
 
 Example:
 
-[code [!schemelink Home|(display-wiki-page "Main") schemelink!] code] produces:
+[code [!schemelink (display-wiki-page "Main")|Home schemelink!] code] produces:
 
-[!schemelink Home|(display-wiki-page "Main") schemelink!]
+[!schemelink (display-wiki-page "Main")|Home schemelink!]
+
+[code [anchorlink anchorid|anchor link text anchorlink] code] creates a link to the HTML anchor element (see below) on the same page with the given id. If anchor link text is provided, it is displayed as the link text. Otherwise the anchorid is used.
+
+[code [anchor anchorid|anchor text anchor] code] creates an HTML anchor element (see below) on the same page with the given id. If anchor text is provided, it is displayed as the anchor text. Otherwise the anchorid is used.
+
+Example:
+[code [anchorlink foobar|link to the foobar anchor anchorlink] code] creates a link to an anchor:
+
+[anchorlink foobar|link to the foobar anchor anchorlink]
+
+and:
+
+[code [anchor foobar|this is the foobar anchor anchor] code] creates the anchor to which the link navigates.
+
+[anchor foobar|this is the foobar anchor anchor]
+
+
+
 
 [h2 Paragraph formatting h2]
 

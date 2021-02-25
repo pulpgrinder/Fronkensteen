@@ -46,8 +46,8 @@ Fronkenmark.preScripts["schememenu"] = function(text,code,trusted) {
           if(code_items.length < 2){
             code_items[1] = '(alert "Missing Scheme procedure in schemelink")'
           }
-          procstring = "schemeproc='" + base32.encode(code_items[1].trim()) + "'"
-          processed_link_text = Fronkenmark.processContent(code_items[0].trim());
+          procstring = "schemeproc='" + base32.encode(code_items[0].trim()) + "'"
+          processed_link_text = Fronkenmark.processContent(code_items[1].trim());
         }
         return Fronkenmark.installSubstitute("<span" + classstring +  procstring + ">" + processed_link_text + "</span>")
     }
