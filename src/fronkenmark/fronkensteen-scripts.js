@@ -23,10 +23,10 @@ Fronkenmark.preScripts["schememenu"] = function(text,code,trusted) {
       if(itemtext !== ""){
         item_items = itemtext.split("|");
         if(item_items.length < 2){
-          item_items[1] = '(alert "Missing Scheme procedure in menu")'
+          item_items[0] = '(alert "Missing Scheme procedure in menu")'
         }
-        let procstring = "schemeproc='" + base32.encode(item_items[1].trim()) + "' "
-        let item = Fronkenmark.processContent(item_items[0].trim());
+        let procstring = "schemeproc='" + base32.encode(item_items[0].trim()) + "' "
+        let item = Fronkenmark.processContent(item_items[1].trim());
         result = result + "<li" + classstring +  procstring + ">" + item + "</li>\n"
       }
     }
@@ -106,7 +106,6 @@ Fronkenmark.processScheme = function(text,code){
   Fronkensteen.CumulativeErrors = [];
   let expr = Fronkensteen.renderREPLTemplate(code);
   let sourcefile = Fronkenmark.sourceFile;
-  console.log("Processing Scheme code segment for " + sourcefile)
   if(sourcefile === ""){
     sourcefile = "(unavailable)"
   }

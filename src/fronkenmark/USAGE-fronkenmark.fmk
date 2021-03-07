@@ -64,7 +64,7 @@ Fantasy: [code [fantasy In ancient times... fantasy] code]
 
 [code [doclink Formatting doclink] code] Opens the internal documentation page with the title "Formatting" (in other words, the exact document you're looking at right now). As with menulink, doclink does not navigate away from the current page. When the doc is closed, the original page reappears. Docs are kept in the docs/ folder.
 
-[code [!schemelink (scheme procedure)| caption schemelink!] code] creates a link with the given caption that executes the supplied Scheme procedure when the link is clicked.
+[code [!schemelink scheme procedure(s)|caption schemelink!] code] creates a link with the given caption that executes the supplied Scheme procedure when the link is clicked. More than one Scheme expression is permitted. The expressions are wrapped in a lambda, with an evt parameter corresponding to the click event (this is so you can identify the source of the click, if needed).
 
 Example:
 
@@ -280,21 +280,21 @@ menu]
 
 [code
 [!schememenu
-First choice|(alert "You clicked the first one!") (alert "And here's another expression!")
-Second choice|(alert "You clicked the second one!")
-Third choice|(alert "You clicked the third one!")
+(alert "You clicked the first one!") (alert "And here's another expression!")|First choice
+Second choice(alert "You clicked the second one!")|Second choice
+(alert "You clicked the third one!")|Third choice
 schememenu!]
 code]
 
 This produces a menu where Scheme expressions are evaluated when the items are clicked. As with the regular menu, the text contains one entry per line, but the menu text is followed by a | character, then the Scheme expression(s) to evaluate. The result of the above code is this:
 
 [!schememenu
-First choice|(alert "You clicked the first one!")  (alert "And here's another expression!")
-Second choice|(alert "You clicked the second one!")
-Third choice|(alert "You clicked the third one!")
+(alert "You clicked the first one!")  (alert "And here's another expression!")|First choice
+(alert "You clicked the second one!")|Second choice
+(alert "You clicked the third one!")|Third choice
 schememenu!]
 
-The Scheme expression(s) are wrapped in a lambda to make it easier to evaluate multiple expressions:
+The Scheme expression(s) are automatically wrapped in a lambda to make it easier to evaluate multiple expressions:
 [code
 
   (lambda (evt)
