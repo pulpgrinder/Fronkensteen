@@ -23,7 +23,6 @@ BiwaScheme.define_libfunc("js-show-page",1,3,function(ar){
   if(ar.length > 1){
     reverse = ar[1];
   }
-  console.log("reverse = " + reverse)
   let transition = "cover-double";
   if(ar.length > 2){
     transition = ar[2];
