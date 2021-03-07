@@ -187,7 +187,7 @@
       "right" "0"
       "height" "100%"
       "display" "grid"
-      "grid-template-rows" "auto 1fr"
+      "grid-template-rows" "auto auto 1fr"
       "background-color" "#bbb"
       ))
         (".peditor-toolbar" (
