@@ -64,6 +64,7 @@
         (init-cm-editor! active-editor)
         (set! display-mode "text-editor")
         (set! active-editor-page id)
+        (update-editor-selects)
         (wire-ui)))
 
 (define (display-code-editor-page filename . args)
@@ -74,6 +75,7 @@
         (set! active-editor (<< id "-textarea"))
         (set! display-mode "text-editor")
         (set! active-editor-page id)
+        (update-editor-selects)
         (wire-ui)))
 
 (define (add-to-history title)
@@ -101,7 +103,6 @@
       ))
 
 (define (trash-current-wiki-page)
-  (console-log "Trashing")
   (let ((title (active-page-title)))
     (if (eqv? title "system/Launch System")
         (alert "Can't trash system launch page (but you can edit it)")

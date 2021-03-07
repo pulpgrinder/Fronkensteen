@@ -57,6 +57,18 @@
               "font-family" "monospace"
               "box-sizing" "border-box"
               ))
-
-
+              (".editor-chooser-caption" (
+                "min-width" "10em"
+                "max-width" "10em"
+                "width" "10em"
+                ))
+            (".editor-chooser" (
+              "min-width" "15em"
+              "max-width" "15em"
+              "width" "15em"
+              ))
+            (".schemedoc" (
+              "height" "100%"
+              "grid-template-rows" "auto 1fr"
+              ))
             )))

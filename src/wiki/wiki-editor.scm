@@ -1,3 +1,37 @@
+(define editor-list '())
+
+(define (show-editor editor-id)
+  (set! active-editor (<< editor-id "-textarea"))
+  (set! active-editor-page editor-id)
+  (update-editor-selects)
+  (show-page editor-id))
+
+(define (update-editor-selects)
+  (% ".editor-chooser" "html" (render-editor-selects editor-list)))
+
+(define (.editor-chooser_change evt)
+    (let ((target (js-ref evt "currentTarget")))
+      (let ((editor-id (% target "val")))
+      (set! active-editor (<< editor-id "-textarea"))
+      (set! active-editor-page editor-id)
+      (% active-editor "focus")
+      (update-editor-selects)
+        (show-page editor-id)
+        (% active-editor "focus"))))
+
+(define (render-editor-selects editors)
+  (if (eqv? editors '())
+      ""
+      (let ((editor-data (car editors)))
+        (let ((editor-id (cadr editor-data))
+              (editor-title (car editor-data)))
+        (<<
+          (option (<< "!value='" editor-id "'"
+              (if (eqv? editor-id active-editor-page)
+                " selected"
+                "")) (car editor-data))
+          (render-editor-selects (cdr editors)))))))
+
 (define (.pnav-edit_touch_click evt)
     (display-wiki-editor-page (active-page-title)))
 
@@ -11,7 +45,8 @@
 (define (.text-editor-button_click ev)
   (let ((target (js-ref ev "currentTarget")))
     (let ((command (% target "attr" "command")))
-      (console-log (<< "Command is " command))
+      (text-editor-execute-command command))))
+(define (text-editor-execute-command command)
       (cond
         ((eqv? command "undo") (text-editor-undo active-editor))
         ((eqv? command "redo") (text-editor-redo active-editor))
@@ -48,10 +83,7 @@
         ((eqv? command "replace") (wiki-editor-replace active-editor))
         ((eqv? command "replace-and-find") (wiki-editor-replace-and-find active-editor))
         ((eqv? command "replace-all") (wiki-editor-replace-all active-editor))
-        )
-
-
-)))
+        ))
 
 (define (wiki-editor-replace-and-find editor)
   (wiki-editor-replace editor)
@@ -98,6 +130,7 @@
 )))
 
 (define (text-editor-tools)
+  (<<
   (pbutton-group ".pcolor-grey" (<<
     (pbutton ".pcolor-grey.text-editor-button!command='undo'!title='Undo'" (fa-icon "" "undo" ""))
     (pbutton ".pcolor-grey.text-editor-button!command='redo'!title='Redo'" (fa-icon "" "redo" ""))
@@ -132,9 +165,13 @@
     (pbutton ".pcolor-grey.text-editor-button!command='scratch'!title='Scratch REPL'"   (fa-icon "" "terminal" ""))
     (pbutton ".pcolor-grey.text-editor-button!command='inline-latex'!title='Format selected text as inline (small) LaTeX'"  (b "σ"))
     (pbutton ".pcolor-grey.text-editor-button!command='display-latex'!title='Format selected text as display (large) LaTeX'"  (b "∑"))
-    )))
+    (dv ".pure-button.pbutton" (<< "Editors:&nbsp;"
+    (select ".editor-chooser" "")))
+    ))
+    ))
 
 (define (code-editor-tools)
+  (<<
   (pbutton-group ".pcolor-grey" (<<
     (pbutton ".pcolor-grey.text-editor-button!command='undo'!title='Undo'" (fa-icon "" "undo" ""))
     (pbutton ".pcolor-grey.text-editor-button!command='redo'!title='Redo'" (fa-icon "" "redo" ""))
@@ -142,7 +179,11 @@
       (pbutton ".pcolor-grey.text-editor-button!command='run-js'!title='Run selected JavaScript code'"   (fa-icon "" "js" ""))
       (pbutton ".pcolor-grey.text-editor-button!command='install-css'!title='Install selected CSS code'"   (fa-icon "" "css3-alt" ""))
       (pbutton ".pcolor-grey.text-editor-button!command='scratch'!title='Scratch REPL'"   (fa-icon "" "terminal" ""))
-    )))
+      (pbutton ".pcolor-grey.text-editor-button!command='scheme-doc'!title='Look up selected Scheme procedure in docs'"  (fa-icon "" "info" ""))
+      (dv ".pure-button.pbutton" (<< "Editors:&nbsp;"
+      (select ".editor-chooser" "")))
+      ))
+       ))
 
 (define (.code-editor-done_touch_click evt)
   (let ((filename (% (<< active-editor-page " .code-editor-title") "val"))
@@ -174,8 +215,9 @@
 (define (new-code-editor-toolbar-element filename)
   (let ((code-data (read-internal-text-file filename))
       (id (<< (code-page-id filename) "-editor")))
+    (set! editor-list (cons (list filename id) editor-list))
     (stage-page
-      (peditor-toolbar (<< id "!type='code-editor-page'!filename='" (encode-base-32 filename) "'" "!wiki-timestamp='" (number->string  (unix-time)) "'")
+      (peditor-toolbar (<< id ".code-editor.text-editor!type='code-editor-page'!filename='" (encode-base-32 filename) "'" "!wiki-timestamp='" (number->string  (unix-time)) "'")
       (<<
           (pheader (<< ".code-page.wiki-theme")
               (pnav-button (<< ".code-editor-done"  ".code-editor-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
@@ -195,14 +237,17 @@
 (define (new-code-editor-notoolbar-element filename)
   (let ((code-data (read-internal-text-file filename))
       (id (<< (code-page-id filename) "-editor")))
+    (set! editor-list (cons (list filename id) editor-list))
     (stage-page
-      (peditor (<< id "!type='code-editor-page'!filename='" (encode-base-32 filename) "'" "!wiki-timestamp='" (number->string  (unix-time)) "'")
+      (peditor (<< id ".code-editor.text-editor!type='code-editor-page'!filename='" (encode-base-32 filename) "'" "!wiki-timestamp='" (number->string  (unix-time)) "'")
       (<<
           (pheader (<< ".code-page.wiki-theme")
               (peditor-button (<< ".code-editor-done"  ".code-editor-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
               (input (<< ".code-editor-title!type='text'!autocorrect='off'!autocapitalize='off'!spellcheck='false'!value='" filename "'"))
               ""
               )
+            (.dv ".editor-toolbar" (<< "&nbsp;Editors:&nbsp;"
+            (select ".editor-chooser" "") (select ".editor-chooser" "")))
             (peditor-content (textarea (<< id "-textarea.wiki-editor-area!autocorrect='off'!autocapitalize='off'!spellcheck='false'") code-data))
         ))
     )
@@ -214,14 +259,17 @@
 (define (new-wiki-editor-notoolbar-element title)
   (let ((wiki-data (retrieve-wiki-data title))
       (id (<< (wiki-page-id title) "-editor")))
+  (set! editor-list (cons (list title id) editor-list))
   (stage-page
-    (peditor (<< id "!type='wiki-editor-page'!wiki-title='" (encode-base-32 title) "'!wiki-timestamp='" (number->string  (unix-time)) "'")
+    (peditor (<< id ".wiki-editor.text-editor!type='wiki-editor-page'!wiki-title='" (encode-base-32 title) "'!wiki-timestamp='" (number->string  (unix-time)) "'")
       (<<
         (pheader (<< ".wiki-page.wiki-theme")
             (peditor-button (<< ".wiki-editor-done"  ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
             (input (<< ".wiki-editor-title!type='text'!value='" title "'"))
             (peditor-button (<< ".wiki-editor-doc" ".wiki-page.wiki-theme") (fa-icon ".pnav-right!title='Help'" "question-circle" ""))
             )
+          (.dv ".editor-toolbar" (<< "&nbsp;Editors:&nbsp;"
+          (select ".editor-chooser" "")))
           (peditor-content (textarea (<< id "-textarea.wiki-editor-area!autocorrect='off'!autocapitalize='off'!spellcheck='false'") wiki-data)))
       )
 )
@@ -230,8 +278,9 @@ id))
 (define (new-wiki-editor-toolbar-element title)
   (let ((wiki-data (retrieve-wiki-data title))
       (id (<< (wiki-page-id title) "-editor")))
+  (set! editor-list (cons (list title id) editor-list))
   (stage-page
-    (peditor-toolbar (<< id "!type='wiki-editor-page'!wiki-title='" (encode-base-32 title) "'!wiki-timestamp='" (number->string  (unix-time)) "'")
+    (peditor-toolbar (<< id ".wiki-editor.text-editor!type='wiki-editor-page'!wiki-title='" (encode-base-32 title) "'!wiki-timestamp='" (number->string  (unix-time)) "'")
     (<<
         (pheader (<< ".wiki-page.wiki-theme")
             (peditor-button (<< ".wiki-editor-done"  ".wiki-page.wiki-theme") (fa-icon ".pnav-left!title='Done'" "check" ""))
@@ -264,30 +313,30 @@ id))
     (if (element-exists? id)
       (if (wiki-page-dirty? title id)
           (begin
-            (console-log "Editor page is dirty, trashing and recreating.")
             (% id "remove")
-            (new-wiki-editor-element title))
+            (new-wiki-editor-element title)
+            (update-editor-selects)
+            id)
            (begin
-             (console-log "Editor page exists, reusing")
+            (update-editor-selects)
             id))
       (begin
-        (console-log "New page editor, creating for first time.")
         (new-wiki-editor-element title)
+        (update-editor-selects)
         id))))
 
   (define (create-code-editor-page filename)
-    (console-log (<< "create-code-editor-page: filename is " filename))
     (let ((id (<< (code-page-id filename) "-editor")))
       (if (element-exists? id)
         (if (code-page-dirty? filename id)
             (begin
-              (console-log "Code editor page is dirty, trashing and recreating.")
               (% id "remove")
-              (new-code-editor-element filename))
+              (new-code-editor-element filename)
+              id)
              (begin
-               (console-log "Code editor page exists, reusing")
+               (update-editor-selects)
               id))
         (begin
-          (console-log "New code editor, creating for first time.")
           (new-code-editor-element filename)
+          (update-editor-selects)
           id))))
