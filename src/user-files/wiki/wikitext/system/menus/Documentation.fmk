@@ -6,7 +6,7 @@
     (if (eqv? wiki-files '())
       ""
       (let ((wiki-file (car wiki-files)))
-          (if (str-match? wiki-file "docs/" "")
+          (if (str-match? wiki-file "system/docs/" "")
               (<< (wiki-display-name  wiki-file)  "\n" (render-documentation-page-list (cdr wiki-files)))
               (render-documentation-page-list (cdr wiki-files))))))
 

@@ -71,7 +71,7 @@ In general, changes from adding or removing a package will not take effect until
   (<<
     (button "#package-import-button" "Import package")
 		(button "#fronkensteen-page-save-filesystem-button" "Export entire Fronkensteen filesystem as package")
-		(button "#fronkensteen-page-save-wiki-files-button" "Export all wiki pages as package")
+		(button "#fronkensteen-page-save-wiki-files-button" "Export user wiki pages as package")
     (round-list "#package-list" (generate-package-list))))
 
 scheme!]

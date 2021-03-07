@@ -1,0 +1,19 @@
+[large Active Editors large]
+[!scheme
+
+(define (render-active-editor-list editor-list-rec)
+    (if (eqv? editor-list-rec '())
+      ""
+      (let ((editor-data (car editor-list-rec)))
+        (let ((editor-id (cadr editor-data))
+              (editor-title (car editor-data)))
+              (<< "(show-editor \"" editor-id "\")|" editor-title "\n" (render-active-editor-list (cdr editor-list-rec)))))))
+
+(if (eqv? editor-list '())
+    (dv "(no active editors)")
+    (fronkenmark (<< "[!schememenu "
+        (render-active-editor-list editor-list)
+        " schememenu!]"
+    ) #t #t))
+
+scheme!]

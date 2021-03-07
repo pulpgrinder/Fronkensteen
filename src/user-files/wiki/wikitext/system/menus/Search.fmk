@@ -27,11 +27,11 @@
         (get-internal-dir "")
          (get-internal-dir "user-files/wiki/wikitext")
          )))
- (let ((search-files (vector->list (natural-sort file-list #f #f))))
-   (let ((search-results (collect-matching-wiki-pages lemma search-files is-regex is-case-sensitive)))
-     (if (case-search (collect-usages) lemma is-regex is-case-sensitive)
-         (set! search-results (cons "docs/Formatting.fmk" search-results)))
-  search-results))))
+     (let ((search-files (vector->list (natural-sort file-list #f #f))))
+      (let ((search-results (collect-matching-wiki-pages lemma search-files is-regex is-case-sensitive)))
+      (if (case-search (collect-usages) lemma is-regex is-case-sensitive)
+         (set! search-results (cons "system/docs/Formatting.fmk" search-results)))
+      search-results))))
 
 
 (define (run-wiki-search)
@@ -49,13 +49,23 @@
           (set! search-regex is-regex)
           (set! search-all-files wiki-search-all-files)
           (% "#wiki-search-results" "html"
-          (fronkenmark (<< "[!schememenu "
+            (fronkenmark (<< "[!schememenu "
               (render-search-results search-results)
               " schememenu!]"
           ) #t #f))
           (process-wiki-links "#wiki-search-results")
           ))))
 
+
+(define (display-and-search-code-editor-page title)
+    (display-code-editor-page title)
+    (find-search-in-editor))
+
+(define (find-search-in-editor)
+      (% (<< active-editor-page " .text-editor-search-lemma") "val" (% "#wiki-search-input" "val"))
+      (set-checkbox-checked! (% (<< active-editor-page " .text-editor-case-sensitive")) (checkbox-checked? "#wiki-search-case-sensitive"))
+      (set-checkbox-checked! (% (<< active-editor-page " .text-editor-regex")) (checkbox-checked? "#wiki-search-regex"))
+      (text-editor-execute-command "find"))
 
 (define (render-search-results results)
   (if (eqv? results '())
@@ -64,8 +74,8 @@
       (let ((result (car results)))
         (let ((file-ext (file-extension result)))
           (cond
-            ((eqv? (index-of result "user-files/wiki/wikitext") 0) (<< (wiki-display-name result) "|(display-wiki-page \"" (wiki-display-name result) "\")\n"))
-            (#t (<< result "|(display-code-editor-page \""  result "\")\n")))))
+            ((eqv? (index-of result "user-files/wiki/wikitext") 0) (<< "(display-wiki-page \"" (wiki-display-name result) "\")|" (wiki-display-name result) "\n"))
+            (#t (<< "(display-and-search-code-editor-page \""  result "\")|" result "\n")))))
             (render-search-results (cdr results)))))
 
 (<<
@@ -77,9 +87,9 @@
           (pbutton "#do-wiki-search.wiki-theme" "Search")))
       (dv
         (<<
-          (pcheckbox "#wiki-search-case-sensitive.search-checkbox" "case-sensitive")
-          (pcheckbox "#wiki-search-regex.search-checkbox" "regex")
-          (pcheckbox "#wiki-search-all-files.search-checkbox" "also search code files")
+          (pcheckbox "#wiki-search-case-sensitive.search-checkbox" "&nbsp;case-sensitive")
+          (pcheckbox "#wiki-search-regex.search-checkbox" "&nbsp;regex")
+          (pcheckbox "#wiki-search-all-files.search-checkbox" "&nbsp;also search code files")
         ))))
       (ptext "#wiki-search-results" ""))
 scheme!]

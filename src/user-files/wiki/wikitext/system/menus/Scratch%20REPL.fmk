@@ -14,7 +14,6 @@
   (let ((target (js-ref ev "currentTarget"))
     (editor "#repl-input"))
     (let ((command (% target "attr" "command")))
-      (console-log (<< "Command is " command))
       (cond
         ((eqv? command "run-scheme") (text-editor-scheme-eval editor))
         ((eqv? command "run-js") (text-editor-javascript-eval editor))

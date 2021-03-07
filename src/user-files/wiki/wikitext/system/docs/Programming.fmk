@@ -2,7 +2,7 @@
 
 [h1 Programming the Fronkensteen System h1]
 
-The Fronkensteen system is fully programmable, both in Scheme and Javascript. This document is a very high-level overview of the available features.  More docs and tutorials are planned, but in the interim you can learn a lot by looking at the source code for the various menu items.
+The Fronkensteen system is fully programmable, both in Scheme and JavaScript. This document is a very high-level overview of the available features.  More docs and tutorials are planned, but in the interim you can learn a lot by looking at the source code for the various menu items.
 
 [h2 Basic Programming Tags h2]
 
@@ -112,7 +112,7 @@ Some HTML elements (such as buttons) can be "auto-wired". Using a button as an e
 
 Touch screen device support is handled by using procedures named with a _touch_click extension (e.g. [code (.neatbutton_touch_click event) code]). In this case, the procedure will be evaluated if the button is touched (on a touch-screen device) or clicked (on a non-touch-screen device).
 
-Note that There Can Be Only One here. If both the id handler and one or more class handlers exist, the one that comes last in alphabetical order will take precedence. In this case, a class handler [code  (.neatbutton_click event) code] will be called in preference to an id handler [code (#coolbutton2_click) code] if both exist, as [code .neatbutton_click code]  comes later in alphabetical order than [code  #coolbutton2_click code] .
+Note that There Can Be Only One here. If both the id handler and one or more class handlers exist, the one that comes last in alphabetical order will take precedence. In this case, a class handler [code  (.neatbutton_click event) code] will be called in preference to an id handler [code (#coolbutton2_click) code], if both exist, as [code .neatbutton_click code]  comes later in alphabetical order than [code  #coolbutton2_click code] .
 
 Similar auto-wired event handlers exist for input and change events. More are planned, and you may add your own by overriding the wire-procedure-list procedure as defined in [code 7-dom/wired.scm code].
 

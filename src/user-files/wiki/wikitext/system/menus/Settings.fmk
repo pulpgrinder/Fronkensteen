@@ -1,7 +1,6 @@
 [!scheme
 
   (define (.set-theme_touch_click evt)
-    (console-log "Setting theme")
     (let ((target (js-ref evt "currentTarget")))
       (let ((theme (% target "attr" "themecolor")))
         (let ((theme-active (<< theme "-active")))

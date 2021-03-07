@@ -1,0 +1,31 @@
+[!scheme
+(define (prompt-for-new-page)
+  (let ((page-name (prompt "Name for New Page?")))
+    (if (or (eqv? page-name "") (eqv? page-name #f))
+        #t
+    (display-wiki-page page-name))))
+
+scheme!]
+
+[!schememenu
+(display-wiki-menu-page "Save and Load")|Save/Load Workspace
+(display-wiki-page "Main")|Home
+(display-wiki-editor-page (active-page-title))|Edit
+(display-wiki-menu-page "View Active Editors")|Active Editors
+(display-wiki-menu-page "Search")|Search
+(display-wiki-menu-page "Scratch REPL")|Scratch REPL
+(display-wiki-menu-page "History")|History
+(prompt-for-new-page)|New Page
+(display-wiki-menu-page "All Pages")|All Pages
+(display-wiki-menu-page "Media")|Media
+(display-wiki-menu-page "Orphan Pages")|Orphan Pages
+(display-wiki-menu-page "Incoming Links")|What Links Here?
+(display-wiki-menu-page "Settings")|Settings
+(display-wiki-menu-page "Documentation")|Documentation
+(trash-current-wiki-page)|Move to Trash
+(display-wiki-menu-page "Trash")|View Trash
+(display-wiki-menu-page "Package Manager")|Package Manager
+(display-wiki-menu-page "All Files")|All Files
+(display-wiki-doc-page "List of Icons")|List of Icons
+(display-wiki-doc-page "Licenses")|Licenses
+schememenu!]

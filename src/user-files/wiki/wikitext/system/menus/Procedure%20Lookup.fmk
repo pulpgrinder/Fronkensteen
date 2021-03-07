@@ -1,0 +1,35 @@
+[!scheme
+(set! on-page-display (lambda()
+  (init-cm-editor! "#procedure-definition-area")
+  (let ((proc-name
+    (if (is-defined? "search-procedure-name")
+      search-procedure-name
+      "")))
+      (if (eqv? proc-name "")
+        #t
+       (begin
+        (% "#procedure-search-input" "val" proc-name)
+        (run-proc-definition-search))
+         ))))
+
+(define (#proc_definition_search_click)
+  (run-proc-definition-search))
+
+(define (run-proc-definition-search)
+  (set! search-procedure-name (% "#procedure-name" "val"))
+  (if (eqv? search-procedure-name "")
+    #t
+    (let ((proc-file-name (retrieve-procedure-filename search-procedure-name))
+      (proc-line-number (retrieve-procedure-line-number search-procedure-name)))
+      (if (eqv? proc-file-name #f)
+        (begin
+          (alert (<< "procedure " search-procedure-name ": not found"))
+          #t)
+       (begin
+
+        #t
+       )
+
+       )
+
+  )))

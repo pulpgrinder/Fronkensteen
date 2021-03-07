@@ -43,7 +43,10 @@
 
 (define (render-all-files)
   (let ((all-files (filter-all-files (vector->list (natural-sort (get-internal-dir "") #f #f)))))
-  (% "#af-file-list" "html" (render-all-files-rec all-files))))
+  (% "#af-file-list" "html" (render-all-files-rec all-files))
+  (timer (lambda ()
+    (wire-ui)
+  ) .25)))
 
 (define (render-all-files-rec file-list)
     (if (eqv? file-list '())

@@ -1,7 +1,7 @@
 [h1 Save or Load Workspaces h1]
 [!schememenu
-Save the current workspace|(save-the-static-world)
-Load a previously-saved workspace|(upload-file ".html" #f overwrite-system "text")
+(save-the-static-world)|Save the current workspace
+(upload-file ".html" #f overwrite-system "text")|Load a previously-saved workspace
 schememenu!]
 
 Workspaces are saved as standard HTML files. These can be loaded directly into any modern, full-featured desktop browser (e.g., by using File/Open, or by double-clicking on the file if your system supports launching HTML files that way).
