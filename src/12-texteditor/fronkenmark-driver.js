@@ -467,6 +467,7 @@ Fronkensteen.editDriver = new class  {
       }
       lineoffset = lineoffset + column;
       $(editor_id).setSelection(lineoffset);
+      $(editor_id).focus();
     }
     getCursorPosition(editor_id,cursorSelector){
       let selection = $(editor_id).getSelection();
