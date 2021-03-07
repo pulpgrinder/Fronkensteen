@@ -28,7 +28,7 @@
             (pnav-button (<< ".wiki-page.pnav-doc-done.wiki-theme") (fa-icon ".pnav-left!title='done'" "check" "")))
             title
             "")
-          (ppage-content (ptext (render-wiki-content (retrieve-wiki-data  (<< "docs/" title))))))))
+          (ppage-content (ptext (render-wiki-content (retrieve-wiki-data  (<< "system/docs/" title))))))))
     id))
 
 (define (create-wiki-menu-page title)
@@ -43,18 +43,17 @@
             (pnav-button (<< ".wiki-page.pnav-menu-done.wiki-theme") (fa-icon ".pnav-left!title='done'" "check" "")))
             title
             "")
-          (ppage-content (ptext (render-wiki-content (retrieve-wiki-data  (<< "menus/" title))))))))
+          (ppage-content (ptext (render-wiki-content (retrieve-wiki-data  (<< "system/menus/" title))))))))
     id))
 
 (define (retrieve-if-not-special title)
-    (console-log (<< "Checking " title " for specialhood"))
     (cond
-      ((eqv? (index-of title "system/") 0) "This is a system file, not intended for direct display. However, you can edit it.")
       ((eqv? (index-of title "menus/") 0) "This is a menu file, not intended for direct display. However, you can edit it.")
+      ((eqv? (index-of title "system/") 0) "This is a system file, not intended for direct display. However, you can edit it.")
+
       (#t (retrieve-wiki-data title))))
 
 (define (new-wiki-page-element title)
-    (console-log "new-wiki-page-element")
     (let ((wiki-data (retrieve-if-not-special title))
     (id (wiki-page-id title)))
      (stage-page
@@ -83,8 +82,6 @@
 (define (wiki-page-dirty? title id)
   (let ((file-time (/ (get-file-timestamp (wiki-data-path title)) 1000))
         (display-time (string->number (% id "attr" "wiki-timestamp"))))
-        (console-log "file-time " (number->string file-time))
-        (console-log "display-time " (number->string display-time))
         (if (> file-time display-time)
           #t
           #f)))
@@ -92,8 +89,6 @@
 (define (code-page-dirty? filename id)
   (let ((file-time (/ (get-file-timestamp filename) 1000))
         (display-time (string->number (% id "attr" "wiki-timestamp"))))
-        (console-log "file-time " (number->string file-time))
-        (console-log "display-time " (number->string display-time))
         (if (> file-time display-time)
           #t
           #f)))
@@ -103,19 +98,15 @@
       (if (element-exists? id)
         (if (wiki-page-dirty? title id)
             (begin
-              (console-log "Page is dirty, trashing and recreating.")
               (% id "remove")
               (new-wiki-page-element title))
              (begin
-               (console-log "Page exists, reusing")
               id))
         (begin
-          (console-log "New page, creating for first time.")
           (new-wiki-page-element title)
           id))))
 
 (define (process-wiki-links content-id)
-  (console-log (<<  "Processing " content-id))
   (% (<< content-id " .wikilink") "off" "click")
   (% (<< content-id " .wikilink") "on" "click"
     (lambda (ev)
@@ -162,7 +153,6 @@
   (lambda (ev)
     (let ((target (js-ref ev "currentTarget")))
       (let ((code (decode-base-32 (element-read-attribute target "schemeproc"))))
-        (console-log (<< "Code is " code))
         (exec-string-lambda (<< "(lambda (event)\n" code "\n)\n") ev))))))
 
 (define (show-nav-buttons)
@@ -202,7 +192,6 @@
     (close-wiki-doc))
 
 (define (close-wiki-doc)
-   (console-log "close-wiki-doc")
    (if (> (length doc-back-list) 1)
        (begin
           (let ((prevpage (cadr doc-back-list)))
