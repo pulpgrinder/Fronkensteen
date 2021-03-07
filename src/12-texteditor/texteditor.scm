@@ -10,7 +10,7 @@
 
 (define (text-editor-clear editor)
   (cm-editor-set-text editor ""))
-     
+
 (define (text-editor-find editor lemma foldcase use-regex search-backward )
   (if (eqv? lemma "")
     (alert "Nothing specified to find.")
@@ -35,7 +35,16 @@
    (cm-editor-set-javascript editor))
 
 (define (text-editor-scheme-doc editor)
-  (alert "show scheme docs (not implemented yet)"))
+  (let ((procname (cm-editor-get-selected-text editor)))
+    (let ((procfile (retrieve-procedure-filename procname))
+          (procline (retrieve-procedure-line-number procname)))
+          (if (eqv? procfile #f)
+            (alert (<< procname ": procedure not found in source files"))
+            (begin
+                (display-code-editor-page procfile)
+                (cm-editor-set-cursor-position active-editor (- procline 1) 0)
+                (cm-editor-scroll-to-line active-editor (- procline 1))
+                (% active-editor "focus"))))))
 
 (define (text-editor-scheme-run editor)
     (cm-eval-editor-buffer! editor))
