@@ -4,7 +4,9 @@
   (set! active-editor (<< editor-id "-textarea"))
   (set! active-editor-page editor-id)
   (update-editor-selects)
-  (show-page editor-id))
+  (show-page editor-id)
+  (timer (lambda ()
+    (% (<< editor-id "-textarea") "focus")) 1))
 
 (define (update-editor-selects)
   (% ".editor-chooser" "html" (render-editor-selects editor-list)))
