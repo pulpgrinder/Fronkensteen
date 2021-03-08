@@ -238,7 +238,11 @@ Fronkensteen.editDriver = new class  {
     getProcedureAtCursor(editor_id){
       let text = $(editor_id).val();
       let selection = $(editor_id).getSelection();
-      if(selection.text.length <= 0){
+      let selected_text;
+      if(selection.text.length > 0){
+        selected_text = selection.text;
+      }
+      else{
         let index = selection.start;
         let preceding = text.substring(0,index);
         if((text.charAt(index) === " ") || (text.charAt(index) === "\n")){
@@ -264,11 +268,11 @@ Fronkensteen.editDriver = new class  {
               end = end + 1;
             }
         }
-        selection = text.substring(start,end);
+        selected_text = text.substring(start,end);
       }
-      selection = selection.trim();
-      if(selection.length > 0){
-        return selection;
+      selected_text = selected_text.trim();
+      if(selected_text.length > 0){
+        return selected_text;
       }
       return false;
     }
@@ -453,6 +457,7 @@ Fronkensteen.editDriver = new class  {
       let selection = $(editor_id).getSelection();
       return selection.text;
     }
+
     setText(editor_id,value){
       this.prestageTextChange(editor_id);
       $(editor_id).val(value);
@@ -468,6 +473,16 @@ Fronkensteen.editDriver = new class  {
       lineoffset = lineoffset + column;
       $(editor_id).setSelection(lineoffset);
       $(editor_id).focus();
+    }
+    selectLine(editor_id,line){
+      let text = $(editor_id).val();
+      let lines = text.split("\n");
+      let lineoffset = 0;
+      for(var currentline = 0; currentline < line; currentline++){
+        lineoffset = lineoffset +  lines[currentline].length + 1;
+      }
+      let line_end = lineoffset + lines[currentline].length;
+      $(editor_id).setSelection(lineoffset,line_end)
     }
     getCursorPosition(editor_id,cursorSelector){
       let selection = $(editor_id).getSelection();
