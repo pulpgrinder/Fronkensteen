@@ -19,6 +19,7 @@
         ((eqv? command "run-js") (text-editor-javascript-eval editor))
         ((eqv? command "install-css") (text-editor-install-css editor))
         ((eqv? command "clear-buffer") (text-editor-clear editor))
+        ((eqv? command "scheme-doc") (text-editor-scheme-doc editor))
         (#t (alert (<< "Unrecognized REPL command: " command))))
       (set-local-storage-item! "repl-history" (% editor "val")))))
 
