@@ -35,16 +35,21 @@
    (cm-editor-set-javascript editor))
 
 (define (text-editor-scheme-doc editor)
-  (let ((procname (cm-editor-get-selected-text editor)))
+  (let ((procname (cm-editor-get-procedure-at-cursor editor)))
     (let ((procfile (retrieve-procedure-filename procname))
           (procline (retrieve-procedure-line-number procname)))
           (if (eqv? procfile #f)
             (alert (<< procname ": procedure not found in source files"))
             (begin
                 (display-code-editor-page procfile)
-                (cm-editor-set-cursor-position active-editor (- procline 1) 0)
-                (cm-editor-scroll-to-line active-editor (- procline 1))
-                (% active-editor "focus"))))))
+                  (text-editor-select-line active-editor procline)
+                  (text-editor-scroll-to-selection active-editor)
+                  (% active-editor "focus")
+
+                  )))))
+
+(define (text-editor-scroll-to-selection editor)
+  (cm-editor-scroll-to-selection editor))
 
 (define (text-editor-scheme-run editor)
     (cm-eval-editor-buffer! editor))
@@ -136,3 +141,6 @@
 
 (define (text-editor-redo editor)
     (cm-editor-redo! editor))
+
+(define (text-editor-select-line editor line-number)
+  (cm-editor-select-line editor line-number))
