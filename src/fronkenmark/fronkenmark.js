@@ -81,7 +81,7 @@ Fronkenmark.processStetBlocks = function(text){
 Fronkenmark.processCodeBlocks = function(text){
    // Process top-level [code] blocks
    text = text.replace(/\[altcode\s([\s\S]*?)\saltcode\]/gm,function(match,code){
-     return Fronkenmark.installSubstitute("<pre><code>" + code + "</code></pre>")
+     return Fronkenmark.installSubstitute("<pre class='line-numbers'><code>" + code + "</code></pre>")
    })
    let lines = text.split("\n");
     let outlines = [];
@@ -117,7 +117,7 @@ Fronkenmark.processCodeBlocks = function(text){
           if(Fronkenmark.highlighter !== undefined){
             currentCode = Fronkenmark.highlighter(currentCode);
           }
-          let sub = Fronkenmark.installSubstitute ("<pre>" +  currentCode + "</pre>");
+          let sub = Fronkenmark.installSubstitute ("<pre class='line-numbers'><code>" +  currentCode + "</code></pre>");
           outlines.push(sub + "\n")
         }
         else{
