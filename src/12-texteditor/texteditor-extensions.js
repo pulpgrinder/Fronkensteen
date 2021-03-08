@@ -370,3 +370,8 @@ BiwaScheme.define_libfunc("cm-editor-set-display-math",1,1, function(ar){
   Fronkensteen.editDriver.activateEditor(ar[0]);
   Fronkensteen.editDriver.setDisplayMath(ar[0]);
 });
+
+BiwaScheme.define_libfunc("cm-editor-select-line",2,2, function(ar){
+  Fronkensteen.editDriver.activateEditor(ar[0]);
+  Fronkensteen.editDriver.selectLine(ar[0],ar[1]);
+});
