@@ -16,7 +16,7 @@
         ))
       ("code" (
         "font-family" "Inconsolata, Noto Mono, Menlo, Consolas, DejaVu Sans Mono, Monaco, monospace"
-        "color" "green"
+        "color" "darkslateblue"
        ))
        (".cursive" (
          "font-family" "cursive"
