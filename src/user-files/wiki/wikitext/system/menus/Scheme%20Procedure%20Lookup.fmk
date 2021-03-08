@@ -1,6 +1,0 @@
-[!scheme
-  (<<
-    (dv ".schemedoc" (<<
-      (dv "Toolbar")
-      (textarea "#scheme-code-textarea.wiki-editor-area!autocorrect='off'!autocapitalize='off'!spellcheck='false'!rows='20'" "")))
-scheme!]
