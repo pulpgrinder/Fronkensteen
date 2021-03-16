@@ -116,8 +116,7 @@ Fronkensteen.editDriver = new class  {
     }
     activateEditor(editor_id){
       setTimeout(function(){
-        true;
-    //  $(editor_id).focus();
+       $(editor_id).focus();
     },50);
     }
     showEditor(editor_id){

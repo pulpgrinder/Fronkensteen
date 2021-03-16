@@ -6,7 +6,11 @@
   (update-editor-selects)
   (show-page editor-id)
   (timer (lambda ()
-    (% (<< editor-id "-textarea") "focus")) 1))
+    (% active-editor "focus")
+    (let ((selection (cm-editor-get-selected-text active-editor)))
+      (if (eqv? selection "")
+        (% active-editor "click")))
+    ) 1))
 
 (define (update-editor-selects)
   (% ".editor-chooser" "html" (render-editor-selects editor-list)))
